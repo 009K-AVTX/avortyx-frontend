@@ -48,6 +48,113 @@ export const meta = {
   ),
 }
 
+const logo = (file) => `/assets/avx-site/img/${file}.webp`
+
+// the strip under the hero: the carriers and ad platforms [file, name, width, height]
+const TRUST_LOGOS = [
+  ['twilio', 'Twilio', 193, 58], ['telnyx', 'Telnyx', 193, 58], ['plivo', 'Plivo', 259, 78],
+  ['ga', 'Google Ads', 194, 65], ['voluum', 'Voluum', 274, 87], ['cake', 'Cake', 181, 96],
+  ['linktrust', 'Linktrust', 218, 63], ['hasoffers', 'HasOffers', 208, 80], ['onsip', 'OnSIP', 230, 73],
+  ['avoxi', 'Avoxi', 432, 100], ['zadarma', 'Zadarma', 263, 69], ['sonetel', 'Sonetel', 266, 78],
+]
+
+// "We Integrate With": CRM, messaging and automation tools, two rows [file, name, page, width, height]
+const INTEGRATION_ROWS = [
+  [
+    ['elevenlabs', 'ElevenLabs', '/features/voice_agents/elevenlabs.html', 220, 140],
+    ['zoho_crm', 'Zoho CRM', '/features/zoho_crm.html', 200, 120],
+    ['aws_s3', 'AWS S3', '/features/aws_s3.html', 200, 120],
+    ['salesforce', 'Salesforce', '/features/salesforce.html', 129, 91],
+    ['infusionsoft-blue', 'Infusionsoft', '/features/infusionsoft.html', 168, 24],
+    ['slack', 'Slack', '/features/slack.html', 226, 65],
+  ],
+  [
+    ['mailchimp', 'MailChimp', '/features/mailchimp.html', 168, 51],
+    ['mailgun', 'Mailgun', '/features/mailgun.html', 168, 46],
+    ['sendgrid', 'Sendgrid', '/features/sendgrid.html', 168, 30],
+    ['typeform', 'Typeform', '/features/typeform.html', 168, 106],
+    ['zapier', 'Zapier', '/features/zapier.html', 171, 78],
+  ],
+]
+
+// A sliding row: the track holds two identical halves and moves by -50%, so each half repeats
+// the logos until it is wider than the row (8 tiles) and the loop never shows a gap. Only the
+// first pass of logos is read out and reachable by Tab.
+function LogoRow({ logos, reverse }) {
+  let half = logos
+  while (half.length < 8) half = half.concat(logos)
+  return (
+    <div className={reverse ? 'avx-int-row avx-int-rev' : 'avx-int-row'}>
+      <div className="avx-int-track">
+        {[0, 1].map((copy) => half.map(([file, name, href, w, h], i) => {
+          const repeat = copy > 0 || i >= logos.length
+          return (
+            <a key={`${copy}-${i}`} href={href} className="avx-int-tile" aria-hidden={repeat ? 'true' : undefined} tabIndex={repeat ? -1 : undefined}>
+              <img alt={repeat ? '' : name} src={logo(file)} width={w} height={h} loading="lazy" decoding="async" />
+            </a>
+          )
+        }))}
+      </div>
+    </div>
+  )
+}
+
+// Product tour: the first view (live calls) as it first appears, so crawlers and visitors
+// without JavaScript see it; motion.js replaces it with the live, switchable views.
+const TOUR_TABS = [['calls', 'Live calls'], ['pingpost', 'Ping/Post'], ['sources', 'Sources'], ['usage', 'Usage']]
+const TOUR_CALLS = [
+  ['14:02:51', '(312) ··47', 'Google Ads', 'Apex Insurance', '4:12', '$64.00', 'Converted', 'ok'],
+  ['14:02:37', '(646) ··18', 'Meta', 'Northwind Benefits', '2:48', '$41.50', 'Connected', 'ok'],
+  ['14:02:12', '(415) ··62', 'Bing', 'Meridian Health', '—', '—', 'Ringing', 'ring'],
+  ['14:01:58', '(713) ··35', 'Affiliate', 'Summit Solar', '6:05', '$88.20', 'Connected', 'ok'],
+  ['14:01:40', '(480) ··91', 'TikTok', 'Lakeside Legal', '—', '—', 'In queue', 'bid'],
+  ['14:01:19', '(305) ··27', 'Organic', 'Harbor Home', '3:31', '$52.75', 'Converted', 'ok'],
+  ['14:00:56', '(720) ··83', 'Email', 'Pinnacle Auto', '—', '—', 'Missed', 'cap'],
+]
+
+function TourPreview() {
+  return (
+    <>
+      <div className="avx-tour-tabs" role="tablist" aria-label="Product views">
+        {TOUR_TABS.map(([key, label], i) => (
+          <button key={key} type="button" className={i ? 'avx-tour-tab' : 'avx-tour-tab avx-on'} role="tab" aria-selected={i ? 'false' : 'true'} data-tour={key}>
+            <span>{label}</span><i />
+          </button>
+        ))}
+      </div>
+      <div className="avx-tour-stage">
+        <div className="avx-console avx-tour-on" role="img" aria-label="Live calls: every call with its source, buyer and revenue (demo data)">
+          <div className="avx-cs-bar">
+            <i /><i /><i />
+            <span className="avx-cs-path">app.avortyx.com / <b>calls</b></span>
+            <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
+          </div>
+          <div className="avx-cs-body">
+            <div className="avx-kpis avx-kpis-4">
+              <div className="avx-kpi" data-k="live"><span>Live calls</span><b>42</b><em className="avx-up">▲ 6</em></div>
+              <div className="avx-kpi" data-k="today"><span>Calls today</span><b>3,918</b><em className="avx-up">▲ 12.4%</em></div>
+              <div className="avx-kpi" data-k="conv"><span>Converted</span><b>27.8%</b><em className="avx-up">▲ 1.9%</em></div>
+              <div className="avx-kpi" data-k="rev"><span>Revenue today</span><b>$84,210</b><em className="avx-up">▲ 8.1%</em></div>
+            </div>
+            <table className="avx-cs-table avx-cs-log">
+              <thead><tr><th>Time</th><th>Caller</th><th>Source</th><th>Buyer</th><th>Duration</th><th>Revenue</th><th>Status</th></tr></thead>
+              <tbody>
+                {TOUR_CALLS.map(([time, caller, source, buyer, dur, rev, status, kind]) => (
+                  <tr key={time}>
+                    <td>{time}</td><td>{caller}</td><td>{source}</td><td>{buyer}</td><td>{dur}</td><td>{rev}</td>
+                    <td><span className={`avx-live-pill avx-pill-${kind}`}>{status}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="avx-cs-foot">Every call with its source, buyer and revenue · demo data</div>
+        </div>
+      </div>
+    </>
+  )
+}
+
 export default function Home() {
   return (
     <main>
@@ -82,10 +189,11 @@ export default function Home() {
                 {" "}behind each one.
               </p>
               <div className="d-flex flex-wrap gap-3 avx-hero-ctas">
-                <a href="/p/request_demo.html" className="btn btn-outline-td-green btn-lg fw-semibold">Request Demo</a>
+                <a href="/sign_up.html" className="btn btn-td-green btn-lg fw-semibold">Sign Up Free</a>
                 {" "}
-                <a href="#product-tour" className="btn avx-btn-ghost avx-hero-ghost">See it live <span aria-hidden="true">↓</span></a>
+                <a href="/p/request_demo.html" className="btn btn-outline-td-green btn-lg fw-semibold">Request Demo</a>
               </div>
+              <a href="#product-tour" className="avx-hero-tour-link">See it live <span aria-hidden="true">↓</span></a>
             </div>
             {/* live decision: one call scored, bid on and routed; motion.js replays it with new calls */}
             <div className="avx-decide" data-avx-decide="" aria-label="Live demo: an incoming call is scored for intent and sentiment, three buyers bid, and it is routed to the winner">
@@ -138,38 +246,20 @@ export default function Home() {
         </div>
         <div className="avx-marquee">
           <ul className="avx-marquee-track avx-marquee-color">
-            <li><img alt="Twilio" src="/assets/avx-site/img/twilio.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="Telnyx" src="/assets/avx-site/img/telnyx.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="Plivo" src="/assets/avx-site/img/plivo.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="Google Ads" src="/assets/avx-site/img/ga.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="Voluum" src="/assets/avx-site/img/voluum.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="Cake" src="/assets/avx-site/img/cake.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="Linktrust" src="/assets/avx-site/img/linktrust.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="HasOffers" src="/assets/avx-site/img/hasoffers.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="OnSIP" src="/assets/avx-site/img/onsip.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="Avoxi" src="/assets/avx-site/img/avoxi.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="Zadarma" src="/assets/avx-site/img/zadarma.png" loading="lazy" decoding="async" /></li>
-            <li><img alt="Sonetel" src="/assets/avx-site/img/sonetel.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/twilio.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/telnyx.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/plivo.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/ga.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/voluum.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/cake.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/linktrust.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/hasoffers.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/onsip.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/avoxi.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/zadarma.png" loading="lazy" decoding="async" /></li>
-            <li aria-hidden="true"><img alt="" src="/assets/avx-site/img/sonetel.png" loading="lazy" decoding="async" /></li>
+            {[0, 1].map((copy) => TRUST_LOGOS.map(([file, name, w, h]) => (
+              <li key={copy + file} aria-hidden={copy ? 'true' : undefined}>
+                <img alt={copy ? '' : name} src={logo(file)} width={w} height={h} loading="lazy" decoding="async" />
+              </li>
+            )))}
           </ul>
         </div>
       </section>
-      <section className="mktg-section avx-lf-sec">
+      <section className="mktg-section avx-lf-sec" id="how-it-decides">
         <div className="container text-center">
           <div className="mktg-section-header text-center">
+            <p className="avx-eyebrow">How it decides</p>
             <h2 className="fw-bold">Everything you need to convert leads into calls</h2>
-            <p className="text-muted">Powerful tools to track, route, and optimize every conversation.</p>
+            <p className="text-muted">Every call goes through the same three steps — signal, score, route — before a buyer’s phone rings.</p>
           </div>
           <div className="mktg-lead-flow avx-flow3d avx-lf2 avx-lf3 d-none d-lg-block mt-5">
             <div className="hero-simple-flow">
@@ -201,6 +291,50 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div className="avx-how-flow text-start mt-5" data-avx-how="">
+            <div className="avx-how-step">
+              <span className="avx-how-n">01</span>
+              {" "}
+              <i className="avx-how-ic fa-solid fa-tower-broadcast" aria-hidden="true" />
+              <h3>Signal</h3>
+              <p>Everything known the moment the call connects.</p>
+              <ul>
+                <li>Caller ID and line type</li>
+                <li>Source, campaign and keyword</li>
+                <li>Geo, time and day</li>
+                <li>The caller’s first words</li>
+              </ul>
+            </div>
+            <div className="avx-how-link" aria-hidden="true"><i /></div>
+            <div className="avx-how-step">
+              <span className="avx-how-n">02</span>
+              {" "}
+              <i className="avx-how-ic fa-solid fa-brain" aria-hidden="true" />
+              <h3>Score</h3>
+              <p>The call is screened and scored before anyone is dialed.</p>
+              <ul>
+                <li>Intent and sentiment</li>
+                <li>Spam and duplicate checks</li>
+                <li>TCPA, DNC and VOIP screening</li>
+                <li>State rules and consent</li>
+              </ul>
+            </div>
+            <div className="avx-how-link" aria-hidden="true"><i /></div>
+            <div className="avx-how-step">
+              <span className="avx-how-n">03</span>
+              {" "}
+              <i className="avx-how-ic fa-solid fa-route" aria-hidden="true" />
+              <h3>Route</h3>
+              <p>The best eligible buyer wins the call.</p>
+              <ul>
+                <li>Buyer match rules</li>
+                <li>Live bids and ping/post</li>
+                <li>Caps, hours and concurrency</li>
+                <li>Failover if a buyer misses</li>
+              </ul>
+            </div>
+          </div>
+          <p className="avx-how-note"><b>85ms</b> average routing time, from first ring to buyer.</p>
         </div>
       </section>
       <section className="mktg-section avx-tour" id="product-tour" data-avx-tour="">
@@ -210,8 +344,7 @@ export default function Home() {
             <h2 className="fw-bold">Every call, ping and dollar, as it happens</h2>
             <p className="text-muted">One workspace for tracking, routing, bidding and reporting.</p>
           </div>
-          <div className="avx-tour-tabs" role="tablist" aria-label="Product views" />
-          <div className="avx-tour-stage" />
+          <TourPreview />
         </div>
       </section>
       <section className="mktg-section avx-ai" id="ai-at-work" data-avx-ai="">
@@ -329,59 +462,6 @@ export default function Home() {
               <div className="avx-cs-foot">Voice agents through the ElevenLabs integration · this sample uses your browser’s voice</div>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="mktg-section avx-how" id="how-it-decides">
-        <div className="container">
-          <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">How it decides</p>
-            <h2 className="fw-bold">Signal. Score. Route.</h2>
-            <p className="text-muted">Every call goes through the same three steps before a buyer’s phone rings.</p>
-          </div>
-          <div className="avx-how-flow" data-avx-how="">
-            <div className="avx-how-step">
-              <span className="avx-how-n">01</span>
-              {" "}
-              <i className="avx-how-ic fa-solid fa-tower-broadcast" aria-hidden="true" />
-              <h3>Signal</h3>
-              <p>Everything known the moment the call connects.</p>
-              <ul>
-                <li>Caller ID and line type</li>
-                <li>Source, campaign and keyword</li>
-                <li>Geo, time and day</li>
-                <li>The caller’s first words</li>
-              </ul>
-            </div>
-            <div className="avx-how-link" aria-hidden="true"><i /></div>
-            <div className="avx-how-step">
-              <span className="avx-how-n">02</span>
-              {" "}
-              <i className="avx-how-ic fa-solid fa-brain" aria-hidden="true" />
-              <h3>Score</h3>
-              <p>The call is screened and scored before anyone is dialed.</p>
-              <ul>
-                <li>Intent and sentiment</li>
-                <li>Spam and duplicate checks</li>
-                <li>TCPA, DNC and VOIP screening</li>
-                <li>State rules and consent</li>
-              </ul>
-            </div>
-            <div className="avx-how-link" aria-hidden="true"><i /></div>
-            <div className="avx-how-step">
-              <span className="avx-how-n">03</span>
-              {" "}
-              <i className="avx-how-ic fa-solid fa-route" aria-hidden="true" />
-              <h3>Route</h3>
-              <p>The best eligible buyer wins the call.</p>
-              <ul>
-                <li>Buyer match rules</li>
-                <li>Live bids and ping/post</li>
-                <li>Caps, hours and concurrency</li>
-                <li>Failover if a buyer misses</li>
-              </ul>
-            </div>
-          </div>
-          <p className="avx-how-note"><b>85ms</b> average routing time, from first ring to buyer.</p>
         </div>
       </section>
       <section className="mktg-section avx-feat">
@@ -684,7 +764,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="mktg-section avx-win">
+      <section className="mktg-section avx-win avx-caps">
         <div className="container text-center">
           <div className="mktg-section-header text-center">
             <p className="avx-eyebrow">Platform</p>
@@ -740,14 +820,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="mktg-section avx-caps">
-        <div className="container text-center">
-          <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">Capabilities</p>
-            <h2 className="fw-bold mb-3">More Capabilities</h2>
-          </div>
+          <h3 className="avx-caps-sub">More capabilities</h3>
           <div className="avx-cap-grid avx-bento text-start" data-avx-bento="">
             <a href="/features/spam_tag_mitigation.html" className="avx-cap">
               {" "}
@@ -856,211 +929,13 @@ export default function Home() {
             <p className="text-muted">Connect Avortyx to the tools you already use.</p>
           </div>
           <div className="avx-int-rows">
-            <div className="avx-int-row">
-              <div className="avx-int-track">
-                <a href="/features/voice_agents/elevenlabs.html" className="avx-int-tile">
-                  <img alt="ElevenLabs" src="/assets/avx-site/img/elevenlabs.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/zoho_crm.html" className="avx-int-tile">
-                  <img alt="Zoho CRM" src="/assets/avx-site/img/zoho_crm.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/aws_s3.html" className="avx-int-tile">
-                  <img alt="AWS S3" src="/assets/avx-site/img/aws_s3.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/cake.html" className="avx-int-tile">
-                  <img alt="Cake" src="/assets/avx-site/img/cake.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/adwords.html" className="avx-int-tile">
-                  <img alt="Google Ads" src="/assets/avx-site/img/ga.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/hasoffers.html" className="avx-int-tile">
-                  <img alt="HasOffers" src="/assets/avx-site/img/hasoffers.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/infusionsoft.html" className="avx-int-tile">
-                  <img alt="Infusionsoft" src="/assets/avx-site/img/infusionsoft-blue.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/linktrust.html" className="avx-int-tile">
-                  <img alt="Linktrust" src="/assets/avx-site/img/linktrust.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/voice_agents/elevenlabs.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/elevenlabs.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/zoho_crm.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/zoho_crm.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/aws_s3.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/aws_s3.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/cake.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/cake.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/adwords.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/ga.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/hasoffers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/hasoffers.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/infusionsoft.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/infusionsoft-blue.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/linktrust.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/linktrust.png" loading="lazy" decoding="async" />
-                </a>
-              </div>
-            </div>
-            <div className="avx-int-row avx-int-rev">
-              <div className="avx-int-track">
-                <a href="/features/mailchimp.html" className="avx-int-tile">
-                  <img alt="MailChimp" src="/assets/avx-site/img/mailchimp.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/mailgun.html" className="avx-int-tile">
-                  <img alt="Mailgun" src="/assets/avx-site/img/mailgun.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/salesforce.html" className="avx-int-tile">
-                  <img alt="Salesforce" src="/assets/avx-site/img/salesforce.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/sendgrid.html" className="avx-int-tile">
-                  <img alt="Sendgrid" src="/assets/avx-site/img/sendgrid.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/slack.html" className="avx-int-tile">
-                  <img alt="Slack" src="/assets/avx-site/img/slack.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/typeform.html" className="avx-int-tile">
-                  <img alt="Typeform" src="/assets/avx-site/img/typeform.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/voluum.html" className="avx-int-tile">
-                  <img alt="Voluum" src="/assets/avx-site/img/voluum.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/zapier.html" className="avx-int-tile">
-                  <img alt="Zapier" src="/assets/avx-site/img/zapier.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/mailchimp.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/mailchimp.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/mailgun.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/mailgun.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/salesforce.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/salesforce.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/sendgrid.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/sendgrid.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/slack.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/slack.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/typeform.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/typeform.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/voluum.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/voluum.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/zapier.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/zapier.png" loading="lazy" decoding="async" />
-                </a>
-              </div>
-            </div>
+            {INTEGRATION_ROWS.map((row, i) => <LogoRow key={i} logos={row} reverse={i % 2 === 1} />)}
           </div>
+          <p className="avx-int-voip-note">
+            <b>Bring your own VoIP.</b> Use your preferred telephony provider, or any SIP-compatible carrier.{" "}
+            <a href="/features/multiple_telephone_providers.html" className="avx-more-link">Telephone providers <span aria-hidden="true">→</span></a>
+          </p>
           <a href="/features/integrations.html" className="btn avx-btn-ghost">View All Integrations</a>
-        </div>
-      </section>
-      <section className="mktg-section avx-int avx-voip">
-        <div className="container text-center">
-          <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">Carriers</p>
-            <h2 className="fw-bold mb-3">Bring Your Own VoIP</h2>
-            <p className="text-muted">Use your preferred telephony provider — bring your own SIP-compatible carrier.</p>
-          </div>
-          <div className="avx-int-rows avx-int-voip">
-            <div className="avx-int-row avx-int-rev">
-              <div className="avx-int-track">
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile">
-                  <img alt="Plivo" src="/assets/avx-site/img/plivo.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile">
-                  <img alt="Telnyx" src="/assets/avx-site/img/telnyx.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile">
-                  <img alt="Twilio" src="/assets/avx-site/img/twilio.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile">
-                  <img alt="Zadarma" src="/assets/avx-site/img/zadarma.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile">
-                  <img alt="Sonetel" src="/assets/avx-site/img/sonetel.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile">
-                  <img alt="OnSIP" src="/assets/avx-site/img/onsip.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile">
-                  <img alt="Avoxi" src="/assets/avx-site/img/avoxi.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/plivo.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/telnyx.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/twilio.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/zadarma.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/sonetel.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/onsip.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/avoxi.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/plivo.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/telnyx.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/twilio.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/zadarma.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/sonetel.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/onsip.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/avoxi.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/plivo.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/telnyx.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/twilio.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/zadarma.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/sonetel.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/onsip.png" loading="lazy" decoding="async" />
-                </a>
-                <a href="/features/multiple_telephone_providers.html" className="avx-int-tile" aria-hidden="true" tabIndex="-1">
-                  <img alt="" src="/assets/avx-site/img/avoxi.png" loading="lazy" decoding="async" />
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
       <section className="mktg-section avx-proof" id="trust">
@@ -1148,7 +1023,7 @@ export default function Home() {
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/request_demo.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

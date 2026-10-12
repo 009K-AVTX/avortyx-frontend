@@ -64,19 +64,19 @@ export default function Twilio() {
               {" "}Connect your existing accounts or route in your own carrier over SIP-IN.
             </p>
             <div className="d-flex flex-wrap gap-4 align-items-center my-3">
-              <img alt="Plivo" className="voip-provider-logo" src="/assets/avx-site/img/plivo.png" />
+              <img alt="Plivo" className="voip-provider-logo" src="/assets/avx-site/img/plivo.webp" />
               {" "}
-              <img alt="Telnyx" className="voip-provider-logo" src="/assets/avx-site/img/telnyx.png" />
+              <img alt="Telnyx" className="voip-provider-logo" src="/assets/avx-site/img/telnyx.webp" />
               {" "}
-              <img alt="Twilio" className="voip-provider-logo" src="/assets/avx-site/img/twilio.png" />
+              <img alt="Twilio" className="voip-provider-logo" src="/assets/avx-site/img/twilio.webp" />
               {" "}
-              <img alt="Zadarma" className="voip-provider-logo" src="/assets/avx-site/img/zadarma.png" />
+              <img alt="Zadarma" className="voip-provider-logo" src="/assets/avx-site/img/zadarma.webp" />
               {" "}
-              <img alt="Sonetel" className="voip-provider-logo" src="/assets/avx-site/img/sonetel.png" />
+              <img alt="Sonetel" className="voip-provider-logo" src="/assets/avx-site/img/sonetel.webp" />
               {" "}
-              <img alt="Onsip" className="voip-provider-logo" src="/assets/avx-site/img/onsip.png" />
+              <img alt="Onsip" className="voip-provider-logo" src="/assets/avx-site/img/onsip.webp" />
               {" "}
-              <img alt="Avoxi" className="voip-provider-logo" src="/assets/avx-site/img/avoxi.png" />
+              <img alt="Avoxi" className="voip-provider-logo" src="/assets/avx-site/img/avoxi.webp" />
             </div>
             <h2 className="mt-5 mb-4">More on Plivo, Twilio, & Telnyx</h2>
             <p>Avortyx's Plivo, Twilio, and Telnyx integrations are the most impressive and commonly used tools on Avortyx. With any of them you can:</p>

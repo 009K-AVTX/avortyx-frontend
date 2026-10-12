@@ -21,7 +21,7 @@ export default function ZohoCrm() {
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
           <h1 className="fw-bold mb-2">
             Avortyx +{" "}
-            <img alt="Zoho CRM" className="integration-title-logo" src="/assets/avx-site/img/zoho_crm.png" />
+            <img alt="Zoho CRM" className="integration-title-logo" src="/assets/avx-site/img/zoho_crm.webp" />
           </h1>
           <p className="lead mktg-subpage-hero-subtitle">Integrated call logs, lead syncing, and click-to-call dialing within Zoho CRM.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">

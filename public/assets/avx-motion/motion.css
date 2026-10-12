@@ -2077,8 +2077,7 @@ img.avx-tint {
 }
 
 [data-bs-theme="dark"] .btn-td-green,
-[data-bs-theme="dark"] .btn-primary,
-[data-bs-theme="dark"] .marketing-hero-simple .btn-outline-td-green {
+[data-bs-theme="dark"] .btn-primary {
   color: #fff;
   background: linear-gradient(180deg, #3576f0 0%, #1e4fd0 100%);
   border: 1px solid #1a46b8;
@@ -2095,8 +2094,7 @@ img.avx-tint {
 [data-bs-theme="dark"] .btn-td-green:hover,
 [data-bs-theme="dark"] .btn-primary:hover,
 [data-bs-theme="dark"] .btn-td-green:focus,
-[data-bs-theme="dark"] .btn-primary:focus,
-[data-bs-theme="dark"] .marketing-hero-simple .btn-outline-td-green:hover {
+[data-bs-theme="dark"] .btn-primary:focus {
   color: #fff;
   background: linear-gradient(180deg, #4483f5 0%, #2459dc 100%);
   border-color: #1f4fc6;
@@ -3923,7 +3921,8 @@ html.avx-booted main {
   animation: avxMarquee 70s linear infinite;
 }
 
-.avx-marquee:hover .avx-marquee-track {
+.avx-marquee:hover .avx-marquee-track,
+.avx-marquee:focus-within .avx-marquee-track {
   animation-play-state: paused;
 }
 
@@ -7665,6 +7664,30 @@ main.avx-main-layer {
   min-width: 190px;
 }
 
+/* "See it live": a quiet text link under the two buttons */
+.avx-hero-tour-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: #9aa3b2;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .25s ease;
+}
+
+.avx-hero-tour-link:hover {
+  color: #e5e7eb;
+}
+
+.avx-hero-tour-link span {
+  transition: transform .25s ease;
+}
+
+.avx-hero-tour-link:hover span {
+  transform: translateY(2px);
+}
+
 .avx-hero-ghost {
   display: inline-flex !important;
   align-items: center;
@@ -7779,9 +7802,44 @@ main.avx-main-layer {
   .avx-int-static { gap: 12px; }
 }
 
+/* "Bring your own VoIP": one line under the integrations (the carriers run in the trust strip) */
+.avx-int-voip-note {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  color: #9aa3b2;
+  text-wrap: balance;
+}
+
+.avx-int-voip-note b {
+  color: #e5e7eb;
+}
+
+.avx-int-voip-note .avx-more-link {
+  display: inline-flex;
+  margin-left: 4px;
+}
+
+/* reduced motion: the logo rows hold still, every logo shown once and wrapped to fit */
 @media (prefers-reduced-motion: reduce) {
-  .avx-int-track { animation: none; }
-  .avx-int-row { overflow-x: auto; }
+  .avx-int-rows,
+  .avx-marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .avx-int-track,
+  .avx-marquee-track {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    padding-right: 0;
+    animation: none;
+  }
+
+  .avx-int-track > [aria-hidden="true"],
+  .avx-marquee-track > [aria-hidden="true"] {
+    display: none;
+  }
 }
 
 /* ---------- "Ready to get started?": normal-sized buttons, no orphan words ---------- */
@@ -7859,19 +7917,6 @@ button:focus-visible,
   box-shadow: 0 0 0 3px rgba(96, 165, 250, .35);
 }
 
-/* the two sections read as one block */
-.avx-int:not(.avx-voip) {
-  padding-bottom: 28px !important;
-}
-
-.avx-voip {
-  padding-top: 28px !important;
-}
-
-.avx-int-voip {
-  margin-bottom: 0;
-}
-
 @media (max-width: 575.98px) {
   .avx-int-tile img { max-width: 100px; height: 36px; }
 }
@@ -7897,26 +7942,6 @@ button:focus-visible,
   opacity: 1;
 }
 
-/* leads-to-calls flows straight into the product tour */
-@media (min-width: 992px) {
-  body.home main > section.avx-lf-sec {
-    padding-bottom: 8px;
-  }
-
-  body.home main > section.avx-tour {
-    padding-top: 40px;
-  }
-}
-
-@media (max-width: 991.98px) {
-  body.home main > section.avx-lf-sec {
-    padding-bottom: 12px;
-  }
-
-  body.home main > section.avx-tour {
-    padding-top: 36px;
-  }
-}
 
 /* =====================================================================
    AI layer: live decision, AI-at-work demos, how it decides, proof,
@@ -9055,6 +9080,17 @@ button:focus-visible,
 
 /* ---------- More Capabilities as a bento grid, each card with a small live view ---------- */
 
+/* the grid sits under the "More ways to win" cards, in the same section */
+.avx-caps-sub {
+  margin: 72px 0 28px;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+  .avx-caps-sub { margin-top: 48px; }
+}
+
 .avx-cap-grid.avx-bento {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-areas:
@@ -9477,14 +9513,6 @@ body.home main section .mktg-section-header {
     padding-bottom: 112px;
   }
 
-  body.home main > section.avx-tour,
-  body.home main > section.avx-voip {
-    padding-top: 40px;
-  }
-
-  body.home main > section.avx-int:not(.avx-voip) {
-    padding-bottom: 28px;
-  }
 }
 
 /* ---------- Hero: "What's new" ribbon above the headline ---------- */

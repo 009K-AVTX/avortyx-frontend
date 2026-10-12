@@ -21,7 +21,7 @@ export default function AwsS3() {
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
           <h1 className="fw-bold mb-2">
             Avortyx +{" "}
-            <img alt="AWS S3" className="integration-title-logo" src="/assets/avx-site/img/aws_s3.png" />
+            <img alt="AWS S3" className="integration-title-logo" src="/assets/avx-site/img/aws_s3.webp" />
           </h1>
           <p className="lead mktg-subpage-hero-subtitle">Upload call data and recordings to your own Amazon S3 bucket.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">

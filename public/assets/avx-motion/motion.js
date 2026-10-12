@@ -2495,6 +2495,9 @@
     var tabs = tour.querySelector('.avx-tour-tabs');
     var stage = tour.querySelector('.avx-tour-stage');
     var views = {}, current = null, auto = null, touched = false;
+    // the HTML ships the first view prerendered (for crawlers and no-JS); the live views replace it
+    tabs.textContent = '';
+    stage.textContent = '';
     TOUR.forEach(function (t, i) {
       var b = el('button', 'avx-tour-tab', '<span>' + t[1] + '</span><i></i>');
       b.type = 'button';
@@ -2509,6 +2512,7 @@
       if (!views[key]) {
         var c = consoleShell(t[2], t[3]);
         c.querySelector('.avx-cs-path').innerHTML = 'app.avortyx.com / <b>' + t[2] + '</b>';
+        c.setAttribute('aria-label', t[1] + ': ' + t[3].charAt(0).toLowerCase() + t[3].slice(1) + ' (demo data)');
         t[4](c);
         views[key] = c;
         stage.appendChild(c);

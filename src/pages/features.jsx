@@ -446,115 +446,115 @@ export default function Features() {
           <div className="d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
             <a href="/features/voice_agents/elevenlabs.html" className="integration-logo-card text-decoration-none" title="ElevenLabs">
               {" "}
-              <img alt="ElevenLabs" className="integration-logo" loading="lazy" src="/assets/avx-site/img/elevenlabs.png" />
+              <img alt="ElevenLabs" className="integration-logo" loading="lazy" src="/assets/avx-site/img/elevenlabs.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/zoho_crm.html" className="integration-logo-card text-decoration-none" title="Zoho CRM">
               {" "}
-              <img alt="Zoho CRM" className="integration-logo" loading="lazy" src="/assets/avx-site/img/zoho_crm.png" />
+              <img alt="Zoho CRM" className="integration-logo" loading="lazy" src="/assets/avx-site/img/zoho_crm.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/aws_s3.html" className="integration-logo-card text-decoration-none" title="AWS S3">
               {" "}
-              <img alt="AWS S3" className="integration-logo" loading="lazy" src="/assets/avx-site/img/aws_s3.png" />
+              <img alt="AWS S3" className="integration-logo" loading="lazy" src="/assets/avx-site/img/aws_s3.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/cake.html" className="integration-logo-card text-decoration-none" title="Cake">
               {" "}
-              <img alt="Cake" className="integration-logo" loading="lazy" src="/assets/avx-site/img/cake.png" />
+              <img alt="Cake" className="integration-logo" loading="lazy" src="/assets/avx-site/img/cake.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/adwords.html" className="integration-logo-card text-decoration-none" title="Google Ads">
               {" "}
-              <img alt="Google Ads" className="integration-logo" loading="lazy" src="/assets/avx-site/img/ga.png" />
+              <img alt="Google Ads" className="integration-logo" loading="lazy" src="/assets/avx-site/img/ga.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/hasoffers.html" className="integration-logo-card text-decoration-none" title="HasOffers">
               {" "}
-              <img alt="HasOffers" className="integration-logo" loading="lazy" src="/assets/avx-site/img/hasoffers.png" />
+              <img alt="HasOffers" className="integration-logo" loading="lazy" src="/assets/avx-site/img/hasoffers.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/infusionsoft.html" className="integration-logo-card text-decoration-none" title="Infusionsoft">
               {" "}
-              <img alt="Infusionsoft" className="integration-logo" loading="lazy" src="/assets/avx-site/img/infusionsoft-blue.png" />
+              <img alt="Infusionsoft" className="integration-logo" loading="lazy" src="/assets/avx-site/img/infusionsoft-blue.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/linktrust.html" className="integration-logo-card text-decoration-none" title="Linktrust">
               {" "}
-              <img alt="Linktrust" className="integration-logo" loading="lazy" src="/assets/avx-site/img/linktrust.png" />
+              <img alt="Linktrust" className="integration-logo" loading="lazy" src="/assets/avx-site/img/linktrust.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/mailchimp.html" className="integration-logo-card text-decoration-none" title="MailChimp">
               {" "}
-              <img alt="MailChimp" className="integration-logo" loading="lazy" src="/assets/avx-site/img/mailchimp.png" />
+              <img alt="MailChimp" className="integration-logo" loading="lazy" src="/assets/avx-site/img/mailchimp.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/mailgun.html" className="integration-logo-card text-decoration-none" title="Mailgun">
               {" "}
-              <img alt="Mailgun" className="integration-logo" loading="lazy" src="/assets/avx-site/img/mailgun.png" />
+              <img alt="Mailgun" className="integration-logo" loading="lazy" src="/assets/avx-site/img/mailgun.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/salesforce.html" className="integration-logo-card text-decoration-none" title="Salesforce">
               {" "}
-              <img alt="Salesforce" className="integration-logo" loading="lazy" src="/assets/avx-site/img/salesforce.png" />
+              <img alt="Salesforce" className="integration-logo" loading="lazy" src="/assets/avx-site/img/salesforce.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/sendgrid.html" className="integration-logo-card text-decoration-none" title="Sendgrid">
               {" "}
-              <img alt="Sendgrid" className="integration-logo" loading="lazy" src="/assets/avx-site/img/sendgrid.png" />
+              <img alt="Sendgrid" className="integration-logo" loading="lazy" src="/assets/avx-site/img/sendgrid.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/slack.html" className="integration-logo-card text-decoration-none" title="Slack">
               {" "}
-              <img alt="Slack" className="integration-logo" loading="lazy" src="/assets/avx-site/img/slack.png" />
+              <img alt="Slack" className="integration-logo" loading="lazy" src="/assets/avx-site/img/slack.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/typeform.html" className="integration-logo-card text-decoration-none" title="Typeform">
               {" "}
-              <img alt="Typeform" className="integration-logo" loading="lazy" src="/assets/avx-site/img/typeform.png" />
+              <img alt="Typeform" className="integration-logo" loading="lazy" src="/assets/avx-site/img/typeform.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/voluum.html" className="integration-logo-card text-decoration-none" title="Voluum">
               {" "}
-              <img alt="Voluum" className="integration-logo" loading="lazy" src="/assets/avx-site/img/voluum.png" />
+              <img alt="Voluum" className="integration-logo" loading="lazy" src="/assets/avx-site/img/voluum.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/zapier.html" className="integration-logo-card text-decoration-none" title="Zapier">
               {" "}
-              <img alt="Zapier" className="integration-logo" loading="lazy" src="/assets/avx-site/img/zapier.png" />
+              <img alt="Zapier" className="integration-logo" loading="lazy" src="/assets/avx-site/img/zapier.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/plivo.html" className="integration-logo-card text-decoration-none" title="Plivo">
               {" "}
-              <img alt="Plivo" className="integration-logo" loading="lazy" src="/assets/avx-site/img/plivo.png" />
+              <img alt="Plivo" className="integration-logo" loading="lazy" src="/assets/avx-site/img/plivo.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/telnyx.html" className="integration-logo-card text-decoration-none" title="Telnyx">
               {" "}
-              <img alt="Telnyx" className="integration-logo" loading="lazy" src="/assets/avx-site/img/telnyx.png" />
+              <img alt="Telnyx" className="integration-logo" loading="lazy" src="/assets/avx-site/img/telnyx.webp" />
               {" "}
             </a>
             {" "}
             <a href="/features/twilio.html" className="integration-logo-card text-decoration-none" title="Twilio">
               {" "}
-              <img alt="Twilio" className="integration-logo" loading="lazy" src="/assets/avx-site/img/twilio.png" />
+              <img alt="Twilio" className="integration-logo" loading="lazy" src="/assets/avx-site/img/twilio.webp" />
               {" "}
             </a>
           </div>

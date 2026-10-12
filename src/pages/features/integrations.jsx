@@ -26,7 +26,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/voice_agents/elevenlabs.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with ElevenLabs" className="mx-auto d-block mb-3" src="/assets/avx-site/img/elevenlabs.png" />
+                  <img alt="Integrate with ElevenLabs" className="mx-auto d-block mb-3" src="/assets/avx-site/img/elevenlabs.webp" />
                   <p className="text-dark small mb-0">ElevenLabs</p>
                 </div>
               </a>
@@ -34,7 +34,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/zoho_crm.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Zoho CRM" className="mx-auto d-block mb-3" src="/assets/avx-site/img/zoho_crm.png" />
+                  <img alt="Integrate with Zoho CRM" className="mx-auto d-block mb-3" src="/assets/avx-site/img/zoho_crm.webp" />
                   <p className="text-dark small mb-0">Zoho CRM</p>
                 </div>
               </a>
@@ -42,7 +42,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/aws_s3.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with AWS S3" className="mx-auto d-block mb-3" src="/assets/avx-site/img/aws_s3.png" />
+                  <img alt="Integrate with AWS S3" className="mx-auto d-block mb-3" src="/assets/avx-site/img/aws_s3.webp" />
                   <p className="text-dark small mb-0">AWS S3</p>
                 </div>
               </a>
@@ -50,7 +50,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/cake.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Cake" className="mx-auto d-block mb-3" src="/assets/avx-site/img/cake.png" />
+                  <img alt="Integrate with Cake" className="mx-auto d-block mb-3" src="/assets/avx-site/img/cake.webp" />
                   <p className="text-dark small mb-0">Cake</p>
                 </div>
               </a>
@@ -58,7 +58,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/adwords.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Google Ads" className="mx-auto d-block mb-3" src="/assets/avx-site/img/ga.png" />
+                  <img alt="Integrate with Google Ads" className="mx-auto d-block mb-3" src="/assets/avx-site/img/ga.webp" />
                   <p className="text-dark small mb-0">Google Ads</p>
                 </div>
               </a>
@@ -66,7 +66,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/hasoffers.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with HasOffers" className="mx-auto d-block mb-3" src="/assets/avx-site/img/hasoffers.png" />
+                  <img alt="Integrate with HasOffers" className="mx-auto d-block mb-3" src="/assets/avx-site/img/hasoffers.webp" />
                   <p className="text-dark small mb-0">HasOffers</p>
                 </div>
               </a>
@@ -74,7 +74,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/infusionsoft.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Infusionsoft" className="mx-auto d-block mb-3" src="/assets/avx-site/img/infusionsoft-blue.png" />
+                  <img alt="Integrate with Infusionsoft" className="mx-auto d-block mb-3" src="/assets/avx-site/img/infusionsoft-blue.webp" />
                   <p className="text-dark small mb-0">Infusionsoft</p>
                 </div>
               </a>
@@ -82,7 +82,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/linktrust.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Linktrust" className="mx-auto d-block mb-3" src="/assets/avx-site/img/linktrust.png" />
+                  <img alt="Integrate with Linktrust" className="mx-auto d-block mb-3" src="/assets/avx-site/img/linktrust.webp" />
                   <p className="text-dark small mb-0">Linktrust</p>
                 </div>
               </a>
@@ -90,7 +90,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/mailchimp.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with MailChimp" className="mx-auto d-block mb-3" src="/assets/avx-site/img/mailchimp.png" />
+                  <img alt="Integrate with MailChimp" className="mx-auto d-block mb-3" src="/assets/avx-site/img/mailchimp.webp" />
                   <p className="text-dark small mb-0">MailChimp</p>
                 </div>
               </a>
@@ -98,7 +98,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/mailgun.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Mailgun" className="mx-auto d-block mb-3" src="/assets/avx-site/img/mailgun.png" />
+                  <img alt="Integrate with Mailgun" className="mx-auto d-block mb-3" src="/assets/avx-site/img/mailgun.webp" />
                   <p className="text-dark small mb-0">Mailgun</p>
                 </div>
               </a>
@@ -106,7 +106,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/salesforce.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Salesforce" className="mx-auto d-block mb-3" src="/assets/avx-site/img/salesforce.png" />
+                  <img alt="Integrate with Salesforce" className="mx-auto d-block mb-3" src="/assets/avx-site/img/salesforce.webp" />
                   <p className="text-dark small mb-0">Salesforce</p>
                 </div>
               </a>
@@ -114,7 +114,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/sendgrid.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Sendgrid" className="mx-auto d-block mb-3" src="/assets/avx-site/img/sendgrid.png" />
+                  <img alt="Integrate with Sendgrid" className="mx-auto d-block mb-3" src="/assets/avx-site/img/sendgrid.webp" />
                   <p className="text-dark small mb-0">Sendgrid</p>
                 </div>
               </a>
@@ -122,7 +122,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/slack.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Slack" className="mx-auto d-block mb-3" src="/assets/avx-site/img/slack.png" />
+                  <img alt="Integrate with Slack" className="mx-auto d-block mb-3" src="/assets/avx-site/img/slack.webp" />
                   <p className="text-dark small mb-0">Slack</p>
                 </div>
               </a>
@@ -130,7 +130,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/typeform.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Typeform" className="mx-auto d-block mb-3" src="/assets/avx-site/img/typeform.png" />
+                  <img alt="Integrate with Typeform" className="mx-auto d-block mb-3" src="/assets/avx-site/img/typeform.webp" />
                   <p className="text-dark small mb-0">Typeform</p>
                 </div>
               </a>
@@ -138,7 +138,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/voluum.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Voluum" className="mx-auto d-block mb-3" src="/assets/avx-site/img/voluum.png" />
+                  <img alt="Integrate with Voluum" className="mx-auto d-block mb-3" src="/assets/avx-site/img/voluum.webp" />
                   <p className="text-dark small mb-0">Voluum</p>
                 </div>
               </a>
@@ -146,7 +146,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/zapier.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Zapier" className="mx-auto d-block mb-3" src="/assets/avx-site/img/zapier.png" />
+                  <img alt="Integrate with Zapier" className="mx-auto d-block mb-3" src="/assets/avx-site/img/zapier.webp" />
                   <p className="text-dark small mb-0">Zapier</p>
                 </div>
               </a>
@@ -154,7 +154,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/plivo.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Plivo" className="mx-auto d-block mb-3" src="/assets/avx-site/img/plivo.png" />
+                  <img alt="Integrate with Plivo" className="mx-auto d-block mb-3" src="/assets/avx-site/img/plivo.webp" />
                   <p className="text-dark small mb-0">Plivo</p>
                 </div>
               </a>
@@ -162,7 +162,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/telnyx.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Telnyx" className="mx-auto d-block mb-3" src="/assets/avx-site/img/telnyx.png" />
+                  <img alt="Integrate with Telnyx" className="mx-auto d-block mb-3" src="/assets/avx-site/img/telnyx.webp" />
                   <p className="text-dark small mb-0">Telnyx</p>
                 </div>
               </a>
@@ -170,7 +170,7 @@ export default function Integrations() {
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/twilio.html" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Twilio" className="mx-auto d-block mb-3" src="/assets/avx-site/img/twilio.png" />
+                  <img alt="Integrate with Twilio" className="mx-auto d-block mb-3" src="/assets/avx-site/img/twilio.webp" />
                   <p className="text-dark small mb-0">Twilio</p>
                 </div>
               </a>

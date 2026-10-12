@@ -266,8 +266,7 @@ html {
 /* ---------- Primary: buttons, links, active states ---------- */
 
 .btn-td-green,
-.btn-primary,
-.marketing-hero-simple .btn-outline-td-green {
+.btn-primary {
   color: #fff;
   background-color: var(--avx-primary);
   border-color: var(--avx-primary);
@@ -277,9 +276,7 @@ html {
 .btn-td-green:focus,
 .marketing-hero-simple .btn-td-green:focus,
 .btn-primary:hover,
-.btn-primary:focus,
-.marketing-hero-simple .btn-outline-td-green:hover,
-.marketing-hero-simple .btn-outline-td-green:focus {
+.btn-primary:focus {
   color: #fff;
   background-color: var(--avx-primary-hover);
   border-color: var(--avx-primary-hover);
