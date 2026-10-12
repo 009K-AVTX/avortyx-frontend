@@ -1125,23 +1125,23 @@ export default function Home() {
 
           </div>
 
-          {/* Ringba-Style Real-Time Telemetry Bar */}
+          {/* Ringba-Style Real-Time Telemetry Bar (Dynamic) */}
           <div className="avx-ringba-telemetry-bar">
             <div className="avx-rb-stat">
-              <span className="avx-rb-stat-num text-white">24,850+</span>
-              <span className="avx-rb-stat-lbl">Calls Processed / Min</span>
+              <span className="avx-rb-stat-num text-white" id="avx-dyn-metric-1">24,850+</span>
+              <span className="avx-rb-stat-lbl" id="avx-dyn-label-1">Calls Evaluated / Min</span>
             </div>
             <div className="avx-rb-stat">
-              <span className="avx-rb-stat-num text-emerald">38ms</span>
-              <span className="avx-rb-stat-lbl">Median Neural Inference</span>
+              <span className="avx-rb-stat-num text-emerald" id="avx-dyn-metric-2">38ms</span>
+              <span className="avx-rb-stat-lbl" id="avx-dyn-label-2">Median Voice Response</span>
             </div>
             <div className="avx-rb-stat">
-              <span className="avx-rb-stat-num text-azure">99.8%</span>
-              <span className="avx-rb-stat-lbl">Speech Diarization SLA</span>
+              <span className="avx-rb-stat-num text-azure" id="avx-dyn-metric-3">99.8%</span>
+              <span className="avx-rb-stat-lbl" id="avx-dyn-label-3">Speech Diarization SLA</span>
             </div>
             <div className="avx-rb-stat">
-              <span className="avx-rb-stat-num text-warning">+34.2%</span>
-              <span className="avx-rb-stat-lbl">Average EPC Yield Lift</span>
+              <span className="avx-rb-stat-num text-warning" id="avx-dyn-metric-4">94.2%</span>
+              <span className="avx-rb-stat-lbl" id="avx-dyn-label-4">Autonomous Transfer Rate</span>
             </div>
           </div>
 
@@ -2133,8 +2133,12 @@ export default function Home() {
             </div>
             <a href="/blog" className="avx-more-link">All posts <span aria-hidden="true">→</span></a>
           </div>
-          <div className="avx-blog-grid avx-blog-grid-2">
+          <div className="avx-blog-grid">
             {[
+              postBySlug['healthcare-call-tracking-measure-marketing-roi'],
+              postBySlug['real-estate-call-tracking-track-every-lead'],
+              postBySlug['marketing-agency-call-tracking-success-story'],
+              postBySlug['what-ai-call-scoring-measures'],
               postBySlug['sending-call-conversions-to-ad-platforms'],
               postBySlug['tcpa-dnc-consent-checklist']
             ].filter(Boolean).map((post) => <BlogCard key={post.slug} post={post} />)}

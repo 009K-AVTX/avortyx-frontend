@@ -2646,31 +2646,47 @@
     var NODE_DATA = [
       {
         aura: 'avx-aura-green',
-        badge: '99.4% Confidence',
+        badge: '99.4% Human Cadence Match',
         badgeCls: 'bg-success-subtle text-success',
-        latency: '38ms Voice Response',
-        status: 'Voice IVA: Autonomous Medicare Transfer #AVX-9482'
+        latency: 'Sub-45ms Voice Copilot',
+        status: 'Voice IVA Copilot: Live Inbound Routing & Sentiment Analysis',
+        m1: '24,850+', m1Label: 'Calls Evaluated / Min',
+        m2: '38ms', m2Label: 'Median Voice Response',
+        m3: '99.8%', m3Label: 'Speech Diarization SLA',
+        m4: '94.2%', m4Label: 'Autonomous Transfer Rate'
       },
       {
         aura: 'avx-aura-blue',
         badge: '62ms RTB Auction',
         badgeCls: 'bg-info-subtle text-info',
         latency: 'Sub-85ms Edge Delivery',
-        status: 'Ping-Tree: 12 Buyers Bidding · High Bid $68.50 Won'
+        status: 'Ping-Tree: 12 Buyers Bidding · High Bid $68.50 Won',
+        m1: '1,420', m1Label: 'Active Bidding Buyers',
+        m2: '62ms', m2Label: 'Sub-85ms Auction Velocity',
+        m3: '96.8%', m3Label: 'Ping-Post Fill Rate',
+        m4: '+34.2%', m4Label: 'Average EPC Yield Lift'
       },
       {
         aura: 'avx-aura-purple',
         badge: '99.94% Clean Traffic',
         badgeCls: 'bg-primary-subtle text-primary',
         latency: 'Zero TCPA Leaks',
-        status: 'Shield: Carrier Line Verified · Clean Caller Attestation'
+        status: 'Carrier Shield: STIR/SHAKEN A-Attestation Verified',
+        m1: '18,940', m1Label: 'Pre-Ring Calls Screened',
+        m2: '0ms', m2Label: 'Dial-Leg Latency Penalty',
+        m3: '99.94%', m3Label: 'Clean Validated Traffic',
+        m4: '100%', m4Label: 'TCPA & DNC Safe Pass'
       },
       {
         aura: 'avx-aura-orange',
         badge: '100% Attributed',
         badgeCls: 'bg-warning-subtle text-warning',
         latency: '28ms In-Flight Lookup',
-        status: 'Caller 360°: Ad Tokens & Demographics Enriched'
+        status: 'Caller 360°: Ad Tokens & Demographics Enriched',
+        m1: '100%', m1Label: 'Deterministic Attribution',
+        m2: '28ms', m2Label: 'In-Flight Demographic Match',
+        m3: '14', m3Label: 'Ad Platforms Synced',
+        m4: '4.9x', m4Label: 'LTV Prediction Accuracy'
       }
     ];
 
@@ -2710,6 +2726,25 @@
         telBadge.className = 'badge ' + d.badgeCls;
       }
       if (telLatency) telLatency.textContent = d.latency;
+
+      // Dynamically update the telemetry bar below the AI Core
+      var elM1 = document.getElementById('avx-dyn-metric-1');
+      var elL1 = document.getElementById('avx-dyn-label-1');
+      var elM2 = document.getElementById('avx-dyn-metric-2');
+      var elL2 = document.getElementById('avx-dyn-label-2');
+      var elM3 = document.getElementById('avx-dyn-metric-3');
+      var elL3 = document.getElementById('avx-dyn-label-3');
+      var elM4 = document.getElementById('avx-dyn-metric-4');
+      var elL4 = document.getElementById('avx-dyn-label-4');
+
+      if (elM1 && d.m1) elM1.textContent = d.m1;
+      if (elL1 && d.m1Label) elL1.textContent = d.m1Label;
+      if (elM2 && d.m2) elM2.textContent = d.m2;
+      if (elL2 && d.m2Label) elL2.textContent = d.m2Label;
+      if (elM3 && d.m3) elM3.textContent = d.m3;
+      if (elL3 && d.m3Label) elL3.textContent = d.m3Label;
+      if (elM4 && d.m4) elM4.textContent = d.m4;
+      if (elL4 && d.m4Label) elL4.textContent = d.m4Label;
     }
 
     sphereCards.forEach(function (card, i) {
@@ -2718,6 +2753,22 @@
         if (timer) { clearTimeout(timer); timer = setTimeout(step, 4000); }
       });
     });
+
+    // Real-time telemetry ticker that simulates continuous live telecom evaluation
+    var liveCallCount = 24850;
+    setInterval(function () {
+      if (!visible || motionPaused() || document.hidden) return;
+      liveCallCount += Math.floor(Math.random() * 8) + 3;
+      var elM1 = document.getElementById('avx-dyn-metric-1');
+      if (elM1 && (activeIdx === 0 || activeIdx === 2)) {
+        elM1.textContent = liveCallCount.toLocaleString() + '+';
+      }
+      var elM2 = document.getElementById('avx-dyn-metric-2');
+      if (elM2 && activeIdx === 0) {
+        var jitter = 36 + Math.floor(Math.random() * 4);
+        elM2.textContent = jitter + 'ms';
+      }
+    }, 1500);
 
     reactive(hub, hub, true);
     if (reduced) return;
