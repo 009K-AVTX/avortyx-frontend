@@ -65,7 +65,7 @@ export default function VerifiedIdentity() {
               <strong>The payoff.</strong>
               {" "}Your business name on the caller ID instead of a "Scam Likely" warning.
             </p>
-            <img alt={"Branded, verified caller ID instead of a \"Scam Likely\" label"} className="img-fluid rounded border mb-4" src="/assets/avx-shots/mitigation-2.webp" width="1927" height="1481" srcSet="/assets/avx-shots/mitigation-2-1000.webp 1000w, /assets/avx-shots/mitigation-2.webp 1927w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
+            <img alt={"Branded, verified caller ID instead of a \"Scam Likely\" label"} className="img-fluid rounded border mb-4" src="/assets/avx-shots/mitigation-2.webp?v=2" width="1927" height="1481" srcSet="/assets/avx-shots/mitigation-2-1000.webp?v=2 1000w, /assets/avx-shots/mitigation-2.webp?v=2 1927w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             <h3>KYC Identity Verification</h3>
             <p>
               Every customer completes{" "}

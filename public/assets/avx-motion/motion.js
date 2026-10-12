@@ -14,7 +14,6 @@
   window.addEventListener('scroll', function () { scrollQuietAt = performance.now() + 150; }, { passive: true });
   function scrolling() { return performance.now() < scrollQuietAt; }
 
-  var BAKED = '/assets/avx-baked/';
   // decorative art from /assets/avx-ringba
   function img(name, className) {
     var el = document.createElement('img');
@@ -607,42 +606,7 @@
 
   // ---------- Spotlight headings: unique 3D scene behind each heading ----------
 
-  // ---------- Bottom-of-page 3D wave floors (one style per page) ----------
-
-  // layer: [image, mode (tile|drift|zoom), extra classes, {alpha, speed, swell, y, z, pos, delay}]
-  var WAVE_STYLES = {
-    strands: { tilt: '52deg', layers: [
-      ['strands', 'tile', '', { alpha: .45, speed: '70s', swell: '7s', y: '-40px', z: '-120px' }],
-      ['strands2', 'tile', 'avx-bw-reverse avx-bw-mirror', { alpha: .7, speed: '52s', swell: '5.5s' }],
-      ['strands', 'tile', '', { alpha: .95, speed: '34s', swell: '4.5s', y: '50px', z: '80px' }]
-    ] },
-    ribbons: { tilt: '38deg', layers: [
-      ['ribbons', 'drift', 'avx-bw-mirror', { alpha: .35, speed: '22s', swell: '9s', y: '-30px', z: '-140px', pos: '55%' }],
-      ['ribbons', 'drift', '', { alpha: .6, speed: '16s', swell: '6s', pos: '62%' }]
-    ] },
-    mesh: { tilt: '48deg', layers: [
-      ['mesh', 'drift', '', { alpha: .85, speed: '20s', swell: '7s', pos: '70%' }]
-    ] },
-    grid: { tilt: '66deg', layers: [
-      [null, 'grid', '', { alpha: .9 }]
-    ], noswell: true },
-    // five stacked layers swelling in sequence: a rolling 3D tide
-    tide: { tilt: '60deg', layers: [
-      ['strands', 'tile', '', { alpha: .35, speed: '90s', swell: '5s', swellDelay: '0s', y: '-110px', z: '-320px' }],
-      ['strands2', 'tile', 'avx-bw-reverse avx-bw-mirror', { alpha: .5, speed: '70s', swell: '5s', swellDelay: '-1s', y: '-60px', z: '-200px' }],
-      ['strands', 'tile', '', { alpha: .65, speed: '55s', swell: '5s', swellDelay: '-2s', y: '-10px', z: '-90px' }],
-      ['strands2', 'tile', 'avx-bw-mirror', { alpha: .8, speed: '42s', swell: '5s', swellDelay: '-3s', y: '40px', z: '10px' }],
-      ['strands', 'tile', 'avx-bw-reverse', { alpha: .95, speed: '32s', swell: '5s', swellDelay: '-4s', y: '90px', z: '110px' }]
-    ] },
-    signal: { tilt: '42deg', layers: [
-      ['signal', 'tile', 'avx-bw-mirror avx-bw-reverse', { alpha: .35, speed: '60s', swell: '1.9s', y: '-30px', z: '-110px' }],
-      ['signal', 'tile', '', { alpha: .85, speed: '40s', swell: '1.3s' }]
-    ] },
-    streak: { tilt: '46deg', layers: [
-      ['streak-bot', 'drift', 'avx-bw-mirror', { alpha: .5, speed: '20s', swell: '8s', y: '-30px', z: '-120px', pos: '70%' }],
-      ['streak-top', 'drift', '', { alpha: .7, speed: '14s', swell: '6s', y: '30px', z: '60px', pos: '40%' }]
-    ] }
-  };
+  // ---------- Bottom-of-page 3D wave floors: one live canvas scene per page, edge-free ----------
 
   var WAVE_BY_PAGE = {
     '/': 'strands',
@@ -669,27 +633,6 @@
     var h = 0;
     for (var i = 0; i < key.length; i++) h = (h * 31 + key.charCodeAt(i)) >>> 0;
     return WAVE_ROTATION[h % WAVE_ROTATION.length];
-  }
-
-  function buildWaveLayers(style, container) {
-    style.layers.forEach(function (l) {
-      var o = l[3] || {};
-      var layer = document.createElement('div');
-      layer.className = 'avx-bw-layer' + (style.noswell ? ' avx-bw-noswell' : '');
-      if (o.swell) layer.style.setProperty('--swell', o.swell);
-      if (o.swellDelay) layer.style.setProperty('--swell-delay', o.swellDelay);
-      if (o.y) layer.style.setProperty('--y', o.y);
-      if (o.z) layer.style.setProperty('--z', o.z);
-      var im = document.createElement('div');
-      im.className = 'avx-bw-img avx-bw-' + l[1] + ' ' + l[2];
-      if (l[0]) im.style.setProperty('--src', 'url("' + BAKED + l[0] + '-d.webp")');
-      if (o.alpha) im.style.setProperty('--alpha', o.alpha);
-      if (o.speed) im.style.setProperty('--speed', o.speed);
-      if (o.pos) im.style.setProperty('--pos', o.pos);
-      if (o.delay) im.style.setProperty('--delay', o.delay);
-      layer.appendChild(im);
-      container.appendChild(layer);
-    });
   }
 
   // pointerOnly: the target ignores scroll position, so scrolling never touches it
@@ -730,25 +673,9 @@
     });
     var host = sections[sections.length - 1];
     if (!host) return;
-    var scene = BOTTOM_SCENES[pageKey()];
-    if (scene) {
-      host.classList.add('avx-fx-host', 'avx-bwaves-host');
-      host.appendChild(scene());
-      return;
-    }
-    var style = WAVE_STYLES[pageWaveStyle()];
+    var scene = BOTTOM_SCENES[pageKey()] || STYLE_SCENES[pageWaveStyle()];
     host.classList.add('avx-fx-host', 'avx-bwaves-host');
-
-    var waves = document.createElement('div');
-    waves.className = 'avx-bwaves';
-    waves.setAttribute('aria-hidden', 'true');
-    var plane = document.createElement('div');
-    plane.className = 'avx-bwaves-plane';
-    plane.style.setProperty('--tilt', style.tilt);
-    buildWaveLayers(style, plane);
-    waves.appendChild(plane);
-    host.appendChild(waves);
-    reactive(host, waves);
+    host.appendChild(scene());
   }
 
   // ---------- Sign-in: one tilted ring behind the login card ----------
@@ -1258,6 +1185,19 @@
     var ctx = canvas.getContext('2d');
     if (!ctx) return wrap;
     var W = 0, H = 0, dpr = 1, raf = 0, visible = false, clock = 0, last = 0, lastDraw = 0, state = {};
+    var pointer = { x: 0, on: false }, tracking = false;
+    // the scene leans toward the pointer while it is over the section (mouse and pen only)
+    function track() {
+      var host = wrap.parentElement;
+      if (tracking || !host || !window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+      tracking = true;
+      host.addEventListener('pointermove', function (e) {
+        var r = wrap.getBoundingClientRect();
+        pointer.x = Math.max(-0.5, Math.min(0.5, (e.clientX - r.left) / r.width - 0.5));
+        pointer.on = true;
+      });
+      host.addEventListener('pointerleave', function () { pointer.on = false; });
+    }
 
     // resizing a canvas wipes it, so only resize when the size really changed
     function size() {
@@ -1276,6 +1216,8 @@
       raf = 0;
       if (!force && !reduced && (now - lastDraw < 32 || (lastDraw && scrolling()))) { schedule(); return; }
       lastDraw = now;
+      state.px = (state.px || 0) + ((pointer.x) - (state.px || 0)) * 0.06;
+      state.pi = (state.pi || 0) + ((pointer.on ? 1 : 0) - (state.pi || 0)) * 0.05;
       clock += last ? Math.min(0.05, (now - last) / 1000) : 0;
       last = now;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -1303,6 +1245,7 @@
       // start 300px early, so the scene is drawn before it scrolls into view
       onVisible(wrap, function () {
         visible = true; last = 0;
+        track();
         if (size() || !lastDraw || reduced) frame(performance.now(), true);
         else schedule();
       }, function () { visible = false; }, 0, '300px 0px');
@@ -1314,7 +1257,7 @@
 
   // silk: bundles of hairline strands that twist around each other like a ribbon
   function silkScene(cls, ribbons) {
-    return canvasScene(cls, function (ctx, W, H, t) {
+    return canvasScene(cls, function (ctx, W, H, t, s) {
       ctx.globalCompositeOperation = 'lighter';
       ctx.lineWidth = 1;
       var step = W > 900 ? 10 : 8;
@@ -1333,7 +1276,8 @@
             var u = x / W, ts = t * rb.speed;
             var y = H * rb.base +
               rb.amp * H * Math.sin(u * 6.2 * rb.freq + ts + rb.phase) * Math.cos(u * 3.1 - ts * 0.6 + k * 0.6) +
-              (k - 0.5) * rb.spread * H * Math.sin(u * 5.4 + ts * 0.8 + rb.phase);
+              (k - 0.5) * rb.spread * H * Math.sin(u * 5.4 + ts * 0.8 + rb.phase) -
+              pointerSwell(s, u - 0.5, 0.6, t) * H * 0.08;
             if (x < 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
           }
           ctx.stroke();
@@ -1402,6 +1346,168 @@
       });
     });
   }
+
+  // ---------- Wave floors for the inner pages: perspective surfaces drawn live ----------
+  // Shared projection: u runs -0.5..0.5 across, d 0 (horizon) .. 1 (front). Everything fades
+  // toward the sides and the horizon, and the CSS mask fades the top and bottom, so no edge
+  // shows. A swell follows the pointer (s.px, s.pi from canvasScene).
+
+  function sideFade(u) { return Math.max(0, 1 - Math.pow(Math.abs(u) * 2, 2.4)); }
+
+  function surface(W, H, d, u, lift) {
+    var horizon = H * 0.16, near = H * 1.04, depth = 0.35 + 0.65 * d;
+    return {
+      x: W / 2 + u * W * (0.8 + 0.9 * d),
+      y: horizon + (near - horizon) * Math.pow(d, 1.35) - lift * H * 0.13 * depth
+    };
+  }
+
+  function pointerSwell(s, u, d, t) {
+    var pi = s.pi || 0;
+    if (pi < 0.01) return 0;
+    var k = Math.exp(-Math.pow((u - (s.px || 0)) * 3.4, 2));
+    return pi * k * (0.55 + 0.35 * Math.sin(t * 2.2 - d * 7));
+  }
+
+  // a line through the scene, faded at both ends
+  function strokeFaded(ctx, pts, color, alpha, x0, x1) {
+    if (alpha < 0.01) return;
+    var g = ctx.createLinearGradient(x0, 0, x1, 0);
+    g.addColorStop(0, rgba(color, 0));
+    g.addColorStop(0.5, rgba(color, alpha));
+    g.addColorStop(1, rgba(color, 0));
+    ctx.strokeStyle = g;
+    ctx.beginPath();
+    for (var i = 0; i < pts.length; i++) { if (i) ctx.lineTo(pts[i].x, pts[i].y); else ctx.moveTo(pts[i].x, pts[i].y); }
+    ctx.stroke();
+  }
+
+  // mesh / grid: a wireframe surface rolling in perspective; grid adds pulses running toward you
+  function meshScene(cls, o) {
+    return canvasScene(cls, function (ctx, W, H, t, s) {
+      var COLS = W > 900 ? o.cols : Math.round(o.cols * 0.6), ROWS = o.rows, grid = [], r, c;
+      for (r = 0; r < ROWS; r++) {
+        var row = [], d = r / (ROWS - 1);
+        for (c = 0; c < COLS; c++) {
+          var u = c / (COLS - 1) - 0.5;
+          var wave = Math.sin(u * o.f1 + t * o.s1 + d * 3.2) * 0.55 + Math.sin(u * o.f2 - t * o.s2 + d * 5.1) * 0.45;
+          var p = surface(W, H, d, u, wave * o.amp + pointerSwell(s, u, d, t));
+          p.u = u; p.d = d; p.wave = wave;
+          row.push(p);
+        }
+        grid.push(row);
+      }
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.lineWidth = 1;
+      for (r = 0; r < ROWS; r++) {
+        strokeFaded(ctx, grid[r], o.color, o.alpha * (0.15 + 0.85 * Math.pow(r / (ROWS - 1), 1.2)), grid[r][0].x, grid[r][COLS - 1].x);
+      }
+      for (c = 0; c < COLS; c++) {
+        var col = grid.map(function (row) { return row[c]; });
+        var a = o.alpha * 0.8 * sideFade(col[0].u);
+        if (a < 0.01) continue;
+        var g = ctx.createLinearGradient(0, col[0].y, 0, col[ROWS - 1].y);
+        g.addColorStop(0, rgba(o.color, 0));
+        g.addColorStop(1, rgba(o.color, a));
+        ctx.strokeStyle = g;
+        ctx.beginPath();
+        col.forEach(function (q, i) { if (i) ctx.lineTo(q.x, q.y); else ctx.moveTo(q.x, q.y); });
+        ctx.stroke();
+      }
+      // pulses: points of light travelling along the columns toward the viewer
+      if (o.pulses) {
+        if (!s.pulses) {
+          s.pulses = [];
+          for (var n = 0; n < o.pulses; n++) s.pulses.push({ c: Math.random(), d: Math.random(), v: 0.08 + Math.random() * 0.1 });
+        }
+        s.pulses.forEach(function (pk) {
+          pk.d += pk.v * 0.03;
+          if (pk.d > 1) { pk.d = 0; pk.c = 0.12 + Math.random() * 0.76; }
+          var u = pk.c - 0.5, q = surface(W, H, pk.d, u, (Math.sin(u * o.f1 + t * o.s1 + pk.d * 3.2) * 0.55 + Math.sin(u * o.f2 - t * o.s2 + pk.d * 5.1) * 0.45) * o.amp + pointerSwell(s, u, pk.d, t));
+          var al = sideFade(u) * Math.pow(pk.d, 0.8), rad = 6 + 16 * pk.d;
+          if (al < 0.05) return;
+          var glow = ctx.createRadialGradient(q.x, q.y, 0, q.x, q.y, rad);
+          glow.addColorStop(0, 'rgba(191,219,254,' + (0.85 * al).toFixed(3) + ')');
+          glow.addColorStop(0.3, rgba(o.color, 0.4 * al));
+          glow.addColorStop(1, rgba(o.color, 0));
+          ctx.fillStyle = glow;
+          ctx.fillRect(q.x - rad, q.y - rad, rad * 2, rad * 2);
+        });
+      }
+    });
+  }
+
+  // strands / tide: stacked contour lines; the tide rolls toward the viewer, crests catching light
+  function contourScene(cls, o) {
+    return canvasScene(cls, function (ctx, W, H, t, s) {
+      var COLS = W > 900 ? 90 : 54;
+      ctx.globalCompositeOperation = 'lighter';
+      for (var r = 0; r < o.rows; r++) {
+        var d = r / (o.rows - 1), pts = [], crest = 0;
+        for (var c = 0; c < COLS; c++) {
+          var u = c / (COLS - 1) - 0.5;
+          var roll = Math.sin(d * 9 - t * o.roll + u * 1.6);
+          var wave = Math.sin(u * o.f1 + t * o.s1 + d * 2.4) * 0.5 + roll * 0.5;
+          crest = Math.max(crest, roll);
+          pts.push(surface(W, H, d, u, wave * o.amp + pointerSwell(s, u, d, t)));
+        }
+        ctx.lineWidth = 0.8 + 1.1 * d;
+        var lit = o.roll ? 0.55 + 0.45 * Math.max(0, Math.sin(d * 9 - t * o.roll)) : 1;
+        strokeFaded(ctx, pts, r % 3 === 0 ? o.accent : o.color, o.alpha * lit * (0.12 + 0.88 * Math.pow(d, 1.1)), pts[0].x, pts[COLS - 1].x);
+      }
+    });
+  }
+
+  // signal: waveform lines, each with a pulse sweeping across that lifts the trace as it passes
+  function signalScene(cls, o) {
+    return canvasScene(cls, function (ctx, W, H, t, s) {
+      var COLS = W > 900 ? 160 : 90;
+      ctx.globalCompositeOperation = 'lighter';
+      for (var i = 0; i < o.lines; i++) {
+        var base = H * (0.34 + i * (0.5 / o.lines)), pc = ((t * o.speed + i * 0.37) % 1.4) - 0.2, pts = [], peak = null;
+        for (var c = 0; c < COLS; c++) {
+          var u = c / (COLS - 1), x = u * W;
+          var env = 0.22 + 0.78 * Math.exp(-Math.pow((u - pc) / 0.07, 2));
+          var sw = pointerSwell(s, u - 0.5, 0.6, t);
+          var y = base + Math.sin(u * (18 + i * 4) + t * (2 + i * 0.4)) * H * 0.05 * (env + sw * 0.8);
+          pts.push({ x: x, y: y });
+          if (!peak || Math.abs(u - pc) < Math.abs(peak.u - pc)) peak = { x: x, y: y, u: u };
+        }
+        ctx.lineWidth = 1.2;
+        strokeFaded(ctx, pts, i % 2 ? o.accent : o.color, o.alpha * (0.55 + 0.45 * i / o.lines), 0, W);
+        var al = sideFade(peak.u - 0.5);
+        if (al > 0.05) {
+          var glow = ctx.createRadialGradient(peak.x, peak.y, 0, peak.x, peak.y, 22);
+          glow.addColorStop(0, 'rgba(191,219,254,' + (0.8 * al).toFixed(3) + ')');
+          glow.addColorStop(1, rgba(o.color, 0));
+          ctx.fillStyle = glow;
+          ctx.fillRect(peak.x - 22, peak.y - 22, 44, 44);
+        }
+      }
+    });
+  }
+
+  // the inner pages' floors, by wave style (WAVE_BY_PAGE / WAVE_ROTATION pick the style)
+  var STYLE_SCENES = {
+    mesh: function () { return meshScene('avx-cv-bottom avx-cv-floor', { cols: 44, rows: 18, amp: 1, f1: 6.5, f2: 3, s1: 0.5, s2: 0.32, color: '96,165,250', alpha: 0.95 }); },
+    grid: function () { return meshScene('avx-cv-bottom avx-cv-floor', { cols: 56, rows: 22, amp: 0.35, f1: 4, f2: 2.2, s1: 0.3, s2: 0.2, color: '96,165,250', alpha: 0.75, pulses: 9 }); },
+    strands: function () { return contourScene('avx-cv-bottom avx-cv-floor', { rows: 26, amp: 0.9, f1: 6, s1: 0.4, roll: 0, color: '59,130,246', accent: '56,189,248', alpha: 0.55 }); },
+    tide: function () { return contourScene('avx-cv-bottom avx-cv-floor', { rows: 30, amp: 0.7, f1: 4.5, s1: 0.25, roll: 1.1, color: '59,130,246', accent: '147,197,253', alpha: 0.6 }); },
+    signal: function () { return signalScene('avx-cv-bottom avx-cv-floor', { lines: 5, speed: 0.12, color: '96,165,250', accent: '56,189,248', alpha: 0.55 }); },
+    ribbons: function () {
+      return silkScene('avx-cv-bottom avx-cv-floor', [
+        { color: '59,130,246', lines: 34, alpha: 0.3, base: 0.58, amp: 0.14, spread: 0.32, freq: 0.8, phase: 0.4, speed: 0.22 },
+        { color: '99,102,241', lines: 26, alpha: 0.24, base: 0.7, amp: 0.1, spread: 0.24, freq: 1.1, phase: 2.8, speed: 0.17 }
+      ]);
+    },
+    streak: function () {
+      return silkScene('avx-cv-bottom avx-cv-floor', [
+        { color: '56,189,248', lines: 18, alpha: 0.32, base: 0.5, amp: 0.16, spread: 0.12, freq: 1.4, phase: 1.2, speed: 0.36 },
+        { color: '59,130,246', lines: 22, alpha: 0.28, base: 0.64, amp: 0.12, spread: 0.18, freq: 1, phase: 3.9, speed: 0.28 },
+        { color: '147,197,253', lines: 14, alpha: 0.22, base: 0.76, amp: 0.08, spread: 0.1, freq: 1.8, phase: 5.1, speed: 0.4 }
+      ]);
+    }
+  };
 
   // contact: a dotted planet rising over the horizon, calls arcing between cities
   function globeScene(cls) {
@@ -2791,7 +2897,7 @@
     onVisible(card, function () {
       if (running) return;
       running = true;
-      if (complete) later(6000, next);
+      if (complete) later(2000, next);
       else play();
     }, function () { running = false; clear(); stage(null); }, 0.25);
     setInterval(function () { if (waiting && running && !motionPaused() && !document.hidden) { waiting = false; play(); } }, 600);

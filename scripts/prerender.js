@@ -1,6 +1,7 @@
 // Writes every page to dist/ as static HTML, next to a copy of public/.
 // Runs after `vite build --ssr`, which compiles src/entry-server.jsx into .ssr/.
 import { cpSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { transform } from 'esbuild'
@@ -42,3 +43,16 @@ for (const name of MINIFY) {
   writeFileSync(file, out.code)
   console.log(`${name} ${Math.round(code.length / 1024)} KB -> ${Math.round(out.code.length / 1024)} KB`)
 }
+
+// Every page asks for each stylesheet and script by a content hash (?v=…), so a deploy can never
+// pair new pages with an old copy a browser or CDN still has cached under the same address
+const VERSIONED = [...MINIFY, 'avx-site/site.js']
+const hashes = Object.fromEntries(VERSIONED.map((name) => [name,
+  createHash('sha256').update(readFileSync(join(dist, 'assets', name))).digest('hex').slice(0, 10)]))
+const ASSET_URL = /\/assets\/(avx-[a-z]+\/[a-z]+\.(?:css|js))(?:\?v=[\w-]*)?(?=["'])/g
+for (const route of routes) {
+  const file = join(dist, route === '/' ? 'index.html' : route)
+  const html = readFileSync(file, 'utf8')
+  writeFileSync(file, html.replace(ASSET_URL, (m, name) => (hashes[name] ? `/assets/${name}?v=${hashes[name]}` : m)))
+}
+console.log(`versioned ${Object.keys(hashes).length} asset URLs in ${routes.length} pages`)
