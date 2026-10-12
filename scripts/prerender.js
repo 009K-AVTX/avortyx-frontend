@@ -1,8 +1,9 @@
 // Writes every page to dist/ as static HTML, next to a copy of public/.
 // Runs after `vite build --ssr`, which compiles src/entry-server.jsx into .ssr/.
-import { cpSync, mkdirSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import { cpSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { transform } from 'esbuild'
 import { PurgeCSS } from 'purgecss'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -30,3 +31,14 @@ const [purged] = await new PurgeCSS().purge({
 })
 writeFileSync(siteCss, purged.css)
 console.log(`site.css ${Math.round(before / 1024)} KB -> ${Math.round(purged.css.length / 1024)} KB`)
+
+// The hand-written scripts and stylesheets ship minified (the sources in public/ stay readable)
+const MINIFY = ['avx-motion/motion.js', 'avx-motion/motion.css', 'avx-theme/theme.css', 'avx-site/site.js', 'avx-site/site.css',
+  'avx-icons/icons.css', 'avx-fonts/fonts.css']
+for (const name of MINIFY) {
+  const file = join(dist, 'assets', name)
+  const code = readFileSync(file, 'utf8')
+  const out = await transform(code, { loader: name.endsWith('.css') ? 'css' : 'js', minify: true, legalComments: 'inline' })
+  writeFileSync(file, out.code)
+  console.log(`${name} ${Math.round(code.length / 1024)} KB -> ${Math.round(out.code.length / 1024)} KB`)
+}

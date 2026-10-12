@@ -1013,3 +1013,8 @@ samp,
   font-family: var(--avx-font-display);
   font-variant-numeric: tabular-nums;
 }
+
+/* the page colour, set outright rather than left to the browser's dark canvas */
+html[data-bs-theme="dark"] {
+  background-color: #121212;
+}

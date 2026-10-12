@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
   <!-- Google tag (gtag.js) -->
@@ -14,8 +14,6 @@
 
   <meta name="color-scheme" content="dark">
   <script>
-    // the site renders in its dark theme for every visitor
-    document.documentElement.setAttribute('data-bs-theme', 'dark');
     // hold the page until the motion layer has built it, so the plain markup never flashes first
     document.documentElement.classList.add('avx-boot');
     (function () {
@@ -43,11 +41,9 @@
   <!-- Font Awesome Pro: only the solid icons the site uses, self-hosted (scripts/build-icons.py) -->
   <link rel="preload" as="font" type="font/woff2" href="/assets/avx-icons/icons.woff2" crossorigin>
   <link rel="stylesheet" href="/assets/avx-icons/icons.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500..800&family=JetBrains+Mono:wght@400..600&display=optional" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap"></noscript>
+  <!-- Inter, Inter Tight and JetBrains Mono, self-hosted (latin + latin-ext) -->
+  <link rel="preload" as="font" type="font/woff2" href="/assets/avx-fonts/inter-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/avx-fonts/fonts.css">
 
   <link rel="stylesheet" href="/assets/avx-site/site.css" media="all" />
   <script src="/assets/avx-site/site.js" defer></script>

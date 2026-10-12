@@ -2442,6 +2442,107 @@
     });
   }
 
+  // ---------- Tabs: arrow keys, Home and End move between tabs (roving tabindex) ----------
+
+  function tabKeys(list, select) {
+    list.addEventListener('keydown', function (e) {
+      var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+      var i = tabs.indexOf(document.activeElement);
+      if (i < 0) return;
+      var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null;
+      if (j === null) return;
+      e.preventDefault();
+      var t = tabs[(j + tabs.length) % tabs.length];
+      select(t);
+      t.focus();
+    });
+  }
+
+  // ---------- Tabs that move on by themselves (like the product tour) ----------
+  // While the section is on screen, the next tab opens after each tab's dwell time; a bar under
+  // the active tab shows the time left. The first real click, tap or key press in the section
+  // hands control to the visitor for good. Programmatic clicks (ours) don't count.
+
+  function autoAdvance(sec, list, dwell) {
+    if (reduced) return;
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    var timer = null, touched = false, visible = false;
+    sec.classList.add('avx-autoplay');
+    function current() { return tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0] || tabs[0]; }
+    function schedule() {
+      clearTimeout(timer);
+      if (touched || !visible) return;
+      var t = current(), ms = dwell(t);
+      t.style.setProperty('--avx-dwell', ms + 'ms');
+      t.classList.remove('avx-tick');
+      void t.offsetWidth;
+      t.classList.add('avx-tick');
+      timer = setTimeout(function step() {
+        if (touched || !visible) return;
+        if (motionPaused() || document.hidden) { timer = setTimeout(step, 600); return; }
+        var next = tabs[(tabs.indexOf(current()) + 1) % tabs.length];
+        next.click();
+        // keep the active tab in view when the row scrolls sideways (phones), without moving the page
+        list.scrollTo({ left: next.offsetLeft - (list.clientWidth - next.offsetWidth) / 2, behavior: 'smooth' });
+        schedule();
+      }, ms);
+    }
+    function stop(e) {
+      if (touched || (e && e.isTrusted === false)) return;
+      touched = true;
+      clearTimeout(timer);
+      sec.classList.remove('avx-autoplay');
+    }
+    sec.addEventListener('pointerdown', function (e) { if (e.target.closest('button, a, input, [role="tab"]')) stop(e); });
+    sec.addEventListener('keydown', stop);
+    onVisible(sec, function () { visible = true; schedule(); }, function () { visible = false; clearTimeout(timer); }, 0.3);
+  }
+
+  // ---------- Core tools: the five live product screens behind one row of tabs ----------
+  // Without JS every panel shows, one after another; this keeps one on screen at a time.
+  // Runs after the demos are built, so they size against visible panels.
+
+  function initPlatform() {
+    var sec = document.querySelector('[data-avx-platform]');
+    if (!sec) return;
+    var list = sec.querySelector('[role="tablist"]');
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    function select(tab) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('avx-on', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    tabs.forEach(function (t) { t.addEventListener('click', function () { select(t); }); });
+    tabKeys(list, select);
+    select(tabs[0]);
+    // each screen loops in 7-8s: one full loop and a beat
+    autoAdvance(sec, list, function () { return 12000; });
+  }
+
+  // ---------- Phones: a sign-up bar once the hero has scrolled away ----------
+  // Hidden again over the closing call to action and the footer, which carry the same buttons.
+
+  function initMobileCta() {
+    var bar = document.querySelector('[data-avx-mcta]');
+    var hero = document.querySelector('.marketing-hero-simple');
+    if (!bar || !hero || !('IntersectionObserver' in window)) return;
+    var heroGone = false, endInView = false;
+    function update() { bar.classList.toggle('avx-on', heroGone && !endInView); }
+    new IntersectionObserver(function (es) { heroGone = !es[0].isIntersecting; update(); }).observe(hero);
+    var ends = document.querySelectorAll('.marketing-cta-band, footer');
+    var seen = new Set();
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) seen.add(e.target); else seen.delete(e.target); });
+      endInView = seen.size > 0;
+      update();
+    });
+    ends.forEach(function (n) { io.observe(n); });
+  }
+
   // ---------- Product tour: one app window, four live views ----------
 
   var CALL_SOURCES = ['Google Ads', 'Meta', 'Bing', 'TikTok', 'Email', 'Affiliate', 'Organic'];
@@ -2501,11 +2602,14 @@
     TOUR.forEach(function (t, i) {
       var b = el('button', 'avx-tour-tab', '<span>' + t[1] + '</span><i></i>');
       b.type = 'button';
+      b.id = 'tour-tab-' + t[0];
       b.setAttribute('role', 'tab');
+      b.setAttribute('aria-controls', stage.id || 'tour-stage');
       b.dataset.tour = t[0];
       b.addEventListener('click', function () { touched = true; tour.classList.add('avx-tour-touched'); show(t[0]); });
       tabs.appendChild(b);
     });
+    tabKeys(tabs, function (b) { touched = true; tour.classList.add('avx-tour-touched'); show(b.dataset.tour); });
     function show(key) {
       if (current === key) return;
       var t = TOUR.filter(function (x) { return x[0] === key; })[0];
@@ -2522,7 +2626,9 @@
         var on = b.dataset.tour === key;
         b.classList.toggle('avx-on', on);
         b.setAttribute('aria-selected', on ? 'true' : 'false');
+        b.tabIndex = on ? 0 : -1;
       });
+      stage.setAttribute('aria-labelledby', 'tour-tab-' + key);
       current = key;
     }
     show('calls');
@@ -2580,7 +2686,8 @@
     var q = function (k) { return card.querySelector('[data-dc="' + k + '"]'); };
     var steps = {};
     card.querySelectorAll('.avx-dc-step').forEach(function (s) { steps[s.dataset.step] = s; });
-    var timers = [], idx = 0, callNo = 48213, running = false, waiting = false;
+    // the HTML ships DECISIONS[0] finished: hold it, then carry on from the next call
+    var timers = [], idx = 1, callNo = 48213, running = false, waiting = false, complete = true;
     function later(ms, fn) { timers.push(setTimeout(fn, ms)); }
     function clear() { timers.forEach(clearTimeout); timers = []; }
     function stage(name) {
@@ -2591,6 +2698,7 @@
 
     function play() {
       clear();
+      complete = false;
       var d = DECISIONS[idx % DECISIONS.length];
       idx++;
       callNo += Math.floor(rnd(3, 19));
@@ -2666,6 +2774,7 @@
         q('why').textContent = d.why;
         q('pay').textContent = '$' + d.bids[0][1].toFixed(2);
         q('ms').textContent = d.ms + 'ms';
+        complete = true;
       });
       later(9200, next);
     }
@@ -2677,10 +2786,13 @@
     }
 
     // runs while on screen; pausing motion holds the current decision
+    // a finished decision stays up a few seconds before the next call rings in, so the card
+    // never opens on an empty "0.00 / $0" frame; one cut off mid-replay starts over
     onVisible(card, function () {
       if (running) return;
       running = true;
-      play();
+      if (complete) later(6000, next);
+      else play();
     }, function () { running = false; clear(); stage(null); }, 0.25);
     setInterval(function () { if (waiting && running && !motionPaused() && !document.hidden) { waiting = false; play(); } }, 600);
   }
@@ -2988,6 +3100,10 @@
       });
     });
     onVisible(sec, function () { visible = true; activate(); }, function () { visible = false; listen.stop(); voice.stop(); }, 0.3);
+    // long enough for each demo to finish: the asked question and its answer, the whole
+    // transcript and its summary; the voice agent only plays when asked, so its tab is brief
+    var DWELL = { ask: 15000, listen: 19000, voice: 8000 };
+    autoAdvance(sec, sec.querySelector('.avx-ai-tabs'), function (t) { return DWELL[t.dataset.ai] || 12000; });
   }
 
   // ---------- More Capabilities: a small live view inside each bento card ----------
@@ -3013,7 +3129,7 @@
         var p = el('p', 'avx-ls-' + ln[0].toLowerCase(), '<b>' + ln[0] + '</b><span></span>');
         p.querySelector('span').textContent = ln[1];
         lines.appendChild(p);
-        while (lines.children.length > 16) lines.removeChild(lines.firstChild);
+        while (lines.children.length > 9) lines.removeChild(lines.firstChild);
         (ln[3] || []).forEach(function (tp) { topics.appendChild(el('em', '', tp)); });
         foot.style.setProperty('--s', ln[2]);
         foot.querySelector('[data-s]').textContent = ln[2] >= .7 ? 'Positive' : ln[2] >= .45 ? 'Neutral' : 'Negative';
@@ -3534,7 +3650,7 @@
   function init() {
     // calm set: product UI, data and gentle reveals; no game-like decoration
     var steps = [initMotionToggle, initProgress, initRingbaHero, initDecision, initLeadFlow, initPlatformFlow,
-      initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initHowFlow, initBento, initFeatureDemos, initMiniPreviews,
+      initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta,
       initBackLinks, initZoom, initNavScroll, initPalette, initWindows, initSignature, initAuthRing, initIntegrationsHub, initIntegrationsBackdrop,
       initPricingHorizon, initIntegrationWaves, initFlowSequences, initTables, initCounters,
       initOffscreenPause, initScrollHints, initAnchors];

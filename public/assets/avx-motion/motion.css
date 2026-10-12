@@ -2727,19 +2727,58 @@ img.avx-tint {
   filter: invert(1) grayscale(1) brightness(1.6);
 }
 
-/* cookie notice: dark glass to match the navbar */
-[data-bs-theme="dark"] #okCookie {
-  background: rgba(17, 19, 24, .9) !important;
-  border-top: 1px solid rgba(148, 163, 184, .18);
+/* cookie notice: a small dark-glass card in the bottom-left corner, clear of the page */
+#okCookie {
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  width: min(380px, calc(100vw - 40px));
+  padding: 16px 18px;
+  border: 1px solid rgba(148, 163, 184, .18);
+  border-radius: 16px;
+  background: rgba(17, 19, 24, .94) !important;
   color: #bbc2cf;
+  font-family: var(--avx-font-sans);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  box-shadow: 0 -20px 60px -20px rgba(0, 0, 0, .8);
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .85);
+  z-index: 1090;
 }
 
-[data-bs-theme="dark"] #okCookie #okClose {
+#okCookie span {
+  float: none;
+  padding: 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+#okCookie span a {
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+#okCookie #okClose {
+  float: none;
+  margin: 0;
+  padding: 7px 18px;
   border-radius: 999px;
   background: linear-gradient(180deg, #3b82f6, #2563eb);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-shadow: none;
+}
+
+@media (max-width: 575.98px) {
+  #okCookie {
+    left: 12px;
+    bottom: 12px;
+    width: calc(100vw - 24px);
+  }
 }
 
 /* ---------- Live charts ---------- */
@@ -4475,9 +4514,11 @@ html.avx-booted main {
   box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .8);
 }
 
-/* while the cookie notice is up, sit above it */
-body:has(#okCookie) .avx-motion-toggle {
-  bottom: 96px;
+/* phones: while the cookie card is up, sit above it */
+@media (max-width: 575.98px) {
+  body:has(#okCookie) .avx-motion-toggle {
+    bottom: 200px;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -10497,5 +10538,421 @@ body.home main > section:nth-child(n+4) {
 
   .avx-bento .avx-cap:nth-child(5) > .avx-cap-viz {
     height: 230px;
+  }
+}
+
+/* ---------- Stats under the hero: one slim row above the logo strip ---------- */
+
+.avx-stats-row {
+  display: flex;
+  max-width: 760px;
+  margin: 0 auto 40px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .02);
+}
+
+.avx-stats-row > div {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  align-items: baseline;
+  justify-content: center;
+  padding: 12px 16px;
+  border-right: 1px solid rgba(255, 255, 255, .07);
+}
+
+.avx-stats-row > div:last-child {
+  border-right: 0;
+}
+
+.avx-stats-row .avx-proof-num {
+  font-size: clamp(20px, 1.2rem + .6vw, 26px);
+}
+
+.avx-stats-row span {
+  color: #9aa3b2;
+  font: 500 11.5px var(--avx-font-mono, monospace);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 575.98px) {
+  .avx-stats-row {
+    border-radius: 16px;
+  }
+
+  .avx-stats-row > div {
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    padding: 12px 6px;
+  }
+
+  .avx-stats-row span {
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+/* ---------- Core tools: one tab row, one live screen at a time ---------- */
+
+.avx-plat-tabs {
+  margin-bottom: 44px;
+}
+
+.avx-plat-panel[hidden] {
+  display: none !important;
+}
+
+.avx-plat-panel {
+  animation: avxPlatIn .45s var(--avx-ease) both;
+}
+
+@keyframes avxPlatIn {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+@media (min-width: 992px) {
+  /* a steady height, so switching tabs doesn't move the page */
+  .avx-plat-panel > .row {
+    min-height: 470px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avx-plat-panel { animation: none; }
+}
+
+/* ---------- FAQ: native disclosure rows ---------- */
+
+.avx-faq-list {
+  display: grid;
+  gap: 10px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.avx-faq-item {
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .02);
+  transition: border-color .25s ease, background-color .25s ease;
+}
+
+.avx-faq-item[open] {
+  border-color: rgba(96, 165, 250, .3);
+  background: rgba(59, 130, 246, .04);
+}
+
+.avx-faq-item summary {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.avx-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.avx-faq-item summary::after {
+  content: "+";
+  flex: none;
+  color: #93c5fd;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform .25s ease;
+}
+
+.avx-faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.avx-faq-item summary:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+  border-radius: 14px;
+}
+
+.avx-faq-item p {
+  margin: 0;
+  padding: 0 22px 20px;
+  color: #b4bccb;
+  line-height: 1.65;
+}
+
+.avx-faq-item p a {
+  color: #93c5fd;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* ---------- Phones: sticky sign-up bar ---------- */
+
+.avx-mcta {
+  display: none;
+}
+
+@media (max-width: 575.98px) {
+  .avx-mcta {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1070;
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(148, 163, 184, .16);
+    background: rgba(10, 12, 16, .9);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    transform: translateY(110%);
+    visibility: hidden;
+    transition: transform .35s var(--avx-ease), visibility 0s .35s;
+  }
+
+  .avx-mcta.avx-on {
+    transform: none;
+    visibility: visible;
+    transition: transform .35s var(--avx-ease);
+  }
+
+  .avx-mcta .btn {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  /* the cookie card comes first; the bar waits until it is answered */
+  body:has(#okCookie) .avx-mcta {
+    display: none;
+  }
+
+  body:has(.avx-mcta.avx-on) .avx-motion-toggle {
+    bottom: 84px;
+  }
+}
+
+/* tabs that move on by themselves: the time left, as a bar under the active tab */
+.avx-autoplay .avx-tour-tab.avx-on.avx-tick::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  bottom: 4px;
+  left: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: #60a5fa;
+  opacity: .6;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: avxTourBar var(--avx-dwell, 12s) linear forwards;
+}
+
+/* ---------- More Capabilities, premium: three feature tiles and a quiet list ----------
+   Three equal tiles in a row (transcripts, spam tags, recordings); the five supporting tools
+   sit underneath as one row split by hairlines, with no boxes or live views. */
+
+.avx-caps-v3 .avx-caps-head {
+  margin-bottom: 36px;
+}
+
+.avx-caps-v3 .avx-cap-grid.avx-bento {
+  gap: 20px;
+}
+
+@media (min-width: 576px) {
+  .avx-caps-v3 .avx-cap-grid.avx-bento {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas: 'tr sp rc';
+  }
+
+  .avx-caps-v3 .avx-bento .avx-cap:nth-child(1) { grid-area: tr; }
+  .avx-caps-v3 .avx-bento .avx-cap:nth-child(2) { grid-area: sp; }
+  .avx-caps-v3 .avx-bento .avx-cap:nth-child(3) { grid-area: rc; }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .avx-caps-v3 .avx-cap-grid.avx-bento {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: 'tr tr' 'sp rc';
+  }
+}
+
+.avx-caps-v3 .avx-bento .avx-cap {
+  padding: 0 28px 28px;
+  border-radius: 24px;
+}
+
+.avx-caps-v3 .avx-bento .avx-cap:nth-child(n) > .avx-cap-viz {
+  min-height: 190px;
+  margin: 0 -28px 22px;
+  background:
+    radial-gradient(90% 120% at 50% 0%, rgba(59, 130, 246, .1), transparent 62%),
+    rgba(0, 0, 0, .18);
+}
+
+.avx-caps-v3 .avx-bento .avx-cap.avx-cap--lead > .avx-cap-viz {
+  min-height: 190px;
+}
+
+.avx-caps-v3 .avx-bento .avx-cap > b {
+  font-size: 18px;
+}
+
+
+
+.avx-caps-v3 .avx-bento .avx-cap > span {
+  max-width: 46ch;
+  color: #8f98a8;
+  font-size: 14.5px;
+}
+
+/* the transcript, calmer: fewer, roomier lines */
+.avx-caps-v3 .avx-viz-tr {
+  gap: 10px;
+  padding: 16px 18px;
+}
+
+.avx-caps-v3 .avx-tr-lines {
+  gap: 12px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 56px);
+  mask-image: linear-gradient(180deg, transparent, #000 56px);
+}
+
+.avx-caps-v3 .avx-viz-tr p {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* the supporting tools: one quiet row */
+.avx-cap-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+
+.avx-cap-li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px 22px 8px;
+  border-left: 1px solid rgba(255, 255, 255, .07);
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.avx-cap-li:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.avx-cap-li .avx-cap-ic {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 6px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.avx-cap-li > b {
+  color: #f1f5f9;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color .2s ease;
+}
+
+.avx-cap-li > b::after {
+  content: " →";
+  color: #60a5fa;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.avx-cap-li > span {
+  color: #8f98a8;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.avx-cap-li > em {
+  display: none;
+}
+
+.avx-cap-li:hover > b {
+  color: #93c5fd;
+}
+
+.avx-cap-li:hover > b::after {
+  opacity: 1;
+}
+
+.avx-cap-li:hover .avx-cap-ic {
+  border-color: rgba(96, 165, 250, .5);
+  background: rgba(59, 130, 246, .2);
+}
+
+@media (max-width: 991.98px) {
+  .avx-cap-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+    border-top: 0;
+  }
+
+  .avx-cap-li,
+  .avx-cap-li:first-child {
+    padding: 22px 0;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .avx-cap-list {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 20px;
+  }
+
+  .avx-cap-li,
+  .avx-cap-li:first-child {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 4px 14px;
+    padding: 16px 0;
+  }
+
+  .avx-cap-li .avx-cap-ic {
+    grid-row: span 2;
+    margin: 2px 0 0;
+  }
+
+  .avx-cap-li > b::after {
+    opacity: .7;
+  }
+
+  .avx-caps-v3 .avx-bento .avx-cap {
+    padding: 0 20px 22px;
+  }
+
+  .avx-caps-v3 .avx-bento .avx-cap:nth-child(n) > .avx-cap-viz {
+    height: 170px;
+    min-height: 0;
+    margin: 0 -20px 18px;
+  }
+
+  .avx-caps-v3 .avx-bento .avx-cap.avx-cap--lead > .avx-cap-viz {
+    height: 170px;
   }
 }

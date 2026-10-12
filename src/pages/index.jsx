@@ -1,4 +1,22 @@
 // /
+const PLATFORM_TABS = [
+  ['pingpost', 'Ping/Post', 'fa-gavel'], ['dialer', 'Power Dialer', 'fa-phone-volume'], ['tracking', 'Call Tracking', 'fa-route'],
+  ['automation', 'Lead Automation', 'fa-bolt'], ['agent', 'Agent Control Center', 'fa-headset'],
+]
+
+// Answers come from the pricing and feature pages [question, answer, optional [href, link text]]
+const FAQ = [
+  ['Are there any onboarding fees?', 'No. Avortyx does not charge onboarding fees.', ['/pricing.html', 'See pricing']],
+  ['Can I bring my own carrier?', 'Yes. Connect Twilio, Plivo or Telnyx, or bring any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.', ['/features/multiple_telephone_providers.html', 'Telephone providers']],
+  ['How are calls priced?', 'Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the nearest full minute. The inbound rates cover both legs of a call connected to a buyer, and your statements itemize each leg.', ['/pricing.html', 'Rates and calculator']],
+  ['Is there an API?', 'Yes. Avortyx is API-first: anything you can do in the dashboard, you can do through the REST API, with access tokens limited to exactly the resources they need.', ['/features/api.html', 'REST API']],
+  ['How do you handle compliance and personal data?', 'DNC checks, suppression lists and blacklists run before any call is forwarded or dialed, and state rules enforce calling-hour windows. PII can be cleared or hashed from aged data and restricted to users with the PII permission.', ['/features.html#security-compliance-tools', 'Security and compliance']],
+  ['Do you offer discounts?', 'Yes, for high-volume customers.', ['/p/contact.html', 'Contact our team']],
+  ['What support do you offer?', 'Phone, live chat and email support, plus live video sessions with our specialists.', null],
+]
+
+const FAQ_LD = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
+
 export const meta = {
   title: "Avortyx Prototype · Call Tracking & Lead Automation",
   description: "Call tracking, real-time ping/post and lead-to-call automation in one platform. Route every call to the right buyer and see the revenue behind it.",
@@ -8,6 +26,7 @@ export const meta = {
   bootStyle: "html.avx-boot main > :not(.marketing-hero-simple) { opacity: 0 !important; animation: none !important; }",
   head: (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_LD) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://avortyx-prototype.vercel.app/#org","name":"Avortyx","url":"https://avortyx-prototype.vercel.app/","logo":"https://avortyx-prototype.vercel.app/favicon-192.png"},{"@type":"SoftwareApplication","name":"Avortyx","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://avortyx-prototype.vercel.app/","image":"https://avortyx-prototype.vercel.app/og-image.png?v=2","description":"Call tracking, real-time ping/post and lead-to-call automation in one platform. Route every call to the right buyer and see the revenue behind it.","publisher":{"@id":"https://avortyx-prototype.vercel.app/#org"}}]}` }} />
       <style dangerouslySetInnerHTML={{ __html: `
     /* Hero rings: centered behind the h1, tilted in 3D and slowly spinning */
@@ -117,12 +136,12 @@ function TourPreview() {
     <>
       <div className="avx-tour-tabs" role="tablist" aria-label="Product views">
         {TOUR_TABS.map(([key, label], i) => (
-          <button key={key} type="button" className={i ? 'avx-tour-tab' : 'avx-tour-tab avx-on'} role="tab" aria-selected={i ? 'false' : 'true'} data-tour={key}>
+          <button key={key} type="button" className={i ? 'avx-tour-tab' : 'avx-tour-tab avx-on'} role="tab" id={`tour-tab-${key}`} aria-controls="tour-stage" aria-selected={i ? 'false' : 'true'} tabIndex={i ? -1 : 0} data-tour={key}>
             <span>{label}</span><i />
           </button>
         ))}
       </div>
-      <div className="avx-tour-stage">
+      <div className="avx-tour-stage" id="tour-stage" role="tabpanel" aria-labelledby="tour-tab-calls">
         <div className="avx-console avx-tour-on" role="img" aria-label="Live calls: every call with its source, buyer and revenue (demo data)">
           <div className="avx-cs-bar">
             <i /><i /><i />
@@ -242,6 +261,11 @@ export default function Home() {
       </section>
       <section className="avx-trust" aria-label="Works with">
         <div className="container">
+          <div className="avx-stats-row">
+            <div><b className="avx-proof-num">99.9%</b><span>Uptime</span></div>
+            <div><b className="avx-proof-num">85ms</b><span>Avg routing time</span></div>
+            <div><b className="avx-proof-num">10+</b><span>Buyer match rules</span></div>
+          </div>
           <p className="avx-trust-label">Plugs into the carriers and ad platforms you already run</p>
         </div>
         <div className="avx-marquee">
@@ -464,302 +488,308 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="mktg-section avx-feat">
+      <section className="mktg-section avx-feat avx-platform" id="platform" data-avx-platform="">
         <div className="container">
-          <div className="row align-items-center g-5">
-            <div className="col-lg-6">
-              <div className="mktg-spotlight-visual" data-avx-demo="pingpost">
-                <div className="spotlight-flow-steps">
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-building" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Publisher</strong> — Sends lead data</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-satellite-dish" aria-hidden="true" />
-                    {" "}
-                    <span><strong>PING</strong> — Check available buyers, get bids</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-filter" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Buyer Matching</strong> — Hours, caps, geo, filters, duplicates</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-phone-flip" aria-hidden="true" />
-                    {" "}
-                    <span><strong>POST</strong> — Get tracking number for the call</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-circle-check" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Connected</strong> — Caller routes to selected buyer</span>
+          <div className="mktg-section-header text-center">
+            <p className="avx-eyebrow">Core tools</p>
+            <h2 className="fw-bold">Monetize, dial, route, automate and manage</h2>
+            <p className="text-muted">Five core tools in one workspace. Pick one to see it running.</p>
+          </div>
+          <div className="avx-tour-tabs avx-ai-tabs avx-plat-tabs" role="tablist" aria-label="Core tools">
+            {PLATFORM_TABS.map(([key, label, icon], i) => (
+              <button key={key} type="button" className={i ? 'avx-tour-tab' : 'avx-tour-tab avx-on'} role="tab" id={`plat-tab-${key}`} aria-controls={`plat-${key}`} aria-selected={i ? 'false' : 'true'} tabIndex={i ? -1 : 0}>
+                <span><i className={`fa-solid ${icon}`} aria-hidden="true" /> {label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="avx-plat-panel" id="plat-pingpost" role="tabpanel" aria-labelledby="plat-tab-pingpost">
+            <div className="row align-items-center g-5">
+              <div className="col-lg-6">
+                <div className="mktg-spotlight-visual" data-avx-demo="pingpost">
+                  <div className="spotlight-flow-steps">
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-building" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Publisher</strong> — Sends lead data</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-satellite-dish" aria-hidden="true" />
+                      {" "}
+                      <span><strong>PING</strong> — Check available buyers, get bids</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-filter" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Buyer Matching</strong> — Hours, caps, geo, filters, duplicates</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-phone-flip" aria-hidden="true" />
+                      {" "}
+                      <span><strong>POST</strong> — Get tracking number for the call</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-circle-check" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Connected</strong> — Caller routes to selected buyer</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="mktg-section-header">
-                <p className="avx-eyebrow">Monetize</p>
-                <h2 className="fw-bold mb-3">Ping/Post</h2>
+              <div className="col-lg-6">
+                <div className="mktg-section-header">
+                  <p className="avx-eyebrow">Monetize</p>
+                  <h3 className="h2 fw-bold mb-3">Ping/Post</h3>
+                </div>
+                <p className="text-muted">Real-time bidding for inbound calls — connect every lead to the buyer who values it most.</p>
+                <ul className="list-unstyled text-muted small">
+                  <li className="mb-2">
+                    <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
+                    10+ buyer matching criteria, checked in real time
+                  </li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Route by bid, priority, or earnings-per-call</li>
+                  <li className="mb-2">
+                    <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
+                    Static and live webhook bidders in one auction
+                  </li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Per-buyer ping caps by minute, hour, or day</li>
+                </ul>
+                <a className="avx-more-link mt-3" href="/features/ping_post.html">Explore Ping/Post <span aria-hidden="true">→</span></a>
               </div>
-              <p className="text-muted">Real-time bidding for inbound calls — connect every lead to the buyer who values it most.</p>
-              <ul className="list-unstyled text-muted small">
-                <li className="mb-2">
-                  <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
-                  10+ buyer matching criteria, checked in real time
-                </li>
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Route by bid, priority, or earnings-per-call</li>
-                <li className="mb-2">
-                  <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
-                  Static and live webhook bidders in one auction
-                </li>
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Per-buyer ping caps by minute, hour, or day</li>
-              </ul>
-              <a className="avx-more-link mt-3" href="/features/ping_post.html">Explore Ping/Post <span aria-hidden="true">→</span></a>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="mktg-section avx-feat">
-        <div className="container">
-          <div className="row align-items-center g-5 flex-row-reverse">
-            <div className="col-lg-6">
-              <div className="mktg-spotlight-visual" data-avx-demo="dialer">
-                <div className="spotlight-flow-steps">
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-users" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Leads Queue</strong> — Leads enter via API, import, actions, and more</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-headset" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Agent Available</strong> — Agent on the line, ready for the next call</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-phone-volume" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Place Call</strong> — Dials the next lead when an agent is free</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-phone-flip" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Connected</strong> — Live answer bridged to agent</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-clipboard-check" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Disposition</strong> — Agent selects outcome, next lead</span>
+          <div className="avx-plat-panel" id="plat-dialer" role="tabpanel" aria-labelledby="plat-tab-dialer">
+            <div className="row align-items-center g-5">
+              <div className="col-lg-6">
+                <div className="mktg-spotlight-visual" data-avx-demo="dialer">
+                  <div className="spotlight-flow-steps">
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-users" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Leads Queue</strong> — Leads enter via API, import, actions, and more</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-headset" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Agent Available</strong> — Agent on the line, ready for the next call</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-phone-volume" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Place Call</strong> — Dials the next lead when an agent is free</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-phone-flip" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Connected</strong> — Live answer bridged to agent</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-clipboard-check" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Disposition</strong> — Agent selects outcome, next lead</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="mktg-section-header">
-                <p className="avx-eyebrow">Dial</p>
-                <h2 className="fw-bold mb-3">Power Dialer</h2>
+              <div className="col-lg-6">
+                <div className="mktg-section-header">
+                  <p className="avx-eyebrow">Dial</p>
+                  <h3 className="h2 fw-bold mb-3">Power Dialer</h3>
+                </div>
+                <p className="text-muted">Continuous outbound dialing that keeps agents talking, not waiting.</p>
+                <ul className="list-unstyled text-muted small">
+                  <li className="mb-2">
+                    <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
+                    Places the next call the moment an agent is free
+                  </li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Answering-machine screening</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Built-in WebRTC softphone, no downloads</li>
+                </ul>
+                <a className="avx-more-link mt-3" href="/features/agent_controls.html#power-dialer">
+                  Explore the Power Dialer{" "}
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
-              <p className="text-muted">Continuous outbound dialing that keeps agents talking, not waiting.</p>
-              <ul className="list-unstyled text-muted small">
-                <li className="mb-2">
-                  <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
-                  Places the next call the moment an agent is free
-                </li>
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Answering-machine screening</li>
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Built-in WebRTC softphone, no downloads</li>
-              </ul>
-              <a className="avx-more-link mt-3" href="/features/agent_controls.html#power-dialer">
-                Explore the Power Dialer{" "}
-                <span aria-hidden="true">→</span>
-              </a>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="mktg-section avx-feat">
-        <div className="container">
-          <div className="row align-items-center g-5">
-            <div className="col-lg-6">
-              <div className="mktg-spotlight-visual" data-avx-demo="tracking">
-                <div className="spotlight-flow-steps">
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-phone-flip" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Inbound Call</strong> — Caller dials your tracking number</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-message" aria-hidden="true" />
-                    {" "}
-                    <span><strong>IVR Greeting</strong> — Menu and keypress collection</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-diagram-project" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Smart Routing</strong> — Route by tier, bid, or EPC</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-users" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Ring Buyers</strong> — In priority order or all at once</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-circle-check" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Connected</strong> — Call bridged to the buyer</span>
+          <div className="avx-plat-panel" id="plat-tracking" role="tabpanel" aria-labelledby="plat-tab-tracking">
+            <div className="row align-items-center g-5">
+              <div className="col-lg-6">
+                <div className="mktg-spotlight-visual" data-avx-demo="tracking">
+                  <div className="spotlight-flow-steps">
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-phone-flip" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Inbound Call</strong> — Caller dials your tracking number</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-message" aria-hidden="true" />
+                      {" "}
+                      <span><strong>IVR Greeting</strong> — Menu and keypress collection</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-diagram-project" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Smart Routing</strong> — Route by tier, bid, or EPC</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-users" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Ring Buyers</strong> — In priority order or all at once</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-circle-check" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Connected</strong> — Call bridged to the buyer</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="mktg-section-header">
-                <p className="avx-eyebrow">Route</p>
-                <h2 className="fw-bold mb-3">Call Tracking</h2>
+              <div className="col-lg-6">
+                <div className="mktg-section-header">
+                  <p className="avx-eyebrow">Route</p>
+                  <h3 className="h2 fw-bold mb-3">Call Tracking</h3>
+                </div>
+                <p className="text-muted">Build call flows that send every caller to the right buyer.</p>
+                <ul className="list-unstyled text-muted small">
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Tier/weight priority with capacity caps</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Simultaneous ring — first to answer wins</li>
+                  <li className="mb-2">
+                    <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
+                    Question & Answer flows that qualify and route callers
+                  </li>
+                  <li className="mb-2">
+                    <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
+                    AI Voice Agent flows that answer and pre-qualify
+                  </li>
+                  <li className="mb-2">
+                    <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
+                    Whisper messages and answering-machine detection
+                  </li>
+                </ul>
+                <a className="avx-more-link mt-3" href="/features/call_tracking.html">
+                  Explore Call Tracking & Routing{" "}
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
-              <p className="text-muted">Build call flows that send every caller to the right buyer.</p>
-              <ul className="list-unstyled text-muted small">
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Tier/weight priority with capacity caps</li>
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Simultaneous ring — first to answer wins</li>
-                <li className="mb-2">
-                  <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
-                  Question & Answer flows that qualify and route callers
-                </li>
-                <li className="mb-2">
-                  <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
-                  AI Voice Agent flows that answer and pre-qualify
-                </li>
-                <li className="mb-2">
-                  <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
-                  Whisper messages and answering-machine detection
-                </li>
-              </ul>
-              <a className="avx-more-link mt-3" href="/features/call_tracking.html">
-                Explore Call Tracking & Routing{" "}
-                <span aria-hidden="true">→</span>
-              </a>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="mktg-section avx-feat">
-        <div className="container">
-          <div className="row align-items-center g-5 flex-row-reverse">
-            <div className="col-lg-6">
-              <div className="mktg-spotlight-visual" data-avx-demo="automation">
-                <div className="spotlight-flow-steps">
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-user-plus" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Lead Enters</strong> — Via web form, API, or import</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-comment-sms" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Outreach</strong> — Optional SMS, email, or webhook actions</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-clock" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Wait</strong> — Configurable delay between steps</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-phone-volume" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Call</strong> — Optionally call the lead, route to a buyer</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-rotate" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Repeat</strong> — More attempts, or complete</span>
+          <div className="avx-plat-panel" id="plat-automation" role="tabpanel" aria-labelledby="plat-tab-automation">
+            <div className="row align-items-center g-5">
+              <div className="col-lg-6">
+                <div className="mktg-spotlight-visual" data-avx-demo="automation">
+                  <div className="spotlight-flow-steps">
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-user-plus" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Lead Enters</strong> — Via web form, API, or import</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-comment-sms" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Outreach</strong> — Optional SMS, email, or webhook actions</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-clock" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Wait</strong> — Configurable delay between steps</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-phone-volume" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Call</strong> — Optionally call the lead, route to a buyer</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-rotate" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Repeat</strong> — More attempts, or complete</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="mktg-section-header">
-                <p className="avx-eyebrow">Automate</p>
-                <h2 className="fw-bold mb-3">Lead Automation</h2>
+              <div className="col-lg-6">
+                <div className="mktg-section-header">
+                  <p className="avx-eyebrow">Automate</p>
+                  <h3 className="h2 fw-bold mb-3">Lead Automation</h3>
+                </div>
+                <p className="text-muted">Turn web leads into live calls with automated SMS, email, and dialing.</p>
+                <ul className="list-unstyled text-muted small">
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />SMS, email, and outbound call sequences</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Conditional branching and retry logic</li>
+                  <li className="mb-2">
+                    <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
+                    Scheduled callbacks with daylight-hours awareness
+                  </li>
+                </ul>
+                <a className="avx-more-link mt-3" href="/features/lead_automation.html">
+                  Explore Lead Automation{" "}
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
-              <p className="text-muted">Turn web leads into live calls with automated SMS, email, and dialing.</p>
-              <ul className="list-unstyled text-muted small">
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />SMS, email, and outbound call sequences</li>
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Conditional branching and retry logic</li>
-                <li className="mb-2">
-                  <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
-                  Scheduled callbacks with daylight-hours awareness
-                </li>
-              </ul>
-              <a className="avx-more-link mt-3" href="/features/lead_automation.html">
-                Explore Lead Automation{" "}
-                <span aria-hidden="true">→</span>
-              </a>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="mktg-section avx-feat">
-        <div className="container">
-          <div className="row align-items-center g-5">
-            <div className="col-lg-6">
-              <div className="mktg-spotlight-visual" data-avx-demo="agent">
-                <div className="spotlight-flow-steps">
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-headset" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Agent Online</strong> — Connects via WebRTC softphone</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-clipboard-list" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Interview</strong> — Guided scripts to qualify the caller</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-phone-flip" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Transfer</strong> — Hand the call to a buyer</span>
-                  </div>
-                  <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
-                  <div className="spotlight-flow-step">
-                    <i className="fa-solid fa-tag" aria-hidden="true" />
-                    {" "}
-                    <span><strong>Disposition</strong> — Tag the outcome, trigger follow-up actions</span>
+          <div className="avx-plat-panel" id="plat-agent" role="tabpanel" aria-labelledby="plat-tab-agent">
+            <div className="row align-items-center g-5">
+              <div className="col-lg-6">
+                <div className="mktg-spotlight-visual" data-avx-demo="agent">
+                  <div className="spotlight-flow-steps">
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-headset" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Agent Online</strong> — Connects via WebRTC softphone</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-clipboard-list" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Interview</strong> — Guided scripts to qualify the caller</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-phone-flip" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Transfer</strong> — Hand the call to a buyer</span>
+                    </div>
+                    <div className="spotlight-flow-arrow"><i className="fa-solid fa-arrow-down" aria-hidden="true" /></div>
+                    <div className="spotlight-flow-step">
+                      <i className="fa-solid fa-tag" aria-hidden="true" />
+                      {" "}
+                      <span><strong>Disposition</strong> — Tag the outcome, trigger follow-up actions</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="mktg-section-header">
-                <p className="avx-eyebrow">Manage</p>
-                <h2 className="fw-bold mb-3">Agent Control Center</h2>
+              <div className="col-lg-6">
+                <div className="mktg-section-header">
+                  <p className="avx-eyebrow">Manage</p>
+                  <h3 className="h2 fw-bold mb-3">Agent Control Center</h3>
+                </div>
+                <p className="text-muted">Run your whole call center from one screen.</p>
+                <ul className="list-unstyled text-muted small">
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Interview and qualify callers</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Transfer to buyers or other agents</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Disposition calls and schedule callbacks</li>
+                </ul>
+                <a className="avx-more-link mt-3" href="/features/agent_controls.html#agent-control-center">
+                  Explore the Agent Control Center{" "}
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
-              <p className="text-muted">Run your whole call center from one screen.</p>
-              <ul className="list-unstyled text-muted small">
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Interview and qualify callers</li>
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Transfer to buyers or other agents</li>
-                <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Disposition calls and schedule callbacks</li>
-              </ul>
-              <a className="avx-more-link mt-3" href="/features/agent_controls.html#agent-control-center">
-                Explore the Agent Control Center{" "}
-                <span aria-hidden="true">→</span>
-              </a>
             </div>
           </div>
         </div>
@@ -820,6 +850,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div className="avx-caps-v3">
           <div className="avx-caps-head">
             <div>
               <h3>More capabilities</h3>
@@ -827,7 +858,18 @@ export default function Home() {
             </div>
             <a href="/features.html" className="avx-more-link">See all features <span aria-hidden="true">→</span></a>
           </div>
-          <div className="avx-cap-grid avx-bento text-start" data-avx-bento="">
+          <div className="avx-cap-grid avx-bento avx-bento-3 text-start" data-avx-bento="">
+            <a href="/features/transcriptions.html" className="avx-cap avx-cap--lead">
+              {" "}
+              <i className="avx-cap-ic fa-solid fa-closed-captioning" aria-hidden="true" />
+              {" "}
+              <b>AI Transcriptions</b>
+              {" "}
+              <span>Every recorded call transcribed, with summaries, sentiment and topics.</span>
+              {" "}
+              <em aria-hidden="true">→</em>
+              {" "}
+            </a>
             <a href="/features/spam_tag_mitigation.html" className="avx-cap">
               {" "}
               <i className="avx-cap-ic fa-solid fa-shield-halved" aria-hidden="true" />
@@ -839,55 +881,6 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
-            {" "}
-            <a href="/features/dynamic_number_insertion.html" className="avx-cap">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-hashtag" aria-hidden="true" />
-              {" "}
-              <b>Dynamic Number Insertion</b>
-              {" "}
-              <span>Swap tracking numbers on your site to tie every call to its source.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            {" "}
-            <a href="/features/custom_webhook.html" className="avx-cap">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-link" aria-hidden="true" />
-              {" "}
-              <b>Custom Webhooks</b>
-              {" "}
-              <span>Send call and lead data to any endpoint the moment events happen.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            {" "}
-            <a href="/features/formulas.html" className="avx-cap">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-square-root-variable" aria-hidden="true" />
-              {" "}
-              <b>Expressions & Functions</b>
-              {" "}
-              <span>Formulas for routing rules, data transformations and calculations.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            {" "}
-            <a href="/features/transcriptions.html" className="avx-cap">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-closed-captioning" aria-hidden="true" />
-              {" "}
-              <b>AI Transcriptions</b>
-              {" "}
-              <span>Every recorded call transcribed, with summaries, sentiment and topics.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            {" "}
             <a href="/features/call_recordings.html" className="avx-cap">
               {" "}
               <i className="avx-cap-ic fa-solid fa-microphone-lines" aria-hidden="true" />
@@ -899,8 +892,42 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
-            {" "}
-            <a href="/features/data_export.html" className="avx-cap">
+          </div>
+          <div className="avx-cap-list text-start">
+            <a href="/features/dynamic_number_insertion.html" className="avx-cap-li">
+              {" "}
+              <i className="avx-cap-ic fa-solid fa-hashtag" aria-hidden="true" />
+              {" "}
+              <b>Dynamic Number Insertion</b>
+              {" "}
+              <span>Swap tracking numbers on your site to tie every call to its source.</span>
+              {" "}
+              <em aria-hidden="true">→</em>
+              {" "}
+            </a>
+            <a href="/features/custom_webhook.html" className="avx-cap-li">
+              {" "}
+              <i className="avx-cap-ic fa-solid fa-link" aria-hidden="true" />
+              {" "}
+              <b>Custom Webhooks</b>
+              {" "}
+              <span>Send call and lead data to any endpoint the moment events happen.</span>
+              {" "}
+              <em aria-hidden="true">→</em>
+              {" "}
+            </a>
+            <a href="/features/formulas.html" className="avx-cap-li">
+              {" "}
+              <i className="avx-cap-ic fa-solid fa-square-root-variable" aria-hidden="true" />
+              {" "}
+              <b>Expressions & Functions</b>
+              {" "}
+              <span>Formulas for routing rules, data transformations and calculations.</span>
+              {" "}
+              <em aria-hidden="true">→</em>
+              {" "}
+            </a>
+            <a href="/features/data_export.html" className="avx-cap-li">
               {" "}
               <i className="avx-cap-ic fa-solid fa-file-export" aria-hidden="true" />
               {" "}
@@ -911,8 +938,7 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
-            {" "}
-            <a href="/features.html#security-compliance-tools" className="avx-cap">
+            <a href="/features.html#security-compliance-tools" className="avx-cap-li">
               {" "}
               <i className="avx-cap-ic fa-solid fa-scale-balanced" aria-hidden="true" />
               {" "}
@@ -923,6 +949,7 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
+          </div>
           </div>
         </div>
       </section>
@@ -949,11 +976,6 @@ export default function Home() {
             <p className="avx-eyebrow">Built to be trusted</p>
             <h2 className="fw-bold">Fast, reliable and compliant by default</h2>
             <p className="text-muted">Screening and controls run on every call, before anyone is dialed.</p>
-          </div>
-          <div className="avx-proof-stats">
-            <div><b className="avx-proof-num">99.9%</b><span>Uptime</span></div>
-            <div><b className="avx-proof-num">85ms</b><span>Avg routing time</span></div>
-            <div><b className="avx-proof-num">10+</b><span>Buyer match rules</span></div>
           </div>
           <div className="avx-trust-grid">
             <a href="/features/suppression_lists.html" className="avx-trust-item">
@@ -1018,6 +1040,25 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="mktg-section avx-faq" id="faq">
+        <div className="container">
+          <div className="mktg-section-header text-center">
+            <p className="avx-eyebrow">FAQ</p>
+            <h2 className="fw-bold">Questions, answered</h2>
+          </div>
+          <div className="avx-faq-list">
+            {FAQ.map(([q, a, link]) => (
+              <details className="avx-faq-item" key={q}>
+                <summary>{q}</summary>
+                <p>
+                  {a}
+                  {link && <>{" "}<a href={link[0]}>{link[1]} <span aria-hidden="true">→</span></a></>}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true">
           <img alt="" loading="lazy" src="/assets/avx-site/img/constellation-light.svg" />
@@ -1032,6 +1073,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* phones: sign-up stays one tap away once the hero has scrolled off (motion.js shows it) */}
+      <div className="avx-mcta" data-avx-mcta="">
+        <a href="/sign_up.html" className="btn btn-td-green fw-semibold">Sign Up Free</a>
+        <a href="/p/request_demo.html" className="btn btn-outline-td-green fw-semibold">Request Demo</a>
+      </div>
     </main>
   )
 }

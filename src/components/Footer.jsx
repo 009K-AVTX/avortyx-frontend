@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
           {COLUMNS.map(([title, links]) => (
             <div key={title} className="col-lg-3 col-md-6">
-              <h6 className="mb-3">{title}</h6>
+              <h2 className="h6 mb-3">{title}</h2>
               <ul className="list-unstyled small">
                 {links.map(([href, label]) => (
                   <li key={href} className="mb-2"><a href={href}>{label}</a></li>
