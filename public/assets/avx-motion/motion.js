@@ -679,7 +679,7 @@
       return !sec.classList.contains('marketing-cta-band');
     });
     var host = sections[sections.length - 1];
-    if (!host) return;
+    if (!host || host.id === 'faq' || host.classList.contains('avx-faq')) return;
     var scene = BOTTOM_SCENES[pageKey()] || STYLE_SCENES[pageWaveStyle()];
     host.classList.add('avx-fx-host', 'avx-bwaves-host');
     host.appendChild(scene());
@@ -2576,8 +2576,7 @@
   function initLandingWaves() {
     if (pageKey() !== '/') return;
     [
-      ['main > .avx-int', STYLE_SCENES.ribbons],
-      ['#faq', STYLE_SCENES.strands]
+      ['main > .avx-int', STYLE_SCENES.ribbons]
     ].forEach(function (w) {
       var host = document.querySelector(w[0]);
       if (!host) return;
@@ -2625,40 +2624,110 @@
     setInterval(tick, 1000);
   }
 
-  // ---------- AI hub: a pulse runs from the chip to each capability in turn ----------
+  // ---------- AI hub: Ringba-inspired 3D AI Core and multi-sphere routing engine ----------
 
   function initHub() {
     var hub = document.querySelector('[data-avx-hub]');
     if (!hub) return;
-    var lines = hub.querySelectorAll('.avx-hub-lines path'), nodes = hub.querySelectorAll('.avx-hub-node');
-    var dot = hub.querySelector('.avx-hub-dot');
-    // the path is in 0..100 viewBox units, the same as the dot's left/top percentages
-    function travel(path) {
+
+    var sphereCards = hub.querySelectorAll('[data-hub-node]');
+    var paths = [
+      hub.querySelector('#avx-line-0'),
+      hub.querySelector('#avx-line-1'),
+      hub.querySelector('#avx-line-2'),
+      hub.querySelector('#avx-line-3')
+    ];
+    var packet = hub.querySelector('.avx-conduit-packet');
+    var chassis = hub.querySelector('.avx-3d-core-chassis');
+    var telStatus = document.getElementById('avx-core-telemetry-status');
+    var telBadge = document.getElementById('avx-core-telemetry-badge');
+    var telLatency = document.getElementById('avx-core-telemetry-latency');
+
+    var NODE_DATA = [
+      {
+        aura: 'avx-aura-green',
+        badge: '99.4% Confidence',
+        badgeCls: 'bg-success-subtle text-success',
+        latency: '38ms Voice Response',
+        status: 'Voice IVA: Autonomous Medicare Transfer #AVX-9482'
+      },
+      {
+        aura: 'avx-aura-blue',
+        badge: '62ms RTB Auction',
+        badgeCls: 'bg-info-subtle text-info',
+        latency: 'Sub-85ms Edge Delivery',
+        status: 'Ping-Tree: 12 Buyers Bidding · High Bid $68.50 Won'
+      },
+      {
+        aura: 'avx-aura-purple',
+        badge: '99.94% Clean Traffic',
+        badgeCls: 'bg-primary-subtle text-primary',
+        latency: 'Zero TCPA Leaks',
+        status: 'Shield: Carrier Line Verified · Clean Caller Attestation'
+      },
+      {
+        aura: 'avx-aura-orange',
+        badge: '100% Attributed',
+        badgeCls: 'bg-warning-subtle text-warning',
+        latency: '28ms In-Flight Lookup',
+        status: 'Caller 360°: Ad Tokens & Demographics Enriched'
+      }
+    ];
+
+    function travelPacket(path) {
+      if (!path || !packet) return;
       var len = path.getTotalLength(), t0 = performance.now();
-      dot.classList.add('avx-on');
+      packet.classList.add('avx-on');
       (function f(now) {
-        var p = Math.min((now - t0) / 560, 1), e = p * p * (3 - 2 * p), pt = path.getPointAtLength(len * e);
-        dot.style.left = pt.x + '%';
-        dot.style.top = pt.y + '%';
-        if (p < 1) requestAnimationFrame(f); else dot.classList.remove('avx-on');
+        var p = Math.min((now - t0) / 600, 1), e = p * p * (3 - 2 * p);
+        var pt = path.getPointAtLength(len * e);
+        packet.setAttribute('cx', pt.x);
+        packet.setAttribute('cy', pt.y);
+        if (p < 1) requestAnimationFrame(f);
+        else packet.classList.remove('avx-on');
       })(t0);
     }
-    var core = hub.querySelector('.avx-hub-core'), i = 0, timer = null, visible = false;
-    reactive(hub, hub, true);
-    if (reduced) { nodes.forEach(function (n) { n.classList.add('avx-on'); }); return; }
-    function step() {
-      timer = setTimeout(step, 1500);
-      if (!visible || motionPaused() || document.hidden) return;
-      var k = i++ % nodes.length;
-      lines.forEach(function (l, j) { l.classList.toggle('avx-on', j === k); });
-      // restart the pulse on this line, then light its node as the pulse arrives
-      travel(lines[k]);
-      core.classList.remove('avx-scan'); void core.offsetWidth; core.classList.add('avx-scan');
-      setTimeout(function () {
-        nodes.forEach(function (n, j) { n.classList.toggle('avx-on', j === k); });
-        nodes[k].classList.add('avx-seen');
-      }, 520);
+
+    var activeIdx = 0, timer = null, visible = false;
+
+    function activateNode(idx) {
+      activeIdx = idx % 4;
+      var d = NODE_DATA[activeIdx];
+      sphereCards.forEach(function (card, i) {
+        card.classList.toggle('avx-active', i === activeIdx);
+      });
+      paths.forEach(function (p, i) {
+        if (p) p.classList.toggle('avx-on', i === activeIdx);
+      });
+      if (paths[activeIdx]) travelPacket(paths[activeIdx]);
+      if (chassis) {
+        chassis.classList.remove('avx-aura-green', 'avx-aura-blue', 'avx-aura-purple', 'avx-aura-orange');
+        chassis.classList.add(d.aura);
+      }
+      if (telStatus) telStatus.textContent = d.status;
+      if (telBadge) {
+        telBadge.textContent = d.badge;
+        telBadge.className = 'badge ' + d.badgeCls;
+      }
+      if (telLatency) telLatency.textContent = d.latency;
     }
+
+    sphereCards.forEach(function (card, i) {
+      card.addEventListener('click', function () {
+        activateNode(i);
+        if (timer) { clearTimeout(timer); timer = setTimeout(step, 4000); }
+      });
+    });
+
+    reactive(hub, hub, true);
+    if (reduced) return;
+
+    function step() {
+      timer = setTimeout(step, 2800);
+      if (!visible || motionPaused() || document.hidden) return;
+      activateNode((activeIdx + 1) % 4);
+    }
+
     onVisible(hub, function () { visible = true; if (!timer) step(); }, function () { visible = false; }, 0.2);
   }
 
@@ -2973,6 +3042,20 @@
       q('num').textContent = d.num;
       q('meta').textContent = d.meta;
       q('ms').textContent = '—';
+      if (q('why')) q('why').textContent = d.why;
+      if (q('quote')) {
+        q('quote').textContent = '“' + d.quote + '”';
+        q('quote').classList.remove('avx-on');
+      }
+      if (q('sent')) {
+        q('sent').textContent = d.sent[0];
+        q('sent').className = 'avx-fc-sent avx-sent-' + d.sent[1];
+      }
+      if (q('tags')) {
+        q('tags').innerHTML = (d.tags || []).map(function (t) {
+          return '<span class="avx-fc-tag">' + t + '</span>';
+        }).join('');
+      }
       caller.className = 'avx-fc-caller avx-fc-ring';
       [link1, link2].forEach(function (l) { l.classList.remove('avx-on'); });
       core.classList.remove('avx-on');
@@ -2981,20 +3064,25 @@
       status.classList.remove('avx-on');
       card.classList.remove('avx-shine');
       say('Incoming call', 'caller');
+      if (q('voice-bars')) q('voice-bars').classList.add('avx-active');
       // the buyers, in a fresh order each call so the winner moves around
       var order = d.bids.map(function (b, i) { return i; }).sort(function () { return Math.random() - 0.5; });
       list.innerHTML = '';
       var rows = order.map(function (i) {
-        var li = el('li', '', '<i></i><span></span>');
+        var li = el('li', '', '<span class="avx-fc-b-main"><i></i><span class="avx-fc-b-name"></span></span><span class="avx-fc-b-bid"></span>');
         li.querySelector('i').textContent = initials(d.bids[i][0]);
-        li.querySelector('span').textContent = d.bids[i][0];
+        li.querySelector('.avx-fc-b-name').textContent = d.bids[i][0];
+        li.querySelector('.avx-fc-b-bid').textContent = '$' + d.bids[i][1].toFixed(2);
         li.dataset.win = i === 0 ? '1' : '';
         list.appendChild(li);
         return li;
       });
 
-      later(1000, function () { link1.classList.add('avx-on'); });
-      later(1600, function () {
+      later(900, function () {
+        if (q('quote')) q('quote').classList.add('avx-on');
+      });
+      later(1300, function () { link1.classList.add('avx-on'); });
+      later(1800, function () {
         say('AI scoring intent', 'core');
         caller.className = 'avx-fc-caller avx-fc-done';
         core.classList.add('avx-on');
@@ -3006,15 +3094,22 @@
           if (p < 1) requestAnimationFrame(count);
         })(t0);
       });
-      later(2800, function () { link2.classList.add('avx-on'); say('Finding the best buyer', 'buyers'); });
+      later(2800, function () { link2.classList.add('avx-on'); say('Simulating ping auction', 'buyers'); });
       rows.forEach(function (li, k) { later(3300 + k * 160, function () { li.className = 'avx-scan'; }); });
       later(3300 + rows.length * 160 + 250, function () {
-        rows.forEach(function (li) { li.className = li.dataset.win ? 'avx-win' : 'avx-lose'; });
+        rows.forEach(function (li) {
+          if (li.dataset.win) {
+            li.className = 'avx-win';
+            li.querySelector('.avx-fc-b-bid').innerHTML = '<b>$' + d.bids[0][1].toFixed(2) + '</b> <span class="avx-fc-win-pill">WON</span>';
+          } else {
+            li.className = 'avx-lose';
+          }
+        });
         q('winner').textContent = d.bids[0][0];
         q('pay').textContent = '$' + d.bids[0][1].toFixed(2);
         q('ms').textContent = d.ms + 'ms';
         status.classList.add('avx-on');
-        say('Routed in ' + d.ms + 'ms', 'buyers');
+        say('Bridged in ' + d.ms + 'ms', 'buyers');
         void card.offsetWidth;
         card.classList.add('avx-shine');
         complete = true;
@@ -3040,8 +3135,6 @@
     setInterval(function () { if (waiting && running && !motionPaused() && !document.hidden) { waiting = false; play(); } }, 600);
     // the 3D stage leans toward the pointer (eased, mouse and pen only)
     reactive(card, card.querySelector('.avx-fc'), true);
-    // a rolling wave floor under the stage
-    card.insertBefore(contourScene('avx-cv-card', { rows: 18, amp: 0.8, f1: 5, s1: 0.35, roll: 0.9, color: '59,130,246', accent: '147,197,253', alpha: 0.55 }), card.querySelector('.avx-fc3d'));
   }
 
   // ---------- AI at work: Ask Avortyx, a live transcript and a voice agent ----------
@@ -3916,10 +4009,103 @@
     if (document.readyState === 'complete') current();
   }
 
+  // ---------- AI Studio: interactive scenarios (Medicare, Solar, Fraud, Auto) ----------
+  var STUDIO_DATA = {
+    medicare: {
+      prompt: 'Simulate 1,000 inbound Florida callers with urgent Medicare enrollment intent.',
+      thresh: '85% Minimum',
+      epcTarget: '$45.00 EPC',
+      sentiment: 'High Urgency (Positive)',
+      transcript: '“Hello, I’m 67 and need to switch from my current Advantage plan before the deadline. Can someone check if my prescriptions are covered?”',
+      entities: ['Medicare Part D', 'Aged 67', 'Prescription Check', 'Open Enrollment'],
+      score: '0.96',
+      epc: '$68.40',
+      latency: '38ms',
+      lift: '+36.2%',
+      summary: 'Caller is comparing Part D deductibles and requesting a licensed bilingual agent before the Friday open-enrollment cutoff.',
+      json: '{\n  "action": "route_immediate",\n  "buyer": "Meridian Senior Health",\n  "bid": "$68.40",\n  "reason": "Top Bidder + Bilingual + Florida License",\n  "bridge_latency": "38ms"\n}'
+    },
+    solar: {
+      prompt: 'Filter synthetic robocalls, verify homeowner status, and route to top-bidding installer.',
+      thresh: '80% Minimum',
+      epcTarget: '$40.00 EPC',
+      sentiment: 'Solution Seeking',
+      transcript: '“We just bought a single-family house in Phoenix. Our utility bill was $320 last month and we want to install rooftop panels.”',
+      entities: ['Single-family Owner', 'Phoenix, AZ', '$300+ Utility Bill', 'Battery Storage'],
+      score: '0.92',
+      epc: '$54.00',
+      latency: '44ms',
+      lift: '+28.5%',
+      summary: 'Homeowner in Arizona with monthly electric bill over $280 looking for battery backup and zero-down financing options.',
+      json: '{\n  "action": "route_immediate",\n  "buyer": "Summit Residential Solar",\n  "bid": "$54.00",\n  "reason": "Single-Family Verified + Bill > $250 + Open Cap",\n  "bridge_latency": "44ms"\n}'
+    },
+    fraud: {
+      prompt: 'Screen incoming call for AI-generated cloned speech, VoIP disposable numbers, and litigator lists.',
+      thresh: '95% Strict',
+      epcTarget: '$0.00 Waste',
+      sentiment: 'Synthetic Robocall',
+      transcript: '“This is an automated advisory regarding your credit eligibility. Press 1 to speak with a representative immediately.”',
+      entities: ['Robocall Pattern #44', 'Disposable VoIP Trunk', 'Known Serial Litigator CID'],
+      score: '0.12',
+      epc: '$0.00',
+      latency: '22ms',
+      lift: 'Saved $45 Waste',
+      summary: 'Anomalous audio frequency detected: 98.2% likelihood of synthetic voice generation. Carrier marked as high-risk disposable VoIP.',
+      json: '{\n  "action": "drop_and_blacklist",\n  "buyer": "BLOCKED_BOT",\n  "bid": "$0.00",\n  "reason": "Synthetic voice model detected + VOIP burner flagged",\n  "bridge_latency": "22ms"\n}'
+    },
+    auto: {
+      prompt: 'Run instant ping-tree auction across 5 carriers for a driver seeking multi-vehicle full coverage.',
+      thresh: '82% Minimum',
+      epcTarget: '$35.00 EPC',
+      sentiment: 'Ready to Purchase',
+      transcript: '“My current auto policy with Geico is expiring on the 24th and I need full coverage on two cars with low deductible.”',
+      entities: ['2 Vehicles', 'Full Coverage', 'Renewal in 10 Days', 'Clean Record'],
+      score: '0.94',
+      epc: '$48.50',
+      latency: '62ms',
+      lift: '+41.0%',
+      summary: 'High-intent driver with 2 clean vehicles and existing policy renewing in 10 days. 4 buyers submitted simultaneous bids within 60ms.',
+      json: '{\n  "action": "route_immediate",\n  "buyer": "Pinnacle Auto Insurance",\n  "bid": "$48.50",\n  "reason": "Multi-Vehicle Priority + Top Bid (Outbid runner-up by $6.50)",\n  "bridge_latency": "62ms"\n}'
+    }
+  };
+
+  function initAiStudio() {
+    var studio = document.querySelector('[data-avx-studio]');
+    if (!studio) return;
+    var btns = studio.querySelectorAll('[data-studio-btn]');
+    var q = function (k) { return studio.querySelector('[data-studio-out="' + k + '"]'); };
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btns.forEach(function (b) { b.classList.remove('avx-active'); });
+        btn.classList.add('avx-active');
+        var key = btn.getAttribute('data-studio-btn');
+        var d = STUDIO_DATA[key];
+        if (!d) return;
+        if (q('prompt')) q('prompt').textContent = '“' + d.prompt + '”';
+        if (q('intent-thresh')) q('intent-thresh').textContent = d.thresh;
+        if (q('epc-target')) q('epc-target').textContent = d.epcTarget;
+        if (q('sentiment')) q('sentiment').textContent = d.sentiment;
+        if (q('transcript')) q('transcript').textContent = d.transcript;
+        if (q('score')) q('score').textContent = d.score;
+        if (q('epc')) q('epc').textContent = d.epc;
+        if (q('latency')) q('latency').textContent = d.latency;
+        if (q('lift')) q('lift').textContent = d.lift;
+        if (q('summary')) q('summary').textContent = d.summary;
+        if (q('json')) q('json').textContent = d.json;
+        if (q('entities')) {
+          q('entities').innerHTML = d.entities.map(function (e) {
+            return '<span class="badge bg-secondary-subtle text-secondary me-1">' + e + '</span>';
+          }).join('');
+        }
+      });
+    });
+  }
+
   function init() {
     // calm set: product UI, data and gentle reveals; no game-like decoration
     var steps = [initMotionToggle, initProgress, initRingbaHero, initDecision, initLeadFlow, initPlatformFlow,
-      initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta, initShield, initHub, initLandingWaves, initLiveReadouts,
+      initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initAiStudio, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta, initShield, initHub, initLandingWaves, initLiveReadouts,
       initBackLinks, initFloatingBack, initZoom, initNavScroll, initPalette, initWindows, initAuthRing, initIntegrationsHub, initIntegrationsBackdrop,
       initPricingHorizon, initIntegrationWaves, initFlowSequences, initTables, initCounters,
       initOffscreenPause, initScrollHints, initAnchors];

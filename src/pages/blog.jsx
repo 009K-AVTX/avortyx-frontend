@@ -17,9 +17,9 @@ export default function Blog() {
     <main>
       <section className="avx-blog-hero">
         <div className="container">
-          <p className="avx-eyebrow">Avortyx Blog</p>
-          <h1 className="fw-bold">Field notes on call tracking, routing and <em>pay-per-call</em></h1>
-          <p className="lead">Guides, explainers and worked examples from the team building Avortyx.</p>
+          <p className="avx-eyebrow">The Avortyx Playbook</p>
+          <h1 className="fw-bold">Tactical playbooks for call tracking, real-time routing &amp; <em>pay-per-call</em></h1>
+          <p className="lead">Actionable benchmarks, compliance frameworks, and revenue strategies engineered for high-volume lead generators, agencies, and performance networks.</p>
         </div>
       </section>
       <section className="avx-blog-list">

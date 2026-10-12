@@ -15,6 +15,7 @@ const LINKS = [
   ['/features/integrations', 'Integrations'],
   ['/pricing', 'Pricing'],
   ['/blog', 'Blog'],
+  ['/careers', 'Careers'],
 ]
 
 export default function Navbar({ brandHref }) {

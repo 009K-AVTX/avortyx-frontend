@@ -12703,6 +12703,7 @@ dialog.avx-mail::backdrop {
 }
 
 .avx-cv-card {
+  display: none !important;
   position: absolute;
   right: 0;
   bottom: 0;

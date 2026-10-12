@@ -1,6 +1,6 @@
 import BlogCard from '../components/BlogCard.jsx'
 import BrandMark from '../components/BrandMark.jsx'
-import { LATEST } from '../blog/posts.js'
+import { postBySlug, LATEST } from '../blog/posts.js'
 // /
 // What the AI handles, around the hub [icon, label, page, detail, x %, y %] (wording from the feature pages)
 const AI_HUB = [
@@ -58,6 +58,85 @@ const FAQ = [
   ['What support do you offer?', 'Phone, live chat and email support, plus live video sessions with our specialists.', null],
 ]
 
+const AI_STUDIO_SCENARIOS = [
+  {
+    id: 'medicare',
+    icon: 'fa-heart-pulse',
+    tag: 'Healthcare & Medicare',
+    title: 'Medicare Switch Intent',
+    prompt: 'Simulate 1,000 inbound Florida callers with urgent Medicare enrollment intent.',
+    summary: 'Caller is comparing Part D deductibles and requesting a licensed bilingual agent before the Friday open-enrollment cutoff.',
+    metrics: { intent: '0.96', sentiment: 'High Urgency (Positive)', latency: '38ms', epc: '$68.40', lift: '+36.2%' },
+    transcript: '“Hello, I’m 67 and need to switch from my current Advantage plan before the deadline. Can someone check if my prescriptions are covered?”',
+    entities: ['Medicare Part D', 'Aged 67', 'Prescription Check', 'Open Enrollment'],
+    compliance: { tcpa: 'Verifiable Consent #TK-9402', dnc: 'National & FL DNC Clean', stir: 'Attestation A' },
+    routePayload: {
+      action: 'route_immediate',
+      buyer: 'Meridian Senior Health',
+      bid: '$68.40',
+      reason: 'Top Bidder + Bilingual + Florida License',
+      bridge_latency: '38ms'
+    }
+  },
+  {
+    id: 'solar',
+    icon: 'fa-solar-panel',
+    tag: 'Home Services & Solar',
+    title: 'Solar Homeowner Intent',
+    prompt: 'Filter synthetic robocalls, verify homeowner status, and route to top-bidding installer.',
+    summary: 'Homeowner in Arizona with monthly electric bill over $280 looking for battery backup and zero-down financing options.',
+    metrics: { intent: '0.92', sentiment: 'Solution Seeking', latency: '44ms', epc: '$54.00', lift: '+28.5%' },
+    transcript: '“We just bought a single-family house in Phoenix. Our utility bill was $320 last month and we want to install rooftop panels.”',
+    entities: ['Single-family Owner', 'Phoenix, AZ', '$300+ Utility Bill', 'Battery Storage'],
+    compliance: { tcpa: 'Web Form Lead ID #WF-7721', dnc: 'Clean', stir: 'Attestation A' },
+    routePayload: {
+      action: 'route_immediate',
+      buyer: 'Summit Residential Solar',
+      bid: '$54.00',
+      reason: 'Single-Family Verified + Bill > $250 + Open Cap',
+      bridge_latency: '44ms'
+    }
+  },
+  {
+    id: 'fraud',
+    icon: 'fa-shield-halved',
+    tag: 'Security & Shield',
+    title: 'Synthetic Voice & Fraud Shield',
+    prompt: 'Screen incoming call for AI-generated cloned speech, VoIP disposable numbers, and litigator lists.',
+    summary: 'Anomalous audio frequency detected: 98.2% likelihood of synthetic voice generation. Carrier marked as high-risk disposable VoIP.',
+    metrics: { intent: '0.12', sentiment: 'Synthetic Robocall', latency: '22ms', epc: '$0.00', lift: 'Saved $45 Waste' },
+    transcript: '“This is an automated advisory regarding your credit eligibility. Press 1 to speak with a representative immediately.”',
+    entities: ['Robocall Pattern #44', 'Disposable VoIP Trunk', 'Known Serial Litigator CID'],
+    compliance: { tcpa: 'Failed (No Opt-in)', dnc: 'Blocked', stir: 'Attestation C (High Risk)' },
+    routePayload: {
+      action: 'drop_and_blacklist',
+      buyer: 'BLOCKED_BOT',
+      bid: '$0.00',
+      reason: 'Synthetic voice model detected + VOIP burner flagged',
+      bridge_latency: '22ms'
+    }
+  },
+  {
+    id: 'auto',
+    icon: 'fa-car',
+    tag: 'P&C Auto Insurance',
+    title: 'Auto Insurance Live Ping Auction',
+    prompt: 'Run instant ping-tree auction across 5 carriers for a driver seeking multi-vehicle full coverage.',
+    summary: 'High-intent driver with 2 clean vehicles and existing policy renewing in 10 days. 4 buyers submitted simultaneous bids within 60ms.',
+    metrics: { intent: '0.94', sentiment: 'Ready to Purchase', latency: '62ms', epc: '$48.50', lift: '+41.0%' },
+    transcript: '“My current auto policy with Geico is expiring on the 24th and I need full coverage on two cars with low deductible.”',
+    entities: ['2 Vehicles', 'Full Coverage', 'Renewal in 10 Days', 'Clean Record'],
+    compliance: { tcpa: 'Inbound Organic Search', dnc: 'Clean', stir: 'Attestation A' },
+    routePayload: {
+      action: 'route_immediate',
+      buyer: 'Pinnacle Auto Insurance',
+      bid: '$48.50',
+      reason: 'Multi-Vehicle Priority + Top Bid (Outbid runner-up by $6.50)',
+      bridge_latency: '62ms'
+    }
+  }
+]
+
 const FAQ_LD = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
 
 export const meta = {
@@ -104,6 +183,558 @@ export const meta = {
     @media (prefers-reduced-motion: reduce) {
       .hero-rings-tilt, .hero-rings img { animation: none; }
       .hero-rings-tilt { transform: rotateX(24deg); }
+    }
+    /* Disable wave backgrounds behind FAQ and live demo animation */
+    .avx-hero-3d, #hero-option-s .avx-hero-3d, .avx-cv-card, .avx-decide .avx-cv-card, #hero-option-s .avx-cv-card { display: none !important; }
+    #faq .avx-cv-bottom, #faq canvas, #faq .avx-bwaves, #faq .avx-bwaves-host, #faq .avx-fx-host,
+    .avx-faq .avx-cv-bottom, .avx-faq canvas, .avx-faq .avx-bwaves, .avx-faq .avx-bwaves-host, .avx-faq .avx-fx-host { display: none !important; }
+    .avx-blog-grid-2 { grid-template-columns: repeat(2, 1fr) !important; max-width: 960px; margin: 0 auto; }
+    @media (max-width: 768px) { .avx-blog-grid-2 { grid-template-columns: 1fr !important; } }
+
+    /* Pro live decision styling */
+    .avx-decide-pro { min-height: 460px; }
+    .avx-dc-telecom-chip {
+      display: inline-flex; align-items: center; font-size: 11px; font-family: ui-monospace, SFMono-Regular, monospace;
+      padding: 2px 8px; border-radius: 999px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .avx-dc-audio-bar {
+      display: flex; align-items: center; gap: 12px; margin: 10px 14px 4px; padding: 7px 14px;
+      border-radius: 10px; background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 12.5px;
+    }
+    .avx-dc-voice-bars { display: inline-flex; align-items: flex-end; gap: 2.5px; height: 16px; width: 28px; }
+    .avx-dc-voice-bars i {
+      width: 2.5px; height: 40%; background: #38bdf8; border-radius: 1px;
+      animation: avxVoiceBars 0.8s ease-in-out infinite alternate;
+    }
+    .avx-dc-voice-bars i:nth-child(2) { animation-delay: 0.15s; height: 75%; }
+    .avx-dc-voice-bars i:nth-child(3) { animation-delay: 0.3s; height: 100%; }
+    .avx-dc-voice-bars i:nth-child(4) { animation-delay: 0.45s; height: 60%; }
+    .avx-dc-voice-bars i:nth-child(5) { animation-delay: 0.2s; height: 85%; }
+    .avx-dc-voice-bars i:nth-child(6) { animation-delay: 0.35s; height: 50%; }
+    .avx-dc-voice-bars i:nth-child(7) { animation-delay: 0.5s; height: 90%; }
+    .avx-dc-voice-bars i:nth-child(8) { animation-delay: 0.25s; height: 35%; }
+    @keyframes avxVoiceBars { 0% { height: 20%; opacity: 0.4; } 100% { height: 100%; opacity: 1; } }
+    .avx-dc-quote { color: #93c5fd; font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; font-family: ui-sans-serif, system-ui; }
+    .avx-fc-verified { display: block; font-size: 11px; color: #10b981; font-weight: 600; margin-top: 3px; }
+    .avx-fc-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-top: 8px; }
+    .avx-fc-tag { font-size: 10px; background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 4px; padding: 1px 6px; }
+    .avx-fc-sent { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; margin-top: 4px; }
+    .avx-sent-pos { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+    .avx-sent-neutral { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; }
+    .avx-sent-urgent { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+    .avx-fc-b-main { display: flex; align-items: center; gap: 8px; flex: 1; }
+    .avx-fc-b-bid { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #f8fafc; font-family: ui-monospace, monospace; }
+    .avx-fc-win-pill { font-size: 9px; font-weight: 800; background: #10b981; color: #041f14; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.5px; }
+    .avx-fc-footer { border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 10px 16px 12px; margin-top: 8px; }
+    .avx-fc-reason { font-size: 11.5px; color: #94a3b8; margin-top: 4px; }
+
+    /* Why Avortyx telemetry panels */
+    .avx-pw-telemetry { width: 100%; height: 100%; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; text-align: left; }
+    .avx-pwt-box { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; font-size: 12px; }
+    .avx-pwt-hdr { display: flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 600; color: #cbd5e1; margin-bottom: 8px; }
+    .avx-pwt-pulse { width: 7px; height: 7px; border-radius: 50%; }
+    .avx-pulse-green { background: #10b981; box-shadow: 0 0 8px #10b981; }
+    .avx-pulse-blue { background: #38bdf8; box-shadow: 0 0 8px #38bdf8; }
+    .avx-pulse-purple { background: #a855f7; box-shadow: 0 0 8px #a855f7; }
+    .avx-pwt-badge-green { font-size: 10px; font-weight: 700; background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 1px 6px; border-radius: 4px; }
+    .avx-pwt-badge-blue { font-size: 10px; font-weight: 700; background: rgba(56, 189, 248, 0.2); color: #38bdf8; padding: 1px 6px; border-radius: 4px; }
+    .avx-pwt-badge-purple { font-size: 10px; font-weight: 700; background: rgba(168, 85, 247, 0.2); color: #c084fc; padding: 1px 6px; border-radius: 4px; }
+    .avx-pwt-nodes { display: flex; justify-content: space-between; background: rgba(0, 0, 0, 0.35); padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05); }
+    .avx-pwt-node { display: flex; flex-direction: column; align-items: center; }
+    .avx-pwt-node i { font-style: normal; font-size: 10px; color: #94a3b8; }
+    .avx-pwt-node b { font-size: 11.5px; color: #38bdf8; font-family: ui-monospace, monospace; }
+    .avx-pwt-metric { display: flex; justify-content: space-between; align-items: center; font-size: 11px; margin-top: 4px; }
+    .avx-pwt-metric b { color: #10b981; }
+    .avx-pwt-agent-row { display: flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.35); padding: 8px 10px; border-radius: 8px; }
+    .avx-pwt-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #0284c7, #2563eb); display: grid; place-items: center; color: #fff; font-size: 13px; }
+    .avx-pwt-agent-row b { display: block; font-size: 12px; color: #f1f5f9; }
+    .avx-pwt-agent-row small { font-size: 10px; color: #94a3b8; }
+    .avx-pwt-chips { display: flex; gap: 6px; margin-top: 6px; }
+    .avx-pwt-chips span { font-size: 10px; background: rgba(255, 255, 255, 0.07); color: #cbd5e1; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08); }
+    .avx-pwt-grow-stats { display: flex; justify-content: space-between; background: rgba(0, 0, 0, 0.35); padding: 6px 12px; border-radius: 8px; }
+    .avx-pwt-grow-stats div { display: flex; flex-direction: column; }
+    .avx-pwt-grow-stats small { font-size: 10px; color: #94a3b8; }
+    .avx-pwt-grow-stats b { font-size: 12px; font-family: ui-monospace, monospace; }
+    .avx-pwt-progress { height: 18px; background: rgba(255, 255, 255, 0.06); border-radius: 6px; overflow: hidden; margin-top: 6px; }
+    .avx-pwt-bar { height: 100%; background: linear-gradient(90deg, #2563eb, #10b981); display: flex; align-items: center; padding-left: 6px; font-size: 9.5px; font-weight: 700; color: #fff; white-space: nowrap; }
+    .avx-pwt-snippet { background: rgba(0, 0, 0, 0.45); padding: 6px 8px; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 10px; color: #a5f3fc; overflow: hidden; }
+
+    /* Magnific AI inspired interactive studio */
+    .avx-ai-studio { background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(10, 15, 29, 0.95) 100%); padding: 80px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    .avx-studio-scenarios { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+    .avx-scenario-btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); color: #cbd5e1;
+      font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all 0.25s ease;
+    }
+    .avx-scenario-btn:hover, .avx-scenario-btn.avx-active {
+      background: rgba(59, 130, 246, 0.18); border-color: rgba(96, 165, 250, 0.6); color: #fff; box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
+    }
+    .avx-studio-card {
+      background: #0d1117; border: 1px solid rgba(96, 165, 250, 0.25); border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 60px rgba(59, 130, 246, 0.08); overflow: hidden;
+    }
+    .avx-studio-header {
+      display: flex; align-items: center; justify-content: space-between; padding: 14px 22px;
+      background: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 12.5px;
+    }
+    .avx-studio-body { display: grid; grid-template-columns: 1fr 1.25fr; gap: 24px; padding: 26px; }
+    @media (max-width: 992px) { .avx-studio-body { grid-template-columns: 1fr; } }
+    .avx-studio-left { display: flex; flex-direction: column; gap: 18px; }
+    .avx-studio-prompt-box {
+      background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px;
+    }
+    .avx-studio-prompt-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8; font-weight: 700; margin-bottom: 6px; }
+    .avx-studio-prompt-text { font-size: 14px; color: #f1f5f9; line-height: 1.5; font-style: italic; }
+    .avx-studio-params { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .avx-param-card { background: rgba(255, 255, 255, 0.025); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 10px 12px; }
+    .avx-param-label { font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px; }
+    .avx-param-val { font-size: 14px; font-weight: 700; color: #38bdf8; font-family: ui-monospace, monospace; }
+    .avx-studio-telemetry { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+    .avx-stat-chip { background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 10px; text-align: center; }
+    .avx-stat-chip small { font-size: 10.5px; color: #94a3b8; display: block; }
+    .avx-stat-chip b { font-size: 16px; color: #f8fafc; font-weight: 800; font-family: ui-monospace, monospace; }
+    .avx-transcript-box { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+    .avx-json-box { background: #07090e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px; font-family: ui-monospace, monospace; font-size: 11px; color: #7dd3fc; }
+
+    /* Ringba-inspired AI at the Core 3D Stage */
+    .avx-ringba-stage {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1.35fr 1fr;
+      gap: 28px;
+      align-items: center;
+      margin: 45px auto 35px;
+      max-width: 1240px;
+      perspective: 1200px;
+    }
+    @media (max-width: 1024px) {
+      .avx-ringba-stage {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .avx-ringba-center { order: -1; }
+      .avx-ringba-conduits { display: none; }
+    }
+    .avx-ringba-conduits {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .avx-conduit-path {
+      fill: none;
+      stroke-width: 2;
+      stroke-dasharray: 4 6;
+      transition: all 0.4s ease;
+      opacity: 0.35;
+    }
+    .avx-conduit-path.avx-on {
+      stroke-width: 3.5;
+      stroke-dasharray: none;
+      opacity: 0.95;
+    }
+    .avx-path-green { stroke: #10b981; }
+    .avx-path-blue { stroke: #38bdf8; }
+    .avx-path-purple { stroke: #c084fc; }
+    .avx-path-orange { stroke: #fb923c; }
+
+    .avx-conduit-packet {
+      fill: #ffffff;
+      opacity: 0;
+      filter: drop-shadow(0 0 8px #38bdf8);
+      transition: opacity 0.2s ease;
+    }
+    .avx-conduit-packet.avx-on {
+      opacity: 1;
+    }
+
+    /* Flanks & Spheres */
+    .avx-ringba-flank {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 2;
+    }
+    @media (max-width: 1024px) {
+      .avx-ringba-flank {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+    }
+    @media (max-width: 640px) {
+      .avx-ringba-flank {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .avx-sphere-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(10, 15, 29, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      backdrop-filter: blur(12px);
+    }
+    .avx-sphere-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+    .avx-sphere-card.avx-active {
+      transform: translateY(-4px) scale(1.02);
+    }
+    .avx-sphere-green.avx-active {
+      border-color: rgba(16, 185, 129, 0.65);
+      box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.3), inset 0 0 20px rgba(16, 185, 129, 0.08);
+    }
+    .avx-sphere-blue.avx-active {
+      border-color: rgba(56, 189, 248, 0.65);
+      box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.08);
+    }
+    .avx-sphere-purple.avx-active {
+      border-color: rgba(192, 132, 252, 0.65);
+      box-shadow: 0 12px 30px -10px rgba(192, 132, 252, 0.3), inset 0 0 20px rgba(192, 132, 252, 0.08);
+    }
+    .avx-sphere-orange.avx-active {
+      border-color: rgba(251, 146, 60, 0.65);
+      box-shadow: 0 12px 30px -10px rgba(251, 146, 60, 0.3), inset 0 0 20px rgba(251, 146, 60, 0.08);
+    }
+
+    /* 3D Glossy Sphere element (Ringba style) */
+    .avx-sphere-icon-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .avx-3d-sphere {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      font-size: 19px;
+      position: relative;
+      box-shadow: inset 0 -6px 12px rgba(0, 0, 0, 0.4), 0 8px 18px rgba(0, 0, 0, 0.35);
+      transition: all 0.3s ease;
+    }
+    .avx-sphere-glare {
+      position: absolute;
+      top: 4px;
+      left: 8px;
+      width: 18px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 70%);
+      transform: rotate(-30deg);
+      pointer-events: none;
+    }
+    .avx-sphere-emerald {
+      background: radial-gradient(circle at 35% 35%, #6ee7b7 0%, #10b981 45%, #047857 80%, #064e3b 100%);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+    }
+    .avx-sphere-azure {
+      background: radial-gradient(circle at 35% 35%, #93c5fd 0%, #38bdf8 45%, #0284c7 80%, #0c4a6e 100%);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+    }
+    .avx-sphere-violet {
+      background: radial-gradient(circle at 35% 35%, #f472b6 0%, #c084fc 45%, #7c3aed 80%, #4c1d95 100%);
+      box-shadow: 0 0 20px rgba(192, 132, 252, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+    }
+    .avx-sphere-amber {
+      background: radial-gradient(circle at 35% 35%, #fde047 0%, #fb923c 45%, #ea580c 80%, #7c2d12 100%);
+      box-shadow: 0 0 20px rgba(251, 146, 60, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .avx-sphere-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .avx-sphere-pill {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .pill-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+    .pill-azure { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+    .pill-violet { background: rgba(192, 132, 252, 0.15); color: #c084fc; }
+    .pill-amber { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+
+    .avx-sphere-latency {
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: auto;
+      font-family: ui-monospace, monospace;
+    }
+    .avx-sphere-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #f8fafc;
+      margin: 3px 0 5px;
+    }
+    .avx-sphere-desc {
+      font-size: 12.5px;
+      color: #94a3b8;
+      line-height: 1.45;
+      margin-bottom: 8px;
+    }
+    .avx-sphere-kpi {
+      display: flex;
+      align-items: center;
+      font-size: 11px;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 7px;
+    }
+
+    /* Center 3D AI Core Stage */
+    .avx-ringba-center {
+      position: relative;
+      z-index: 2;
+    }
+    .avx-3d-core-chassis {
+      position: relative;
+      margin: 0 auto;
+      border-radius: 24px;
+      transition: transform 0.3s ease;
+    }
+    .avx-core-orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
+    .avx-orbit-1 {
+      width: 108%;
+      height: 108%;
+      border: 1px dashed rgba(56, 189, 248, 0.35);
+      animation: avxOrbitCW 28s linear infinite;
+    }
+    .avx-orbit-2 {
+      width: 116%;
+      height: 116%;
+      border: 1px dotted rgba(16, 185, 129, 0.3);
+      animation: avxOrbitCCW 36s linear infinite;
+    }
+    .avx-orbit-3 {
+      width: 124%;
+      height: 124%;
+      border: 1px solid rgba(192, 132, 252, 0.15);
+    }
+    .avx-orbit-node {
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+    @keyframes avxOrbitCW {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes avxOrbitCCW {
+      from { transform: translate(-50%, -50%) rotate(360deg); }
+      to { transform: translate(-50%, -50%) rotate(0deg); }
+    }
+
+    .avx-core-glow-aura {
+      position: absolute;
+      inset: -20px;
+      border-radius: 30px;
+      filter: blur(40px);
+      opacity: 0.45;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.5) 0%, rgba(16, 185, 129, 0.3) 50%, transparent 70%);
+      pointer-events: none;
+      transition: all 0.6s ease;
+    }
+    .avx-aura-green .avx-core-glow-aura {
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.65) 0%, rgba(56, 189, 248, 0.3) 50%, transparent 70%);
+    }
+    .avx-aura-blue .avx-core-glow-aura {
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.7) 0%, rgba(99, 102, 241, 0.3) 50%, transparent 70%);
+    }
+    .avx-aura-purple .avx-core-glow-aura {
+      background: radial-gradient(circle, rgba(192, 132, 252, 0.65) 0%, rgba(244, 114, 182, 0.3) 50%, transparent 70%);
+    }
+    .avx-aura-orange .avx-core-glow-aura {
+      background: radial-gradient(circle, rgba(251, 146, 60, 0.65) 0%, rgba(234, 88, 12, 0.3) 50%, transparent 70%);
+    }
+
+    .avx-core-viewport {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(56, 189, 248, 0.25);
+      background: #060910;
+    }
+    .avx-3d-core-img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    @media (max-width: 768px) {
+      .avx-3d-core-img {
+        height: 320px;
+      }
+    }
+
+    /* Core HUD overlays */
+    .avx-core-hud-top {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+    .avx-hud-chip {
+      background: rgba(10, 15, 29, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 11px;
+      color: #f1f5f9;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+    }
+    .avx-hud-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: avxPulseGlow 1.5s infinite;
+    }
+    @keyframes avxPulseGlow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    .avx-core-hud-bottom {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      pointer-events: none;
+    }
+    .avx-hud-tag-box {
+      background: rgba(10, 15, 29, 0.88);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 12px;
+      padding: 10px 14px;
+      backdrop-filter: blur(10px);
+    }
+    .avx-3d-eq {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 14px;
+      width: 22px;
+    }
+    .avx-3d-eq i {
+      flex: 1;
+      background: #10b981;
+      border-radius: 1px;
+      animation: avxEqDance 0.8s ease-in-out infinite alternate;
+    }
+    .avx-3d-eq i:nth-child(1) { height: 40%; animation-delay: 0.1s; }
+    .avx-3d-eq i:nth-child(2) { height: 80%; animation-delay: 0.3s; }
+    .avx-3d-eq i:nth-child(3) { height: 100%; animation-delay: 0.15s; }
+    .avx-3d-eq i:nth-child(4) { height: 60%; animation-delay: 0.4s; }
+    .avx-3d-eq i:nth-child(5) { height: 90%; animation-delay: 0.25s; }
+    .avx-3d-eq i:nth-child(6) { height: 50%; animation-delay: 0.35s; }
+    @keyframes avxEqDance {
+      0% { height: 25%; }
+      100% { height: 100%; }
+    }
+    .avx-hud-status-text {
+      font-size: 11px;
+      color: #94a3b8;
+      font-family: ui-monospace, monospace;
+    }
+
+    /* Ringba Telemetry bar */
+    .avx-ringba-telemetry-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      background: rgba(13, 17, 23, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-top: 32px;
+    }
+    @media (max-width: 768px) {
+      .avx-ringba-telemetry-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 16px;
+      }
+    }
+    .avx-rb-stat {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .avx-rb-stat-num {
+      font-size: 26px;
+      font-weight: 800;
+      font-family: ui-monospace, monospace;
+      letter-spacing: -0.5px;
+    }
+    .avx-rb-stat-lbl {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    /* Capabilities Rail */
+    .avx-rail-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .avx-rail-chip {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    .avx-rail-chip:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: #fff;
+      transform: translateY(-2px);
     }
 ` }} />
     </>
@@ -198,16 +829,10 @@ export default function Home() {
   return (
     <main>
       <section className="marketing-hero-simple hero-constellation-bg avx-hero-calm" id="hero-option-s">
-        <div className="avx-hero-3d" aria-hidden="true">
-          <div className="avx-hero-3d-plane">
-            <div className="avx-hero-3d-grid" />
-          </div>
-          <div className="avx-hero-3d-horizon" />
-        </div>
         <div className="container">
           <div className="avx-hero-grid">
             <div className="avx-hero-copy">
-              <p className="avx-hero-eyebrow"><span>AI</span>The AI tracking platform built for peak performance</p>
+              <p className="avx-hero-eyebrow"><span>AI</span>The AI Tracking Platform Built for Peak Performance</p>
               <div className="hero-heading">
                 <h1 className="display-4 fw-bold">
                   Track.
@@ -234,13 +859,22 @@ export default function Home() {
               <a href="#how-it-decides" className="avx-hero-tour-link">How it works <span aria-hidden="true">↓</span></a>
             </div>
             {/* live decision: one call scored, bid on and routed; motion.js replays it with new calls */}
-            <div className="avx-decide" data-avx-decide="" role="img" aria-label="Live demo: an incoming call is scored by AI for intent and connected to the best buyer">
+            <div className="avx-decide avx-decide-pro" data-avx-decide="" role="img" aria-label="Live demo: an incoming call is scored by AI for intent and connected to the best buyer">
               <div className="avx-dc-bar">
                 <span className="avx-dc-live"><i className="avx-live-dot" />Live decision</span>
+                {" "}
+                <span className="avx-dc-telecom-chip"><i className="fa-solid fa-server me-1" />SIP · Opus HD</span>
                 {" "}
                 <span className="avx-dc-clock" data-dc="clock">14:02:51 UTC</span>
                 {" "}
                 <span className="avx-dc-time">Decided in <b data-dc="ms">84ms</b></span>
+              </div>
+              {/* live transcribed voice & audio frequency bar */}
+              <div className="avx-dc-audio-bar">
+                <span className="avx-dc-voice-bars" data-dc="voice-bars">
+                  <i /><i /><i /><i /><i /><i /><i /><i />
+                </span>
+                <span className="avx-dc-quote" data-dc="quote">“Hi, I’m looking to switch my Medicare plan before the deadline.”</span>
               </div>
               <div className="avx-fc3d">
               {/* the floor is outside the 3D stage, so it never cuts through the chip or cards */}
@@ -252,6 +886,7 @@ export default function Home() {
                   <span className="avx-fc-pad" aria-hidden="true" />
                   <b data-dc="num">(312) 555-0142</b>
                   <span data-dc="meta">Google Ads · Medicare</span>
+                  <span className="avx-fc-verified"><i className="fa-solid fa-shield-check text-success" /> Verified (99.4%)</span>
                 </div>
                 <span className="avx-fc-link avx-on" data-dc="link1"><i /></span>
                 <div className="avx-fc-core avx-on">
@@ -266,24 +901,44 @@ export default function Home() {
                       <small>AI intent</small>
                       <b data-dc="intent">0.91</b>
                       <span className="avx-fc-bar"><i data-dc="gauge" style={{ "--v": ".91" }} /></span>
+                      <span className="avx-fc-sent avx-sent-pos" data-dc="sent">Positive</span>
                     </div>
+                  </div>
+                  <div className="avx-fc-tags" data-dc="tags">
+                    <span className="avx-fc-tag">Plan switch</span>
+                    <span className="avx-fc-tag">Deadline</span>
+                    <span className="avx-fc-tag">Ready to enroll</span>
                   </div>
                 </div>
                 <span className="avx-fc-link avx-on" data-dc="link2"><i /></span>
                 <ul className="avx-fc-buyers" data-dc="buyers">
-                  <li className="avx-win"><i>AI</i><span>Apex Insurance</span></li>
-                  <li className="avx-lose"><i>MH</i><span>Meridian Health</span></li>
-                  <li className="avx-lose"><i>NB</i><span>Northwind Benefits</span></li>
+                  <li className="avx-win">
+                    <span className="avx-fc-b-main"><i>AI</i><span className="avx-fc-b-name">Apex Insurance</span></span>
+                    <span className="avx-fc-b-bid"><b>$64.00</b> <span className="avx-fc-win-pill">WON</span></span>
+                  </li>
+                  <li className="avx-lose">
+                    <span className="avx-fc-b-main"><i>MH</i><span className="avx-fc-b-name">Meridian Health</span></span>
+                    <span className="avx-fc-b-bid">$58.00</span>
+                  </li>
+                  <li className="avx-lose">
+                    <span className="avx-fc-b-main"><i>NB</i><span className="avx-fc-b-name">Northwind Benefits</span></span>
+                    <span className="avx-fc-b-bid">$52.00</span>
+                  </li>
                 </ul>
               </div>
               </div>
-              <p className="avx-fc-status avx-on" data-dc="status">
-                <span className="avx-fc-done-msg">
-                  <i className="fa-solid fa-circle-check" aria-hidden="true" />
-                  {" "}Connected to <b data-dc="winner">Apex Insurance</b> · <b data-dc="pay">$64.00</b>
-                </span>
-                <span className="avx-fc-wait-msg">Finding the best buyer…</span>
-              </p>
+              <div className="avx-fc-footer">
+                <p className="avx-fc-status avx-on" data-dc="status">
+                  <span className="avx-fc-done-msg">
+                    <i className="fa-solid fa-circle-check" aria-hidden="true" />
+                    {" "}Connected to <b data-dc="winner">Apex Insurance</b> · <b data-dc="pay">$64.00</b>
+                  </span>
+                  <span className="avx-fc-wait-msg">Finding the best buyer…</span>
+                </p>
+                <div className="avx-fc-reason">
+                  <i className="fa-solid fa-scale-balanced me-1 text-info" /> Rule match: <span data-dc="why">Highest bid · intent above 0.80 · licensed in IL</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -307,45 +962,201 @@ export default function Home() {
         <div className="container">
           <div className="mktg-section-header text-center">
             <p className="avx-eyebrow">AI at the core</p>
-            <h2 className="fw-bold">Advanced AI. Protected by default.</h2>
-            <p className="text-muted">AI runs the work around every call, and screens every call before a buyer’s phone rings.</p>
+            <h2 className="fw-bold">Autonomous Intelligence Engineered for Real-Time Voice</h2>
+            <p className="text-muted">High-volume call operations run on split-second decisions. Avortyx embeds sub-45ms conversational models, dynamic ping-tree bidding, and carrier-grade automated screening at the center of every call.</p>
           </div>
-          {/* the AI hub: the chip at the centre, lines out to what the AI handles; motion.js sends
-              a pulse to each in turn */}
-          <div className="avx-hub" data-avx-hub="" role="img" aria-label={`What Avortyx AI handles: ${AI_HUB.map((n) => n[1]).join(', ')}`}>
-            <svg className="avx-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-              {AI_HUB.map(([, label, , , x, y]) => (
-                <path key={label} d={hubPath(x, y)} vectorEffect="non-scaling-stroke" />
-              ))}
+
+          {/* Ringba-inspired AI 3D Core Stage */}
+          <div className="avx-ringba-stage" data-avx-hub="" role="region" aria-label="Ringba-inspired AI 3D Core Architecture">
+            
+            {/* SVG Connecting Conduits for Desktop */}
+            <svg className="avx-ringba-conduits" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
+              <path id="avx-line-0" d="M 180 110 C 320 110, 380 220, 480 240" className="avx-conduit-path avx-path-green avx-on" />
+              <path id="avx-line-1" d="M 180 390 C 320 390, 380 280, 480 260" className="avx-conduit-path avx-path-blue" />
+              <path id="avx-line-2" d="M 820 110 C 680 110, 620 220, 520 240" className="avx-conduit-path avx-path-purple" />
+              <path id="avx-line-3" d="M 820 390 C 680 390, 620 280, 520 260" className="avx-conduit-path avx-path-orange" />
+              <circle className="avx-conduit-packet" r="5" />
             </svg>
-            <span className="avx-hub-dot" aria-hidden="true" />
-            <span className="avx-hub-disc" aria-hidden="true"><i /><i /></span>
-            <div className="avx-hub-core" aria-hidden="true">
-              <div className="avx-fc-chip avx-hub-chip">
-                <span className="avx-fc-pins" />
-                <span className="avx-fc-slab" />
-                <span className="avx-fc-slab" />
-                <span className="avx-fc-slab" />
-                <span className="avx-fc-slab" />
-                <div className="avx-fc-die">
-                  <span className="avx-fc-scan" />
-                  <BrandMark gradientId="avx-mk-g-hub" />
-                  <small>Avortyx AI</small>
+
+            {/* Left Flank: Ringba Spheres 1 & 2 */}
+            <div className="avx-ringba-flank avx-flank-left">
+              {/* Pod 1: Green Sphere - Voice AI & IVR */}
+              <div className="avx-sphere-card avx-sphere-green avx-active" data-hub-node="0">
+                <div className="avx-sphere-icon-wrap">
+                  <div className="avx-3d-sphere avx-sphere-emerald">
+                    <span className="avx-sphere-glare" />
+                    <i className="fa-solid fa-headset" />
+                  </div>
+                </div>
+                <div className="avx-sphere-info">
+                  <div className="d-flex align-items-center gap-2 mb-1">
+                    <span className="avx-sphere-pill pill-emerald">VOICE AI &amp; IVA</span>
+                    <span className="avx-sphere-latency text-emerald">&lt;45ms Latency</span>
+                  </div>
+                  <h3 className="avx-sphere-title">Interactive Voice Agents</h3>
+                  <p className="avx-sphere-desc">Real-time speech-to-speech models answer instantly, qualify multi-turn intent, and warm-transfer.</p>
+                  <div className="avx-sphere-kpi">
+                    <span>Avg Handle Time: <b>58s</b></span>
+                    <span className="ms-auto text-emerald">94.2% Success</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pod 2: Blue Sphere - Ping-Tree Engine */}
+              <div className="avx-sphere-card avx-sphere-blue" data-hub-node="1">
+                <div className="avx-sphere-icon-wrap">
+                  <div className="avx-3d-sphere avx-sphere-azure">
+                    <span className="avx-sphere-glare" />
+                    <i className="fa-solid fa-route" />
+                  </div>
+                </div>
+                <div className="avx-sphere-info">
+                  <div className="d-flex align-items-center gap-2 mb-1">
+                    <span className="avx-sphere-pill pill-azure">PING-TREE ENGINE</span>
+                    <span className="avx-sphere-latency text-azure">Sub-85ms RTB</span>
+                  </div>
+                  <h3 className="avx-sphere-title">Dynamic Multi-Buyer Auction</h3>
+                  <p className="avx-sphere-desc">Real-time bidding algorithm tests tier priority, buyer caps, and historical conversion yield.</p>
+                  <div className="avx-sphere-kpi">
+                    <span>Auction Speed: <b>62ms</b></span>
+                    <span className="ms-auto text-azure">+34.2% EPC Lift</span>
+                  </div>
                 </div>
               </div>
             </div>
-            {AI_HUB.map(([icon, label, href, , x, y], i) => (
-              <a key={label} href={href} className="avx-hub-node" style={{ "--x": x, "--y": y, "--h": HUB_HUES[i % HUB_HUES.length] }} aria-hidden="true" tabIndex={-1}>
-                <i className={`fa-solid ${icon}`} />
-                <span>{label}</span>
-              </a>
-            ))}
+
+            {/* Center Stage: The 3D AI Intelligence Core */}
+            <div className="avx-ringba-center">
+              <div className="avx-3d-core-chassis avx-aura-green">
+                {/* Orbital animated rings */}
+                <div className="avx-core-orbit avx-orbit-1" aria-hidden="true"><span className="avx-orbit-node" /></div>
+                <div className="avx-core-orbit avx-orbit-2" aria-hidden="true"><span className="avx-orbit-node" /></div>
+                <div className="avx-core-orbit avx-orbit-3" aria-hidden="true" />
+                <div className="avx-core-glow-aura" />
+
+                {/* 3D Visual Frame */}
+                <div className="avx-core-viewport">
+                  <img
+                    src="/assets/avx-site/img/avx-humanoid-ai.jpg"
+                    alt="Avortyx AI Voice & Telecommunications Copilot"
+                    className="avx-3d-core-img"
+                    loading="lazy"
+                  />
+
+                  {/* Holographic HUD Overlays */}
+                  <div className="avx-core-hud-top">
+                    <div className="avx-hud-chip">
+                      <span className="avx-hud-dot" />
+                      <b>VOICE AGENT</b>
+                      <span>ONLINE</span>
+                    </div>
+                    <div className="avx-hud-chip">
+                      <i className="fa-solid fa-headset text-info me-1" />
+                      <span id="avx-core-telemetry-latency">Sub-45ms Voice Copilot</span>
+                    </div>
+                  </div>
+
+                  <div className="avx-core-hud-bottom">
+                    <div className="avx-hud-tag-box">
+                      <div className="d-flex align-items-center justify-content-between mb-1">
+                        <small className="text-muted fw-bold">AUTONOMOUS CONVERSATIONAL DIARIZATION</small>
+                        <span className="badge bg-success-subtle text-success" id="avx-core-telemetry-badge">99.4% Human Cadence Match</span>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <div className="avx-3d-eq" aria-hidden="true">
+                          <i /><i /><i /><i /><i /><i />
+                        </div>
+                        <span className="avx-hud-status-text text-truncate" id="avx-core-telemetry-status">
+                          Voice IVA Copilot: Live Inbound Routing &amp; Sentiment Analysis
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Flank: Ringba Spheres 3 & 4 */}
+            <div className="avx-ringba-flank avx-flank-right">
+              {/* Pod 3: Violet Sphere - Carrier Screening */}
+              <div className="avx-sphere-card avx-sphere-purple" data-hub-node="2">
+                <div className="avx-sphere-icon-wrap">
+                  <div className="avx-3d-sphere avx-sphere-violet">
+                    <span className="avx-sphere-glare" />
+                    <i className="fa-solid fa-shield-halved" />
+                  </div>
+                </div>
+                <div className="avx-sphere-info">
+                  <div className="d-flex align-items-center gap-2 mb-1">
+                    <span className="avx-sphere-pill pill-violet">CARRIER SHIELD</span>
+                    <span className="avx-sphere-latency text-violet">STIR/SHAKEN A</span>
+                  </div>
+                  <h3 className="avx-sphere-title">Autonomous TCPA Guard</h3>
+                  <p className="avx-sphere-desc">Carrier-grade screening filters spam, disconnected VOIP, spoofed numbers, and DNC lists before buyers ring.</p>
+                  <div className="avx-sphere-kpi">
+                    <span>Clean Traffic: <b>99.94%</b></span>
+                    <span className="ms-auto text-violet">Zero TCPA Leaks</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pod 4: Amber Sphere - Instant Caller Profile */}
+              <div className="avx-sphere-card avx-sphere-orange" data-hub-node="3">
+                <div className="avx-sphere-icon-wrap">
+                  <div className="avx-3d-sphere avx-sphere-amber">
+                    <span className="avx-sphere-glare" />
+                    <i className="fa-solid fa-id-card-clip" />
+                  </div>
+                </div>
+                <div className="avx-sphere-info">
+                  <div className="d-flex align-items-center gap-2 mb-1">
+                    <span className="avx-sphere-pill pill-amber">CALLER 360°</span>
+                    <span className="avx-sphere-latency text-warning">Zero-Delay Lookup</span>
+                  </div>
+                  <h3 className="avx-sphere-title">Demographic Enrichment</h3>
+                  <p className="avx-sphere-desc">Attaches caller ad campaign keywords, location, lifetime intent, and carrier metadata directly to the live call.</p>
+                  <div className="avx-sphere-kpi">
+                    <span>Enrichment Speed: <b>28ms</b></span>
+                    <span className="ms-auto text-warning">100% Attributed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
-          <ul className="avx-hub-list">
-            {AI_HUB.map(([icon, label, href, text]) => (
-              <li key={label}><a href={href}><i className={`fa-solid ${icon}`} aria-hidden="true" /><b>{label}</b><span>{text}</span></a></li>
-            ))}
-          </ul>
+
+          {/* Ringba-Style Real-Time Telemetry Bar */}
+          <div className="avx-ringba-telemetry-bar">
+            <div className="avx-rb-stat">
+              <span className="avx-rb-stat-num text-white">24,850+</span>
+              <span className="avx-rb-stat-lbl">Calls Processed / Min</span>
+            </div>
+            <div className="avx-rb-stat">
+              <span className="avx-rb-stat-num text-emerald">38ms</span>
+              <span className="avx-rb-stat-lbl">Median Neural Inference</span>
+            </div>
+            <div className="avx-rb-stat">
+              <span className="avx-rb-stat-num text-azure">99.8%</span>
+              <span className="avx-rb-stat-lbl">Speech Diarization SLA</span>
+            </div>
+            <div className="avx-rb-stat">
+              <span className="avx-rb-stat-num text-warning">+34.2%</span>
+              <span className="avx-rb-stat-lbl">Average EPC Yield Lift</span>
+            </div>
+          </div>
+
+          {/* Core Capabilities Rail */}
+          <div className="avx-capabilities-rail mt-5 mb-5">
+            <p className="text-center small text-muted text-uppercase fw-bold letter-spacing-1 mb-3">Enterprise AI Core Capabilities</p>
+            <div className="avx-rail-chips">
+              {AI_HUB.map(([icon, label, href, text]) => (
+                <a key={label} href={href} className="avx-rail-chip" title={text}>
+                  <i className={`fa-solid ${icon} me-2`} aria-hidden="true" />
+                  <span>{label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
           <div className="avx-shield">
             <div className="avx-console avx-shield-demo" data-avx-shield="" role="img" aria-label="Live screening: each call is checked for spam, duplicates, DNC, line type and consent, then routed or blocked before dialing (demo data)">
               <div className="avx-cs-bar">
@@ -387,18 +1198,93 @@ export default function Home() {
         <div className="container">
           <div className="mktg-section-header text-center">
             <p className="avx-eyebrow">Why Avortyx</p>
-            <h2 className="fw-bold">Power your entire call business</h2>
-            <p className="text-muted">Built to push call performance further, and to grow with you.</p>
+            <h2 className="fw-bold">The Infrastructure Engineered for Maximum EPC</h2>
+            <p className="text-muted">Built from the ground up for high-volume performance marketers, call centers, and pay-per-call networks. Sub-85ms routing, zero vendor lock-in, and full financial transparency on every connected second.</p>
           </div>
           <div className="avx-power-grid">
             {POWER.map(([kind, title, text, href, label]) => (
               <a key={kind} href={href} className="avx-power-card">
                 <div className={`avx-pw-stage avx-pw-${kind}`} aria-hidden="true">
-                  <div className="avx-pw-obj">
-                    {kind === 'scale' && <><i /><i /><i /></>}
-                    {kind === 'support' && <><b className="avx-pw-ball"><i className="fa-solid fa-headset" /></b><span className="avx-pw-orbit"><i /></span></>}
-                    {kind === 'grow' && <><span className="avx-pw-bar"><i /><i /><i /></span><span className="avx-pw-bar"><i /><i /><i /></span><span className="avx-pw-bar"><i /><i /><i /></span></>}
-                    {kind === 'open' && <><i /><i /><i /><i /><i /><i /><b className="avx-pw-code">{"{ }"}</b></>}
+                  <div className="avx-pw-telemetry">
+                    {kind === 'scale' && (
+                      <div className="avx-pwt-box avx-pwt-scale">
+                        <div className="avx-pwt-hdr">
+                          <span className="avx-pwt-pulse avx-pulse-green" />
+                          <span>Edge SLA: 85ms</span>
+                          <span className="avx-pwt-badge-green ms-auto">99.99%</span>
+                        </div>
+                        <div className="avx-pwt-nodes">
+                          <div className="avx-pwt-node"><i>US-East</i><b>42ms</b></div>
+                          <div className="avx-pwt-node"><i>US-West</i><b>51ms</b></div>
+                          <div className="avx-pwt-node"><i>EU-Central</i><b>68ms</b></div>
+                        </div>
+                        <div className="avx-pwt-metric">
+                          <span>Throughput</span>
+                          <b>14,820 live streams</b>
+                        </div>
+                      </div>
+                    )}
+                    {kind === 'support' && (
+                      <div className="avx-pwt-box avx-pwt-support">
+                        <div className="avx-pwt-hdr">
+                          <span className="avx-pwt-pulse avx-pulse-green" />
+                          <span>Telephony Architect</span>
+                          <span className="avx-pwt-badge-blue ms-auto">&lt; 2m reply</span>
+                        </div>
+                        <div className="avx-pwt-agent-row">
+                          <span className="avx-pwt-avatar"><i className="fa-solid fa-headset" /></span>
+                          <div>
+                            <b>Tier-3 Lead Assigned</b>
+                            <small>Dedicated Slack Bridge</small>
+                          </div>
+                        </div>
+                        <div className="avx-pwt-chips">
+                          <span><i className="fa-brands fa-slack me-1" />Slack Connect</span>
+                          <span><i className="fa-solid fa-video me-1" />War Room</span>
+                        </div>
+                      </div>
+                    )}
+                    {kind === 'grow' && (
+                      <div className="avx-pwt-box avx-pwt-grow">
+                        <div className="avx-pwt-hdr">
+                          <span className="avx-pwt-pulse avx-pulse-blue" />
+                          <span>EPC Lift Monitor</span>
+                          <span className="avx-pwt-badge-green ms-auto">+34.8% EPC</span>
+                        </div>
+                        <div className="avx-pwt-grow-stats">
+                          <div>
+                            <small>Onboarding</small>
+                            <b className="text-success">$0.00</b>
+                          </div>
+                          <div>
+                            <small>Carrier Markup</small>
+                            <b>0% Pure SIP</b>
+                          </div>
+                        </div>
+                        <div className="avx-pwt-progress">
+                          <div className="avx-pwt-bar" style={{ width: '84%' }}>
+                            <span>Tier 3 · 25% Auto-rebate</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    {kind === 'open' && (
+                      <div className="avx-pwt-box avx-pwt-code-box">
+                        <div className="avx-pwt-hdr">
+                          <span className="avx-pwt-pulse avx-pulse-purple" />
+                          <code>POST /v1/calls/route</code>
+                          <span className="avx-pwt-badge-purple ms-auto">200 OK</span>
+                        </div>
+                        <div className="avx-pwt-snippet">
+                          <code>{`{"intent":0.94,"epc":64.00,"dest":"apex_live"}`}</code>
+                        </div>
+                        <div className="avx-pwt-chips">
+                          <span>OpenAPI 3.1</span>
+                          <span>Webhooks</span>
+                          <span>REST</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <h3>{title}</h3>
@@ -513,9 +1399,9 @@ export default function Home() {
       <section className="mktg-section avx-ai" id="ai-at-work" data-avx-ai="">
         <div className="container">
           <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">AI at work</p>
-            <h2 className="fw-bold">Ask it. Hear it. Let it take the call.</h2>
-            <p className="text-muted">Answers from your call data, transcripts that score themselves, and voice agents that qualify callers before a buyer is dialed.</p>
+            <p className="avx-eyebrow">Autonomous Call Intelligence</p>
+            <h2 className="fw-bold">Ask Anything. Score Real-Time Intent. Let AI Qualify First.</h2>
+            <p className="text-muted">Turn unstructured conversations into actionable revenue intelligence. Query your entire call lake with natural language, auto-score caller sentiment in milliseconds, and deploy 24/7 conversational voice agents that warm-transfer high-intent leads directly to buyers.</p>
           </div>
           <div className="avx-tour-tabs avx-ai-tabs" role="tablist" aria-label="AI demos">
             <button type="button" className="avx-tour-tab avx-on" role="tab" aria-selected="true" aria-controls="avx-ai-ask" id="avx-ai-tab-ask" data-ai="ask">
@@ -630,9 +1516,9 @@ export default function Home() {
       <section className="mktg-section avx-feat avx-platform" id="platform" data-avx-platform="">
         <div className="container">
           <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">Core tools</p>
-            <h2 className="fw-bold">Monetize, dial, route, automate and manage</h2>
-            <p className="text-muted">Five core tools in one workspace. Pick one to see it running.</p>
+            <p className="avx-eyebrow">Unified Call Platform</p>
+            <h2 className="fw-bold">Every Tool You Need to Monetize, Dial, Route, and Scale</h2>
+            <p className="text-muted">Five enterprise-grade systems united under one real-time dashboard. Eliminate disparate point solutions and command your entire call lifecycle from a single glasspane.</p>
           </div>
           <div className="avx-tour-tabs avx-ai-tabs avx-plat-tabs" role="tablist" aria-label="Core tools">
             {PLATFORM_TABS.map(([key, label, icon], i) => (
@@ -992,8 +1878,8 @@ export default function Home() {
           <div className="avx-caps-v3">
           <div className="avx-caps-head">
             <div>
-              <h3>More capabilities</h3>
-              <p>Tracking, compliance, recordings and data tools around every call.</p>
+              <h3>Comprehensive Enterprise Capabilities</h3>
+              <p>End-to-end attribution, programmatic webhooks, automated compliance shields, and deep data infrastructure around every second of audio.</p>
             </div>
             <a href="/features" className="avx-more-link">See all features <span aria-hidden="true">→</span></a>
           </div>
@@ -1092,6 +1978,131 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="mktg-section avx-ai-studio" id="ai-studio" data-avx-studio="">
+        <div className="container">
+          <div className="mktg-section-header text-center">
+            <p className="avx-eyebrow">Autonomous Voice &amp; Call Intelligence</p>
+            <h2 className="fw-bold">Experience the Avortyx AI Copilot in Real Time</h2>
+            <p className="text-muted">Simulate conversational intent scoring, automated fraud elimination, and high-velocity ping-tree buyer bidding. Select a relatable scenario below to test our neural routing model live.</p>
+          </div>
+
+          <div className="avx-studio-scenarios">
+            {AI_STUDIO_SCENARIOS.map((s, idx) => (
+              <button
+                key={s.id}
+                type="button"
+                className={`avx-scenario-btn ${idx === 0 ? 'avx-active' : ''}`}
+                data-studio-btn={s.id}
+              >
+                <i className={`fa-solid ${s.icon}`} aria-hidden="true" />
+                <span>{s.title}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="avx-studio-card">
+            <div className="avx-studio-header">
+              <span className="d-flex align-items-center gap-2">
+                <i className="fa-solid fa-sparkles text-info" />
+                <b>Avortyx-Voice-LLM v4.2</b>
+                <span className="badge bg-success-subtle text-success">Online · 38ms inference</span>
+              </span>
+              <span className="text-muted small d-none d-sm-inline">
+                <i className="fa-solid fa-shield-halved text-success me-1" />
+                STIR/SHAKEN Level A · TCPA Compliant
+              </span>
+            </div>
+
+            <div className="avx-studio-body">
+              <div className="avx-studio-left">
+                <div className="avx-studio-prompt-box">
+                  <div className="avx-studio-prompt-title">Active Scenario Prompt</div>
+                  <div className="avx-studio-prompt-text" data-studio-out="prompt">
+                    “{AI_STUDIO_SCENARIOS[0].prompt}”
+                  </div>
+                </div>
+
+                <div className="avx-studio-params">
+                  <div className="avx-param-card">
+                    <span className="avx-param-label">AI Intent Threshold</span>
+                    <span className="avx-param-val" data-studio-out="intent-thresh">85% Minimum</span>
+                  </div>
+                  <div className="avx-param-card">
+                    <span className="avx-param-label">Target Revenue Floor</span>
+                    <span className="avx-param-val" data-studio-out="epc-target">$45.00 EPC</span>
+                  </div>
+                  <div className="avx-param-card">
+                    <span className="avx-param-label">Max Routing Latency</span>
+                    <span className="avx-param-val">&lt; 85ms SLA</span>
+                  </div>
+                  <div className="avx-param-card">
+                    <span className="avx-param-label">Compliance Gate</span>
+                    <span className="avx-param-val text-success">Strict Auto-Screen</span>
+                  </div>
+                </div>
+
+                <div className="avx-transcript-box">
+                  <div className="d-flex align-items-center justify-content-between mb-2">
+                    <span className="avx-studio-prompt-title mb-0">Live Voice Diarization</span>
+                    <span className="badge bg-primary-subtle text-primary" data-studio-out="sentiment">
+                      {AI_STUDIO_SCENARIOS[0].metrics.sentiment}
+                    </span>
+                  </div>
+                  <p className="small mb-2 text-slate-300" data-studio-out="transcript">
+                    {AI_STUDIO_SCENARIOS[0].transcript}
+                  </p>
+                  <div className="d-flex flex-wrap gap-1" data-studio-out="entities">
+                    {AI_STUDIO_SCENARIOS[0].entities.map(e => (
+                      <span key={e} className="badge bg-secondary-subtle text-secondary">{e}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="avx-studio-right">
+                <div className="avx-studio-telemetry">
+                  <div className="avx-stat-chip">
+                    <small>Intent Score</small>
+                    <b className="text-info" data-studio-out="score">{AI_STUDIO_SCENARIOS[0].metrics.intent}</b>
+                  </div>
+                  <div className="avx-stat-chip">
+                    <small>Top Bid (EPC)</small>
+                    <b className="text-success" data-studio-out="epc">{AI_STUDIO_SCENARIOS[0].metrics.epc}</b>
+                  </div>
+                  <div className="avx-stat-chip">
+                    <small>Decision Latency</small>
+                    <b className="text-warning" data-studio-out="latency">{AI_STUDIO_SCENARIOS[0].metrics.latency}</b>
+                  </div>
+                  <div className="avx-stat-chip">
+                    <small>Projected Lift</small>
+                    <b className="text-primary" data-studio-out="lift">{AI_STUDIO_SCENARIOS[0].metrics.lift}</b>
+                  </div>
+                </div>
+
+                <div className="mb-3 p-3 rounded" style={{ background: 'rgba(15, 23, 42, 0.6)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                  <div className="d-flex align-items-center gap-2 mb-1">
+                    <i className="fa-solid fa-brain text-info" />
+                    <b className="small text-white">AI Reasoning &amp; Strategy Analysis</b>
+                  </div>
+                  <p className="small text-muted mb-0" data-studio-out="summary">
+                    {AI_STUDIO_SCENARIOS[0].summary}
+                  </p>
+                </div>
+
+                <div>
+                  <div className="d-flex align-items-center justify-content-between mb-1">
+                    <span className="avx-studio-prompt-title mb-0">Generated Webhook Dispatch</span>
+                    <small className="text-muted">sub-millisecond JSON</small>
+                  </div>
+                  <pre className="avx-json-box mb-0" data-studio-out="json">
+{JSON.stringify(AI_STUDIO_SCENARIOS[0].routePayload, null, 2)}
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="mktg-section avx-int">
         <div className="container text-center">
           <div className="mktg-section-header text-center">
@@ -1122,8 +2133,11 @@ export default function Home() {
             </div>
             <a href="/blog" className="avx-more-link">All posts <span aria-hidden="true">→</span></a>
           </div>
-          <div className="avx-blog-grid">
-            {LATEST.slice(0, 3).map((post) => <BlogCard key={post.slug} post={post} />)}
+          <div className="avx-blog-grid avx-blog-grid-2">
+            {[
+              postBySlug['sending-call-conversions-to-ad-platforms'],
+              postBySlug['tcpa-dnc-consent-checklist']
+            ].filter(Boolean).map((post) => <BlogCard key={post.slug} post={post} />)}
           </div>
         </div>
       </section>

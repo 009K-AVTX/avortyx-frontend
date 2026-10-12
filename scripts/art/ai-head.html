@@ -1,0 +1,98 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html, body { margin: 0; background: transparent; }
+  svg { display: block; }
+</style></head>
+<body>
+<!-- The Avortyx AI head: a profile made of light points, with a glowing circuit "brain".
+     Rendered to an image by scripts/build-art.mjs (transparent background). -->
+<svg id="head" width="800" height="900" viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="profile" d="M232 880 C236 800 230 742 206 690 C150 640 112 560 112 450 C112 280 232 150 404 150
+      C552 150 648 248 662 368 C666 400 664 424 676 448 C690 474 722 520 726 540 C730 556 716 566 698 570
+      C706 588 708 604 700 616 C710 626 712 640 702 652 C690 668 694 690 690 708 C684 740 650 754 606 748
+      C574 744 552 752 548 790 C546 830 548 860 552 880 Z"/>
+    <clipPath id="clip"><use href="#profile"/></clipPath>
+    <radialGradient id="skin" cx="62%" cy="38%" r="70%">
+      <stop offset="0" stop-color="#5b6cff" stop-opacity=".55"/>
+      <stop offset=".45" stop-color="#3b2bb8" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#140c45" stop-opacity=".2"/>
+    </radialGradient>
+    <radialGradient id="brainGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#7dd3fc" stop-opacity=".9"/>
+      <stop offset=".5" stop-color="#6366f1" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e0e7ff"/>
+      <stop offset=".5" stop-color="#93c5fd"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="14"/></filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- aura behind the head -->
+  <ellipse cx="420" cy="420" rx="330" ry="330" fill="url(#brainGlow)" opacity=".35" filter="url(#soft)"/>
+
+  <!-- the head: translucent volume, then light points and contour lines inside it -->
+  <use href="#profile" fill="url(#skin)"/>
+  <g clip-path="url(#clip)" id="inner"></g>
+
+  <!-- the brain: circuit traces and nodes -->
+  <ellipse cx="400" cy="330" rx="200" ry="150" fill="url(#brainGlow)" opacity=".75" filter="url(#soft)"/>
+  <g id="circuit" filter="url(#glow)"></g>
+
+  <!-- rim light along the face -->
+  <use href="#profile" fill="none" stroke="url(#rim)" stroke-width="3" opacity=".9" filter="url(#glow)"/>
+</svg>
+<script>
+  // light points inside the head, denser and brighter toward the face
+  const NS = 'http://www.w3.org/2000/svg'
+  const inner = document.getElementById('inner'), circuit = document.getElementById('circuit')
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647
+  for (let y = 120; y < 890; y += 16) {
+    for (let x = 100; x < 740; x += 16) {
+      const ox = (Math.floor(y / 16) % 2) * 8
+      const face = Math.max(0, (x - 300) / 440), r = 1 + face * 1.6 + rnd() * .6
+      const c = document.createElementNS(NS, 'circle')
+      c.setAttribute('cx', x + ox); c.setAttribute('cy', y); c.setAttribute('r', r.toFixed(2))
+      c.setAttribute('fill', face > .55 ? '#c7d2fe' : '#93c5fd')
+      c.setAttribute('opacity', (0.18 + face * 0.6 + rnd() * .15).toFixed(2))
+      inner.appendChild(c)
+    }
+  }
+  // contour lines that follow the skull, like a wireframe scan
+  for (let i = 0; i < 9; i++) {
+    const p = document.createElementNS(NS, 'path')
+    const yy = 230 + i * 70
+    p.setAttribute('d', `M60 ${yy} Q400 ${yy - 90 + i * 6} 760 ${yy + 40}`)
+    p.setAttribute('fill', 'none'); p.setAttribute('stroke', '#a5b4fc'); p.setAttribute('stroke-width', '1.2'); p.setAttribute('opacity', '.28')
+    inner.appendChild(p)
+  }
+  // circuit: traces with right-angle bends from a centre chip, nodes at the ends
+  const cx = 400, cy = 330
+  const chip = document.createElementNS(NS, 'rect')
+  Object.entries({ x: cx - 34, y: cy - 34, width: 68, height: 68, rx: 12, fill: '#1e1b4b', stroke: '#a5f3fc', 'stroke-width': 3 }).forEach(([k, v]) => chip.setAttribute(k, v))
+  for (let k = 0; k < 26; k++) {
+    const a = (k / 26) * Math.PI * 2 + rnd() * .2
+    const l1 = 60 + rnd() * 40, l2 = 50 + rnd() * 70
+    const x1 = cx + Math.cos(a) * l1, y1 = cy + Math.sin(a) * l1 * .78
+    const bend = Math.abs(Math.cos(a)) > .5
+    const x2 = bend ? x1 + Math.sign(Math.cos(a)) * l2 : x1, y2 = bend ? y1 : y1 + Math.sign(Math.sin(a)) * l2 * .7
+    const p = document.createElementNS(NS, 'path')
+    p.setAttribute('d', `M${cx + Math.cos(a) * 36} ${cy + Math.sin(a) * 36 * .9} L${x1} ${y1} L${x2} ${y2}`)
+    p.setAttribute('fill', 'none'); p.setAttribute('stroke', k % 3 ? '#7dd3fc' : '#c4b5fd'); p.setAttribute('stroke-width', '2.4'); p.setAttribute('stroke-linejoin', 'round'); p.setAttribute('opacity', '.9')
+    circuit.appendChild(p)
+    const n = document.createElementNS(NS, 'circle')
+    n.setAttribute('cx', x2); n.setAttribute('cy', y2); n.setAttribute('r', 5 + rnd() * 3); n.setAttribute('fill', '#e0f2fe')
+    circuit.appendChild(n)
+  }
+  circuit.appendChild(chip)
+  const core = document.createElementNS(NS, 'circle')
+  core.setAttribute('cx', cx); core.setAttribute('cy', cy); core.setAttribute('r', 14); core.setAttribute('fill', '#a5f3fc')
+  circuit.appendChild(core)
+  document.title = 'ready'
+</script>
+</body></html>
