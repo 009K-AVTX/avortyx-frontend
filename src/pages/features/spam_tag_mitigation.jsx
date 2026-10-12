@@ -12,7 +12,7 @@ export default function SpamTagMitigation() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#phone-numbers" className="mktg-subpage-back">
+            <a href="/features#phone-numbers" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Phone Numbers{" "}
@@ -22,7 +22,7 @@ export default function SpamTagMitigation() {
           <h1 className="fw-bold mb-2">Spam Tag Mitigation</h1>
           <p className="lead mktg-subpage-hero-subtitle">Branded caller ID, carrier registration, and spam-label removal — so more of your calls get answered.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -54,7 +54,7 @@ export default function SpamTagMitigation() {
             <h3>Keep Every Call Connecting</h3>
             <p>
               Carriers now screen both inbound and outbound calls with spam filtering — the businesses that keep connecting are the registered ones. Avortyx registers your numbers with the carriers and the analytics providers behind the spam-labeling ecosystem, backed by your{" "}
-              <a href="/features/verified_identity.html">verified business identity</a>
+              <a href="/features/verified_identity">verified business identity</a>
               {" "}— EIN and legal business name.
             </p>
             <h3>Branded Caller ID (Branded TFN)</h3>
@@ -78,7 +78,7 @@ export default function SpamTagMitigation() {
             <h3>Simple, Two-Part Pricing</h3>
             <p>
               Two parts, both on your{" "}
-              <a href="/pricing.html">rate sheet</a>
+              <a href="/pricing">rate sheet</a>
               : a{" "}
               <strong>monthly fee per enabled number</strong>
               , and a small{" "}
@@ -86,9 +86,9 @@ export default function SpamTagMitigation() {
               {" "}when a Branded Name is set. No branding, no per-call charge.
             </p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/verified_identity.html" className="btn btn-td-green">Verified Identity & Caller ID</a>
+              <a href="/features/verified_identity" className="btn btn-td-green">Verified Identity & Caller ID</a>
               {" "}
-              <a href="/features/inbound_call_routing.html" className="btn btn-outline-td-green">Inbound Call Routing</a>
+              <a href="/features/inbound_call_routing" className="btn btn-outline-td-green">Inbound Call Routing</a>
             </div>
           </div>
         </div>
@@ -99,9 +99,9 @@ export default function SpamTagMitigation() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

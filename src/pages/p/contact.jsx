@@ -25,7 +25,7 @@ export default function Contact() {
                 {" "}
               </a>
               {" "}
-              <a href="/p/request_demo.html" className="d-flex align-items-center text-decoration-none text-body">
+              <a href="/p/request_demo" className="d-flex align-items-center text-decoration-none text-body">
                 {" "}
                 <i className="fa-solid fa-desktop text-success me-2" aria-hidden="true" />
                 {" "}

@@ -12,7 +12,7 @@ export default function InboundCallRouting() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#call-management" className="mktg-subpage-back">
+            <a href="/features#call-management" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Call Management{" "}
@@ -22,7 +22,7 @@ export default function InboundCallRouting() {
           <h1 className="fw-bold mb-2">Inbound Call Routing</h1>
           <p className="lead mktg-subpage-hero-subtitle">With Avortyx you can configure complex dynamic inbound and outbound call routing with filters and tokens.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -65,7 +65,7 @@ export default function InboundCallRouting() {
             </div>
             <p>
               Route incoming calls to{" "}
-              <a href="/features/voice_agents.html">AI Voice Agents</a>
+              <a href="/features/voice_agents">AI Voice Agents</a>
               , human agents, or buyers — and switch destinations mid-call when intent or filters change.
             </p>
             <h3>Routing Algorithms</h3>
@@ -100,15 +100,15 @@ export default function InboundCallRouting() {
             </ul>
             <p>
               See{" "}
-              <a href="/features/buyer_management.html">Buyer Management</a>
+              <a href="/features/buyer_management">Buyer Management</a>
               {" "}for cap configuration and{" "}
-              <a href="/features/suppression_lists.html">Suppression & DNC</a>
+              <a href="/features/suppression_lists">Suppression & DNC</a>
               {" "}for list setup.
             </p>
             <h3>Every Routed Call Lands in Reporting</h3>
             <p>
               Each routed call carries its offer, buyer, and revenue into{" "}
-              <a href="/features/call_tracking.html#reports-analytics">Call Analytics</a>
+              <a href="/features/call_tracking#reports-analytics">Call Analytics</a>
               {" "}— so you can see exactly what your routing decisions earn.
             </p>
             <p className="text-muted mb-1">
@@ -128,7 +128,7 @@ export default function InboundCallRouting() {
             </p>
             <p>
               Quality, MOS, packet loss, and jitter for inbound callers, buyers, and agents all land in the company-wide{" "}
-              <a href="/features/call_tracking.html#audio-quality">Audio Quality dashboard</a>
+              <a href="/features/call_tracking#audio-quality">Audio Quality dashboard</a>
               , where a geographic and per-codec view helps you catch regional or carrier problems before they cost you conversions.
             </p>
             <p className="text-muted mb-1">
@@ -146,9 +146,9 @@ export default function InboundCallRouting() {
               <img alt="Avortyx Audio Quality breakdowns by direction and leg role, with the lowest-quality states" className="img-fluid rounded border my-3" src="/assets/avx-shots/audio-quality-breakdowns.webp" width="1600" height="796" srcSet="/assets/avx-shots/audio-quality-breakdowns-1000.webp 1000w, /assets/avx-shots/audio-quality-breakdowns.webp 1600w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/buyer_management.html" className="btn btn-td-green">Buyer Management</a>
+              <a href="/features/buyer_management" className="btn btn-td-green">Buyer Management</a>
               {" "}
-              <a href="/features/call_tracking.html" className="btn btn-outline-td-green">Call Tracking</a>
+              <a href="/features/call_tracking" className="btn btn-outline-td-green">Call Tracking</a>
             </div>
           </div>
         </div>
@@ -159,9 +159,9 @@ export default function InboundCallRouting() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

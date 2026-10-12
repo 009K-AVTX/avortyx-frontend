@@ -12,7 +12,7 @@ export default function PiiRedaction() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#security-compliance-tools" className="mktg-subpage-back">
+            <a href="/features#security-compliance-tools" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Security & Compliance Tools{" "}
@@ -22,7 +22,7 @@ export default function PiiRedaction() {
           <h1 className="fw-bold mb-2">PII Redaction</h1>
           <p className="lead mktg-subpage-hero-subtitle">Automatically clear or hash PII from aged data, restrict who can see sensitive fields, and redact transcriptions.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -76,7 +76,7 @@ export default function PiiRedaction() {
             <h3>Transcription Redaction</h3>
             <p>
               Sensitive data is removed from{" "}
-              <a href="/features/transcriptions.html">call transcriptions</a>
+              <a href="/features/transcriptions">call transcriptions</a>
               {" "}before they are stored, with each PII category individually enabled to match your program — configured per offer alongside the other AI features.
             </p>
             <h3>Protected Throughout</h3>
@@ -85,21 +85,21 @@ export default function PiiRedaction() {
               <li>
                 <strong>Recording retention</strong>
                 {" "}—{" "}
-                <a href="/features/call_recordings.html">call-recording retention rules</a>
+                <a href="/features/call_recordings">call-recording retention rules</a>
                 {" "}automatically scrub older recordings.
               </li>
               <li>
                 <strong>Consent & opt-out</strong>
                 {" "}— pair redaction with{" "}
-                <a href="/features/consent_opt_out.html">consent capture and opt-out tools</a>
+                <a href="/features/consent_opt_out">consent capture and opt-out tools</a>
                 {" "}and{" "}
-                <a href="/features/suppression_lists.html">suppression & DNC lists</a>
+                <a href="/features/suppression_lists">suppression & DNC lists</a>
                 {" "}for the full compliance picture.
               </li>
               <li>
                 <strong>Controlled exports</strong>
                 {" "}—{" "}
-                <a href="/features/data_export.html">data exports</a>
+                <a href="/features/data_export">data exports</a>
                 {" "}respect the same PII permissions, so redacted stays redacted.
               </li>
             </ul>
@@ -118,14 +118,14 @@ export default function PiiRedaction() {
               <p className="mb-0">
                 <strong>This overview does not constitute legal advice.</strong>
                 {" "}
-                <a target="_blank" href="/terms_of_service.html">Read the Terms of Service</a>
+                <a target="_blank" href="/terms_of_service">Read the Terms of Service</a>
                 {" "}(Sections 2.3.6, 2.3.6.1, and 2.6) for full details.
               </p>
             </div>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/suppression_lists.html" className="btn btn-td-green">Suppression & DNC</a>
+              <a href="/features/suppression_lists" className="btn btn-td-green">Suppression & DNC</a>
               {" "}
-              <a href="/features/call_tracking.html" className="btn btn-outline-td-green">Call Tracking</a>
+              <a href="/features/call_tracking" className="btn btn-outline-td-green">Call Tracking</a>
             </div>
           </div>
         </div>
@@ -136,9 +136,9 @@ export default function PiiRedaction() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

@@ -12,7 +12,7 @@ export default function AgentControls() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#call-management" className="mktg-subpage-back">
+            <a href="/features#call-management" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Call Management{" "}
@@ -22,7 +22,7 @@ export default function AgentControls() {
           <h1 className="fw-bold mb-2">Agent Control Center</h1>
           <p className="lead mktg-subpage-hero-subtitle">Interview consumers, transfer to buyers, mute, hold, and disposition calls from one interface — with a Power Dialer that keeps agents talking, not dialing.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -45,7 +45,7 @@ export default function AgentControls() {
             </ul>
             <p className="text-muted">
               Mix human agents and{" "}
-              <a href="/features/voice_agents.html">AI Voice Agents</a>
+              <a href="/features/voice_agents">AI Voice Agents</a>
               {" "}in the same call flow — use AI to qualify or deflect, then transfer to a human via the Agent Control Center.
             </p>
             <p className="text-muted mb-1">
@@ -183,9 +183,9 @@ export default function AgentControls() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

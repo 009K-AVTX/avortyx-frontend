@@ -3199,7 +3199,7 @@
     if (!grid) return;
     grid.querySelectorAll('.avx-cap').forEach(function (card) {
       var href = card.getAttribute('href') || '';
-      var key = /security-compliance/.test(href) ? 'compliance' : (href.match(/features\/([a-z_]+)\.html/) || [])[1];
+      var key = /security-compliance/.test(href) ? 'compliance' : (href.match(/features\/([a-z_]+)(?:\.html)?(?:[#?]|$)/) || [])[1];
       if (!BENTO[key]) return;
       var v = el('div', 'avx-cap-viz');
       v.setAttribute('aria-hidden', 'true');
@@ -3228,36 +3228,36 @@
   // ---------- Command palette: ⌘K / Ctrl+K jumps to any page or feature ----------
 
   var PALETTE = [
-    ['Home', '/', 'Page', 'fa-house'], ['All features', '/features.html', 'Page', 'fa-grip'], ['Pricing', '/pricing.html', 'Page', 'fa-tag'],
-    ['Integrations', '/features/integrations.html', 'Page', 'fa-plug'], ['Request a demo', '/p/request_demo.html', 'Page', 'fa-calendar-check'],
-    ['Contact', '/p/contact.html', 'Page', 'fa-envelope'], ['Sign up free', '/sign_up.html', 'Page', 'fa-user-plus'], ['Sign in', '/users/sign_in.html', 'Page', 'fa-right-to-bracket'],
-    ['Careers', '/careers.html', 'Page', 'fa-briefcase'], ['Brand assets', '/brand_assets.html', 'Page', 'fa-palette'],
-    ['Privacy policy', '/privacy_policy.html', 'Page', 'fa-file-shield'], ['Terms of service', '/terms_of_service.html', 'Page', 'fa-file-contract'],
+    ['Home', '/', 'Page', 'fa-house'], ['All features', '/features', 'Page', 'fa-grip'], ['Pricing', '/pricing', 'Page', 'fa-tag'],
+    ['Integrations', '/features/integrations', 'Page', 'fa-plug'], ['Request a demo', '/p/request_demo', 'Page', 'fa-calendar-check'],
+    ['Contact', '/p/contact', 'Page', 'fa-envelope'], ['Sign up free', '/sign_up', 'Page', 'fa-user-plus'], ['Sign in', '/users/sign_in', 'Page', 'fa-right-to-bracket'],
+    ['Careers', '/careers', 'Page', 'fa-briefcase'], ['Brand assets', '/brand_assets', 'Page', 'fa-palette'],
+    ['Privacy policy', '/privacy_policy', 'Page', 'fa-file-shield'], ['Terms of service', '/terms_of_service', 'Page', 'fa-file-contract'],
     ['AI at work: Ask Avortyx, live transcript, voice agent', '/#ai-at-work', 'Home', 'fa-wand-magic-sparkles'], ['How the AI decides', '/#how-it-decides', 'Home', 'fa-diagram-project'],
     ['Product tour', '/#product-tour', 'Home', 'fa-display'], ['Trust and compliance', '/#trust', 'Home', 'fa-shield-halved'],
-    ['Ping/Post and real-time bidding', '/features/ping_post.html', 'Feature', 'fa-gavel'], ['Ping/Post integration guide', '/features/ping_post_integration.html', 'Feature', 'fa-book'],
-    ['Call tracking', '/features/call_tracking.html', 'Feature', 'fa-phone'], ['Inbound call routing', '/features/inbound_call_routing.html', 'Feature', 'fa-route'],
-    ['Agent control center and power dialer', '/features/agent_controls.html', 'Feature', 'fa-headset'], ['Lead automation', '/features/lead_automation.html', 'Feature', 'fa-bolt'],
-    ['AI call transcriptions', '/features/transcriptions.html', 'Feature', 'fa-closed-captioning'], ['AI voice agents', '/features/voice_agents.html', 'Feature', 'fa-robot'],
-    ['AI SMS bots', '/features/ai_sms_bots.html', 'Feature', 'fa-comment-sms'], ['Call recordings', '/features/call_recordings.html', 'Feature', 'fa-microphone-lines'],
-    ['Buyer management', '/features/buyer_management.html', 'Feature', 'fa-users'], ['Simultaneously dial buyers', '/features/simul_dial.html', 'Feature', 'fa-phone-volume'],
-    ['Hold queue and callback', '/features/hold_queue.html', 'Feature', 'fa-hourglass-half'], ['Dynamic number insertion', '/features/dynamic_number_insertion.html', 'Feature', 'fa-hashtag'],
-    ['Formulas', '/features/formulas.html', 'Feature', 'fa-square-root-variable'], ['Custom webhooks', '/features/custom_webhook.html', 'Feature', 'fa-link'],
-    ['REST API', '/features/api.html', 'Feature', 'fa-code'], ['API IP whitelist', '/features/api_whitelist.html', 'Feature', 'fa-network-wired'],
-    ['Data exports', '/features/data_export.html', 'Feature', 'fa-file-export'], ['Multiple telephone providers', '/features/multiple_telephone_providers.html', 'Feature', 'fa-tower-cell'],
-    ['SIP support', '/features/sip_support.html', 'Feature', 'fa-server'], ['Spam tag mitigation', '/features/spam_tag_mitigation.html', 'Compliance', 'fa-shield-halved'],
-    ['Verified identity and caller ID', '/features/verified_identity.html', 'Compliance', 'fa-id-card'], ['Consent and opt-out', '/features/consent_opt_out.html', 'Compliance', 'fa-file-signature'],
-    ['Suppression lists and DNC', '/features/suppression_lists.html', 'Compliance', 'fa-ban'], ['State rules', '/features/state_rules.html', 'Compliance', 'fa-map-location-dot'],
-    ['PII redaction', '/features/pii_redaction.html', 'Compliance', 'fa-user-shield'],
-    ['Google Ads', '/features/adwords.html', 'Integration', 'fa-plug'], ['Salesforce', '/features/salesforce.html', 'Integration', 'fa-plug'],
-    ['Zoho CRM', '/features/zoho_crm.html', 'Integration', 'fa-plug'], ['Zapier', '/features/zapier.html', 'Integration', 'fa-plug'], ['Slack', '/features/slack.html', 'Integration', 'fa-plug'],
-    ['ElevenLabs voice agents', '/features/voice_agents/elevenlabs.html', 'Integration', 'fa-plug'], ['AWS S3', '/features/aws_s3.html', 'Integration', 'fa-plug'],
-    ['Typeform', '/features/typeform.html', 'Integration', 'fa-plug'], ['MailChimp', '/features/mailchimp.html', 'Integration', 'fa-plug'],
-    ['Mailgun', '/features/mailgun.html', 'Integration', 'fa-plug'], ['SendGrid', '/features/sendgrid.html', 'Integration', 'fa-plug'],
-    ['Infusionsoft', '/features/infusionsoft.html', 'Integration', 'fa-plug'], ['Twilio', '/features/twilio.html', 'Integration', 'fa-plug'],
-    ['Telnyx', '/features/telnyx.html', 'Integration', 'fa-plug'], ['Plivo', '/features/plivo.html', 'Integration', 'fa-plug'],
-    ['Cake', '/features/cake.html', 'Integration', 'fa-plug'], ['HasOffers', '/features/hasoffers.html', 'Integration', 'fa-plug'],
-    ['Voluum', '/features/voluum.html', 'Integration', 'fa-plug'], ['LinkTrust', '/features/linktrust.html', 'Integration', 'fa-plug']
+    ['Ping/Post and real-time bidding', '/features/ping_post', 'Feature', 'fa-gavel'], ['Ping/Post integration guide', '/features/ping_post_integration', 'Feature', 'fa-book'],
+    ['Call tracking', '/features/call_tracking', 'Feature', 'fa-phone'], ['Inbound call routing', '/features/inbound_call_routing', 'Feature', 'fa-route'],
+    ['Agent control center and power dialer', '/features/agent_controls', 'Feature', 'fa-headset'], ['Lead automation', '/features/lead_automation', 'Feature', 'fa-bolt'],
+    ['AI call transcriptions', '/features/transcriptions', 'Feature', 'fa-closed-captioning'], ['AI voice agents', '/features/voice_agents', 'Feature', 'fa-robot'],
+    ['AI SMS bots', '/features/ai_sms_bots', 'Feature', 'fa-comment-sms'], ['Call recordings', '/features/call_recordings', 'Feature', 'fa-microphone-lines'],
+    ['Buyer management', '/features/buyer_management', 'Feature', 'fa-users'], ['Simultaneously dial buyers', '/features/simul_dial', 'Feature', 'fa-phone-volume'],
+    ['Hold queue and callback', '/features/hold_queue', 'Feature', 'fa-hourglass-half'], ['Dynamic number insertion', '/features/dynamic_number_insertion', 'Feature', 'fa-hashtag'],
+    ['Formulas', '/features/formulas', 'Feature', 'fa-square-root-variable'], ['Custom webhooks', '/features/custom_webhook', 'Feature', 'fa-link'],
+    ['REST API', '/features/api', 'Feature', 'fa-code'], ['API IP whitelist', '/features/api_whitelist', 'Feature', 'fa-network-wired'],
+    ['Data exports', '/features/data_export', 'Feature', 'fa-file-export'], ['Multiple telephone providers', '/features/multiple_telephone_providers', 'Feature', 'fa-tower-cell'],
+    ['SIP support', '/features/sip_support', 'Feature', 'fa-server'], ['Spam tag mitigation', '/features/spam_tag_mitigation', 'Compliance', 'fa-shield-halved'],
+    ['Verified identity and caller ID', '/features/verified_identity', 'Compliance', 'fa-id-card'], ['Consent and opt-out', '/features/consent_opt_out', 'Compliance', 'fa-file-signature'],
+    ['Suppression lists and DNC', '/features/suppression_lists', 'Compliance', 'fa-ban'], ['State rules', '/features/state_rules', 'Compliance', 'fa-map-location-dot'],
+    ['PII redaction', '/features/pii_redaction', 'Compliance', 'fa-user-shield'],
+    ['Google Ads', '/features/adwords', 'Integration', 'fa-plug'], ['Salesforce', '/features/salesforce', 'Integration', 'fa-plug'],
+    ['Zoho CRM', '/features/zoho_crm', 'Integration', 'fa-plug'], ['Zapier', '/features/zapier', 'Integration', 'fa-plug'], ['Slack', '/features/slack', 'Integration', 'fa-plug'],
+    ['ElevenLabs voice agents', '/features/voice_agents/elevenlabs', 'Integration', 'fa-plug'], ['AWS S3', '/features/aws_s3', 'Integration', 'fa-plug'],
+    ['Typeform', '/features/typeform', 'Integration', 'fa-plug'], ['MailChimp', '/features/mailchimp', 'Integration', 'fa-plug'],
+    ['Mailgun', '/features/mailgun', 'Integration', 'fa-plug'], ['SendGrid', '/features/sendgrid', 'Integration', 'fa-plug'],
+    ['Infusionsoft', '/features/infusionsoft', 'Integration', 'fa-plug'], ['Twilio', '/features/twilio', 'Integration', 'fa-plug'],
+    ['Telnyx', '/features/telnyx', 'Integration', 'fa-plug'], ['Plivo', '/features/plivo', 'Integration', 'fa-plug'],
+    ['Cake', '/features/cake', 'Integration', 'fa-plug'], ['HasOffers', '/features/hasoffers', 'Integration', 'fa-plug'],
+    ['Voluum', '/features/voluum', 'Integration', 'fa-plug'], ['LinkTrust', '/features/linktrust', 'Integration', 'fa-plug']
   ];
 
   // ---------- Navbar: the floating bar firms up once the page scrolls ----------
@@ -3591,12 +3591,12 @@
       });
     }
     if (document.fonts && document.fonts.ready) {
-      // the font stylesheet loads without blocking: wait for it to land, then for its fonts
+      // wait for the font stylesheet to land, then for its fonts
       var fonts = new Promise(function (res) {
         var t0 = Date.now();
         (function wait() {
           var css = Array.prototype.some.call(document.styleSheets, function (s) {
-            return s.href && s.href.indexOf('fonts.googleapis') > -1;
+            return s.href && /fonts\.googleapis|\/avx-fonts\//.test(s.href);
           });
           if (css || Date.now() - t0 > 600) document.fonts.ready.then(res, res);
           else setTimeout(wait, 30);

@@ -13,7 +13,7 @@ export default function Layout({ route, layout, children }) {
       <div className="container" />
       {children}
       <Footer />
-      <FeatureModal fullPageHref={home ? '#' : route + '#'} />
+      <FeatureModal fullPageHref={home ? '#' : route.replace(/\.html$/, '') + '#'} />
     </>
   )
 }

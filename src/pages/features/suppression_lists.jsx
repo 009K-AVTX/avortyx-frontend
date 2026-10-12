@@ -12,7 +12,7 @@ export default function SuppressionLists() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#security-compliance-tools" className="mktg-subpage-back">
+            <a href="/features#security-compliance-tools" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Security & Compliance Tools{" "}
@@ -22,7 +22,7 @@ export default function SuppressionLists() {
           <h1 className="fw-bold mb-2">Suppression & DNC</h1>
           <p className="lead mktg-subpage-hero-subtitle">DNC checks, suppression lists, and blacklists — layered do-not-contact controls that run before any call routes or dials.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -75,14 +75,14 @@ export default function SuppressionLists() {
               <p className="mb-0">
                 <strong>This overview does not constitute legal advice.</strong>
                 {" "}
-                <a target="_blank" href="/terms_of_service.html">Read the Terms of Service</a>
+                <a target="_blank" href="/terms_of_service">Read the Terms of Service</a>
                 {" "}(Sections 2.3.6, 2.3.6.1, and 2.6) for full details.
               </p>
             </div>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/pii_redaction.html" className="btn btn-td-green">PII Redaction</a>
+              <a href="/features/pii_redaction" className="btn btn-td-green">PII Redaction</a>
               {" "}
-              <a href="/features/state_rules.html" className="btn btn-outline-td-green">State Rules</a>
+              <a href="/features/state_rules" className="btn btn-outline-td-green">State Rules</a>
             </div>
           </div>
         </div>
@@ -93,9 +93,9 @@ export default function SuppressionLists() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

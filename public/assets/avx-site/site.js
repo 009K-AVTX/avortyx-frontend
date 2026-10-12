@@ -73,7 +73,7 @@
     box.setAttribute('aria-label', 'Cookie notice');
     box.innerHTML = '<span>We use cookies to understand how you use our site and to improve your experience, ' +
       'including personalizing content and offering resources. By continuing to use our site, you accept our use of cookies. ' +
-      '<a href="/privacy_policy.html">Privacy Policy</a></span><a href="#" id="okClose" role="button">I Accept</a>';
+      '<a href="/privacy_policy">Privacy Policy</a></span><a href="#" id="okClose" role="button">I Accept</a>';
     document.body.appendChild(box);
     box.querySelector('#okClose').addEventListener('click', function (e) {
       e.preventDefault();

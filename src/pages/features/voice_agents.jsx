@@ -12,13 +12,13 @@ export default function VoiceAgents() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#ai" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to AI </a>
+            <a href="/features#ai" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to AI </a>
           </div>
           <p className="mktg-subpage-hero-eyebrow">AI</p>
           <h1 className="fw-bold mb-2">AI Voice Agents</h1>
           <p className="lead mktg-subpage-hero-subtitle">Bring your own AI voice provider — your agent answers and qualifies calls, routed with the same controls as your live team.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -73,13 +73,13 @@ export default function VoiceAgents() {
               <li className="provider-card">
                 <div className="provider-card__logo"><img alt="ElevenLabs integration" src="/assets/avx-site/img/elevenlabs.jpg" /></div>
                 <p className="provider-card__tagline">Studio-grade conversational voice agents</p>
-                <a className="provider-card__cta" href="/features/voice_agents/elevenlabs.html"> View ElevenLabs → </a>
+                <a className="provider-card__cta" href="/features/voice_agents/elevenlabs"> View ElevenLabs → </a>
               </li>
             </ul>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/integrations.html" className="btn btn-td-green">Connect An Integration</a>
+              <a href="/features/integrations" className="btn btn-td-green">Connect An Integration</a>
               {" "}
-              <a href="/features.html#ai" className="btn btn-outline-td-green">AI at Avortyx</a>
+              <a href="/features#ai" className="btn btn-outline-td-green">AI at Avortyx</a>
             </div>
           </div>
         </div>
@@ -90,9 +90,9 @@ export default function VoiceAgents() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

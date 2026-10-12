@@ -12,7 +12,7 @@ export default function BuyerManagement() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#call-management" className="mktg-subpage-back">
+            <a href="/features#call-management" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Call Management{" "}
@@ -22,7 +22,7 @@ export default function BuyerManagement() {
           <h1 className="fw-bold mb-2">Buyer Management</h1>
           <p className="lead mktg-subpage-hero-subtitle">Buyers are the destinations in your call flow — the call centers, agents, or SIP endpoints that receive live calls. Avortyx gives you full control over which buyer gets each call, when they can receive calls, and how much volume they handle.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -109,14 +109,14 @@ export default function BuyerManagement() {
               <li>
                 <strong>Buyer groups</strong>
                 {" "}— dial buyers simultaneously or sequentially under shared caps;{" "}
-                <a href="/features/simul_dial.html">learn more</a>
+                <a href="/features/simul_dial">learn more</a>
                 .
               </li>
             </ul>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/inbound_call_routing.html" className="btn btn-td-green">Inbound Call Routing</a>
+              <a href="/features/inbound_call_routing" className="btn btn-td-green">Inbound Call Routing</a>
               {" "}
-              <a href="/features/simul_dial.html" className="btn btn-outline-td-green">Simultaneously Dial Buyers</a>
+              <a href="/features/simul_dial" className="btn btn-outline-td-green">Simultaneously Dial Buyers</a>
             </div>
           </div>
         </div>
@@ -127,9 +127,9 @@ export default function BuyerManagement() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

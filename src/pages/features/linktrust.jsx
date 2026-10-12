@@ -12,7 +12,7 @@ export default function Linktrust() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#tracking-attribution" className="mktg-subpage-back">
+            <a href="/features#tracking-attribution" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Tracking & Attribution{" "}
@@ -22,7 +22,7 @@ export default function Linktrust() {
           <h1 className="fw-bold mb-2">Custom Webhooks</h1>
           <p className="lead mktg-subpage-hero-subtitle">Send real-time call and lead data to any endpoint the moment events happen.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -82,9 +82,9 @@ export default function Linktrust() {
               {" "}— a lightweight, Zapier-style event system. Subscribe to any of 11 event types and receive a JSON POST to your endpoint with no complex configuration. Subscriptions can be filtered by offer, schedule, traffic source, buyer, telephone number, and conversion status — just provide a URL and select your events.
             </p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/dynamic_number_insertion.html" className="btn btn-td-green">Dynamic Number Insertion</a>
+              <a href="/features/dynamic_number_insertion" className="btn btn-td-green">Dynamic Number Insertion</a>
               {" "}
-              <a href="/features/formulas.html" className="btn btn-outline-td-green">Expressions & Functions</a>
+              <a href="/features/formulas" className="btn btn-outline-td-green">Expressions & Functions</a>
             </div>
           </div>
         </div>
@@ -95,9 +95,9 @@ export default function Linktrust() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

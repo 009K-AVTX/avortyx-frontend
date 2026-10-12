@@ -13,7 +13,7 @@ export default function Integrations() {
         <div className="container">
           <div className="mktg-section-header">
             <div className="mktg-subpage-hero-nav mb-3">
-              <a href="/features.html" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Features </a>
+              <a href="/features" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Features </a>
             </div>
             <h1 className="fw-bold">Integrations</h1>
             <p className="text-muted lead">Connect Avortyx with the tools you already use.</p>
@@ -24,7 +24,7 @@ export default function Integrations() {
         <div className="container">
           <div className="row g-4">
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/voice_agents/elevenlabs.html" className="text-decoration-none">
+              <a href="/features/voice_agents/elevenlabs" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with ElevenLabs" className="mx-auto d-block mb-3" src="/assets/avx-site/img/elevenlabs.webp" />
                   <p className="text-dark small mb-0">ElevenLabs</p>
@@ -32,7 +32,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/zoho_crm.html" className="text-decoration-none">
+              <a href="/features/zoho_crm" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Zoho CRM" className="mx-auto d-block mb-3" src="/assets/avx-site/img/zoho_crm.webp" />
                   <p className="text-dark small mb-0">Zoho CRM</p>
@@ -40,7 +40,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/aws_s3.html" className="text-decoration-none">
+              <a href="/features/aws_s3" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with AWS S3" className="mx-auto d-block mb-3" src="/assets/avx-site/img/aws_s3.webp" />
                   <p className="text-dark small mb-0">AWS S3</p>
@@ -48,7 +48,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/cake.html" className="text-decoration-none">
+              <a href="/features/cake" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Cake" className="mx-auto d-block mb-3" src="/assets/avx-site/img/cake.webp" />
                   <p className="text-dark small mb-0">Cake</p>
@@ -56,7 +56,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/adwords.html" className="text-decoration-none">
+              <a href="/features/adwords" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Google Ads" className="mx-auto d-block mb-3" src="/assets/avx-site/img/ga.webp" />
                   <p className="text-dark small mb-0">Google Ads</p>
@@ -64,7 +64,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/hasoffers.html" className="text-decoration-none">
+              <a href="/features/hasoffers" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with HasOffers" className="mx-auto d-block mb-3" src="/assets/avx-site/img/hasoffers.webp" />
                   <p className="text-dark small mb-0">HasOffers</p>
@@ -72,7 +72,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/infusionsoft.html" className="text-decoration-none">
+              <a href="/features/infusionsoft" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Infusionsoft" className="mx-auto d-block mb-3" src="/assets/avx-site/img/infusionsoft-blue.webp" />
                   <p className="text-dark small mb-0">Infusionsoft</p>
@@ -80,7 +80,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/linktrust.html" className="text-decoration-none">
+              <a href="/features/linktrust" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Linktrust" className="mx-auto d-block mb-3" src="/assets/avx-site/img/linktrust.webp" />
                   <p className="text-dark small mb-0">Linktrust</p>
@@ -88,7 +88,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/mailchimp.html" className="text-decoration-none">
+              <a href="/features/mailchimp" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with MailChimp" className="mx-auto d-block mb-3" src="/assets/avx-site/img/mailchimp.webp" />
                   <p className="text-dark small mb-0">MailChimp</p>
@@ -96,7 +96,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/mailgun.html" className="text-decoration-none">
+              <a href="/features/mailgun" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Mailgun" className="mx-auto d-block mb-3" src="/assets/avx-site/img/mailgun.webp" />
                   <p className="text-dark small mb-0">Mailgun</p>
@@ -104,7 +104,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/salesforce.html" className="text-decoration-none">
+              <a href="/features/salesforce" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Salesforce" className="mx-auto d-block mb-3" src="/assets/avx-site/img/salesforce.webp" />
                   <p className="text-dark small mb-0">Salesforce</p>
@@ -112,7 +112,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/sendgrid.html" className="text-decoration-none">
+              <a href="/features/sendgrid" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Sendgrid" className="mx-auto d-block mb-3" src="/assets/avx-site/img/sendgrid.webp" />
                   <p className="text-dark small mb-0">Sendgrid</p>
@@ -120,7 +120,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/slack.html" className="text-decoration-none">
+              <a href="/features/slack" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Slack" className="mx-auto d-block mb-3" src="/assets/avx-site/img/slack.webp" />
                   <p className="text-dark small mb-0">Slack</p>
@@ -128,7 +128,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/typeform.html" className="text-decoration-none">
+              <a href="/features/typeform" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Typeform" className="mx-auto d-block mb-3" src="/assets/avx-site/img/typeform.webp" />
                   <p className="text-dark small mb-0">Typeform</p>
@@ -136,7 +136,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/voluum.html" className="text-decoration-none">
+              <a href="/features/voluum" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Voluum" className="mx-auto d-block mb-3" src="/assets/avx-site/img/voluum.webp" />
                   <p className="text-dark small mb-0">Voluum</p>
@@ -144,7 +144,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/zapier.html" className="text-decoration-none">
+              <a href="/features/zapier" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Zapier" className="mx-auto d-block mb-3" src="/assets/avx-site/img/zapier.webp" />
                   <p className="text-dark small mb-0">Zapier</p>
@@ -152,7 +152,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/plivo.html" className="text-decoration-none">
+              <a href="/features/plivo" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Plivo" className="mx-auto d-block mb-3" src="/assets/avx-site/img/plivo.webp" />
                   <p className="text-dark small mb-0">Plivo</p>
@@ -160,7 +160,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/telnyx.html" className="text-decoration-none">
+              <a href="/features/telnyx" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Telnyx" className="mx-auto d-block mb-3" src="/assets/avx-site/img/telnyx.webp" />
                   <p className="text-dark small mb-0">Telnyx</p>
@@ -168,7 +168,7 @@ export default function Integrations() {
               </a>
             </div>
             <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/twilio.html" className="text-decoration-none">
+              <a href="/features/twilio" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
                   <img alt="Integrate with Twilio" className="mx-auto d-block mb-3" src="/assets/avx-site/img/twilio.webp" />
                   <p className="text-dark small mb-0">Twilio</p>
@@ -184,9 +184,9 @@ export default function Integrations() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

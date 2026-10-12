@@ -6,12 +6,12 @@ const PLATFORM_TABS = [
 
 // Answers come from the pricing and feature pages [question, answer, optional [href, link text]]
 const FAQ = [
-  ['Are there any onboarding fees?', 'No. Avortyx does not charge onboarding fees.', ['/pricing.html', 'See pricing']],
-  ['Can I bring my own carrier?', 'Yes. Connect Twilio, Plivo or Telnyx, or bring any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.', ['/features/multiple_telephone_providers.html', 'Telephone providers']],
-  ['How are calls priced?', 'Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the nearest full minute. The inbound rates cover both legs of a call connected to a buyer, and your statements itemize each leg.', ['/pricing.html', 'Rates and calculator']],
-  ['Is there an API?', 'Yes. Avortyx is API-first: anything you can do in the dashboard, you can do through the REST API, with access tokens limited to exactly the resources they need.', ['/features/api.html', 'REST API']],
-  ['How do you handle compliance and personal data?', 'DNC checks, suppression lists and blacklists run before any call is forwarded or dialed, and state rules enforce calling-hour windows. PII can be cleared or hashed from aged data and restricted to users with the PII permission.', ['/features.html#security-compliance-tools', 'Security and compliance']],
-  ['Do you offer discounts?', 'Yes, for high-volume customers.', ['/p/contact.html', 'Contact our team']],
+  ['Are there any onboarding fees?', 'No. Avortyx does not charge onboarding fees.', ['/pricing', 'See pricing']],
+  ['Can I bring my own carrier?', 'Yes. Connect Twilio, Plivo or Telnyx, or bring any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.', ['/features/multiple_telephone_providers', 'Telephone providers']],
+  ['How are calls priced?', 'Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the nearest full minute. The inbound rates cover both legs of a call connected to a buyer, and your statements itemize each leg.', ['/pricing', 'Rates and calculator']],
+  ['Is there an API?', 'Yes. Avortyx is API-first: anything you can do in the dashboard, you can do through the REST API, with access tokens limited to exactly the resources they need.', ['/features/api', 'REST API']],
+  ['How do you handle compliance and personal data?', 'DNC checks, suppression lists and blacklists run before any call is forwarded or dialed, and state rules enforce calling-hour windows. PII can be cleared or hashed from aged data and restricted to users with the PII permission.', ['/features#security-compliance-tools', 'Security and compliance']],
+  ['Do you offer discounts?', 'Yes, for high-volume customers.', ['/p/contact', 'Contact our team']],
   ['What support do you offer?', 'Phone, live chat and email support, plus live video sessions with our specialists.', null],
 ]
 
@@ -80,19 +80,19 @@ const TRUST_LOGOS = [
 // "We Integrate With": CRM, messaging and automation tools, two rows [file, name, page, width, height]
 const INTEGRATION_ROWS = [
   [
-    ['elevenlabs', 'ElevenLabs', '/features/voice_agents/elevenlabs.html', 220, 140],
-    ['zoho_crm', 'Zoho CRM', '/features/zoho_crm.html', 200, 120],
-    ['aws_s3', 'AWS S3', '/features/aws_s3.html', 200, 120],
-    ['salesforce', 'Salesforce', '/features/salesforce.html', 129, 91],
-    ['infusionsoft-blue', 'Infusionsoft', '/features/infusionsoft.html', 168, 24],
-    ['slack', 'Slack', '/features/slack.html', 226, 65],
+    ['elevenlabs', 'ElevenLabs', '/features/voice_agents/elevenlabs', 220, 140],
+    ['zoho_crm', 'Zoho CRM', '/features/zoho_crm', 200, 120],
+    ['aws_s3', 'AWS S3', '/features/aws_s3', 200, 120],
+    ['salesforce', 'Salesforce', '/features/salesforce', 129, 91],
+    ['infusionsoft-blue', 'Infusionsoft', '/features/infusionsoft', 168, 24],
+    ['slack', 'Slack', '/features/slack', 226, 65],
   ],
   [
-    ['mailchimp', 'MailChimp', '/features/mailchimp.html', 168, 51],
-    ['mailgun', 'Mailgun', '/features/mailgun.html', 168, 46],
-    ['sendgrid', 'Sendgrid', '/features/sendgrid.html', 168, 30],
-    ['typeform', 'Typeform', '/features/typeform.html', 168, 106],
-    ['zapier', 'Zapier', '/features/zapier.html', 171, 78],
+    ['mailchimp', 'MailChimp', '/features/mailchimp', 168, 51],
+    ['mailgun', 'Mailgun', '/features/mailgun', 168, 46],
+    ['sendgrid', 'Sendgrid', '/features/sendgrid', 168, 30],
+    ['typeform', 'Typeform', '/features/typeform', 168, 106],
+    ['zapier', 'Zapier', '/features/zapier', 171, 78],
   ],
 ]
 
@@ -187,7 +187,7 @@ export default function Home() {
         <div className="container">
           <div className="avx-hero-grid">
             <div className="avx-hero-copy">
-              <a className="avx-ribbon" href="/features/transcriptions.html">
+              <a className="avx-ribbon" href="/features/transcriptions">
                 <span>AI</span>
                 Summaries, sentiment and topics on every call
                 <i className="fa-solid fa-arrow-right" aria-hidden="true" />
@@ -208,9 +208,9 @@ export default function Home() {
                 {" "}behind each one.
               </p>
               <div className="d-flex flex-wrap gap-3 avx-hero-ctas">
-                <a href="/sign_up.html" className="btn btn-td-green btn-lg fw-semibold">Sign Up Free</a>
+                <a href="/sign_up" className="btn btn-td-green btn-lg fw-semibold">Sign Up Free</a>
                 {" "}
-                <a href="/p/request_demo.html" className="btn btn-outline-td-green btn-lg fw-semibold">Request Demo</a>
+                <a href="/p/request_demo" className="btn btn-outline-td-green btn-lg fw-semibold">Request Demo</a>
               </div>
               <a href="#product-tour" className="avx-hero-tour-link">See it live <span aria-hidden="true">↓</span></a>
             </div>
@@ -557,7 +557,7 @@ export default function Home() {
                   </li>
                   <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Per-buyer ping caps by minute, hour, or day</li>
                 </ul>
-                <a className="avx-more-link mt-3" href="/features/ping_post.html">Explore Ping/Post <span aria-hidden="true">→</span></a>
+                <a className="avx-more-link mt-3" href="/features/ping_post">Explore Ping/Post <span aria-hidden="true">→</span></a>
               </div>
             </div>
           </div>
@@ -612,7 +612,7 @@ export default function Home() {
                   <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Answering-machine screening</li>
                   <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Built-in WebRTC softphone, no downloads</li>
                 </ul>
-                <a className="avx-more-link mt-3" href="/features/agent_controls.html#power-dialer">
+                <a className="avx-more-link mt-3" href="/features/agent_controls#power-dialer">
                   Explore the Power Dialer{" "}
                   <span aria-hidden="true">→</span>
                 </a>
@@ -678,7 +678,7 @@ export default function Home() {
                     Whisper messages and answering-machine detection
                   </li>
                 </ul>
-                <a className="avx-more-link mt-3" href="/features/call_tracking.html">
+                <a className="avx-more-link mt-3" href="/features/call_tracking">
                   Explore Call Tracking & Routing{" "}
                   <span aria-hidden="true">→</span>
                 </a>
@@ -736,7 +736,7 @@ export default function Home() {
                     Scheduled callbacks with daylight-hours awareness
                   </li>
                 </ul>
-                <a className="avx-more-link mt-3" href="/features/lead_automation.html">
+                <a className="avx-more-link mt-3" href="/features/lead_automation">
                   Explore Lead Automation{" "}
                   <span aria-hidden="true">→</span>
                 </a>
@@ -785,7 +785,7 @@ export default function Home() {
                   <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Transfer to buyers or other agents</li>
                   <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Disposition calls and schedule callbacks</li>
                 </ul>
-                <a className="avx-more-link mt-3" href="/features/agent_controls.html#agent-control-center">
+                <a className="avx-more-link mt-3" href="/features/agent_controls#agent-control-center">
                   Explore the Agent Control Center{" "}
                   <span aria-hidden="true">→</span>
                 </a>
@@ -812,7 +812,7 @@ export default function Home() {
                 <div className="card-body p-4 d-flex flex-column">
                   <h3 className="h5 fw-bold mb-2">AI Voice Agents</h3>
                   <p className="text-muted small mb-3">Voice agents plugged straight into your call flow — they answer 24/7, qualify leads, and warm-transfer to humans through the same buyers, caps, and tiers you already use.</p>
-                  <a href="/features/voice_agents.html" className="avx-more-link mt-auto">
+                  <a href="/features/voice_agents" className="avx-more-link mt-auto">
                     Explore Voice Agents{" "}
                     <span aria-hidden="true">→</span>
                   </a>
@@ -829,7 +829,7 @@ export default function Home() {
                 <div className="card-body p-4 d-flex flex-column">
                   <h3 className="h5 fw-bold mb-2">Call Analytics</h3>
                   <p className="text-muted small mb-3">See exactly what drives revenue — real-time dashboards for calls, conversions, and spend that reveal your best campaigns, traffic sources, and keywords.</p>
-                  <a href="/features/call_tracking.html#reports-analytics" className="avx-more-link mt-auto">
+                  <a href="/features/call_tracking#reports-analytics" className="avx-more-link mt-auto">
                     Explore Call Analytics{" "}
                     <span aria-hidden="true">→</span>
                   </a>
@@ -845,7 +845,7 @@ export default function Home() {
                 <div className="card-body p-4 d-flex flex-column">
                   <h3 className="h5 fw-bold mb-2">REST API</h3>
                   <p className="text-muted small mb-3">A fully programmable, API-first platform. Every resource is exposed over a clean REST API — with granular keys, IP controls, and audit logs — so you can run Avortyx from your own tools.</p>
-                  <a href="/features/api.html" className="avx-more-link mt-auto">Explore the REST API <span aria-hidden="true">→</span></a>
+                  <a href="/features/api" className="avx-more-link mt-auto">Explore the REST API <span aria-hidden="true">→</span></a>
                 </div>
               </div>
             </div>
@@ -856,10 +856,10 @@ export default function Home() {
               <h3>More capabilities</h3>
               <p>Tracking, compliance, recordings and data tools around every call.</p>
             </div>
-            <a href="/features.html" className="avx-more-link">See all features <span aria-hidden="true">→</span></a>
+            <a href="/features" className="avx-more-link">See all features <span aria-hidden="true">→</span></a>
           </div>
           <div className="avx-cap-grid avx-bento avx-bento-3 text-start" data-avx-bento="">
-            <a href="/features/transcriptions.html" className="avx-cap avx-cap--lead">
+            <a href="/features/transcriptions" className="avx-cap avx-cap--lead">
               {" "}
               <i className="avx-cap-ic fa-solid fa-closed-captioning" aria-hidden="true" />
               {" "}
@@ -870,7 +870,7 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
-            <a href="/features/spam_tag_mitigation.html" className="avx-cap">
+            <a href="/features/spam_tag_mitigation" className="avx-cap">
               {" "}
               <i className="avx-cap-ic fa-solid fa-shield-halved" aria-hidden="true" />
               {" "}
@@ -881,7 +881,7 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
-            <a href="/features/call_recordings.html" className="avx-cap">
+            <a href="/features/call_recordings" className="avx-cap">
               {" "}
               <i className="avx-cap-ic fa-solid fa-microphone-lines" aria-hidden="true" />
               {" "}
@@ -894,7 +894,7 @@ export default function Home() {
             </a>
           </div>
           <div className="avx-cap-list text-start">
-            <a href="/features/dynamic_number_insertion.html" className="avx-cap-li">
+            <a href="/features/dynamic_number_insertion" className="avx-cap-li">
               {" "}
               <i className="avx-cap-ic fa-solid fa-hashtag" aria-hidden="true" />
               {" "}
@@ -905,7 +905,7 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
-            <a href="/features/custom_webhook.html" className="avx-cap-li">
+            <a href="/features/custom_webhook" className="avx-cap-li">
               {" "}
               <i className="avx-cap-ic fa-solid fa-link" aria-hidden="true" />
               {" "}
@@ -916,7 +916,7 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
-            <a href="/features/formulas.html" className="avx-cap-li">
+            <a href="/features/formulas" className="avx-cap-li">
               {" "}
               <i className="avx-cap-ic fa-solid fa-square-root-variable" aria-hidden="true" />
               {" "}
@@ -927,7 +927,7 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
-            <a href="/features/data_export.html" className="avx-cap-li">
+            <a href="/features/data_export" className="avx-cap-li">
               {" "}
               <i className="avx-cap-ic fa-solid fa-file-export" aria-hidden="true" />
               {" "}
@@ -938,7 +938,7 @@ export default function Home() {
               <em aria-hidden="true">→</em>
               {" "}
             </a>
-            <a href="/features.html#security-compliance-tools" className="avx-cap-li">
+            <a href="/features#security-compliance-tools" className="avx-cap-li">
               {" "}
               <i className="avx-cap-ic fa-solid fa-scale-balanced" aria-hidden="true" />
               {" "}
@@ -965,9 +965,9 @@ export default function Home() {
           </div>
           <p className="avx-int-voip-note">
             <b>Bring your own VoIP.</b> Use your preferred telephony provider, or any SIP-compatible carrier.{" "}
-            <a href="/features/multiple_telephone_providers.html" className="avx-more-link">Telephone providers <span aria-hidden="true">→</span></a>
+            <a href="/features/multiple_telephone_providers" className="avx-more-link">Telephone providers <span aria-hidden="true">→</span></a>
           </p>
-          <a href="/features/integrations.html" className="btn avx-btn-ghost">View All Integrations</a>
+          <a href="/features/integrations" className="btn avx-btn-ghost">View All Integrations</a>
         </div>
       </section>
       <section className="mktg-section avx-proof" id="trust">
@@ -978,7 +978,7 @@ export default function Home() {
             <p className="text-muted">Screening and controls run on every call, before anyone is dialed.</p>
           </div>
           <div className="avx-trust-grid">
-            <a href="/features/suppression_lists.html" className="avx-trust-item">
+            <a href="/features/suppression_lists" className="avx-trust-item">
               {" "}
               <i className="fa-solid fa-ban" aria-hidden="true" />
               {" "}
@@ -988,7 +988,7 @@ export default function Home() {
               {" "}
             </a>
             {" "}
-            <a href="/features/consent_opt_out.html" className="avx-trust-item">
+            <a href="/features/consent_opt_out" className="avx-trust-item">
               {" "}
               <i className="fa-solid fa-file-signature" aria-hidden="true" />
               {" "}
@@ -998,7 +998,7 @@ export default function Home() {
               {" "}
             </a>
             {" "}
-            <a href="/features/pii_redaction.html" className="avx-trust-item">
+            <a href="/features/pii_redaction" className="avx-trust-item">
               {" "}
               <i className="fa-solid fa-user-shield" aria-hidden="true" />
               {" "}
@@ -1008,7 +1008,7 @@ export default function Home() {
               {" "}
             </a>
             {" "}
-            <a href="/features/state_rules.html" className="avx-trust-item">
+            <a href="/features/state_rules" className="avx-trust-item">
               {" "}
               <i className="fa-solid fa-map-location-dot" aria-hidden="true" />
               {" "}
@@ -1018,7 +1018,7 @@ export default function Home() {
               {" "}
             </a>
             {" "}
-            <a href="/features/verified_identity.html" className="avx-trust-item">
+            <a href="/features/verified_identity" className="avx-trust-item">
               {" "}
               <i className="fa-solid fa-id-card" aria-hidden="true" />
               {" "}
@@ -1028,7 +1028,7 @@ export default function Home() {
               {" "}
             </a>
             {" "}
-            <a href="/features/spam_tag_mitigation.html" className="avx-trust-item">
+            <a href="/features/spam_tag_mitigation" className="avx-trust-item">
               {" "}
               <i className="fa-solid fa-shield-halved" aria-hidden="true" />
               {" "}
@@ -1067,16 +1067,16 @@ export default function Home() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/request_demo.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/request_demo" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>
       {/* phones: sign-up stays one tap away once the hero has scrolled off (motion.js shows it) */}
       <div className="avx-mcta" data-avx-mcta="">
-        <a href="/sign_up.html" className="btn btn-td-green fw-semibold">Sign Up Free</a>
-        <a href="/p/request_demo.html" className="btn btn-outline-td-green fw-semibold">Request Demo</a>
+        <a href="/sign_up" className="btn btn-td-green fw-semibold">Sign Up Free</a>
+        <a href="/p/request_demo" className="btn btn-outline-td-green fw-semibold">Request Demo</a>
       </div>
     </main>
   )

@@ -12,12 +12,12 @@ export default function PingPost() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#ping-post" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Features </a>
+            <a href="/features#ping-post" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Features </a>
           </div>
           <h1 className="fw-bold mb-2">Ping/Post</h1>
           <p className="lead mktg-subpage-hero-subtitle">Real-time bidding (RTB) for inbound leads and calls. Publishers PING to find available buyers and collect live bids, then POST to get a tracking number and connect the call.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -113,9 +113,9 @@ export default function PingPost() {
               <img alt="Ping/Post usage over time with a daily usage and cost breakdown" className="img-fluid rounded border mb-4" src="/assets/avx-shots/ping-post-analytics-1.webp" width="2000" height="419" srcSet="/assets/avx-shots/ping-post-analytics-1-1000.webp 1000w, /assets/avx-shots/ping-post-analytics-1.webp 2000w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/ping_post_integration.html" className="btn btn-td-green">Integration Guide</a>
+              <a href="/features/ping_post_integration" className="btn btn-td-green">Integration Guide</a>
               {" "}
-              <a href="/features/buyer_management.html" className="btn btn-outline-td-green">Buyer Management</a>
+              <a href="/features/buyer_management" className="btn btn-outline-td-green">Buyer Management</a>
             </div>
           </div>
         </div>
@@ -126,9 +126,9 @@ export default function PingPost() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

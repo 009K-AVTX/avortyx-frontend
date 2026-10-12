@@ -17,7 +17,7 @@ export default function Features() {
           </div>
           <div className="flow-platform-diagram mt-4">
             <div className="flow-column">
-              <a className="flow-item" href="/features/inbound_call_routing.html">
+              <a className="flow-item" href="/features/inbound_call_routing">
                 {" "}
                 <i className="fa-solid fa-phone-volume text-primary" aria-hidden="true" />
                 {" "}
@@ -25,7 +25,7 @@ export default function Features() {
                 {" "}
               </a>
               {" "}
-              <a className="flow-item" href="/features/ping_post.html">
+              <a className="flow-item" href="/features/ping_post">
                 {" "}
                 <i className="fa-solid fa-arrow-right-arrow-left text-info" aria-hidden="true" />
                 {" "}
@@ -33,7 +33,7 @@ export default function Features() {
                 {" "}
               </a>
               {" "}
-              <a className="flow-item" href="/features/api.html">
+              <a className="flow-item" href="/features/api">
                 {" "}
                 <i className="fa-solid fa-code text-secondary" aria-hidden="true" />
                 {" "}
@@ -59,7 +59,7 @@ export default function Features() {
               <i className="fa-solid fa-chevron-right" aria-hidden="true" />
             </div>
             <div className="flow-column">
-              <a className="flow-item" href="/features/buyer_management.html">
+              <a className="flow-item" href="/features/buyer_management">
                 {" "}
                 <i className="fa-solid fa-user-tie text-success" aria-hidden="true" />
                 {" "}
@@ -67,7 +67,7 @@ export default function Features() {
                 {" "}
               </a>
               {" "}
-              <a className="flow-item" href="/features/call_tracking.html">
+              <a className="flow-item" href="/features/call_tracking">
                 {" "}
                 <i className="fa-solid fa-circle-check text-success" aria-hidden="true" />
                 {" "}
@@ -75,7 +75,7 @@ export default function Features() {
                 {" "}
               </a>
               {" "}
-              <a className="flow-item" href="/features/call_tracking.html">
+              <a className="flow-item" href="/features/call_tracking">
                 {" "}
                 <i className="fa-solid fa-dollar-sign text-success" aria-hidden="true" />
                 {" "}
@@ -83,7 +83,7 @@ export default function Features() {
                 {" "}
               </a>
               {" "}
-              <a className="flow-item" href="/features/call_tracking.html#reports-analytics">
+              <a className="flow-item" href="/features/call_tracking#reports-analytics">
                 {" "}
                 <i className="fa-solid fa-chart-line text-primary" aria-hidden="true" />
                 {" "}
@@ -102,9 +102,9 @@ export default function Features() {
                 <h3 className="fw-bold">Real Time Ping/Post</h3>
                 <p className="text-muted">Match inbound leads with available buyers using a two-step Ping/Post system — real-time bidding (RTB) that routes every lead to the buyer who values it most.</p>
               </div>
-              <a className="btn btn-td-green feature-modal-link" href="/features/ping_post.html">Learn More</a>
+              <a className="btn btn-td-green feature-modal-link" href="/features/ping_post">Learn More</a>
               {" "}
-              <a className="btn btn-outline-td-green ms-2 feature-modal-link" href="/features/ping_post_integration.html">Integration Guide</a>
+              <a className="btn btn-outline-td-green ms-2 feature-modal-link" href="/features/ping_post_integration">Integration Guide</a>
             </div>
             <div className="col-lg-6 text-center">
               <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/ping-post-dashboard-1.webp">
@@ -122,7 +122,7 @@ export default function Features() {
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
-              <a href="/features/call_tracking.html" className="text-decoration-none">
+              <a href="/features/call_tracking" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3">
                     <i className="fa-solid fa-phone-volume" aria-hidden="true" />
@@ -133,7 +133,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/agent_controls.html" className="text-decoration-none">
+              <a href="/features/agent_controls" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3"><i className="fa-solid fa-headset" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Agent Control Center</h5>
@@ -142,7 +142,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/hold_queue.html" className="text-decoration-none">
+              <a href="/features/hold_queue" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-warning bg-opacity-10 text-warning mb-3">
                     <i className="fa-solid fa-clock-rotate-left" aria-hidden="true" />
@@ -153,7 +153,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/call_recordings.html" className="text-decoration-none">
+              <a href="/features/call_recordings" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-info bg-opacity-10 text-info mb-3">
                     <i className="fa-solid fa-microphone-lines" aria-hidden="true" />
@@ -174,7 +174,7 @@ export default function Features() {
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
-              <a href="/features/lead_automation.html" className="text-decoration-none">
+              <a href="/features/lead_automation" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-warning bg-opacity-10 text-warning mb-3"><i className="fa-solid fa-bolt" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Lead Automation</h5>
@@ -183,7 +183,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/agent_controls.html#power-dialer" className="text-decoration-none">
+              <a href="/features/agent_controls#power-dialer" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-danger bg-opacity-10 text-danger mb-3">
                     <i className="fa-solid fa-phone-arrow-up-right" aria-hidden="true" />
@@ -204,7 +204,7 @@ export default function Features() {
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
-              <a href="/features/voice_agents.html" className="text-decoration-none">
+              <a href="/features/voice_agents" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3"><i className="fa-solid fa-robot" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">AI Voice Agents</h5>
@@ -213,7 +213,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/ai_sms_bots.html" className="text-decoration-none">
+              <a href="/features/ai_sms_bots" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-info bg-opacity-10 text-info mb-3"><i className="fa-solid fa-robot" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">AI SMS Bots</h5>
@@ -222,7 +222,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/transcriptions.html" className="text-decoration-none">
+              <a href="/features/transcriptions" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3">
                     <i className="fa-solid fa-file-lines" aria-hidden="true" />
@@ -243,7 +243,7 @@ export default function Features() {
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
-              <a href="/features/dynamic_number_insertion.html" className="text-decoration-none">
+              <a href="/features/dynamic_number_insertion" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-info bg-opacity-10 text-info mb-3"><i className="fa-solid fa-code" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Dynamic Number Insertion</h5>
@@ -252,7 +252,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/formulas.html" className="text-decoration-none">
+              <a href="/features/formulas" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-warning bg-opacity-10 text-warning mb-3">
                     <i className="fa-solid fa-calculator" aria-hidden="true" />
@@ -263,7 +263,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/custom_webhook.html" className="text-decoration-none">
+              <a href="/features/custom_webhook" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3">
                     <i className="fa-solid fa-arrows-turn-to-dots" aria-hidden="true" />
@@ -274,7 +274,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/data_export.html" className="text-decoration-none">
+              <a href="/features/data_export" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-primary bg-opacity-10 text-primary mb-3">
                     <i className="fa-solid fa-file-export" aria-hidden="true" />
@@ -285,7 +285,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/api.html" className="text-decoration-none">
+              <a href="/features/api" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-secondary bg-opacity-10 text-secondary mb-3">
                     <i className="fa-solid fa-terminal" aria-hidden="true" />
@@ -306,7 +306,7 @@ export default function Features() {
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
-              <a href="/features/spam_tag_mitigation.html" className="text-decoration-none">
+              <a href="/features/spam_tag_mitigation" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-warning bg-opacity-10 text-warning mb-3">
                     <i className="fa-solid fa-shield-halved" aria-hidden="true" />
@@ -317,7 +317,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/multiple_telephone_providers.html" className="text-decoration-none">
+              <a href="/features/multiple_telephone_providers" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-primary bg-opacity-10 text-primary mb-3">
                     <i className="fa-solid fa-tower-cell" aria-hidden="true" />
@@ -328,7 +328,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/sip_support.html" className="text-decoration-none">
+              <a href="/features/sip_support" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-secondary bg-opacity-10 text-secondary mb-3">
                     <i className="fa-solid fa-network-wired" aria-hidden="true" />
@@ -349,7 +349,7 @@ export default function Features() {
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
-              <a href="/features/pii_redaction.html" className="text-decoration-none">
+              <a href="/features/pii_redaction" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-danger bg-opacity-10 text-danger mb-3">
                     <i className="fa-solid fa-shield-halved" aria-hidden="true" />
@@ -360,7 +360,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/api_whitelist.html" className="text-decoration-none">
+              <a href="/features/api_whitelist" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-secondary bg-opacity-10 text-secondary mb-3">
                     <i className="fa-solid fa-lock" aria-hidden="true" />
@@ -371,7 +371,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/suppression_lists.html" className="text-decoration-none">
+              <a href="/features/suppression_lists" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-warning bg-opacity-10 text-warning mb-3"><i className="fa-solid fa-ban" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Suppression & DNC</h5>
@@ -380,7 +380,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/state_rules.html" className="text-decoration-none">
+              <a href="/features/state_rules" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-info bg-opacity-10 text-info mb-3">
                     <i className="fa-solid fa-map-location-dot" aria-hidden="true" />
@@ -391,7 +391,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/consent_opt_out.html" className="text-decoration-none">
+              <a href="/features/consent_opt_out" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3">
                     <i className="fa-solid fa-file-signature" aria-hidden="true" />
@@ -402,7 +402,7 @@ export default function Features() {
               </a>
             </div>
             <div className="col-md-6 col-lg-4">
-              <a href="/features/verified_identity.html" className="text-decoration-none">
+              <a href="/features/verified_identity" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-primary bg-opacity-10 text-primary mb-3"><i className="fa-solid fa-id-card" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Verified Identity & Caller ID</h5>
@@ -432,7 +432,7 @@ export default function Features() {
                 <h3 className="fw-bold">Call Analytics</h3>
                 <p className="text-muted">See which campaigns, websites, and keywords drive the most calls. View impressions, calls, and conversions for any combination of keywords in real time.</p>
               </div>
-              <a className="btn btn-td-green feature-modal-link" href="/features/call_tracking.html#reports-analytics">Explore Call Analytics</a>
+              <a className="btn btn-td-green feature-modal-link" href="/features/call_tracking#reports-analytics">Explore Call Analytics</a>
             </div>
           </div>
         </div>
@@ -444,121 +444,121 @@ export default function Features() {
             <p className="text-muted">Connect with your favorite tools and platforms.</p>
           </div>
           <div className="d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
-            <a href="/features/voice_agents/elevenlabs.html" className="integration-logo-card text-decoration-none" title="ElevenLabs">
+            <a href="/features/voice_agents/elevenlabs" className="integration-logo-card text-decoration-none" title="ElevenLabs">
               {" "}
               <img alt="ElevenLabs" className="integration-logo" loading="lazy" src="/assets/avx-site/img/elevenlabs.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/zoho_crm.html" className="integration-logo-card text-decoration-none" title="Zoho CRM">
+            <a href="/features/zoho_crm" className="integration-logo-card text-decoration-none" title="Zoho CRM">
               {" "}
               <img alt="Zoho CRM" className="integration-logo" loading="lazy" src="/assets/avx-site/img/zoho_crm.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/aws_s3.html" className="integration-logo-card text-decoration-none" title="AWS S3">
+            <a href="/features/aws_s3" className="integration-logo-card text-decoration-none" title="AWS S3">
               {" "}
               <img alt="AWS S3" className="integration-logo" loading="lazy" src="/assets/avx-site/img/aws_s3.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/cake.html" className="integration-logo-card text-decoration-none" title="Cake">
+            <a href="/features/cake" className="integration-logo-card text-decoration-none" title="Cake">
               {" "}
               <img alt="Cake" className="integration-logo" loading="lazy" src="/assets/avx-site/img/cake.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/adwords.html" className="integration-logo-card text-decoration-none" title="Google Ads">
+            <a href="/features/adwords" className="integration-logo-card text-decoration-none" title="Google Ads">
               {" "}
               <img alt="Google Ads" className="integration-logo" loading="lazy" src="/assets/avx-site/img/ga.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/hasoffers.html" className="integration-logo-card text-decoration-none" title="HasOffers">
+            <a href="/features/hasoffers" className="integration-logo-card text-decoration-none" title="HasOffers">
               {" "}
               <img alt="HasOffers" className="integration-logo" loading="lazy" src="/assets/avx-site/img/hasoffers.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/infusionsoft.html" className="integration-logo-card text-decoration-none" title="Infusionsoft">
+            <a href="/features/infusionsoft" className="integration-logo-card text-decoration-none" title="Infusionsoft">
               {" "}
               <img alt="Infusionsoft" className="integration-logo" loading="lazy" src="/assets/avx-site/img/infusionsoft-blue.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/linktrust.html" className="integration-logo-card text-decoration-none" title="Linktrust">
+            <a href="/features/linktrust" className="integration-logo-card text-decoration-none" title="Linktrust">
               {" "}
               <img alt="Linktrust" className="integration-logo" loading="lazy" src="/assets/avx-site/img/linktrust.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/mailchimp.html" className="integration-logo-card text-decoration-none" title="MailChimp">
+            <a href="/features/mailchimp" className="integration-logo-card text-decoration-none" title="MailChimp">
               {" "}
               <img alt="MailChimp" className="integration-logo" loading="lazy" src="/assets/avx-site/img/mailchimp.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/mailgun.html" className="integration-logo-card text-decoration-none" title="Mailgun">
+            <a href="/features/mailgun" className="integration-logo-card text-decoration-none" title="Mailgun">
               {" "}
               <img alt="Mailgun" className="integration-logo" loading="lazy" src="/assets/avx-site/img/mailgun.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/salesforce.html" className="integration-logo-card text-decoration-none" title="Salesforce">
+            <a href="/features/salesforce" className="integration-logo-card text-decoration-none" title="Salesforce">
               {" "}
               <img alt="Salesforce" className="integration-logo" loading="lazy" src="/assets/avx-site/img/salesforce.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/sendgrid.html" className="integration-logo-card text-decoration-none" title="Sendgrid">
+            <a href="/features/sendgrid" className="integration-logo-card text-decoration-none" title="Sendgrid">
               {" "}
               <img alt="Sendgrid" className="integration-logo" loading="lazy" src="/assets/avx-site/img/sendgrid.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/slack.html" className="integration-logo-card text-decoration-none" title="Slack">
+            <a href="/features/slack" className="integration-logo-card text-decoration-none" title="Slack">
               {" "}
               <img alt="Slack" className="integration-logo" loading="lazy" src="/assets/avx-site/img/slack.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/typeform.html" className="integration-logo-card text-decoration-none" title="Typeform">
+            <a href="/features/typeform" className="integration-logo-card text-decoration-none" title="Typeform">
               {" "}
               <img alt="Typeform" className="integration-logo" loading="lazy" src="/assets/avx-site/img/typeform.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/voluum.html" className="integration-logo-card text-decoration-none" title="Voluum">
+            <a href="/features/voluum" className="integration-logo-card text-decoration-none" title="Voluum">
               {" "}
               <img alt="Voluum" className="integration-logo" loading="lazy" src="/assets/avx-site/img/voluum.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/zapier.html" className="integration-logo-card text-decoration-none" title="Zapier">
+            <a href="/features/zapier" className="integration-logo-card text-decoration-none" title="Zapier">
               {" "}
               <img alt="Zapier" className="integration-logo" loading="lazy" src="/assets/avx-site/img/zapier.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/plivo.html" className="integration-logo-card text-decoration-none" title="Plivo">
+            <a href="/features/plivo" className="integration-logo-card text-decoration-none" title="Plivo">
               {" "}
               <img alt="Plivo" className="integration-logo" loading="lazy" src="/assets/avx-site/img/plivo.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/telnyx.html" className="integration-logo-card text-decoration-none" title="Telnyx">
+            <a href="/features/telnyx" className="integration-logo-card text-decoration-none" title="Telnyx">
               {" "}
               <img alt="Telnyx" className="integration-logo" loading="lazy" src="/assets/avx-site/img/telnyx.webp" />
               {" "}
             </a>
             {" "}
-            <a href="/features/twilio.html" className="integration-logo-card text-decoration-none" title="Twilio">
+            <a href="/features/twilio" className="integration-logo-card text-decoration-none" title="Twilio">
               {" "}
               <img alt="Twilio" className="integration-logo" loading="lazy" src="/assets/avx-site/img/twilio.webp" />
               {" "}
             </a>
           </div>
-          <a href="/features/integrations.html" className="btn btn-td-green">View All Integrations</a>
+          <a href="/features/integrations" className="btn btn-td-green">View All Integrations</a>
         </div>
       </section>
       <section className="marketing-cta-band">
@@ -567,9 +567,9 @@ export default function Features() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

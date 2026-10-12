@@ -11,10 +11,10 @@ const FEATURE_SECTIONS = [
 ]
 
 const LINKS = [
-  ['/features.html#ai', 'AI'],
-  ['/features/integrations.html', 'Integrations'],
-  ['/pricing.html', 'Pricing'],
-  ['/p/contact.html', 'Contact'],
+  ['/features#ai', 'AI'],
+  ['/features/integrations', 'Integrations'],
+  ['/pricing', 'Pricing'],
+  ['/p/contact', 'Contact'],
 ]
 
 export default function Navbar({ brandHref }) {
@@ -30,21 +30,21 @@ export default function Navbar({ brandHref }) {
         <div className="collapse navbar-collapse" id="marketingNav">
           <ul className="navbar-nav ms-auto align-items-lg-center">
             <li className="nav-item dropdown marketing-hover-dropdown">
-              <a className="nav-link" href="/features.html" id="featuresDropdown"> Features </a>
+              <a className="nav-link" href="/features" id="featuresDropdown"> Features </a>
               <ul className="dropdown-menu" aria-labelledby="featuresDropdown">
                 {FEATURE_SECTIONS.map(([id, label]) => (
-                  <li key={id}><a className="dropdown-item" href={`/features.html#${id}`}>{label}</a></li>
+                  <li key={id}><a className="dropdown-item" href={`/features#${id}`}>{label}</a></li>
                 ))}
                 <li><hr className="dropdown-divider" /></li>
-                <li><a className="dropdown-item fw-semibold" href="/features.html">View All Features</a></li>
+                <li><a className="dropdown-item fw-semibold" href="/features">View All Features</a></li>
               </ul>
             </li>
             {LINKS.map(([href, label]) => (
               <li key={href} className="nav-item"><a className="nav-link" href={href}>{label}</a></li>
             ))}
             <li className="nav-item"><a className="nav-link" href="https://support.trackdrive.com/" target="_blank" rel="noopener noreferrer" title="Avortyx Help Center">Help Center</a></li>
-            <li className="nav-item"><a className="nav-link" href="/users/sign_in.html">Sign In</a></li>
-            <li className="nav-item ms-lg-2"><a className="btn btn-td-green btn-sm px-3" href="/sign_up.html">Sign Up Free</a></li>
+            <li className="nav-item"><a className="nav-link" href="/users/sign_in">Sign In</a></li>
+            <li className="nav-item ms-lg-2"><a className="btn btn-td-green btn-sm px-3" href="/sign_up">Sign Up Free</a></li>
           </ul>
         </div>
       </div>

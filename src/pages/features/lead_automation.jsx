@@ -12,7 +12,7 @@ export default function LeadAutomation() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#automation" className="mktg-subpage-back">
+            <a href="/features#automation" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Automation{" "}
@@ -22,7 +22,7 @@ export default function LeadAutomation() {
           <h1 className="fw-bold mb-2">Lead Automation</h1>
           <p className="lead mktg-subpage-hero-subtitle">Turn web forms into live phone calls with automated SMS, email, and outbound call workflows.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function LeadAutomation() {
             </div>
             <p>
               Turn web forms into live phone calls.{" "}
-              <a href="/features/lead_automation.html">Lead Automation</a>
+              <a href="/features/lead_automation">Lead Automation</a>
               {" "}contacts every lead the moment it arrives — sending SMS and email, then placing outbound calls — with multi-step workflows that run automatically.
             </p>
             <p className="text-muted">Socialized Media, a Facebook advertising agency, sends each new Facebook Lead to Avortyx in real time. An SMS and email go out immediately, and the IVR dials the lead minutes later — retrying automatically if there's no answer.</p>
@@ -130,9 +130,9 @@ export default function LeadAutomation() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

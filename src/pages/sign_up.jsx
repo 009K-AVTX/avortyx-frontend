@@ -17,7 +17,7 @@ export default function SignUp() {
               <p className="text-muted mb-1">No credit card required, no onboarding fees — sign up in a couple of minutes.</p>
               <p className="text-muted mb-0">
                 Already have an account?{" "}
-                <a href="/users/sign_in.html" className="text-decoration-none fw-semibold mktg-link-green">Sign in</a>
+                <a href="/users/sign_in" className="text-decoration-none fw-semibold mktg-link-green">Sign in</a>
               </p>
             </div>
             <form className="simple_form mktg-auth-form" id="new_registration" noValidate action="https://avortyx.com/users/" acceptCharset="UTF-8" method="post">
@@ -430,9 +430,9 @@ export default function SignUp() {
                       <label className="form-check-label boolean required small text-muted" htmlFor="registration_terms_of_service_accepted">
                         <abbr title="required">*</abbr>
                         {" "}I have read and understand Avortyx's{" "}
-                        <a href="/terms_of_service.html" target="_blank" className="text-decoration-none fw-semibold mktg-link-green">Terms of Service</a>
+                        <a href="/terms_of_service" target="_blank" className="text-decoration-none fw-semibold mktg-link-green">Terms of Service</a>
                         {" "}and{" "}
-                        <a href="/privacy_policy.html" target="_blank" className="text-decoration-none fw-semibold mktg-link-green">Privacy Policy</a>
+                        <a href="/privacy_policy" target="_blank" className="text-decoration-none fw-semibold mktg-link-green">Privacy Policy</a>
                         , and I accept and agree to all terms and conditions.
                       </label>
                     </div>

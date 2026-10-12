@@ -12,13 +12,13 @@ export default function Transcriptions() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#ai" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to AI </a>
+            <a href="/features#ai" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to AI </a>
           </div>
           <p className="mktg-subpage-hero-eyebrow">AI</p>
           <h1 className="fw-bold mb-2">AI Transcriptions</h1>
           <p className="lead mktg-subpage-hero-subtitle">Every recorded call, transcribed and enriched with AI: summaries, sentiment, topics, and a live analytics dashboard.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -61,9 +61,9 @@ export default function Transcriptions() {
             </div>
             <p>
               Know what happened on every call — without pressing play. Every{" "}
-              <a href="/features/call_recordings.html">call recording</a>
+              <a href="/features/call_recordings">call recording</a>
               {" "}is transcribed, summarized, scored, and tagged the moment the call ends, so QA and compliance teams spot coaching moments, agent monologues, and negative calls at a glance. Keyword hits fire webhooks and{" "}
-              <a href="/features/voice_agents.html">AI Voice Agent</a>
+              <a href="/features/voice_agents">AI Voice Agent</a>
               {" "}handoffs automatically.
             </p>
             <h3>Review Every Conversation</h3>
@@ -88,7 +88,7 @@ export default function Transcriptions() {
                   <li>
                     <strong>Interactive recording player</strong>
                     {" "}— a waveform of the agent and customer channels on every{" "}
-                    <a href="/features/call_recordings.html">call recording</a>
+                    <a href="/features/call_recordings">call recording</a>
                     , with sentiment markers and click-to-seek.
                   </li>
                 </ul>
@@ -102,17 +102,17 @@ export default function Transcriptions() {
                   </li>
                   <li><strong>One-click per-offer setup</strong> — pick the AI features each offer runs.</li>
                   <li>
-                    <strong><a href="/features/pii_redaction.html">PII redaction</a></strong>
+                    <strong><a href="/features/pii_redaction">PII redaction</a></strong>
                     {" "}— personal, financial, medical, and more.
                   </li>
                   <li>
-                    <strong>Keyword spotting & <a href="/features/custom_webhook.html">webhooks</a></strong>
+                    <strong>Keyword spotting & <a href="/features/custom_webhook">webhooks</a></strong>
                     {" "}— classify calls and trigger actions.
                   </li>
                   <li>
                     <strong>Post-call or API audio</strong>
                     {" "}— automatic after calls, or submit any audio file on demand via the{" "}
-                    <a href="/features/api.html">REST API</a>
+                    <a href="/features/api">REST API</a>
                     .
                   </li>
                 </ul>
@@ -155,11 +155,11 @@ export default function Transcriptions() {
             <p className="text-muted mb-1">Not just calls — submit any audio file for transcription with a single API request, and receive the finished transcript at your postback URL:</p>
             <pre>{"curl -H \"Authorization: Basic BASE64_ENCODED_PUBLIC_KEY_AND_PRIVATE_KEY\" \\\n     -H \"Content-Type: application/json\" \\\n     -X POST \\\n     -d '{\"caller_id\": \"+18004506787\",\n          \"file_url\": \"http://example.com/publicly_accessible_file.mp3\",\n          \"postback_url\": \"http://example.com/postback_url\",\n          \"data\": {\"loan_amount\": \"501\", \"custom_token\": \"the_value\"}}' \\\n     \"http://[your-subdomain].avortyx.com/api/v1/standalone_transcriptions\"\n  "}</pre>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/call_recordings.html" className="btn btn-td-green">Call Recordings</a>
+              <a href="/features/call_recordings" className="btn btn-td-green">Call Recordings</a>
               {" "}
-              <a href="/features/pii_redaction.html" className="btn btn-outline-td-green">PII Redaction</a>
+              <a href="/features/pii_redaction" className="btn btn-outline-td-green">PII Redaction</a>
               {" "}
-              <a href="/features/call_tracking.html" className="btn btn-outline-td-green">Call Tracking</a>
+              <a href="/features/call_tracking" className="btn btn-outline-td-green">Call Tracking</a>
             </div>
           </div>
         </div>
@@ -170,9 +170,9 @@ export default function Transcriptions() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

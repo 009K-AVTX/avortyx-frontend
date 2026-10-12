@@ -2,27 +2,27 @@ import BrandMark from './BrandMark.jsx'
 
 const COLUMNS = [
   ['Product', [
-    ['/features.html', 'Features'],
-    ['/features/integrations.html', 'Integrations'],
-    ['/pricing.html', 'Pricing'],
-    ['/features/api.html', 'REST API Docs'],
-    ['/features/dynamic_number_insertion.html', 'Number Insertion Docs'],
+    ['/features', 'Features'],
+    ['/features/integrations', 'Integrations'],
+    ['/pricing', 'Pricing'],
+    ['/features/api', 'REST API Docs'],
+    ['/features/dynamic_number_insertion', 'Number Insertion Docs'],
   ]],
   ['Features', [
-    ['/features.html#ping-post', 'Ping/Post'],
-    ['/features.html#call-management', 'Call Management'],
-    ['/features.html#automation', 'Automation'],
-    ['/features.html#ai', 'AI'],
-    ['/features.html#tracking-attribution', 'Tracking & Attribution'],
-    ['/features.html#phone-numbers', 'Phone Numbers'],
-    ['/features.html#security-compliance-tools', 'Security & Compliance Tools'],
+    ['/features#ping-post', 'Ping/Post'],
+    ['/features#call-management', 'Call Management'],
+    ['/features#automation', 'Automation'],
+    ['/features#ai', 'AI'],
+    ['/features#tracking-attribution', 'Tracking & Attribution'],
+    ['/features#phone-numbers', 'Phone Numbers'],
+    ['/features#security-compliance-tools', 'Security & Compliance Tools'],
   ]],
   ['Company', [
-    ['/terms_of_service.html', 'Terms of Service'],
-    ['/privacy_policy.html', 'Privacy Policy'],
-    ['/careers.html', 'Careers'],
-    ['/brand_assets.html', 'Brand Kit'],
-    ['/p/contact.html', 'Contact Us'],
+    ['/terms_of_service', 'Terms of Service'],
+    ['/privacy_policy', 'Privacy Policy'],
+    ['/careers', 'Careers'],
+    ['/brand_assets', 'Brand Kit'],
+    ['/p/contact', 'Contact Us'],
   ]],
 ]
 
@@ -40,7 +40,7 @@ export default function Footer() {
               <li className="mb-2">
                 <a href="mailto:support@avortyx.com"> <i className="fa-solid fa-envelope me-2" aria-hidden="true" />support@avortyx.com </a>
               </li>
-              <li><a href="/p/contact.html"> <i className="fa-solid fa-ticket me-2" aria-hidden="true" />Submit a Ticket </a></li>
+              <li><a href="/p/contact"> <i className="fa-solid fa-ticket me-2" aria-hidden="true" />Submit a Ticket </a></li>
             </ul>
           </div>
           {COLUMNS.map(([title, links]) => (

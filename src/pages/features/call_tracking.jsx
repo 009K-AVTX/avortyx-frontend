@@ -12,7 +12,7 @@ export default function CallTracking() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#call-management" className="mktg-subpage-back">
+            <a href="/features#call-management" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Call Management{" "}
@@ -22,7 +22,7 @@ export default function CallTracking() {
           <h1 className="fw-bold mb-2">Call Tracking</h1>
           <p className="lead mktg-subpage-hero-subtitle">Measure call conversions from online and offline marketing campaigns. Track traffic sources, URL keywords, and custom tokens.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -65,9 +65,9 @@ export default function CallTracking() {
             <h3>Call Logs</h3>
             <p>
               Every call lands in the log with its source, offer, buyer, timings, geography, custom tokens, revenue, payout, and margin — plus the{" "}
-              <a href="/features/call_recordings.html">recording</a>
+              <a href="/features/call_recordings">recording</a>
               ,{" "}
-              <a href="/features/transcriptions.html">AI transcription</a>
+              <a href="/features/transcriptions">AI transcription</a>
               , and disposition.
             </p>
             <p className="text-muted mb-1">
@@ -94,9 +94,9 @@ export default function CallTracking() {
             <h3 id="reports-analytics">Call Analytics</h3>
             <p>
               Live dashboards track calls, conversions, revenue, payout, cost, and profit — and summary reports group any of it by buyer, traffic source, offer, status, and dozens of other dimensions. Choose from hundreds of fields, save layouts as tabs, and export one-time or recurring{" "}
-              <a href="/features/data_export.html">CSV reports</a>
+              <a href="/features/data_export">CSV reports</a>
               {" "}with scheduled email delivery.{" "}
-              <a href="/features/ping_post.html">Ping/post</a>
+              <a href="/features/ping_post">Ping/post</a>
               {" "}traffic gets its own live dashboard.
             </p>
             <p className="text-muted mb-1">
@@ -114,7 +114,7 @@ export default function CallTracking() {
             <h3>Transcription Analytics</h3>
             <p>
               With{" "}
-              <a href="/features/transcriptions.html">AI Transcriptions</a>
+              <a href="/features/transcriptions">AI Transcriptions</a>
               {" "}enabled, sentiment, topics, talk-time ratio, and cost roll up live — every figure drills down to the transcripts behind it.
             </p>
             <p className="text-muted mb-1">
@@ -158,7 +158,7 @@ export default function CallTracking() {
               <li>
                 <strong>Webhooks per node</strong>
                 {" "}— fire a{" "}
-                <a href="/features/custom_webhook.html">custom webhook</a>
+                <a href="/features/custom_webhook">custom webhook</a>
                 {" "}before or after any node.
               </li>
               <li>
@@ -168,13 +168,13 @@ export default function CallTracking() {
             </ul>
             <h3>Recordings & Retention</h3>
             <p>
-              <a href="/features/call_recordings.html">Record inbound and outbound calls</a>
+              <a href="/features/call_recordings">Record inbound and outbound calls</a>
               {" "}per offer, with access-controlled playback and automatic retention rules that scrub recordings past their window — by offer or globally.
             </p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/inbound_call_routing.html" className="btn btn-td-green">Inbound Call Routing</a>
+              <a href="/features/inbound_call_routing" className="btn btn-td-green">Inbound Call Routing</a>
               {" "}
-              <a href="/features/pii_redaction.html" className="btn btn-outline-td-green">PII Redaction</a>
+              <a href="/features/pii_redaction" className="btn btn-outline-td-green">PII Redaction</a>
             </div>
           </div>
         </div>
@@ -185,9 +185,9 @@ export default function CallTracking() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

@@ -12,7 +12,7 @@ export default function ConsentOptOut() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#security-compliance-tools" className="mktg-subpage-back">
+            <a href="/features#security-compliance-tools" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Security & Compliance Tools{" "}
@@ -22,9 +22,9 @@ export default function ConsentOptOut() {
           <h1 className="fw-bold mb-2">Consent & Opt-Out</h1>
           <p className="lead mktg-subpage-hero-subtitle">Capture a verifiable consent record for every lead and honor opt-outs automatically.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
             {" "}
-            <a href="/sign_up.html" className="btn btn-outline-td-green">Get Started Free</a>
+            <a href="/sign_up" className="btn btn-outline-td-green">Get Started Free</a>
           </div>
         </div>
       </section>
@@ -48,7 +48,7 @@ export default function ConsentOptOut() {
             <h3>Built-In Audit Trail</h3>
             <p>
               Avortyx keeps immutable logs of opt-outs, contact blocks, DNC checks, change history, and signed attestations — and{" "}
-              <a href="/features/data_export.html">Data Exports</a>
+              <a href="/features/data_export">Data Exports</a>
               {" "}let you pull any of it into your own systems on a recurring schedule.
             </p>
             <div className="bg-light border-start border-success border-4 rounded-3 p-4 small text-muted mb-4" style={{ marginTop: "60px" }}>
@@ -71,9 +71,9 @@ export default function ConsentOptOut() {
               </p>
             </div>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/state_rules.html" className="btn btn-td-green">State Rules</a>
+              <a href="/features/state_rules" className="btn btn-td-green">State Rules</a>
               {" "}
-              <a href="/features/suppression_lists.html" className="btn btn-outline-td-green">Suppression & DNC</a>
+              <a href="/features/suppression_lists" className="btn btn-outline-td-green">Suppression & DNC</a>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function ConsentOptOut() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

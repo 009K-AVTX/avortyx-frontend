@@ -12,7 +12,7 @@ export default function CallRecordings() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#call-management" className="mktg-subpage-back">
+            <a href="/features#call-management" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Call Management{" "}
@@ -22,7 +22,7 @@ export default function CallRecordings() {
           <h1 className="fw-bold mb-2">Call Recordings</h1>
           <p className="lead mktg-subpage-hero-subtitle">Record every call, control who can hear it, and retain or delete recordings on your compliance schedule.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -42,7 +42,7 @@ export default function CallRecordings() {
             <h3>Interactive Recording Player</h3>
             <p>
               Every recording plays on an interactive waveform of the agent and customer channels — scrub to any moment with a click. With{" "}
-              <a href="/features/transcriptions.html">AI Transcriptions</a>
+              <a href="/features/transcriptions">AI Transcriptions</a>
               {" "}enabled, sentiment markers dot the waveform and the speaker-labeled transcript follows the playhead, so you can jump straight to the moment that matters.
             </p>
             <p className="text-muted mb-1">
@@ -59,12 +59,12 @@ export default function CallRecordings() {
             <h3>Retention Controls</h3>
             <p>
               Set retention rules per call type, offer, schedule, buyer, or traffic source; recordings past their window are scrubbed automatically — a core part of your{" "}
-              <a href="/features.html#security-compliance-tools">Security & Compliance Tools</a>
+              <a href="/features#security-compliance-tools">Security & Compliance Tools</a>
               .
             </p>
             <h3>Bulk Export</h3>
             <p>
-              <a href="/features/data_export.html">Data Exports</a>
+              <a href="/features/data_export">Data Exports</a>
               {" "}pulls all of your recordings in bulk, one-time or on a recurring schedule.
             </p>
             <h3>Audio Quality on Every Recording</h3>
@@ -82,7 +82,7 @@ export default function CallRecordings() {
               {" "}and{" "}
               <strong>one-way audio</strong>
               {" "}flagged — so you can tell a bad call from a bad connection before you press play. Roll it up account-wide in the{" "}
-              <a href="/features/call_tracking.html#audio-quality">Audio Quality dashboard</a>
+              <a href="/features/call_tracking#audio-quality">Audio Quality dashboard</a>
               .
             </p>
             <p className="text-muted mb-1">
@@ -93,9 +93,9 @@ export default function CallRecordings() {
               <img alt="Avortyx Audio Quality dashboard" className="img-fluid rounded border mb-4" src="/assets/avx-shots/audio-quality-dashboard.webp" width="1600" height="845" srcSet="/assets/avx-shots/audio-quality-dashboard-1000.webp 1000w, /assets/avx-shots/audio-quality-dashboard.webp 1600w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/pii_redaction.html" className="btn btn-td-green">PII Redaction</a>
+              <a href="/features/pii_redaction" className="btn btn-td-green">PII Redaction</a>
               {" "}
-              <a href="/features/data_export.html" className="btn btn-outline-td-green">Data Exports</a>
+              <a href="/features/data_export" className="btn btn-outline-td-green">Data Exports</a>
             </div>
           </div>
         </div>
@@ -106,9 +106,9 @@ export default function CallRecordings() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

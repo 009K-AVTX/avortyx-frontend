@@ -16,7 +16,7 @@ export default function SignIn() {
               <h2 className="fw-bold mb-2">Welcome Back</h2>
               <p className="text-muted mb-0">
                 Sign in to your Avortyx account. Don't have an account?{" "}
-                <a href="/sign_up.html" className="text-decoration-none fw-semibold mktg-link-green">Sign up free</a>
+                <a href="/sign_up" className="text-decoration-none fw-semibold mktg-link-green">Sign up free</a>
               </p>
             </div>
             <form className="simple_form mktg-auth-form" id="new_user" data-become="Avortyx.Base.SimpleForm" noValidate action="sign_in.html" acceptCharset="UTF-8" method="post">
@@ -40,7 +40,7 @@ export default function SignIn() {
                   {" "}
                   <label className="form-check-label small text-muted" htmlFor="remember_me">Remember me</label>
                 </div>
-                <a href="/users/password/new.html" className="small text-muted text-decoration-none">Forgot password?</a>
+                <a href="/users/password/new" className="small text-muted text-decoration-none">Forgot password?</a>
               </div>
               <button className="btn btn-td-green w-100 py-2 fw-semibold" type="submit">Sign In</button>
             </form>

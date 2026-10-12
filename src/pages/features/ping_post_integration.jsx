@@ -12,7 +12,7 @@ export default function PingPostIntegration() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#ping-post" className="mktg-subpage-back">
+            <a href="/features#ping-post" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Ping/Post{" "}
@@ -22,7 +22,7 @@ export default function PingPostIntegration() {
           <h1 className="fw-bold mb-2">Ping/Post Integration Guide</h1>
           <p className="lead mktg-subpage-hero-subtitle">Integrate with Avortyx's Ping/Post API — real-time bidding (RTB) for inbound leads and calls — to programmatically find available buyers and retrieve tracking numbers.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -185,9 +185,9 @@ export default function PingPostIntegration() {
               {" "}page in the dashboard that shows the complete field list, example requests, and example responses tailored to that endpoint's configuration. Share this page with publishers for easy integration.
             </p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/ping_post.html" className="btn btn-td-green">Ping/Post Overview</a>
+              <a href="/features/ping_post" className="btn btn-td-green">Ping/Post Overview</a>
               {" "}
-              <a href="/features/custom_webhook.html" className="btn btn-outline-td-green">Custom Webhooks</a>
+              <a href="/features/custom_webhook" className="btn btn-outline-td-green">Custom Webhooks</a>
             </div>
           </div>
         </div>
@@ -198,9 +198,9 @@ export default function PingPostIntegration() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

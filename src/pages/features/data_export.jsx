@@ -12,7 +12,7 @@ export default function DataExport() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#tracking-attribution" className="mktg-subpage-back">
+            <a href="/features#tracking-attribution" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Tracking & Attribution{" "}
@@ -22,7 +22,7 @@ export default function DataExport() {
           <h1 className="fw-bold mb-2">Data Exports</h1>
           <p className="lead mktg-subpage-hero-subtitle">Export calls, leads, recordings, and messages to CSV — on demand or on a recurring schedule emailed to your team.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -49,9 +49,9 @@ export default function DataExport() {
             <h3>Built for Large Datasets</h3>
             <p>Exports are processed in the background and packaged as a compressed CSV (.zip), so even very large pulls download quickly and reliably. Caller-number PII is automatically redacted for users without access.</p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/features/api.html" className="btn btn-td-green">REST API</a>
+              <a href="/features/api" className="btn btn-td-green">REST API</a>
               {" "}
-              <a href="/features/custom_webhook.html" className="btn btn-outline-td-green">Custom Webhooks</a>
+              <a href="/features/custom_webhook" className="btn btn-outline-td-green">Custom Webhooks</a>
             </div>
           </div>
         </div>
@@ -62,9 +62,9 @@ export default function DataExport() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

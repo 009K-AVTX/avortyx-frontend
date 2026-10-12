@@ -39,7 +39,7 @@ export default function Pricing() {
               <tbody>
                 <tr>
                   <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/call_tracking.html">Numbers</a>
+                    <a className="mktg-link-green" href="/features/call_tracking">Numbers</a>
                     {" "}
                     <sup>1</sup>
                   </th>
@@ -52,7 +52,7 @@ export default function Pricing() {
                 </tr>
                 <tr>
                   <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/spam_tag_mitigation.html">Spam Tag Mitigation</a>
+                    <a className="mktg-link-green" href="/features/spam_tag_mitigation">Spam Tag Mitigation</a>
                     {" "}
                     <sup>2</sup>
                   </th>
@@ -65,7 +65,7 @@ export default function Pricing() {
                 </tr>
                 <tr>
                   <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/inbound_call_routing.html">Local Tracking</a>
+                    <a className="mktg-link-green" href="/features/inbound_call_routing">Local Tracking</a>
                     {" "}
                     <sup>3</sup>
                   </th>
@@ -78,7 +78,7 @@ export default function Pricing() {
                 </tr>
                 <tr>
                   <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/inbound_call_routing.html">Toll Free Tracking</a>
+                    <a className="mktg-link-green" href="/features/inbound_call_routing">Toll Free Tracking</a>
                     {" "}
                     <sup>4</sup>
                   </th>
@@ -91,7 +91,7 @@ export default function Pricing() {
                 </tr>
                 <tr>
                   <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/agent_controls.html">Outbound To Consumer</a>
+                    <a className="mktg-link-green" href="/features/agent_controls">Outbound To Consumer</a>
                     {" "}
                     <sup>5</sup>
                   </th>
@@ -103,7 +103,7 @@ export default function Pricing() {
                   <td>$0.0150</td>
                 </tr>
                 <tr>
-                  <th className="fw-semibold"><a className="mktg-link-green" href="/features/ai_sms_bots.html">SMS Out</a> <sup>6</sup></th>
+                  <th className="fw-semibold"><a className="mktg-link-green" href="/features/ai_sms_bots">SMS Out</a> <sup>6</sup></th>
                   <td>$0.0400</td>
                   <td>$0.0350</td>
                   <td>$0.0300</td>
@@ -113,7 +113,7 @@ export default function Pricing() {
                 </tr>
                 <tr>
                   <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/lead_automation.html">Per Action</a>
+                    <a className="mktg-link-green" href="/features/lead_automation">Per Action</a>
                     {" "}
                     <sup>7</sup>
                   </th>
@@ -135,7 +135,7 @@ export default function Pricing() {
                 </tr>
                 <tr>
                   <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/ping_post.html">Ping/Post Per 1k</a>
+                    <a className="mktg-link-green" href="/features/ping_post">Ping/Post Per 1k</a>
                     {" "}
                     <sup>9</sup>
                   </th>
@@ -148,7 +148,7 @@ export default function Pricing() {
                 </tr>
                 <tr>
                   <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/transcriptions.html">AI Transcription</a>
+                    <a className="mktg-link-green" href="/features/transcriptions">AI Transcription</a>
                     {" "}
                     <sup>10</sup>
                   </th>
@@ -182,7 +182,7 @@ export default function Pricing() {
             <div className="pricing-highlight-card">
               <h2 className="fw-bold mb-2">Enterprise</h2>
               <p className="text-muted mx-auto pricing-enterprise-desc">Need a strategic partner, not a transactional vendor? We apply decades of market experience to help you meet your goals.</p>
-              <a className="btn btn-td-green btn-lg" href="/p/contact.html"> <i className="fa-solid fa-envelope me-2" aria-hidden="true" />Contact Sales </a>
+              <a className="btn btn-td-green btn-lg" href="/p/contact"> <i className="fa-solid fa-envelope me-2" aria-hidden="true" />Contact Sales </a>
             </div>
           </div>
           <div className="pricing-breakdown-showcase">
@@ -321,7 +321,7 @@ export default function Pricing() {
               </div>
               <p className="text-muted pricing-calculator-note">
                 Estimate for a 30-day month. See the{" "}
-                <a className="mktg-link-green" href="/features/ping_post.html">Ping/Post feature page</a>
+                <a className="mktg-link-green" href="/features/ping_post">Ping/Post feature page</a>
                 {" "}for rate limiting, bid management and the real-time dashboards.
               </p>
             </div>
@@ -354,7 +354,7 @@ export default function Pricing() {
                 <div id="faq2" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
                   <div className="accordion-body text-muted">
                     Yes, for high-volume customers.{" "}
-                    <a href="/p/contact.html">Contact our team</a>
+                    <a href="/p/contact">Contact our team</a>
                     {" "}for details.
                   </div>
                 </div>
@@ -456,9 +456,9 @@ export default function Pricing() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

@@ -12,7 +12,7 @@ export default function Api() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <div className="mktg-subpage-hero-nav">
-            <a href="/features.html#tracking-attribution" className="mktg-subpage-back">
+            <a href="/features#tracking-attribution" className="mktg-subpage-back">
               {" "}
               <i className="fa-solid fa-arrow-left" aria-hidden="true" />
               {" "}Back to Tracking & Attribution{" "}
@@ -22,7 +22,7 @@ export default function Api() {
           <h1 className="fw-bold mb-2">REST API</h1>
           <p className="lead mktg-subpage-hero-subtitle">Avortyx is API-first — anything you can do in the dashboard, you can do through the standardized REST API.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
-            <a href="/p/request_demo.html" className="btn btn-td-green">Request Demo</a>
+            <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
         </div>
       </section>
@@ -53,7 +53,7 @@ export default function Api() {
               <li>
                 <strong>IP whitelisting</strong>
                 {" "}— restrict any token to approved IP addresses (see{" "}
-                <a href="/features/api_whitelist.html">API IP Whitelist</a>
+                <a href="/features/api_whitelist">API IP Whitelist</a>
                 ).
               </li>
               <li><strong>Encrypted at rest</strong> — private keys and developer tokens are encrypted, never stored in plain text.</li>
@@ -69,9 +69,9 @@ export default function Api() {
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
               <a href="https://trackdrive.com/api/docs" className="btn btn-td-green" target="_blank" rel="noopener noreferrer" title="Avortyx REST API documentation">Avortyx REST API Docs</a>
               {" "}
-              <a href="/features/api_whitelist.html" className="btn btn-outline-td-green">API IP Whitelist</a>
+              <a href="/features/api_whitelist" className="btn btn-outline-td-green">API IP Whitelist</a>
               {" "}
-              <a href="/features/custom_webhook.html" className="btn btn-outline-td-green">Custom Webhooks</a>
+              <a href="/features/custom_webhook" className="btn btn-outline-td-green">Custom Webhooks</a>
             </div>
           </div>
         </div>
@@ -82,9 +82,9 @@ export default function Api() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up.html" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
             {" "}
-            <a href="/p/contact.html" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
         </div>
       </section>

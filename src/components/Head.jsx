@@ -7,7 +7,8 @@ const BOOT_STYLE = 'html.avx-boot main { opacity: 0 !important; animation: none 
 
 // The per-page part of <head>; everything shared lives in src/document.html.
 export default function Head({ route, meta }) {
-  const url = SITE + route
+  // pages are served without .html (vercel.json cleanUrls)
+  const url = SITE + route.replace(/\.html$/, '')
   const ogTitle = meta.ogTitle || meta.title
   return (
     <>
