@@ -10,8 +10,15 @@
 
   // Canvas and WebGL scenes hold their current frame while the page is scrolling and pick up
   // again just after: redrawing them on top of every scroll frame was the main cause of jank.
-  var scrollQuietAt = 0;
-  window.addEventListener('scroll', function () { scrollQuietAt = performance.now() + 150; }, { passive: true });
+  var scrollQuietAt = 0, scrollTimer = 0, root = document.documentElement;
+  // the CSS loops hold still the same way (html.avx-scrolling pauses them), so a scroll frame
+  // only moves the page
+  window.addEventListener('scroll', function () {
+    scrollQuietAt = performance.now() + 150;
+    if (!scrollTimer) root.classList.add('avx-scrolling');
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function () { scrollTimer = 0; root.classList.remove('avx-scrolling'); }, 180);
+  }, { passive: true });
   function scrolling() { return performance.now() < scrollQuietAt; }
 
   // decorative art from /assets/avx-ringba
@@ -1509,6 +1516,44 @@
     }
   };
 
+  // AI hub: a sea of light points in perspective; ripples spread out from the chip at the
+  // centre every couple of seconds and a slow swell rolls through, crests catching the light.
+  // The field fades toward every edge, so the scene has no border.
+  function rippleSeaScene(cls) {
+    return canvasScene(cls, function (ctx, W, H, t, s) {
+      var COLS = W > 900 ? 92 : 54, ROWS = 30;
+      var horizon = H * 0.1, near = H * 1.05;
+      if (!s.rings) s.rings = [];
+      if (!s.next || t > s.next) { s.rings.push(t); s.next = t + 2.1; }
+      s.rings = s.rings.filter(function (r0) { return t - r0 < 6; });
+      ctx.globalCompositeOperation = 'lighter';
+      for (var r = 0; r < ROWS; r++) {
+        var d = r / (ROWS - 1), depth = 0.3 + 0.7 * d;
+        for (var c = 0; c < COLS; c++) {
+          var u = c / (COLS - 1) - 0.5;
+          // distance from the ripple centre (the chip sits at about u 0, d 0.5) in surface units
+          var du = u * 1.9, dd = (d - 0.5) * 1.15, dist = Math.sqrt(du * du + dd * dd);
+          var swell = Math.sin(u * 5 + t * 0.5 + d * 3) * 0.35 + Math.sin(u * 2.3 - t * 0.3 + d * 6) * 0.25;
+          var ripple = 0;
+          for (var k = 0; k < s.rings.length; k++) {
+            var front = (t - s.rings[k]) * 0.28, gap = dist - front;
+            ripple += Math.exp(-gap * gap * 70) * Math.max(0, 1 - (t - s.rings[k]) / 6);
+          }
+          var lift = swell + ripple * 1.4 + pointerSwell(s, u, d, t) * 0.8;
+          var x = W / 2 + u * W * (0.7 + 0.9 * d);
+          var y = horizon + (near - horizon) * Math.pow(d, 1.3) - lift * H * 0.075 * depth;
+          var edge = sideFade(u) * Math.pow(d, 0.7) * Math.max(0, 1 - Math.pow(Math.max(0, d - 0.82) / 0.18, 2));
+          if (edge < 0.02) continue;
+          var lit = Math.min(1, 0.3 + 0.35 * Math.max(0, swell) + ripple * 1.1);
+          // blue in the troughs, toward violet-white on the ripple fronts
+          ctx.fillStyle = 'rgba(' + Math.round(70 + 150 * lit) + ',' + Math.round(120 + 100 * lit) + ',255,' + Math.min(1, edge * (0.25 + 0.9 * lit)).toFixed(3) + ')';
+          var z = 0.8 + 2.4 * depth * (0.6 + lit * 0.6);
+          ctx.fillRect(x - z / 2, y - z / 2, z, z);
+        }
+      }
+    });
+  }
+
   // contact: a dotted planet rising over the horizon, calls arcing between cities
   function globeScene(cls) {
     return canvasScene(cls, function (ctx, W, H, t, s) {
@@ -2125,29 +2170,6 @@
 
   // ---------- Landing hero: the vortex sculpture with its live chips ----------
 
-  // ---------- Footer signature: a monumental wordmark whose "o" is the live vortex ----------
-
-  function initSignature() {
-    var footer = document.querySelector('footer.marketing-footer');
-    var divider = footer && footer.querySelector('.footer-divider');
-    if (!divider || footer.querySelector('.avx-sig')) return;
-    var sig = el('div', 'avx-sig');
-    sig.setAttribute('aria-hidden', 'true');
-    var word = el('div', 'avx-sig-word');
-    var av = el('span', 'avx-sig-txt', 'Av');
-    av.dataset.t = 'Av';
-    word.appendChild(av);
-    var o = el('span', 'avx-sig-o');
-    o.appendChild(vortexSvg('avx-vx-sig', 'avx-sig-mark'));
-    word.appendChild(o);
-    var rest = el('span', 'avx-sig-txt', 'rtyx');
-    rest.dataset.t = 'rtyx';
-    word.appendChild(rest);
-    sig.appendChild(word);
-    sig.appendChild(el('p', 'avx-sig-line', 'Every call, accounted for.'));
-    divider.parentNode.insertBefore(sig, divider);
-  }
-
   // ---------- Homepage feature sections: one small, live product screen each ----------
 
   // run(at) plays one cycle; at(ms, fn) schedules a beat inside it. The first cycle is
@@ -2190,7 +2212,8 @@
     var body = c.querySelector('.avx-cs-body');
     body.innerHTML =
       '<div class="avx-pp-ping"><span class="avx-pp-tag">Ping</span><b class="avx-pp-lead"></b><em class="avx-pp-ms"></em></div>' +
-      '<div class="avx-pp-bids">' + DEMO_BUYERS.map(function (b) {
+      // three bidders: enough to show an auction without a wall of rows
+      '<div class="avx-pp-bids">' + DEMO_BUYERS.slice(0, 3).map(function (b) {
         return '<div class="avx-pp-bid"><span>' + b + '</span><b></b></div>';
       }).join('') + '</div>' +
       '<div class="avx-pp-post"><span class="avx-pp-tag">Post</span><span class="avx-pp-num"></span>' + pill('ok', 'Connected') + '</div>';
@@ -2210,7 +2233,7 @@
       });
       if (bids.every(function (b) { return typeof b !== 'number'; })) bids[1] = Math.round(rnd(30, 60));
       var win = bids.reduce(function (w, b, i) { return typeof b === 'number' && (w < 0 || b > bids[w]) ? i : w; }, -1);
-      [0, 1, 2, 3, 4].sort(function () { return Math.random() - 0.5; }).forEach(function (i, k) {
+      Array.prototype.map.call(rows, function (r, i) { return i; }).sort(function () { return Math.random() - 0.5; }).forEach(function (i, k) {
         at(400 + k * 260, function () {
           var b = bids[i];
           rows[i].className = 'avx-pp-bid ' + (typeof b === 'number' ? 'avx-bid' : 'avx-no');
@@ -2548,6 +2571,145 @@
     });
   }
 
+  // ---------- Landing: live 3D waves behind a few sections (edge-free, paused off-screen) ----------
+
+  function initLandingWaves() {
+    if (pageKey() !== '/') return;
+    [
+      ['main > .avx-int', STYLE_SCENES.ribbons],
+      ['#faq', STYLE_SCENES.strands]
+    ].forEach(function (w) {
+      var host = document.querySelector(w[0]);
+      if (!host) return;
+      host.classList.add('avx-fx-host');
+      var scene = w[1]();
+      host.insertBefore(scene, host.firstChild);
+      // the hub's ripples start under the chip: line the field's centre up with it
+      var chip = w[0] === '#trust' && host.querySelector('.avx-hub-core');
+      if (!chip) return;
+      function place() {
+        var hr = host.getBoundingClientRect(), cr = chip.getBoundingClientRect();
+        scene.style.top = Math.round(cr.top + cr.height / 2 - hr.top - scene.offsetHeight * 0.49) + 'px';
+      }
+      place();
+      window.addEventListener('resize', place);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+    });
+  }
+
+  // ---------- Live clocks and readouts (console style): the hero card and the tour strip ----------
+
+  function utc() { return new Date().toISOString().slice(11, 19); }
+
+  function initLiveReadouts() {
+    var heroClock = document.querySelector('[data-dc="clock"]');
+    var obs = document.querySelector('[data-avx-obs]');
+    var o = obs && function (k) { return obs.querySelector('[data-obs="' + k + '"]'); };
+    var v = { eps: 1284, p99: 0.62, apm: 312, vs: 42 }, obsOn = false;
+    if (obs) onVisible(obs, function () { obsOn = true; }, function () { obsOn = false; }, 0);
+    function tick() {
+      if (heroClock) heroClock.textContent = utc() + ' UTC';
+      if (obs && obsOn && !reduced && !motionPaused()) {
+        v.eps = Math.max(900, Math.min(1700, v.eps + Math.round(rnd(-60, 60))));
+        v.p99 = Math.max(0.41, Math.min(0.94, v.p99 + rnd(-0.05, 0.05)));
+        v.apm = Math.max(240, Math.min(390, v.apm + Math.round(rnd(-9, 9))));
+        v.vs = Math.max(28, Math.min(64, v.vs + Math.round(rnd(-2, 2))));
+        o('clock').textContent = utc();
+        o('eps').textContent = fmtInt(v.eps);
+        o('p99').textContent = v.p99.toFixed(2) + ' ms';
+        o('apm').textContent = v.apm;
+        o('vs').textContent = v.vs;
+      }
+    }
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  // ---------- AI hub: a pulse runs from the chip to each capability in turn ----------
+
+  function initHub() {
+    var hub = document.querySelector('[data-avx-hub]');
+    if (!hub) return;
+    var lines = hub.querySelectorAll('.avx-hub-lines path'), nodes = hub.querySelectorAll('.avx-hub-node');
+    var dot = hub.querySelector('.avx-hub-dot');
+    // the path is in 0..100 viewBox units, the same as the dot's left/top percentages
+    function travel(path) {
+      var len = path.getTotalLength(), t0 = performance.now();
+      dot.classList.add('avx-on');
+      (function f(now) {
+        var p = Math.min((now - t0) / 560, 1), e = p * p * (3 - 2 * p), pt = path.getPointAtLength(len * e);
+        dot.style.left = pt.x + '%';
+        dot.style.top = pt.y + '%';
+        if (p < 1) requestAnimationFrame(f); else dot.classList.remove('avx-on');
+      })(t0);
+    }
+    var core = hub.querySelector('.avx-hub-core'), i = 0, timer = null, visible = false;
+    reactive(hub, hub, true);
+    if (reduced) { nodes.forEach(function (n) { n.classList.add('avx-on'); }); return; }
+    function step() {
+      timer = setTimeout(step, 1500);
+      if (!visible || motionPaused() || document.hidden) return;
+      var k = i++ % nodes.length;
+      lines.forEach(function (l, j) { l.classList.toggle('avx-on', j === k); });
+      // restart the pulse on this line, then light its node as the pulse arrives
+      travel(lines[k]);
+      core.classList.remove('avx-scan'); void core.offsetWidth; core.classList.add('avx-scan');
+      setTimeout(function () {
+        nodes.forEach(function (n, j) { n.classList.toggle('avx-on', j === k); });
+        nodes[k].classList.add('avx-seen');
+      }, 520);
+    }
+    onVisible(hub, function () { visible = true; if (!timer) step(); }, function () { visible = false; }, 0.2);
+  }
+
+  // ---------- AI protection: each call runs the checks, then is routed or blocked ----------
+  // The HTML ships the first call passed; each cycle lights the checks one by one, a failed
+  // check stops the call before dialing and the radar flashes.
+
+  var SHIELD_CALLS = [
+    { num: '(205) 555-0199', src: 'Meta · Auto insurance', fail: 'dnc', why: 'on the DNC list' },
+    { num: '(415) 555-0133', src: 'Organic · Legal', to: 'Lakeside Legal' },
+    { num: '(646) 555-0118', src: 'Bing · Solar', fail: 'dup', why: 'duplicate of a call 4 minutes ago' },
+    { num: '(720) 555-0187', src: 'Meta · Home solar', to: 'Summit Solar' },
+    { num: '(702) 555-0160', src: 'Affiliate · Debt', fail: 'spam', why: 'spam risk' },
+    { num: '(312) 555-0142', src: 'Google Ads · Medicare', to: 'Apex Insurance' }
+  ];
+
+  function initShield() {
+    var box = document.querySelector('[data-avx-shield]');
+    if (!box) return;
+    var q = function (k) { return box.querySelector('[data-sh="' + k + '"]'); };
+    var checks = box.querySelectorAll('.avx-sh-checks li'), radar = box.querySelector('.avx-sh-radar'), n = 0;
+    demoLoop(box, 5200, function (at) {
+      if (at.instant) return; // the first call ships finished in the HTML
+      var c = SHIELD_CALLS[n++ % SHIELD_CALLS.length], verdict = q('verdict'), stop = false;
+      q('num').textContent = c.num;
+      q('src').textContent = c.src;
+      verdict.className = 'avx-sh-verdict';
+      verdict.textContent = 'Screening…';
+      radar.classList.remove('avx-sh-alert');
+      checks.forEach(function (li) { li.className = ''; });
+      checks.forEach(function (li, i) {
+        at(450 + i * 380, function () {
+          if (stop) return;
+          var bad = li.dataset.c === c.fail;
+          li.className = bad ? 'avx-bad' : 'avx-ok';
+          if (bad) {
+            stop = true;
+            radar.classList.add('avx-sh-alert');
+            verdict.className = 'avx-sh-verdict avx-block';
+            verdict.textContent = 'Blocked before dialing · ' + c.why;
+          }
+        });
+      });
+      at(450 + checks.length * 380, function () {
+        if (stop) return;
+        verdict.className = 'avx-sh-verdict avx-pass';
+        verdict.textContent = 'Passed · routed to ' + c.to;
+      });
+    });
+  }
+
   // ---------- Tabs: arrow keys, Home and End move between tabs (roving tabindex) ----------
 
   function tabKeys(list, select) {
@@ -2772,16 +2934,16 @@
   // the call rings in, the AI scores it, three buyers bid and the winner gets the call.
 
   var DECISIONS = [
-    { num: '(312) 555-0142', meta: 'Google Ads · Medicare · Chicago, IL', quote: 'Hi, I’m looking to switch my Medicare plan before the deadline.',
+    { num: '(312) 555-0142', meta: 'Google Ads · Medicare', quote: 'Hi, I’m looking to switch my Medicare plan before the deadline.',
       intent: .91, sent: ['Positive', 'pos'], tags: ['Plan switch', 'Deadline', 'Ready to enroll'],
       bids: [['Apex Insurance', 64], ['Meridian Health', 58], ['Northwind Benefits', 52]], why: 'Highest bid · intent above 0.80 · licensed in IL', ms: 84 },
-    { num: '(720) 555-0187', meta: 'Meta · Home solar · Denver, CO', quote: 'We just closed on a house and want a quote for panels.',
+    { num: '(720) 555-0187', meta: 'Meta · Home solar', quote: 'We just closed on a house and want a quote for panels.',
       intent: .87, sent: ['Positive', 'pos'], tags: ['Homeowner', 'Quote request'],
       bids: [['Summit Solar', 48], ['Harbor Home', 41], ['Pinnacle Energy', 37]], why: 'Highest bid · homeowner verified · serves CO', ms: 79 },
-    { num: '(305) 555-0119', meta: 'Bing · Auto insurance · Miami, FL', quote: 'My policy renews Friday and the price just went up again.',
+    { num: '(305) 555-0119', meta: 'Bing · Auto insurance', quote: 'My policy renews Friday and the price just went up again.',
       intent: .94, sent: ['Neutral', 'neutral'], tags: ['Renewal due', 'Price shopper'],
       bids: [['Pinnacle Auto', 39], ['Apex Insurance', 36], ['Harbor Mutual', 31]], why: 'Highest bid · renewal window · open capacity', ms: 88 },
-    { num: '(617) 555-0164', meta: 'Organic · Legal · Boston, MA', quote: 'I was in an accident last week and need to talk to a lawyer.',
+    { num: '(617) 555-0164', meta: 'Organic · Legal', quote: 'I was in an accident last week and need to talk to a lawyer.',
       intent: .89, sent: ['Urgent', 'urgent'], tags: ['Recent incident', 'Seeks counsel'],
       bids: [['Lakeside Legal', 112], ['Beacon Law', 104], ['Harbor Legal', 95]], why: 'Highest bid · practice area match · MA bar', ms: 91 }
   ];
@@ -2790,99 +2952,75 @@
     var card = document.querySelector('[data-avx-decide]');
     if (!card || reduced) return;
     var q = function (k) { return card.querySelector('[data-dc="' + k + '"]'); };
-    var steps = {};
-    card.querySelectorAll('.avx-dc-step').forEach(function (s) { steps[s.dataset.step] = s; });
+    var caller = card.querySelector('.avx-fc-caller'), core = card.querySelector('.avx-fc-core');
+    var link1 = q('link1'), link2 = q('link2'), list = q('buyers'), status = q('status'), tip = q('tip');
+    // one callout follows the step in progress (caller, AI core, buyers)
+    function say(text, where) { tip.textContent = text; tip.className = 'avx-fc-tip avx-on avx-tip-' + where; }
+    function hush() { tip.classList.remove('avx-on'); }
     // the HTML ships DECISIONS[0] finished: hold it, then carry on from the next call
-    var timers = [], idx = 1, callNo = 48213, running = false, waiting = false, complete = true;
+    var timers = [], idx = 1, running = false, waiting = false, complete = true;
     function later(ms, fn) { timers.push(setTimeout(fn, ms)); }
     function clear() { timers.forEach(clearTimeout); timers = []; }
-    function stage(name) {
-      Object.keys(steps).forEach(function (k) { steps[k].classList.remove('avx-dc-now'); });
-      if (name) steps[name].classList.add('avx-dc-on', 'avx-dc-now');
-    }
-    function money(v) { return '$' + Math.round(v); }
+    function initials(name) { return name.split(' ').map(function (w) { return w.charAt(0); }).join('').slice(0, 2); }
 
+    // one call: it rings, flows into the AI core, the gauge fills to its intent, then it flows
+    // out to the buyers and the best one lights up
     function play() {
       clear();
       complete = false;
       var d = DECISIONS[idx % DECISIONS.length];
       idx++;
-      callNo += Math.floor(rnd(3, 19));
-      q('id').textContent = 'Call #' + fmtInt(callNo);
-      q('ms').textContent = '—';
-      Object.keys(steps).forEach(function (k) { steps[k].classList.remove('avx-dc-on'); });
-
-      // 01: the call arrives and its first words stream in
-      stage('call');
       q('num').textContent = d.num;
       q('meta').textContent = d.meta;
-      var quote = q('quote'), words = ('“' + d.quote + '”').split(' '), n = 0;
-      quote.textContent = '';
-      quote.classList.add('avx-dc-typing');
-      (function type() {
-        if (n >= words.length) { quote.classList.remove('avx-dc-typing'); return; }
-        quote.textContent += (n ? ' ' : '') + words[n++];
-        later(70 + Math.random() * 60, type);
-      })();
-
-      // 02: intent counts up, then sentiment and the signals behind it
-      var intent = q('intent'), bar = q('intent-bar'), tags = q('tags'), sent = q('sent');
-      intent.textContent = '0.00';
-      bar.style.setProperty('--v', 0);
-      tags.innerHTML = '';
-      sent.textContent = '…';
-      sent.removeAttribute('data-tone');
-      later(1500, function () {
-        stage('score');
-        bar.style.setProperty('--v', d.intent);
-        var t0 = performance.now();
-        (function count(now) {
-          var p = Math.min((now - t0) / 900, 1);
-          intent.textContent = (d.intent * (1 - Math.pow(1 - p, 3))).toFixed(2);
-          if (p < 1) requestAnimationFrame(count);
-        })(t0);
-      });
-      later(2300, function () { sent.textContent = d.sent[0]; sent.dataset.tone = d.sent[1]; });
-      d.tags.forEach(function (t, i) {
-        later(2550 + i * 180, function () { tags.appendChild(el('span', '', t)); });
-      });
-
-      // 04 waits for the auction
-      q('winner').textContent = 'Waiting for bids';
-      q('why').textContent = 'Ranks every eligible buyer in real time';
-      q('pay').textContent = '—';
-
-      // 03: three buyers bid; bars and amounts climb to their final bids
-      var list = q('bids');
+      q('ms').textContent = '—';
+      caller.className = 'avx-fc-caller avx-fc-ring';
+      [link1, link2].forEach(function (l) { l.classList.remove('avx-on'); });
+      core.classList.remove('avx-on');
+      q('gauge').style.setProperty('--v', 0);
+      q('intent').textContent = '0.00';
+      status.classList.remove('avx-on');
+      card.classList.remove('avx-shine');
+      say('Incoming call', 'caller');
+      // the buyers, in a fresh order each call so the winner moves around
+      var order = d.bids.map(function (b, i) { return i; }).sort(function () { return Math.random() - 0.5; });
       list.innerHTML = '';
-      var rows = d.bids.map(function (b) {
-        var li = el('li', '', '<span></span><i></i><b>$0</b>');
-        li.querySelector('span').textContent = b[0];
+      var rows = order.map(function (i) {
+        var li = el('li', '', '<i></i><span></span>');
+        li.querySelector('i').textContent = initials(d.bids[i][0]);
+        li.querySelector('span').textContent = d.bids[i][0];
+        li.dataset.win = i === 0 ? '1' : '';
         list.appendChild(li);
         return li;
       });
-      later(3300, function () {
-        stage('bids');
-        var top = d.bids[0][1], t0 = performance.now();
-        rows.forEach(function (li, i) { li.querySelector('i').style.setProperty('--v', d.bids[i][1] / top); });
-        (function bid(now) {
-          var p = Math.min((now - t0) / 1100, 1), e = 1 - Math.pow(1 - p, 3);
-          rows.forEach(function (li, i) { li.querySelector('b').textContent = money(d.bids[i][1] * e); });
-          if (p < 1) requestAnimationFrame(bid);
+
+      later(1000, function () { link1.classList.add('avx-on'); });
+      later(1600, function () {
+        say('AI scoring intent', 'core');
+        caller.className = 'avx-fc-caller avx-fc-done';
+        core.classList.add('avx-on');
+        q('gauge').style.setProperty('--v', d.intent);
+        var t0 = performance.now();
+        (function count(now) {
+          var p = Math.min((now - t0) / 900, 1);
+          q('intent').textContent = (d.intent * (1 - Math.pow(1 - p, 3))).toFixed(2);
+          if (p < 1) requestAnimationFrame(count);
         })(t0);
       });
-      later(4600, function () { rows[0].classList.add('avx-dc-win'); });
-
-      // 04: routed to the winner
-      later(5100, function () {
-        stage('route');
+      later(2800, function () { link2.classList.add('avx-on'); say('Finding the best buyer', 'buyers'); });
+      rows.forEach(function (li, k) { later(3300 + k * 160, function () { li.className = 'avx-scan'; }); });
+      later(3300 + rows.length * 160 + 250, function () {
+        rows.forEach(function (li) { li.className = li.dataset.win ? 'avx-win' : 'avx-lose'; });
         q('winner').textContent = d.bids[0][0];
-        q('why').textContent = d.why;
         q('pay').textContent = '$' + d.bids[0][1].toFixed(2);
         q('ms').textContent = d.ms + 'ms';
+        status.classList.add('avx-on');
+        say('Routed in ' + d.ms + 'ms', 'buyers');
+        void card.offsetWidth;
+        card.classList.add('avx-shine');
         complete = true;
       });
-      later(9200, next);
+      later(7000, hush);
+      later(8600, next);
     }
 
     function next() {
@@ -2891,16 +3029,19 @@
       play();
     }
 
-    // runs while on screen; pausing motion holds the current decision
-    // a finished decision stays up a few seconds before the next call rings in, so the card
-    // never opens on an empty "0.00 / $0" frame; one cut off mid-replay starts over
+    // a finished call stays up a moment before the next one rings in; one cut off mid-way
+    // starts over
     onVisible(card, function () {
       if (running) return;
       running = true;
       if (complete) later(2000, next);
       else play();
-    }, function () { running = false; clear(); stage(null); }, 0.25);
+    }, function () { running = false; clear(); }, 0.25);
     setInterval(function () { if (waiting && running && !motionPaused() && !document.hidden) { waiting = false; play(); } }, 600);
+    // the 3D stage leans toward the pointer (eased, mouse and pen only)
+    reactive(card, card.querySelector('.avx-fc'), true);
+    // a rolling wave floor under the stage
+    card.insertBefore(contourScene('avx-cv-card', { rows: 18, amp: 0.8, f1: 5, s1: 0.35, roll: 0.9, color: '59,130,246', accent: '147,197,253', alpha: 0.55 }), card.querySelector('.avx-fc3d'));
   }
 
   // ---------- AI at work: Ask Avortyx, a live transcript and a voice agent ----------
@@ -3337,7 +3478,7 @@
     ['Home', '/', 'Page', 'fa-house'], ['All features', '/features', 'Page', 'fa-grip'], ['Pricing', '/pricing', 'Page', 'fa-tag'],
     ['Integrations', '/features/integrations', 'Page', 'fa-plug'], ['Request a demo', '/p/request_demo', 'Page', 'fa-calendar-check'],
     ['Contact', '/p/contact', 'Page', 'fa-envelope'], ['Sign up free', '/sign_up', 'Page', 'fa-user-plus'], ['Sign in', '/users/sign_in', 'Page', 'fa-right-to-bracket'],
-    ['Careers', '/careers', 'Page', 'fa-briefcase'], ['Brand assets', '/brand_assets', 'Page', 'fa-palette'],
+    ['Careers', '/careers', 'Page', 'fa-briefcase'], ['Blog', '/blog', 'Page', 'fa-book'], ['Brand assets', '/brand_assets', 'Page', 'fa-palette'],
     ['Privacy policy', '/privacy_policy', 'Page', 'fa-file-shield'], ['Terms of service', '/terms_of_service', 'Page', 'fa-file-contract'],
     ['AI at work: Ask Avortyx, live transcript, voice agent', '/#ai-at-work', 'Home', 'fa-wand-magic-sparkles'], ['How the AI decides', '/#how-it-decides', 'Home', 'fa-diagram-project'],
     ['Product tour', '/#product-tour', 'Home', 'fa-display'], ['Trust and compliance', '/#trust', 'Home', 'fa-shield-halved'],
@@ -3563,6 +3704,28 @@
     return url.origin === location.origin && norm(url.pathname) === norm(location.pathname);
   }
 
+  // inner pages: "Back to …" floats top-left for the whole visit. The hero's animated stage
+  // has a transform, which would pin a fixed element to the hero, so the link moves to <body>.
+  function initFloatingBack() {
+    var a = document.querySelector('body > main .mktg-subpage-hero .mktg-subpage-back');
+    if (!a) return;
+    var bar = el('div', 'avx-backbar');
+    document.body.appendChild(bar);
+    bar.appendChild(a);
+    // pages with the site navbar: sit just under it, lined up with its left edge
+    var nav = document.querySelector('.marketing-navbar .container');
+    if (!nav) return;
+    bar.classList.add('avx-backbar-nav');
+    function place() {
+      var r = nav.getBoundingClientRect(), pad = parseFloat(getComputedStyle(nav).paddingLeft) || 0;
+      bar.style.top = Math.round(r.bottom + 10) + 'px';
+      bar.style.left = Math.round(r.left + pad) + 'px';
+    }
+    place();
+    window.addEventListener('resize', place);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+  }
+
   function initBackLinks() {
     // the close button on a feature page goes back to the page that opened it; opened from
     // elsewhere (or in a new tab) it follows its href to the Features page
@@ -3756,8 +3919,8 @@
   function init() {
     // calm set: product UI, data and gentle reveals; no game-like decoration
     var steps = [initMotionToggle, initProgress, initRingbaHero, initDecision, initLeadFlow, initPlatformFlow,
-      initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta,
-      initBackLinks, initZoom, initNavScroll, initPalette, initWindows, initSignature, initAuthRing, initIntegrationsHub, initIntegrationsBackdrop,
+      initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta, initShield, initHub, initLandingWaves, initLiveReadouts,
+      initBackLinks, initFloatingBack, initZoom, initNavScroll, initPalette, initWindows, initAuthRing, initIntegrationsHub, initIntegrationsBackdrop,
       initPricingHorizon, initIntegrationWaves, initFlowSequences, initTables, initCounters,
       initOffscreenPause, initScrollHints, initAnchors];
     if (!reduced) steps.push(initReveal);

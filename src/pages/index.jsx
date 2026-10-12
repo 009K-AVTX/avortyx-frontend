@@ -1,4 +1,47 @@
+import BlogCard from '../components/BlogCard.jsx'
+import BrandMark from '../components/BrandMark.jsx'
+import { LATEST } from '../blog/posts.js'
 // /
+// What the AI handles, around the hub [icon, label, page, detail, x %, y %] (wording from the feature pages)
+const AI_HUB = [
+  ['fa-brain', 'Scores intent', '/#how-it-decides', 'Every call scored for intent before a buyer is dialed.', 14, 16],
+  ['fa-route', 'Routes every call', '/features/inbound_call_routing', 'The best eligible buyer wins the call, in milliseconds.', 50, 4],
+  ['fa-shield-halved', 'Blocks spam and duplicates', '/features/spam_tag_mitigation', 'Spam and duplicate checks run before anyone is dialed.', 86, 16],
+  ['fa-file-signature', 'Checks DNC and consent', '/features/suppression_lists', 'TCPA, DNC and VOIP screening, with consent on record.', 94, 50],
+  ['fa-closed-captioning', 'Transcribes and summarizes', '/features/transcriptions', 'Summaries, sentiment and topics on every recorded call.', 86, 84],
+  ['fa-headset', 'Answers and qualifies calls', '/features/voice_agents', 'Voice agents answer and qualify callers, then transfer.', 50, 96],
+  ['fa-comment-sms', 'Texts and follows up', '/features/ai_sms_bots', 'SMS bots engage leads and schedule calls automatically.', 14, 84],
+  ['fa-user-shield', 'Redacts personal data', '/features/pii_redaction', 'PII redacted from transcriptions and cleared from aged data.', 6, 50],
+]
+
+// the intro's four outcomes, Salesloft-style
+const HERO_POINTS = ['Score every call’s intent with AI', 'Route to the highest-value buyer', 'Block spam, DNC and duplicates', 'See the revenue behind every call']
+
+// "Power your entire call business" [3D object, title, text, page, link] (facts from the site's own pages)
+const POWER = [
+  ['scale', 'Built for scale', 'Infrastructure that holds 99.9% uptime and an 85ms average routing time, so every call reaches a buyer fast.', '/features/inbound_call_routing', 'Call routing'],
+  ['support', 'Specialist support', 'Phone, live chat and email support, plus live video sessions with our specialists whenever you need a hand.', '/p/contact', 'Talk to us'],
+  ['grow', 'Grow on your terms', 'No onboarding fees. Usage-based rates with volume discounts: use what you need and scale as you grow.', '/pricing', 'See pricing'],
+  ['open', 'Open by design', 'API-first: everything in the dashboard runs on the same REST API, for seamless integrations and custom workflows.', '/features/api', 'REST API'],
+]
+
+// each capability sphere gets its own hue in the blue-violet range
+const HUB_HUES = [217, 232, 199, 250, 210, 190, 240, 205]
+
+// a gentle curve from the chip (50,50) to a node, bowed to one side
+function hubPath(x, y) {
+  const mx = (50 + x) / 2, my = (50 + y) / 2, dx = x - 50, dy = y - 50
+  return `M50 50 Q${(mx - dy * 0.18).toFixed(1)} ${(my + dx * 0.18).toFixed(1)} ${x} ${y}`
+}
+
+// AI protection: the checks every call passes, and the three layers behind them
+const SHIELD_CHECKS = [['spam', 'Spam'], ['dup', 'Duplicate'], ['dnc', 'DNC'], ['line', 'Line type'], ['consent', 'Consent']]
+const SHIELD_LAYERS = [
+  ['fa-shield-halved', 'Screen', 'AI scores intent and checks spam, duplicates, DNC and VOIP before any call routes or dials.', '/features/suppression_lists', 'Screening'],
+  ['fa-file-signature', 'Comply', 'A verifiable consent record for every lead, state calling-hour rules, and PII redacted or hashed on schedule.', '/features#security-compliance-tools', 'Compliance'],
+  ['fa-id-card', 'Secure', 'KYC, KYB and STIR/SHAKEN for your numbers; scoped API tokens, IP whitelisting, encrypted keys and security logs.', '/features/api', 'Platform security'],
+]
+
 const PLATFORM_TABS = [
   ['pingpost', 'Ping/Post', 'fa-gavel'], ['dialer', 'Power Dialer', 'fa-phone-volume'], ['tracking', 'Call Tracking', 'fa-route'],
   ['automation', 'Lead Automation', 'fa-bolt'], ['agent', 'Agent Control Center', 'fa-headset'],
@@ -69,15 +112,13 @@ export const meta = {
 
 const logo = (file) => `/assets/avx-site/img/${file}.webp`
 
-// the strip under the hero: the carriers and ad platforms [file, name, width, height]
-const TRUST_LOGOS = [
-  ['twilio', 'Twilio', 193, 58], ['telnyx', 'Telnyx', 193, 58], ['plivo', 'Plivo', 259, 78],
-  ['ga', 'Google Ads', 194, 65], ['voluum', 'Voluum', 274, 87], ['cake', 'Cake', 181, 96],
-  ['linktrust', 'Linktrust', 218, 63], ['hasoffers', 'HasOffers', 208, 80], ['onsip', 'OnSIP', 230, 73],
-  ['avoxi', 'Avoxi', 432, 100], ['zadarma', 'Zadarma', 263, 69], ['sonetel', 'Sonetel', 266, 78],
+// the still row under the stats: carriers and ad platforms, in black and white [file, name, width, height]
+const WORKS_WITH = [
+  ['twilio', 'Twilio', 193, 58], ['telnyx', 'Telnyx', 193, 46], ['plivo', 'Plivo', 230, 71], ['ga', 'Google Ads', 194, 65],
+  ['voluum', 'Voluum', 264, 72], ['cake', 'Cake', 181, 96], ['onsip', 'OnSIP', 230, 73], ['avoxi', 'Avoxi', 432, 100],
 ]
 
-// "We Integrate With": CRM, messaging and automation tools, two rows [file, name, page, width, height]
+// "We Integrate With": CRM, messaging and automation tools, a still grid [file, name, page, width, height]
 const INTEGRATION_ROWS = [
   [
     ['elevenlabs', 'ElevenLabs', '/features/voice_agents/elevenlabs', 220, 140],
@@ -96,27 +137,6 @@ const INTEGRATION_ROWS = [
   ],
 ]
 
-// A sliding row: the track holds two identical halves and moves by -50%, so each half repeats
-// the logos until it is wider than the row (8 tiles) and the loop never shows a gap. Only the
-// first pass of logos is read out and reachable by Tab.
-function LogoRow({ logos, reverse }) {
-  let half = logos
-  while (half.length < 8) half = half.concat(logos)
-  return (
-    <div className={reverse ? 'avx-int-row avx-int-rev' : 'avx-int-row'}>
-      <div className="avx-int-track">
-        {[0, 1].map((copy) => half.map(([file, name, href, w, h], i) => {
-          const repeat = copy > 0 || i >= logos.length
-          return (
-            <a key={`${copy}-${i}`} href={href} className="avx-int-tile" aria-hidden={repeat ? 'true' : undefined} tabIndex={repeat ? -1 : undefined}>
-              <img alt={repeat ? '' : name} src={logo(file)} width={w} height={h} loading="lazy" decoding="async" />
-            </a>
-          )
-        }))}
-      </div>
-    </div>
-  )
-}
 
 // Product tour: the first view (live calls) as it first appears, so crawlers and visitors
 // without JavaScript see it; motion.js replaces it with the live, switchable views.
@@ -187,102 +207,213 @@ export default function Home() {
         <div className="container">
           <div className="avx-hero-grid">
             <div className="avx-hero-copy">
-              <a className="avx-ribbon" href="/features/transcriptions">
-                <span>AI</span>
-                Summaries, sentiment and topics on every call
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </a>
+              <p className="avx-hero-eyebrow"><span>AI</span>The AI tracking platform built for peak performance</p>
               <div className="hero-heading">
                 <h1 className="display-4 fw-bold">
-                  Intelligent call routing.
-                  <br />
+                  Track.
                   {" "}
-                  <span className="text-success">Real-time ping/post.</span>
-                  <br />
-                  {" "}Total visibility.
+                  Route.
+                  {" "}
+                  <span className="text-success">Grow.</span>
                 </h1>
               </div>
               <p className="lead hero-lead">
-                Route every call to the right buyer, run ping trees in real time and see the{" "}
-                <strong>revenue</strong>
-                {" "}behind each one.
+                Matching every conversation with its highest-value buyer in real time.
               </p>
+              <ul className="avx-hero-points">
+                {HERO_POINTS.map((point) => (
+                  <li key={point}><i className="fa-solid fa-circle-check" aria-hidden="true" />{point}</li>
+                ))}
+              </ul>
+              <p className="avx-hero-for">For marketers, advertisers, and brands.</p>
               <div className="d-flex flex-wrap gap-3 avx-hero-ctas">
                 <a href="/sign_up" className="btn btn-td-green btn-lg fw-semibold">Sign Up Free</a>
                 {" "}
                 <a href="/p/request_demo" className="btn btn-outline-td-green btn-lg fw-semibold">Request Demo</a>
               </div>
-              <a href="#product-tour" className="avx-hero-tour-link">See it live <span aria-hidden="true">↓</span></a>
+              <a href="#how-it-decides" className="avx-hero-tour-link">How it works <span aria-hidden="true">↓</span></a>
             </div>
             {/* live decision: one call scored, bid on and routed; motion.js replays it with new calls */}
-            <div className="avx-decide" data-avx-decide="" aria-label="Live demo: an incoming call is scored for intent and sentiment, three buyers bid, and it is routed to the winner">
+            <div className="avx-decide" data-avx-decide="" role="img" aria-label="Live demo: an incoming call is scored by AI for intent and connected to the best buyer">
               <div className="avx-dc-bar">
                 <span className="avx-dc-live"><i className="avx-live-dot" />Live decision</span>
                 {" "}
-                <span className="avx-dc-id" data-dc="id">Call #48,213</span>
+                <span className="avx-dc-clock" data-dc="clock">14:02:51 UTC</span>
                 {" "}
                 <span className="avx-dc-time">Decided in <b data-dc="ms">84ms</b></span>
               </div>
-              <div className="avx-dc-steps">
-                <div className="avx-dc-step avx-dc-on" data-step="call">
-                  <p className="avx-dc-k"><span>01</span>Incoming call</p>
-                  <p className="avx-dc-num" data-dc="num">(312) 555-0142</p>
-                  <p className="avx-dc-meta" data-dc="meta">Google Ads · Medicare · Chicago, IL</p>
-                  <p className="avx-dc-quote" data-dc="quote">“Hi, I’m looking to switch my Medicare plan before the deadline.”</p>
+              <div className="avx-fc3d">
+              {/* the floor is outside the 3D stage, so it never cuts through the chip or cards */}
+              <span className="avx-fc-floor" aria-hidden="true" />
+              <span className="avx-fc-tip" data-dc="tip" aria-hidden="true" />
+              <div className="avx-fc">
+                <div className="avx-fc-caller avx-fc-done">
+                  <span className="avx-fc-phone"><i /><i /><i className="fa-solid fa-phone" aria-hidden="true" /></span>
+                  <span className="avx-fc-pad" aria-hidden="true" />
+                  <b data-dc="num">(312) 555-0142</b>
+                  <span data-dc="meta">Google Ads · Medicare</span>
                 </div>
-                <div className="avx-dc-step avx-dc-on" data-step="score">
-                  <p className="avx-dc-k"><span>02</span>AI score</p>
-                  <div className="avx-dc-intent"><b data-dc="intent">0.91</b><span>intent</span></div>
-                  <div className="avx-dc-meter"><i data-dc="intent-bar" style={{ "--v": ".91" }} /></div>
-                  <p className="avx-dc-sent">Sentiment <b data-dc="sent">Positive</b></p>
-                  <p className="avx-dc-tags" data-dc="tags"><span>Plan switch</span><span>Deadline</span><span>Ready to enroll</span></p>
+                <span className="avx-fc-link avx-on" data-dc="link1"><i /></span>
+                <div className="avx-fc-core avx-on">
+                  <div className="avx-fc-chip">
+                    <span className="avx-fc-pins" aria-hidden="true" />
+                    <span className="avx-fc-slab" aria-hidden="true" />
+                    <span className="avx-fc-slab" aria-hidden="true" />
+                    <span className="avx-fc-slab" aria-hidden="true" />
+                    <span className="avx-fc-slab" aria-hidden="true" />
+                    <div className="avx-fc-die">
+                      <span className="avx-fc-scan" aria-hidden="true" />
+                      <small>AI intent</small>
+                      <b data-dc="intent">0.91</b>
+                      <span className="avx-fc-bar"><i data-dc="gauge" style={{ "--v": ".91" }} /></span>
+                    </div>
+                  </div>
                 </div>
-                <div className="avx-dc-step avx-dc-on" data-step="bids">
-                  <p className="avx-dc-k"><span>03</span>Buyers bidding</p>
-                  <ul className="avx-dc-bids" data-dc="bids">
-                    <li className="avx-dc-win"><span>Apex Insurance</span><i style={{ "--v": "1" }} /><b>$64</b></li>
-                    <li><span>Meridian Health</span><i style={{ "--v": ".9" }} /><b>$58</b></li>
-                    <li><span>Northwind Benefits</span><i style={{ "--v": ".81" }} /><b>$52</b></li>
-                  </ul>
-                </div>
-                <div className="avx-dc-step avx-dc-on" data-step="route">
-                  <p className="avx-dc-k"><span>04</span>Routed</p>
-                  <p className="avx-dc-to">
-                    <i className="fa-solid fa-circle-check" aria-hidden="true" />
-                    <b data-dc="winner">Apex Insurance</b>
-                  </p>
-                  <p className="avx-dc-meta" data-dc="why">Highest bid · intent above 0.80 · licensed in IL</p>
-                  <p className="avx-dc-pay"><span>Payout</span><b data-dc="pay">$64.00</b></p>
-                </div>
+                <span className="avx-fc-link avx-on" data-dc="link2"><i /></span>
+                <ul className="avx-fc-buyers" data-dc="buyers">
+                  <li className="avx-win"><i>AI</i><span>Apex Insurance</span></li>
+                  <li className="avx-lose"><i>MH</i><span>Meridian Health</span></li>
+                  <li className="avx-lose"><i>NB</i><span>Northwind Benefits</span></li>
+                </ul>
               </div>
+              </div>
+              <p className="avx-fc-status avx-on" data-dc="status">
+                <span className="avx-fc-done-msg">
+                  <i className="fa-solid fa-circle-check" aria-hidden="true" />
+                  {" "}Connected to <b data-dc="winner">Apex Insurance</b> · <b data-dc="pay">$64.00</b>
+                </span>
+                <span className="avx-fc-wait-msg">Finding the best buyer…</span>
+              </p>
             </div>
           </div>
         </div>
       </section>
-      <section className="avx-trust" aria-label="Works with">
+      <section className="avx-statsbar" aria-label="Avortyx at a glance">
         <div className="container">
           <div className="avx-stats-row">
             <div><b className="avx-proof-num">99.9%</b><span>Uptime</span></div>
             <div><b className="avx-proof-num">85ms</b><span>Avg routing time</span></div>
             <div><b className="avx-proof-num">10+</b><span>Buyer match rules</span></div>
           </div>
-          <p className="avx-trust-label">Plugs into the carriers and ad platforms you already run</p>
-        </div>
-        <div className="avx-marquee">
-          <ul className="avx-marquee-track avx-marquee-color">
-            {[0, 1].map((copy) => TRUST_LOGOS.map(([file, name, w, h]) => (
-              <li key={copy + file} aria-hidden={copy ? 'true' : undefined}>
-                <img alt={copy ? '' : name} src={logo(file)} width={w} height={h} loading="lazy" decoding="async" />
-              </li>
-            )))}
+          <p className="avx-logos-label">Works with the carriers and ad platforms you already run</p>
+          <ul className="avx-logos">
+            {WORKS_WITH.map(([file, name, w, h]) => (
+              <li key={file}><img alt={name} src={`/assets/avx-site/img/mono/${file}.webp`} width={w} height={h} loading="lazy" decoding="async" /></li>
+            ))}
           </ul>
+        </div>
+      </section>
+      <section className="mktg-section avx-proof avx-shield-sec" id="trust">
+        <div className="container">
+          <div className="mktg-section-header text-center">
+            <p className="avx-eyebrow">AI at the core</p>
+            <h2 className="fw-bold">Advanced AI. Protected by default.</h2>
+            <p className="text-muted">AI runs the work around every call, and screens every call before a buyer’s phone rings.</p>
+          </div>
+          {/* the AI hub: the chip at the centre, lines out to what the AI handles; motion.js sends
+              a pulse to each in turn */}
+          <div className="avx-hub" data-avx-hub="" role="img" aria-label={`What Avortyx AI handles: ${AI_HUB.map((n) => n[1]).join(', ')}`}>
+            <svg className="avx-hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              {AI_HUB.map(([, label, , , x, y]) => (
+                <path key={label} d={hubPath(x, y)} vectorEffect="non-scaling-stroke" />
+              ))}
+            </svg>
+            <span className="avx-hub-dot" aria-hidden="true" />
+            <span className="avx-hub-disc" aria-hidden="true"><i /><i /></span>
+            <div className="avx-hub-core" aria-hidden="true">
+              <div className="avx-fc-chip avx-hub-chip">
+                <span className="avx-fc-pins" />
+                <span className="avx-fc-slab" />
+                <span className="avx-fc-slab" />
+                <span className="avx-fc-slab" />
+                <span className="avx-fc-slab" />
+                <div className="avx-fc-die">
+                  <span className="avx-fc-scan" />
+                  <BrandMark gradientId="avx-mk-g-hub" />
+                  <small>Avortyx AI</small>
+                </div>
+              </div>
+            </div>
+            {AI_HUB.map(([icon, label, href, , x, y], i) => (
+              <a key={label} href={href} className="avx-hub-node" style={{ "--x": x, "--y": y, "--h": HUB_HUES[i % HUB_HUES.length] }} aria-hidden="true" tabIndex={-1}>
+                <i className={`fa-solid ${icon}`} />
+                <span>{label}</span>
+              </a>
+            ))}
+          </div>
+          <ul className="avx-hub-list">
+            {AI_HUB.map(([icon, label, href, text]) => (
+              <li key={label}><a href={href}><i className={`fa-solid ${icon}`} aria-hidden="true" /><b>{label}</b><span>{text}</span></a></li>
+            ))}
+          </ul>
+          <div className="avx-shield">
+            <div className="avx-console avx-shield-demo" data-avx-shield="" role="img" aria-label="Live screening: each call is checked for spam, duplicates, DNC, line type and consent, then routed or blocked before dialing (demo data)">
+              <div className="avx-cs-bar">
+                <i /><i /><i />
+                <span className="avx-cs-path">app.avortyx.com / <b>screening</b></span>
+                <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
+              </div>
+              <div className="avx-sh">
+                <div className="avx-sh-radar" aria-hidden="true">
+                  <i /><i /><i />
+                  <span className="avx-sh-sweep" />
+                  <span className="avx-sh-core"><i className="fa-solid fa-shield-halved" /></span>
+                </div>
+                <div className="avx-sh-call">
+                  <b data-sh="num">(312) 555-0142</b>
+                  <span data-sh="src">Google Ads · Medicare</span>
+                </div>
+                <ul className="avx-sh-checks">
+                  {SHIELD_CHECKS.map(([key, label]) => <li key={key} data-c={key} className="avx-ok">{label}</li>)}
+                </ul>
+                <p className="avx-sh-verdict avx-pass" data-sh="verdict">Passed · routed to Apex Insurance</p>
+              </div>
+              <div className="avx-cs-foot">AI screening on every call · demo data</div>
+            </div>
+            <div className="avx-shield-layers">
+              {SHIELD_LAYERS.map(([icon, title, text, href, label]) => (
+                <a key={title} href={href} className="avx-shield-layer">
+                  <i className={`fa-solid ${icon}`} aria-hidden="true" />
+                  <b>{title}</b>
+                  <span>{text}</span>
+                  <em>{label} <span aria-hidden="true">→</span></em>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="mktg-section avx-power" id="power">
+        <div className="container">
+          <div className="mktg-section-header text-center">
+            <p className="avx-eyebrow">Why Avortyx</p>
+            <h2 className="fw-bold">Power your entire call business</h2>
+            <p className="text-muted">Built to push call performance further, and to grow with you.</p>
+          </div>
+          <div className="avx-power-grid">
+            {POWER.map(([kind, title, text, href, label]) => (
+              <a key={kind} href={href} className="avx-power-card">
+                <div className={`avx-pw-stage avx-pw-${kind}`} aria-hidden="true">
+                  <div className="avx-pw-obj">
+                    {kind === 'scale' && <><i /><i /><i /></>}
+                    {kind === 'support' && <><b className="avx-pw-ball"><i className="fa-solid fa-headset" /></b><span className="avx-pw-orbit"><i /></span></>}
+                    {kind === 'grow' && <><span className="avx-pw-bar"><i /><i /><i /></span><span className="avx-pw-bar"><i /><i /><i /></span><span className="avx-pw-bar"><i /><i /><i /></span></>}
+                    {kind === 'open' && <><i /><i /><i /><i /><i /><i /><b className="avx-pw-code">{"{ }"}</b></>}
+                  </div>
+                </div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <em>{label} <span aria-hidden="true">→</span></em>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
       <section className="mktg-section avx-lf-sec" id="how-it-decides">
         <div className="container text-center">
           <div className="mktg-section-header text-center">
             <p className="avx-eyebrow">How it decides</p>
-            <h2 className="fw-bold">Everything you need to convert leads into calls</h2>
+            <h2 className="fw-bold">Transforming high-intent traffic into qualified conversations, and conversations into closed revenue</h2>
             <p className="text-muted">Every call goes through the same three steps — signal, score, route — before a buyer’s phone rings.</p>
           </div>
           <div className="mktg-lead-flow avx-flow3d avx-lf2 avx-lf3 d-none d-lg-block mt-5">
@@ -365,8 +496,16 @@ export default function Home() {
         <div className="container">
           <div className="mktg-section-header text-center">
             <p className="avx-eyebrow">Product tour</p>
-            <h2 className="fw-bold">Every call, ping and dollar, as it happens</h2>
+            <h2 className="fw-bold">Full-stack, event-level observability for every voice session, auction, and conversion, in sub-millisecond real time</h2>
             <p className="text-muted">One workspace for tracking, routing, bidding and reporting.</p>
+          </div>
+          <div className="avx-obs" data-avx-obs="" aria-label="Live readouts (demo data)">
+            <span className="avx-obs-live"><i className="avx-live-dot" />Live <b data-obs="clock">14:02:51</b> UTC</span>
+            <span>Events/s <b data-obs="eps">1,284</b></span>
+            <span>P99 latency <b data-obs="p99">0.62 ms</b></span>
+            <span>Auctions/min <b data-obs="apm">312</b></span>
+            <span>Voice sessions <b data-obs="vs">42</b></span>
+            <em>demo data</em>
           </div>
           <TourPreview />
         </div>
@@ -960,9 +1099,13 @@ export default function Home() {
             <h2 className="fw-bold mb-3">We Integrate With</h2>
             <p className="text-muted">Connect Avortyx to the tools you already use.</p>
           </div>
-          <div className="avx-int-rows">
-            {INTEGRATION_ROWS.map((row, i) => <LogoRow key={i} logos={row} reverse={i % 2 === 1} />)}
-          </div>
+          <ul className="avx-int-grid">
+            {INTEGRATION_ROWS.flat().map(([file, name, href, w, h]) => (
+              <li key={file}>
+                <a href={href} className="avx-int-tile"><img alt={name} src={logo(file)} width={w} height={h} loading="lazy" decoding="async" /></a>
+              </li>
+            ))}
+          </ul>
           <p className="avx-int-voip-note">
             <b>Bring your own VoIP.</b> Use your preferred telephony provider, or any SIP-compatible carrier.{" "}
             <a href="/features/multiple_telephone_providers" className="avx-more-link">Telephone providers <span aria-hidden="true">→</span></a>
@@ -970,73 +1113,17 @@ export default function Home() {
           <a href="/features/integrations" className="btn avx-btn-ghost">View All Integrations</a>
         </div>
       </section>
-      <section className="mktg-section avx-proof" id="trust">
+      <section className="mktg-section avx-blog-home" id="blog">
         <div className="container">
-          <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">Built to be trusted</p>
-            <h2 className="fw-bold">Fast, reliable and compliant by default</h2>
-            <p className="text-muted">Screening and controls run on every call, before anyone is dialed.</p>
+          <div className="avx-caps-head">
+            <div>
+              <h2 className="fw-bold">From the blog</h2>
+              <p>Guides and worked examples on call tracking, routing and pay-per-call.</p>
+            </div>
+            <a href="/blog" className="avx-more-link">All posts <span aria-hidden="true">→</span></a>
           </div>
-          <div className="avx-trust-grid">
-            <a href="/features/suppression_lists" className="avx-trust-item">
-              {" "}
-              <i className="fa-solid fa-ban" aria-hidden="true" />
-              {" "}
-              <b>TCPA, DNC and VOIP screening</b>
-              {" "}
-              <span>DNC checks, suppression lists and blacklists run before any call routes or dials.</span>
-              {" "}
-            </a>
-            {" "}
-            <a href="/features/consent_opt_out" className="avx-trust-item">
-              {" "}
-              <i className="fa-solid fa-file-signature" aria-hidden="true" />
-              {" "}
-              <b>Consent and opt-out</b>
-              {" "}
-              <span>A verifiable consent record for every lead, and opt-outs honored automatically.</span>
-              {" "}
-            </a>
-            {" "}
-            <a href="/features/pii_redaction" className="avx-trust-item">
-              {" "}
-              <i className="fa-solid fa-user-shield" aria-hidden="true" />
-              {" "}
-              <b>PII redaction</b>
-              {" "}
-              <span>Clear or hash PII from aged data, restrict sensitive fields and redact transcriptions.</span>
-              {" "}
-            </a>
-            {" "}
-            <a href="/features/state_rules" className="avx-trust-item">
-              {" "}
-              <i className="fa-solid fa-map-location-dot" aria-hidden="true" />
-              {" "}
-              <b>State rules</b>
-              {" "}
-              <span>Calling-hour windows, holiday blackouts and contact limits, enforced state by state.</span>
-              {" "}
-            </a>
-            {" "}
-            <a href="/features/verified_identity" className="avx-trust-item">
-              {" "}
-              <i className="fa-solid fa-id-card" aria-hidden="true" />
-              {" "}
-              <b>Verified identity</b>
-              {" "}
-              <span>KYC, KYB and STIR/SHAKEN keep your numbers trusted by carriers.</span>
-              {" "}
-            </a>
-            {" "}
-            <a href="/features/spam_tag_mitigation" className="avx-trust-item">
-              {" "}
-              <i className="fa-solid fa-shield-halved" aria-hidden="true" />
-              {" "}
-              <b>Spam tag mitigation</b>
-              {" "}
-              <span>Branded caller ID and spam-label removal, so more of your calls get answered.</span>
-              {" "}
-            </a>
+          <div className="avx-blog-grid">
+            {LATEST.slice(0, 3).map((post) => <BlogCard key={post.slug} post={post} />)}
           </div>
         </div>
       </section>

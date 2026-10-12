@@ -4,7 +4,6 @@
 .fa-solid::before,.fas::before{content:var(--fa)}
 .fa-arrow-down{--fa:"\f063"}
 .fa-arrow-left{--fa:"\f060"}
-.fa-arrow-right{--fa:"\f061"}
 .fa-arrow-right-arrow-left{--fa:"\f0ec"}
 .fa-arrow-up{--fa:"\f062"}
 .fa-arrows-left-right{--fa:"\f07e"}
@@ -93,6 +92,7 @@
 .fa-scale-balanced{--fa:"\f24e"}
 .fa-server{--fa:"\f233"}
 .fa-shield-halved{--fa:"\f3ed"}
+.fa-sliders{--fa:"\f1de"}
 .fa-square-root-variable{--fa:"\f698"}
 .fa-stop{--fa:"\f04d"}
 .fa-tag{--fa:"\f02b"}

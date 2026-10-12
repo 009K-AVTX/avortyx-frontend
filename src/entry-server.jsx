@@ -1,6 +1,8 @@
 import { renderToStaticMarkup } from 'react-dom/server'
 import Head from './components/Head.jsx'
+import BlogPost from './components/BlogPost.jsx'
 import Layout from './components/Layout.jsx'
+import { POSTS } from './blog/posts.js'
 import template from './document.html?raw'
 
 // Every file in src/pages is a page: pages/index.jsx is "/", pages/features/api.jsx is
@@ -12,7 +14,20 @@ function routeFor(file) {
   return path === '/index' ? '/' : path + '.html'
 }
 
-export const pages = Object.fromEntries(Object.entries(modules).map(([file, mod]) => [routeFor(file), mod]))
+// each blog post is a page too: /blog/<slug>.html, rendered from src/blog/posts.js
+const postPages = Object.fromEntries(POSTS.map((post) => [`/blog/${post.slug}.html`, {
+  default: () => <BlogPost post={post} />,
+  meta: {
+    title: `${post.title} | Avortyx Blog`,
+    description: post.excerpt,
+    bodyClass: 'avortyx_marketing blog-post without-waves',
+    layout: 'site',
+    ogType: 'article',
+    ogImage: `/assets/avx-blog/${post.slug}.webp`,
+  },
+}]))
+
+export const pages = { ...Object.fromEntries(Object.entries(modules).map(([file, mod]) => [routeFor(file), mod])), ...postPages }
 export const routes = Object.keys(pages).sort()
 
 // React adds a preload hint for every eager <img>; the pages already order their own loading,

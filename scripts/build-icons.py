@@ -34,7 +34,7 @@ def fetch(url):
 
 def used_icons():
     names = set(EXTRA)
-    files = [*ROOT.glob('src/**/*.jsx'), *ROOT.glob('public/assets/**/*.js')]
+    files = [*ROOT.glob('src/**/*.jsx'), *ROOT.glob('src/**/*.js'), *ROOT.glob('public/assets/**/*.js')]
     for f in files:
         names.update(re.findall(r'\bfa-([a-z0-9]+(?:-[a-z0-9]+)*)', f.read_text(encoding='utf-8', errors='ignore')))
     return names

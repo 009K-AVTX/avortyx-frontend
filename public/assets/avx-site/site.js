@@ -181,3 +181,353 @@
     setText('.js-google-ads-click-reveal .js-click-reveal-caption', 'These values came from the link you clicked to reach this page.');
   });
 })();
+
+/* ---------- Avortyx Help: a chat that answers from the site's own pages ----------
+   Scripted (no AI model): a question is matched to a topic by its words, and every answer
+   uses wording from the feature, pricing and FAQ pages, with links to read more. Unmatched
+   questions point to the team. The conversation follows the visitor across pages (session). */
+(function () {
+  'use strict';
+
+  // [id, keywords, answer, links [href, label]]. Keywords of 3 letters or fewer must match a
+  // whole word; longer ones match the start of a word ("pric" -> price, pricing)
+  var KB = [
+    ['pricing', ['pric', 'cost', 'how much', 'rates', 'billing', 'billed', 'per minute', 'pay as you go', 'expensive', 'cheap', 'plan'],
+      'Pricing is usage-based with volume discounts and no onboarding fees. Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the nearest full minute. The inbound rates cover both legs of a call connected to a buyer.',
+      [['/pricing', 'See pricing and the calculator']]],
+    ['fees', ['onboarding', 'setup fee', 'set up fee', 'hidden fee', 'fees'],
+      'No. Avortyx does not charge onboarding fees.', [['/pricing', 'See pricing']]],
+    ['discounts', ['discount', 'high volume', 'volume', 'commit'],
+      'Yes, for high-volume customers, and committed monthly plans come with lower per-minute rates.',
+      [['/pricing', 'Compare plans'], ['/p/contact', 'Contact our team']]],
+    ['signup', ['sign up', 'signup', 'get started', 'start', 'free', 'trial', 'register', 'create an account', 'open an account'],
+      'You can start free: create your Avortyx account and start tracking, routing and selling calls.',
+      [['/sign_up', 'Sign up free'], ['/p/request_demo', 'Or book a walkthrough']]],
+    ['demo', ['demo', 'walkthrough', 'show me', 'sales', 'specialist'],
+      'Book a walkthrough with a specialist to see how Avortyx can optimize your call tracking and increase conversions.',
+      [['/p/request_demo', 'Request a demo']]],
+    ['support', ['support', 'contact', 'human', 'real person', 'talk to', 'email', 'phone number', 'help me', 'my account', 'live chat'],
+      'We offer phone, live chat and email support, plus live video sessions with our specialists. You can also write to support@avortyx.com.',
+      [['#email-support', 'Email support'], ['/p/contact', 'Contact us']]],
+    ['pingpost', ['ping', 'post', 'ping/post', 'bid', 'bidding', 'auction', 'rtb', 'sell calls', 'selling calls', 'monetize'],
+      'Ping/Post is real-time bidding for inbound calls: publishers ping to find available buyers and collect live bids, then post to get a tracking number. Route by bid, priority or earnings-per-call, with static and live webhook bidders in one auction.',
+      [['/features/ping_post', 'Explore Ping/Post']]],
+    ['tracking', ['track', 'attribut', 'source', 'campaign', 'keyword', 'dni', 'number insertion', 'swap numbers'],
+      'Call tracking measures call conversions from online and offline campaigns, by traffic source, URL keyword and custom tokens. Dynamic number insertion swaps tracking numbers on your website so every call is tied to its source.',
+      [['/features/call_tracking', 'Call tracking'], ['/features/dynamic_number_insertion', 'Number insertion']]],
+    ['routing', ['rout', 'ivr', 'call flow', 'filter', 'failover', 'buyer group', 'simultaneous', 'caps'],
+      'Every call goes through the same three steps — signal, score, route — before a buyer’s phone rings. The best eligible buyer wins, with match rules, caps, hours, concurrency and failover if a buyer misses. Average routing time is 85ms.',
+      [['/features/inbound_call_routing', 'Inbound call routing'], ['/#how-it-decides', 'How it decides']]],
+    ['integrations', ['integrat', 'connect', 'crm', 'salesforce', 'zoho', 'zapier', 'slack', 'mailchimp', 'typeform', 'google ads', 'adwords', 'voluum', 'cake', 'hasoffers', 'linktrust', 'aws', 'elevenlabs', 'sendgrid', 'mailgun', 'infusionsoft'],
+      'Avortyx connects with the tools you already use, including Salesforce, Zoho CRM, Zapier, Slack, Google Ads, Voluum, Cake, HasOffers, Linktrust, AWS S3, MailChimp, Mailgun, SendGrid, Typeform and ElevenLabs.',
+      [['/features/integrations', 'All integrations']]],
+    ['carriers', ['carrier', 'twilio', 'telnyx', 'plivo', 'sip', 'voip', 'telephony', 'provider', 'own numbers'],
+      'Yes, bring your own: connect Twilio, Plivo or Telnyx, or any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.',
+      [['/features/multiple_telephone_providers', 'Telephone providers'], ['/features/sip_support', 'SIP support']]],
+    ['api', ['api', 'rest', 'developer', 'endpoint', 'access token', 'programmat'],
+      'Avortyx is API-first: anything you can do in the dashboard, you can do through the REST API, with access tokens limited to exactly the resources they need.',
+      [['/features/api', 'REST API']]],
+    ['webhooks', ['webhook', 'postback', 'push data', 'real-time data'],
+      'Custom webhooks send real-time call and lead data to any endpoint the moment events happen, with over 30 trigger types.',
+      [['/features/custom_webhook', 'Custom webhooks']]],
+    ['compliance', ['complian', 'tcpa', 'dnc', 'do not call', 'consent', 'opt out', 'opt-out', 'pii', 'state rule', 'suppression', 'blacklist', 'redact', 'secur'],
+      'DNC checks, suppression lists and blacklists run before any call is forwarded or dialed, and state rules enforce calling-hour windows. PII can be cleared or hashed from aged data and restricted to users with the PII permission.',
+      [['/features#security-compliance-tools', 'Security and compliance']]],
+    ['spam', ['spam', 'scam', 'flagged', 'caller id', 'branded', 'stir', 'shaken', 'kyc', 'kyb', 'verified'],
+      'Spam tag mitigation gives you branded caller ID, carrier registration and spam-label removal, so more of your calls get answered. KYC, KYB and STIR/SHAKEN keep your numbers trusted by carriers.',
+      [['/features/spam_tag_mitigation', 'Spam tag mitigation'], ['/features/verified_identity', 'Verified identity']]],
+    ['transcripts', ['transcri', 'recording', 'record', 'sentiment', 'summar', 'topics', 'listen'],
+      'Every recorded call can be transcribed and enriched with AI: summaries, sentiment, topics and a live analytics dashboard. You control who can hear recordings and how long they are kept.',
+      [['/features/transcriptions', 'Transcriptions'], ['/features/call_recordings', 'Call recordings']]],
+    ['voiceai', ['ai', 'voice agent', 'voice bot', 'bot', 'chatbot', 'artificial'],
+      'Bring your own AI voice provider: your agent answers and qualifies calls, routed with the same controls as your live team. AI SMS bots engage leads, answer questions and schedule calls automatically.',
+      [['/features/voice_agents', 'AI voice agents'], ['/features/ai_sms_bots', 'AI SMS bots']]],
+    ['dialer', ['dialer', 'outbound', 'dial', 'callback', 'call center', 'disposition', 'transfer', 'agents'],
+      'The Agent Control Center lets agents interview consumers, transfer to buyers, mute, hold and disposition calls from one interface, with a Power Dialer that keeps agents talking, not dialing.',
+      [['/features/agent_controls', 'Agent controls and Power Dialer']]],
+    ['automation', ['automat', 'sequence', 'sms', 'text message', 'web form', 'forms', 'nurture', 'leads'],
+      'Lead automation turns web forms into live phone calls with automated SMS, email and outbound call workflows.',
+      [['/features/lead_automation', 'Lead automation']]],
+    ['data', ['export', 'csv', 'report', 'analytics', 'dashboard', 'metric'],
+      'Real-time dashboards show calls, conversions and spend, and you can export calls, leads, recordings and messages to CSV, on demand or on a schedule emailed to your team.',
+      [['/features/call_tracking#reports-analytics', 'Reports and analytics'], ['/features/data_export', 'Data exports']]],
+    ['hold', ['hold', 'queue', 'busy', 'music'],
+      'When every buyer is busy, callers hold with music and connect automatically as capacity frees up.',
+      [['/features/hold_queue', 'Hold queue']]],
+    ['reliability', ['uptime', 'reliab', 'fast', 'speed', 'latency', 'downtime'],
+      'Avortyx runs at 99.9% uptime with an 85ms average routing time, and screening runs on every call before anyone is dialed.',
+      [['/#trust', 'Built to be trusted']]],
+    ['blog', ['blog', 'article', 'guide', 'learn', 'read'],
+      'Our blog has guides and worked examples on call tracking, attribution, ping/post, compliance and AI.',
+      [['/blog', 'Read the blog']]],
+    ['careers', ['career', 'job', 'hiring', 'work at', 'join the team'],
+      'Join the team building the future of call tracking and lead automation.', [['/careers', 'Careers']]],
+    ['legal', ['terms', 'privacy', 'legal', 'cookie'],
+      'Here are our policies.', [['/privacy_policy', 'Privacy policy'], ['/terms_of_service', 'Terms of service']]],
+    ['hello', ['hi', 'hello', 'hey', 'good morning', 'good afternoon'],
+      'Hi! Ask me about pricing, features, integrations or getting started.', []],
+    ['thanks', ['thank', 'thanks', 'bye', 'great', 'perfect'],
+      'Happy to help. Anything else?', []]
+  ];
+  var GREETING = 'Hi! I can answer questions about Avortyx — pricing, features, integrations and getting started. What would you like to know?';
+  var FALLBACK = ['I don’t have an answer for that one yet. Our team can help, or try one of the topics below.', [['/p/contact', 'Contact us'], ['/p/request_demo', 'Request a demo']]];
+  var CHIPS = [['How does pricing work?', 'pricing'], ['What is Ping/Post?', 'pingpost'], ['Can I bring my own carrier?', 'carriers'], ['Is there an API?', 'api'], ['How do you handle compliance?', 'compliance'], ['Book a demo', 'demo']];
+  var STORE = 'avx-help';
+
+  function norm(s) { return ' ' + s.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9/+.-]+/g, ' ').replace(/\s+/g, ' ').trim() + ' '; }
+
+  function find(text) {
+    var t = norm(text), best = null, top = 0;
+    KB.forEach(function (e) {
+      var score = 0;
+      e[1].forEach(function (k) {
+        var hit = k.length <= 3 ? t.indexOf(' ' + k + ' ') > -1 : t.indexOf(' ' + k) > -1;
+        if (hit) score += k.split(' ').length;
+      });
+      if (score > top) { top = score; best = e; }
+    });
+    return best;
+  }
+
+  function track(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); }
+
+  function load() { try { return JSON.parse(sessionStorage.getItem(STORE)) || null; } catch (e) { return null; } }
+  function save(state) { try { sessionStorage.setItem(STORE, JSON.stringify(state)); } catch (e) { /* storage blocked */ } }
+
+  function init() {
+    var state = load() || { open: false, msgs: [] };
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'avx-help-btn';
+    btn.setAttribute('aria-label', 'Open Avortyx Help');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'avx-help');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.4a.5.5 0 0 1-.8-.4V16h0A2.5 2.5 0 0 1 4 13.5v-8z"/></svg>';
+
+    var panel = document.createElement('div');
+    panel.className = 'avx-help';
+    panel.id = 'avx-help';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-label', 'Avortyx Help');
+    panel.hidden = true;
+    panel.innerHTML =
+      '<div class="avx-help-head"><span class="avx-help-dot" aria-hidden="true"></span><div><b>Avortyx Help</b><span>Instant answers from our docs</span></div>' +
+      '<button type="button" class="avx-help-close" aria-label="Close help">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
+      '<div class="avx-help-log" role="log" aria-live="polite"></div>' +
+      '<div class="avx-help-chips" aria-label="Suggested questions"></div>' +
+      '<form class="avx-help-form"><input type="text" placeholder="Ask a question…" aria-label="Your question" maxlength="200" autocomplete="off">' +
+      '<button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5L4 12z"/></svg></button></form>';
+    document.body.appendChild(panel);
+    document.body.appendChild(btn);
+
+    var log = panel.querySelector('.avx-help-log'), chips = panel.querySelector('.avx-help-chips');
+    var form = panel.querySelector('form'), input = form.querySelector('input');
+
+    function bubble(m) {
+      var row = document.createElement('div');
+      row.className = 'avx-help-msg avx-help-' + m.who;
+      var p = document.createElement('p');
+      p.textContent = m.text;
+      row.appendChild(p);
+      if (m.links && m.links.length) {
+        var links = document.createElement('div');
+        links.className = 'avx-help-links';
+        m.links.forEach(function (l) {
+          var a = document.createElement('a');
+          a.href = l[0];
+          a.textContent = l[1] + ' →';
+          links.appendChild(a);
+        });
+        row.appendChild(links);
+      }
+      log.appendChild(row);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function add(m) {
+      state.msgs.push(m);
+      if (state.msgs.length > 40) state.msgs = state.msgs.slice(-40);
+      save(state);
+      bubble(m);
+    }
+
+    CHIPS.forEach(function (c) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = c[0];
+      b.addEventListener('click', function () { ask(c[0]); });
+      chips.appendChild(b);
+    });
+
+    function ask(text) {
+      text = text.trim();
+      if (!text) return;
+      add({ who: 'me', text: text });
+      var hit = find(text);
+      track('assistant_question', { topic: hit ? hit[0] : 'unmatched' });
+      var typing = document.createElement('div');
+      typing.className = 'avx-help-msg avx-help-bot avx-help-typing';
+      typing.innerHTML = '<p><i></i><i></i><i></i></p>';
+      log.appendChild(typing);
+      log.scrollTop = log.scrollHeight;
+      setTimeout(function () {
+        typing.remove();
+        add(hit ? { who: 'bot', text: hit[2], links: hit[3] } : { who: 'bot', text: FALLBACK[0], links: FALLBACK[1] });
+      }, 450 + Math.min(500, text.length * 8));
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = input.value;
+      input.value = '';
+      ask(v);
+    });
+
+    function setOpen(on, focus) {
+      state.open = on;
+      save(state);
+      panel.hidden = !on;
+      btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+      btn.setAttribute('aria-label', on ? 'Close Avortyx Help' : 'Open Avortyx Help');
+      document.body.classList.toggle('avx-help-open', on);
+      if (on) {
+        if (!state.msgs.length) add({ who: 'bot', text: GREETING });
+        log.scrollTop = log.scrollHeight;
+        if (focus) input.focus();
+      } else if (focus) {
+        btn.focus();
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      var on = panel.hidden;
+      if (on) track('assistant_open', { page_path: location.pathname });
+      setOpen(on, true);
+    });
+    panel.querySelector('.avx-help-close').addEventListener('click', function () { setOpen(false, true); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) setOpen(false, true); });
+
+    // pick up where the visitor left off on the previous page
+    state.msgs.forEach(bubble);
+    if (state.open) setOpen(true, false);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
+/* ---------- Email support: a short form that writes the message in the visitor's email app ----------
+   Opens from any [data-avx-email] link or a link to #email-support (the Support menu, the help
+   chat). There is no mail server here: the form builds a mailto: to support@avortyx.com with the
+   topic, details, reply address and the page the visitor was on, so nothing is lost or stored. */
+(function () {
+  'use strict';
+  var TO = 'support@avortyx.com';
+  var TOPICS = ['Account help', 'Billing', 'Technical issue', 'Number or carrier setup', 'Sales question', 'Something else'];
+  var dlg = null;
+
+  function build() {
+    dlg = document.createElement('dialog');
+    dlg.className = 'avx-mail';
+    dlg.setAttribute('aria-labelledby', 'avx-mail-title');
+    dlg.innerHTML =
+      '<form method="dialog" class="avx-mail-x"><button type="submit" aria-label="Close">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></form>' +
+      '<h2 id="avx-mail-title">Email support</h2>' +
+      '<p class="avx-mail-sub">Tell us what you need and we will reply by email. This opens your email app with the message ready to send to <b>' + TO + '</b>.</p>' +
+      '<form class="avx-mail-form" novalidate>' +
+        '<div class="avx-mail-row"><label>Your name<input name="name" autocomplete="name" required></label>' +
+        '<label>Your email<input name="email" type="email" autocomplete="email" required></label></div>' +
+        '<label>Topic<select name="topic">' + TOPICS.map(function (t) { return '<option>' + t + '</option>'; }).join('') + '</select></label>' +
+        '<label>How can we help?<textarea name="message" rows="5" required></textarea></label>' +
+        '<p class="avx-mail-err" role="alert" hidden></p>' +
+        '<div class="avx-mail-actions"><button type="submit" class="btn btn-td-green">Open in email app</button>' +
+        '<button type="button" class="avx-mail-copy">Copy address</button></div>' +
+        '<p class="avx-mail-done" role="status" hidden>Your email app should now be open with the message ready. Nothing opened? Write to <a href="mailto:' + TO + '">' + TO + '</a>.</p>' +
+      '</form>';
+    document.body.appendChild(dlg);
+    var form = dlg.querySelector('.avx-mail-form'), err = dlg.querySelector('.avx-mail-err'), done = dlg.querySelector('.avx-mail-done');
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.querySelector('.avx-mail-copy').addEventListener('click', function () {
+      var b = this;
+      var ok = function () { b.textContent = 'Copied ✓'; setTimeout(function () { b.textContent = 'Copy address'; }, 1800); };
+      if (navigator.clipboard) navigator.clipboard.writeText(TO).then(ok, function () { b.textContent = TO; });
+      else b.textContent = TO;
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = form.elements, name = f.name.value.trim(), email = f.email.value.trim(), msg = f.message.value.trim();
+      var problem = !name ? 'Please add your name.' : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? 'Please add a valid email address.' : !msg ? 'Please tell us how we can help.' : '';
+      err.hidden = !problem;
+      err.textContent = problem;
+      if (problem) return;
+      var subject = '[' + f.topic.value + '] ' + name;
+      var body = msg + '\n\n—\nName: ' + name + '\nReply to: ' + email + '\nTopic: ' + f.topic.value + '\nSent from: ' + location.href;
+      if (typeof window.gtag === 'function') window.gtag('event', 'support_email', { topic: f.topic.value, page_path: location.pathname });
+      window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      done.hidden = false;
+    });
+  }
+
+  function open(e) {
+    e.preventDefault();
+    if (!dlg) build();
+    dlg.querySelector('.avx-mail-done').hidden = true;
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    dlg.querySelector('input[name="name"]').focus();
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-avx-email], a[href="#email-support"]');
+    if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    open(e);
+  });
+})();
+
+/* ---------- Blog: filter the post grid by topic ---------- */
+(function () {
+  'use strict';
+  var bar = document.querySelector('[data-avx-blog-filter]');
+  var grid = document.querySelector('[data-avx-blog-grid]');
+  if (!bar || !grid) return;
+  var empty = grid.parentNode.querySelector('.avx-blog-empty');
+  bar.addEventListener('click', function (e) {
+    var b = e.target.closest('button');
+    if (!b) return;
+    var cat = b.getAttribute('data-cat');
+    bar.querySelectorAll('button').forEach(function (x) {
+      var on = x === b;
+      x.classList.toggle('avx-on', on);
+      x.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    var shown = 0;
+    grid.querySelectorAll('.avx-post-card').forEach(function (card) {
+      var hit = !cat || card.getAttribute('data-cat') === cat;
+      card.hidden = !hit;
+      if (hit) shown++;
+    });
+    if (empty) empty.hidden = shown > 0;
+  });
+})();
+
+/* ---------- Blog article: highlight the section being read in the contents list ---------- */
+(function () {
+  'use strict';
+  var toc = document.querySelector('.avx-art-toc');
+  if (!toc || !('IntersectionObserver' in window)) return;
+  var links = Array.prototype.slice.call(toc.querySelectorAll('a'));
+  var heads = links.map(function (a) { return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); });
+  function mark() {
+    var current = 0;
+    heads.forEach(function (h, i) { if (h && h.getBoundingClientRect().top < 200) current = i; });
+    links.forEach(function (a, i) { a.classList.toggle('avx-on', i === current); });
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { ticking = false; mark(); });
+  }, { passive: true });
+  mark();
+})();

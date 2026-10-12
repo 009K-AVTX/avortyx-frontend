@@ -14,7 +14,7 @@ const LINKS = [
   ['/features#ai', 'AI'],
   ['/features/integrations', 'Integrations'],
   ['/pricing', 'Pricing'],
-  ['/p/contact', 'Contact'],
+  ['/blog', 'Blog'],
 ]
 
 export default function Navbar({ brandHref }) {
@@ -42,7 +42,26 @@ export default function Navbar({ brandHref }) {
             {LINKS.map(([href, label]) => (
               <li key={href} className="nav-item"><a className="nav-link" href={href}>{label}</a></li>
             ))}
-            <li className="nav-item"><a className="nav-link" href="https://support.trackdrive.com/" target="_blank" rel="noopener noreferrer" title="Avortyx Help Center">Help Center</a></li>
+            <li className="nav-item dropdown marketing-hover-dropdown">
+              <a className="nav-link" href="/p/contact" id="supportDropdown"> Support </a>
+              <ul className="dropdown-menu avx-support-menu" aria-labelledby="supportDropdown">
+                <li>
+                  <a className="dropdown-item" href="https://support.trackdrive.com/" target="_blank" rel="noopener noreferrer" title="Avortyx Help Center">
+                    <i className="fa-solid fa-book" aria-hidden="true" /> Help Center <span className="visually-hidden">(opens in a new tab)</span>
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="mailto:support@avortyx.com" data-avx-email="">
+                    <i className="fa-solid fa-envelope" aria-hidden="true" /> Email support
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/p/contact">
+                    <i className="fa-solid fa-headset" aria-hidden="true" /> Contact us
+                  </a>
+                </li>
+              </ul>
+            </li>
             <li className="nav-item"><a className="nav-link" href="/users/sign_in">Sign In</a></li>
             <li className="nav-item ms-lg-2"><a className="btn btn-td-green btn-sm px-3" href="/sign_up">Sign Up Free</a></li>
           </ul>
