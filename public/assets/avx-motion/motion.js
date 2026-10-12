@@ -2994,23 +2994,32 @@
 
   var BENTO = {
     transcriptions: function (v) {
+      // a rolling transcript pinned to the bottom of the tile, the call's topics collecting
+      // under it and the sentiment bar last: the big tile reads full at any size
       v.className += ' avx-viz-tr';
-      var foot = el('div', 'avx-viz-tr-foot', '<span>Sentiment</span><i></i><span data-s>—</span>');
-      var i = 0;
+      v.innerHTML = '<div class="avx-tr-log"><div class="avx-tr-lines"></div></div>' +
+        '<div class="avx-viz-tr-topics"><span>Topics</span></div>' +
+        '<div class="avx-viz-tr-foot"><span>Sentiment</span><i></i><span data-s>—</span></div>';
+      var lines = v.querySelector('.avx-tr-lines'), topics = v.querySelector('.avx-viz-tr-topics'), foot = v.querySelector('.avx-viz-tr-foot');
+      // start on the tail of an earlier call, so the tile is full from the first frame
+      var i = 4;
       function line() {
         var ln = LISTEN[i % LISTEN.length];
-        if (i % LISTEN.length === 0) v.querySelectorAll('p').forEach(function (p) { p.parentNode.removeChild(p); });
+        // a new call: a divider, and its topics start over
+        if (i % LISTEN.length === 0) {
+          lines.appendChild(el('p', 'avx-tr-sep', '<span>New call</span>'));
+          topics.querySelectorAll('em').forEach(function (t) { t.parentNode.removeChild(t); });
+        }
         var p = el('p', 'avx-ls-' + ln[0].toLowerCase(), '<b>' + ln[0] + '</b><span></span>');
         p.querySelector('span').textContent = ln[1];
-        v.insertBefore(p, foot);
-        var ps = v.querySelectorAll('p');
-        if (ps.length > 6) ps[0].parentNode.removeChild(ps[0]);
+        lines.appendChild(p);
+        while (lines.children.length > 16) lines.removeChild(lines.firstChild);
+        (ln[3] || []).forEach(function (tp) { topics.appendChild(el('em', '', tp)); });
         foot.style.setProperty('--s', ln[2]);
         foot.querySelector('[data-s]').textContent = ln[2] >= .7 ? 'Positive' : ln[2] >= .45 ? 'Neutral' : 'Negative';
         i++;
       }
-      v.appendChild(foot);
-      for (var k = 0; k < 3; k++) line();
+      for (var k = 0; k < 10; k++) line();
       return [2200, line];
     },
     spam_tag_mitigation: function (v) {
@@ -3032,7 +3041,7 @@
       var id = 48213;
       function draw() {
         id += Math.floor(rnd(1, 9));
-        v.innerHTML = '{ <em>"event"</em>: <u>"call.completed"</u>,\n  <em>"call_id"</em>: ' + id + ',\n  <em>"buyer"</em>: <u>"' + pick(LIVE_BUYERS) + '"</u>,\n  <em>"revenue"</em>: ' + rnd(24, 96).toFixed(2) + ' }' +
+        v.innerHTML = '<pre>{ <em>"event"</em>: <u>"call.completed"</u>,\n  <em>"call_id"</em>: ' + id + ',\n  <em>"buyer"</em>: <u>"' + pick(LIVE_BUYERS) + '"</u>,\n  <em>"revenue"</em>: ' + rnd(24, 96).toFixed(2) + ' }</pre>' +
           '<span class="avx-wh-ok">200 OK · ' + Math.floor(rnd(28, 70)) + 'ms</span>';
       }
       draw();
@@ -3081,6 +3090,15 @@
       card.insertBefore(v, card.firstChild);
       var tick = BENTO[key](v);
       ticker(card, tick[0], tick[1]);
+    });
+    // a soft glow follows the pointer across the card (mouse and pen only)
+    if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+    grid.querySelectorAll('.avx-cap').forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
     });
   }
 

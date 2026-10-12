@@ -820,7 +820,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <h3 className="avx-caps-sub">More capabilities</h3>
+          <div className="avx-caps-head">
+            <div>
+              <h3>More capabilities</h3>
+              <p>Tracking, compliance, recordings and data tools around every call.</p>
+            </div>
+            <a href="/features.html" className="avx-more-link">See all features <span aria-hidden="true">→</span></a>
+          </div>
           <div className="avx-cap-grid avx-bento text-start" data-avx-bento="">
             <a href="/features/spam_tag_mitigation.html" className="avx-cap">
               {" "}
@@ -918,7 +924,6 @@ export default function Home() {
               {" "}
             </a>
           </div>
-          <div className="mt-5"><a href="/features.html" className="btn avx-btn-ghost">See All Features</a></div>
         </div>
       </section>
       <section className="mktg-section avx-int">
