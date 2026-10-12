@@ -42,7 +42,7 @@ export default function Navbar({ brandHref }) {
             {LINKS.map(([href, label]) => (
               <li key={href} className="nav-item"><a className="nav-link" href={href}>{label}</a></li>
             ))}
-            <li className="nav-item"><a className="nav-link" href="https://help.avortyx.com" target="_blank">Help Center</a></li>
+            <li className="nav-item"><a className="nav-link" href="https://support.trackdrive.com/" target="_blank" rel="noopener noreferrer" title="Avortyx Help Center">Help Center</a></li>
             <li className="nav-item"><a className="nav-link" href="/users/sign_in.html">Sign In</a></li>
             <li className="nav-item ms-lg-2"><a className="btn btn-td-green btn-sm px-3" href="/sign_up.html">Sign Up Free</a></li>
           </ul>

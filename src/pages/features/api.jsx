@@ -67,7 +67,7 @@ export default function Api() {
               </li>
             </ul>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="https://admin.avortyx.com/api/docs" className="btn btn-td-green">REST API Docs</a>
+              <a href="https://trackdrive.com/api/docs" className="btn btn-td-green" target="_blank" rel="noopener noreferrer" title="Avortyx REST API documentation">Avortyx REST API Docs</a>
               {" "}
               <a href="/features/api_whitelist.html" className="btn btn-outline-td-green">API IP Whitelist</a>
               {" "}
