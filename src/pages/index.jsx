@@ -845,8 +845,9 @@ export default function Home() {
               </div>
               <a href="#how-it-decides" className="avx-hero-tour-link">How it works <span aria-hidden="true">↓</span></a>
             </div>
-            {/* live decision: one call scored, bid on and routed; motion.js replays it with new calls */}
-            <div className="avx-decide avx-decide-pro" data-avx-decide="" role="img" aria-label="Live demo: an incoming call is scored by AI for intent and connected to the best buyer">
+            {/* live decision: one call scored, bid on and routed; motion.js replays it with new calls.
+                It ships in its globe look (avx-dg) so the older chip design never flashes first */}
+            <div className="avx-decide avx-decide-pro avx-dg" data-avx-decide="" role="img" aria-label="Live demo: an incoming call is scored by AI for intent and connected to the best buyer">
               <div className="avx-dc-bar">
                 <span className="avx-dc-live"><i className="avx-live-dot" />Live decision</span>
                 {" "}
@@ -864,6 +865,7 @@ export default function Home() {
                 <span className="avx-dc-quote" data-dc="quote">“Hi, I’m looking to switch my Medicare plan before the deadline.”</span>
               </div>
               <div className="avx-fc3d">
+              <canvas className="avx-dg-canvas" aria-hidden="true" />
               {/* the floor is outside the 3D stage, so it never cuts through the chip or cards */}
               <span className="avx-fc-floor" aria-hidden="true" />
               <span className="avx-fc-tip" data-dc="tip" aria-hidden="true" />

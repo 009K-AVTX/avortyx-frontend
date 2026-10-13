@@ -3510,10 +3510,14 @@
     var phone = card.querySelector('.avx-fc-phone'), list = card.querySelector('[data-dc="buyers"]');
     var caller = card.querySelector('.avx-fc-caller');
     if (!stage || !chip || !phone || !list || !caller) return;
-    var cv = document.createElement('canvas');
-    cv.className = 'avx-dg-canvas';
-    cv.setAttribute('aria-hidden', 'true');
-    stage.insertBefore(cv, stage.firstChild);
+    // the page ships the canvas; build one only if it is missing
+    var cv = stage.querySelector('.avx-dg-canvas');
+    if (!cv) {
+      cv = document.createElement('canvas');
+      cv.className = 'avx-dg-canvas';
+      cv.setAttribute('aria-hidden', 'true');
+      stage.insertBefore(cv, stage.firstChild);
+    }
     var ctx = cv.getContext('2d');
     if (!ctx) return;
     card.classList.add('avx-dg');
@@ -3733,6 +3737,8 @@
     if ('ResizeObserver' in window) new ResizeObserver(function () { size(); draw(performance.now()); }).observe(cv);
     else window.addEventListener('resize', function () { size(); draw(performance.now()); });
     draw(performance.now());
+    // the drawn globe takes over from the static one in the HTML
+    card.classList.add('avx-dg-live');
     if (reduced) return;
     var on = false, raf = 0;
     function frame(now) {
