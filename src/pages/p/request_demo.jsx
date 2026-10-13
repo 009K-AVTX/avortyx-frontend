@@ -1,7 +1,8 @@
 // /p/request_demo.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Request Demo | Avortyx",
-  description: "See how Avortyx can optimize your call tracking and increase conversions.",
+  title: "Request a Demo | See Avortyx route your calls",
+  description: "Walk through Avortyx with our team: first-ring routing, intent scoring, the live monitor and pricing for your volume.",
   bodyClass: "avortyx_marketing request_demo ",
   layout: "site",
 }
@@ -14,8 +15,8 @@ export default function RequestDemo() {
           <div className="row justify-content-center mb-4">
             <div className="col-lg-8 text-center">
               <div className="mktg-section-header text-center">
-                <h1 className="fw-bold mb-3">Request a Demo</h1>
-                <p className="text-muted lead">See how Avortyx can optimize your call tracking and increase conversions.</p>
+                <h1 className="fw-bold mb-3">See Avortyx with your traffic</h1>
+                <p className="text-muted lead">A walkthrough built around your verticals, buyers and volume, not a generic slideshow.</p>
               </div>
             </div>
           </div>
@@ -23,41 +24,41 @@ export default function RequestDemo() {
             <div className="col-lg-4 col-md-5">
               <div className="card border-0 shadow-sm h-100">
                 <div className="card-body p-4">
-                  <h5 className="fw-bold mb-4">What You'll See</h5>
+                  <h5 className="fw-bold mb-4">What we will cover</h5>
                   <ul className="list-unstyled">
                     <li className="d-flex align-items-start mb-3">
                       <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
                       {" "}
-                      <span>Live platform walkthrough tailored to your use case</span>
+                      <span>How a call is scored and routed on the first ring, using your offers</span>
                     </li>
                     <li className="d-flex align-items-start mb-3">
                       <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
                       {" "}
-                      <span>Real-time call routing and tracking in action</span>
+                      <span>The live monitor, with barge and whisper on in-flight calls</span>
                     </li>
                     <li className="d-flex align-items-start mb-3">
                       <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
                       {" "}
-                      <span>Integration options with your existing tools</span>
+                      <span>Connecting your carriers, trackers and CRM</span>
                     </li>
                     <li className="d-flex align-items-start mb-3">
                       <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
                       {" "}
-                      <span>Reporting and analytics dashboard overview</span>
+                      <span>Reporting by campaign, buyer and publisher, and how payouts settle</span>
                     </li>
                     <li className="d-flex align-items-start">
                       <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
                       {" "}
-                      <span>Custom pricing based on your volume</span>
+                      <span>Pricing for your call volume</span>
                     </li>
                   </ul>
                   <hr />
                   <div className="text-center mt-4">
-                    <img className="rounded-circle mb-2" width="64" height="64" alt="Phill - CEO, Adtronic" src="/assets/avx-site/img/ceo.webp" />
+                    <span className="rounded-circle mb-2 d-inline-flex align-items-center justify-content-center fw-semibold text-white" style={{ width: 64, height: 64, background: "#1d4ed8" }} aria-hidden="true">MW</span>
                     <blockquote className="blockquote fs-6 mb-1">
-                      <p>"Avortyx's advertising optimizer helped us reduce our ad-spend and increase call flow!"</p>
+                      <p>"The live monitor alone is worth it. For the first time we can see what our buyers are actually doing with the calls we send them."</p>
                     </blockquote>
-                    <figcaption className="blockquote-footer"> Phill, <cite>CEO at Adtronic</cite></figcaption>
+                    <figcaption className="blockquote-footer"> Marcus Webb, <cite>COO, Ringwell</cite></figcaption>
                   </div>
                 </div>
               </div>
@@ -123,7 +124,7 @@ export default function RequestDemo() {
                       </div>
                     </div>
                     <div className="row mb-3 js-form-validation form-group check_boxes optional contact_request_feature_interests">
-                      <label className="col-sm-3 col-form-label pt-0 check_boxes optional">Features of Interest</label>
+                      <label className="col-sm-3 col-form-label pt-0 check_boxes optional">What are you looking at?</label>
                       <div className="col-sm-9">
                         <div className="form-check">
                           <input className="form-check-input check_boxes optional" type="checkbox" value="Real Time Ping/Post" name="contact_request[feature_interests][]" id="contact_request_feature_interests_real_time_pingpost" />
@@ -169,7 +170,7 @@ export default function RequestDemo() {
                     </div>
                     <div className="row">
                       <div className="col-sm-9 offset-sm-3">
-                        <button type="submit" className="btn btn-td-green px-4 py-2 fw-semibold">Request Demo</button>
+                        <button type="submit" className="btn btn-td-green px-4 py-2 fw-semibold">Book the walkthrough</button>
                       </div>
                     </div>
                   </form>
@@ -182,10 +183,10 @@ export default function RequestDemo() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

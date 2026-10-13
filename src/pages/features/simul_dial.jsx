@@ -1,7 +1,8 @@
 // /features/simul_dial.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Simultaneously Dial Buyers | Call Tracking and Analytics | Avortyx",
-  description: "Buyer Groups let you dial multiple buyers or agents at the same time so the first one to answer wins the call. Groups can also be configured for sequential…",
+  title: "Simultaneous Dial & Buyer Groups | Avortyx",
+  description: "Ring a whole group of buyers or agents at once and give the call to whoever answers first, with shared caps and one-click pause for the group.",
   bodyClass: "avortyx_marketing features_simul_dial ",
   layout: "feature",
 }
@@ -20,7 +21,7 @@ export default function SimulDial() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Call Management</p>
           <h1 className="fw-bold mb-2">Simultaneously Dial Buyers</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Buyer Groups let you dial multiple buyers or agents at the same time so the first one to answer wins the call. Groups can also be configured for sequential dialing, shared caps, and unified pause/unpause control.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Ring a whole team of buyers or agents at once and hand the caller to whoever picks up first, or work down the list in order.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -34,47 +35,47 @@ export default function SimulDial() {
               <div className="flow-diagram">
                 <div className="flow-node">
                   <div className="flow-node-icon bg-primary text-white"><i className="fa-solid fa-phone-volume" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Call Arrives</div>
-                  <div className="flow-node-desc">Routed to a buyer group</div>
+                  <div className="flow-node-label">Call Comes In</div>
+                  <div className="flow-node-desc">Avortyx picks a buyer group</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-info text-white"><i className="fa-solid fa-users" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Ring All</div>
-                  <div className="flow-node-desc">Every buyer in the group rings at once</div>
+                  <div className="flow-node-label">Everyone Rings</div>
+                  <div className="flow-node-desc">All members ring together</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-warning text-white"><i className="fa-solid fa-hand-pointer" aria-hidden="true" /></div>
-                  <div className="flow-node-label">First to Answer</div>
-                  <div className="flow-node-desc">Answer and press 1 to win the call</div>
+                  <div className="flow-node-label">First Pick-Up</div>
+                  <div className="flow-node-desc">Answer and press 1 to claim it</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-success text-white"><i className="fa-solid fa-phone-flip" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Connected</div>
-                  <div className="flow-node-desc">Caller bridged to the winner</div>
+                  <div className="flow-node-label">Bridged</div>
+                  <div className="flow-node-desc">The caller is connected to them</div>
                 </div>
               </div>
             </div>
-            <p>Connect callers to a live person as fast as possible. A buyer group rings multiple buyers or agents at the same time, and the first to answer and press 1 wins the call — or configure the group to dial sequentially instead.</p>
+            <p>The fastest way to reach a person is to ask several at once. A buyer group rings every member together, and the first to answer and press 1 takes the call. When you would rather keep an order of preference, set the group to dial one member after another.</p>
             <ul className="text-muted">
-              <li><strong>Simultaneous or sequential</strong> — ring every buyer at once, or try them one by one.</li>
+              <li><strong>All at once, or in order</strong> — choose simultaneous ringing or sequential dialing per group.</li>
               <li>
-                <strong>Tier & weight priority</strong>
-                {" "}— groups participate in the routing engine alongside individual buyers, with their own tier (lower routes first) and weighted distribution within a tier.
+                <strong>Ranked like any buyer</strong>
+                {" "}— a group competes in routing next to individual buyers, with its own tier (lower tiers route first) and weights inside the tier.
               </li>
               <li>
-                <strong>Shared caps</strong>
-                {" "}— enforce attempt, connection, conversion, and revenue limits across all member buyers, plus hourly caps and concurrency at the group level.
+                <strong>Caps for the whole team</strong>
+                {" "}— limit attempts, connections, conversions and revenue across every member, with hourly and concurrency caps on the group itself.
               </li>
               <li>
-                <strong>One-click pause</strong>
-                {" "}— pausing a group bulk-pauses every buyer in it, so you can take an entire call center offline without editing individual records.
+                <strong>Pause a call center in one click</strong>
+                {" "}— pausing the group pauses every buyer in it, no record-by-record editing.
               </li>
               <li>
-                <strong>Maxed-out tracking</strong>
-                {" "}— when any group cap is reached, the group and all its buyers are removed from routing until caps reset or are adjusted.
+                <strong>Full means out</strong>
+                {" "}— once any group cap is hit, the group and its members leave routing until the cap resets or you raise it.
               </li>
             </ul>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
@@ -88,10 +89,10 @@ export default function SimulDial() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

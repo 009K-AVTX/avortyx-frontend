@@ -1,7 +1,8 @@
 // /features/multiple_telephone_providers.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Multiple Telephone Providers | Call Tracking and Analytics | Avortyx",
-  description: "Connect with multiple VoIP providers for maximum flexibility and redundancy.",
+  title: "Multiple Telephone Providers | Bring your own carrier | Avortyx",
+  description: "Run Avortyx on Twilio, Plivo, Telnyx or any SIP carrier, and manage every number from every provider in one place.",
   bodyClass: "avortyx_marketing features_multiple_telephone_providers ",
   layout: "feature",
 }
@@ -20,7 +21,7 @@ export default function MultipleTelephoneProviders() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Phone Numbers</p>
           <h1 className="fw-bold mb-2">Multiple Telephone Providers</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Connect with multiple VoIP providers for maximum flexibility and redundancy.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Keep the carriers you trust, add more for redundancy, and run them all through one routing engine.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -34,34 +35,34 @@ export default function MultipleTelephoneProviders() {
               <div className="flow-diagram">
                 <div className="flow-node">
                   <div className="flow-node-icon bg-primary text-white"><i className="fa-solid fa-link" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Link Account</div>
-                  <div className="flow-node-desc">Connect Plivo, Twilio, or Telnyx</div>
+                  <div className="flow-node-label">Link Carriers</div>
+                  <div className="flow-node-desc">Twilio, Plivo, Telnyx or SIP</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-info text-white"><i className="fa-solid fa-file-import" aria-hidden="true" /></div>
                   <div className="flow-node-label">Import Numbers</div>
-                  <div className="flow-node-desc">Bring existing numbers in one click</div>
+                  <div className="flow-node-desc">Bring what you own in one click</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-warning text-white"><i className="fa-solid fa-cart-shopping" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Purchase Numbers</div>
-                  <div className="flow-node-desc">Provision new numbers from any provider</div>
+                  <div className="flow-node-label">Buy Numbers</div>
+                  <div className="flow-node-desc">From any connected provider</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-success text-white"><i className="fa-solid fa-phone-volume" aria-hidden="true" /></div>
                   <div className="flow-node-label">Calls & Texts</div>
-                  <div className="flow-node-desc">Make and receive on every number</div>
+                  <div className="flow-node-desc">Every number, one routing engine</div>
                 </div>
               </div>
             </div>
-            <p>With Avortyx, you can now connect your existing service provider with Twilio, Plivo, Telnyx, or using SIP (Session Initiation Protocol). By doing this, your on-premise telecom assets will have dynamic and powerful intelligence and benefit form all communications capabilities that Twilio, Plivo, and Telnyx offer in the cloud.</p>
-            <p>While most call tracking softwares insist on supplying VOIP device, with Avortyx, you have the freedom to bring in your own VOIP provider using SIP-IN. Here are some of the providers we are currently integrated with:</p>
+            <p>Avortyx does not lock you into a phone carrier. Connect Twilio, Plivo or Telnyx with your own accounts, or route your existing carrier in over SIP, and every number gets the same scoring, screening and routing on the first ring.</p>
+            <p>Running more than one carrier also means a problem at one provider does not take your campaigns down with it. These are the providers Avortyx connects to today:</p>
             <p className="text-muted mb-1">
-              <strong>Providers we integrate with.</strong>
-              {" "}Connect your existing accounts or route in your own carrier over SIP-IN.
+              <strong>Supported carriers.</strong>
+              {" "}Link an existing account, or bring your own carrier over SIP-IN.
             </p>
             <div className="d-flex flex-wrap gap-4 align-items-center my-3">
               <img alt="Plivo" className="voip-provider-logo" src="/assets/avx-site/img/plivo.webp" />
@@ -78,38 +79,38 @@ export default function MultipleTelephoneProviders() {
               {" "}
               <img alt="Avoxi" className="voip-provider-logo" src="/assets/avx-site/img/avoxi.webp" />
             </div>
-            <h2 className="mt-5 mb-4">More on Plivo, Twilio, & Telnyx</h2>
-            <p>Avortyx's Plivo, Twilio, and Telnyx integrations are the most impressive and commonly used tools on Avortyx. With any of them you can:</p>
+            <h2 className="mt-5 mb-4">Plivo, Twilio and Telnyx, fully managed</h2>
+            <p>These three carriers are connected through their APIs, so Avortyx can manage them end to end:</p>
             <ul className="text-muted">
               <li>
-                <strong>Link your existing accounts</strong>
-                {" "}— connect by entering your API credentials; Avortyx securely stores your keys and manages numbers, calls, and SMS through a single interface.
+                <strong>Link your accounts</strong>
+                {" "}— enter your API credentials once; Avortyx stores them securely and handles numbers, calls and SMS from one workspace.
               </li>
               <li>
-                <strong>Import your existing numbers</strong>
-                {" "}— bring numbers in with one click, immediately available for assignment to offers, traffic sources, and number pools.
+                <strong>Import your numbers</strong>
+                {" "}— one click, and they are ready to attach to offers, traffic sources and number pools.
               </li>
               <li>
-                <strong>Purchase new numbers</strong>
-                {" "}— search and provision from any connected provider, filtering by country, area code, and number type (local or toll-free).
+                <strong>Buy new numbers</strong>
+                {" "}— search any connected carrier by country, area code and type (local or toll-free).
               </li>
               <li>
                 <strong>Send and receive SMS</strong>
-                {" "}— outbound messages, inbound texts, and automated SMS flows, with unified delivery tracking across all connected providers.
+                {" "}— outbound and inbound texts plus automated SMS flows, with delivery tracked across every carrier.
               </li>
             </ul>
-            <h3>Unified Number Management</h3>
-            <p>Avortyx provides a single interface for managing phone numbers (DIDs) across all connected providers — purchase, assign, and release through one lifecycle, and attach numbers at the offer, traffic-source, or number-pool level.</p>
+            <h3>One number inventory</h3>
+            <p>Every number (DID) from every carrier lives in one list in Avortyx. Buy, assign and release them through the same steps, and attach them to an offer, a traffic source or a number pool wherever they came from.</p>
           </div>
         </div>
       </section>
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

@@ -1,7 +1,8 @@
 // /features/voice_agents.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "AI Voice Agents | Avortyx",
-  description: "Bring your own AI voice provider — your agent answers and qualifies calls, routed with the same controls as your live team.",
+  title: "AI Voice Agents | Qualify every call, any hour | Avortyx",
+  description: "Bring your AI voice agents into Avortyx: they answer and qualify calls around the clock and warm-transfer high-intent callers to buyers, under the same routing rules as your team.",
   bodyClass: "avortyx_marketing features_voice_agents ",
   layout: "feature",
 }
@@ -16,7 +17,7 @@ export default function VoiceAgents() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">AI</p>
           <h1 className="fw-bold mb-2">AI Voice Agents</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Bring your own AI voice provider — your agent answers and qualifies calls, routed with the same controls as your live team.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Put your AI voice agents on the phones: they answer and qualify around the clock, then warm-transfer high-intent callers to buyers.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -31,48 +32,48 @@ export default function VoiceAgents() {
                 <div className="flow-node">
                   <div className="flow-node-icon bg-primary text-white"><i className="fa-solid fa-plug" aria-hidden="true" /></div>
                   <div className="flow-node-label">Connect</div>
-                  <div className="flow-node-desc">Add your AI voice provider on Integrations</div>
+                  <div className="flow-node-desc">Add your AI voice provider</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-info text-white"><i className="fa-solid fa-download" aria-hidden="true" /></div>
                   <div className="flow-node-label">Import</div>
-                  <div className="flow-node-desc">Bring in any agent; we provision the SIP trunk</div>
+                  <div className="flow-node-desc">Pick agents; Avortyx sets up the SIP trunk</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-warning text-white"><i className="fa-solid fa-diagram-project" aria-hidden="true" /></div>
                   <div className="flow-node-label">Route</div>
-                  <div className="flow-node-desc">Add the agent to any call flow and routing rule</div>
+                  <div className="flow-node-desc">Drop the agent into any routing rule</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-success text-white"><i className="fa-solid fa-phone-flip" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Call</div>
-                  <div className="flow-node-desc">Calls dial straight into the agent over SIP</div>
+                  <div className="flow-node-label">Answer</div>
+                  <div className="flow-node-desc">Calls reach the agent over SIP</div>
                 </div>
               </div>
             </div>
-            <p>Your sales floor never sleeps. Connect an AI voice agent, route calls to it just like any other destination, and let it qualify leads 24/7 — warm-transferring to a human when intent is high.</p>
+            <p>An AI voice agent in Avortyx is just another destination in your routing rules, which means it can take the 2am calls, the overflow and the first round of questions, then warm-transfer the caller to a buyer once intent is high. The caller’s answers travel with the call, so the buyer starts the conversation already informed.</p>
             <ul className="text-muted">
-              <li><strong>24/7 lead qualification</strong> — AI handles intake so leads never wait.</li>
-              <li><strong>After-hours overflow</strong> — route to AI when your team is offline.</li>
-              <li><strong>FAQ deflection</strong> — AI answers common questions; transfers only on intent.</li>
+              <li><strong>Qualification around the clock</strong> — leads get a conversation the moment they call, at any hour.</li>
+              <li><strong>After-hours and overflow</strong> — route to the agent when your team is offline or every line is busy.</li>
+              <li><strong>Answers without a transfer</strong> — common questions are handled by the agent; only real intent goes to a buyer.</li>
               <li>
-                <strong>Full routing control</strong>
-                {" "}— priority routing, hours, caps, concurrency, recording, transcription, and analytics all apply.
+                <strong>The same rules as everyone else</strong>
+                {" "}— priority, hours, caps, concurrency, recording, transcription and analytics all apply to the agent.
               </li>
               <li>
-                <strong>Live data sync</strong>
-                {" "}— everything the agent gathers syncs to the call record in real time and powers your reporting.
+                <strong>Answers on the record</strong>
+                {" "}— whatever the agent learns is written to the call record in real time, ready for routing and reports.
               </li>
             </ul>
-            <h3>Supported Providers</h3>
-            <p>Avortyx currently integrates with the following AI voice providers.</p>
+            <h3>Supported providers</h3>
+            <p>These AI voice providers connect to Avortyx today.</p>
             <ul className="ul-reset provider-grid">
               <li className="provider-card">
                 <div className="provider-card__logo"><img alt="ElevenLabs integration" src="/assets/avx-site/img/elevenlabs.jpg" /></div>
-                <p className="provider-card__tagline">Studio-grade conversational voice agents</p>
+                <p className="provider-card__tagline">Natural, studio-quality conversational voice</p>
                 <a className="provider-card__cta" href="/features/voice_agents/elevenlabs"> View ElevenLabs → </a>
               </li>
             </ul>
@@ -87,10 +88,10 @@ export default function VoiceAgents() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

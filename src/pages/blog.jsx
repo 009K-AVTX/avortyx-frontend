@@ -1,10 +1,11 @@
 // /blog.html
 import BlogCard from '../components/BlogCard.jsx'
 import { CATEGORIES, LATEST } from '../blog/posts.js'
+import Bolt from '../components/Bolt.jsx'
 
 export const meta = {
-  title: "Blog: call tracking, routing and pay-per-call | Avortyx",
-  description: "Guides, explainers and worked examples on call tracking, attribution, ping/post, compliance and AI, from the team building Avortyx.",
+  title: "Avortyx Blog | Routing, attribution and pay-per-call guides",
+  description: "Practical guides on call routing, attribution, ping/post, compliance and AI from the team behind Avortyx.",
   bodyClass: "avortyx_marketing blog without-waves",
   layout: "site",
 }
@@ -17,9 +18,9 @@ export default function Blog() {
     <main>
       <section className="avx-blog-hero">
         <div className="container">
-          <p className="avx-eyebrow">The Avortyx Playbook</p>
+          <p className="avx-eyebrow">From the Avortyx team</p>
           <h1 className="fw-bold">Tactical playbooks for call tracking, real-time routing &amp; <em>pay-per-call</em></h1>
-          <p className="lead">Actionable benchmarks, compliance frameworks, and revenue strategies engineered for high-volume lead generators, agencies, and performance networks.</p>
+          <p className="lead">What we have learned routing calls for pay-per-call networks: margin, attribution, compliance and AI, written for the people running campaigns.</p>
         </div>
       </section>
       <section className="avx-blog-list">
@@ -43,7 +44,7 @@ export default function Blog() {
           <h2 className="marketing-cta-band__title">Put it into practice</h2>
           <p className="marketing-cta-band__subtitle">Track every call, route it to the right buyer and see the revenue behind it.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/request_demo" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

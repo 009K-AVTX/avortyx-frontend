@@ -1,4 +1,5 @@
 // /careers.html
+import Bolt from '../components/Bolt.jsx'
 export const meta = {
   title: "Careers | Avortyx",
   description: "Join the team building the future of call tracking and lead automation.",
@@ -97,10 +98,10 @@ export default function Careers() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

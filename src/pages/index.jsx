@@ -3,6 +3,7 @@ import BrandMark from '../components/BrandMark.jsx'
 import { postBySlug, LATEST } from '../blog/posts.js'
 // /
 // the intro's four outcomes, Salesloft-style
+import Bolt from '../components/Bolt.jsx'
 const HERO_POINTS = ['Score every call’s intent with AI', 'Route to the highest-value buyer', 'Block spam, DNC and duplicates', 'See the revenue behind every call']
 
 // "Power your entire call business" [3D object, title, text, page, link] (facts from the site's own pages)
@@ -824,7 +825,7 @@ export default function Home() {
               </ul>
               <p className="avx-hero-for">For marketers, advertisers, and brands.</p>
               <div className="d-flex flex-wrap gap-3 avx-hero-ctas">
-                <a href="https://avortyx.com/request-access" className="btn btn-td-green btn-lg fw-semibold">Request Access</a>
+                <a href="/request-access" className="btn btn-td-green btn-lg fw-semibold">Request Access</a>
                 {" "}
                 <a href="/p/request_demo" className="btn btn-outline-td-green btn-lg fw-semibold">Request Demo</a>
               </div>
@@ -2057,10 +2058,10 @@ export default function Home() {
           <img alt="" loading="lazy" src="/assets/avx-site/img/constellation-light.svg" />
         </div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/request_demo" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
@@ -2068,7 +2069,7 @@ export default function Home() {
       </section>
       {/* phones: sign-up stays one tap away once the hero has scrolled off (motion.js shows it) */}
       <div className="avx-mcta" data-avx-mcta="">
-        <a href="https://avortyx.com/request-access" className="btn btn-td-green fw-semibold">Request Access</a>
+        <a href="/request-access" className="btn btn-td-green fw-semibold">Request Access</a>
         <a href="/p/request_demo" className="btn btn-outline-td-green fw-semibold">Request Demo</a>
       </div>
     </main>

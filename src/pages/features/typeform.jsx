@@ -1,7 +1,8 @@
 // /features/typeform.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Typeform Integration | Avortyx",
-  description: "Connect Avortyx to Typeform with zero coding and turn form submissions into phone calls.",
+  title: "Typeform for Avortyx | Turn form answers into live calls",
+  description: "Every completed Typeform becomes an Avortyx lead, and lead-to-call automation can have the caller on the phone within minutes.",
   bodyClass: "avortyx_marketing integrations_typeform ",
   layout: "feature",
 }
@@ -19,8 +20,8 @@ export default function Typeform() {
             </a>
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
-          <h1 className="fw-bold mb-2">Avortyx + Typeform</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Connect Avortyx to Typeform with zero coding and turn form submissions into phone calls.</p>
+          <h1 className="fw-bold mb-2">Typeform + Avortyx</h1>
+          <p className="lead mktg-subpage-hero-subtitle">Every completed Typeform becomes an Avortyx lead, ready to be called, scored and routed while the prospect is still interested.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -29,12 +30,12 @@ export default function Typeform() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <h3>Automate Your Marketing</h3>
-            <p>It's easy to connect Avortyx to Typeform and requires absolutely zero coding experience — the only limit is your own imagination.</p>
+            <h3>From form answer to phone call</h3>
+            <p>A finished form is the warmest a lead will ever be. Avortyx picks it up the moment it is submitted, with the answers attached, and can start the conversation right away.</p>
             <ul>
-              <li>Submit lead data to Avortyx automatically when a form is completed</li>
-              <li>Turn your leads into phone calls with our <a href="/features/lead_automation">Lead To Call Automation</a></li>
-              <li>Convert leads into sales faster by contacting them within minutes of submission</li>
+              <li>Completed forms arrive in Avortyx as leads automatically, answers included</li>
+              <li>Place the first call with <a href="/features/lead_automation">lead-to-call automation</a></li>
+              <li>Reach people within minutes of submitting, while they still remember why</li>
             </ul>
           </div>
         </div>
@@ -42,10 +43,10 @@ export default function Typeform() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

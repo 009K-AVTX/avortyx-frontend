@@ -1,7 +1,7 @@
 // /sign_up.html
 export const meta = {
-  title: "Sign Up | Avortyx",
-  description: "Create your Avortyx account and start tracking, routing and selling calls.",
+  title: "Create your Avortyx workspace",
+  description: "Set up an Avortyx workspace and route your first call: numbers, routing rules and payouts in one place.",
   bodyClass: "avortyx_marketing users_sign_up without-waves",
   layout: "site",
 }
@@ -13,8 +13,8 @@ export default function SignUp() {
         <div className="container">
           <div className="mktg-auth-card mktg-auth-card--wide">
             <div className="text-center mb-4">
-              <h2 className="fw-bold mb-2">Create Your Account</h2>
-              <p className="text-muted mb-1">No credit card required, no onboarding fees — sign up in a couple of minutes.</p>
+              <h2 className="fw-bold mb-2">Set up your Avortyx workspace</h2>
+              <p className="text-muted mb-1">No card and no onboarding fee. Your first campaign can be live in minutes.</p>
               <p className="text-muted mb-0">
                 Already have an account?{" "}
                 <a href="/users/sign_in" className="text-decoration-none fw-semibold mktg-link-green">Sign in</a>
@@ -376,13 +376,13 @@ export default function SignUp() {
                 </div>
               </div>
               <div className="row mb-3 js-form-validation form-group string optional registration_where_did_you_hear">
-                <label className="col-sm-3 col-form-label text-start text-sm-end string optional" htmlFor="registration_where_did_you_hear">How did you hear about us?</label>
+                <label className="col-sm-3 col-form-label text-start text-sm-end string optional" htmlFor="registration_where_did_you_hear">Where did you hear about Avortyx?</label>
                 <div className="col-sm-9">
                   <input className="form-control string optional select2" include_blank="false" placeholder="Google, Facebook, Email?" type="text" name="registration[where_did_you_hear]" id="registration_where_did_you_hear" />
                 </div>
               </div>
               <div className="row mb-3 js-form-validation form-group check_boxes optional registration_feature_interests">
-                <label className="col-sm-3 col-form-label pt-0 check_boxes optional">Features of interest</label>
+                <label className="col-sm-3 col-form-label pt-0 check_boxes optional">What will you use Avortyx for?</label>
                 <div className="col-sm-9">
                   <div className="form-check">
                     <input className="form-check-input check_boxes optional" type="checkbox" value="Real Time Ping/Post" name="registration[feature_interests][]" id="registration_feature_interests_real_time_pingpost" />
@@ -422,7 +422,7 @@ export default function SignUp() {
                   <div className="d-flex align-items-start mb-3">
                     <input className="form-check-input flex-shrink-0 mt-1 me-2" type="checkbox" name="registration[sms_consent]" id="sms_consent" value="1" />
                     {" "}
-                    <label className="form-check-label small text-muted" htmlFor="sms_consent">By checking this box, I verify that this is my phone number and that I would like to sign up to receive text messages from Avortyx, including verification codes. Message frequency may vary. Message & data rates may apply. Reply HELP for help or STOP to opt out.</label>
+                    <label className="form-check-label small text-muted" htmlFor="sms_consent">By checking this box, I confirm this is my phone number and agree to receive text messages from Avortyx, including verification codes. Message frequency varies. Message and data rates may apply. Reply HELP for help or STOP to opt out.</label>
                   </div>
                   <fieldset className="mb-3 js-form-validation form-group boolean required registration_terms_of_service_accepted">
                     <div className="form-check">
@@ -437,7 +437,7 @@ export default function SignUp() {
                       </label>
                     </div>
                   </fieldset>
-                  <button className="btn btn-td-green px-4 py-2 fw-semibold" type="submit">Create Account</button>
+                  <button className="btn btn-td-green px-4 py-2 fw-semibold" type="submit">Create workspace</button>
                 </div>
               </div>
             </form>

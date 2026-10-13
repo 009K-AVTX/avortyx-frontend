@@ -1,7 +1,8 @@
 // /features/buyer_management.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Buyer Management | Advanced Routing Engine | Avortyx",
-  description: "Buyers are the destinations in your call flow — the call centers, agents, or SIP endpoints that receive live calls. Avortyx gives you full control over which…",
+  title: "Buyer Management | Who gets each call, and when | Avortyx",
+  description: "Avortyx filters every buyer by tokens, hours, caps and suppression on each call, then ranks them by tier, revenue or EPC to pick the winner on the first ring.",
   bodyClass: "avortyx_marketing features_buyer_management ",
   layout: "feature",
 }
@@ -20,7 +21,7 @@ export default function BuyerManagement() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Call Management</p>
           <h1 className="fw-bold mb-2">Buyer Management</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Buyers are the destinations in your call flow — the call centers, agents, or SIP endpoints that receive live calls. Avortyx gives you full control over which buyer gets each call, when they can receive calls, and how much volume they handle.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Buyers are where your calls go: call centers, agents and SIP endpoints. Avortyx decides which one gets each call, when they can take it and how much they handle.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -30,86 +31,86 @@ export default function BuyerManagement() {
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
             <div className="bg-light rounded-3 p-4 mb-4">
-              <h5 className="fw-bold text-center mb-3">Buyer Routing Pipeline</h5>
+              <h5 className="fw-bold text-center mb-3">How a Buyer Is Chosen</h5>
               <div className="flow-diagram">
                 <div className="flow-node">
                   <div className="flow-node-icon bg-primary text-white"><i className="fa-solid fa-phone-volume" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Incoming Call</div>
-                  <div className="flow-node-desc">All buyers on the call router</div>
+                  <div className="flow-node-label">Call Arrives</div>
+                  <div className="flow-node-desc">Every buyer on the router is considered</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
-                  <div className="flow-node-icon bg-warning text-white"><i className="fa-solid fa-filter" aria-hidden="true" /></div>
+                  <div className="flow-node-icon bg-info text-white"><i className="fa-solid fa-filter" aria-hidden="true" /></div>
                   <div className="flow-node-label">Filter</div>
                   <div className="flow-node-desc">Tokens, hours, caps, suppression</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
-                  <div className="flow-node-icon bg-info text-white"><i className="fa-solid fa-layer-group" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Prioritize</div>
-                  <div className="flow-node-desc">Tier, weight, revenue, or EPC</div>
+                  <div className="flow-node-icon bg-warning text-white"><i className="fa-solid fa-layer-group" aria-hidden="true" /></div>
+                  <div className="flow-node-label">Rank</div>
+                  <div className="flow-node-desc">Tier, weight, revenue or EPC</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-success text-white"><i className="fa-solid fa-phone-flip" aria-hidden="true" /></div>
                   <div className="flow-node-label">Connect</div>
-                  <div className="flow-node-desc">Best buyer receives the call</div>
+                  <div className="flow-node-desc">The top buyer takes the call</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-success text-white"><i className="fa-solid fa-dollar-sign" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Convert</div>
-                  <div className="flow-node-desc">Duration threshold triggers revenue</div>
+                  <div className="flow-node-label">Settle</div>
+                  <div className="flow-node-desc">A duration threshold books the revenue</div>
                 </div>
               </div>
             </div>
-            <p>Decide which buyer gets each call, when they can receive it, and how much volume they handle. When a call arrives, Avortyx evaluates every buyer on the call router, filters by token matching, business hours, capacity caps, and suppression lists — then sorts using one of three algorithms.</p>
+            <p>Each call starts with every buyer on its router. Avortyx removes the ones that cannot take it, by token match, business hours, caps and suppression lists, ranks the rest with the method you choose, and connects the winner while the phone is still ringing. Duration, conversion and payout are written to the call automatically.</p>
             <div className="row g-4 mb-4">
               <div className="col-md-4">
                 <div className="card p-4 h-100 border-success border-opacity-50">
                   <h5 className="fw-bold text-success"><i className="fa-solid fa-layer-group me-2" aria-hidden="true" />Tier Routing</h5>
-                  <p className="text-muted small mb-0">Manual priority ordering. Lower tier values receive calls first. Buyers within the same tier are distributed by weight.</p>
+                  <p className="text-muted small mb-0">You set the order. Lower tiers get calls first, and weights share calls between buyers in the same tier.</p>
                 </div>
               </div>
               <div className="col-md-4">
                 <div className="card p-4 h-100 border-primary border-opacity-50">
                   <h5 className="fw-bold text-primary"><i className="fa-solid fa-dollar-sign me-2" aria-hidden="true" />Revenue Routing</h5>
-                  <p className="text-muted small mb-0">Highest-bid-wins. Buyers offering the most per-call revenue are prioritized automatically.</p>
+                  <p className="text-muted small mb-0">The highest bid wins. Buyers paying the most per call move to the front automatically.</p>
                 </div>
               </div>
               <div className="col-md-4">
                 <div className="card p-4 h-100 border-warning border-opacity-50">
                   <h5 className="fw-bold text-warning"><i className="fa-solid fa-chart-line me-2" aria-hidden="true" />EPC Routing</h5>
-                  <p className="text-muted small mb-0">Earnings-per-call routing. Buyers with the highest historical EPC are prioritized for maximum return.</p>
+                  <p className="text-muted small mb-0">Earnings per call decide. Buyers who have historically earned the most per call are tried first.</p>
                 </div>
               </div>
             </div>
-            <h3>Control Every Buyer</h3>
+            <h3>Everything you can set per buyer</h3>
             <ul className="text-muted">
               <li>
-                <strong>Caller filtering</strong>
-                {" "}— token-based filters route only the calls whose attributes match, targeting by geography, vertical, lead quality, or any custom token.
+                <strong>Who they hear from</strong>
+                {" "}— token filters send a buyer only the calls that match: geography, vertical, lead quality or any custom token.
               </li>
               <li>
-                <strong>Capacity caps</strong>
-                {" "}— cap attempts, connections, conversions, and revenue across daily, monthly, and total intervals, plus hourly and concurrency limits.
+                <strong>How much they take</strong>
+                {" "}— caps on attempts, connections, conversions and revenue, daily, monthly and in total, plus hourly and concurrency limits.
               </li>
               <li>
-                <strong>Business hours & day-parting</strong>
-                {" "}— set when each buyer accepts calls on a 7-day by 24-hour grid, with pacing options per time slot.
+                <strong>When they take it</strong>
+                {" "}— a 7-day by 24-hour schedule for each buyer, with pacing per time slot.
               </li>
               <li>
-                <strong>Conversion tracking</strong>
-                {" "}— mark calls converted by duration, Ping/Post, or API Postback, with per-conversion CPL or CPA payouts. If a Press-1-to-accept is configured, the buyer pressing 1 starts the duration timer.
+                <strong>What counts as converted</strong>
+                {" "}— by duration, Ping/Post or API postback, with CPL or CPA payouts per conversion. With Press-1-to-accept, the timer starts when the buyer presses 1.
               </li>
               <li>
-                <strong>Whisper messages</strong>
-                {" "}— play a brief message to the buyer before connecting, announcing campaign or caller details.
+                <strong>What they hear first</strong>
+                {" "}— a short whisper message before connecting, with campaign or caller details.
               </li>
               <li>
-                <strong>Buyer groups</strong>
-                {" "}— dial buyers simultaneously or sequentially under shared caps;{" "}
-                <a href="/features/simul_dial">learn more</a>
+                <strong>Teams of buyers</strong>
+                {" "}— ring a group all at once or in order, under shared caps;{" "}
+                <a href="/features/simul_dial">see buyer groups</a>
                 .
               </li>
             </ul>
@@ -124,10 +125,10 @@ export default function BuyerManagement() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

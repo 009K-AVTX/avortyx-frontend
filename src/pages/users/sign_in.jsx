@@ -1,7 +1,7 @@
 // /users/sign_in.html
 export const meta = {
   title: "Sign in | Avortyx",
-  description: "Sign in to your Avortyx account.",
+  description: "Sign in to your Avortyx workspace.",
   bodyClass: "sessions new without-waves",
   layout: "site",
 }
@@ -13,10 +13,10 @@ export default function SignIn() {
         <div className="container">
           <div className="mktg-auth-card">
             <div className="text-center mb-4">
-              <h2 className="fw-bold mb-2">Welcome Back</h2>
+              <h2 className="fw-bold mb-2">Sign in to Avortyx</h2>
               <p className="text-muted mb-0">
                 Sign in to your Avortyx account. Don't have an account?{" "}
-                <a href="https://avortyx.com/request-access" className="text-decoration-none fw-semibold mktg-link-green">Request Access</a>
+                <a href="/request-access" className="text-decoration-none fw-semibold mktg-link-green">Request Access</a>
               </p>
             </div>
             <form className="simple_form mktg-auth-form" id="new_user" data-become="Avortyx.Base.SimpleForm" noValidate action="sign_in.html" acceptCharset="UTF-8" method="post">

@@ -14073,7 +14073,7 @@ body.home main section .mktg-section-header { margin-bottom: 36px; }
 .marketing-navbar .avx-request-access:focus-visible {
   box-shadow: 0 0 0 .25rem var(--avx-primary-soft);
 }
-.marketing-navbar .avx-request-access svg {
+.marketing-navbar .avx-request-access .avx-bolt {
   flex: none;
   box-sizing: content-box;
   width: 14px;
@@ -14147,3 +14147,179 @@ pre, code, kbd, samp,
     max-width: min(1760px, calc(100vw - 120px));
   }
 }
+
+/* ---------- Brand kit swatches: the avortyx.com blue scale, as labeled on /brand_assets ---------- */
+.color-palette.primary-gradient { background: linear-gradient(134deg, #1e3a8a 0%, #1d4ed8 100%) !important; }
+.color-palette.primary-color { background: #1d4ed8 !important; }
+.color-palette.accent-color { background: #3b82f6 !important; }
+.color-palette.secondary-color { background: #93c5fd !important; }
+.color-palette.ternory-gradient { background: linear-gradient(128deg, #0e1016 0%, #172554 100%) !important; }
+.color-palette.dark-color { background: #0e1016 !important; border: 1px solid rgba(255, 255, 255, .12); }
+
+/* ---------- Integrations: the intro text never runs under the orbiting hub ----------
+   Desktop: the heading block stops short of the hub's column. Narrower: the hub sits below. */
+@media (min-width: 992px) {
+  .avx-ihub-host .mktg-section-header {
+    max-width: calc(100% - 520px);
+  }
+}
+@media (max-width: 991.98px) {
+  .avx-ihub-host { display: block; min-height: 0; }
+  .avx-ihub {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 8px auto -40px;
+    transform: scale(.72);
+    transform-origin: 50% 0;
+  }
+}
+
+/* ---------- Bottom-of-page Request Access: the same deep-blue pill and bolt as the navbar ---------- */
+.marketing-cta-band .btn-cta-primary.avx-ra-cta,
+.marketing-cta-band .btn-cta-primary.avx-ra-cta:focus {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 22px 7px 7px;
+  border: 1px solid var(--avx-primary) !important;
+  border-radius: 999px;
+  background: var(--avx-primary) !important;
+  color: #fff !important;
+  box-shadow: 0 12px 28px -12px rgba(29, 78, 216, .8);
+}
+.marketing-cta-band .btn-cta-primary.avx-ra-cta:hover {
+  border-color: var(--avx-primary-hover) !important;
+  background: var(--avx-primary-hover) !important;
+  color: #fff !important;
+}
+.marketing-cta-band .avx-ra-cta .avx-bolt {
+  box-sizing: content-box;
+  width: 15px;
+  height: 15px;
+  padding: 7px;
+  border-radius: 50%;
+  background: #fff;
+  color: #172554;
+}
+/* its partner button keeps the same pill shape */
+.marketing-cta-band .btn-cta-outline {
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---------- Request access page (as on avortyx.com/request-access) ---------- */
+.avx-ra { padding: 96px 0 120px; }
+.avx-ra-eyebrow {
+  margin: 0 0 14px;
+  color: #60a5fa;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.avx-ra-title {
+  margin: 0 0 22px;
+  color: #f8fafc;
+  font-size: clamp(2.4rem, 1.6rem + 2.6vw, 3.6rem);
+  line-height: 1.08;
+}
+.avx-ra-lead { max-width: 520px; margin: 0 0 32px; color: #94a3b8; font-size: 1.1rem; line-height: 1.65; }
+.avx-ra-steps { counter-reset: ra; display: grid; gap: 22px; margin: 0 0 36px; padding: 0; list-style: none; }
+.avx-ra-steps li { counter-increment: ra; position: relative; padding-left: 46px; }
+.avx-ra-steps li::before {
+  content: counter(ra);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(96, 165, 250, .45);
+  border-radius: 50%;
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 600;
+}
+.avx-ra-steps b { display: block; margin-bottom: 3px; color: #f1f5f9; font-weight: 600; }
+.avx-ra-steps span { color: #8b95a6; font-size: 14px; }
+.avx-ra-mail { margin: 0; color: #8b95a6; font-size: 14px; }
+.avx-ra-mail a { color: #60a5fa; }
+
+.avx-ra-card {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 36px 32px 28px;
+  border: 1px solid rgba(96, 165, 250, .28);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(23, 37, 84, .55), rgba(14, 16, 22, .92) 46%);
+  box-shadow: 0 0 0 1px rgba(29, 78, 216, .08), 0 30px 90px -30px rgba(29, 78, 216, .6);
+  text-align: center;
+}
+.avx-ra-mark { display: inline-block; width: 30px; height: 30px; margin-bottom: 12px; color: #60a5fa; }
+.avx-ra-mark svg { width: 100%; height: 100%; }
+.avx-ra-card-title { margin: 0 0 6px; color: #f8fafc; font-size: 1.5rem !important; }
+.avx-ra-card-sub { margin: 0 0 24px; color: #8b95a6; font-size: 14px; }
+.avx-ra-form { display: grid; gap: 16px; text-align: left; }
+.avx-ra-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.avx-ra-form label { display: grid; gap: 7px; color: #e2e8f0; font-size: 14px; font-weight: 500; }
+.avx-ra-form input,
+.avx-ra-form textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid rgba(148, 163, 184, .22);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, .55);
+  color: #f1f5f9;
+  font: inherit;
+  font-weight: 400;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.avx-ra-form textarea { resize: vertical; min-height: 76px; }
+.avx-ra-form input::placeholder, .avx-ra-form textarea::placeholder { color: #64748b; }
+.avx-ra-form input:focus, .avx-ra-form textarea:focus { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, .25); }
+.avx-ra-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--avx-primary);
+  color: #fff;
+  font-weight: 600;
+  transition: background-color .2s ease;
+}
+.avx-ra-submit:hover { background: var(--avx-primary-hover); }
+.avx-ra-submit svg { width: 16px; height: 16px; }
+.avx-ra-err { margin: 0; color: #fca5a5; font-size: 13px; }
+.avx-ra-done { margin: 0; color: #93c5fd; font-size: 13px; }
+.avx-ra-note { margin: 2px 0 0; color: #64748b; font-size: 11.5px; text-align: center; }
+@media (max-width: 575.98px) {
+  .avx-ra { padding: 56px 0 80px; }
+  .avx-ra-row { grid-template-columns: 1fr; }
+  .avx-ra-card { padding: 28px 18px 22px; }
+}
+
+/* ---------- Integrations cards: readable names and descriptions on the dark canvas ---------- */
+.avx-integrations .integration-card {
+  border: 1px solid rgba(148, 163, 184, .16);
+  background: rgba(15, 23, 42, .6);
+}
+.avx-integrations .integration-card img {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 150px;
+  height: 64px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #fff;
+  object-fit: contain;
+}
+.avx-integrations .integration-card .text-dark { color: #f1f5f9 !important; font-weight: 600; }
+.avx-integrations .integration-card .text-muted { color: #94a3b8 !important; }

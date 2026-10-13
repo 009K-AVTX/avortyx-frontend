@@ -1,7 +1,8 @@
 // /features/slack.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Slack Integration | Avortyx",
-  description: "Receive real-time call, SMS, and form submission notifications directly in your Slack channels.",
+  title: "Slack for Avortyx | Live call and lead alerts in your channels",
+  description: "Post Avortyx calls, texts and form submissions to Slack in real time, filtered by call type, tag and tracking number.",
   bodyClass: "avortyx_marketing integrations_slack ",
   layout: "feature",
 }
@@ -19,8 +20,8 @@ export default function Slack() {
             </a>
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
-          <h1 className="fw-bold mb-2">Avortyx + Slack</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Receive real-time call, SMS, and form submission notifications directly in your Slack channels.</p>
+          <h1 className="fw-bold mb-2">Slack + Avortyx</h1>
+          <p className="lead mktg-subpage-hero-subtitle">Post calls, texts and new form submissions to the Slack channels where your team already talks.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -29,16 +30,16 @@ export default function Slack() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <h3>Receive Real-Time Notifications to your Slack Application</h3>
-            <p><b>What is Slack?</b></p>
-            <p>Slack is a collaboration hub that connects your organization -- all the pieces and the people -- so you can get things done. Slack allows you to collaborate online just like you would in person and communicate effectively all in one place.</p>
-            <p>Our Slack integration pulls call, SMS, and form submission data from Avortyx into Slack, giving your organization the ability to receive real-time notifications.</p>
+            <h3>Know about the call while it still matters</h3>
+            <p><b>Why Slack?</b></p>
+            <p>Your team already lives in Slack. Rather than asking them to watch another dashboard, Avortyx brings the moments that need a person straight into the channels they read.</p>
+            <p>The integration sends call, SMS and form submission events from Avortyx to Slack as they happen.</p>
             <img alt="Slack Integration" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-site/img/integration-slack.webp" />
-            <h3>The Benefits:</h3>
+            <h3>What your team gets</h3>
             <ul>
-              <li>Never miss a phone call or text message with real-time notifications</li>
-              <li>Follow up with leads faster by sending form submissions to the appropriate parties</li>
-              <li>Select call types, tags, and which tracking numbers to send to Slack using filters</li>
+              <li>A live alert for every call and text, so nothing is missed</li>
+              <li>New form submissions routed to the people who follow them up</li>
+              <li>Filters by call type, tag and tracking number, so each channel only sees what it needs</li>
             </ul>
           </div>
         </div>
@@ -46,10 +47,10 @@ export default function Slack() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

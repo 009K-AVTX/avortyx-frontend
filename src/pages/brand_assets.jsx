@@ -1,7 +1,8 @@
 // /brand_assets.html
+import Bolt from '../components/Bolt.jsx'
 export const meta = {
-  title: "Brand Assets | Avortyx",
-  description: "Official logos, color palette, and typography guidelines for Avortyx.",
+  title: "Brand Assets | Avortyx logo, colors and type",
+  description: "The Avortyx logo files, blue color scale and Poppins type system, for partners and press.",
   bodyClass: "avortyx_marketing brand_assets without-waves",
   layout: "site",
 }
@@ -25,7 +26,7 @@ export default function BrandAssets() {
             <a href="/features" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Features </a>
           </div>
           <h1 className="fw-bold mb-2">Brand Assets</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Official logos, color palette, and typography guidelines for Avortyx.</p>
+          <p className="lead mktg-subpage-hero-subtitle">The Avortyx logo, color scale and type system, for partners, press and integrations.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -35,7 +36,7 @@ export default function BrandAssets() {
         <div className="container">
           <div className="mb-5">
             <h2 className="fw-bold mb-2">Logo Guidelines</h2>
-            <p className="text-muted">The logo should never be placed vertically, outlined or modified in shape or form.</p>
+            <p className="text-muted">Use the logo as supplied: do not rotate it, outline it, recolor it or change its shape.</p>
           </div>
           <div className="row g-4 mb-5">
             {LOGOS.map(([file, title, use]) => {
@@ -65,26 +66,38 @@ export default function BrandAssets() {
         <div className="container">
           <div className="text-center mb-4">
             <h2 className="fw-bold mb-2">Color Palette</h2>
-            <p className="text-muted">Start with a white canvas, accompanied by a dominance of Avortyx blue. Filled with cool grey copy and splashed accents of CTA orange.</p>
+            <p className="text-muted">Avortyx is built on a near-black canvas with one color doing the talking: deep blue, with lighter blues for highlights and data.</p>
           </div>
           <div className="row g-3 justify-content-center">
             <div className="col-6 col-md-4 col-lg-2">
               <div className="mktg-color-swatch color-palette primary-gradient" />
+              <p className="small fw-semibold mt-2 mb-0">Deep blue gradient</p>
+              <p className="small text-muted mb-0"><code>#1e3a8a → #1d4ed8</code></p>
             </div>
             <div className="col-6 col-md-4 col-lg-2">
               <div className="mktg-color-swatch color-palette primary-color" />
+              <p className="small fw-semibold mt-2 mb-0">Avortyx deep blue</p>
+              <p className="small text-muted mb-0"><code>#1d4ed8</code></p>
             </div>
             <div className="col-6 col-md-4 col-lg-2">
               <div className="mktg-color-swatch color-palette accent-color" />
+              <p className="small fw-semibold mt-2 mb-0">Signal blue</p>
+              <p className="small text-muted mb-0"><code>#3b82f6</code></p>
             </div>
             <div className="col-6 col-md-4 col-lg-2">
               <div className="mktg-color-swatch color-palette secondary-color" />
+              <p className="small fw-semibold mt-2 mb-0">Highlight blue</p>
+              <p className="small text-muted mb-0"><code>#93c5fd</code></p>
             </div>
             <div className="col-6 col-md-4 col-lg-2">
               <div className="mktg-color-swatch color-palette ternory-gradient" />
+              <p className="small fw-semibold mt-2 mb-0">Night gradient</p>
+              <p className="small text-muted mb-0"><code>#0e1016 → #172554</code></p>
             </div>
             <div className="col-6 col-md-4 col-lg-2">
               <div className="mktg-color-swatch color-palette dark-color" />
+              <p className="small fw-semibold mt-2 mb-0">Canvas</p>
+              <p className="small text-muted mb-0"><code>#0e1016</code></p>
             </div>
           </div>
         </div>
@@ -93,34 +106,34 @@ export default function BrandAssets() {
         <div className="container">
           <div className="text-center mb-4">
             <h2 className="fw-bold mb-2">Typography</h2>
-            <p className="text-muted">Our primary typeface is used for headlines. The supporting typeface handles paragraphs, annotations, navigation elements and buttons.</p>
+            <p className="text-muted">One typeface, Poppins, carries everything from headlines to buttons, with semibold headlines set slightly tight.</p>
           </div>
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <ul className="list-unstyled mktg-typography-list">
                 <li>
-                  <h1>Headline 1 is Rubik Medium at 64px.</h1>
+                  <h1>Headline 1 is Poppins SemiBold at 64px.</h1>
                 </li>
                 <li>
-                  <h2>Headline 2 is Rubik Medium at 48px.</h2>
+                  <h2>Headline 2 is Poppins SemiBold at 48px.</h2>
                 </li>
                 <li>
-                  <h3>Headline 3 is Rubik Medium at 36px.</h3>
+                  <h3>Headline 3 is Poppins SemiBold at 36px.</h3>
                 </li>
                 <li>
-                  <h4>Headline 4 is Rubik Regular at 24px.</h4>
+                  <h4>Headline 4 is Poppins SemiBold at 24px.</h4>
                 </li>
                 <li>
-                  <h5>Headline 5 is Rubik Regular at 20px.</h5>
+                  <h5>Headline 5 is Poppins SemiBold at 20px.</h5>
                 </li>
                 <li>
-                  <h6>Headline 6 is Rubik Regular at 14px.</h6>
+                  <h6>Headline 6 is Poppins SemiBold at 14px.</h6>
                 </li>
                 <li>
-                  <p>Paragraphs are in Work Sans Regular at 18px.</p>
+                  <p>Paragraphs are Poppins Regular at 18px.</p>
                 </li>
                 <li>
-                  <p className="text-uppercase fw-semibold">Buttons & navigation elements use all caps in Work Sans Regular.</p>
+                  <p className="text-uppercase fw-semibold">Navigation uses Poppins in small caps; buttons use Poppins Medium.</p>
                 </li>
               </ul>
             </div>
@@ -130,10 +143,10 @@ export default function BrandAssets() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

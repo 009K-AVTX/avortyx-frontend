@@ -1,7 +1,8 @@
 // /features/aws_s3.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "AWS S3 | Call Tracking and Analytics | Avortyx",
-  description: "Upload call data and recordings to your own Amazon S3 bucket.",
+  title: "Amazon S3 for Avortyx | Keep call data and recordings in your own bucket",
+  description: "Avortyx uploads call data and recordings to your Amazon S3 bucket on a schedule, so you control retention and access.",
   bodyClass: "avortyx_marketing features_aws_s3 ",
   layout: "feature",
 }
@@ -23,7 +24,7 @@ export default function AwsS3() {
             Avortyx +{" "}
             <img alt="AWS S3" className="integration-title-logo" src="/assets/avx-site/img/aws_s3.webp" />
           </h1>
-          <p className="lead mktg-subpage-hero-subtitle">Upload call data and recordings to your own Amazon S3 bucket.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Send call data and recordings to an Amazon S3 bucket you own, on the schedule you choose.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -32,23 +33,23 @@ export default function AwsS3() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <p>The AWS S3 integration with Avortyx provides a way to upload data and recordings directly from Avortyx into AWS S3.</p>
-            <h3>How It Works</h3>
+            <p>For teams that need their own copy of every call, Avortyx can upload call data and recordings straight to Amazon S3.</p>
+            <h3>How it works</h3>
             <p>
-              Connect your own S3 bucket by providing your AWS credentials and bucket name, then add an{" "}
+              Give Avortyx your bucket name and AWS credentials, then add an{" "}
               <strong>AWS S3 action</strong>
-              {" "}to a schedule or automation. When the action runs, Avortyx uploads data — including recording URLs and files — to your bucket.
+              {" "}to a schedule or automation. Each time it runs, Avortyx uploads the data you chose, including recording files and URLs, into your bucket.
             </p>
             <ul>
-              <li><strong>Secure credential storage</strong> — AWS access keys are encrypted at rest</li>
+              <li><strong>Encrypted credentials</strong> — your AWS access keys are encrypted at rest</li>
               <li>
-                <strong>Schedule-driven upload</strong>
-                {" "}— add an S3 action to a schedule or automation to push data or a remote file (such as a recording URL) to your bucket
+                <strong>Scheduled uploads</strong>
+                {" "}— an S3 action in any schedule or automation pushes data, or a remote file such as a recording, to the bucket
               </li>
-              <li><strong>Custom path prefixes</strong> — organize uploads within your bucket using configurable folder structures</li>
+              <li><strong>Your folder structure</strong> — set path prefixes so uploads land where your team expects them</li>
               <li>
-                <strong>Full ownership</strong>
-                {" "}— uploaded files live in your AWS account, giving you complete control over retention and access policies
+                <strong>Your data, your rules</strong>
+                {" "}— files live in your AWS account, under your own retention and access policies
               </li>
             </ul>
           </div>
@@ -57,10 +58,10 @@ export default function AwsS3() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

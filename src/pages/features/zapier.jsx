@@ -1,7 +1,8 @@
 // /features/zapier.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Zapier Integration | Avortyx",
-  description: "Zapier is the glue that connects Avortyx to more than 1,000 web applications.",
+  title: "Zapier for Avortyx | Connect calls to thousands of apps",
+  description: "Start Zapier workflows from Avortyx call and lead events, and send call data to the apps your team already uses, without code.",
   bodyClass: "avortyx_marketing integrations_zapier ",
   layout: "feature",
 }
@@ -19,8 +20,8 @@ export default function Zapier() {
             </a>
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
-          <h1 className="fw-bold mb-2">Zapier + Avortyx Automation</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Zapier is the glue that connects Avortyx to more than 1,000 web applications.</p>
+          <h1 className="fw-bold mb-2">Zapier + Avortyx</h1>
+          <p className="lead mktg-subpage-hero-subtitle">Start Zapier workflows from Avortyx call and lead events, and connect your call data to the apps your team already uses.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -29,35 +30,35 @@ export default function Zapier() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <h3>Zap Avortyx with Applications You Already Use</h3>
-            <p>Connect Avortyx to over 1,000 web applications through Zapier's automation platform. Use Avortyx triggers to send call and lead data to the tools your team already relies on, without writing any code.</p>
+            <h3>Every call event, available to every app</h3>
+            <p>Zapier connects Avortyx to thousands of web apps. Use an Avortyx event as the trigger and send call and lead data wherever it is useful, without writing code.</p>
             <img alt="Zapier Integration" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-site/img/integration-zapier.webp" />
-            <h4>Available Triggers</h4>
-            <p>Zapier can listen for events in Avortyx and automatically start a workflow when they occur:</p>
+            <h4>Triggers</h4>
+            <p>Zapier listens for these Avortyx events and starts your workflow when they happen:</p>
             <ul>
-              <li><strong>New Call</strong> — fires when a new inbound or outbound call is recorded.</li>
-              <li><strong>Call Completed</strong> — fires when a call ends, including its duration, recording URL, and disposition.</li>
-              <li><strong>New Lead</strong> — fires when a new lead is created via form, API, or file upload.</li>
+              <li><strong>New Call</strong> — an inbound or outbound call is recorded.</li>
+              <li><strong>Call Completed</strong> — a call ends, with its duration, recording URL and disposition.</li>
+              <li><strong>New Lead</strong> — a lead arrives from a form, the API or a file upload.</li>
             </ul>
-            <h4>Popular Use Cases</h4>
+            <h4>Ideas to start with</h4>
             <ul>
-              <li>Send new call data to a Google Sheet or CRM for reporting.</li>
-              <li>Post a Slack notification whenever a high-value call is completed.</li>
-              <li>Create Avortyx leads automatically from Typeform, Gravity Forms, or landing page submissions.</li>
-              <li>Sync call outcomes to your email marketing platform for follow-up sequences.</li>
+              <li>Add each new call to a Google Sheet or CRM for reporting.</li>
+              <li>Post to Slack when a high-value call finishes.</li>
+              <li>Create Avortyx leads from Typeform, Gravity Forms or landing page submissions.</li>
+              <li>Pass call outcomes to your email platform to drive follow-up sequences.</li>
             </ul>
-            <h4>Getting Started</h4>
-            <p>Setting up a Zap takes just a few minutes. Connect Avortyx to Zapier, authenticate your account, and choose a Avortyx trigger to start your workflow.</p>
+            <h4>Setting it up</h4>
+            <p>Connect your Avortyx account in Zapier, pick an Avortyx trigger, and choose what should happen next. Most Zaps are running in a few minutes.</p>
           </div>
         </div>
       </section>
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

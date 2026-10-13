@@ -1,7 +1,8 @@
 // /pricing.html
+import Bolt from '../components/Bolt.jsx'
 export const meta = {
-  title: "Pricing | Avortyx",
-  description: "Usage-based rates with volume discounts. No onboarding fees.",
+  title: "Pricing | Usage-based, itemized per call | Avortyx",
+  description: "Avortyx pricing: usage-based rates with monthly commit discounts, no onboarding fees, and a leg-by-leg cost breakdown on every call.",
   bodyClass: "avortyx_marketing pricing ",
   layout: "site",
 }
@@ -12,16 +13,16 @@ export default function Pricing() {
       <section className="pricing-hero">
         <div className="container text-center">
           <div className="mktg-section-header text-center">
-            <h1 className="fw-bold">Simple, transparent pricing</h1>
-            <p className="text-muted lead">Usage-based rates with volume discounts. No onboarding fees.</p>
+            <h1 className="fw-bold">Pay for calls that reach a buyer</h1>
+            <p className="text-muted lead">Usage-based rates that drop as your volume grows. No onboarding fees, and every charge itemized on the call.</p>
           </div>
         </div>
       </section>
       <section className="pricing-body">
         <div className="container">
           <div className="text-center mb-4">
-            <h2 className="fw-bold">Monthly Committed Use Discounts</h2>
-            <p className="text-muted">Commit to a greater amount to receive a larger discount.</p>
+            <h2 className="fw-bold">Lower rates with a monthly commit</h2>
+            <p className="text-muted">The more you commit to each month, the lower every rate below.</p>
           </div>
           <div className="pricing-table-wrap">
             <table className="pricing-table">
@@ -181,14 +182,14 @@ export default function Pricing() {
           <div className="pricing-enterprise-cta">
             <div className="pricing-highlight-card">
               <h2 className="fw-bold mb-2">Enterprise</h2>
-              <p className="text-muted mx-auto pricing-enterprise-desc">Need a strategic partner, not a transactional vendor? We apply decades of market experience to help you meet your goals.</p>
+              <p className="text-muted mx-auto pricing-enterprise-desc">Running serious volume? Talk to us about custom rates, dedicated number pools and a routing setup designed around your network.</p>
               <a className="btn btn-td-green btn-lg" href="/p/contact"> <i className="fa-solid fa-envelope me-2" aria-hidden="true" />Contact Sales </a>
             </div>
           </div>
           <div className="pricing-breakdown-showcase">
             <h3 className="fw-bold mt-5">Call Cost Calculator</h3>
             <p className="text-muted pricing-calculator-intro">
-              The inbound tracking rates include forwarding the call to your buyer.
+              Inbound tracking rates already include forwarding the call to your buyer.
               <br />
               {" "}Pick a commit level and call path to see the per-minute cost of each leg.
             </p>
@@ -248,7 +249,7 @@ export default function Pricing() {
                   <div className="js-calc-total pricing-calculator-row-rate">$0.0550 /min</div>
                 </div>
               </div>
-              <p className="text-muted pricing-calculator-note">Per-minute rates for a buyer-connected inbound call. Every call in Avortyx shows this same leg-by-leg cost breakdown.</p>
+              <p className="text-muted pricing-calculator-note">Per-minute cost of an inbound call connected to a buyer. Every call record in Avortyx shows the same leg-by-leg breakdown.</p>
             </div>
           </div>
           <div className="pricing-breakdown-showcase">
@@ -257,23 +258,23 @@ export default function Pricing() {
               <li className="d-flex mb-2">
                 <i className="fa-solid fa-check text-success me-2 mt-1" aria-hidden="true" />
                 {" "}
-                <span><strong>Duplicate pings are free.</strong> The same ping repeated within 15 seconds counts once.</span>
+                <span><strong>Repeat pings cost nothing.</strong> A ping repeated within 15 seconds is billed once.</span>
               </li>
               <li className="d-flex mb-2">
                 <i className="fa-solid fa-check text-success me-2 mt-1" aria-hidden="true" />
                 {" "}
-                <span><strong>You pay per 1,000 unique pings.</strong> Posts are billed at the same rate.</span>
+                <span><strong>You pay per 1,000 unique pings.</strong> Posts are priced the same way.</span>
               </li>
               <li className="d-flex mb-2">
                 <i className="fa-solid fa-check text-success me-2 mt-1" aria-hidden="true" />
                 {" "}
                 <span>
-                  <strong>Rate limits protect your bill.</strong>
+                  <strong>Rate limits keep spend in check.</strong>
                   {" "}Cap each endpoint and each traffic source, so a source that floods you with pings cannot run up your costs.
                 </span>
               </li>
             </ul>
-            <p className="text-muted pricing-calculator-intro">Enter your unique pings per day to estimate your monthly cost.</p>
+            <p className="text-muted pricing-calculator-intro">Enter your daily unique pings to see what a month would cost.</p>
             <div className="pricing-calculator js-ping-calculator" data-days-per-month="30">
               <div className="pricing-calculator-controls">
                 <label>
@@ -329,22 +330,22 @@ export default function Pricing() {
         </div>
         <section className="pricing-faq-section">
           <div className="container pricing-faq-container">
-            <h2 className="fw-bold text-center mb-4">Frequently Asked Questions</h2>
+            <h2 className="fw-bold text-center mb-4">Pricing questions</h2>
             <div className="accordion pricing-accordion" id="pricingFaq">
               <div className="accordion-item">
                 <h2 className="accordion-header">
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"> Are there any onboarding fees? </button>
                 </h2>
                 <div id="faq1" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
-                  <div className="accordion-body text-muted">No. Avortyx does not charge onboarding fees.</div>
+                  <div className="accordion-body text-muted">No. Getting started on Avortyx costs nothing beyond your usage.</div>
                 </div>
               </div>
               <div className="accordion-item">
                 <h2 className="accordion-header">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqInbound"> Are the inbound rates all-inclusive? </button>
+                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqInbound"> Do inbound rates cover both legs of the call? </button>
                 </h2>
                 <div id="faqInbound" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
-                  <div className="accordion-body text-muted">Yes. An inbound call connected to a buyer has two legs (the caller and your buyer). The tracking rates - local and toll free - cover both legs, and your statements itemize each leg so you can see exactly what every call cost. The Outbound To Consumer rate applies only to outbound dialing.</div>
+                  <div className="accordion-body text-muted">Yes. A call connected to a buyer has two legs: the caller and your buyer. The local and toll-free tracking rates cover both, and statements list each leg separately so you can see what every call cost. The Outbound To Consumer rate is only for outbound dialing.</div>
                 </div>
               </div>
               <div className="accordion-item">
@@ -361,18 +362,18 @@ export default function Pricing() {
               </div>
               <div className="accordion-item">
                 <h2 className="accordion-header">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"> Do you offer customer support? </button>
+                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"> What support is included? </button>
                 </h2>
                 <div id="faq3" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
-                  <div className="accordion-body text-muted">We offer phone, live chat, and email support.</div>
+                  <div className="accordion-body text-muted">Phone, live chat and email, from people who know call routing.</div>
                 </div>
               </div>
               <div className="accordion-item">
                 <h2 className="accordion-header">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4"> Can you help me with my account? </button>
+                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4"> Can someone walk me through my setup? </button>
                 </h2>
                 <div id="faq4" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
-                  <div className="accordion-body text-muted">We offer live video support sessions with our specialists. Chat with us or email to schedule.</div>
+                  <div className="accordion-body text-muted">Yes. Book a live video session with one of our specialists by chat or email, and we will work through your campaigns with you.</div>
                 </div>
               </div>
             </div>
@@ -381,8 +382,8 @@ export default function Pricing() {
         <section className="pricing-footnotes-section">
           <div className="container">
             <div className="pricing-footnotes mb-0">
-              <p><sup>1</sup> Monthly rate per number.</p>
-              <p><sup>2</sup> Monthly rate to enable spam tag mitigation. Covers carrier registration and spam label removal.</p>
+              <p><sup>1</sup> Monthly price for each phone number.</p>
+              <p><sup>2</sup> Monthly price to protect a number, covering carrier registration and spam-label removal.</p>
               <p>
                 <sup>3</sup>
                 {" "}Inbound calls to your local tracking numbers, billed per minute and rounded up to the nearest full minute. Forwarding the call to a buyer over toll-free or SIP is included in that rate; international and premium rate centers can add cost.
@@ -438,14 +439,14 @@ export default function Pricing() {
                 {" "}
                 <span className="pricing-footnote-badge">Webhook POST</span>
               </p>
-              <p><sup>8</sup> Fee per inbound call that cannot be routed and is rejected.</p>
+              <p><sup>8</sup> Charged when an inbound call has nowhere eligible to go and is rejected.</p>
               <p>
                 <sup>9</sup>
                 {" "}Rate per 1,000 unique Ping API requests, counting requests that are identical to one already received on the same endpoint once per 15 second window.
               </p>
-              <p><sup>10</sup> Post-call transcription rate per minute.</p>
-              <p><sup>11</sup> Monthly rate per minute of call recordings retained beyond the free 90-day retention period.</p>
-              <p className="mb-0">A $0.005 surcharge applies per call when more than 20% of call attempts are abandoned (0-second, unanswered) during the last 30 days.</p>
+              <p><sup>10</sup> Per minute of transcribed audio.</p>
+              <p><sup>11</sup> Monthly price per minute of recordings kept beyond the free 90 days.</p>
+              <p className="mb-0">If more than 20% of call attempts in the last 30 days were abandoned (unanswered, 0 seconds), a $0.005 surcharge applies to each call.</p>
             </div>
           </div>
         </section>
@@ -453,10 +454,10 @@ export default function Pricing() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

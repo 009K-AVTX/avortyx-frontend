@@ -1,7 +1,8 @@
 // /features.html
+import Bolt from '../components/Bolt.jsx'
 export const meta = {
-  title: "Features | Avortyx",
-  description: "Everything you need to track, route, and optimize calls at scale.",
+  title: "Features | Score, route and settle every call | Avortyx",
+  description: "Every Avortyx capability in one place: first-ring routing, ping/post bidding, call tracking, AI agents, lead automation, numbers and built-in compliance.",
   bodyClass: "avortyx_marketing features ",
   layout: "site",
 }
@@ -13,7 +14,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h1 className="fw-bold">Features</h1>
-            <p className="text-muted lead">Everything you need to track, route, and optimize calls at scale.</p>
+            <p className="text-muted lead">One platform to score, route, screen and settle every call, decided on the first ring.</p>
           </div>
           <div className="flow-platform-diagram mt-4">
             <div className="flow-column">
@@ -50,7 +51,7 @@ export default function Features() {
             <div className="flow-column-center">
               <div className="flow-center-box">
                 <div className="flow-center-title"><i className="fa-solid fa-bolt text-success me-1" aria-hidden="true" /> Avortyx</div>
-                <div className="flow-center-features"><span>Track, route & optimize every call and lead in real time.</span></div>
+                <div className="flow-center-features"><span>Score, route and settle every call and lead in real time.</span></div>
               </div>
             </div>
             <div className="flow-arrows-column">
@@ -100,7 +101,7 @@ export default function Features() {
             <div className="col-lg-6">
               <div className="mktg-section-header">
                 <h3 className="fw-bold">Real Time Ping/Post</h3>
-                <p className="text-muted">Match inbound leads with available buyers using a two-step Ping/Post system — real-time bidding (RTB) that routes every lead to the buyer who values it most.</p>
+                <p className="text-muted">Let every eligible buyer bid on every lead and call. Publishers ping for live bids, then post to connect the winner, all in milliseconds.</p>
               </div>
               <a className="btn btn-td-green feature-modal-link" href="/features/ping_post">Learn More</a>
               {" "}
@@ -118,7 +119,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h3 className="fw-bold mb-1">Call Management</h3>
-            <p className="text-muted">Core tools for tracking, routing, and handling inbound and outbound calls.</p>
+            <p className="text-muted">Everything that happens between the ring and the payout, inbound and outbound.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -128,7 +129,7 @@ export default function Features() {
                     <i className="fa-solid fa-phone-volume" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Call Tracking</h5>
-                  <p className="text-muted small mb-0">Track and route calls across campaigns, traffic sources, and keywords. Local and toll-free numbers available.</p>
+                  <p className="text-muted small mb-0">Tie each call to its campaign, source and keyword, with local and toll-free numbers or the ones you port in.</p>
                 </div>
               </a>
             </div>
@@ -137,7 +138,7 @@ export default function Features() {
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3"><i className="fa-solid fa-headset" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Agent Control Center</h5>
-                  <p className="text-muted small mb-0">Interview consumers, transfer to buyers, mute, hold, and disposition calls from one interface.</p>
+                  <p className="text-muted small mb-0">Agents qualify the caller, find the best buyer and transfer in one click, from a browser tab.</p>
                 </div>
               </a>
             </div>
@@ -148,7 +149,7 @@ export default function Features() {
                     <i className="fa-solid fa-clock-rotate-left" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Hold Queue & Callback</h5>
-                  <p className="text-muted small mb-0">Queue callers when agents are busy. Offer automated callbacks to reduce wait times.</p>
+                  <p className="text-muted small mb-0">When every buyer is busy, callers hold with music and connect the moment someone frees up.</p>
                 </div>
               </a>
             </div>
@@ -159,7 +160,7 @@ export default function Features() {
                     <i className="fa-solid fa-microphone-lines" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Call Recordings</h5>
-                  <p className="text-muted small mb-0">Record, store, and review inbound and outbound calls for quality assurance.</p>
+                  <p className="text-muted small mb-0">Every leg recorded, played back only for your team and deleted on your retention schedule.</p>
                 </div>
               </a>
             </div>
@@ -170,7 +171,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h3 className="fw-bold mb-1">Automation</h3>
-            <p className="text-muted">Capture every lead and automate outreach across SMS, email, and outbound calls.</p>
+            <p className="text-muted">Reach every lead while they are still interested, by text, email and phone.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -178,7 +179,7 @@ export default function Features() {
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-warning bg-opacity-10 text-warning mb-3"><i className="fa-solid fa-bolt" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Lead Automation</h5>
-                  <p className="text-muted small mb-0">Capture leads from forms and automatically schedule contact via SMS, email, and outbound calls.</p>
+                  <p className="text-muted small mb-0">Turn form fills into live calls with sequences of texts, emails and dials that run on their own.</p>
                 </div>
               </a>
             </div>
@@ -189,7 +190,7 @@ export default function Features() {
                     <i className="fa-solid fa-phone-arrow-up-right" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Power Dialer</h5>
-                  <p className="text-muted small mb-0">Automatically match leads to available agents and place outbound calls on a continuous cycle.</p>
+                  <p className="text-muted small mb-0">Dials the next lead the moment an agent is free, so agents spend the hour talking, not dialing.</p>
                 </div>
               </a>
             </div>
@@ -200,7 +201,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h3 className="fw-bold mb-1">AI</h3>
-            <p className="text-muted">Voice agents that answer the phone, SMS bots that work your texts, and AI transcription that reads every call.</p>
+            <p className="text-muted">AI that answers calls, works your texts and reads every conversation, alongside intent scoring on the first ring.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -208,7 +209,7 @@ export default function Features() {
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3"><i className="fa-solid fa-robot" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">AI Voice Agents</h5>
-                  <p className="text-muted small mb-0">Voice agents that answer 24/7, qualify leads, and warm-transfer to humans through your existing buyers and routing.</p>
+                  <p className="text-muted small mb-0">AI agents that answer around the clock, qualify callers and warm-transfer high intent to buyers.</p>
                 </div>
               </a>
             </div>
@@ -217,7 +218,7 @@ export default function Features() {
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-info bg-opacity-10 text-info mb-3"><i className="fa-solid fa-robot" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">AI SMS Bots</h5>
-                  <p className="text-muted small mb-0">AI-powered SMS bots that engage leads, answer questions, and schedule calls automatically.</p>
+                  <p className="text-muted small mb-0">Text bots that answer leads, collect what buyers need and place the call once a lead qualifies.</p>
                 </div>
               </a>
             </div>
@@ -228,7 +229,7 @@ export default function Features() {
                     <i className="fa-solid fa-file-lines" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">AI Transcriptions</h5>
-                  <p className="text-muted small mb-0">Post-call transcription with keyword spotting and AI-powered call analysis.</p>
+                  <p className="text-muted small mb-0">Every recorded call transcribed, summarized and scored, with keyword alerts and live analytics.</p>
                 </div>
               </a>
             </div>
@@ -239,7 +240,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h3 className="fw-bold mb-1">Tracking & Attribution</h3>
-            <p className="text-muted">Track sources, swap numbers dynamically, and build custom logic with expressions.</p>
+            <p className="text-muted">Know which ad made each phone ring, and send the result anywhere your team needs it.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -247,7 +248,7 @@ export default function Features() {
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-info bg-opacity-10 text-info mb-3"><i className="fa-solid fa-code" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Dynamic Number Insertion</h5>
-                  <p className="text-muted small mb-0">Automatically swap tracking numbers on your website to attribute calls to the correct source.</p>
+                  <p className="text-muted small mb-0">Show each visitor a number tied to their source, so every call arrives already attributed.</p>
                 </div>
               </a>
             </div>
@@ -258,7 +259,7 @@ export default function Features() {
                     <i className="fa-solid fa-calculator" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Expressions & Functions</h5>
-                  <p className="text-muted small mb-0">Powerful formulas for call routing rules, data transformations, and complex calculations.</p>
+                  <p className="text-muted small mb-0">Clean, format and calculate call data inside routing rules, webhooks and postbacks.</p>
                 </div>
               </a>
             </div>
@@ -269,7 +270,7 @@ export default function Features() {
                     <i className="fa-solid fa-arrows-turn-to-dots" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Custom Webhooks</h5>
-                  <p className="text-muted small mb-0">Send real-time call data to any endpoint. Integrate with Cake, HasOffers, Voluum, and more.</p>
+                  <p className="text-muted small mb-0">Push call events to any URL as they happen, and let your systems approve a dial before it rings.</p>
                 </div>
               </a>
             </div>
@@ -280,7 +281,7 @@ export default function Features() {
                     <i className="fa-solid fa-file-export" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Data Exports</h5>
-                  <p className="text-muted small mb-0">Export calls, leads, and conversions to CSV or your data warehouse on demand or on a schedule.</p>
+                  <p className="text-muted small mb-0">Calls, leads and recordings to CSV, on demand or on a schedule that emails your team.</p>
                 </div>
               </a>
             </div>
@@ -291,7 +292,7 @@ export default function Features() {
                     <i className="fa-solid fa-terminal" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">REST API</h5>
-                  <p className="text-muted small mb-0">Full programmatic access to the entire platform. RESTful, HTTPS-based, and JSON-formatted.</p>
+                  <p className="text-muted small mb-0">Every screen in Avortyx runs on the same REST API, with scoped, logged and IP-restricted keys.</p>
                 </div>
               </a>
             </div>
@@ -302,7 +303,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h3 className="fw-bold mb-1">Phone Numbers</h3>
-            <p className="text-muted">Provision numbers, connect telephone providers, and protect your caller reputation.</p>
+            <p className="text-muted">Buy, port and pool numbers on any carrier, and keep them trusted so calls get answered.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -312,7 +313,7 @@ export default function Features() {
                     <i className="fa-solid fa-shield-halved" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Spam Tag Mitigation</h5>
-                  <p className="text-muted small mb-0">Branded caller ID, carrier registration, and spam-label monitoring so more of your calls get answered.</p>
+                  <p className="text-muted small mb-0">Registered numbers, branded caller ID and spam-label removal, watched carrier by carrier.</p>
                 </div>
               </a>
             </div>
@@ -323,7 +324,7 @@ export default function Features() {
                     <i className="fa-solid fa-tower-cell" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Multiple Telephone Providers</h5>
-                  <p className="text-muted small mb-0">Use Twilio, Telnyx, Plivo, and more. Bring your own VoIP provider for maximum flexibility.</p>
+                  <p className="text-muted small mb-0">Run Twilio, Telnyx, Plivo or any SIP carrier side by side, all through one routing engine.</p>
                 </div>
               </a>
             </div>
@@ -334,7 +335,7 @@ export default function Features() {
                     <i className="fa-solid fa-network-wired" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">SIP Support</h5>
-                  <p className="text-muted small mb-0">Connect via SIP credentials and headers. Integrate with your preferred VoIP platforms.</p>
+                  <p className="text-muted small mb-0">Route calls SIP-to-SIP to your own VoIP platform, with your own credentials and headers.</p>
                 </div>
               </a>
             </div>
@@ -345,7 +346,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h3 className="fw-bold mb-1">Security & Compliance Tools</h3>
-            <p className="text-muted">Safeguard sensitive information, restrict access, and support your calling-compliance program.</p>
+            <p className="text-muted">Compliance checks run inside every routing decision, before a buyer’s phone ever rings.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -355,7 +356,7 @@ export default function Features() {
                     <i className="fa-solid fa-shield-halved" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">PII Redaction</h5>
-                  <p className="text-muted small mb-0">Automatically clear or hash PII from aged calls and leads, and restrict who can see sensitive fields.</p>
+                  <p className="text-muted small mb-0">Personal data that expires on your schedule and stays hidden from users without permission.</p>
                 </div>
               </a>
             </div>
@@ -366,7 +367,7 @@ export default function Features() {
                     <i className="fa-solid fa-lock" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">API IP Whitelist</h5>
-                  <p className="text-muted small mb-0">Restrict API access to approved IP addresses for enhanced security.</p>
+                  <p className="text-muted small mb-0">Keep API keys usable only from the networks you trust.</p>
                 </div>
               </a>
             </div>
@@ -375,7 +376,7 @@ export default function Features() {
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-warning bg-opacity-10 text-warning mb-3"><i className="fa-solid fa-ban" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Suppression & DNC</h5>
-                  <p className="text-muted small mb-0">Manage suppression lists, blacklists, and DNC tooling with TCPA Shield and Blacklist Alliance integrations.</p>
+                  <p className="text-muted small mb-0">Suppression lists, blacklists, DNC checks and industry scrubbing, run before any call routes or dials.</p>
                 </div>
               </a>
             </div>
@@ -386,7 +387,7 @@ export default function Features() {
                     <i className="fa-solid fa-map-location-dot" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">State Rules</h5>
-                  <p className="text-muted small mb-0">Enforce geographic restrictions on call routing by caller or buyer state for regulated industries.</p>
+                  <p className="text-muted small mb-0">Each state’s calling hours, holiday blackouts and contact limits, enforced on every outbound dial.</p>
                 </div>
               </a>
             </div>
@@ -397,7 +398,7 @@ export default function Features() {
                     <i className="fa-solid fa-file-signature" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Consent & Opt-Out</h5>
-                  <p className="text-muted small mb-0">Capture verifiable consent records per lead and honor opt-outs automatically with immutable logs.</p>
+                  <p className="text-muted small mb-0">Proof of consent on every lead, and opt-outs that take effect everywhere, with an audit trail.</p>
                 </div>
               </a>
             </div>
@@ -406,7 +407,7 @@ export default function Features() {
                 <div className="card features-grid-card p-4">
                   <div className="features-grid-icon bg-primary bg-opacity-10 text-primary mb-3"><i className="fa-solid fa-id-card" aria-hidden="true" /></div>
                   <h5 className="fw-bold text-body">Verified Identity & Caller ID</h5>
-                  <p className="text-muted small mb-0">Register your EIN and legal business name with the carriers so your inbound and outbound calls keep connecting.</p>
+                  <p className="text-muted small mb-0">KYC, KYB and STIR/SHAKEN, so carriers trust your numbers and your calls connect.</p>
                 </div>
               </a>
             </div>
@@ -420,17 +421,17 @@ export default function Features() {
               <div className="bg-light rounded-3 p-4">
                 <h5 className="fw-bold mb-3"><i className="fa-solid fa-chart-line me-2 text-muted" aria-hidden="true" />Campaign Performance</h5>
                 <ul className="list-unstyled mb-0">
-                  <li className="mb-2"><i className="fa-solid fa-bullhorn text-muted me-2" aria-hidden="true" />Impressions and calls by campaign</li>
-                  <li className="mb-2"><i className="fa-solid fa-magnifying-glass text-muted me-2" aria-hidden="true" />Keyword-level conversion tracking</li>
-                  <li className="mb-2"><i className="fa-solid fa-globe text-muted me-2" aria-hidden="true" />Website and landing page attribution</li>
-                  <li className="mb-2"><i className="fa-solid fa-clock text-muted me-2" aria-hidden="true" />Real-time data updates</li>
+                  <li className="mb-2"><i className="fa-solid fa-bullhorn text-muted me-2" aria-hidden="true" />Impressions and calls per campaign</li>
+                  <li className="mb-2"><i className="fa-solid fa-magnifying-glass text-muted me-2" aria-hidden="true" />Conversions down to the keyword</li>
+                  <li className="mb-2"><i className="fa-solid fa-globe text-muted me-2" aria-hidden="true" />Attribution by page and landing page</li>
+                  <li className="mb-2"><i className="fa-solid fa-clock text-muted me-2" aria-hidden="true" />Numbers that update live</li>
                 </ul>
               </div>
             </div>
             <div className="col-lg-6">
               <div className="mktg-section-header">
                 <h3 className="fw-bold">Call Analytics</h3>
-                <p className="text-muted">See which campaigns, websites, and keywords drive the most calls. View impressions, calls, and conversions for any combination of keywords in real time.</p>
+                <p className="text-muted">See which campaigns, pages and keywords make the phone ring, and which of those calls pay. Impressions, calls and conversions for any mix of keywords, live.</p>
               </div>
               <a className="btn btn-td-green feature-modal-link" href="/features/call_tracking#reports-analytics">Explore Call Analytics</a>
             </div>
@@ -441,7 +442,7 @@ export default function Features() {
         <div className="container text-center">
           <div className="mktg-section-header text-center">
             <h3 className="fw-bold mb-2">Integrations</h3>
-            <p className="text-muted">Connect with your favorite tools and platforms.</p>
+            <p className="text-muted">Carriers, trackers, CRMs, ad platforms and AI voice agents, connected.</p>
           </div>
           <div className="d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
             <a href="/features/voice_agents/elevenlabs" className="integration-logo-card text-decoration-none" title="ElevenLabs">
@@ -564,10 +565,10 @@ export default function Features() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

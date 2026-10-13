@@ -1,7 +1,8 @@
 // /features/mailchimp.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "MailChimp Integration | Avortyx",
-  description: "Automate your email marketing by connecting MailChimp in minutes with zero coding required.",
+  title: "Mailchimp for Avortyx | Call-triggered email campaigns",
+  description: "Send Mailchimp campaigns from Avortyx call events and lead schedules, with the audience chosen per campaign.",
   bodyClass: "avortyx_marketing integrations_mailchimp ",
   layout: "feature",
 }
@@ -19,8 +20,8 @@ export default function Mailchimp() {
             </a>
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
-          <h1 className="fw-bold mb-2">MailChimp + Avortyx</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Automate your email marketing by connecting MailChimp in minutes with zero coding required.</p>
+          <h1 className="fw-bold mb-2">Mailchimp + Avortyx</h1>
+          <p className="lead mktg-subpage-hero-subtitle">Trigger Mailchimp emails from what happens on the phone: a missed call, a qualified caller, a lead still waiting for a callback.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -29,12 +30,12 @@ export default function Mailchimp() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <h3>Automate Your Email Marketing</h3>
-            <p>In a matter of minutes and without a single line of code, connect Avortyx and MailChimp.</p>
+            <h3>Let call outcomes write the email list</h3>
+            <p>Connect Mailchimp once, then let Avortyx decide who hears from you next. No exports, no copy-pasting audiences, no code.</p>
             <ul>
-              <li>Send branded HTML emails to your leads through Mailchimp</li>
-              <li>Choose which Mailchimp audience (list) to send from</li>
-              <li>Trigger emails automatically from call events or <a href="/features/lead_automation">schedule actions</a></li>
+              <li>Send your branded Mailchimp emails to leads tracked in Avortyx</li>
+              <li>Pick the Mailchimp audience each Avortyx campaign sends to</li>
+              <li>Fire emails from call events, or from steps in a <a href="/features/lead_automation">lead schedule</a></li>
             </ul>
           </div>
         </div>
@@ -42,10 +43,10 @@ export default function Mailchimp() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

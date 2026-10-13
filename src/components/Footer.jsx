@@ -36,7 +36,7 @@ export default function Footer() {
             <div className="d-flex align-items-center gap-2 mb-3">
               <BrandMark gradientId="avx-mk-g-ft" />
             </div>
-            <p className="footer-muted small">Call tracking and lead-to-call automation for performance marketers.</p>
+            <p className="footer-muted small">Real-time call scoring, routing and settlement for pay-per-call networks.</p>
             <ul className="list-unstyled small">
               <li className="mb-2">
                 <a href="mailto:support@avortyx.com"> <i className="fa-solid fa-envelope me-2" aria-hidden="true" />support@avortyx.com </a>

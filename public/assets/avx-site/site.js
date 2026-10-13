@@ -31,7 +31,7 @@
   // ---------- Analytics: which calls to action get clicked, and from where ----------
   // cta_click for sign-up, demo and contact links; feature_explore for links into feature pages.
 
-  var CTAS = [[/^\/sign_up(\.html)?$/, 'sign_up'], [/^\/request-access$/, 'request_access'], [/^\/p\/request_demo(\.html)?$/, 'request_demo'], [/^\/p\/contact(\.html)?$/, 'contact']];
+  var CTAS = [[/^\/sign_up(\.html)?$/, 'sign_up'], [/^\/request-access(\.html)?$/, 'request_access'], [/^\/p\/request_demo(\.html)?$/, 'request_demo'], [/^\/p\/contact(\.html)?$/, 'contact']];
 
   function clickPlace(a) {
     if (a.closest('.marketing-hero-simple')) return 'hero';
@@ -98,7 +98,7 @@
     in_toll_free: '+18001232222',
     out_local: '+17191234444',
     out_toll_free: '+18001234444',
-    out_sip: '+17191234444@sip.trackdrive.com'
+    out_sip: '+17191234444@sip.avortyx.com'
   };
 
   function perMinute(v) { return '$' + v.toFixed(4) + ' /min'; }
@@ -203,7 +203,7 @@
       [['/pricing', 'Compare plans'], ['/p/contact', 'Contact our team']]],
     ['signup', ['sign up', 'signup', 'get started', 'start', 'free', 'trial', 'register', 'create an account', 'open an account'],
       'You can start free: create your Avortyx account and start tracking, routing and selling calls.',
-      [['https://avortyx.com/request-access', 'Request Access'], ['/p/request_demo', 'Or book a walkthrough']]],
+      [['/request-access', 'Request Access'], ['/p/request_demo', 'Or book a walkthrough']]],
     ['demo', ['demo', 'walkthrough', 'show me', 'sales', 'specialist'],
       'Book a walkthrough with a specialist to see how Avortyx can optimize your call tracking and increase conversions.',
       [['/p/request_demo', 'Request a demo']]],
@@ -531,4 +531,29 @@
     requestAnimationFrame(function () { ticking = false; mark(); });
   }, { passive: true });
   mark();
+})();
+
+/* ---------- Request access: checks the form, then opens an email to the team with it filled in ---------- */
+(function () {
+  'use strict';
+  var form = document.querySelector('[data-avx-request-access]');
+  if (!form) return;
+  var TO = 'hello@avortyx.io';
+  var err = form.querySelector('.avx-ra-err'), done = form.querySelector('.avx-ra-done');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = form.elements, v = function (k) { return f[k].value.trim(); };
+    var problem = !v('name') ? 'Please add your full name.' :
+      !v('organization') ? 'Please add your company.' :
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email')) ? 'Please add a valid work email.' :
+      !v('use_case') ? 'Please tell us what you are looking to route.' : '';
+    err.hidden = !problem;
+    err.textContent = problem;
+    if (problem) return;
+    var body = v('use_case') + '\n\n—\nName: ' + v('name') + '\nCompany: ' + v('organization') +
+      '\nWork email: ' + v('email') + '\nPhone: ' + (v('phone') || '—') + '\nSent from: ' + location.href;
+    if (typeof window.gtag === 'function') window.gtag('event', 'request_access', { page_path: location.pathname });
+    window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Access request: ' + v('organization')) + '&body=' + encodeURIComponent(body);
+    done.hidden = false;
+  });
 })();

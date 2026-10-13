@@ -1,4 +1,5 @@
 // /terms_of_service.html
+import Bolt from '../components/Bolt.jsx'
 export const meta = {
   title: "Terms of Service | Avortyx",
   description: "Please review these terms carefully before using our services.",
@@ -41,7 +42,7 @@ export default function TermsOfService() {
                 </h3>
                 <p className="c10">
                   <span className="c19">BY CREATING AN ACCOUNT AND USING THE SERVICE, Y</span>
-                  <span className="c3">OU &nbsp;ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT IN ITS ENTIRETY, THAT YOU UNDERSTAND THIS AGREEMENT AND THAT YOU ARE ENTERING INTO A LEGALLY BINDING AGREEMENT WITH TRACKDRIVE. IN THE EVENT YOU DO NOT AGREE TO ACCEPT ANY OF THE TERMS CONTAINED HEREIN, YOU ARE NOT PERMITTED TO USE OUR SERVICE.</span>
+                  <span className="c3">OU &nbsp;ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT IN ITS ENTIRETY, THAT YOU UNDERSTAND THIS AGREEMENT AND THAT YOU ARE ENTERING INTO A LEGALLY BINDING AGREEMENT WITH AVORTYX. IN THE EVENT YOU DO NOT AGREE TO ACCEPT ANY OF THE TERMS CONTAINED HEREIN, YOU ARE NOT PERMITTED TO USE OUR SERVICE.</span>
                 </p>
                 <p className="c5"><span className="c3" /></p>
                 <p className="c10">
@@ -53,7 +54,7 @@ export default function TermsOfService() {
                 <p className="c10">
                   <span className="c7">1.1. Access Rights Grant</span>
                   <span className="c19">. </span>
-                  <span className="c1">Avortyx grants You a non-transferable, non-exclusive, revocable, limited right &nbsp;to access and use the Service as made accessible to You through Avortyx.net (“Platform”) and for the limited purpose of managing/conducting individual SMS and telephone call campaigns, both directly and/or on behalf of third-party clients, and to access and use campaign analytics. We shall exclusively retain all rights not expressly granted to You as set forth in this Agreement in and to each separate component comprising our Platform, together with all trademarks, trade secrets and any other proprietary rights inherent therein and related thereto. Access and use rights in and to the Platform and Service are being granted and not sold to You under the terms and conditions of this Agreement. All content other than Your Content (defined in Section 2), features and functionality and each separate element/component of our Service and Platform are owned exclusively by Avortyx and are protected by copyright, trademark, and other intellectual property laws. You acknowledge that any derivative works, improvements, or modifications to the Platform created by You or anyone else shall be owned exclusively by Avortyx. Our trademarks, including the mark TRACKDRIVE and our design marks/logos, all copyrighted material, any patents, and any other &nbsp;protectable components of the Platform generally are the intellectual property of Avortyx and/or its licensors. </span>
+                  <span className="c1">Avortyx grants You a non-transferable, non-exclusive, revocable, limited right &nbsp;to access and use the Service as made accessible to You through avortyx.com (“Platform”) and for the limited purpose of managing/conducting individual SMS and telephone call campaigns, both directly and/or on behalf of third-party clients, and to access and use campaign analytics. We shall exclusively retain all rights not expressly granted to You as set forth in this Agreement in and to each separate component comprising our Platform, together with all trademarks, trade secrets and any other proprietary rights inherent therein and related thereto. Access and use rights in and to the Platform and Service are being granted and not sold to You under the terms and conditions of this Agreement. All content other than Your Content (defined in Section 2), features and functionality and each separate element/component of our Service and Platform are owned exclusively by Avortyx and are protected by copyright, trademark, and other intellectual property laws. You acknowledge that any derivative works, improvements, or modifications to the Platform created by You or anyone else shall be owned exclusively by Avortyx. Our trademarks, including the mark AVORTYX and our design marks/logos, all copyrighted material, any patents, and any other &nbsp;protectable components of the Platform generally are the intellectual property of Avortyx and/or its licensors. </span>
                 </p>
                 <p className="c5"><span className="c1" /></p>
                 <p className="c10 c26">
@@ -518,11 +519,11 @@ export default function TermsOfService() {
                 <ol className="c23 lst-kix_list_7-0 start" start="1">
                   <li className="c29 li-bullet-0">
                     <span className="c7">NO CONSEQUENTIAL DAMAGES. </span>
-                    <span className="c19">TRACKDRIVE SHALL NOT BE LIABLE TO YOU FOR ANY INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, LOST PROFITS, REVENUES, REPLACEMENT OF GOODS, LOSS OR DAMAGE TO DATA, OR SIMILAR DAMAGES RELATED TO YOUR USE OF THE SERVICE, REGARDLESS OF ANY NOTICE.</span>
+                    <span className="c19">AVORTYX SHALL NOT BE LIABLE TO YOU FOR ANY INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, LOST PROFITS, REVENUES, REPLACEMENT OF GOODS, LOSS OR DAMAGE TO DATA, OR SIMILAR DAMAGES RELATED TO YOUR USE OF THE SERVICE, REGARDLESS OF ANY NOTICE.</span>
                   </li>
                   <li className="c8 li-bullet-0">
                     <span className="c7">NO LIABILITY FOR THIRD-PARTY DISPUTES.</span>
-                    <span className="c19">&nbsp;TRACKDRIVE IS STRICTLY A CONDUIT FOR ROUTING COMMUNICATIONS. WE SHALL NOT BE LIABLE IN ANY MANNER WHATSOEVER FOR ANY TYPE OF DAMAGES STEMMING FROM DISPUTES BETWEEN YOU, YOUR AFFILIATES, YOUR CUSTOMERS/CLIENTS, OR ANY THIRD PARTIES REGARDING LEAD QUALITY, LEAD CONVERSION, OR PAYMENT FOR ROUTED LEADS; OR FOR ANY LEGAL/COMPLIANCE VIOLATIONS. YOU ASSUME THE SOLE RISK REGARDING YOUR COMMERCIAL RELATIONSHIPS MANAGED USING THE SERVICE.</span>
+                    <span className="c19">&nbsp;AVORTYX IS STRICTLY A CONDUIT FOR ROUTING COMMUNICATIONS. WE SHALL NOT BE LIABLE IN ANY MANNER WHATSOEVER FOR ANY TYPE OF DAMAGES STEMMING FROM DISPUTES BETWEEN YOU, YOUR AFFILIATES, YOUR CUSTOMERS/CLIENTS, OR ANY THIRD PARTIES REGARDING LEAD QUALITY, LEAD CONVERSION, OR PAYMENT FOR ROUTED LEADS; OR FOR ANY LEGAL/COMPLIANCE VIOLATIONS. YOU ASSUME THE SOLE RISK REGARDING YOUR COMMERCIAL RELATIONSHIPS MANAGED USING THE SERVICE.</span>
                   </li>
                   <li className="c8 li-bullet-0">
                     <span className="c7">BROAD APPLICATION. </span>
@@ -530,7 +531,7 @@ export default function TermsOfService() {
                   </li>
                   <li className="c8 li-bullet-0">
                     <span className="c7">FINANCIAL CAP. </span>
-                    <span className="c19">IN ALL CASES, YOU SHALL BE LIMITED IN YOUR RECOVERY FROM TRACKDRIVE (AND OUR MEMBERS, MANAGERS, OFFICERS, EMPLOYEES, AND AFFILIATES) FOR ANY AND ALL DAMAGES OF ANY KIND OR NATURE BASED ON ANY BREACH OF THIS AGREEMENT OR OTHERWISE IN CONNECTION WITH YOUR USE OF THE SERVICE TO THE TOTAL AMOUNT OF ALL FEES ACTUALLY PAID BY YOU TO TRACKDRIVE FOR THE SERVICE DURING THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE DATE OF THE EVENT GIVING RISE TO THE CLAIM. </span>
+                    <span className="c19">IN ALL CASES, YOU SHALL BE LIMITED IN YOUR RECOVERY FROM AVORTYX (AND OUR MEMBERS, MANAGERS, OFFICERS, EMPLOYEES, AND AFFILIATES) FOR ANY AND ALL DAMAGES OF ANY KIND OR NATURE BASED ON ANY BREACH OF THIS AGREEMENT OR OTHERWISE IN CONNECTION WITH YOUR USE OF THE SERVICE TO THE TOTAL AMOUNT OF ALL FEES ACTUALLY PAID BY YOU TO AVORTYX FOR THE SERVICE DURING THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE DATE OF THE EVENT GIVING RISE TO THE CLAIM. </span>
                   </li>
                   <li className="c24 li-bullet-0">
                     <span className="c7">WAIVER OF UNKNOWN CLAIMS. </span>
@@ -664,10 +665,10 @@ export default function TermsOfService() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

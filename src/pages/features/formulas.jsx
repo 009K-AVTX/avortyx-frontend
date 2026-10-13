@@ -1,7 +1,8 @@
 // /features/formulas.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Formulas | Call Tracking and Analytics | Avortyx",
-  description: "Powerful formulas for call routing rules, data transformations, and complex calculations.",
+  title: "Expressions & Functions | Shape call data on the fly | Avortyx",
+  description: "Avortyx expressions clean, format and calculate call and lead data inside routing filters, field defaults, webhooks and postbacks, with nestable functions.",
   bodyClass: "avortyx_marketing features_formulas ",
   layout: "feature",
 }
@@ -20,7 +21,7 @@ export default function Formulas() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Tracking & Attribution</p>
           <h1 className="fw-bold mb-2">Expressions & Functions</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Powerful formulas for call routing rules, data transformations, and complex calculations.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Clean, format and calculate call and lead data on the fly, inside routing filters, webhooks and postbacks.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -29,34 +30,34 @@ export default function Formulas() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <p>Transform and calculate data on the fly. Expressions and functions extend what you can do with leads, webhooks, postbacks, and calls — and functions can be nested to build complex calculations.</p>
-            <p className="text-muted">Use them anywhere token replacement is available, for example:</p>
+            <p>Expressions let Avortyx reshape and calculate data as calls and leads move through it: clean a name before it reaches a buyer, compute a payout, format a date for a postback. Functions can be nested inside each other, so small pieces combine into real logic.</p>
+            <p className="text-muted">They work anywhere Avortyx fills in tokens, including:</p>
             <ul className="text-muted">
-              <li>Contact field defaults</li>
-              <li>Webhook URLs and postback payloads</li>
-              <li>Routing filters</li>
+              <li>Default values for contact fields</li>
+              <li>Webhook URLs and postback bodies</li>
+              <li>Filters in your routing rules</li>
             </ul>
-            <p>Expressions come in four types — String, Integer, Float, and Time — and the function arguments are coerced to that type when evaluated.</p>
+            <p>Every expression has a type (String, Integer, Float or Time), and its arguments are converted to that type before it is evaluated.</p>
             <div className="formula-doc">
-              <h3>Example Data</h3>
-              <p>{"Given the following example data, the expressions below would output the values as indicated by =>"}</p>
+              <h3>Sample data</h3>
+              <p>{"The examples on this page use the data below; the result of each expression follows its =>"}</p>
               <pre>{"{\n  \"first_name\": \"John\",\n  \"last_name\": \"Smith\",\n  \"birth_year\": \"1977\",\n  \"yob\": 2012,\n  \"mortgage_amount\": 65000,\n  \"debt_amount\": 8283.25,\n  \"started_at_utc\": \"2020-06-21 22:35:12 UTC\"\n}\n"}</pre>
             </div>
             <div className="formula-doc">
-              <h3>String Example</h3>
-              <p>Convert function arguments into strings and evaluate the expression.</p>
+              <h3>A String expression</h3>
+              <p>Arguments are treated as text before the expression runs.</p>
               <pre>{"[!String! ALPHANUMERIC_DASH(CONCAT([first_name], \" \", [last_name])) !!]\n=> john-smith\n"}</pre>
             </div>
             <div className="formula-doc">
-              <h3>Time Example</h3>
-              <p>Convert function arguments into Time and evaluate the expression.</p>
+              <h3>A Time expression</h3>
+              <p>Arguments are treated as times before the expression runs.</p>
               <pre>{"[!Time! DATE_FORMAT(DATE_ADD([started_at_utc], 86400), \"%Y-%m-%d %M-%S\") !!]\n=> \"2020-06-22T18:35:12\"\n"}</pre>
             </div>
             <h3 className="mt-4 pt-3 border-top">Functions</h3>
             <div className="formula-doc">
               <h2>case<span className="params">(statement)</span></h2>
               <span className="formula-type-badge">logic</span>
-              <p>A CASE statement that allows you to evaluate complex conditional logic.</p>
+              <p>Tests several conditions in order and returns the output of the first one that is true.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -74,7 +75,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>if<span className="params">(statement, output_when_true, output_when_false)</span></h2>
               <span className="formula-type-badge">logic</span>
-              <p>Evaluate a statement and output a value when true or false.</p>
+              <p>Checks a condition and returns one value when it holds and another when it does not.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -102,7 +103,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>avg<span className="params">(*values)</span></h2>
               <span className="formula-type-badge">numeric</span>
-              <p>Get the average of the passed numeric values.</p>
+              <p>The mean of the numbers you pass in.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -120,7 +121,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>count<span className="params">(*values)</span></h2>
               <span className="formula-type-badge">numeric</span>
-              <p>Count the passed values.</p>
+              <p>How many values were passed in.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -138,7 +139,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>max<span className="params">(*values)</span></h2>
               <span className="formula-type-badge">numeric</span>
-              <p>Get the largest numeric value from the set of passed arguments.</p>
+              <p>The largest of the numbers you pass in.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -156,7 +157,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>min<span className="params">(*values)</span></h2>
               <span className="formula-type-badge">numeric</span>
-              <p>Get the smallest numeric value from the set of passed arguments.</p>
+              <p>The smallest of the numbers you pass in.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -174,7 +175,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>round<span className="params">(value, precision)</span></h2>
               <span className="formula-type-badge">numeric</span>
-              <p>Returns float rounded to the nearest value.</p>
+              <p>Rounds a number to the closest value at the precision you give.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -197,7 +198,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>rounddown<span className="params">(value, precision)</span></h2>
               <span className="formula-type-badge">numeric</span>
-              <p>Returns float rounded down to the nearest value.</p>
+              <p>Rounds a number down, toward the lower value, at the precision you give.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -220,7 +221,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>roundup<span className="params">(value, precision)</span></h2>
               <span className="formula-type-badge">numeric</span>
-              <p>Returns float rounded up to the nearest value.</p>
+              <p>Rounds a number up, toward the higher value, at the precision you give.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -243,7 +244,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>sum<span className="params">(*values)</span></h2>
               <span className="formula-type-badge">numeric</span>
-              <p>Get the sum of the numeric values.</p>
+              <p>Adds the numbers you pass in.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -261,7 +262,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>alphanumeric_dash<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver with only alphanumeric characters (0-9 and a-z A-Z) and spaces converted to dashes. Leading and trailing spaces are removed.</p>
+              <p>Keeps only letters (a-z, A-Z) and digits (0-9), turns spaces into dashes and trims spaces from both ends. Handy for slugs and IDs.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -279,7 +280,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>alphanumeric_underscore<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver with only alphanumeric characters (0-9 and a-z A-Z) and spaces converted to underscores. Leading and trailing spaces are removed.</p>
+              <p>Keeps only letters (a-z, A-Z) and digits (0-9), turns spaces into underscores and trims spaces from both ends.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -297,7 +298,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>base64_decode<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns the Base64-decoded version of str. This method complies with RFC 2045. Characters outside the base alphabet are ignored.</p>
+              <p>Decodes a Base64 string (RFC 2045), skipping any characters outside the Base64 alphabet.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -315,7 +316,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>base64_encode<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns the Base64-encoded version of bin. This method complies with RFC 2045. Line feeds are added to every 60 encoded characters.</p>
+              <p>Encodes a value as Base64 (RFC 2045), with a line break after every 60 encoded characters.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -372,7 +373,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>date_add<span className="params">(value, seconds)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>The date_add function adds seconds to a date.</p>
+              <p>Moves a date forward by a number of seconds.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -395,7 +396,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>date_format<span className="params">(value, format)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Format a date</p>
+              <p>Writes a date in the format you choose.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -504,7 +505,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>date_parse<span className="params">(value, format)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>The date_parse function is a natural language date/time parser.</p>
+              <p>Reads a date or time written in plain language and turns it into a date.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -586,7 +587,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>date_subtract<span className="params">(time, time_or_decimal)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>The date_subtract function subtracts another timestamp or decimal from the first argument.</p>
+              <p>Takes a timestamp or a number of seconds away from a date.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -609,7 +610,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>date_to_time_zone<span className="params">(value, time_zone)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>The date_to_time_zone returns a copy of the receiver in the given time zone.</p>
+              <p>Converts a date into another time zone.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -644,7 +645,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>digest_md5<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>A method for calculating message digests using the MD5 Message-Digest Algorithm by RSA Data Security, Inc., described in RFC1321. MD5 calculates a digest of 128 bits (16 bytes).</p>
+              <p>Returns the MD5 hash of a value (RFC 1321): a 128-bit (16-byte) digest.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -662,7 +663,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>digest_sha1<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>A method for calculating message digests using the SHA-1 Secure Hash Algorithm by NIST (the US' National Institute of Standards and Technology), described in FIPS PUB 180-1.</p>
+              <p>Returns the SHA-1 hash of a value, as defined by NIST in FIPS PUB 180-1.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -680,7 +681,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>digest_sha2<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>A method for calculating SHA256 which works on chunks of 512 bits and returns a 256-bit digest (SHA256)</p>
+              <p>Returns the SHA-256 hash of a value: a 256-bit digest computed over 512-bit blocks.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -698,7 +699,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>downcase<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver with all letters converted to lowercase.</p>
+              <p>Makes every letter lowercase.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -738,7 +739,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>generate_uuid<span className="params">()</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a UUID (Universally Unique Identifier).</p>
+              <p>Creates a new universally unique identifier (UUID).</p>
               <pre>{"GENERATE_UUID()\n=> \"518e8221-a29e-72c1-a716-486156481234\"\n"}</pre>
             </div>
             <div className="formula-doc">
@@ -788,7 +789,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>oauth_access_token<span className="params">(oauth_connection_key)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns an Access Token for an OAuth Connection.</p>
+              <p>Fetches an access token from one of your OAuth connections, for authenticated webhooks.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -828,7 +829,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>seconds_to_hms<span className="params">(seconds)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver formatted as HH:MM:SS</p>
+              <p>Shows a number of seconds as HH:MM:SS, for example a call duration.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -846,7 +847,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>split<span className="params">(value, pattern, index)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Divides value into substrings based on a delimiter, returning the substring at index.</p>
+              <p>Breaks a value apart at a delimiter and returns the piece at the index you ask for.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -889,10 +890,10 @@ export default function Formulas() {
               <h2>strip<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
               <p>
-                Returns a copy of the receiver with leading and trailing whitespace removed.
+                Trims whitespace from the start and end of a value.
                 <br />
                 <br />
-                {" "}Whitespace is defined as any of the following characters: null, horizontal tab, line feed, vertical tab, form feed, carriage return, space.
+                {" "}Whitespace here means null, horizontal tab, line feed, vertical tab, form feed, carriage return and space.
               </p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
@@ -938,7 +939,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>substitute_all<span className="params">(value, search, replacement)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Replace all occurrences of search with replacement in value.</p>
+              <p>Replaces every occurrence of one piece of text with another.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -966,7 +967,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>substring<span className="params">(value, start, length)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>A substring is a range of characters within an existing string.</p>
+              <p>Returns a slice of a string: the characters in the range you specify.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -994,7 +995,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>titleize<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver with the first letter of each word capitalized.</p>
+              <p>Capitalizes the first letter of every word.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1012,7 +1013,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>to_currency<span className="params">(value, symbol)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Converts a numeric value into a properly formatted currency string, including thousands separators and a currency symbol.</p>
+              <p>Formats a number as money, with a currency symbol and thousands separators.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1036,7 +1037,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>to_formatted_number<span className="params">(args, **, block)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver as a phone number in the local format.</p>
+              <p>Formats a phone number the way it is written locally.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1064,7 +1065,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>to_integer<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver as an integer.</p>
+              <p>Turns a value into a whole number.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1082,7 +1083,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>to_json<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver as a JSON string.</p>
+              <p>Turns a value into a JSON string.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1100,7 +1101,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>to_phone_number<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver as a normalized international phone number.</p>
+              <p>Normalizes a phone number into international format.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1118,7 +1119,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>upcase<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver with all letters converted to uppercase.</p>
+              <p>Makes every letter uppercase.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1136,7 +1137,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>url_decode<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver with all percent (%) signs followed by two hex digits replaced with the corresponding character.</p>
+              <p>Turns percent-encoded sequences (a % followed by two hex digits) back into the characters they stand for.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1154,7 +1155,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>url_encode<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver with all non-alphanumeric characters replaced with a percent (%) sign followed by two hex digits.</p>
+              <p>Percent-encodes every character that is not a letter or digit, so the value is safe in a URL.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1172,7 +1173,7 @@ export default function Formulas() {
             <div className="formula-doc">
               <h2>usa_zip_code<span className="params">(value)</span></h2>
               <span className="formula-type-badge">string</span>
-              <p>Returns a copy of the receiver with only the first 5 digits preserved.</p>
+              <p>Keeps only the first five digits, turning a ZIP+4 into a standard U.S. ZIP code.</p>
               <table className="table table-bordered table-striped table-sm w-100">
                 <tr>
                   <th>Argument</th>
@@ -1193,10 +1194,10 @@ export default function Formulas() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

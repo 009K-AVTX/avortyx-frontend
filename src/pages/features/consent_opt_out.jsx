@@ -1,7 +1,8 @@
 // /features/consent_opt_out.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Consent & Opt-Out - Verifiable Consent Records and Automatic Opt-Out Handling | Avortyx",
-  description: "Capture a verifiable consent record for every lead and honor opt-outs automatically.",
+  title: "Consent & Opt-Out | Proof of consent and automatic opt-outs | Avortyx",
+  description: "Avortyx stores verifiable consent with each lead, can block calls that lack it, and honors opt-out keywords automatically with an immutable log.",
   bodyClass: "avortyx_marketing features_consent_opt_out ",
   layout: "feature",
 }
@@ -20,54 +21,53 @@ export default function ConsentOptOut() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Security & Compliance Tools</p>
           <h1 className="fw-bold mb-2">Consent & Opt-Out</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Capture a verifiable consent record for every lead and honor opt-outs automatically.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Keep proof of consent with every lead, and let opt-outs take effect everywhere the moment they arrive.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
             {" "}
-            <a href="https://avortyx.com/request-access" className="btn btn-outline-td-green">Request Access</a>
+            <a href="/request-access" className="btn btn-outline-td-green">Request Access</a>
           </div>
         </div>
       </section>
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <h3>Consent Capture</h3>
+            <h3>Proof of consent on the call</h3>
             <p>
-              Tie a verifiable consent record to the lead. Avortyx captures{" "}
+              Avortyx attaches a verifiable consent record to the lead. It captures{" "}
               <strong>Jornaya LeadiD</strong>
-              {" "}consent certificates per call, and can gate delivery to buyers through{" "}
+              {" "}certificates on each call and can check delivery against{" "}
               <strong>Jornaya TCPA Guardian</strong>
-              {" "}so leads that don't meet your configured TCPA requirements are not connected.
+              , so a lead that does not meet the TCPA requirements you set is never connected to a buyer.
             </p>
-            <h3>Opt-Out Handling</h3>
+            <h3>Opt-outs that stick</h3>
             <p>
-              Inbound{" "}
-              <strong>STOP / unsubscribe / cancel</strong>
-              {" "}keywords are detected and honored automatically, opting the contact out and recording an immutable opt-out log. Opt-outs cascade to matching leads and can also be applied manually or by a schedule action.
+              Replies such as{" "}
+              <strong>STOP, unsubscribe or cancel</strong>
+              {" "}are recognized automatically: the contact is opted out and an immutable record is written. The opt-out carries over to matching leads, and you can also apply one by hand or from a schedule.
             </p>
-            <h3>Built-In Audit Trail</h3>
+            <h3>An audit trail you can hand over</h3>
             <p>
-              Avortyx keeps immutable logs of opt-outs, contact blocks, DNC checks, change history, and signed attestations — and{" "}
+              Opt-outs, contact blocks, DNC checks, change history and signed attestations are all logged and cannot be altered.{" "}
               <a href="/features/data_export">Data Exports</a>
-              {" "}let you pull any of it into your own systems on a recurring schedule.
+              {" "}copy them to your own systems on a schedule, ready when an auditor asks.
             </p>
             <div className="bg-light border-start border-success border-4 rounded-3 p-4 small text-muted mb-4" style={{ marginTop: "60px" }}>
-              <p><strong>Important Legal Notice</strong></p>
+              <p><strong>Please read: compliance is shared</strong></p>
               <p>
-                The above tools help you operate your outbound calling and messaging program; they do not, on their own, guarantee compliance. You are{" "}
-                <strong>solely responsible</strong>
-                {" "}for configuring these controls and for complying with the Telephone Consumer Protection Act (TCPA), the FTC Telemarketing Sales Rule (TSR), all applicable FCC regulations, and any other applicable federal or state telemarketing and consumer privacy laws.
+                Avortyx gives you the controls to run a compliant calling and messaging program, but using them does not make a program compliant on its own. You remain{" "}
+                <strong>responsible</strong>
+                {" "}for how they are configured and for meeting the Telephone Consumer Protection Act (TCPA), the FTC Telemarketing Sales Rule (TSR), FCC regulations and every other federal and state law on telemarketing and consumer privacy that applies to you.
               </p>
               <p>
-                The Avortyx Platform is a real-time communications routing system and is{" "}
+                Avortyx routes calls in real time; it is{" "}
                 <strong>not</strong>
-                {" "}designed or guaranteed to serve as a permanent or long-term repository for call recordings, transcriptions, call logs, or consent records. You are responsible for exporting and securely storing all telephony, audio, and consent data in your own systems — including before any automated PII redaction — to satisfy your record-keeping obligations. Avortyx assumes no liability for the loss, auto-deletion, redaction, or unavailability of data stored solely within the Platform.
+                {" "}an archive. Recordings, transcripts, call logs and consent records should be exported to your own storage, including before any automatic PII redaction runs, so you can meet your record-keeping duties. Avortyx is not liable for data kept only on the platform that is later deleted, redacted or unavailable.
               </p>
               <p className="mb-0">
-                <strong>This overview does not constitute legal advice.</strong>
-                {" "}
-                <a target="_blank" href="/terms_of_service">Read the Terms of Service</a>
-                {" "}(Sections 2.3.6, 2.3.6.1, and 2.6) for full details.
+                <strong>Nothing here is legal advice.</strong>
+                <a target="_blank" href="/terms_of_service">See the Terms of Service</a>
+                {" "}for the full terms on compliance and data retention.
               </p>
             </div>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
@@ -81,10 +81,10 @@ export default function ConsentOptOut() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

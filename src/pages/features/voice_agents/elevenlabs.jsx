@@ -1,7 +1,8 @@
 // /features/voice_agents/elevenlabs.html
+import Bolt from '../../../components/Bolt.jsx'
 export const meta = {
-  title: "ElevenLabs AI Voice Agents | Call Tracking and Analytics | Avortyx",
-  description: "Put ElevenLabs voice agents on your inbound and outbound calls in Avortyx, routed with the same buyers, caps and tiers as your live team.",
+  title: "ElevenLabs + Avortyx | AI voice agents on your calls",
+  description: "Import your ElevenLabs voice agents into Avortyx in one click and route them like your live team, with hours, caps and concurrency.",
   bodyClass: "avortyx_marketing features_voice_agents_elevenlabs ",
   layout: "feature",
 }
@@ -20,7 +21,7 @@ export default function Elevenlabs() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
           <h1 className="fw-bold mb-2">ElevenLabs</h1>
-          <p className="lead mktg-subpage-hero-subtitle">AI Voice Agents in Avortyx. ElevenLabs builds some of the most natural-sounding AI voice agents available today — put them on your inbound and outbound calls in minutes, and route them with the same controls you use for your live team.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Import the voice agents you built in ElevenLabs and put them on inbound and outbound calls in minutes, routed with the same controls as your live team.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -30,37 +31,37 @@ export default function Elevenlabs() {
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
             <p className="text-muted mb-1">
-              <strong>Bring your ElevenLabs agents to every call.</strong>
-              {" "}Natural-sounding AI voice on your inbound and outbound calls.
+              <strong>Your ElevenLabs agents, on real calls.</strong>
+              {" "}Natural voices answering and qualifying inbound and outbound calls.
             </p>
             <img alt="ElevenLabs" className="img-fluid rounded my-3" width="200" src="/assets/avx-site/img/elevenlabs.jpg" />
-            <p>Paste an ElevenLabs API key and Avortyx shows every agent you have built. Pick the ones you want and import them in one click — we handle all the telephony setup.</p>
+            <p>Paste an ElevenLabs API key and Avortyx lists every agent in your account. Choose the ones you want and import them; Avortyx handles the telephony behind the scenes.</p>
             <ul className="text-muted">
               <li>
-                <strong>One-click import</strong>
-                {" "}— we handle the telephony setup; re-import any time to pull in new or edited agents.
+                <strong>Import in one click</strong>
+                {" "}— the phone setup is done for you, and re-importing picks up new or changed agents.
               </li>
               <li>
-                <strong>Full routing control</strong>
-                {" "}— set hours of operation, caps, and concurrency, and run as a primary destination, after-hours fallback, or overflow.
+                <strong>Route it like a person</strong>
+                {" "}— hours, caps and concurrency, as the main destination, an after-hours fallback or overflow.
               </li>
               <li>
-                <strong>Live data sync</strong>
-                {" "}— everything the agent gathers syncs to the call record in real time and powers your reporting.
+                <strong>Everything on the record</strong>
+                {" "}— details the agent collects are written to the call as it happens and show up in your reports.
               </li>
             </ul>
-            <h3>Three Steps To Get Started</h3>
+            <h3>Up and running in three steps</h3>
             <ol className="spacious">
               <li>
-                Create an ElevenLabs API key with write access at{" "}
+                In ElevenLabs, create an API key with write access at{" "}
                 <a href="https://elevenlabs.io/app/settings/api-keys" target="_blank" rel="noopener noreferrer">elevenlabs.io / Settings / API Keys</a>
                 .
               </li>
-              <li>Add the ElevenLabs integration on the <a href="/features/integrations">Integrations</a> page and paste your key.</li>
-              <li>Pick the agents you want and click Import. They are ready to take calls right away.</li>
+              <li>In Avortyx, add the ElevenLabs integration on the <a href="/features/integrations">Integrations</a> page and paste the key.</li>
+              <li>Select your agents and import them. They can take calls straight away.</li>
             </ol>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/users/sign_in" className="btn btn-td-green">Connect ElevenLabs</a>
+              <a href="/request-access" className="btn btn-td-green">Connect ElevenLabs</a>
               {" "}
               <a href="/features/voice_agents" className="btn btn-outline-td-green">All AI Voice Agents</a>
             </div>
@@ -70,10 +71,10 @@ export default function Elevenlabs() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

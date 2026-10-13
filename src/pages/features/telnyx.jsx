@@ -1,7 +1,8 @@
 // /features/telnyx.html
+import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Multiple Telephone Providers | Call Tracking and Analytics | Avortyx",
-  description: "Bring your Telnyx numbers to Avortyx and route every call with the same buyers, caps and tiers.",
+  title: "Telnyx + Avortyx | Your Telnyx numbers, Avortyx routing",
+  description: "Link Telnyx to Avortyx, import or buy Telnyx numbers, and route every call through Avortyx intent scoring and buyer selection.",
   bodyClass: "avortyx_marketing features_multiple_telephone_providers ",
   layout: "feature",
 }
@@ -19,8 +20,8 @@ export default function Telnyx() {
             </a>
           </div>
           <p className="mktg-subpage-hero-eyebrow">Phone Numbers</p>
-          <h1 className="fw-bold mb-2">Multiple Telephone Providers</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Connect with multiple VoIP providers for maximum flexibility and redundancy.</p>
+          <h1 className="fw-bold mb-2">Telnyx + Avortyx</h1>
+          <p className="lead mktg-subpage-hero-subtitle">Run your Telnyx numbers through Avortyx, so every call is scored and routed while it is still ringing.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -34,82 +35,69 @@ export default function Telnyx() {
               <div className="flow-diagram">
                 <div className="flow-node">
                   <div className="flow-node-icon bg-primary text-white"><i className="fa-solid fa-link" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Link Account</div>
-                  <div className="flow-node-desc">Connect Plivo, Twilio, or Telnyx</div>
+                  <div className="flow-node-label">Link Telnyx</div>
+                  <div className="flow-node-desc">Add your Telnyx API credentials</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-info text-white"><i className="fa-solid fa-file-import" aria-hidden="true" /></div>
                   <div className="flow-node-label">Import Numbers</div>
-                  <div className="flow-node-desc">Bring existing numbers in one click</div>
+                  <div className="flow-node-desc">Existing Telnyx numbers in one click</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
                   <div className="flow-node-icon bg-warning text-white"><i className="fa-solid fa-cart-shopping" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Purchase Numbers</div>
-                  <div className="flow-node-desc">Provision new numbers from any provider</div>
+                  <div className="flow-node-label">Buy More</div>
+                  <div className="flow-node-desc">Search Telnyx inventory by area code</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
-                  <div className="flow-node-icon bg-success text-white"><i className="fa-solid fa-phone-volume" aria-hidden="true" /></div>
-                  <div className="flow-node-label">Calls & Texts</div>
-                  <div className="flow-node-desc">Make and receive on every number</div>
+                  <div className="flow-node-icon bg-success text-white"><i className="fa-solid fa-route" aria-hidden="true" /></div>
+                  <div className="flow-node-label">Route on Avortyx</div>
+                  <div className="flow-node-desc">Scored, screened and sent to buyers</div>
                 </div>
               </div>
             </div>
-            <p>With Avortyx, you can now connect your existing service provider with Twilio, Plivo, Telnyx, or using SIP (Session Initiation Protocol). By doing this, your on-premise telecom assets will have dynamic and powerful intelligence and benefit form all communications capabilities that Twilio, Plivo, and Telnyx offer in the cloud.</p>
-            <p>While most call tracking softwares insist on supplying VOIP device, with Avortyx, you have the freedom to bring in your own VOIP provider using SIP-IN. Here are some of the providers we are currently integrated with:</p>
+            <p>Telnyx gives you its own network and number inventory; Avortyx adds the decision on top. Link the account and your Telnyx numbers start routing through Avortyx, with screening, scoring and buyer selection on every call.</p>
             <p className="text-muted mb-1">
-              <strong>Providers we integrate with.</strong>
-              {" "}Connect your existing accounts or route in your own carrier over SIP-IN.
+              <strong>Your carrier, our routing engine.</strong>
+              {" "}Telnyx keeps carrying the minutes; Avortyx decides where every call goes.
             </p>
             <div className="d-flex flex-wrap gap-4 align-items-center my-3">
-              <img alt="Plivo" className="voip-provider-logo" src="/assets/avx-site/img/plivo.webp" />
-              {" "}
               <img alt="Telnyx" className="voip-provider-logo" src="/assets/avx-site/img/telnyx.webp" />
-              {" "}
-              <img alt="Twilio" className="voip-provider-logo" src="/assets/avx-site/img/twilio.webp" />
-              {" "}
-              <img alt="Zadarma" className="voip-provider-logo" src="/assets/avx-site/img/zadarma.webp" />
-              {" "}
-              <img alt="Sonetel" className="voip-provider-logo" src="/assets/avx-site/img/sonetel.webp" />
-              {" "}
-              <img alt="Onsip" className="voip-provider-logo" src="/assets/avx-site/img/onsip.webp" />
-              {" "}
-              <img alt="Avoxi" className="voip-provider-logo" src="/assets/avx-site/img/avoxi.webp" />
             </div>
-            <h2 className="mt-5 mb-4">More on Plivo, Twilio, & Telnyx</h2>
-            <p>Avortyx's Plivo, Twilio, and Telnyx integrations are the most impressive and commonly used tools on Avortyx. With any of them you can:</p>
+            <h2 className="mt-5 mb-4">What you can do with Telnyx on Avortyx</h2>
+            <p>Once the account is linked, your Telnyx numbers behave like any other Avortyx number:</p>
             <ul className="text-muted">
               <li>
-                <strong>Link your existing accounts</strong>
-                {" "}— connect by entering your API credentials; Avortyx securely stores your keys and manages numbers, calls, and SMS through a single interface.
+                <strong>Keep your account</strong>
+                {" "}— Avortyx stores your Telnyx keys securely and manages numbers, calls and SMS through them.
               </li>
               <li>
-                <strong>Import your existing numbers</strong>
-                {" "}— bring numbers in with one click, immediately available for assignment to offers, traffic sources, and number pools.
+                <strong>Import what you own</strong>
+                {" "}— existing numbers come over in one click, ready to attach to offers, traffic sources and number pools.
               </li>
               <li>
-                <strong>Purchase new numbers</strong>
-                {" "}— search and provision from any connected provider, filtering by country, area code, and number type (local or toll-free).
+                <strong>Buy from inside Avortyx</strong>
+                {" "}— search Telnyx inventory by country, area code and type (local or toll-free) without opening their console.
               </li>
               <li>
-                <strong>Send and receive SMS</strong>
-                {" "}— outbound messages, inbound texts, and automated SMS flows, with unified delivery tracking across all connected providers.
+                <strong>Text as well as talk</strong>
+                {" "}— send and receive SMS and run automated SMS flows, with delivery tracked on the lead.
               </li>
             </ul>
-            <h3>Unified Number Management</h3>
-            <p>Avortyx provides a single interface for managing phone numbers (DIDs) across all connected providers — purchase, assign, and release through one lifecycle, and attach numbers at the offer, traffic-source, or number-pool level.</p>
+            <h3>A second carrier in minutes</h3>
+            <p>Already on another carrier? Adding Telnyx gives your campaigns a second network. Spread numbers across both, and Avortyx routes them all with the same rules.</p>
           </div>
         </div>
       </section>
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to get started?</h2>
-          <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
+          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
+            <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

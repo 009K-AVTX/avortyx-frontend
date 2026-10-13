@@ -1,4 +1,5 @@
 import BrandMark from './BrandMark.jsx'
+import Bolt from './Bolt.jsx'
 
 const FEATURE_SECTIONS = [
   ['ping-post', 'Ping/Post'],
@@ -47,8 +48,8 @@ export default function Navbar({ brandHref }) {
               <a className="nav-link" href="/p/contact" id="supportDropdown"> Support </a>
               <ul className="dropdown-menu avx-support-menu" aria-labelledby="supportDropdown">
                 <li>
-                  <a className="dropdown-item" href="https://support.trackdrive.com/" target="_blank" rel="noopener noreferrer" title="Avortyx Help Center">
-                    <i className="fa-solid fa-book" aria-hidden="true" /> Help Center <span className="visually-hidden">(opens in a new tab)</span>
+                  <a className="dropdown-item" href="/blog" title="Avortyx guides">
+                    <i className="fa-solid fa-book" aria-hidden="true" /> Guides
                   </a>
                 </li>
                 <li>
@@ -65,10 +66,8 @@ export default function Navbar({ brandHref }) {
             </li>
             {/* the same button as avortyx.com's header: pill, keppel-400 on keppel-950, with its dark bolt */}
             <li className="nav-item ms-lg-3">
-              <a className="avx-request-access" href="https://avortyx.com/request-access">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
-                  <path d="M213.85,125.46l-112,120a8,8,0,0,1-13.69-7l14.66-73.33L45.19,143.49a8,8,0,0,1-3-13l112-120a8,8,0,0,1,13.69,7L153.18,90.9l57.63,21.61a8,8,0,0,1,3,12.95Z" />
-                </svg>
+              <a className="avx-request-access" href="/request-access">
+                <Bolt />
                 Request Access
               </a>
             </li>
