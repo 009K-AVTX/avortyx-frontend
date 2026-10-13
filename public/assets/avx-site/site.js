@@ -624,9 +624,8 @@
 
 /* ---------- Trustpilot TrustBox (home page) ----------
    Live: loads Trustpilot's official bootstrap script, which renders the real reviews into
-   .trustpilot-widget. No business unit ID yet: on localhost only, the section shows sample
-   reviews in the carousel layout, marked "Sample data", so the design can be reviewed.
-   The sample never shows on the deployed site. */
+   .trustpilot-widget. No business unit ID yet: the section shows sample reviews in the
+   carousel layout, every part of it marked as sample, until the real widget replaces it. */
 (function () {
   'use strict';
   var box = document.querySelector('[data-avx-tp]');
@@ -639,8 +638,6 @@
     document.head.appendChild(s);
     return;
   }
-  if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
-
   // [name, stars, title, text, when]
   var SAMPLE = [
     ['Sample reviewer A', 5, 'Routing set up in an afternoon', 'Sample text: we moved our health campaigns over and calls started reaching buyers the same day.', '2 days ago'],
@@ -655,7 +652,7 @@
   }
   var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
   box.querySelector('.avx-tp-sample').innerHTML =
-    '<span class="avx-tp-flag">Sample data · localhost only</span>' +
+    '<span class="avx-tp-flag">Sample data · not real reviews</span>' +
     '<div class="avx-tp-carousel">' +
       '<div class="avx-tp-score"><b>Excellent</b>' + stars(5, 'avx-tp-stars-lg') +
       '<span>Based on <u>sample</u> reviews</span>' +

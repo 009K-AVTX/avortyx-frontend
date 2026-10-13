@@ -1,7 +1,6 @@
 // Trustpilot reviews: the official TrustBox embed. It shows Avortyx's real Trustpilot reviews
 // once TRUSTPILOT.businessUnitId is set (Trustpilot Business › Integrations › TrustBox library,
-// "Business unit ID"). Until then the section stays hidden on the live site, and site.js fills
-// it with clearly labelled sample reviews on localhost only, so the layout can be reviewed.
+// "Business unit ID"). Until then site.js fills it with clearly labelled sample reviews.
 export const TRUSTPILOT = {
   businessUnitId: '',
   domain: 'avortyx.com',
@@ -12,7 +11,7 @@ export const TRUSTPILOT = {
 export default function TrustBox() {
   const live = Boolean(TRUSTPILOT.businessUnitId)
   return (
-    <section className="avx-tp" aria-label="Customer reviews on Trustpilot" data-avx-tp={live ? 'live' : 'sample'} hidden={!live}>
+    <section className="avx-tp" aria-label="Customer reviews on Trustpilot" data-avx-tp={live ? 'live' : 'sample'}>
       <div className="container">
         <p className="avx-tp-label">What customers say on Trustpilot</p>
         {live ? (
