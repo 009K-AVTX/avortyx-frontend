@@ -90,7 +90,7 @@
 
   // these stagger inside an already-revealing parent
   var STAGGER = '.flow-node, .flow-arrow, .flow-arrow-down, .card, .integration-logo-card, li';
-  var SKIP = '.marketing-hero-simple, .mktg-lead-flow, .modal, nav, header, .navbar';
+  var SKIP = '.marketing-hero-simple, .mktg-lead-flow, .avx-people, .modal, nav, header, .navbar';
 
   function initReveal() {
     if (!('IntersectionObserver' in window)) return;
@@ -2484,25 +2484,25 @@
 
   // ---------- "More ways to win the call": a small live preview on each card ----------
 
-  var VOICE_SCRIPT = [
-    ['Are you currently insured?', 'Yes, with GEICO.', 'Apex Insurance'],
-    ['How many vehicles are on the policy?', 'Two cars.', 'Northwind Benefits'],
-    ['What ZIP code are you calling from?', '78704.', 'Summit Direct'],
-    ['Are you 65 or older?', 'I turn 66 next month.', 'Meridian Health']
+  var SCORE_SCRIPT = [
+    ['I need to switch my Medicare plan before Friday.', 'Intent 0.93 · ready to enroll', 'Meridian Health'],
+    ['We have two cars and the renewal just went up.', 'Intent 0.88 · price shopper', 'Northwind Benefits'],
+    ['Can someone quote solar for a house we just bought?', 'Intent 0.91 · homeowner', 'Summit Direct'],
+    ['I was in an accident and need a lawyer today.', 'Intent 0.95 · urgent', 'Apex Legal']
   ];
 
-  // the voice agent asks, the caller answers, the agent warm-transfers
+  // the caller speaks, the AI scores the intent, the call routes to the matching buyer
   function miniVoice(m) {
     var ai = m.querySelector('.avx-mv-ai'), caller = m.querySelector('.avx-mv-caller'), tag = m.querySelector('.avx-mv-tag'), n = 0;
-    ai.insertAdjacentHTML('beforeend', '<i class="avx-mv-wave"><i></i><i></i><i></i><i></i></i>');
+    caller.insertAdjacentHTML('beforeend', '<i class="avx-mv-wave"><i></i><i></i><i></i><i></i></i>');
     demoLoop(m, 6400, function (at) {
-      var s = VOICE_SCRIPT[n++ % VOICE_SCRIPT.length];
-      ai.querySelector('span').textContent = s[0];
-      caller.querySelector('span').textContent = s[1];
-      tag.innerHTML = '<i class="fa-solid fa-right-left" aria-hidden="true"></i>Warm transfer → ' + s[2];
+      var s = SCORE_SCRIPT[n++ % SCORE_SCRIPT.length];
+      caller.querySelector('span').textContent = '“' + s[0] + '”';
+      ai.querySelector('span').textContent = s[1];
+      tag.innerHTML = '<i class="fa-solid fa-route" aria-hidden="true"></i>Routed → ' + s[2];
       [ai, caller, tag].forEach(function (x) { x.classList.remove('avx-on', 'avx-talk'); });
-      at(200, function () { ai.classList.add('avx-on', 'avx-talk'); });
-      at(1800, function () { ai.classList.remove('avx-talk'); caller.classList.add('avx-on'); });
+      at(200, function () { caller.classList.add('avx-on', 'avx-talk'); });
+      at(1800, function () { caller.classList.remove('avx-talk'); ai.classList.add('avx-on'); });
       at(3200, function () { tag.classList.add('avx-on'); });
     });
   }
@@ -2525,7 +2525,7 @@
 
   var API_CALLS = [
     ['POST', '/v1/calls', '201', [['id', '"call_8f2k1x"'], ['buyer', '"Apex Insurance"'], ['payout', '45.00']]],
-    ['GET', '/v1/buyers?cap=open', '200', [['count', '4'], ['top', '"Northwind"'], ['bid', '38.00']]],
+    ['GET', '/v1/buyers?cap=open', '200', [['count', '4'], ['top', '"Northwind"'], ['payout', '38.00']]],
     ['POST', '/v1/leads', '202', [['id', '"lead_31qz7a"'], ['sequence', '"solar-quote"'], ['status', '"queued"']]]
   ];
 
@@ -2645,33 +2645,33 @@
       },
       {
         aura: 'avx-aura-blue',
-        badge: '62ms RTB Auction',
+        badge: 'Rule-Based Routing',
         badgeCls: 'bg-info-subtle text-info',
         latency: 'Sub-85ms Edge Delivery',
-        status: 'Ping-Tree: 12 Buyers Bidding · High Bid $68.50 Won',
-        m1: '1,420', m1Label: 'Active Bidding Buyers',
-        m2: '62ms', m2Label: 'Sub-85ms Auction Velocity',
-        m3: '96.8%', m3Label: 'Ping-Post Fill Rate',
+        status: 'Routing: 12 Buyers Checked · Matched Apex Insurance',
+        m1: '1,420', m1Label: 'Buyers Online',
+        m2: '85ms', m2Label: 'Average Routing Time',
+        m3: '96.8%', m3Label: 'Calls Matched to a Buyer',
         m4: '+34.2%', m4Label: 'Average EPC Yield Lift'
       },
       {
         aura: 'avx-aura-purple',
         badge: '99.94% Clean Traffic',
         badgeCls: 'bg-primary-subtle text-primary',
-        latency: 'Zero TCPA Leaks',
+        latency: 'TCPA & DNC Screening',
         status: 'Carrier Shield: STIR/SHAKEN A-Attestation Verified',
         m1: '18,940', m1Label: 'Pre-Ring Calls Screened',
         m2: '0ms', m2Label: 'Dial-Leg Latency Penalty',
         m3: '99.94%', m3Label: 'Clean Validated Traffic',
-        m4: '100%', m4Label: 'TCPA & DNC Safe Pass'
+        m4: '5', m4Label: 'Checks Before Each Ring'
       },
       {
         aura: 'avx-aura-orange',
-        badge: '100% Attributed',
+        badge: 'Tied to Its Source',
         badgeCls: 'bg-warning-subtle text-warning',
         latency: '28ms In-Flight Lookup',
         status: 'Caller 360°: Ad Tokens & Demographics Enriched',
-        m1: '100%', m1Label: 'Deterministic Attribution',
+        m1: 'Every', m1Label: 'Call Tagged to Its Source',
         m2: '28ms', m2Label: 'In-Flight Demographic Match',
         m3: '14', m3Label: 'Ad Platforms Synced',
         m4: '4.9x', m4Label: 'LTV Prediction Accuracy'
@@ -3265,7 +3265,6 @@
 
   var TOUR = [
     ['calls', 'Live calls', 'calls', 'Every call with its source, buyer and revenue', callLog],
-    ['pingpost', 'Ping/Post', 'ping-post', 'Bids, accept rate and the ping-to-post funnel', ppDashboard],
     ['sources', 'Sources', 'reports', 'Margin by traffic source', ppSources],
     ['usage', 'Usage', 'billing', 'Usage and cost, updated live', ppUsage]
   ];
@@ -3343,21 +3342,22 @@
 
   // ---------- Hero: a live decision, one call at a time ----------
   // The card ships finished in the HTML (that is what shows without motion); this replays it:
-  // the call rings in, the AI scores it, three buyers bid and the winner gets the call.
+  // the call rings in, the AI scores it, the buyer rules are checked and the one buyer that
+  // matches gets the call. buyers: [name, payout] for the match, [name, why not] for the rest.
 
   var DECISIONS = [
     { num: '(312) 555-0142', meta: 'Google Ads · Medicare', quote: 'Hi, I’m looking to switch my Medicare plan before the deadline.',
       intent: .91, sent: ['Positive', 'pos'], tags: ['Plan switch', 'Deadline', 'Ready to enroll'],
-      bids: [['Apex Insurance', 64], ['Meridian Health', 58], ['Northwind Benefits', 52]], why: 'Highest bid · intent above 0.80 · licensed in IL', ms: 84 },
+      buyers: [['Apex Insurance', 64], ['Meridian Health', 'Cap reached'], ['Northwind Benefits', 'Closed now']], why: 'Intent above 0.80 · licensed in IL · open capacity', ms: 85 },
     { num: '(720) 555-0187', meta: 'Meta · Home solar', quote: 'We just closed on a house and want a quote for panels.',
       intent: .87, sent: ['Positive', 'pos'], tags: ['Homeowner', 'Quote request'],
-      bids: [['Summit Solar', 48], ['Harbor Home', 41], ['Pinnacle Energy', 37]], why: 'Highest bid · homeowner verified · serves CO', ms: 79 },
+      buyers: [['Summit Solar', 48], ['Harbor Home', 'Out of area'], ['Pinnacle Energy', 'Cap reached']], why: 'Homeowner verified · serves CO · open capacity', ms: 85 },
     { num: '(305) 555-0119', meta: 'Bing · Auto insurance', quote: 'My policy renews Friday and the price just went up again.',
       intent: .94, sent: ['Neutral', 'neutral'], tags: ['Renewal due', 'Price shopper'],
-      bids: [['Pinnacle Auto', 39], ['Apex Insurance', 36], ['Harbor Mutual', 31]], why: 'Highest bid · renewal window · open capacity', ms: 88 },
+      buyers: [['Pinnacle Auto', 39], ['Apex Insurance', 'Closed now'], ['Harbor Mutual', 'Cap reached']], why: 'Renewal window · open hours · open capacity', ms: 85 },
     { num: '(617) 555-0164', meta: 'Organic · Legal', quote: 'I was in an accident last week and need to talk to a lawyer.',
       intent: .89, sent: ['Urgent', 'urgent'], tags: ['Recent incident', 'Seeks counsel'],
-      bids: [['Lakeside Legal', 112], ['Beacon Law', 104], ['Harbor Legal', 95]], why: 'Highest bid · practice area match · MA bar', ms: 91 }
+      buyers: [['Lakeside Legal', 112], ['Beacon Law', 'Not licensed in MA'], ['Harbor Legal', 'Closed now']], why: 'Practice area match · MA bar · open capacity', ms: 85 }
   ];
 
   function initDecision() {
@@ -3411,13 +3411,13 @@
       say('Incoming call', 'caller');
       if (q('voice-bars')) q('voice-bars').classList.add('avx-active');
       // the buyers, in a fresh order each call so the winner moves around
-      var order = d.bids.map(function (b, i) { return i; }).sort(function () { return Math.random() - 0.5; });
+      var order = d.buyers.map(function (b, i) { return i; }).sort(function () { return Math.random() - 0.5; });
       list.innerHTML = '';
       var rows = order.map(function (i) {
         var li = el('li', '', '<span class="avx-fc-b-main"><i></i><span class="avx-fc-b-name"></span></span><span class="avx-fc-b-bid"></span>');
-        li.querySelector('i').textContent = initials(d.bids[i][0]);
-        li.querySelector('.avx-fc-b-name').textContent = d.bids[i][0];
-        li.querySelector('.avx-fc-b-bid').textContent = '$' + d.bids[i][1].toFixed(2);
+        li.querySelector('i').textContent = initials(d.buyers[i][0]);
+        li.querySelector('.avx-fc-b-name').textContent = d.buyers[i][0];
+        li.querySelector('.avx-fc-b-bid').textContent = '';
         li.dataset.win = i === 0 ? '1' : '';
         list.appendChild(li);
         return li;
@@ -3442,20 +3442,23 @@
           if (p < 1) requestAnimationFrame(count);
         })(t0);
       });
-      later(2800, function () { link2.classList.add('avx-on'); say('Simulating ping auction', 'buyers'); emit('auction'); });
+      later(2800, function () { link2.classList.add('avx-on'); say('Checking buyer rules', 'buyers'); emit('auction'); });
       rows.forEach(function (li, k) { later(3300 + k * 160, function () { li.className = 'avx-scan'; emit('ping', { row: k }); }); });
       later(3300 + rows.length * 160 + 250, function () {
         rows.forEach(function (li) {
           if (li.dataset.win) {
             li.className = 'avx-win';
-            li.querySelector('.avx-fc-b-bid').innerHTML = '<b>$' + d.bids[0][1].toFixed(2) + '</b> <span class="avx-fc-win-pill">WON</span>';
+            li.querySelector('.avx-fc-b-bid').innerHTML = '<b>$' + d.buyers[0][1].toFixed(2) + '</b> <span class="avx-fc-win-pill">MATCHED</span>';
           } else {
             li.className = 'avx-lose';
+            var why = li.querySelector('.avx-fc-b-bid');
+            why.textContent = d.buyers[order[rows.indexOf(li)]][1];
+            why.classList.add('avx-fc-b-why');
           }
         });
         emit('won', { row: rows.findIndex(function (li) { return li.dataset.win; }) });
-        q('winner').textContent = d.bids[0][0];
-        q('pay').textContent = '$' + d.bids[0][1].toFixed(2);
+        q('winner').textContent = d.buyers[0][0];
+        q('pay').textContent = '$' + d.buyers[0][1].toFixed(2);
         q('ms').textContent = d.ms + 'ms';
         status.classList.add('avx-on');
         say('Bridged in ' + d.ms + 'ms', 'buyers');
@@ -3941,6 +3944,7 @@
   var VOICE_STATE = ['Greeting · consent captured', 'Qualifying caller', 'Intent 0.93 · eligible', 'Transferring to Apex Insurance'];
 
   function initVoice(panel) {
+    if (!panel) return { stop: function () {} };
     var play = panel.querySelector('[data-vc="play"]'), lines = panel.querySelector('[data-vc="lines"]');
     var state = panel.querySelector('[data-vc="state"]'), steps = panel.querySelectorAll('[data-vc="steps"] li');
     var synth = window.speechSynthesis, playing = false, timer = null, token = 0;
@@ -4109,11 +4113,11 @@
     },
     formulas: function (v) {
       v.className += ' avx-viz-ex';
-      v.innerHTML = '<code><i>if</i>(intent &gt; 0.8, bid * 1.2, bid)</code><span>intent <b data-i>0.91</b> → bid <b data-b>$76.80</b></span>';
+      v.innerHTML = '<code><i>if</i>(intent &gt; 0.8, payout * 1.2, payout)</code><span>intent <b data-i>0.91</b> → payout <b data-b>$76.80</b></span>';
       return [2400, function () {
-        var it = rnd(.55, .97), bid = 64;
+        var it = rnd(.55, .97), payout = 64;
         v.querySelector('[data-i]').textContent = it.toFixed(2);
-        v.querySelector('[data-b]').textContent = '$' + (it > .8 ? bid * 1.2 : bid).toFixed(2);
+        v.querySelector('[data-b]').textContent = '$' + (it > .8 ? payout * 1.2 : payout).toFixed(2);
       }];
     },
     call_recordings: function (v) {
@@ -4474,10 +4478,10 @@
       entities: ['Medicare Part D', 'Aged 67', 'Prescription Check', 'Open Enrollment'],
       score: '0.96',
       epc: '$68.40',
-      latency: '38ms',
+      latency: '85ms',
       lift: '+36.2%',
       summary: 'Caller is comparing Part D deductibles and requesting a licensed bilingual agent before the Friday open-enrollment cutoff.',
-      json: '{\n  "action": "route_immediate",\n  "buyer": "Meridian Senior Health",\n  "bid": "$68.40",\n  "reason": "Top Bidder + Bilingual + Florida License",\n  "bridge_latency": "38ms"\n}'
+      json: '{\n  "action": "route_immediate",\n  "buyer": "Meridian Senior Health",\n  "bid": "$68.40",\n  "reason": "Top Bidder + Bilingual + Florida License",\n  "bridge_latency": "85ms"\n}'
     },
     solar: {
       prompt: 'Filter synthetic robocalls, verify homeowner status, and route to top-bidding installer.',
@@ -4488,10 +4492,10 @@
       entities: ['Single-family Owner', 'Phoenix, AZ', '$300+ Utility Bill', 'Battery Storage'],
       score: '0.92',
       epc: '$54.00',
-      latency: '44ms',
+      latency: '85ms',
       lift: '+28.5%',
       summary: 'Homeowner in Arizona with monthly electric bill over $280 looking for battery backup and zero-down financing options.',
-      json: '{\n  "action": "route_immediate",\n  "buyer": "Summit Residential Solar",\n  "bid": "$54.00",\n  "reason": "Single-Family Verified + Bill > $250 + Open Cap",\n  "bridge_latency": "44ms"\n}'
+      json: '{\n  "action": "route_immediate",\n  "buyer": "Summit Residential Solar",\n  "bid": "$54.00",\n  "reason": "Single-Family Verified + Bill > $250 + Open Cap",\n  "bridge_latency": "85ms"\n}'
     },
     fraud: {
       prompt: 'Screen incoming call for AI-generated cloned speech, VoIP disposable numbers, and litigator lists.',
@@ -4502,10 +4506,10 @@
       entities: ['Robocall Pattern #44', 'Disposable VoIP Trunk', 'Known Serial Litigator CID'],
       score: '0.12',
       epc: '$0.00',
-      latency: '22ms',
+      latency: '85ms',
       lift: 'Saved $45 Waste',
       summary: 'Anomalous audio frequency detected: 98.2% likelihood of synthetic voice generation. Carrier marked as high-risk disposable VoIP.',
-      json: '{\n  "action": "drop_and_blacklist",\n  "buyer": "BLOCKED_BOT",\n  "bid": "$0.00",\n  "reason": "Synthetic voice model detected + VOIP burner flagged",\n  "bridge_latency": "22ms"\n}'
+      json: '{\n  "action": "drop_and_blacklist",\n  "buyer": "BLOCKED_BOT",\n  "bid": "$0.00",\n  "reason": "Synthetic voice model detected + VOIP burner flagged",\n  "bridge_latency": "85ms"\n}'
     },
     auto: {
       prompt: 'Run instant ping-tree auction across 5 carriers for a driver seeking multi-vehicle full coverage.',
@@ -4516,10 +4520,10 @@
       entities: ['2 Vehicles', 'Full Coverage', 'Renewal in 10 Days', 'Clean Record'],
       score: '0.94',
       epc: '$48.50',
-      latency: '62ms',
+      latency: '85ms',
       lift: '+41.0%',
       summary: 'High-intent driver with 2 clean vehicles and existing policy renewing in 10 days. 4 buyers submitted simultaneous bids within 60ms.',
-      json: '{\n  "action": "route_immediate",\n  "buyer": "Pinnacle Auto Insurance",\n  "bid": "$48.50",\n  "reason": "Multi-Vehicle Priority + Top Bid (Outbid runner-up by $6.50)",\n  "bridge_latency": "62ms"\n}'
+      json: '{\n  "action": "route_immediate",\n  "buyer": "Pinnacle Auto Insurance",\n  "bid": "$48.50",\n  "reason": "Multi-Vehicle Priority + Top Bid (Outbid runner-up by $6.50)",\n  "bridge_latency": "85ms"\n}'
     }
   };
 

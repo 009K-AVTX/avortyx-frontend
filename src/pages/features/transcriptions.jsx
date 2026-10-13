@@ -63,9 +63,7 @@ export default function Transcriptions() {
             <p>
               Understand every call without listening to it. Each{" "}
               <a href="/features/call_recordings">call recording</a>
-              {" "}is transcribed, summarized, scored and tagged as soon as the call ends, so QA and compliance teams can find coaching moments, one-sided calls and unhappy callers in seconds. Keyword matches can fire webhooks and hand calls to an{" "}
-              <a href="/features/voice_agents">AI Voice Agent</a>
-              {" "}automatically. And because Avortyx scores intent while calls are still ringing, transcripts are also how you check those scores against what callers actually said.
+              {" "}is transcribed, summarized, scored and tagged as soon as the call ends, so QA and compliance teams can find coaching moments, one-sided calls and unhappy callers in seconds. Keyword matches can fire webhooks automatically. And because Avortyx scores intent while calls are still ringing, transcripts are also how you check those scores against what callers actually said.
             </p>
             <h3>Every conversation, reviewable</h3>
             <p>Listen, read or search: each call works all three ways.</p>

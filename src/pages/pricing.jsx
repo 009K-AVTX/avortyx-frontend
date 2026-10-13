@@ -136,22 +136,9 @@ export default function Pricing() {
                 </tr>
                 <tr>
                   <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/ping_post">Ping/Post Per 1k</a>
-                    {" "}
-                    <sup>9</sup>
-                  </th>
-                  <td>$0.1200</td>
-                  <td>$0.0600</td>
-                  <td>$0.0500</td>
-                  <td>$0.0400</td>
-                  <td>$0.0200</td>
-                  <td>$0.0200</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold">
                     <a className="mktg-link-green" href="/features/transcriptions">AI Transcription</a>
                     {" "}
-                    <sup>10</sup>
+                    <sup>9</sup>
                   </th>
                   <td>$0.0350</td>
                   <td>$0.0325</td>
@@ -161,7 +148,7 @@ export default function Pricing() {
                   <td>$0.0200</td>
                 </tr>
                 <tr>
-                  <th className="fw-semibold">Recording Retention <sup>11</sup></th>
+                  <th className="fw-semibold">Recording Retention <sup>10</sup></th>
                   <td>$0.00040</td>
                   <td>$0.00040</td>
                   <td>$0.00040</td>
@@ -252,81 +239,6 @@ export default function Pricing() {
               <p className="text-muted pricing-calculator-note">Per-minute cost of an inbound call connected to a buyer. Every call record in Avortyx shows the same leg-by-leg breakdown.</p>
             </div>
           </div>
-          <div className="pricing-breakdown-showcase">
-            <h3 className="fw-bold mt-5">Ping/Post Cost Calculator</h3>
-            <ul className="list-unstyled text-muted pricing-calculator-intro">
-              <li className="d-flex mb-2">
-                <i className="fa-solid fa-check text-success me-2 mt-1" aria-hidden="true" />
-                {" "}
-                <span><strong>Repeat pings cost nothing.</strong> A ping repeated within 15 seconds is billed once.</span>
-              </li>
-              <li className="d-flex mb-2">
-                <i className="fa-solid fa-check text-success me-2 mt-1" aria-hidden="true" />
-                {" "}
-                <span><strong>You pay per 1,000 unique pings.</strong> Posts are priced the same way.</span>
-              </li>
-              <li className="d-flex mb-2">
-                <i className="fa-solid fa-check text-success me-2 mt-1" aria-hidden="true" />
-                {" "}
-                <span>
-                  <strong>Rate limits keep spend in check.</strong>
-                  {" "}Cap each endpoint and each traffic source, so a source that floods you with pings cannot run up your costs.
-                </span>
-              </li>
-            </ul>
-            <p className="text-muted pricing-calculator-intro">Enter your daily unique pings to see what a month would cost.</p>
-            <div className="pricing-calculator js-ping-calculator" data-days-per-month="30">
-              <div className="pricing-calculator-controls">
-                <label>
-                  {" "}
-                  <span>Minimum Monthly Commit</span>
-                  <select className="form-select js-ping-calc-commit" defaultValue="base">
-                    <option value="base" data-rate-per-1k="0.12">Pay As You Go</option>
-                    <option value="commit_50" data-rate-per-1k="0.06">$50</option>
-                    <option value="commit_250" data-rate-per-1k="0.05">$250</option>
-                    <option value="commit_1000" data-rate-per-1k="0.04">$1,000</option>
-                    <option value="commit_4000" data-rate-per-1k="0.02">$4,000</option>
-                    <option value="commit_8000" data-rate-per-1k="0.02">$8,000</option>
-                  </select>
-                </label>
-                {" "}
-                <label>
-                  {" "}
-                  <span>Unique Pings per Day</span>
-                  {" "}
-                  <input type="number" className="form-control js-ping-calc-per-day" min="0" step="1000" defaultValue="10000" />
-                  {" "}
-                </label>
-              </div>
-              <div className="pricing-calculator-breakdown">
-                <div className="pricing-calculator-row">
-                  <div className="pricing-calculator-row-info">
-                    <span className="pricing-calculator-row-label">Unique Pings Billed</span>
-                    {" "}
-                    <span className="js-ping-calc-unique-example pricing-calculator-row-example text-muted">10,000 per day x 30 days</span>
-                  </div>
-                  <div className="js-ping-calc-unique-count pricing-calculator-row-rate">300,000 /month</div>
-                </div>
-                <div className="pricing-calculator-row">
-                  <div className="pricing-calculator-row-info">
-                    <span className="pricing-calculator-row-label">Ping/Post Rate</span>
-                    {" "}
-                    <span className="pricing-calculator-row-example text-muted">Per 1,000 unique pings</span>
-                  </div>
-                  <div className="js-ping-calc-rate pricing-calculator-row-rate">$0.1200 /1k</div>
-                </div>
-                <div className="pricing-calculator-row pricing-calculator-row-total">
-                  <div className="pricing-calculator-row-info"><span className="pricing-calculator-row-label">Estimated Total</span></div>
-                  <div className="js-ping-calc-total pricing-calculator-row-rate">$36.00 /month</div>
-                </div>
-              </div>
-              <p className="text-muted pricing-calculator-note">
-                Estimate for a 30-day month. See the{" "}
-                <a className="mktg-link-green" href="/features/ping_post">Ping/Post feature page</a>
-                {" "}for rate limiting, bid management and the real-time dashboards.
-              </p>
-            </div>
-          </div>
         </div>
         <section className="pricing-faq-section">
           <div className="container pricing-faq-container">
@@ -394,7 +306,7 @@ export default function Pricing() {
               </p>
               <p>
                 <sup>5</sup>
-                {" "}Outbound dialing to consumers, such as power dialer and scheduled callback calls. It does not apply to inbound calls - connecting a buyer is included in the tracking rates. Outbound calls are billed on call duration, on the billing increment and minimum billable duration configured for your account - the Six Second Billing section of the rate sheet states yours.
+                {" "}Outbound dialing to consumers, such as lead automation and scheduled callback calls. It does not apply to inbound calls - connecting a buyer is included in the tracking rates. Outbound calls are billed on call duration, on the billing increment and minimum billable duration configured for your account - the Six Second Billing section of the rate sheet states yours.
               </p>
               <p>
                 <sup>6</sup>
@@ -440,12 +352,8 @@ export default function Pricing() {
                 <span className="pricing-footnote-badge">Webhook POST</span>
               </p>
               <p><sup>8</sup> Charged when an inbound call has nowhere eligible to go and is rejected.</p>
-              <p>
-                <sup>9</sup>
-                {" "}Rate per 1,000 unique Ping API requests, counting requests that are identical to one already received on the same endpoint once per 15 second window.
-              </p>
-              <p><sup>10</sup> Per minute of transcribed audio.</p>
-              <p><sup>11</sup> Monthly price per minute of recordings kept beyond the free 90 days.</p>
+              <p><sup>9</sup> Per minute of transcribed audio.</p>
+              <p><sup>10</sup> Monthly price per minute of recordings kept beyond the free 90 days.</p>
               <p className="mb-0">If more than 20% of call attempts in the last 30 days were abandoned (unanswered, 0 seconds), a $0.005 surcharge applies to each call.</p>
             </div>
           </div>

@@ -5,7 +5,7 @@ import Bolt from '../components/Bolt.jsx'
 
 export const meta = {
   title: "Advanced Playbooks For Call Intelligence, Real-Time Routing, And Pay-Per-Call Growth | Avortyx Blog",
-  description: "Practical guides on call routing, attribution, ping/post, compliance and AI from the team behind Avortyx.",
+  description: "Practical guides on call routing, attribution, compliance and AI from the team behind Avortyx.",
   bodyClass: "avortyx_marketing blog without-waves",
   layout: "site",
 }

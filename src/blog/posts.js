@@ -9,7 +9,7 @@
 export const COVER_VERSION = 4
 export const coverSrc = (slug, small) => `/assets/avx-blog/${slug}${small ? '-600' : ''}.webp?v=${COVER_VERSION}`
 
-export const CATEGORIES = ['Pay-per-call', 'Attribution', 'Ping/Post', 'Automation', 'Agents', 'Compliance', 'AI']
+export const CATEGORIES = ['Pay-per-call', 'Attribution', 'Automation', 'Compliance', 'AI']
 
 // screenshot sizes, for width/height on the <img> (and whether a 1000px copy exists)
 export const SHOTS = {
@@ -89,10 +89,10 @@ export const POSTS = [
       ['p', 'Raw call counts flatter weak sources. A report built on connected calls, duration over the client’s minimum and dispositions shows which sources the client is really paying for, and which ones to cut.'],
       ['example', 'Example: one month for one client', [['Calls received', '900'], ['Blocked before delivery', '70 (duplicates, spam, DNC)'], ['Delivered over the minimum', '640'], ['Billed', '640 calls, each with its screening record']], 'Illustrative figures.'],
       ['h2', 'Let price follow value'],
-      ['p', 'When several clients want the same traffic, a real-time auction lets each call go to the client who values it most at that moment, inside their caps and hours. Clients on fixed prices can still take part next to live bidders.'],
+      ['p', 'When several clients want the same traffic, revenue routing gives each call to the client paying the most for it, inside their caps and hours, and EPC routing favors the clients whose calls actually convert.'],
       ['h2', 'Play the same call'],
       ['p', 'Quality arguments end quickly when both sides can listen to the same recording and read the same transcript. Make the call record, not memory, the source of truth.'],
-      ['p', 'Avortyx screens every call for spam, duplicates, DNC and VOIP before it routes, and Ping/Post runs static and live webhook bidders in the same auction.'],
+      ['p', 'Avortyx screens every call for spam, duplicates, DNC and VOIP before it routes, and the call record shows every client that was considered and why the call went where it did.'],
     ],
   },
   {
@@ -121,9 +121,9 @@ export const POSTS = [
       ['h2', 'Calls that end just short'],
       ['p', 'Most buyers pay only past a minimum duration, so a call that ends a few seconds short is pure cost. When short calls jump, the cause is usually a gap between what the ad promised and what the caller hears first.'],
       ['note', 'Compare short-call rates by buyer on the same traffic. If one buyer stands out, look at their greeting or IVR before you blame the source.'],
-      ['h2', 'Highest bid, wrong buyer'],
-      ['p', 'The top bid is not always the best result. A buyer who pays slightly more but converts much less will drag payouts down over time. Matching on price alone ignores intent, location, licensing and capacity.'],
-      ['p', 'A better habit is to run every call through the same three steps: gather the signals, score the caller, then route to the best eligible buyer, with match rules, caps, hours and live bids weighed in one decision.'],
+      ['h2', 'Highest payout, wrong buyer'],
+      ['p', 'The top payout is not always the best result. A buyer who pays slightly more but converts much less will drag payouts down over time. Matching on price alone ignores intent, location, licensing and capacity.'],
+      ['p', 'A better habit is to run every call through the same three steps: gather the signals, score the caller, then route to the best eligible buyer, with match rules, caps, hours and payouts weighed in one decision.'],
       ['img', 'summary-report-by-offer', 'A summary by offer: calls, connects, conversions and revenue side by side, the natural place to start a weekly margin review.'],
       ['h2', 'Your weekly margin review'],
       ['ul', ['Duplicate and spam rate, per source.', 'Connect rate, per hour.', 'Short-call rate, per buyer.', 'Revenue per call, per buyer and per source.', 'Disputes, with the reason for each.']],
@@ -158,33 +158,6 @@ export const POSTS = [
       ['h2', 'A sensible order to roll it out'],
       ['ul', ['Begin with one number per channel to set a baseline.', 'Add dynamic numbers to your highest-spend pages.', 'Record what happened on every call, not only that it rang.', 'Rank sources by revenue, then shift budget toward the leaders.']],
       ['p', 'Avortyx call tracking measures conversions from online and offline campaigns by source, URL keyword and custom tokens, and dynamic number insertion ties each website call to its source.'],
-    ],
-  },
-  {
-    slug: 'ping-post-explained',
-    title: 'Ping/post in plain terms: how a call gets auctioned in milliseconds',
-    excerpt: 'Ping/post lets several buyers price a call before anyone picks up. A step-by-step look at the ping, the bids and the post.',
-    category: 'Ping/Post',
-    date: '2026-09-18',
-    minutes: 5,
-    icon: 'fa-gavel',
-    hue: 224,
-    body: [
-      ['p', 'In a basic pay-per-call deal, every call goes to one buyer at one agreed price. Ping/post swaps that fixed price for a live auction: buyers learn a little about the call, bid what it is worth to them, and the strongest bid takes it.'],
-      ['h2', 'The ping'],
-      ['p', 'The publisher sends a ping describing the opportunity without identifying the caller: the vertical, the state, maybe an age band or coverage type. Each buyer checks it against their own rules, such as hours, caps, geography and filters, and answers with a bid or a pass.'],
-      ['h2', 'The auction'],
-      ['p', 'Bids return within milliseconds. Some are fixed prices agreed in advance; others are calculated live by the buyer’s own system through a webhook. The platform ranks the eligible bids and picks a winner by bid, by priority or by earnings per call.'],
-      ['note', 'Fixed-price and live bidders can compete in one auction, so a buyer without an integration can still join at a set price.'],
-      ['example', 'Example: one ping, three answers', [['Ping', 'Auto insurance, caller in TX'], ['Buyer A (fixed)', '$38'], ['Buyer B (live webhook)', '$44, winner'], ['Buyer C', 'Pass: daily cap reached'], ['Post', 'Tracking number issued; the call routes to Buyer B']], 'Illustrative figures.'],
-      ['img', 'ping-post-dashboard-1', 'A ping/post dashboard tracking pings, accept rate, ping-to-call rate and revenue as auctions run.'],
-      ['h2', 'The post'],
-      ['p', 'The publisher posts to the winning buyer and gets a tracking number in return. When the caller dials, the call goes straight to that buyer, and the auction result rides along for billing and reporting.'],
-      ['h2', 'What the auction buys you'],
-      ['ul', ['Each call sells for what it is worth now, not for a price set months ago.', 'Buyers only pay for calls that pass their own rules, so they bid with confidence.', 'Ping caps per buyer, by minute, hour or day, keep volume within what each buyer can handle.']],
-      ['h2', 'Numbers to keep an eye on'],
-      ['p', 'Follow the accept rate (the share of pings that receive a bid), the ping-to-call rate and the average winning bid per source. A sliding accept rate usually means buyers have tightened their filters or your traffic has drifted from what they want.'],
-      ['p', 'Avortyx Ping/Post checks more than ten buyer matching criteria in real time and routes by bid, priority or earnings per call, with static and live webhook bidders in the same auction.'],
     ],
   },
   {
@@ -309,7 +282,6 @@ export const POSTS = [
       ['example', 'Example: a day of capacity', [['Buyer A', '150 calls a day, full by 1pm'], ['Buyer B', '80 calls a day, open 9am to 9pm'], ['Buyer C', '20 concurrent calls, no daily cap'], ['Result', 'After 1pm, calls still have two buyers to reach']], 'Illustrative figures.'],
       ['h2', 'Find the hour calls start failing'],
       ['p', 'Chart connect rate hour by hour. A drop at the same time every day is nearly always a cap, not a traffic problem. Lifting one buyer’s cap, or adding a buyer for that window, wins those calls back.'],
-      ['img', 'ping-post-dashboard-3', 'Buyer activity through the day: where accepts tail off is where caps and hours need attention.'],
       ['h2', 'Fail over instead of failing'],
       ['p', 'When a buyer is full or misses the ring, the next eligible buyer should ring immediately. Failover turns a capped buyer from a lost call into, at worst, a slightly cheaper one.'],
       ['p', 'In Avortyx, buyer match rules, caps, hours and concurrency are checked on every call, with failover when a buyer misses.'],
@@ -359,31 +331,6 @@ export const POSTS = [
       ['ul', ['Leads in, per source.', 'Contact rate: leads reached on any channel.', 'Call rate: leads who ended up on a live call.', 'Revenue per lead, per source.']],
       ['img', 'lead-automation-dashboard', 'A lead automation dashboard: leads, contacts and calls by source over time.'],
       ['p', 'Avortyx lead automation turns web forms into live phone calls with automated SMS, email and outbound call workflows.'],
-    ],
-  },
-  {
-    slug: 'power-dialer-basics',
-    title: 'More talk, less dialing: the basics of a power dialer',
-    excerpt: 'Agents earn on calls, not in the gaps between them. How a power dialer keeps the next lead ringing as soon as an agent is free.',
-    category: 'Agents',
-    date: '2026-05-28',
-    minutes: 4,
-    icon: 'fa-headset',
-    hue: 211,
-    body: [
-      ['p', 'Watch an agent work a list by hand and the problem is obvious: find the next lead, dial, wait, hang up on voicemail, write a note, start again. Most of the hour passes without a conversation.'],
-      ['h2', 'What a power dialer does'],
-      ['p', 'The dialer places the next call as soon as an agent is free, skips answering machines and hands live answers straight to the agent. The agent goes from one conversation to the next.'],
-      ['h2', 'Scripts and dispositions'],
-      ['p', 'A guided script keeps every agent asking the same qualifying questions. When the call ends, a one-click disposition records the outcome and can trigger the next step, such as a callback or a transfer.'],
-      ['img', 'features-agent-control-center', 'The agent console: caller details, script, transfer, hold and mute in one place.'],
-      ['h2', 'Handing off to buyers'],
-      ['p', 'Once a caller qualifies, the agent warm-transfers them to the right buyer using the same routing rules as inbound calls, so caps, hours and bids still count.'],
-      ['example', 'Example: one hour of one agent', [['Dialing by hand', 'Around 12 conversations, most of the hour spent dialing'], ['With a power dialer', 'Around 25 conversations, dialing done for them'], ['Difference', 'About twice the talk time from the same agent']], 'Illustrative figures; results depend on list quality and connect rates.'],
-      ['h2', 'Coach with the numbers'],
-      ['p', 'Timesheets show when each agent is ready, on a call or away, so you can staff the hours when your leads actually pick up.'],
-      ['img', 'features-agent-timesheets-overview', 'Agent timesheets: availability and talk time through the day.'],
-      ['p', 'The Avortyx Agent Control Center lets agents interview consumers, transfer to buyers, mute, hold and disposition calls from one interface, with a Power Dialer that keeps agents talking, not dialing.'],
     ],
   },
   {

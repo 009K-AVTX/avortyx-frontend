@@ -2,7 +2,7 @@
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
   title: "Multiple Telephone Providers | Bring your own carrier | Avortyx",
-  description: "Run Avortyx on Twilio, Plivo, Telnyx or any SIP carrier, and manage every number from every provider in one place.",
+  description: "Run Avortyx on Plivo, Telnyx or any SIP carrier, and manage every number from every provider in one place.",
   bodyClass: "avortyx_marketing features_multiple_telephone_providers ",
   layout: "feature",
 }
@@ -36,7 +36,7 @@ export default function MultipleTelephoneProviders() {
                 <div className="flow-node">
                   <div className="flow-node-icon bg-primary text-white"><i className="fa-solid fa-link" aria-hidden="true" /></div>
                   <div className="flow-node-label">Link Carriers</div>
-                  <div className="flow-node-desc">Twilio, Plivo, Telnyx or SIP</div>
+                  <div className="flow-node-desc">Plivo, Telnyx or SIP</div>
                 </div>
                 <div className="flow-arrow"><i className="fa-solid fa-chevron-right" aria-hidden="true" /></div>
                 <div className="flow-node">
@@ -58,7 +58,7 @@ export default function MultipleTelephoneProviders() {
                 </div>
               </div>
             </div>
-            <p>Avortyx does not lock you into a phone carrier. Connect Twilio, Plivo or Telnyx with your own accounts, or route your existing carrier in over SIP, and every number gets the same scoring, screening and routing on the first ring.</p>
+            <p>Avortyx does not lock you into a phone carrier. Connect Plivo or Telnyx with your own accounts, or route your existing carrier in over SIP, and every number gets the same scoring, screening and routing on the first ring.</p>
             <p>Running more than one carrier also means a problem at one provider does not take your campaigns down with it. These are the providers Avortyx connects to today:</p>
             <p className="text-muted mb-1">
               <strong>Supported carriers.</strong>
@@ -69,8 +69,6 @@ export default function MultipleTelephoneProviders() {
               {" "}
               <img alt="Telnyx" className="voip-provider-logo" src="/assets/avx-site/img/telnyx.webp" />
               {" "}
-              <img alt="Twilio" className="voip-provider-logo" src="/assets/avx-site/img/twilio.webp" />
-              {" "}
               <img alt="Zadarma" className="voip-provider-logo" src="/assets/avx-site/img/zadarma.webp" />
               {" "}
               <img alt="Sonetel" className="voip-provider-logo" src="/assets/avx-site/img/sonetel.webp" />
@@ -79,8 +77,8 @@ export default function MultipleTelephoneProviders() {
               {" "}
               <img alt="Avoxi" className="voip-provider-logo" src="/assets/avx-site/img/avoxi.webp" />
             </div>
-            <h2 className="mt-5 mb-4">Plivo, Twilio and Telnyx, fully managed</h2>
-            <p>These three carriers are connected through their APIs, so Avortyx can manage them end to end:</p>
+            <h2 className="mt-5 mb-4">Plivo and Telnyx, fully managed</h2>
+            <p>These two carriers are connected through their APIs, so Avortyx can manage them end to end:</p>
             <ul className="text-muted">
               <li>
                 <strong>Link your accounts</strong>

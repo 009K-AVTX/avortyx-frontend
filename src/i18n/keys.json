@@ -8,10 +8,6 @@
   "page": "index.html"
  },
  {
-  "k": "Ping/Post",
-  "page": "index.html"
- },
- {
   "k": "Call Management",
   "page": "index.html"
  },
@@ -76,11 +72,15 @@
   "page": "index.html"
  },
  {
+  "k": "Request Access",
+  "page": "index.html"
+ },
+ {
   "k": "Language",
   "page": "index.html"
  },
  {
-  "k": "Request Access",
+  "k": "Request Demo",
   "page": "index.html"
  },
  {
@@ -116,10 +116,6 @@
   "page": "index.html"
  },
  {
-  "k": "Request Demo",
-  "page": "index.html"
- },
- {
   "k": "How it works <0>↓</0>",
   "page": "index.html"
  },
@@ -136,7 +132,7 @@
   "page": "index.html"
  },
  {
-  "k": "Decided in <0>84ms</0>",
+  "k": "Decided in <0>85ms</0>",
   "page": "index.html"
  },
  {
@@ -176,7 +172,7 @@
   "page": "index.html"
  },
  {
-  "k": "WON",
+  "k": "MATCHED",
   "page": "index.html"
  },
  {
@@ -188,11 +184,19 @@
   "page": "index.html"
  },
  {
+  "k": "Cap reached",
+  "page": "index.html"
+ },
+ {
   "k": "NB",
   "page": "index.html"
  },
  {
   "k": "Northwind Benefits",
+  "page": "index.html"
+ },
+ {
+  "k": "Closed now",
   "page": "index.html"
  },
  {
@@ -204,7 +208,7 @@
   "page": "index.html"
  },
  {
-  "k": "<0/> Rule match: <1>Highest bid · intent above 0.80 · licensed in IL</1>",
+  "k": "<0/> Rule match: <1>Intent above 0.80 · licensed in IL · open capacity</1>",
   "page": "index.html"
  },
  {
@@ -225,10 +229,6 @@
  },
  {
   "k": "Works with the carriers and ad platforms you already run",
-  "page": "index.html"
- },
- {
-  "k": "Twilio",
   "page": "index.html"
  },
  {
@@ -260,15 +260,139 @@
   "page": "index.html"
  },
  {
+  "k": "Real calls, real people",
+  "page": "index.html"
+ },
+ {
+  "k": "Behind every call is someone ready to talk",
+  "page": "index.html"
+ },
+ {
+  "k": "Avortyx gets them to the right person on the first ring.",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>Callers reach a buyer who can help",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>Agents get qualified calls, not spam",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>You see what every call earned",
+  "page": "index.html"
+ },
+ {
+  "k": "Learn more",
+  "page": "index.html"
+ },
+ {
+  "k": "Every call is screened, scored and routed in about 85ms. Callers wait less, buyers talk to people who are ready to act, and you see the revenue behind every connected call.",
+  "page": "index.html"
+ },
+ {
+  "k": "A smiling man in a white shirt on a phone call at his laptop",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>Live call · <1>0:42</1>",
+  "page": "index.html"
+ },
+ {
+  "k": "DR",
+  "page": "index.html"
+ },
+ {
+  "k": "Daniel R.",
+  "page": "index.html"
+ },
+ {
+  "k": "Chicago, IL · Mobile",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>Verified",
+  "page": "index.html"
+ },
+ {
+  "k": "Medicare",
+  "page": "index.html"
+ },
+ {
+  "k": "Age 65+",
+  "page": "index.html"
+ },
+ {
+  "k": "Sentiment",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>Scoring intent…",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>Checking buyer rules",
+  "page": "index.html"
+ },
+ {
+  "k": "Caps, hours and licensing",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>Connected to Apex Insurance",
+  "page": "index.html"
+ },
+ {
+  "k": "Intent 0.91 · Ready to enroll",
+  "page": "index.html"
+ },
+ {
+  "k": "A woman on her phone at a desk with a laptop",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>Caller · Google Ads",
+  "page": "index.html"
+ },
+ {
+  "k": "<0><1/>Live transcript</0>“Hi, I’m looking to switch my Medicare plan before the deadline.”",
+  "page": "index.html"
+ },
+ {
+  "k": "An agent in glasses taking a call at his desk",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>Agent · Warm transfer<1><2/><3/><4/><5/></1>",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>AI whisper",
+  "page": "index.html"
+ },
+ {
+  "k": "Medicare lead · ready to enroll",
+  "page": "index.html"
+ },
+ {
+  "k": "<0/>AI · 85ms",
+  "page": "index.html"
+ },
+ {
   "k": "AI at the core",
   "page": "index.html"
  },
  {
-  "k": "Autonomous Intelligence Engineered for Real-Time Voice",
+  "k": "AI on every call",
   "page": "index.html"
  },
  {
-  "k": "High-volume call operations run on split-second decisions. Avortyx embeds sub-45ms conversational models, dynamic ping-tree bidding, and carrier-grade automated screening at the center of every call.",
+  "k": "Split-second AI decisions on every call.",
+  "page": "index.html"
+ },
+ {
+  "k": "High-volume call operations run on split-second decisions. Avortyx scores every caller’s intent, screens for spam and compliance, and routes to the best eligible buyer at the center of every call.",
   "page": "index.html"
  },
  {
@@ -276,59 +400,27 @@
   "page": "index.html"
  },
  {
-  "k": "VOICE AI &amp; IVA",
+  "k": "AI call scoring",
   "page": "index.html"
  },
  {
-  "k": "&lt;45ms Latency",
+  "k": "Intent and sentiment scored on every call.",
   "page": "index.html"
  },
  {
-  "k": "Interactive Voice Agents",
+  "k": "Smart routing",
   "page": "index.html"
  },
  {
-  "k": "Real-time speech-to-speech models answer instantly, qualify multi-turn intent, and warm-transfer.",
+  "k": "Each call goes to the best eligible buyer.",
   "page": "index.html"
  },
  {
-  "k": "Avg Handle Time: <0>58s</0>",
+  "k": "Avortyx AI: a female android with a glass circuit cranium, turning in 3D as it scores and routes calls",
   "page": "index.html"
  },
  {
-  "k": "94.2% Success",
-  "page": "index.html"
- },
- {
-  "k": "PING-TREE ENGINE",
-  "page": "index.html"
- },
- {
-  "k": "Sub-85ms RTB",
-  "page": "index.html"
- },
- {
-  "k": "Dynamic Multi-Buyer Auction",
-  "page": "index.html"
- },
- {
-  "k": "Real-time bidding algorithm tests tier priority, buyer caps, and historical conversion yield.",
-  "page": "index.html"
- },
- {
-  "k": "Auction Speed: <0>62ms</0>",
-  "page": "index.html"
- },
- {
-  "k": "+34.2% EPC Lift",
-  "page": "index.html"
- },
- {
-  "k": "Avortyx AI voice agent: a female android with a glass circuit cranium, turning in 3D as she speaks and forwards calls",
-  "page": "index.html"
- },
- {
-  "k": "VOICE AGENT",
+  "k": "AVORTYX AI",
   "page": "index.html"
  },
  {
@@ -336,83 +428,31 @@
   "page": "index.html"
  },
  {
-  "k": "Sub-45ms Voice Copilot",
+  "k": "Compliance screening",
   "page": "index.html"
  },
  {
-  "k": "AUTONOMOUS CONVERSATIONAL DIARIZATION",
+  "k": "Spam, DNC and TCPA checks before any ring.",
   "page": "index.html"
  },
  {
-  "k": "99.4% Human Cadence Match",
+  "k": "Caller insights",
   "page": "index.html"
  },
  {
-  "k": "Voice IVA Copilot: Live Inbound Routing &amp; Sentiment Analysis",
+  "k": "Source, location and intent on every call.",
   "page": "index.html"
  },
  {
-  "k": "CARRIER SHIELD",
+  "k": "Every call scored by AI",
   "page": "index.html"
  },
  {
-  "k": "STIR/SHAKEN A",
+  "k": "Checks before each ring",
   "page": "index.html"
  },
  {
-  "k": "Autonomous TCPA Guard",
-  "page": "index.html"
- },
- {
-  "k": "Carrier-grade screening filters spam, disconnected VOIP, spoofed numbers, and DNC lists before buyers ring.",
-  "page": "index.html"
- },
- {
-  "k": "Clean Traffic: <0>99.94%</0>",
-  "page": "index.html"
- },
- {
-  "k": "Zero TCPA Leaks",
-  "page": "index.html"
- },
- {
-  "k": "CALLER 360°",
-  "page": "index.html"
- },
- {
-  "k": "Zero-Delay Lookup",
-  "page": "index.html"
- },
- {
-  "k": "Demographic Enrichment",
-  "page": "index.html"
- },
- {
-  "k": "Attaches caller ad campaign keywords, location, lifetime intent, and carrier metadata directly to the live call.",
-  "page": "index.html"
- },
- {
-  "k": "Enrichment Speed: <0>28ms</0>",
-  "page": "index.html"
- },
- {
-  "k": "100% Attributed",
-  "page": "index.html"
- },
- {
-  "k": "Calls Evaluated / Min",
-  "page": "index.html"
- },
- {
-  "k": "Median Voice Response",
-  "page": "index.html"
- },
- {
-  "k": "Speech Diarization SLA",
-  "page": "index.html"
- },
- {
-  "k": "Autonomous Transfer Rate",
+  "k": "To the right buyer",
   "page": "index.html"
  },
  {
@@ -424,7 +464,11 @@
   "page": "index.html"
  },
  {
-  "k": "Built from the ground up for high-volume performance marketers, call centers, and pay-per-call networks. Sub-85ms routing, zero vendor lock-in, and full financial transparency on every connected second.",
+  "k": "Built for performance marketers, call centers and pay-per-call networks.",
+  "page": "index.html"
+ },
+ {
+  "k": "Built from the ground up for high-volume performance marketers, call centers, and pay-per-call networks. About 85ms routing, no vendor lock-in, and full financial transparency on every connected second.",
   "page": "index.html"
  },
  {
@@ -440,7 +484,7 @@
   "page": "index.html"
  },
  {
-  "k": "Infrastructure that holds 99.9% uptime and an 85ms average routing time, so every call reaches a buyer fast.",
+  "k": "99.9% uptime and 85ms average routing, so every call reaches a buyer fast.",
   "page": "index.html"
  },
  {
@@ -468,7 +512,7 @@
   "page": "index.html"
  },
  {
-  "k": "Phone, live chat and email support, plus live video sessions with our specialists whenever you need a hand.",
+  "k": "Phone, chat, email and live video with our specialists.",
   "page": "index.html"
  },
  {
@@ -488,7 +532,7 @@
   "page": "index.html"
  },
  {
-  "k": "No onboarding fees. Usage-based rates with volume discounts: use what you need and scale as you grow.",
+  "k": "No onboarding fees. Usage-based rates with volume discounts.",
   "page": "index.html"
  },
  {
@@ -512,7 +556,7 @@
   "page": "index.html"
  },
  {
-  "k": "API-first: everything in the dashboard runs on the same REST API, for seamless integrations and custom workflows.",
+  "k": "Everything in the dashboard runs on the same REST API.",
   "page": "index.html"
  },
  {
@@ -524,11 +568,11 @@
   "page": "index.html"
  },
  {
-  "k": "Transforming high-intent traffic into qualified conversations, and conversations into closed revenue",
+  "k": "From first ring to closed revenue",
   "page": "index.html"
  },
  {
-  "k": "Every call goes through the same three steps — signal, score, route — before a buyer’s phone rings.",
+  "k": "Three steps before a buyer’s phone rings.",
   "page": "index.html"
  },
  {
@@ -616,7 +660,7 @@
   "page": "index.html"
  },
  {
-  "k": "Live bids and ping/post",
+  "k": "Priority, weight and payout",
   "page": "index.html"
  },
  {
@@ -636,11 +680,11 @@
   "page": "index.html"
  },
  {
-  "k": "Full-stack, event-level observability for every voice session, auction, and conversion, in sub-millisecond real time",
+  "k": "See every call and conversion live",
   "page": "index.html"
  },
  {
-  "k": "One workspace for tracking, routing, bidding and reporting.",
+  "k": "One workspace for tracking, routing and reporting.",
   "page": "index.html"
  },
  {
@@ -660,7 +704,7 @@
   "page": "index.html"
  },
  {
-  "k": "Auctions/min <0>312</0>",
+  "k": "Calls routed/min <0>312</0>",
   "page": "index.html"
  },
  {
@@ -800,7 +844,11 @@
   "page": "index.html"
  },
  {
-  "k": "Turn unstructured conversations into actionable revenue intelligence. Query your entire call lake with natural language, auto-score caller sentiment in milliseconds, and deploy 24/7 conversational voice agents that warm-transfer high-intent leads directly to buyers.",
+  "k": "Ask your calls anything and score intent live.",
+  "page": "index.html"
+ },
+ {
+  "k": "Turn unstructured conversations into actionable revenue intelligence. Query your entire call history in plain language and score caller intent and sentiment in milliseconds, so every call reaches the right buyer.",
   "page": "index.html"
  },
  {
@@ -813,14 +861,6 @@
  },
  {
   "k": "<0/> Live transcript",
-  "page": "index.html"
- },
- {
-  "k": "<0/> Voice agent",
-  "page": "index.html"
- },
- {
-  "k": "<0/> Scenarios",
   "page": "index.html"
  },
  {
@@ -880,10 +920,6 @@
   "page": "index.html"
  },
  {
-  "k": "Sentiment",
-  "page": "index.html"
- },
- {
   "k": "Topics",
   "page": "index.html"
  },
@@ -897,166 +933,6 @@
  },
  {
   "k": "Transcribed, scored and summarized in real time · demo data",
-  "page": "index.html"
- },
- {
-  "k": "app.avortyx.com / voice agents / <0>medicare intake</0>",
-  "page": "index.html"
- },
- {
-  "k": "<0/>Agent",
-  "page": "index.html"
- },
- {
-  "k": "Ready · press play to hear a sample call",
-  "page": "index.html"
- },
- {
-  "k": "Play sample call",
-  "page": "index.html"
- },
- {
-  "k": "Greets and confirms consent",
-  "page": "index.html"
- },
- {
-  "k": "Qualifies: age, ZIP, current plan",
-  "page": "index.html"
- },
- {
-  "k": "Scores intent",
-  "page": "index.html"
- },
- {
-  "k": "Warm-transfers to the best buyer",
-  "page": "index.html"
- },
- {
-  "k": "Voice agents through the ElevenLabs integration · this sample uses your browser’s voice",
-  "page": "index.html"
- },
- {
-  "k": "Medicare Switch Intent",
-  "page": "index.html"
- },
- {
-  "k": "Solar Homeowner Intent",
-  "page": "index.html"
- },
- {
-  "k": "Synthetic Voice &amp; Fraud Shield",
-  "page": "index.html"
- },
- {
-  "k": "Auto Insurance Live Ping Auction",
-  "page": "index.html"
- },
- {
-  "k": "Avortyx-Voice-LLM v4.2",
-  "page": "index.html"
- },
- {
-  "k": "Online · 38ms inference",
-  "page": "index.html"
- },
- {
-  "k": "<0/>STIR/SHAKEN Level A · TCPA Compliant",
-  "page": "index.html"
- },
- {
-  "k": "Active Scenario Prompt",
-  "page": "index.html"
- },
- {
-  "k": "“Simulate 1,000 inbound Florida callers with urgent Medicare enrollment intent.”",
-  "page": "index.html"
- },
- {
-  "k": "AI Intent Threshold",
-  "page": "index.html"
- },
- {
-  "k": "85% Minimum",
-  "page": "index.html"
- },
- {
-  "k": "Target Revenue Floor",
-  "page": "index.html"
- },
- {
-  "k": "Max Routing Latency",
-  "page": "index.html"
- },
- {
-  "k": "&lt; 85ms SLA",
-  "page": "index.html"
- },
- {
-  "k": "Compliance Gate",
-  "page": "index.html"
- },
- {
-  "k": "Strict Auto-Screen",
-  "page": "index.html"
- },
- {
-  "k": "Live Voice Diarization",
-  "page": "index.html"
- },
- {
-  "k": "High Urgency (Positive)",
-  "page": "index.html"
- },
- {
-  "k": "“Hello, I’m 67 and need to switch from my current Advantage plan before the deadline. Can someone check if my prescriptions are covered?”",
-  "page": "index.html"
- },
- {
-  "k": "Medicare Part D",
-  "page": "index.html"
- },
- {
-  "k": "Aged 67",
-  "page": "index.html"
- },
- {
-  "k": "Prescription Check",
-  "page": "index.html"
- },
- {
-  "k": "Open Enrollment",
-  "page": "index.html"
- },
- {
-  "k": "Intent Score",
-  "page": "index.html"
- },
- {
-  "k": "Top Bid (EPC)",
-  "page": "index.html"
- },
- {
-  "k": "Decision Latency",
-  "page": "index.html"
- },
- {
-  "k": "Projected Lift",
-  "page": "index.html"
- },
- {
-  "k": "AI Reasoning &amp; Strategy Analysis",
-  "page": "index.html"
- },
- {
-  "k": "Caller is comparing Part D deductibles and requesting a licensed bilingual agent before the Friday open-enrollment cutoff.",
-  "page": "index.html"
- },
- {
-  "k": "Generated Webhook Dispatch",
-  "page": "index.html"
- },
- {
-  "k": "sub-millisecond JSON",
   "page": "index.html"
  },
  {
@@ -1136,23 +1012,19 @@
   "page": "index.html"
  },
  {
-  "k": "Every Tool You Need to Monetize, Dial, Route, and Scale",
+  "k": "Every Tool You Need to Track, Route, and Scale",
   "page": "index.html"
  },
  {
-  "k": "Five enterprise-grade systems united under one real-time dashboard. Eliminate disparate point solutions and command your entire call lifecycle from a single glasspane.",
+  "k": "Three tools, one real-time dashboard.",
+  "page": "index.html"
+ },
+ {
+  "k": "Three enterprise-grade systems united under one real-time dashboard. Eliminate disparate point solutions and command your entire call lifecycle from a single glasspane.",
   "page": "index.html"
  },
  {
   "k": "Core tools",
-  "page": "index.html"
- },
- {
-  "k": "<0/> Ping/Post",
-  "page": "index.html"
- },
- {
-  "k": "<0/> Power Dialer",
   "page": "index.html"
  },
  {
@@ -1168,102 +1040,6 @@
   "page": "index.html"
  },
  {
-  "k": "<0>Publisher</0> — Sends lead data",
-  "page": "index.html"
- },
- {
-  "k": "<0>PING</0> — Check available buyers, get bids",
-  "page": "index.html"
- },
- {
-  "k": "<0>Buyer Matching</0> — Hours, caps, geo, filters, duplicates",
-  "page": "index.html"
- },
- {
-  "k": "<0>POST</0> — Get tracking number for the call",
-  "page": "index.html"
- },
- {
-  "k": "<0>Connected</0> — Caller routes to selected buyer",
-  "page": "index.html"
- },
- {
-  "k": "Monetize",
-  "page": "index.html"
- },
- {
-  "k": "Real-time bidding for inbound calls — connect every lead to the buyer who values it most.",
-  "page": "index.html"
- },
- {
-  "k": "<0/>10+ buyer matching criteria, checked in real time",
-  "page": "index.html"
- },
- {
-  "k": "<0/>Route by bid, priority, or earnings-per-call",
-  "page": "index.html"
- },
- {
-  "k": "<0/>Static and live webhook bidders in one auction",
-  "page": "index.html"
- },
- {
-  "k": "<0/>Per-buyer ping caps by minute, hour, or day",
-  "page": "index.html"
- },
- {
-  "k": "Explore Ping/Post <0>→</0>",
-  "page": "index.html"
- },
- {
-  "k": "<0>Leads Queue</0> — Leads enter via API, import, actions, and more",
-  "page": "index.html"
- },
- {
-  "k": "<0>Agent Available</0> — Agent on the line, ready for the next call",
-  "page": "index.html"
- },
- {
-  "k": "<0>Place Call</0> — Dials the next lead when an agent is free",
-  "page": "index.html"
- },
- {
-  "k": "<0>Connected</0> — Live answer bridged to agent",
-  "page": "index.html"
- },
- {
-  "k": "<0>Disposition</0> — Agent selects outcome, next lead",
-  "page": "index.html"
- },
- {
-  "k": "Dial",
-  "page": "index.html"
- },
- {
-  "k": "Power Dialer",
-  "page": "index.html"
- },
- {
-  "k": "Continuous outbound dialing that keeps agents talking, not waiting.",
-  "page": "index.html"
- },
- {
-  "k": "<0/>Places the next call the moment an agent is free",
-  "page": "index.html"
- },
- {
-  "k": "<0/>Answering-machine screening",
-  "page": "index.html"
- },
- {
-  "k": "<0/>Built-in WebRTC softphone, no downloads",
-  "page": "index.html"
- },
- {
-  "k": "Explore the Power Dialer <0>→</0>",
-  "page": "index.html"
- },
- {
   "k": "<0>Inbound Call</0> — Caller dials your tracking number",
   "page": "index.html"
  },
@@ -1272,7 +1048,7 @@
   "page": "index.html"
  },
  {
-  "k": "<0>Smart Routing</0> — Route by tier, bid, or EPC",
+  "k": "<0>Smart Routing</0> — Route by tier, weight, or EPC",
   "page": "index.html"
  },
  {
@@ -1301,10 +1077,6 @@
  },
  {
   "k": "<0/>Question &amp; Answer flows that qualify and route callers",
-  "page": "index.html"
- },
- {
-  "k": "<0/>AI Voice Agent flows that answer and pre-qualify",
   "page": "index.html"
  },
  {
@@ -1344,7 +1116,7 @@
   "page": "index.html"
  },
  {
-  "k": "Turn web leads into live calls with automated SMS, email, and dialing.",
+  "k": "Turn web leads into live calls with automated SMS, email, and calls.",
   "page": "index.html"
  },
  {
@@ -1420,27 +1192,27 @@
   "page": "index.html"
  },
  {
-  "k": "Are you currently insured?",
+  "k": "“I need to switch my Medicare plan before Friday.”",
   "page": "index.html"
  },
  {
-  "k": "Yes, with GEICO.",
+  "k": "Intent 0.93 · ready to enroll",
   "page": "index.html"
  },
  {
-  "k": "<0/>Warm transfer → Apex Insurance",
+  "k": "<0/>Routed → Meridian Health",
   "page": "index.html"
  },
  {
-  "k": "AI Voice Agents",
+  "k": "AI Call Scoring",
   "page": "index.html"
  },
  {
-  "k": "Voice agents plugged straight into your call flow — they answer 24/7, qualify leads, and warm-transfer to humans through the same buyers, caps, and tiers you already use.",
+  "k": "Every call transcribed, summarized and scored for intent.",
   "page": "index.html"
  },
  {
-  "k": "Explore Voice Agents <0>→</0>",
+  "k": "Explore AI Transcriptions <0>→</0>",
   "page": "index.html"
  },
  {
@@ -1452,7 +1224,7 @@
   "page": "index.html"
  },
  {
-  "k": "See exactly what drives revenue — real-time dashboards for calls, conversions, and spend that reveal your best campaigns, traffic sources, and keywords.",
+  "k": "Live dashboards that show which campaigns drive revenue.",
   "page": "index.html"
  },
  {
@@ -1460,11 +1232,11 @@
   "page": "index.html"
  },
  {
-  "k": "<0>POST</0> /v1/calls <1>201 · 84 ms</1>",
+  "k": "<0>POST</0> /v1/calls <1>201 · 85 ms</1>",
   "page": "index.html"
  },
  {
-  "k": "A fully programmable, API-first platform. Every resource is exposed over a clean REST API — with granular keys, IP controls, and audit logs — so you can run Avortyx from your own tools.",
+  "k": "Run Avortyx from your own tools over a clean REST API.",
   "page": "index.html"
  },
  {
@@ -1476,7 +1248,7 @@
   "page": "index.html"
  },
  {
-  "k": "End-to-end attribution, programmatic webhooks, automated compliance shields, and deep data infrastructure around every second of audio.",
+  "k": "Attribution, webhooks, compliance and data tools around every call.",
   "page": "index.html"
  },
  {
@@ -1556,10 +1328,6 @@
   "page": "index.html"
  },
  {
-  "k": "ElevenLabs",
-  "page": "index.html"
- },
- {
   "k": "Zoho CRM",
   "page": "index.html"
  },
@@ -1612,7 +1380,7 @@
   "page": "index.html"
  },
  {
-  "k": "Deep-dive architectures, live routing breakdowns, and high-volume growth strategies.",
+  "k": "Playbooks and routing breakdowns from the team.",
   "page": "index.html"
  },
  {
@@ -1664,18 +1432,6 @@
   "page": "index.html"
  },
  {
-  "k": "The agency playbook: proving call quality before the client asks",
-  "page": "index.html"
- },
- {
-  "k": "Clients renew when they trust the calls you send. A playbook for screening, reporting and pricing calls so quality is visible instead of argued over.",
-  "page": "index.html"
- },
- {
-  "k": "October 9, 2026",
-  "page": "index.html"
- },
- {
   "k": "Reading the call: what AI scoring looks for and how to use it",
   "page": "index.html"
  },
@@ -1685,34 +1441,6 @@
  },
  {
   "k": "July 24, 2026",
-  "page": "index.html"
- },
- {
-  "k": "Teach your ad platform which calls matter: sending call conversions back",
-  "page": "index.html"
- },
- {
-  "k": "Ad platforms bid toward the conversions they can see. When phone calls never reach them, bidding works blind on your best leads.",
-  "page": "index.html"
- },
- {
-  "k": "September 4, 2026",
-  "page": "index.html"
- },
- {
-  "k": "Compliance",
-  "page": "index.html"
- },
- {
-  "k": "A working compliance checklist for consent, DNC and calling hours",
-  "page": "index.html"
- },
- {
-  "k": "Compliance is cheaper to design in than to retrofit. A practical checklist covering consent records, do-not-call screening and state calling rules.",
-  "page": "index.html"
- },
- {
-  "k": "August 21, 2026",
   "page": "index.html"
  },
  {
@@ -1736,7 +1464,7 @@
   "page": "index.html"
  },
  {
-  "k": "Yes. Connect Twilio, Plivo or Telnyx, or bring any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place. <0>Telephone providers <1>→</1></0>",
+  "k": "Yes. Connect Plivo or Telnyx, or bring any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place. <0>Telephone providers <1>→</1></0>",
   "page": "index.html"
  },
  {
@@ -1784,7 +1512,7 @@
   "page": "index.html"
  },
  {
-  "k": "Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.",
+  "k": "Point a number at Avortyx and start routing on the first ring.",
   "page": "index.html"
  },
  {
@@ -1868,7 +1596,7 @@
   "page": "index.html"
  },
  {
-  "k": "Call tracking, real-time ping/post and lead-to-call automation in one platform. Route every call to the right buyer and see the revenue behind it.",
+  "k": "Call tracking, smart call routing and lead-to-call automation in one platform. Route every call to the right buyer and see the revenue behind it.",
   "page": "index.html"
  },
  {
@@ -1912,7 +1640,19 @@
   "page": "blog.html"
  },
  {
-  "k": "Agents",
+  "k": "Compliance",
+  "page": "blog.html"
+ },
+ {
+  "k": "The agency playbook: proving call quality before the client asks",
+  "page": "blog.html"
+ },
+ {
+  "k": "Clients renew when they trust the calls you send. A playbook for screening, reporting and pricing calls so quality is visible instead of argued over.",
+  "page": "blog.html"
+ },
+ {
+  "k": "October 9, 2026",
   "page": "blog.html"
  },
  {
@@ -1928,15 +1668,27 @@
   "page": "blog.html"
  },
  {
-  "k": "Ping/post in plain terms: how a call gets auctioned in milliseconds",
+  "k": "Teach your ad platform which calls matter: sending call conversions back",
   "page": "blog.html"
  },
  {
-  "k": "Ping/post lets several buyers price a call before anyone picks up. A step-by-step look at the ping, the bids and the post.",
+  "k": "Ad platforms bid toward the conversions they can see. When phone calls never reach them, bidding works blind on your best leads.",
   "page": "blog.html"
  },
  {
-  "k": "September 18, 2026",
+  "k": "September 4, 2026",
+  "page": "blog.html"
+ },
+ {
+  "k": "A working compliance checklist for consent, DNC and calling hours",
+  "page": "blog.html"
+ },
+ {
+  "k": "Compliance is cheaper to design in than to retrofit. A practical checklist covering consent records, do-not-call screening and state calling rules.",
+  "page": "blog.html"
+ },
+ {
+  "k": "August 21, 2026",
   "page": "blog.html"
  },
  {
@@ -1992,18 +1744,6 @@
   "page": "blog.html"
  },
  {
-  "k": "More talk, less dialing: the basics of a power dialer",
-  "page": "blog.html"
- },
- {
-  "k": "Agents earn on calls, not in the gaps between them. How a power dialer keeps the next lead ringing as soon as an agent is free.",
-  "page": "blog.html"
- },
- {
-  "k": "May 28, 2026",
-  "page": "blog.html"
- },
- {
   "k": "Call recordings done properly: access, retention and audio quality",
   "page": "blog.html"
  },
@@ -2032,7 +1772,7 @@
   "page": "blog.html"
  },
  {
-  "k": "Practical guides on call routing, attribution, ping/post, compliance and AI from the team behind Avortyx.",
+  "k": "Practical guides on call routing, attribution, compliance and AI from the team behind Avortyx.",
   "page": "blog.html"
  },
  {
@@ -2116,7 +1856,7 @@
   "page": "blog/agency-playbook-proving-call-quality.html"
  },
  {
-  "k": "When several clients want the same traffic, a real-time auction lets each call go to the client who values it most at that moment, inside their caps and hours. Clients on fixed prices can still take part next to live bidders.",
+  "k": "When several clients want the same traffic, revenue routing gives each call to the client paying the most for it, inside their caps and hours, and EPC routing favors the clients whose calls actually convert.",
   "page": "blog/agency-playbook-proving-call-quality.html"
  },
  {
@@ -2124,7 +1864,7 @@
   "page": "blog/agency-playbook-proving-call-quality.html"
  },
  {
-  "k": "Avortyx screens every call for spam, duplicates, DNC and VOIP before it routes, and Ping/Post runs static and live webhook bidders in the same auction.",
+  "k": "Avortyx screens every call for spam, duplicates, DNC and VOIP before it routes, and the call record shows every client that was considered and why the call went where it did.",
   "page": "blog/agency-playbook-proving-call-quality.html"
  },
  {
@@ -2213,10 +1953,6 @@
  },
  {
   "k": "Chart connect rate hour by hour. A drop at the same time every day is nearly always a cap, not a traffic problem. Lifting one buyer’s cap, or adding a buyer for that window, wins those calls back.",
-  "page": "blog/buyer-caps-that-dont-strand-calls.html"
- },
- {
-  "k": "Buyer activity through the day: where accepts tail off is where caps and hours need attention.",
   "page": "blog/buyer-caps-that-dont-strand-calls.html"
  },
  {
@@ -2528,7 +2264,7 @@
   "page": "blog/pay-per-call-margin-leaks.html"
  },
  {
-  "k": "Highest bid, wrong buyer",
+  "k": "Highest payout, wrong buyer",
   "page": "blog/pay-per-call-margin-leaks.html"
  },
  {
@@ -2636,11 +2372,11 @@
   "page": "blog/pay-per-call-margin-leaks.html"
  },
  {
-  "k": "The top bid is not always the best result. A buyer who pays slightly more but converts much less will drag payouts down over time. Matching on price alone ignores intent, location, licensing and capacity.",
+  "k": "The top payout is not always the best result. A buyer who pays slightly more but converts much less will drag payouts down over time. Matching on price alone ignores intent, location, licensing and capacity.",
   "page": "blog/pay-per-call-margin-leaks.html"
  },
  {
-  "k": "A better habit is to run every call through the same three steps: gather the signals, score the caller, then route to the best eligible buyer, with match rules, caps, hours and live bids weighed in one decision.",
+  "k": "A better habit is to run every call through the same three steps: gather the signals, score the caller, then route to the best eligible buyer, with match rules, caps, hours and payouts weighed in one decision.",
   "page": "blog/pay-per-call-margin-leaks.html"
  },
  {
@@ -2674,194 +2410,6 @@
  {
   "k": "Five quiet leaks that drain pay-per-call margin | Avortyx Blog",
   "page": "blog/pay-per-call-margin-leaks.html"
- },
- {
-  "k": "The ping",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "The auction",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "The post",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "What the auction buys you",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Numbers to keep an eye on",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "In a basic pay-per-call deal, every call goes to one buyer at one agreed price. Ping/post swaps that fixed price for a live auction: buyers learn a little about the call, bid what it is worth to them, and the strongest bid takes it.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "The publisher sends a ping describing the opportunity without identifying the caller: the vertical, the state, maybe an age band or coverage type. Each buyer checks it against their own rules, such as hours, caps, geography and filters, and answers with a bid or a pass.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Bids return within milliseconds. Some are fixed prices agreed in advance; others are calculated live by the buyer’s own system through a webhook. The platform ranks the eligible bids and picks a winner by bid, by priority or by earnings per call.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Fixed-price and live bidders can compete in one auction, so a buyer without an integration can still join at a set price.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Example: one ping, three answers",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Ping",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Auto insurance, caller in TX",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Buyer A (fixed)",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Buyer B (live webhook)",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "$44, winner",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Pass: daily cap reached",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Post",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Tracking number issued; the call routes to Buyer B",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "A ping/post dashboard tracking pings, accept rate, ping-to-call rate and revenue as auctions run.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "The publisher posts to the winning buyer and gets a tracking number in return. When the caller dials, the call goes straight to that buyer, and the auction result rides along for billing and reporting.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Each call sells for what it is worth now, not for a price set months ago.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Buyers only pay for calls that pass their own rules, so they bid with confidence.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Ping caps per buyer, by minute, hour or day, keep volume within what each buyer can handle.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Follow the accept rate (the share of pings that receive a bid), the ping-to-call rate and the average winning bid per source. A sliding accept rate usually means buyers have tightened their filters or your traffic has drifted from what they want.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Avortyx Ping/Post checks more than ten buyer matching criteria in real time and routes by bid, priority or earnings per call, with static and live webhook bidders in the same auction.",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "Ping/post in plain terms: how a call gets auctioned in milliseconds | Avortyx Blog",
-  "page": "blog/ping-post-explained.html"
- },
- {
-  "k": "What a power dialer does",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Scripts and dispositions",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Handing off to buyers",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Coach with the numbers",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Watch an agent work a list by hand and the problem is obvious: find the next lead, dial, wait, hang up on voicemail, write a note, start again. Most of the hour passes without a conversation.",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "The dialer places the next call as soon as an agent is free, skips answering machines and hands live answers straight to the agent. The agent goes from one conversation to the next.",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "A guided script keeps every agent asking the same qualifying questions. When the call ends, a one-click disposition records the outcome and can trigger the next step, such as a callback or a transfer.",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "The agent console: caller details, script, transfer, hold and mute in one place.",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Once a caller qualifies, the agent warm-transfers them to the right buyer using the same routing rules as inbound calls, so caps, hours and bids still count.",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Example: one hour of one agent",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Dialing by hand",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Around 12 conversations, most of the hour spent dialing",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "With a power dialer",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Around 25 conversations, dialing done for them",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Difference",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "About twice the talk time from the same agent",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Illustrative figures; results depend on list quality and connect rates.",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Timesheets show when each agent is ready, on a call or away, so you can staff the hours when your leads actually pick up.",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "Agent timesheets: availability and talk time through the day.",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "The Avortyx Agent Control Center lets agents interview consumers, transfer to buyers, mute, hold and disposition calls from one interface, with a Power Dialer that keeps agents talking, not dialing.",
-  "page": "blog/power-dialer-basics.html"
- },
- {
-  "k": "More talk, less dialing: the basics of a power dialer | Avortyx Blog",
-  "page": "blog/power-dialer-basics.html"
  },
  {
   "k": "One number per placement",
@@ -3680,6 +3228,10 @@
   "page": "brand_assets.html"
  },
  {
+  "k": "Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.",
+  "page": "brand_assets.html"
+ },
+ {
   "k": "Brand Assets | Avortyx logo, colors and type",
   "page": "brand_assets.html"
  },
@@ -3780,7 +3332,7 @@
   "page": "careers.html"
  },
  {
-  "k": "Turn live call signals into the intent scores buyers bid on: feature pipelines, online inference and evaluation.",
+  "k": "Turn live call signals into the intent scores that decide where calls go: feature pipelines, online inference and evaluation.",
   "page": "careers.html"
  },
  {
@@ -3848,26 +3400,6 @@
   "page": "features.html"
  },
  {
-  "k": "Real Time Ping/Post",
-  "page": "features.html"
- },
- {
-  "k": "Let every eligible buyer bid on every lead and call. Publishers ping for live bids, then post to connect the winner, all in milliseconds.",
-  "page": "features.html"
- },
- {
-  "k": "Learn More",
-  "page": "features.html"
- },
- {
-  "k": "Integration Guide",
-  "page": "features.html"
- },
- {
-  "k": "Real-Time Ping/Post dashboard",
-  "page": "features.html"
- },
- {
   "k": "Everything that happens between the ring and the payout, inbound and outbound.",
   "page": "features.html"
  },
@@ -3900,15 +3432,7 @@
   "page": "features.html"
  },
  {
-  "k": "Dials the next lead the moment an agent is free, so agents spend the hour talking, not dialing.",
-  "page": "features.html"
- },
- {
-  "k": "AI that answers calls, works your texts and reads every conversation, alongside intent scoring on the first ring.",
-  "page": "features.html"
- },
- {
-  "k": "AI agents that answer around the clock, qualify callers and warm-transfer high intent to buyers.",
+  "k": "AI that works your texts and reads every conversation, alongside intent scoring on the first ring.",
   "page": "features.html"
  },
  {
@@ -3960,7 +3484,7 @@
   "page": "features.html"
  },
  {
-  "k": "Run Twilio, Telnyx, Plivo or any SIP carrier side by side, all through one routing engine.",
+  "k": "Run Telnyx, Plivo or any SIP carrier side by side, all through one routing engine.",
   "page": "features.html"
  },
  {
@@ -4052,7 +3576,7 @@
   "page": "features.html"
  },
  {
-  "k": "Carriers, trackers, CRMs, ad platforms and AI voice agents, connected.",
+  "k": "Carriers, trackers, CRMs and ad platforms, connected.",
   "page": "features.html"
  },
  {
@@ -4068,7 +3592,7 @@
   "page": "features.html"
  },
  {
-  "k": "Every Avortyx capability in one place: first-ring routing, ping/post bidding, call tracking, AI agents, lead automation, numbers and built-in compliance.",
+  "k": "Every Avortyx capability in one place: first-ring routing, call tracking, AI call scoring, lead automation, numbers and built-in compliance.",
   "page": "features.html"
  },
  {
@@ -4244,7 +3768,7 @@
   "page": "features/agent_controls.html"
  },
  {
-  "k": "One browser screen to qualify a caller, find the best buyer and transfer in a click, with a Power Dialer that keeps every agent on a live conversation.",
+  "k": "One browser screen to qualify a caller, find the best buyer and transfer in a click.",
   "page": "features/agent_controls.html"
  },
  {
@@ -4292,10 +3816,6 @@
   "page": "features/agent_controls.html"
  },
  {
-  "k": "Put people and <0>AI Voice Agents</0> in the same flow: let AI qualify or answer the simple questions, then pass the caller to a person in the Agent Control Center.",
-  "page": "features/agent_controls.html"
- },
- {
   "k": "<0>The live call, on one screen.</0> Mute, hold, transfer, find a buyer and record the outcome, all in the browser.",
   "page": "features/agent_controls.html"
  },
@@ -4309,42 +3829,6 @@
  },
  {
   "k": "<0>Stand up a call center quickly.</0> Agents created in bulk from a CSV, not one by one.",
-  "page": "features/agent_controls.html"
- },
- {
-  "k": "Once agents are on the line, the Power Dialer keeps them talking. It loops continuously: find a free agent, dial the next lead, listen for a live answer, connect them, and pace itself to how many agents are waiting.",
-  "page": "features/agent_controls.html"
- },
- {
-  "k": "The Power Dialer Loop",
-  "page": "features/agent_controls.html"
- },
- {
-  "k": "Leads Waiting",
-  "page": "features/agent_controls.html"
- },
- {
-  "k": "From the API, imports, schedule actions and more",
-  "page": "features/agent_controls.html"
- },
- {
-  "k": "Agent Free",
-  "page": "features/agent_controls.html"
- },
- {
-  "k": "Ready for the next conversation",
-  "page": "features/agent_controls.html"
- },
- {
-  "k": "The next lead is called",
-  "page": "features/agent_controls.html"
- },
- {
-  "k": "A live answer goes to the agent",
-  "page": "features/agent_controls.html"
- },
- {
-  "k": "Logged, and on to the next lead",
   "page": "features/agent_controls.html"
  },
  {
@@ -4408,7 +3892,7 @@
   "page": "features/agent_controls.html"
  },
  {
-  "k": "<0>Productivity</0> — occupancy and availability are reported separately instead of as one “utilization” figure, because low availability and low occupancy have different fixes: one is about the agent, the other about the dialer. Time agents are paid to wait on the system, rather than talk to someone, is shown as its own share.",
+  "k": "<0>Productivity</0> — occupancy and availability are reported separately instead of as one “utilization” figure, because low availability and low occupancy have different fixes: one is about the agent, the other about call volume. Time agents are paid to wait on the system, rather than talk to someone, is shown as its own share.",
   "page": "features/agent_controls.html"
  },
  {
@@ -4436,11 +3920,11 @@
   "page": "features/agent_controls.html"
  },
  {
-  "k": "Agent Control Center & Power Dialer | Avortyx",
+  "k": "Agent Control Center | Avortyx",
   "page": "features/agent_controls.html"
  },
  {
-  "k": "A browser-based console where agents qualify callers, find the best buyer and transfer in one click, plus a Power Dialer that keeps every agent on a live conversation.",
+  "k": "A browser-based console where agents qualify callers, find the best buyer and transfer in one click.",
   "page": "features/agent_controls.html"
  },
  {
@@ -4784,7 +4268,7 @@
   "page": "features/buyer_management.html"
  },
  {
-  "k": "The highest bid wins. Buyers paying the most per call move to the front automatically.",
+  "k": "The highest payout goes first. Buyers paying the most per call move to the front automatically.",
   "page": "features/buyer_management.html"
  },
  {
@@ -4812,7 +4296,7 @@
   "page": "features/buyer_management.html"
  },
  {
-  "k": "<0>What counts as converted</0> — by duration, Ping/Post or API postback, with CPL or CPA payouts per conversion. With Press-1-to-accept, the timer starts when the buyer presses 1.",
+  "k": "<0>What counts as converted</0> — by duration or API postback, with CPL or CPA payouts per conversion. With Press-1-to-accept, the timer starts when the buyer presses 1.",
   "page": "features/buyer_management.html"
  },
  {
@@ -5096,7 +4580,7 @@
   "page": "features/call_tracking.html"
  },
  {
-  "k": "Live dashboards follow calls, conversions, revenue, payout, cost and profit as they land, and summary reports group them by buyer, traffic source, offer, status and dozens of other dimensions. Pick from hundreds of fields, save views as tabs, and send one-time or recurring <0>CSV reports</0> by email. <1>Ping/Post</1> traffic has a live dashboard of its own.",
+  "k": "Live dashboards follow calls, conversions, revenue, payout, cost and profit as they land, and summary reports group them by buyer, traffic source, offer, status and dozens of other dimensions. Pick from hundreds of fields, save views as tabs, and send one-time or recurring <0>CSV reports</0> by email.",
   "page": "features/call_tracking.html"
  },
  {
@@ -6304,7 +5788,7 @@
   "page": "features/inbound_call_routing.html"
  },
  {
-  "k": "Avortyx makes the routing decision in the time it takes a phone to ring once. The call can go to a buyer, a human agent or an <0>AI voice agent</0>, and it can move to a new destination mid-call when the caller’s intent or your filters change.",
+  "k": "Avortyx makes the routing decision in the time it takes a phone to ring once. The call can go to a buyer or a human agent, and it can move to a new destination mid-call when the caller’s intent or your filters change.",
   "page": "features/inbound_call_routing.html"
  },
  {
@@ -6392,7 +5876,7 @@
   "page": "features/inbound_call_routing.html"
  },
  {
-  "k": "Avortyx screens, scores and routes every inbound call to the best eligible buyer, agent or AI voice agent while it is still ringing.",
+  "k": "Avortyx screens, scores and routes every inbound call to the best eligible buyer or agent while it is still ringing.",
   "page": "features/inbound_call_routing.html"
  },
  {
@@ -6436,15 +5920,7 @@
   "page": "features/infusionsoft.html"
  },
  {
-  "k": "Carriers, affiliate trackers, CRMs, ad platforms and AI voice agents: plug Avortyx into the stack you already run, and every call’s data goes where your team works.",
-  "page": "features/integrations.html"
- },
- {
-  "k": "Integrate with ElevenLabs",
-  "page": "features/integrations.html"
- },
- {
-  "k": "AI voice agents on your calls",
+  "k": "Carriers, affiliate trackers, CRMs and ad platforms: plug Avortyx into the stack you already run, and every call’s data goes where your team works.",
   "page": "features/integrations.html"
  },
  {
@@ -6584,19 +6060,11 @@
   "page": "features/integrations.html"
  },
  {
-  "k": "Integrate with Twilio",
-  "page": "features/integrations.html"
- },
- {
-  "k": "Twilio numbers, Avortyx routing",
-  "page": "features/integrations.html"
- },
- {
   "k": "Integrations | Connect Avortyx to your stack | Avortyx",
   "page": "features/integrations.html"
  },
  {
-  "k": "Connect Avortyx to your carriers, trackers, CRMs, ad platforms and AI voice agents, so call data flows wherever your team works.",
+  "k": "Connect Avortyx to your carriers, trackers, CRMs and ad platforms, so call data flows wherever your team works.",
   "page": "features/integrations.html"
  },
  {
@@ -6920,7 +6388,7 @@
   "page": "features/multiple_telephone_providers.html"
  },
  {
-  "k": "Twilio, Plivo, Telnyx or SIP",
+  "k": "Plivo, Telnyx or SIP",
   "page": "features/multiple_telephone_providers.html"
  },
  {
@@ -6948,7 +6416,7 @@
   "page": "features/multiple_telephone_providers.html"
  },
  {
-  "k": "Avortyx does not lock you into a phone carrier. Connect Twilio, Plivo or Telnyx with your own accounts, or route your existing carrier in over SIP, and every number gets the same scoring, screening and routing on the first ring.",
+  "k": "Avortyx does not lock you into a phone carrier. Connect Plivo or Telnyx with your own accounts, or route your existing carrier in over SIP, and every number gets the same scoring, screening and routing on the first ring.",
   "page": "features/multiple_telephone_providers.html"
  },
  {
@@ -6972,11 +6440,11 @@
   "page": "features/multiple_telephone_providers.html"
  },
  {
-  "k": "Plivo, Twilio and Telnyx, fully managed",
+  "k": "Plivo and Telnyx, fully managed",
   "page": "features/multiple_telephone_providers.html"
  },
  {
-  "k": "These three carriers are connected through their APIs, so Avortyx can manage them end to end:",
+  "k": "These two carriers are connected through their APIs, so Avortyx can manage them end to end:",
   "page": "features/multiple_telephone_providers.html"
  },
  {
@@ -7008,7 +6476,7 @@
   "page": "features/multiple_telephone_providers.html"
  },
  {
-  "k": "Run Avortyx on Twilio, Plivo, Telnyx or any SIP carrier, and manage every number from every provider in one place.",
+  "k": "Run Avortyx on Plivo, Telnyx or any SIP carrier, and manage every number from every provider in one place.",
   "page": "features/multiple_telephone_providers.html"
  },
  {
@@ -7106,330 +6574,6 @@
  {
   "k": "Avortyx clears or hashes personal data once records age past your retention window, hides sensitive fields from users without permission, and redacts transcripts.",
   "page": "features/pii_redaction.html"
- },
- {
-  "k": "<0/> Back to Ping/Post",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Ping/Post Integration Guide",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Everything a publisher needs to plug into Avortyx Ping/Post: ping for live bids, post to claim a buyer, and route the call to the number you get back.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Endpoint URLs",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Each endpoint has its own <0>Vanity URI</0>, chosen when you set the endpoint up in Avortyx.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Method",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Type",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "URL Pattern",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "GET / POST",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "PING",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "POST",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Step 1: Ping for bids",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Send what you know about the lead to the PING endpoint and Avortyx returns every buyer willing to take it, with their bids. Parameters can go in a JSON body or in the query string.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "PING Request Example",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "PING Response Example",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "You get back each eligible buyer and their bid, plus a <0>try_all_buyers_ping_id</0> that lets Avortyx work through every matched buyer in priority order:",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Which buyer fields come back is set per endpoint. The usual ones are <0>id</0>, <1>name</1>, <2>bid_price</2>, <3>tier</3>, and <4>forwarding_number</4>.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Step 2: Post to claim a buyer",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "With the ping response in hand, post in one of two ways:",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "<0>Choose one buyer</0> — send that buyer's <1>ping_id</1> and <2>buyer_id</2> of the buyer you want",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "<0>Let Avortyx try them all</0> — send the <1>try_all_buyers_ping_id</1> as the <2>ping_id</2> and Avortyx tries each matched buyer in priority order until one accepts",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "POST Request Example (specific buyer)",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "POST Request Example (try all buyers)",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "POST Response Example",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Send the caller to the <0>forwarding_number</0> you get back. SIP endpoints can return a <1>forwarding_number_sip_address</1>.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Skip the ping",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Not every publisher needs two steps. Post the lead directly and Avortyx finds the best eligible buyer and returns a tracking number in a single request.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Fields to send",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Every endpoint belongs to an offer, and the offer’s contact fields decide what a publisher has to send. The ones you will see most:",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Field",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Description",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "caller_id",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Varies",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "The lead’s phone number",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "traffic_source_id",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Which publisher or traffic source sent it",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "ping_id",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "On POST",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "The ping ID from step 1",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "avortyx_number",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Needed in caller-number (static) tracking mode",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Custom fields such as state, ZIP code or vertical are added per offer. The complete list for any endpoint is on its <0>Posting Instructions</0> page.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Two tracking modes",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Pick the one that suits how the publisher sends calls:",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "<0>Unique Phone Numbers (Ring Pool)</0> — each POST returns its own tracking number for the call",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "<0>Caller Number (Static)</0> — the publisher names an <1>avortyx_number</1> on the PING, then sends both <2>caller_id</2> and <3>ping_id</3> on the POST",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Locking an endpoint",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Require an <0>auth_token</0> parameter and only publishers with an Avortyx account can use the endpoint, so you always know who sent each lead.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Instructions you can share",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Every endpoint gets its own <0>Posting Instructions</0> page in Avortyx, with the full field list and example requests and responses for that exact endpoint. Send it to a publisher and they have everything they need.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Ping/Post Overview",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "Ping/Post Integration Guide | Avortyx API",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "How publishers integrate with Avortyx Ping/Post: send a ping to collect live bids, post to claim a buyer and get a tracking number, or post directly in one step.",
-  "page": "features/ping_post_integration.html"
- },
- {
-  "k": "A live auction for every lead and call. Publishers ping to collect bids from every eligible buyer, then post to get the number that connects the winner.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Real-Time Ping/Post dashboard: KPIs and the ping-to-post funnel",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Per-traffic-source performance: accept rate, conversions, revenue, payout, and margin",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Real-Time ping log: each ping with its offer, source, matched buyers, winning bid, and status",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Ping/Post usage over time with a daily usage and cost breakdown",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "How the Auction Runs",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Publisher",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Sends what it knows about the lead",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Eligible buyers return live bids",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Buyers Screened",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Hours, caps, geo, filters, duplicates",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "The winner’s tracking number comes back",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "The caller reaches the winning buyer",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Fixed rate cards leave money on the table. With Ping/Post, each call is priced by the buyers who want it, at the moment it happens: more buyers bidding means higher fill rates and more revenue per call, and DNC and suppression checks run inside every ping.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "<0>Pick how winners are chosen</0> — rank by bid, by tier and weight, or by earnings per call (EPC).",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "<0>Fixed and live bids together</0> — always-on buyers at a set price compete with webhook buyers who return a fresh bid on every ping.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "<0>Waterfall when needed</0> — a call can cascade down the ranked buyers, by bid and priority, until one connects.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "<0>Ping caps per buyer</0> — limit pings per minute, hour or day for each buyer, using only the intervals you need. A buyer at its cap is skipped rather than flooded, so smaller partners stop rejecting when your volume spikes.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "<0>Screened before bidding</0> — every caller is checked against DNC, suppression and litigator lists before any buyer is returned.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "The auction, measured live",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Every ping is counted. Follow the funnel from ping to conversion by buyer and traffic source while leads are still arriving.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "<0>The whole auction on one screen.</0> Live KPIs, the ping-to-post funnel and per-buyer economics together.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "<0>Economics by source.</0> Pings, accept rate, conversions, revenue, payout and margin for each publisher and offer.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "<0>Every ping as it happens.</0> A live log of each ping: matched buyers, the winning bid and whether it was accepted.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Usage and cost",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "<0>No surprise bills.</0> Avortyx counts every inbound webhook request and shows daily usage and cost by offer and traffic source.",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Ping/Post & Real-Time Bidding | Every buyer bids on every call | Avortyx",
-  "page": "features/ping_post.html"
- },
- {
-  "k": "Avortyx Ping/Post runs a live auction for each lead and call: publishers ping for bids, buyers compete in milliseconds, and the post returns the number that connects the winner.",
-  "page": "features/ping_post.html"
  },
  {
   "k": "Plivo + Avortyx",
@@ -8068,7 +7212,7 @@
   "page": "features/transcriptions.html"
  },
  {
-  "k": "Understand every call without listening to it. Each <0>call recording</0> is transcribed, summarized, scored and tagged as soon as the call ends, so QA and compliance teams can find coaching moments, one-sided calls and unhappy callers in seconds. Keyword matches can fire webhooks and hand calls to an <1>AI Voice Agent</1> automatically. And because Avortyx scores intent while calls are still ringing, transcripts are also how you check those scores against what callers actually said.",
+  "k": "Understand every call without listening to it. Each <0>call recording</0> is transcribed, summarized, scored and tagged as soon as the call ends, so QA and compliance teams can find coaching moments, one-sided calls and unhappy callers in seconds. Keyword matches can fire webhooks automatically. And because Avortyx scores intent while calls are still ringing, transcripts are also how you check those scores against what callers actually said.",
   "page": "features/transcriptions.html"
  },
  {
@@ -8200,70 +7344,6 @@
   "page": "features/transcriptions.html"
  },
  {
-  "k": "Twilio + Avortyx",
-  "page": "features/twilio.html"
- },
- {
-  "k": "Keep your Twilio account and numbers, and let Avortyx score, screen and route every call they receive.",
-  "page": "features/twilio.html"
- },
- {
-  "k": "Link Twilio",
-  "page": "features/twilio.html"
- },
- {
-  "k": "Add your Twilio API credentials",
-  "page": "features/twilio.html"
- },
- {
-  "k": "Existing Twilio numbers in one click",
-  "page": "features/twilio.html"
- },
- {
-  "k": "Search Twilio inventory by area code",
-  "page": "features/twilio.html"
- },
- {
-  "k": "Many networks already run on Twilio. Linking it to Avortyx keeps those numbers, that account and that billing exactly where they are, while every call they receive is scored for intent, screened for compliance and sent to the right buyer before it finishes ringing.",
-  "page": "features/twilio.html"
- },
- {
-  "k": "<0>Your carrier, our routing engine.</0> Twilio keeps carrying the minutes; Avortyx decides where every call goes.",
-  "page": "features/twilio.html"
- },
- {
-  "k": "What you can do with Twilio on Avortyx",
-  "page": "features/twilio.html"
- },
- {
-  "k": "Once the account is linked, your Twilio numbers behave like any other Avortyx number:",
-  "page": "features/twilio.html"
- },
- {
-  "k": "<0>Keep your account</0> — Avortyx stores your Twilio keys securely and manages numbers, calls and SMS through them.",
-  "page": "features/twilio.html"
- },
- {
-  "k": "<0>Buy from inside Avortyx</0> — search Twilio inventory by country, area code and type (local or toll-free) without opening their console.",
-  "page": "features/twilio.html"
- },
- {
-  "k": "No migration project",
-  "page": "features/twilio.html"
- },
- {
-  "k": "There is nothing to port and nothing to rebuild: link the account, import the numbers you want Avortyx to route, and attach them to a campaign. You can move numbers over one campaign at a time.",
-  "page": "features/twilio.html"
- },
- {
-  "k": "Twilio + Avortyx | Route your Twilio numbers on the first ring",
-  "page": "features/twilio.html"
- },
- {
-  "k": "Link your Twilio account to Avortyx, import or buy Twilio numbers, and route every call through Avortyx scoring, screening and buyer selection.",
-  "page": "features/twilio.html"
- },
- {
   "k": "Typeform + Avortyx",
   "page": "features/typeform.html"
  },
@@ -8382,150 +7462,6 @@
  {
   "k": "Avortyx verifies every customer (KYC and KYB) and signs outbound calls with STIR/SHAKEN, so carriers trust your numbers and your calls connect.",
   "page": "features/verified_identity.html"
- },
- {
-  "k": "Put your AI voice agents on the phones: they answer and qualify around the clock, then warm-transfer high-intent callers to buyers.",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Add your AI voice provider",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Import",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Pick agents; Avortyx sets up the SIP trunk",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Drop the agent into any routing rule",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Answer",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Calls reach the agent over SIP",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "An AI voice agent in Avortyx is just another destination in your routing rules, which means it can take the 2am calls, the overflow and the first round of questions, then warm-transfer the caller to a buyer once intent is high. The caller’s answers travel with the call, so the buyer starts the conversation already informed.",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "<0>Qualification around the clock</0> — leads get a conversation the moment they call, at any hour.",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "<0>After-hours and overflow</0> — route to the agent when your team is offline or every line is busy.",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "<0>Answers without a transfer</0> — common questions are handled by the agent; only real intent goes to a buyer.",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "<0>The same rules as everyone else</0> — priority, hours, caps, concurrency, recording, transcription and analytics all apply to the agent.",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "<0>Answers on the record</0> — whatever the agent learns is written to the call record in real time, ready for routing and reports.",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Supported providers",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "These AI voice providers connect to Avortyx today.",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "ElevenLabs integration",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Natural, studio-quality conversational voice",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "View ElevenLabs →",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Connect An Integration",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "AI at Avortyx",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "AI Voice Agents | Qualify every call, any hour | Avortyx",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Bring your AI voice agents into Avortyx: they answer and qualify calls around the clock and warm-transfer high-intent callers to buyers, under the same routing rules as your team.",
-  "page": "features/voice_agents.html"
- },
- {
-  "k": "Import the voice agents you built in ElevenLabs and put them on inbound and outbound calls in minutes, routed with the same controls as your live team.",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "<0>Your ElevenLabs agents, on real calls.</0> Natural voices answering and qualifying inbound and outbound calls.",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "Paste an ElevenLabs API key and Avortyx lists every agent in your account. Choose the ones you want and import them; Avortyx handles the telephony behind the scenes.",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "<0>Import in one click</0> — the phone setup is done for you, and re-importing picks up new or changed agents.",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "<0>Route it like a person</0> — hours, caps and concurrency, as the main destination, an after-hours fallback or overflow.",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "<0>Everything on the record</0> — details the agent collects are written to the call as it happens and show up in your reports.",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "Up and running in three steps",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "In ElevenLabs, create an API key with write access at <0>elevenlabs.io / Settings / API Keys</0>.",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "In Avortyx, add the ElevenLabs integration on the <0>Integrations</0> page and paste the key.",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "Select your agents and import them. They can take calls straight away.",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "Connect ElevenLabs",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "All AI Voice Agents",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "ElevenLabs + Avortyx | AI voice agents on your calls",
-  "page": "features/voice_agents/elevenlabs.html"
- },
- {
-  "k": "Import your ElevenLabs voice agents into Avortyx in one click and route them like your live team, with hours, caps and concurrency.",
-  "page": "features/voice_agents/elevenlabs.html"
  },
  {
   "k": "Voluum + Avortyx",
@@ -8828,7 +7764,7 @@
   "page": "help.html"
  },
  {
-  "k": "What is Ping/Post and what do I give a traffic source?",
+  "k": "Tier, revenue or EPC routing: which should I use?",
   "page": "help.html"
  },
  {
@@ -8884,7 +7820,7 @@
   "page": "help.html"
  },
  {
-  "k": "Add your buyers with their destinations, bids and caps.",
+  "k": "Add your buyers with their destinations, payouts and caps.",
   "page": "help.html"
  },
  {
@@ -8952,7 +7888,7 @@
   "page": "help.html"
  },
  {
-  "k": "Yes. Link Twilio, Plivo or Telnyx with your own account and import your numbers in one click, or route your carrier in over SIP. Every number is then managed in one inventory, whichever carrier it came from.",
+  "k": "Yes. Link Plivo or Telnyx with your own account and import your numbers in one click, or route your carrier in over SIP. Every number is then managed in one inventory, whichever carrier it came from.",
   "page": "help.html"
  },
  {
@@ -9000,11 +7936,7 @@
   "page": "help.html"
  },
  {
-  "k": "Tier, revenue or EPC routing: which should I use?",
-  "page": "help.html"
- },
- {
-  "k": "Tier routing follows the order you set, which suits fixed partner priorities. Revenue routing gives each call to the highest bid. EPC routing favors buyers who have earned the most per call over time, which protects payouts when a high bidder converts poorly.",
+  "k": "Tier routing follows the order you set, which suits fixed partner priorities. Revenue routing gives each call to the buyer paying the most for it. EPC routing favors buyers who have earned the most per call over time, which protects payouts when a high payer converts poorly.",
   "page": "help.html"
  },
  {
@@ -9024,55 +7956,11 @@
   "page": "help.html"
  },
  {
-  "k": "Ping/Post runs a live auction for each lead or call. The publisher pings with details about the lead, gets back bids from eligible buyers, then posts to claim one and receives a tracking number for the call.",
-  "page": "help.html"
- },
- {
-  "k": "Give the traffic source the endpoint’s Posting Instructions page: it lists the PING and POST URLs, the fields to send, and example requests and responses for that exact endpoint.",
-  "page": "help.html"
- },
- {
-  "k": "Integration guide <0>→</0>",
-  "page": "help.html"
- },
- {
-  "k": "Can a publisher skip the ping?",
-  "page": "help.html"
- },
- {
-  "k": "Yes. In post-only mode the publisher posts the lead directly, and Avortyx finds the best eligible buyer and returns a tracking number in one request.",
-  "page": "help.html"
- },
- {
-  "k": "A buyer keeps rejecting during traffic spikes",
-  "page": "help.html"
- },
- {
-  "k": "Set ping caps for that buyer, per minute, hour or day. A buyer at its cap is skipped instead of flooded, so it stops rejecting when your volume spikes.",
-  "page": "help.html"
- },
- {
-  "k": "Ping/Post <0>→</0>",
-  "page": "help.html"
- },
- {
   "k": "Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the next full minute. The local and toll-free inbound rates cover both legs of a call connected to a buyer, and statements list each leg so you can see what every call cost.",
   "page": "help.html"
  },
  {
   "k": "Pricing <0>→</0>",
-  "page": "help.html"
- },
- {
-  "k": "How is Ping/Post billed?",
-  "page": "help.html"
- },
- {
-  "k": "You pay per 1,000 unique pings, and posts are billed the same way. A ping repeated within 15 seconds counts once.",
-  "page": "help.html"
- },
- {
-  "k": "Ping/Post calculator <0>→</0>",
   "page": "help.html"
  },
  {
@@ -9196,7 +8084,7 @@
   "page": "help.html"
  },
  {
-  "k": "Answers on calls, numbers, routing, Ping/Post, billing, integrations and compliance in Avortyx, with a team to talk to when you need one.",
+  "k": "Answers on calls, numbers, routing, billing, integrations and compliance in Avortyx, with a team to talk to when you need one.",
   "page": "help.html"
  },
  {
@@ -9296,7 +8184,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Terms for call scoring, transcription, AI voice agents and other AI-powered features.",
+  "k": "Terms for call scoring, transcription and other AI-powered features.",
   "page": "legal.html"
  },
  {
@@ -9564,7 +8452,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Messaging, transcription, Ping API requests, schedule steps and recording storage: at the rates on the pricing page.",
+  "k": "Messaging, transcription, schedule steps and recording storage: at the rates on the pricing page.",
   "page": "legal.html"
  },
  {
@@ -9696,7 +8584,7 @@
   "page": "legal.html"
  },
  {
-  "k": "These terms apply when you use AI-powered features in Avortyx, such as intent scoring, transcription, call summaries and connections to AI voice agent providers. They add to the Terms of Service.",
+  "k": "These terms apply when you use AI-powered features in Avortyx, such as intent scoring, transcription and call summaries. They add to the Terms of Service.",
   "page": "legal.html"
  },
  {
@@ -9720,7 +8608,7 @@
   "page": "legal.html"
  },
  {
-  "k": "If you use an AI voice agent to speak with consumers, you are responsible for any disclosure that law requires, and for meeting consent rules that apply to artificial or pre-recorded voices.",
+  "k": "If you use an artificial or AI-generated voice to speak with consumers, you are responsible for any disclosure that law requires, and for meeting consent rules that apply to artificial or pre-recorded voices.",
   "page": "legal.html"
  },
  {
@@ -9904,7 +8792,7 @@
   "page": "p/contact.html"
  },
  {
-  "k": "Questions about routing, ping/post, compliance or your account? Send a note and someone who knows pay-per-call will get back to you.",
+  "k": "Questions about routing, compliance or your account? Send a note and someone who knows pay-per-call will get back to you.",
   "page": "p/contact.html"
  },
  {
@@ -9960,7 +8848,7 @@
   "page": "p/contact.html"
  },
  {
-  "k": "Talk to the Avortyx team about routing, ping/post, compliance or your account. Real people who know pay-per-call.",
+  "k": "Talk to the Avortyx team about routing, compliance or your account. Real people who know pay-per-call.",
   "page": "p/contact.html"
  },
  {
@@ -10076,15 +8964,11 @@
   "page": "pricing.html"
  },
  {
-  "k": "Ping/Post Per 1k",
-  "page": "pricing.html"
- },
- {
   "k": "AI Transcription",
   "page": "pricing.html"
  },
  {
-  "k": "Recording Retention <0>11</0>",
+  "k": "Recording Retention <0>10</0>",
   "page": "pricing.html"
  },
  {
@@ -10152,62 +9036,6 @@
   "page": "pricing.html"
  },
  {
-  "k": "Ping/Post Cost Calculator",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>Repeat pings cost nothing.</0> A ping repeated within 15 seconds is billed once.",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>You pay per 1,000 unique pings.</0> Posts are priced the same way.",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>Rate limits keep spend in check.</0> Cap each endpoint and each traffic source, so a source that floods you with pings cannot run up your costs.",
-  "page": "pricing.html"
- },
- {
-  "k": "Enter your daily unique pings to see what a month would cost.",
-  "page": "pricing.html"
- },
- {
-  "k": "Unique Pings per Day",
-  "page": "pricing.html"
- },
- {
-  "k": "Unique Pings Billed",
-  "page": "pricing.html"
- },
- {
-  "k": "10,000 per day x 30 days",
-  "page": "pricing.html"
- },
- {
-  "k": "300,000 /month",
-  "page": "pricing.html"
- },
- {
-  "k": "Ping/Post Rate",
-  "page": "pricing.html"
- },
- {
-  "k": "Per 1,000 unique pings",
-  "page": "pricing.html"
- },
- {
-  "k": "Estimated Total",
-  "page": "pricing.html"
- },
- {
-  "k": "$36.00 /month",
-  "page": "pricing.html"
- },
- {
-  "k": "Estimate for a 30-day month. See the <0>Ping/Post feature page</0> for rate limiting, bid management and the real-time dashboards.",
-  "page": "pricing.html"
- },
- {
   "k": "Pricing questions",
   "page": "pricing.html"
  },
@@ -10260,7 +9088,7 @@
   "page": "pricing.html"
  },
  {
-  "k": "<0>5</0> Outbound dialing to consumers, such as power dialer and scheduled callback calls. It does not apply to inbound calls - connecting a buyer is included in the tracking rates. Outbound calls are billed on call duration, on the billing increment and minimum billable duration configured for your account - the Six Second Billing section of the rate sheet states yours.",
+  "k": "<0>5</0> Outbound dialing to consumers, such as lead automation and scheduled callback calls. It does not apply to inbound calls - connecting a buyer is included in the tracking rates. Outbound calls are billed on call duration, on the billing increment and minimum billable duration configured for your account - the Six Second Billing section of the rate sheet states yours.",
   "page": "pricing.html"
  },
  {
@@ -10276,15 +9104,11 @@
   "page": "pricing.html"
  },
  {
-  "k": "<0>9</0> Rate per 1,000 unique Ping API requests, counting requests that are identical to one already received on the same endpoint once per 15 second window.",
+  "k": "<0>9</0> Per minute of transcribed audio.",
   "page": "pricing.html"
  },
  {
-  "k": "<0>10</0> Per minute of transcribed audio.",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>11</0> Monthly price per minute of recordings kept beyond the free 90 days.",
+  "k": "<0>10</0> Monthly price per minute of recordings kept beyond the free 90 days.",
   "page": "pricing.html"
  },
  {
@@ -12432,7 +11256,63 @@
   "page": "(runtime)"
  },
  {
+  "k": "0ms",
+  "page": "(runtime)"
+ },
+ {
+  "k": "28ms",
+  "page": "(runtime)"
+ },
+ {
+  "k": "28ms In-Flight Lookup",
+  "page": "(runtime)"
+ },
+ {
+  "k": "38ms",
+  "page": "(runtime)"
+ },
+ {
+  "k": "4.9x",
+  "page": "(runtime)"
+ },
+ {
+  "k": "62ms",
+  "page": "(runtime)"
+ },
+ {
+  "k": "62ms RTB Auction",
+  "page": "(runtime)"
+ },
+ {
+  "k": "99.4% Human Cadence Match",
+  "page": "(runtime)"
+ },
+ {
+  "k": "99.94% Clean Traffic",
+  "page": "(runtime)"
+ },
+ {
+  "k": "<0/> Ping/Post",
+  "page": "(runtime)"
+ },
+ {
+  "k": "<0/> Power Dialer",
+  "page": "(runtime)"
+ },
+ {
   "k": "<0/> Rule match: <1>Highest bid · homeowner verified · serves CO</1>",
+  "page": "(runtime)"
+ },
+ {
+  "k": "<0/>Routed → Apex Legal",
+  "page": "(runtime)"
+ },
+ {
+  "k": "<0/>Routed → Northwind Benefits",
+  "page": "(runtime)"
+ },
+ {
+  "k": "<0/>Routed → Summit Direct",
   "page": "(runtime)"
  },
  {
@@ -12485,6 +11365,10 @@
  },
  {
   "k": "<0/>Transferred · Summit Solar",
+  "page": "(runtime)"
+ },
+ {
+  "k": "<0/>Warm transfer → Apex Insurance",
   "page": "(runtime)"
  },
  {
@@ -12544,6 +11428,14 @@
   "page": "(runtime)"
  },
  {
+  "k": "Active Bidding Buyers",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Ad Platforms Synced",
+  "page": "(runtime)"
+ },
+ {
   "k": "Affiliate · Auto insurance",
   "page": "(runtime)"
  },
@@ -12596,6 +11488,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Are you currently insured?",
+  "page": "(runtime)"
+ },
+ {
   "k": "Ask a question…",
   "page": "(runtime)"
  },
@@ -12613,6 +11509,14 @@
  },
  {
   "k": "Auto insurance · web form",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Autonomous Transfer Rate",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Average EPC Yield Lift",
   "page": "(runtime)"
  },
  {
@@ -12700,6 +11604,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Call Tagged to Its Source",
+  "page": "(runtime)"
+ },
+ {
   "k": "Call recordings →",
   "page": "(runtime)"
  },
@@ -12720,11 +11628,15 @@
   "page": "(runtime)"
  },
  {
+  "k": "Caller 360°: Ad Tokens &amp; Demographics Enriched",
+  "page": "(runtime)"
+ },
+ {
   "k": "Caller pressed {#}",
   "page": "(runtime)"
  },
  {
-  "k": "Cap reached",
+  "k": "Calls Evaluated / Min",
   "page": "(runtime)"
  },
  {
@@ -12736,7 +11648,23 @@
   "page": "(runtime)"
  },
  {
+  "k": "Carrier Shield: STIR/SHAKEN A-Attestation Verified",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Checking buyer rules",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Checks Before Each Ring",
+  "page": "(runtime)"
+ },
+ {
   "k": "Chris O.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Clean Validated Traffic",
   "page": "(runtime)"
  },
  {
@@ -12824,10 +11752,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Daniel R.",
-  "page": "(runtime)"
- },
- {
   "k": "Daniel R. · (582) 555-0112",
   "page": "(runtime)"
  },
@@ -12860,6 +11784,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Dial-Leg Latency Penalty",
+  "page": "(runtime)"
+ },
+ {
   "k": "Dialed today <0>{#}</0>",
   "page": "(runtime)"
  },
@@ -12869,6 +11797,10 @@
  },
  {
   "k": "EPC +34.2%",
+  "page": "(runtime)"
+ },
+ {
+  "k": "ElevenLabs",
   "page": "(runtime)"
  },
  {
@@ -12901,6 +11833,10 @@
  },
  {
   "k": "Est. cost @ ${#}/{#}k",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Every",
   "page": "(runtime)"
  },
  {
@@ -13036,6 +11972,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Homeowner verified · serves CO · open capacity",
+  "page": "(runtime)"
+ },
+ {
   "k": "How do you handle compliance?",
   "page": "(runtime)"
  },
@@ -13064,6 +12004,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "In-Flight Demographic Match",
+  "page": "(runtime)"
+ },
+ {
   "k": "Inbound Call — Caller dials your tracking number; IVR Greeting — Menu and keypress collection; Smart Routing — Route by tier, bid, or EPC; Ring Buyers — In priority order or all at once; Connected — Call bridged to the buyer",
   "page": "(runtime)"
  },
@@ -13085,6 +12029,22 @@
  },
  {
   "k": "Instant answers from our docs",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Intent 0.88 · price shopper",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Intent 0.91 · homeowner",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Intent 0.95 · urgent",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Intent above 0.80 · licensed in IL · open capacity",
   "page": "(runtime)"
  },
  {
@@ -13113,6 +12073,10 @@
  },
  {
   "k": "LL",
+  "page": "(runtime)"
+ },
+ {
+  "k": "LTV Prediction Accuracy",
   "page": "(runtime)"
  },
  {
@@ -13188,7 +12152,11 @@
   "page": "(runtime)"
  },
  {
-  "k": "Medicare",
+  "k": "Median Voice Response",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Medicare Part D",
   "page": "(runtime)"
  },
  {
@@ -13276,6 +12244,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Not licensed in MA",
+  "page": "(runtime)"
+ },
+ {
   "k": "Number insertion →",
   "page": "(runtime)"
  },
@@ -13320,6 +12292,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Out of area",
+  "page": "(runtime)"
+ },
+ {
   "k": "PA",
   "page": "(runtime)"
  },
@@ -13340,11 +12316,27 @@
   "page": "(runtime)"
  },
  {
+  "k": "Ping",
+  "page": "(runtime)"
+ },
+ {
   "k": "Ping → call",
   "page": "(runtime)"
  },
  {
   "k": "Ping → post funnel",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Ping-Post Fill Rate",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Ping-Tree: 12 Buyers Bidding · High Bid $68.50 Won",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Ping/Post",
   "page": "(runtime)"
  },
  {
@@ -13380,7 +12372,15 @@
   "page": "(runtime)"
  },
  {
+  "k": "Play sample call",
+  "page": "(runtime)"
+ },
+ {
   "k": "Please add your name.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Post",
   "page": "(runtime)"
  },
  {
@@ -13388,7 +12388,19 @@
   "page": "(runtime)"
  },
  {
+  "k": "Power Dialer",
+  "page": "(runtime)"
+ },
+ {
   "k": "Power dialer · demo data",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Practice area match · MA bar · open capacity",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Pre-Ring Calls Screened",
   "page": "(runtime)"
  },
  {
@@ -13444,6 +12456,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Ready · press play to hear a sample call",
+  "page": "(runtime)"
+ },
+ {
   "k": "Real-time dashboards show calls, conversions and spend, and you can export calls, leads, recordings and messages to CSV, on demand or on a schedule emailed to your team.",
   "page": "(runtime)"
  },
@@ -13461,6 +12477,10 @@
  },
  {
   "k": "Renewal due",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Renewal window · open hours · open capacity",
   "page": "(runtime)"
  },
  {
@@ -13504,6 +12524,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "STIR/SHAKEN A",
+  "page": "(runtime)"
+ },
+ {
   "k": "Sale",
   "page": "(runtime)"
  },
@@ -13541,6 +12565,10 @@
  },
  {
   "k": "Send",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Show less",
   "page": "(runtime)"
  },
  {
@@ -13592,7 +12620,23 @@
   "page": "(runtime)"
  },
  {
+  "k": "Speech Diarization SLA",
+  "page": "(runtime)"
+ },
+ {
   "k": "State Farm",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Sub-45ms Voice Copilot",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Sub-85ms Auction Velocity",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Sub-85ms Edge Delivery",
   "page": "(runtime)"
  },
  {
@@ -13609,6 +12653,10 @@
  },
  {
   "k": "TB",
+  "page": "(runtime)"
+ },
+ {
+  "k": "TCPA &amp; DNC Screening",
   "page": "(runtime)"
  },
  {
@@ -13653,6 +12701,10 @@
  },
  {
   "k": "The waiver of a breach of any provision of this Agreement by You shall not operate or be construed as a waiver by Avortyx of any other or subsequent breach by You.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Tied to Its Source",
   "page": "(runtime)"
  },
  {
@@ -13713,6 +12765,14 @@
  },
  {
   "k": "Verified identity →",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Voice IVA Copilot: Live Inbound Routing &amp; Sentiment Analysis",
+  "page": "(runtime)"
+ },
+ {
+  "k": "WON",
   "page": "(runtime)"
  },
  {
@@ -13780,11 +12840,15 @@
   "page": "(runtime)"
  },
  {
-  "k": "Yes, bring your own: connect Twilio, Plivo or Telnyx, or any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.",
+  "k": "Yes, bring your own: connect Plivo or Telnyx, or any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.",
   "page": "(runtime)"
  },
  {
   "k": "Yes, for high-volume customers, and committed monthly plans come with lower per-minute rates.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Yes, with GEICO.",
   "page": "(runtime)"
  },
  {
@@ -13864,6 +12928,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "app.avortyx.com / voice agents / <0>medicare intake</0>",
+  "page": "(runtime)"
+ },
+ {
   "k": "best EPC",
   "page": "(runtime)"
  },
@@ -13928,6 +12996,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "“Can someone quote solar for a house we just bought?”",
+  "page": "(runtime)"
+ },
+ {
   "k": "“Hi Aisha, your quote is ready”",
   "page": "(runtime)"
  },
@@ -13968,11 +13040,19 @@
   "page": "(runtime)"
  },
  {
+  "k": "“I was in an accident and need a lawyer today.”",
+  "page": "(runtime)"
+ },
+ {
   "k": "“I was in an accident last week and need to talk to a lawyer.”",
   "page": "(runtime)"
  },
  {
   "k": "“My policy renews Friday and the price just went up again.”",
+  "page": "(runtime)"
+ },
+ {
+  "k": "“We have two cars and the renewal just went up.”",
   "page": "(runtime)"
  },
  {

@@ -18,6 +18,76 @@
       "source": "/blog/marketing-agency-call-tracking-success-story",
       "destination": "/blog/agency-playbook-proving-call-quality",
       "permanent": true
+    },
+    {
+      "source": "/features/ping_post",
+      "destination": "/features",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/features/ping_post",
+      "destination": "/:lang/features",
+      "permanent": false
+    },
+    {
+      "source": "/features/ping_post_integration",
+      "destination": "/features",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/features/ping_post_integration",
+      "destination": "/:lang/features",
+      "permanent": false
+    },
+    {
+      "source": "/features/voice_agents",
+      "destination": "/features",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/features/voice_agents",
+      "destination": "/:lang/features",
+      "permanent": false
+    },
+    {
+      "source": "/features/voice_agents/elevenlabs",
+      "destination": "/features",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/features/voice_agents/elevenlabs",
+      "destination": "/:lang/features",
+      "permanent": false
+    },
+    {
+      "source": "/blog/ping-post-explained",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/ping-post-explained",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/power-dialer-basics",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/power-dialer-basics",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/features/twilio",
+      "destination": "/features/multiple_telephone_providers",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/features/twilio",
+      "destination": "/:lang/features/multiple_telephone_providers",
+      "permanent": false
     }
   ],
   "rewrites": [

@@ -1,8 +1,8 @@
 // Help Center articles, shown on /help. Each answer sticks to what the feature and pricing pages
 // already say. [id, topic, title, [paragraphs or ['ul', [...]]], [href, link label]]
-export const TOPICS = ['Getting started', 'Calls', 'Numbers', 'Routing & buyers', 'Ping/Post', 'Billing', 'Integrations', 'Compliance']
+export const TOPICS = ['Getting started', 'Calls', 'Numbers', 'Routing & buyers', 'Billing', 'Integrations', 'Compliance']
 
-export const POPULAR = ['find-a-call-recording', 'ping-post-what-to-give-a-traffic-source', 'how-calls-are-billed', 'create-a-number-pool', 'send-conversions-to-google-ads', 'why-a-buyer-did-not-get-a-call']
+export const POPULAR = ['find-a-call-recording', 'tier-revenue-epc', 'how-calls-are-billed', 'create-a-number-pool', 'send-conversions-to-google-ads', 'why-a-buyer-did-not-get-a-call']
 
 export const ARTICLES = [
   ['how-access-works', 'Getting started', 'How do I get an Avortyx account?',
@@ -10,7 +10,7 @@ export const ARTICLES = [
     ['/request-access', 'Request access']],
   ['first-campaign', 'Getting started', 'Launching your first campaign',
     ['A campaign needs three things: a number, routing rules and at least one buyer.',
-      ['ul', ['Buy or port a tracking number and attach it to the offer.', 'Set the rules: caps, hours, states and any token filters.', 'Add your buyers with their destinations, bids and caps.', 'Call the number once to test, and watch the call land in the call log.']]],
+      ['ul', ['Buy or port a tracking number and attach it to the offer.', 'Set the rules: caps, hours, states and any token filters.', 'Add your buyers with their destinations, payouts and caps.', 'Call the number once to test, and watch the call land in the call log.']]],
     ['/features/inbound_call_routing', 'How routing works']],
   ['find-a-call-recording', 'Calls', 'How to find a call recording',
     ['Open the call log and find the call by number, date, source or buyer. The call’s detail page has the recording player, with the agent, buyer and full-call recordings when they were captured. With AI Transcriptions on, the transcript sits under the player and follows the audio.',
@@ -26,7 +26,7 @@ export const ARTICLES = [
     ['A pool is a set of numbers that dynamic number insertion hands out to website visitors, so each visitor sees a number tied to their source. Size the pool so every active visitor can hold their own number, attach it to the campaign, then add the Avortyx snippet to the pages that show your phone number.'],
     ['/features/dynamic_number_insertion', 'Dynamic number insertion']],
   ['port-or-bring-numbers', 'Numbers', 'Can I bring my own numbers or carrier?',
-    ['Yes. Link Twilio, Plivo or Telnyx with your own account and import your numbers in one click, or route your carrier in over SIP. Every number is then managed in one inventory, whichever carrier it came from.'],
+    ['Yes. Link Plivo or Telnyx with your own account and import your numbers in one click, or route your carrier in over SIP. Every number is then managed in one inventory, whichever carrier it came from.'],
     ['/features/multiple_telephone_providers', 'Telephone providers']],
   ['scam-likely-label', 'Numbers', 'My calls show as "Scam Likely"',
     ['Spam labels usually come from high volume on few numbers, many short or unanswered calls, or numbers not registered to a verified business. Turn on Spam Tag Mitigation for the affected numbers: Avortyx registers them with the carriers, can add a branded caller ID, and works to clear existing labels. Number health shows how each carrier labels every line.'],
@@ -37,27 +37,14 @@ export const ARTICLES = [
       'The call record shows which buyers were considered and where the call went instead.'],
     ['/features/buyer_management', 'Buyer management']],
   ['tier-revenue-epc', 'Routing & buyers', 'Tier, revenue or EPC routing: which should I use?',
-    ['Tier routing follows the order you set, which suits fixed partner priorities. Revenue routing gives each call to the highest bid. EPC routing favors buyers who have earned the most per call over time, which protects payouts when a high bidder converts poorly.'],
+    ['Tier routing follows the order you set, which suits fixed partner priorities. Revenue routing gives each call to the buyer paying the most for it. EPC routing favors buyers who have earned the most per call over time, which protects payouts when a high payer converts poorly.'],
     ['/features/inbound_call_routing', 'Inbound call routing']],
   ['buyer-groups', 'Routing & buyers', 'Ringing several buyers at once',
     ['Put buyers or agents in a buyer group and set it to ring everyone together; the first to answer and press 1 takes the call. Groups can also dial in order, share caps across members and be paused in one click.'],
     ['/features/simul_dial', 'Buyer groups']],
-  ['ping-post-what-to-give-a-traffic-source', 'Ping/Post', 'What is Ping/Post and what do I give a traffic source?',
-    ['Ping/Post runs a live auction for each lead or call. The publisher pings with details about the lead, gets back bids from eligible buyers, then posts to claim one and receives a tracking number for the call.',
-      'Give the traffic source the endpoint’s Posting Instructions page: it lists the PING and POST URLs, the fields to send, and example requests and responses for that exact endpoint.'],
-    ['/features/ping_post_integration', 'Integration guide']],
-  ['ping-post-only', 'Ping/Post', 'Can a publisher skip the ping?',
-    ['Yes. In post-only mode the publisher posts the lead directly, and Avortyx finds the best eligible buyer and returns a tracking number in one request.'],
-    ['/features/ping_post_integration', 'Integration guide']],
-  ['ping-caps', 'Ping/Post', 'A buyer keeps rejecting during traffic spikes',
-    ['Set ping caps for that buyer, per minute, hour or day. A buyer at its cap is skipped instead of flooded, so it stops rejecting when your volume spikes.'],
-    ['/features/ping_post', 'Ping/Post']],
   ['how-calls-are-billed', 'Billing', 'How are calls billed?',
     ['Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the next full minute. The local and toll-free inbound rates cover both legs of a call connected to a buyer, and statements list each leg so you can see what every call cost.'],
     ['/pricing', 'Pricing']],
-  ['ping-billing', 'Billing', 'How is Ping/Post billed?',
-    ['You pay per 1,000 unique pings, and posts are billed the same way. A ping repeated within 15 seconds counts once.'],
-    ['/pricing', 'Ping/Post calculator']],
   ['recording-retention-cost', 'Billing', 'Do recordings cost extra?',
     ['Recordings are kept free for 90 days. Keeping them longer has a monthly rate per minute retained, listed on the pricing page.'],
     ['/pricing', 'Pricing']],

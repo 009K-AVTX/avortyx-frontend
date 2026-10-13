@@ -75,7 +75,7 @@ export default function BuyerManagement() {
               <div className="col-md-4">
                 <div className="card p-4 h-100 border-primary border-opacity-50">
                   <h5 className="fw-bold text-primary"><i className="fa-solid fa-dollar-sign me-2" aria-hidden="true" />Revenue Routing</h5>
-                  <p className="text-muted small mb-0">The highest bid wins. Buyers paying the most per call move to the front automatically.</p>
+                  <p className="text-muted small mb-0">The highest payout goes first. Buyers paying the most per call move to the front automatically.</p>
                 </div>
               </div>
               <div className="col-md-4">
@@ -101,7 +101,7 @@ export default function BuyerManagement() {
               </li>
               <li>
                 <strong>What counts as converted</strong>
-                {" "}— by duration, Ping/Post or API postback, with CPL or CPA payouts per conversion. With Press-1-to-accept, the timer starts when the buyer presses 1.
+                {" "}— by duration or API postback, with CPL or CPA payouts per conversion. With Press-1-to-accept, the timer starts when the buyer presses 1.
               </li>
               <li>
                 <strong>What they hear first</strong>

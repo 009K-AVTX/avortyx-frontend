@@ -2,7 +2,7 @@
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
   title: "Inbound Call Routing | Decided on the first ring | Avortyx",
-  description: "Avortyx screens, scores and routes every inbound call to the best eligible buyer, agent or AI voice agent while it is still ringing.",
+  description: "Avortyx screens, scores and routes every inbound call to the best eligible buyer or agent while it is still ringing.",
   bodyClass: "avortyx_marketing features_inbound_call_routing ",
   layout: "feature",
 }
@@ -65,9 +65,7 @@ export default function InboundCallRouting() {
               </div>
             </div>
             <p>
-              Avortyx makes the routing decision in the time it takes a phone to ring once. The call can go to a buyer, a human agent or an{" "}
-              <a href="/features/voice_agents">AI voice agent</a>
-              , and it can move to a new destination mid-call when the caller’s intent or your filters change.
+              Avortyx makes the routing decision in the time it takes a phone to ring once. The call can go to a buyer or a human agent, and it can move to a new destination mid-call when the caller’s intent or your filters change.
             </p>
             <h3>Three ways to rank buyers</h3>
             <p>For each call, the routing engine looks at every available buyer and ranks the ones that qualify using the method you pick:</p>

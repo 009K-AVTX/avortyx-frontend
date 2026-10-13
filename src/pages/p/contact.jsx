@@ -3,7 +3,7 @@ import SupportTeam from '../../components/SupportTeam.jsx'
 
 export const meta = {
   title: "Contact Avortyx | Talk to the team",
-  description: "Talk to the Avortyx team about routing, ping/post, compliance or your account. Real people who know pay-per-call.",
+  description: "Talk to the Avortyx team about routing, compliance or your account. Real people who know pay-per-call.",
   bodyClass: "avortyx_marketing contact ",
   layout: "site",
 }
@@ -16,7 +16,7 @@ export default function Contact() {
           <div className="mktg-auth-card mktg-auth-card--wide">
             <div className="text-center mb-4">
               <h2 className="fw-bold mb-2">Talk to the Avortyx team</h2>
-              <p className="text-muted mb-0">Questions about routing, ping/post, compliance or your account? Send a note and someone who knows pay-per-call will get back to you.</p>
+              <p className="text-muted mb-0">Questions about routing, compliance or your account? Send a note and someone who knows pay-per-call will get back to you.</p>
             </div>
             <SupportTeam className="justify-content-center mb-4" />
             <div className="d-flex flex-wrap justify-content-center gap-4 mb-4 pb-3 border-bottom mktg-contact-links">
@@ -99,14 +99,6 @@ export default function Contact() {
               <div className="row mb-3 js-form-validation form-group check_boxes optional contact_request_feature_interests">
                 <label className="col-sm-3 col-form-label pt-0 check_boxes optional">What are you looking at?</label>
                 <div className="col-sm-9">
-                  <div className="form-check">
-                    <input className="form-check-input check_boxes optional" type="checkbox" value="Real Time Ping/Post" name="contact_request[feature_interests][]" id="contact_request_feature_interests_real_time_pingpost" />
-                    <label className="form-check-label collection_check_boxes" htmlFor="contact_request_feature_interests_real_time_pingpost">Real Time Ping/Post</label>
-                  </div>
-                  <div className="form-check">
-                    <input className="form-check-input check_boxes optional" type="checkbox" value="AI Voice Agents" name="contact_request[feature_interests][]" id="contact_request_feature_interests_ai_voice_agents" />
-                    <label className="form-check-label collection_check_boxes" htmlFor="contact_request_feature_interests_ai_voice_agents">AI Voice Agents</label>
-                  </div>
                   <div className="form-check">
                     <input className="form-check-input check_boxes optional" type="checkbox" value="Call Tracking" name="contact_request[feature_interests][]" id="contact_request_feature_interests_call_tracking" />
                     <label className="form-check-label collection_check_boxes" htmlFor="contact_request_feature_interests_call_tracking">Call Tracking</label>

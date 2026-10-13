@@ -17,7 +17,7 @@ const OPEN_APPLICATION = `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent('
 const ROLES = [
   ['Senior Backend Engineer, Telephony', 'Engineering', 'bg-primary-subtle text-primary', 'Remote, US / EU', 'Own the routing core: SIP, carrier integrations and the sub-second decision path behind every call.'],
   ['Frontend Engineer, Product', 'Engineering', 'bg-primary-subtle text-primary', 'Remote, US / EU', 'Build the live monitor, reports and campaign tooling operators use every day, with Next.js, TypeScript and real-time data.'],
-  ['Machine Learning Engineer, Intent Scoring', 'Data', 'bg-info-subtle text-info', 'Remote, US', 'Turn live call signals into the intent scores buyers bid on: feature pipelines, online inference and evaluation.'],
+  ['Machine Learning Engineer, Intent Scoring', 'Data', 'bg-info-subtle text-info', 'Remote, US', 'Turn live call signals into the intent scores that decide where calls go: feature pipelines, online inference and evaluation.'],
   ['Solutions Engineer', 'Customer', 'bg-warning-subtle text-warning', 'Remote, US', 'Get networks live: number porting, routing design, compliance setup and integrations, side by side with customers.'],
   ['Account Executive, Pay-Per-Call', 'Sales', 'bg-success-subtle text-success', 'Remote, US', 'Bring Avortyx to performance networks and buyers ready to replace stitched-together trackers, carriers and spreadsheets.'],
 ]

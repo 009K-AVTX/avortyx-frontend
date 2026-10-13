@@ -9,7 +9,6 @@ const COLUMNS = [
     ['/features/dynamic_number_insertion', 'Number Insertion Docs'],
   ]],
   ['Features', [
-    ['/features#ping-post', 'Ping/Post'],
     ['/features#call-management', 'Call Management'],
     ['/features#automation', 'Automation'],
     ['/features#ai', 'AI'],

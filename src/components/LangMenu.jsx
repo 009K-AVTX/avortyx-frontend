@@ -39,7 +39,7 @@ function Flag({ code }) {
 
 export default function LangMenu() {
   return (
-    <li className="nav-item dropdown avx-lang ms-lg-2">
+    <li className="nav-item dropdown avx-lang">
       <button className="avx-lang-btn" type="button" data-avx-lang-toggle="" aria-expanded="false" aria-haspopup="true" aria-label="Language">
         <i className="fa-solid fa-globe" aria-hidden="true" />
       </button>
@@ -50,7 +50,7 @@ export default function LangMenu() {
             <a className="dropdown-item" href="/" data-avx-lang={code} hrefLang={code} lang={code} data-avx-no-i18n="">
               <Flag code={code} />
               <span className="avx-lang-name">{name}</span>
-              {english && <span className="avx-lang-en">· {english}</span>}
+              <span className="avx-lang-en">{english || ""}</span>
               <i className="fa-solid fa-check avx-lang-check" aria-hidden="true" />
             </a>
           </li>

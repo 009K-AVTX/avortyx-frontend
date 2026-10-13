@@ -96,9 +96,7 @@ export default function CallTracking() {
             <p>
               Live dashboards follow calls, conversions, revenue, payout, cost and profit as they land, and summary reports group them by buyer, traffic source, offer, status and dozens of other dimensions. Pick from hundreds of fields, save views as tabs, and send one-time or recurring{" "}
               <a href="/features/data_export">CSV reports</a>
-              {" "}by email.{" "}
-              <a href="/features/ping_post">Ping/Post</a>
-              {" "}traffic has a live dashboard of its own.
+              {" "}by email.
             </p>
             <p className="text-muted mb-1">
               <strong>Slice it any way you like.</strong>

@@ -2,7 +2,7 @@
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
   title: "Integrations | Connect Avortyx to your stack | Avortyx",
-  description: "Connect Avortyx to your carriers, trackers, CRMs, ad platforms and AI voice agents, so call data flows wherever your team works.",
+  description: "Connect Avortyx to your carriers, trackers, CRMs and ad platforms, so call data flows wherever your team works.",
   bodyClass: "avortyx_marketing features_integrations ",
   layout: "site",
 }
@@ -17,22 +17,13 @@ export default function Integrations() {
               <a href="/features" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Features </a>
             </div>
             <h1 className="fw-bold">Integrations</h1>
-            <p className="text-muted lead">Carriers, affiliate trackers, CRMs, ad platforms and AI voice agents: plug Avortyx into the stack you already run, and every call’s data goes where your team works.</p>
+            <p className="text-muted lead">Carriers, affiliate trackers, CRMs and ad platforms: plug Avortyx into the stack you already run, and every call’s data goes where your team works.</p>
           </div>
         </div>
       </section>
       <section className="mktg-section">
         <div className="container">
           <div className="row g-4">
-            <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/voice_agents/elevenlabs" className="text-decoration-none">
-                <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with ElevenLabs" className="mx-auto d-block mb-3" src="/assets/avx-site/img/elevenlabs.webp" />
-                  <p className="text-dark small mb-1">ElevenLabs</p>
-                  <p className="text-muted small mb-0">AI voice agents on your calls</p>
-                </div>
-              </a>
-            </div>
             <div className="col-6 col-md-4 col-lg-3">
               <a href="/features/zoho_crm" className="text-decoration-none">
                 <div className="integration-card h-100 text-center p-4">
@@ -183,15 +174,6 @@ export default function Integrations() {
                   <img alt="Integrate with Telnyx" className="mx-auto d-block mb-3" src="/assets/avx-site/img/telnyx.webp" />
                   <p className="text-dark small mb-1">Telnyx</p>
                   <p className="text-muted small mb-0">Telnyx numbers, Avortyx routing</p>
-                </div>
-              </a>
-            </div>
-            <div className="col-6 col-md-4 col-lg-3">
-              <a href="/features/twilio" className="text-decoration-none">
-                <div className="integration-card h-100 text-center p-4">
-                  <img alt="Integrate with Twilio" className="mx-auto d-block mb-3" src="/assets/avx-site/img/twilio.webp" />
-                  <p className="text-dark small mb-1">Twilio</p>
-                  <p className="text-muted small mb-0">Twilio numbers, Avortyx routing</p>
                 </div>
               </a>
             </div>

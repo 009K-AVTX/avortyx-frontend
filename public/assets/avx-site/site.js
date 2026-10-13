@@ -210,20 +210,17 @@
     ['support', ['support', 'contact', 'human', 'real person', 'talk to', 'email', 'phone number', 'help me', 'my account', 'live chat'],
       'We offer phone, live chat and email support, plus live video sessions with our specialists. You can also write to support@avortyx.com.',
       [['#email-support', 'Email support'], ['/p/contact', 'Contact us']]],
-    ['pingpost', ['ping', 'post', 'ping/post', 'bid', 'bidding', 'auction', 'rtb', 'sell calls', 'selling calls', 'monetize'],
-      'Ping/Post is real-time bidding for inbound calls: publishers ping to find available buyers and collect live bids, then post to get a tracking number. Route by bid, priority or earnings-per-call, with static and live webhook bidders in one auction.',
-      [['/features/ping_post', 'Explore Ping/Post']]],
     ['tracking', ['track', 'attribut', 'source', 'campaign', 'keyword', 'dni', 'number insertion', 'swap numbers'],
       'Call tracking measures call conversions from online and offline campaigns, by traffic source, URL keyword and custom tokens. Dynamic number insertion swaps tracking numbers on your website so every call is tied to its source.',
       [['/features/call_tracking', 'Call tracking'], ['/features/dynamic_number_insertion', 'Number insertion']]],
     ['routing', ['rout', 'ivr', 'call flow', 'filter', 'failover', 'buyer group', 'simultaneous', 'caps'],
-      'Every call goes through the same three steps — signal, score, route — before a buyer’s phone rings. The best eligible buyer wins, with match rules, caps, hours, concurrency and failover if a buyer misses. Average routing time is 85ms.',
+      'Every call goes through the same three steps — signal, score, route — before a buyer’s phone rings. The best eligible buyer gets the call, with match rules, caps, hours, concurrency and failover if a buyer misses. Average routing time is 85ms.',
       [['/features/inbound_call_routing', 'Inbound call routing'], ['/#how-it-decides', 'How it decides']]],
-    ['integrations', ['integrat', 'connect', 'crm', 'salesforce', 'zoho', 'zapier', 'slack', 'mailchimp', 'typeform', 'google ads', 'adwords', 'voluum', 'cake', 'hasoffers', 'linktrust', 'aws', 'elevenlabs', 'sendgrid', 'mailgun', 'infusionsoft'],
-      'Avortyx connects with the tools you already use, including Salesforce, Zoho CRM, Zapier, Slack, Google Ads, Voluum, Cake, HasOffers, Linktrust, AWS S3, MailChimp, Mailgun, SendGrid, Typeform and ElevenLabs.',
+    ['integrations', ['integrat', 'connect', 'crm', 'salesforce', 'zoho', 'zapier', 'slack', 'mailchimp', 'typeform', 'google ads', 'adwords', 'voluum', 'cake', 'hasoffers', 'linktrust', 'aws', 'sendgrid', 'mailgun', 'infusionsoft'],
+      'Avortyx connects with the tools you already use, including Salesforce, Zoho CRM, Zapier, Slack, Google Ads, Voluum, Cake, HasOffers, Linktrust, AWS S3, MailChimp, Mailgun, SendGrid and Typeform.',
       [['/features/integrations', 'All integrations']]],
-    ['carriers', ['carrier', 'twilio', 'telnyx', 'plivo', 'sip', 'voip', 'telephony', 'provider', 'own numbers'],
-      'Yes, bring your own: connect Twilio, Plivo or Telnyx, or any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.',
+    ['carriers', ['carrier', 'telnyx', 'plivo', 'sip', 'voip', 'telephony', 'provider', 'own numbers'],
+      'Yes, bring your own: connect Plivo or Telnyx, or any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.',
       [['/features/multiple_telephone_providers', 'Telephone providers'], ['/features/sip_support', 'SIP support']]],
     ['api', ['api', 'rest', 'developer', 'endpoint', 'access token', 'programmat'],
       'Avortyx is API-first: anything you can do in the dashboard, you can do through the REST API, with access tokens limited to exactly the resources they need.',
@@ -240,12 +237,12 @@
     ['transcripts', ['transcri', 'recording', 'record', 'sentiment', 'summar', 'topics', 'listen'],
       'Every recorded call can be transcribed and enriched with AI: summaries, sentiment, topics and a live analytics dashboard. You control who can hear recordings and how long they are kept.',
       [['/features/transcriptions', 'Transcriptions'], ['/features/call_recordings', 'Call recordings']]],
-    ['voiceai', ['ai', 'voice agent', 'voice bot', 'bot', 'chatbot', 'artificial'],
-      'Bring your own AI voice provider: your agent answers and qualifies calls, routed with the same controls as your live team. AI SMS bots engage leads, answer questions and schedule calls automatically.',
-      [['/features/voice_agents', 'AI voice agents'], ['/features/ai_sms_bots', 'AI SMS bots']]],
-    ['dialer', ['dialer', 'outbound', 'dial', 'callback', 'call center', 'disposition', 'transfer', 'agents'],
-      'The Agent Control Center lets agents interview consumers, transfer to buyers, mute, hold and disposition calls from one interface, with a Power Dialer that keeps agents talking, not dialing.',
-      [['/features/agent_controls', 'Agent controls and Power Dialer']]],
+    ['voiceai', ['ai', 'bot', 'chatbot', 'artificial', 'intent', 'scor'],
+      'AI scores every caller’s intent and sentiment, and transcribes and summarizes recorded calls. AI SMS bots engage leads, answer questions and schedule calls automatically.',
+      [['/features/transcriptions', 'AI transcriptions'], ['/features/ai_sms_bots', 'AI SMS bots']]],
+    ['dialer', ['call center', 'disposition', 'transfer', 'agents', 'callback'],
+      'The Agent Control Center lets agents interview consumers, transfer to buyers, mute, hold and disposition calls from one interface.',
+      [['/features/agent_controls', 'Agent controls']]],
     ['automation', ['automat', 'sequence', 'sms', 'text message', 'web form', 'forms', 'nurture', 'leads'],
       'Lead automation turns web forms into live phone calls with automated SMS, email and outbound call workflows.',
       [['/features/lead_automation', 'Lead automation']]],
@@ -259,7 +256,7 @@
       'Avortyx runs at 99.9% uptime with an 85ms average routing time, and screening runs on every call before anyone is dialed.',
       [['/#trust', 'Built to be trusted']]],
     ['blog', ['blog', 'article', 'guide', 'learn', 'read'],
-      'Our blog has guides and worked examples on call tracking, attribution, ping/post, compliance and AI.',
+      'Our blog has guides and worked examples on call tracking, attribution, routing, compliance and AI.',
       [['/blog', 'Read the blog']]],
     ['careers', ['career', 'job', 'hiring', 'work at', 'join the team'],
       'Join the team building the future of call tracking and lead automation.', [['/careers', 'Careers']]],
@@ -272,7 +269,7 @@
   ];
   var GREETING = 'Hi! I can answer questions about Avortyx — pricing, features, integrations and getting started. What would you like to know?';
   var FALLBACK = ['I don’t have an answer for that one yet. Our team can help, or try one of the topics below.', [['/p/contact', 'Contact us'], ['/p/request_demo', 'Request a demo']]];
-  var CHIPS = [['How does pricing work?', 'pricing'], ['What is Ping/Post?', 'pingpost'], ['Can I bring my own carrier?', 'carriers'], ['Is there an API?', 'api'], ['How do you handle compliance?', 'compliance'], ['Book a demo', 'demo']];
+  var CHIPS = [['How does pricing work?', 'pricing'], ['How does routing work?', 'routing'], ['Can I bring my own carrier?', 'carriers'], ['Is there an API?', 'api'], ['How do you handle compliance?', 'compliance'], ['Book a demo', 'demo']];
   var STORE = 'avx-help';
   // the team from avortyx.com's chat: [id, name, role, photo]; sales goes to Maya, support to Jordan
   var TEAM = [
@@ -653,13 +650,13 @@
   // [name, stars, title, text, when]
   var SAMPLE = [
     ['Sample reviewer A', 5, 'Routing set up in an afternoon', 'Sample text: we moved our health campaigns over and calls started reaching buyers the same day.', '2 days ago'],
-    ['Sample reviewer B', 5, 'Ping/Post that just works', 'Sample text: bids come back fast and the reporting shows exactly why a call went where it did.', '5 days ago'],
+    ['Sample reviewer B', 5, 'Routing that just works', 'Sample text: calls connect fast and the reporting shows exactly why a call went where it did.', '5 days ago'],
     ['Sample reviewer C', 4, 'Helpful specialists', 'Sample text: a live video session sorted out our caps and failover in under an hour.', '1 week ago'],
     ['Sample reviewer D', 5, 'Clear pricing', 'Sample text: per-minute billing with no onboarding fee made it easy to test.', '2 weeks ago']
   ];
   var MOCK = [
     ['Daniel Reyes', 5, 'Routing set up in an afternoon', 'We moved our health campaigns over and calls started reaching buyers the same day. The routing rules are easy to follow.', '2 days ago'],
-    ['Priya Shah', 5, 'Ping/Post that just works', 'Bids come back fast and the reporting shows exactly why a call went where it did. No more guessing.', '5 days ago'],
+    ['Priya Shah', 5, 'Routing that just works', 'Calls connect fast and the reporting shows exactly why a call went where it did. No more guessing.', '5 days ago'],
     ['Marcus Bell', 4, 'Helpful specialists', 'A live video session sorted out our caps and failover in under an hour. Would like more report exports.', '1 week ago'],
     ['Hannah Cole', 5, 'Clear pricing', 'Per-minute billing with no onboarding fee made it easy to test before we moved our volume.', '2 weeks ago']
   ];
@@ -753,4 +750,111 @@
     m.previousElementSibling.setAttribute('aria-expanded', 'false');
     m.previousElementSibling.focus();
   });
+})();
+
+/* ---------- "Learn more": reveals the detail a section keeps one click away (components/More.jsx) ---------- */
+(function () {
+  'use strict';
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-avx-more]');
+    if (!btn) return;
+    var body = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!body) return;
+    var open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.hidden = !open;
+    var label = btn.querySelector('.avx-more-label');
+    if (label) label.textContent = open ? btn.getAttribute('data-less') : btn.getAttribute('data-label');
+  });
+})();
+
+/* ---------- People section: reveal on scroll, keep motion only while on screen, tick the call clock ---------- */
+(function () {
+  'use strict';
+  var sec = document.querySelector('[data-avx-people]');
+  if (!sec) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) { sec.classList.add('avx-in'); return; }
+  sec.classList.add('avx-anim');
+  var clock = sec.querySelector('[data-ph="clock"]'), secs = 42, timer = null;
+  function tick() {
+    secs += 1;
+    if (clock) clock.textContent = Math.floor(secs / 60) + ':' + ('0' + (secs % 60)).slice(-2);
+  }
+  // the lead photo's card plays the call through: scoring, buyer rules, connected (payout pops), hold
+  var card = sec.querySelector('[data-ph="card"]'), fig = card && card.closest('.avx-ph');
+  var STEPS = [[0, 1900], [1, 1900], [2, 4600]], step = 0, story = null;
+  function play() {
+    var s = STEPS[step];
+    card.setAttribute('data-step', s[0]);
+    fig.setAttribute('data-step', s[0]);
+    step = (step + 1) % STEPS.length;
+    story = setTimeout(play, s[1]);
+  }
+  new IntersectionObserver(function (entries) {
+    var on = entries[entries.length - 1].isIntersecting;
+    if (on) sec.classList.add('avx-in');
+    sec.classList.toggle('avx-ph-on', on);
+    if (on && !timer) timer = setInterval(tick, 1000);
+    if (!on && timer) { clearInterval(timer); timer = null; }
+    if (card && on && !story) story = setTimeout(play, 1600);
+    if (!on && story) { clearTimeout(story); story = null; }
+  }, { threshold: 0.2 }).observe(sec);
+
+  // desktop: tilt the mosaic towards the pointer
+  var mosaic = sec.querySelector('[data-ph="mosaic"]');
+  if (mosaic && window.matchMedia('(hover: hover) and (min-width: 992px)').matches) {
+    var raf = 0, mx = 0, my = 0;
+    function set() {
+      mosaic.style.setProperty('--mx', mx.toFixed(3));
+      mosaic.style.setProperty('--my', my.toFixed(3));
+      raf = 0;
+    }
+    mosaic.addEventListener('pointermove', function (e) {
+      var r = mosaic.getBoundingClientRect();
+      mx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      my = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      if (!raf) raf = requestAnimationFrame(set);
+    });
+    mosaic.addEventListener('pointerleave', function () {
+      mx = 0; my = 0;
+      if (!raf) raf = requestAnimationFrame(set);
+    });
+  }
+})();
+
+/* ---------- Request Demo / Request Access open at once ----------
+   Chromium prerenders the two sign-up pages as soon as the pointer rests on (or a finger touches)
+   a link to them, so the click shows a page that is already loaded; their HTML is prefetched up
+   front. Browsers without speculation rules fetch the page on hover/touch instead. Works with the
+   /ru /ja /zh prefixes too. */
+(function () {
+  'use strict';
+  var PAGES = ['/request-access', '/p/request_demo'];
+  var match = [];
+  PAGES.forEach(function (p) { match.push(p, '/*' + p); });
+  if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
+    var rules = document.createElement('script');
+    rules.type = 'speculationrules';
+    rules.textContent = JSON.stringify({
+      prefetch: [{ source: 'document', where: { or: match.map(function (m) { return { href_matches: m }; }) }, eagerness: 'eager' }],
+      prerender: [{ source: 'document', where: { or: match.map(function (m) { return { href_matches: m }; }) }, eagerness: 'moderate' }]
+    });
+    document.head.appendChild(rules);
+    return;
+  }
+  var done = {};
+  function warm(e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var path = a.pathname.replace(/^\/(ru|ja|zh)(?=\/)/, '');
+    if (PAGES.indexOf(path) < 0 || done[a.href]) return;
+    done[a.href] = true;
+    var l = document.createElement('link');
+    l.rel = 'prefetch';
+    l.href = a.href;
+    document.head.appendChild(l);
+  }
+  document.addEventListener('pointerover', warm, { passive: true });
+  document.addEventListener('touchstart', warm, { passive: true });
 })();

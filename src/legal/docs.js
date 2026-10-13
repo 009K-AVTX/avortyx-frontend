@@ -132,7 +132,7 @@ export const DOCS = [
           'Inbound calls: billed per minute, rounded up to the nearest full minute. Forwarding a call to a buyer over toll-free or SIP is included in the inbound rate; international and premium rate centers can add cost.',
           'Outbound calls: billed on call duration at the increment and minimum billable duration configured for your account, as stated in your rate sheet.',
           'Tracking numbers and number protection: a monthly rate per number.',
-          'Messaging, transcription, Ping API requests, schedule steps and recording storage: at the rates on the pricing page.',
+          'Messaging, transcription, schedule steps and recording storage: at the rates on the pricing page.',
         ]],
       ]],
       ['2. Surcharges and pass-through fees', [
@@ -200,10 +200,10 @@ export const DOCS = [
   {
     id: '09',
     title: 'AI Features Terms',
-    summary: 'Terms for call scoring, transcription, AI voice agents and other AI-powered features.',
+    summary: 'Terms for call scoring, transcription and other AI-powered features.',
     sections: [
       ['1. What these cover', [
-        'These terms apply when you use AI-powered features in Avortyx, such as intent scoring, transcription, call summaries and connections to AI voice agent providers. They add to the Terms of Service.',
+        'These terms apply when you use AI-powered features in Avortyx, such as intent scoring, transcription and call summaries. They add to the Terms of Service.',
       ]],
       ['2. Outputs', [
         'AI outputs are generated automatically and can be inaccurate or incomplete. Review outputs before relying on them for routing, payout, compliance or employment decisions. You are responsible for how you use outputs.',
@@ -212,7 +212,7 @@ export const DOCS = [
         'Some AI features are provided by third-party model or voice providers. Where you connect your own provider, your use of that provider is governed by your agreement with them. Call audio and transcripts sent to a provider are processed as described in the Privacy Policy.',
       ]],
       ['4. Disclosures', [
-        'If you use an AI voice agent to speak with consumers, you are responsible for any disclosure that law requires, and for meeting consent rules that apply to artificial or pre-recorded voices.',
+        'If you use an artificial or AI-generated voice to speak with consumers, you are responsible for any disclosure that law requires, and for meeting consent rules that apply to artificial or pre-recorded voices.',
       ]],
       ['5. Restrictions', [
         'Do not use AI features to impersonate a real person without authorization, to generate content that breaks the Acceptable Use Policy, or to make decisions that law reserves for a human.',

@@ -385,14 +385,6 @@ export default function SignUp() {
                 <label className="col-sm-3 col-form-label pt-0 check_boxes optional">What will you use Avortyx for?</label>
                 <div className="col-sm-9">
                   <div className="form-check">
-                    <input className="form-check-input check_boxes optional" type="checkbox" value="Real Time Ping/Post" name="registration[feature_interests][]" id="registration_feature_interests_real_time_pingpost" />
-                    <label className="form-check-label collection_check_boxes" htmlFor="registration_feature_interests_real_time_pingpost">Real Time Ping/Post</label>
-                  </div>
-                  <div className="form-check">
-                    <input className="form-check-input check_boxes optional" type="checkbox" value="AI Voice Agents" name="registration[feature_interests][]" id="registration_feature_interests_ai_voice_agents" />
-                    <label className="form-check-label collection_check_boxes" htmlFor="registration_feature_interests_ai_voice_agents">AI Voice Agents</label>
-                  </div>
-                  <div className="form-check">
                     <input className="form-check-input check_boxes optional" type="checkbox" value="Call Tracking" name="registration[feature_interests][]" id="registration_feature_interests_call_tracking" />
                     <label className="form-check-label collection_check_boxes" htmlFor="registration_feature_interests_call_tracking">Call Tracking</label>
                   </div>

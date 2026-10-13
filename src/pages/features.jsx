@@ -2,7 +2,7 @@
 import Bolt from '../components/Bolt.jsx'
 export const meta = {
   title: "Features | Score, route and settle every call | Avortyx",
-  description: "Every Avortyx capability in one place: first-ring routing, ping/post bidding, call tracking, AI agents, lead automation, numbers and built-in compliance.",
+  description: "Every Avortyx capability in one place: first-ring routing, call tracking, AI call scoring, lead automation, numbers and built-in compliance.",
   bodyClass: "avortyx_marketing features ",
   layout: "site",
 }
@@ -23,14 +23,6 @@ export default function Features() {
                 <i className="fa-solid fa-phone-volume text-primary" aria-hidden="true" />
                 {" "}
                 <span>Inbound Call Routing</span>
-                {" "}
-              </a>
-              {" "}
-              <a className="flow-item" href="/features/ping_post">
-                {" "}
-                <i className="fa-solid fa-arrow-right-arrow-left text-info" aria-hidden="true" />
-                {" "}
-                <span>Ping/Post</span>
                 {" "}
               </a>
               {" "}
@@ -90,26 +82,6 @@ export default function Features() {
                 {" "}
                 <span>Call Analytics</span>
                 {" "}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="mktg-section" id="ping-post">
-        <div className="container">
-          <div className="row align-items-center g-4 g-lg-5">
-            <div className="col-lg-6">
-              <div className="mktg-section-header">
-                <h3 className="fw-bold">Real Time Ping/Post</h3>
-                <p className="text-muted">Let every eligible buyer bid on every lead and call. Publishers ping for live bids, then post to connect the winner, all in milliseconds.</p>
-              </div>
-              <a className="btn btn-td-green feature-modal-link" href="/features/ping_post">Learn More</a>
-              {" "}
-              <a className="btn btn-outline-td-green ms-2 feature-modal-link" href="/features/ping_post_integration">Integration Guide</a>
-            </div>
-            <div className="col-lg-6 text-center">
-              <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/ping-post-dashboard-1.webp">
-                <img alt="Real-Time Ping/Post dashboard" className="img-fluid rounded border" width="1400" height="1032" src="/assets/avx-shots/ping-post-dashboard-1.webp" srcSet="/assets/avx-shots/ping-post-dashboard-1-1000.webp 1000w, /assets/avx-shots/ping-post-dashboard-1.webp 1400w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
               </a>
             </div>
           </div>
@@ -183,17 +155,6 @@ export default function Features() {
                 </div>
               </a>
             </div>
-            <div className="col-md-6 col-lg-4">
-              <a href="/features/agent_controls#power-dialer" className="text-decoration-none">
-                <div className="card features-grid-card p-4">
-                  <div className="features-grid-icon bg-danger bg-opacity-10 text-danger mb-3">
-                    <i className="fa-solid fa-phone-arrow-up-right" aria-hidden="true" />
-                  </div>
-                  <h5 className="fw-bold text-body">Power Dialer</h5>
-                  <p className="text-muted small mb-0">Dials the next lead the moment an agent is free, so agents spend the hour talking, not dialing.</p>
-                </div>
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -201,18 +162,9 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h3 className="fw-bold mb-1">AI</h3>
-            <p className="text-muted">AI that answers calls, works your texts and reads every conversation, alongside intent scoring on the first ring.</p>
+            <p className="text-muted">AI that works your texts and reads every conversation, alongside intent scoring on the first ring.</p>
           </div>
           <div className="row g-4">
-            <div className="col-md-6 col-lg-4">
-              <a href="/features/voice_agents" className="text-decoration-none">
-                <div className="card features-grid-card p-4">
-                  <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3"><i className="fa-solid fa-robot" aria-hidden="true" /></div>
-                  <h5 className="fw-bold text-body">AI Voice Agents</h5>
-                  <p className="text-muted small mb-0">AI agents that answer around the clock, qualify callers and warm-transfer high intent to buyers.</p>
-                </div>
-              </a>
-            </div>
             <div className="col-md-6 col-lg-4">
               <a href="/features/ai_sms_bots" className="text-decoration-none">
                 <div className="card features-grid-card p-4">
@@ -324,7 +276,7 @@ export default function Features() {
                     <i className="fa-solid fa-tower-cell" aria-hidden="true" />
                   </div>
                   <h5 className="fw-bold text-body">Multiple Telephone Providers</h5>
-                  <p className="text-muted small mb-0">Run Twilio, Telnyx, Plivo or any SIP carrier side by side, all through one routing engine.</p>
+                  <p className="text-muted small mb-0">Run Telnyx, Plivo or any SIP carrier side by side, all through one routing engine.</p>
                 </div>
               </a>
             </div>
@@ -442,15 +394,9 @@ export default function Features() {
         <div className="container text-center">
           <div className="mktg-section-header text-center">
             <h3 className="fw-bold mb-2">Integrations</h3>
-            <p className="text-muted">Carriers, trackers, CRMs, ad platforms and AI voice agents, connected.</p>
+            <p className="text-muted">Carriers, trackers, CRMs and ad platforms, connected.</p>
           </div>
           <div className="d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
-            <a href="/features/voice_agents/elevenlabs" className="integration-logo-card text-decoration-none" title="ElevenLabs">
-              {" "}
-              <img alt="ElevenLabs" className="integration-logo" loading="lazy" src="/assets/avx-site/img/elevenlabs.webp" />
-              {" "}
-            </a>
-            {" "}
             <a href="/features/zoho_crm" className="integration-logo-card text-decoration-none" title="Zoho CRM">
               {" "}
               <img alt="Zoho CRM" className="integration-logo" loading="lazy" src="/assets/avx-site/img/zoho_crm.webp" />
@@ -550,12 +496,6 @@ export default function Features() {
             <a href="/features/telnyx" className="integration-logo-card text-decoration-none" title="Telnyx">
               {" "}
               <img alt="Telnyx" className="integration-logo" loading="lazy" src="/assets/avx-site/img/telnyx.webp" />
-              {" "}
-            </a>
-            {" "}
-            <a href="/features/twilio" className="integration-logo-card text-decoration-none" title="Twilio">
-              {" "}
-              <img alt="Twilio" className="integration-logo" loading="lazy" src="/assets/avx-site/img/twilio.webp" />
               {" "}
             </a>
           </div>

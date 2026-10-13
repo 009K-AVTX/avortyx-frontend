@@ -6,7 +6,7 @@ import { ARTICLES, POPULAR, TOPICS } from '../help/articles.js'
 
 export const meta = {
   title: 'Help Center | Avortyx',
-  description: 'Answers on calls, numbers, routing, Ping/Post, billing, integrations and compliance in Avortyx, with a team to talk to when you need one.',
+  description: 'Answers on calls, numbers, routing, billing, integrations and compliance in Avortyx, with a team to talk to when you need one.',
   bodyClass: 'avortyx_marketing help_center without-waves',
   layout: 'site',
 }

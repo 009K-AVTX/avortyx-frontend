@@ -3,7 +3,6 @@ import Bolt from './Bolt.jsx'
 import LangMenu from './LangMenu.jsx'
 
 const FEATURE_SECTIONS = [
-  ['ping-post', 'Ping/Post'],
   ['call-management', 'Call Management'],
   ['automation', 'Automation'],
   ['ai', 'AI'],
@@ -65,9 +64,8 @@ export default function Navbar({ brandHref, isLanding }) {
                 </li>
               </ul>
             </li>
-            <LangMenu />
-            {/* the same button as avortyx.com's header: pill, keppel-400 on keppel-950, with its dark bolt */}
-            <li className="nav-item ms-lg-3">
+            {/* phones: Request Access stays in the menu; the globe and Request Demo sit in the bar */}
+            <li className="nav-item d-lg-none">
               <a className="avx-request-access" href="/request-access">
                 <Bolt />
                 Request Access
@@ -75,6 +73,21 @@ export default function Navbar({ brandHref, isLanding }) {
             </li>
           </ul>
         </div>
+        {/* always in view, on every page and at every width: language, Request Demo (and on
+            desktop Request Access). Outside the collapse so phones see it without opening the menu */}
+        <ul className="navbar-nav avx-nav-quick">
+          <LangMenu />
+          <li className="nav-item">
+            <a className="avx-request-demo" href="/p/request_demo">Request Demo</a>
+          </li>
+          {/* the same button as avortyx.com's header: pill, keppel-400 on keppel-950, with its dark bolt */}
+          <li className="nav-item d-none d-lg-block">
+            <a className="avx-request-access" href="/request-access">
+              <Bolt />
+              Request Access
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   )
