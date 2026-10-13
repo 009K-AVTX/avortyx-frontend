@@ -14702,3 +14702,14 @@ pre, code, kbd, samp,
     grid-template-columns: 1fr;
   }
 }
+
+/* the unlabelled preview mock: a solid edge instead of the sample's dashed one */
+.avx-tp-mock {
+  border-style: solid;
+  border-color: rgba(96, 165, 250, .25);
+}
+
+.avx-tp-score .avx-tp-num {
+  color: #f1f4f9;
+  font-size: 13px;
+}

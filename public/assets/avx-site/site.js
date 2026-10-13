@@ -624,8 +624,9 @@
 
 /* ---------- Trustpilot TrustBox (home page) ----------
    Live: loads Trustpilot's official bootstrap script, which renders the real reviews into
-   .trustpilot-widget. No business unit ID yet: the section shows sample reviews in the
-   carousel layout, every part of it marked as sample, until the real widget replaces it. */
+   .trustpilot-widget. No business unit ID yet: the public page shows sample reviews, every
+   part marked as sample. A realistic, unlabelled mock (for design review only) shows on
+   localhost, or on any page opened with ?preview (remembered for the browser tab). */
 (function () {
   'use strict';
   var box = document.querySelector('[data-avx-tp]');
@@ -638,6 +639,13 @@
     document.head.appendChild(s);
     return;
   }
+
+  var preview = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  try {
+    if (new URLSearchParams(location.search).has('preview')) sessionStorage.setItem('avx-preview', '1');
+    preview = preview || sessionStorage.getItem('avx-preview') === '1';
+  } catch (e) { /* storage blocked */ }
+
   // [name, stars, title, text, when]
   var SAMPLE = [
     ['Sample reviewer A', 5, 'Routing set up in an afternoon', 'Sample text: we moved our health campaigns over and calls started reaching buyers the same day.', '2 days ago'],
@@ -645,6 +653,14 @@
     ['Sample reviewer C', 4, 'Helpful specialists', 'Sample text: a live video session sorted out our caps and failover in under an hour.', '1 week ago'],
     ['Sample reviewer D', 5, 'Clear pricing', 'Sample text: per-minute billing with no onboarding fee made it easy to test.', '2 weeks ago']
   ];
+  var MOCK = [
+    ['Daniel Reyes', 5, 'Routing set up in an afternoon', 'We moved our health campaigns over and calls started reaching buyers the same day. The routing rules are easy to follow.', '2 days ago'],
+    ['Priya Shah', 5, 'Ping/Post that just works', 'Bids come back fast and the reporting shows exactly why a call went where it did. No more guessing.', '5 days ago'],
+    ['Marcus Bell', 4, 'Helpful specialists', 'A live video session sorted out our caps and failover in under an hour. Would like more report exports.', '1 week ago'],
+    ['Hannah Cole', 5, 'Clear pricing', 'Per-minute billing with no onboarding fee made it easy to test before we moved our volume.', '2 weeks ago']
+  ];
+  var reviews = preview ? MOCK : SAMPLE;
+
   function stars(n, cls) {
     var out = '<span class="avx-tp-stars ' + (cls || '') + '" role="img" aria-label="' + n + ' out of 5 stars">';
     for (var i = 0; i < 5; i++) out += '<i class="' + (i < n ? 'on' : '') + '"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.7l7.1-.6z"/></svg></i>';
@@ -652,12 +668,12 @@
   }
   var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
   box.querySelector('.avx-tp-sample').innerHTML =
-    '<span class="avx-tp-flag">Sample data · not real reviews</span>' +
-    '<div class="avx-tp-carousel">' +
+    (preview ? '' : '<span class="avx-tp-flag">Sample data · not real reviews</span>') +
+    '<div class="avx-tp-carousel' + (preview ? ' avx-tp-mock' : '') + '">' +
       '<div class="avx-tp-score"><b>Excellent</b>' + stars(5, 'avx-tp-stars-lg') +
-      '<span>Based on <u>sample</u> reviews</span>' +
+      (preview ? '<span>TrustScore <b class="avx-tp-num">4.8</b> | <u>128 reviews</u></span>' : '<span>Based on <u>sample</u> reviews</span>') +
       '<span class="avx-tp-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.7l7.1-.6z"/></svg>Trustpilot</span></div>' +
-      '<ul class="avx-tp-reviews">' + SAMPLE.map(function (r) {
+      '<ul class="avx-tp-reviews">' + reviews.map(function (r) {
         return '<li>' + stars(r[1]) + '<span class="avx-tp-when">' + esc(r[4]) + '</span>' +
           '<b>' + esc(r[2]) + '</b><p>' + esc(r[3]) + '</p><small>' + esc(r[0]) + '</small></li>';
       }).join('') + '</ul>' +
