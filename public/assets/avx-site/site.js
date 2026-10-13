@@ -274,6 +274,14 @@
   var FALLBACK = ['I don’t have an answer for that one yet. Our team can help, or try one of the topics below.', [['/p/contact', 'Contact us'], ['/p/request_demo', 'Request a demo']]];
   var CHIPS = [['How does pricing work?', 'pricing'], ['What is Ping/Post?', 'pingpost'], ['Can I bring my own carrier?', 'carriers'], ['Is there an API?', 'api'], ['How do you handle compliance?', 'compliance'], ['Book a demo', 'demo']];
   var STORE = 'avx-help';
+  // the team from avortyx.com's chat: [id, name, role, photo]; sales goes to Maya, support to Jordan
+  var TEAM = [
+    ['maya', 'Maya Decker', 'Sales lead', '/assets/avx-site/img/team/maya-decker.webp'],
+    ['jordan', 'Jordan Kim', 'Solutions engineer', '/assets/avx-site/img/team/jordan-kim.webp'],
+    ['milena', 'Milena Govich', 'Customer success', '/assets/avx-site/img/team/milena-govich.webp']
+  ];
+  function member(id) { return TEAM.filter(function (t) { return t[0] === id; })[0]; }
+  function face(t, cls) { return '<img class="' + cls + '" src="' + t[3] + '" alt="" loading="lazy" title="' + t[1] + '">'; }
 
   function norm(s) { return ' ' + s.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9/+.-]+/g, ' ').replace(/\s+/g, ' ').trim() + ' '; }
 
@@ -318,19 +326,70 @@
       '<div class="avx-help-log" role="log" aria-live="polite"></div>' +
       '<div class="avx-help-chips" aria-label="Suggested questions"></div>' +
       '<form class="avx-help-form"><input type="text" placeholder="Ask a question…" aria-label="Your question" maxlength="200" autocomplete="off">' +
-      '<button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5L4 12z"/></svg></button></form>';
+      '<button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5L4 12z"/></svg></button></form>' +
+      '<div class="avx-help-foot"><span>Answers from our docs and pages</span>' +
+      '<button type="button" class="avx-help-teamlink"><span class="avx-help-stack">' + TEAM.map(function (t) { return face(t, ''); }).join('') + '</span>Talk to the team</button></div>';
     document.body.appendChild(panel);
     document.body.appendChild(btn);
 
     var log = panel.querySelector('.avx-help-log'), chips = panel.querySelector('.avx-help-chips');
     var form = panel.querySelector('form'), input = form.querySelector('input');
+    var head = panel.querySelector('.avx-help-head > div'), headDot = panel.querySelector('.avx-help-dot');
+
+    // once a visitor picks a teammate, the header shows that person, as on avortyx.com
+    function setHead() {
+      var t = state.agent && member(state.agent);
+      if (!t) return;
+      headDot.outerHTML = '<span class="avx-help-dot avx-help-face">' + face(t, '') + '</span>';
+      headDot = panel.querySelector('.avx-help-dot');
+      head.innerHTML = '<b>' + t[1] + '</b><span>' + t[2] + ' · replies by email</span>';
+    }
+
+    // "Need a person?": the team's photos, then sales or support
+    function teamCard() {
+      var row = document.createElement('div');
+      row.className = 'avx-help-team';
+      row.innerHTML =
+        '<div class="avx-help-team-top"><b>Need a person?</b><span>' + TEAM.length + ' on the team</span></div>' +
+        '<div class="avx-help-team-mid"><span class="avx-help-stack avx-help-stack-lg">' +
+        TEAM.map(function (t) { return '<button type="button" data-pick="' + t[0] + '" aria-label="' + t[1] + ', ' + t[2] + '">' + face(t, '') + '</button>'; }).join('') +
+        '</span><p>Want to talk to someone on the team? Pick a person and they will pick it up from here.</p></div>' +
+        '<div class="avx-help-team-cta"><button type="button" data-pick="maya" data-intent="sales">Talk to sales</button>' +
+        '<button type="button" data-pick="jordan" data-intent="support">Talk to support</button></div>';
+      row.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-pick]');
+        if (b) pick(b.getAttribute('data-pick'), b.getAttribute('data-intent') || 'direct');
+      });
+      return row;
+    }
+
+    function pick(id, intent) {
+      var t = member(id), first = t[1].split(' ')[0];
+      track('assistant_team_pick', { member: id, intent: intent });
+      state.agent = id;
+      add({ who: 'sys', text: 'You’re now talking to ' + t[1] + ' · ' + t[2] });
+      var links = [['#email-support', 'Email ' + first], ['https://t.me/avortyx', 'Message on Telegram']];
+      if (intent === 'sales') links.push(['/p/request_demo', 'Request a demo']);
+      add({ who: 'agent', id: id, text: 'Hi! I’m ' + first + '. Send me your details by email or Telegram and I’ll get back to you there.', links: links });
+      setHead();
+    }
 
     function bubble(m) {
+      if (m.who === 'team') { log.appendChild(teamCard()); log.scrollTop = log.scrollHeight; return; }
       var row = document.createElement('div');
       row.className = 'avx-help-msg avx-help-' + m.who;
       var p = document.createElement('p');
       p.textContent = m.text;
-      row.appendChild(p);
+      // a teammate's message: their photo, then name and role over the bubble
+      var t = m.who === 'agent' && member(m.id), holder = row;
+      if (t) {
+        row.className += ' avx-help-bot';
+        row.insertAdjacentHTML('beforeend', face(t, 'avx-help-avatar'));
+        holder = document.createElement('div');
+        holder.insertAdjacentHTML('beforeend', '<small>' + t[1] + ' · ' + t[2] + '</small>');
+        row.appendChild(holder);
+      }
+      holder.appendChild(p);
       if (m.links && m.links.length) {
         var links = document.createElement('div');
         links.className = 'avx-help-links';
@@ -338,9 +397,10 @@
           var a = document.createElement('a');
           a.href = l[0];
           a.textContent = l[1] + ' →';
+          if (/^https?:/.test(l[0])) { a.target = '_blank'; a.rel = 'noopener'; }
           links.appendChild(a);
         });
-        row.appendChild(links);
+        holder.appendChild(links);
       }
       log.appendChild(row);
       log.scrollTop = log.scrollHeight;
@@ -375,6 +435,8 @@
       setTimeout(function () {
         typing.remove();
         add(hit ? { who: 'bot', text: hit[2], links: hit[3] } : { who: 'bot', text: FALLBACK[0], links: FALLBACK[1] });
+        // offer the team after the first answer, and whenever there is no answer
+        if (!state.agent && (!hit || !state.teamShown)) { state.teamShown = true; add({ who: 'team' }); }
       }, 450 + Math.min(500, text.length * 8));
     }
 
@@ -407,10 +469,12 @@
       setOpen(on, true);
     });
     panel.querySelector('.avx-help-close').addEventListener('click', function () { setOpen(false, true); });
+    panel.querySelector('.avx-help-teamlink').addEventListener('click', function () { add({ who: 'team' }); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) setOpen(false, true); });
 
     // pick up where the visitor left off on the previous page
     state.msgs.forEach(bubble);
+    setHead();
     if (state.open) setOpen(true, false);
   }
 

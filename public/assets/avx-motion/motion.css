@@ -10944,6 +10944,207 @@ body > main .mktg-subpage-hero .mktg-subpage-hero-nav {
   fill: currentColor;
 }
 
+/* the team, as in avortyx.com's chat: overlapping photos, "Need a person?" card, teammate messages */
+.avx-help-stack {
+  display: inline-flex;
+  align-items: center;
+}
+
+.avx-help-stack img,
+.avx-help-stack button {
+  width: 15px;
+  height: 15px;
+  margin-left: -4px;
+  border: 1px solid #0b0d12;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avx-help-stack > :first-child {
+  margin-left: 0;
+}
+
+.avx-help-stack-lg button {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-left: -6px;
+  padding: 0;
+  border: 2px solid #11141b;
+  background: none;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.avx-help-stack-lg button:hover,
+.avx-help-stack-lg button:focus-visible {
+  z-index: 3;
+  transform: translateY(-2px);
+}
+
+.avx-help-stack-lg img {
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  border: 1px solid rgba(96, 165, 250, .28);
+}
+
+.avx-help-foot {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px 12px;
+  color: #8f98a8;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.avx-help-teamlink {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #8f98a8;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.avx-help-teamlink:hover {
+  color: #93c5fd;
+}
+
+.avx-help-team {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .03);
+}
+
+.avx-help-team-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.avx-help-team-top b {
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.avx-help-team-top span {
+  color: #8f98a8;
+  font-size: 11px;
+}
+
+.avx-help-team-mid {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.avx-help-team-mid .avx-help-stack {
+  flex: none;
+}
+
+.avx-help-team-mid p {
+  margin: 0;
+  color: #c8d0dc;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.avx-help-team-cta {
+  display: flex;
+  gap: 8px;
+}
+
+.avx-help-team-cta button {
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .04);
+  color: #e2e8f0;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.avx-help-team-cta button:hover {
+  border-color: rgba(96, 165, 250, .5);
+  background: rgba(59, 130, 246, .12);
+  color: #fff;
+}
+
+.avx-help-sys {
+  align-self: center;
+  max-width: 100%;
+}
+
+.avx-help-sys p {
+  padding: 0 8px;
+  color: #8f98a8;
+  font-size: 11.5px;
+  text-align: center;
+}
+
+.avx-help-agent {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.avx-help-avatar {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(96, 165, 250, .28);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avx-help-agent small {
+  display: block;
+  margin: 0 0 4px 2px;
+  color: #8f98a8;
+  font-size: 11px;
+}
+
+.avx-help-dot.avx-help-face {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background: none;
+  box-shadow: none;
+}
+
+.avx-help-face img {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(96, 165, 250, .28);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avx-help-face::after {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #14171f;
+  border-radius: 50%;
+  background: #60a5fa;
+  content: "";
+}
+
 @media (prefers-reduced-motion: reduce) {
   .avx-help,
   .avx-help-typing i { animation: none; }
