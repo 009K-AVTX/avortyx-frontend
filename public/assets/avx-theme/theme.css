@@ -1508,6 +1508,28 @@ html[lang="zh-Hans"] body {
   left: auto;
 }
 
+/* Desktop: hovering the globe lists the languages (clicking still works for touch and keyboard);
+   the ::before strip bridges the gap so the pointer can move down into the list */
+@media (hover: hover) and (min-width: 992px) {
+  .avx-lang:hover .avx-lang-menu {
+    display: block;
+  }
+
+  .avx-lang:hover .avx-lang-btn {
+    border-color: var(--avx-primary);
+    color: var(--avx-link);
+  }
+
+  .avx-lang .avx-lang-menu::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 0;
+    left: 0;
+    height: 10px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .avx-lang .avx-lang-menu {
     position: static;
