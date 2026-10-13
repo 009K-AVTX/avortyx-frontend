@@ -1073,15 +1073,13 @@ html[data-bs-theme="dark"] {
   outline: none !important;
 }
 
-/* ---------- Landing page: navbar disappears on scroll, leaving the logo alone static ---------- */
+/* ---------- All pages: navbar disappears on scroll, leaving the logo alone static ---------- */
 .marketing-navbar .navbar-collapse,
 .marketing-navbar .navbar-toggler {
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-body.home .marketing-navbar.avx-nav-scrolled,
-body.pages.home .marketing-navbar.avx-nav-scrolled,
-.marketing-navbar.avx-landing-navbar.avx-nav-scrolled {
+.marketing-navbar.avx-nav-scrolled {
   background: transparent !important;
   background-color: transparent !important;
   -webkit-backdrop-filter: none !important;
@@ -1091,28 +1089,22 @@ body.pages.home .marketing-navbar.avx-nav-scrolled,
   box-shadow: none !important;
 }
 
-body.home .marketing-navbar.avx-nav-scrolled .navbar-collapse,
-body.home .marketing-navbar.avx-nav-scrolled .navbar-toggler,
-body.pages.home .marketing-navbar.avx-nav-scrolled .navbar-collapse,
-body.pages.home .marketing-navbar.avx-nav-scrolled .navbar-toggler,
-.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .navbar-collapse,
-.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .navbar-toggler {
+.marketing-navbar.avx-nav-scrolled .navbar-collapse,
+.marketing-navbar.avx-nav-scrolled .navbar-toggler {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
   transform: translateY(-8px);
 }
 
-body.home .marketing-navbar.avx-nav-scrolled .navbar-brand,
-body.pages.home .marketing-navbar.avx-nav-scrolled .navbar-brand,
-.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .navbar-brand {
+.marketing-navbar.avx-nav-scrolled .navbar-brand {
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
   transform: none !important;
 }
 
-/* On scroll: the name disappears, leaving only the logo mark */
+/* On scroll: the name disappears on all pages, leaving only the logo mark */
 .marketing-navbar .avx-wordmark {
   max-width: 240px;
   opacity: 1;
@@ -1123,9 +1115,6 @@ body.pages.home .marketing-navbar.avx-nav-scrolled .navbar-brand,
   white-space: nowrap;
 }
 
-body.home .marketing-navbar.avx-nav-scrolled .avx-wordmark,
-body.pages.home .marketing-navbar.avx-nav-scrolled .avx-wordmark,
-.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .avx-wordmark,
 .marketing-navbar.avx-nav-scrolled .avx-wordmark {
   opacity: 0 !important;
   visibility: hidden !important;
@@ -1136,9 +1125,6 @@ body.pages.home .marketing-navbar.avx-nav-scrolled .avx-wordmark,
   pointer-events: none !important;
 }
 
-body.home .marketing-navbar.avx-nav-scrolled .avx-logo-mark,
-body.pages.home .marketing-navbar.avx-nav-scrolled .avx-logo-mark,
-.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .avx-logo-mark,
 .marketing-navbar.avx-nav-scrolled .avx-logo-mark {
   opacity: 1 !important;
   visibility: visible !important;
