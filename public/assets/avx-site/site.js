@@ -626,7 +626,8 @@
    Live: loads Trustpilot's official bootstrap script, which renders the real reviews into
    .trustpilot-widget. No business unit ID yet: the public page shows sample reviews, every
    part marked as sample. A realistic, unlabelled mock (for design review only) shows on
-   localhost, or on any page opened with ?preview (remembered for the browser tab). */
+   localhost, or after any page is opened with ?preview (remembered in this browser, across
+   tabs, until a page is opened with ?preview=off). */
 (function () {
   'use strict';
   var box = document.querySelector('[data-avx-tp]');
@@ -642,8 +643,10 @@
 
   var preview = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
   try {
-    if (new URLSearchParams(location.search).has('preview')) sessionStorage.setItem('avx-preview', '1');
-    preview = preview || sessionStorage.getItem('avx-preview') === '1';
+    var q = new URLSearchParams(location.search).get('preview');
+    if (q === 'off') localStorage.removeItem('avx-preview');
+    else if (q !== null) localStorage.setItem('avx-preview', '1');
+    preview = preview || localStorage.getItem('avx-preview') === '1';
   } catch (e) { /* storage blocked */ }
 
   // [name, stars, title, text, when]
