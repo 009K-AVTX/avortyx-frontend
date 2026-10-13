@@ -22,8 +22,8 @@ html {
 
 :root {
   --avx-primary: #1d4ed8;
-  --avx-primary-hover: #1d4ed8;
-  --avx-primary-active: #1d4ed8;
+  --avx-primary-hover: #1e40af;
+  --avx-primary-active: #1e3a8a;
   --avx-primary-tint: #eff6ff;
   --avx-primary-soft: rgba(29, 78, 216, .14);
   --avx-headline: #1d4ed8;
