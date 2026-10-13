@@ -27,38 +27,43 @@ export default function RequestDemo() {
                   <h5 className="fw-bold mb-4">What we will cover</h5>
                   <ul className="list-unstyled">
                     <li className="d-flex align-items-start mb-3">
-                      <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
+                      <i className="fa-solid fa-check-circle text-primary me-2 mt-1" style={{ color: "#2563eb" }} aria-hidden="true" />
                       {" "}
                       <span>How a call is scored and routed on the first ring, using your offers</span>
                     </li>
                     <li className="d-flex align-items-start mb-3">
-                      <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
+                      <i className="fa-solid fa-check-circle text-primary me-2 mt-1" style={{ color: "#2563eb" }} aria-hidden="true" />
                       {" "}
                       <span>The live monitor, with barge and whisper on in-flight calls</span>
                     </li>
                     <li className="d-flex align-items-start mb-3">
-                      <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
+                      <i className="fa-solid fa-check-circle text-primary me-2 mt-1" style={{ color: "#2563eb" }} aria-hidden="true" />
                       {" "}
                       <span>Connecting your carriers, trackers and CRM</span>
                     </li>
                     <li className="d-flex align-items-start mb-3">
-                      <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
+                      <i className="fa-solid fa-check-circle text-primary me-2 mt-1" style={{ color: "#2563eb" }} aria-hidden="true" />
                       {" "}
                       <span>Reporting by campaign, buyer and publisher, and how payouts settle</span>
                     </li>
                     <li className="d-flex align-items-start">
-                      <i className="fa-solid fa-check-circle text-success me-2 mt-1" aria-hidden="true" />
+                      <i className="fa-solid fa-check-circle text-primary me-2 mt-1" style={{ color: "#2563eb" }} aria-hidden="true" />
                       {" "}
                       <span>Pricing for your call volume</span>
                     </li>
                   </ul>
-                  <hr />
-                  <div className="text-center mt-4">
-                    <span className="rounded-circle mb-2 d-inline-flex align-items-center justify-content-center fw-semibold text-white" style={{ width: 64, height: 64, background: "#1d4ed8" }} aria-hidden="true">MW</span>
-                    <blockquote className="blockquote fs-6 mb-1">
-                      <p>"The live monitor alone is worth it. For the first time we can see what our buyers are actually doing with the calls we send them."</p>
+                  <hr className="my-4" />
+                  <div className="mt-4">
+                    <blockquote className="blockquote fs-6 mb-3 text-center">
+                      <p className="fst-italic text-secondary mb-0">"The live monitor alone is worth it. For the first time we can see what our buyers are actually doing with the calls we send them."</p>
                     </blockquote>
-                    <figcaption className="blockquote-footer"> Marcus Webb, <cite>COO, Ringwell</cite></figcaption>
+                    <div className="d-flex align-items-center justify-content-center gap-3">
+                      <span className="rounded-circle d-inline-flex align-items-center justify-content-center fw-semibold text-white flex-shrink-0" style={{ width: 44, height: 44, background: "#1d4ed8" }} aria-hidden="true">MW</span>
+                      <div className="text-start">
+                        <div className="fw-bold text-white lh-sm">Marcus Webb</div>
+                        <div className="text-muted small">COO, Ringwell</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -69,22 +74,20 @@ export default function RequestDemo() {
                   <form className="simple_form contact-form" id="new_contact_request" action="https://avortyx.com/contact_requests" acceptCharset="UTF-8" method="post">
                     <input name="utf8" type="hidden" value="✓" autoComplete="off" />
                     <input type="hidden" name="authenticity_token" value="digQkPnDR-E2UWUdiOZgZsrPKEam7x-dk0KSQXKsCIZYrR4G5kX6g37hbbE_8-mrnGijM8MKC9lVAoU1xW1UUw" autoComplete="off" />
-                    <div className="row mb-3 js-form-validation form-group string required contact_request_first_name">
+                    <div className="row mb-3 js-form-validation form-group string required contact_request_name">
                       <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="contact_request_first_name">
                         <abbr title="required">*</abbr>
-                        {" "}First Name
+                        {" "}Name
                       </label>
                       <div className="col-sm-9">
-                        <input className="form-control string required" required aria-required="true" type="text" name="contact_request[first_name]" id="contact_request_first_name" />
-                      </div>
-                    </div>
-                    <div className="row mb-3 js-form-validation form-group string required contact_request_last_name">
-                      <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="contact_request_last_name">
-                        <abbr title="required">*</abbr>
-                        {" "}Last Name
-                      </label>
-                      <div className="col-sm-9">
-                        <input className="form-control string required" required aria-required="true" type="text" name="contact_request[last_name]" id="contact_request_last_name" />
+                        <div className="row g-2">
+                          <div className="col-6">
+                            <input className="form-control string required" placeholder="First Name" required aria-required="true" type="text" name="contact_request[first_name]" id="contact_request_first_name" />
+                          </div>
+                          <div className="col-6">
+                            <input className="form-control string required" placeholder="Last Name" required aria-required="true" type="text" name="contact_request[last_name]" id="contact_request_last_name" />
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div className="row mb-3 js-form-validation form-group email required contact_request_email">
@@ -162,7 +165,7 @@ export default function RequestDemo() {
                         {" "}Message
                       </label>
                       <div className="col-sm-9">
-                        <textarea className="form-control is-valid text required" rows="4" required aria-required="true" name="contact_request[message]" id="contact_request_message" defaultValue={"I am interested in a demo."} />
+                        <textarea className="form-control text required" rows="4" required aria-required="true" name="contact_request[message]" id="contact_request_message" defaultValue={"I am interested in a demo."} />
                       </div>
                     </div>
                     <div className="row mb-3">
