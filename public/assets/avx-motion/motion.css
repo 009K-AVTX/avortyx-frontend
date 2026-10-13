@@ -7,7 +7,7 @@
 :root {
   --avx-ease: cubic-bezier(.2, .7, .2, 1);
   /* every main 3D animation is tinted to the hero rings' cyan-blue */
-  --avx-hero-blue: #1ea0e8;
+  --avx-hero-blue: #1e7fe8;
   --avx-blue-inv: invert(1) grayscale(1) brightness(1.1) sepia(1) hue-rotate(172deg) saturate(5) contrast(1.1) brightness(1.04);
   --avx-blue-tint: grayscale(1) sepia(1) saturate(6) hue-rotate(175deg) brightness(1.05);
   --avx-green: #3b82f6;
@@ -307,7 +307,7 @@ img.avx-tint {
 .avx-orbit {
   position: absolute;
   inset: 0;
-  border: 2px dashed rgba(30, 160, 232, .5);
+  border: 2px dashed rgba(30, 127, 232, .5);
   border-radius: 50%;
   transform-style: preserve-3d;
   animation: avxOrbitSpin 9s linear infinite;
@@ -321,7 +321,7 @@ img.avx-tint {
 }
 
 .avx-orbit:first-child {
-  box-shadow: 0 0 30px rgba(86, 213, 231, .18), inset 0 0 30px rgba(86, 213, 231, .12);
+  box-shadow: 0 0 30px rgba(86, 161, 231, .18), inset 0 0 30px rgba(86, 161, 231, .12);
 }
 
 .avx-sat {
@@ -359,21 +359,21 @@ img.avx-tint {
 /* lead "packets" travelling along the arrows */
 .avx-flow3d .hero-simple-arrow-track {
   overflow: visible;
-  background: linear-gradient(90deg, rgba(30, 160, 232, .2), rgba(30, 160, 232, .4));
+  background: linear-gradient(90deg, rgba(30, 127, 232, .2), rgba(30, 127, 232, .4));
 }
 
 .avx-flow3d .hero-simple-arrow-dot {
   top: -9px;
   width: 22px;
   height: 22px;
-  background: url("/assets/avx-ringba/icon-sphere--blue.webp") center / cover no-repeat;
-  box-shadow: 0 0 18px rgba(30, 160, 232, .6);
+  background: url("/assets/avx-ringba/icon-sphere--blue.webp?v=2") center / cover no-repeat;
+  box-shadow: 0 0 18px rgba(30, 127, 232, .6);
   animation: avxPacket 2.6s cubic-bezier(.45, 0, .3, 1) infinite;
 }
 
 .avx-flow3d .hero-simple-arrow-dot-delayed {
-  background-image: url("/assets/avx-ringba/icon-sphere--blue.webp");
-  box-shadow: 0 0 18px rgba(30, 160, 232, .6);
+  background-image: url("/assets/avx-ringba/icon-sphere--blue.webp?v=2");
+  box-shadow: 0 0 18px rgba(30, 127, 232, .6);
   animation-delay: 1.3s;
 }
 
@@ -541,12 +541,12 @@ img.avx-tint {
 .avx-echo {
   position: absolute;
   inset: 22%;
-  border: 3px solid rgba(30, 160, 232, .9);
+  border: 3px solid rgba(30, 127, 232, .9);
   border-radius: 50%;
   animation: avxEcho 3.6s cubic-bezier(.2, .6, .3, 1) infinite;
 }
 
-.avx-echo:nth-of-type(2) { animation-delay: 1.2s; border-color: rgba(86, 196, 245, .9); }
+.avx-echo:nth-of-type(2) { animation-delay: 1.2s; border-color: rgba(86, 164, 245, .9); }
 .avx-echo:nth-of-type(3) { animation-delay: 2.4s; border-color: rgba(20, 110, 200, .85); }
 
 @keyframes avxPingSway {
@@ -581,7 +581,7 @@ img.avx-tint {
   inset: 19%;
   border: 3px solid rgba(65, 118, 163, .55);
   border-radius: 50%;
-  box-shadow: inset 0 0 0 10px rgba(30, 160, 232, .08), 0 0 24px rgba(30, 160, 232, .3);
+  box-shadow: inset 0 0 0 10px rgba(30, 127, 232, .08), 0 0 24px rgba(30, 127, 232, .3);
 }
 
 .avx-dial-hole {
@@ -615,7 +615,7 @@ img.avx-tint {
 .avx-dial-ring {
   position: absolute;
   inset: 30%;
-  border: 3px solid rgba(30, 160, 232, .85);
+  border: 3px solid rgba(30, 127, 232, .85);
   border-radius: 50%;
   opacity: 0;
   animation: avxDialRing 2s ease-out infinite;
@@ -809,7 +809,7 @@ img.avx-tint {
 .avx-loop {
   position: absolute;
   inset: 0;
-  border: 3px dashed rgba(30, 160, 232, .7);
+  border: 3px dashed rgba(30, 127, 232, .7);
   border-radius: 50%;
   transform-style: preserve-3d;
   animation: avxSpinZ 16s linear infinite;
@@ -992,8 +992,8 @@ img.avx-tint {
   top: -60%;
   height: 160%;
   background:
-    linear-gradient(rgba(30, 160, 232, .6) 1.5px, transparent 1.5px) 0 0 / 64px 64px,
-    linear-gradient(90deg, rgba(30, 160, 232, .6) 1.5px, transparent 1.5px) 0 0 / 64px 64px;
+    linear-gradient(rgba(30, 127, 232, .6) 1.5px, transparent 1.5px) 0 0 / 64px 64px,
+    linear-gradient(90deg, rgba(30, 127, 232, .6) 1.5px, transparent 1.5px) 0 0 / 64px 64px;
   animation: avxGridMove 2.4s linear infinite;
 }
 
@@ -1257,7 +1257,7 @@ img.avx-tint {
   inset: -40% 0 0;
   background:
     radial-gradient(circle, rgba(65, 118, 163, .55) 1.6px, transparent 2.2px) 0 0 / 30px 30px,
-    radial-gradient(circle, rgba(30, 160, 232, .5) 1.6px, transparent 2.2px) 15px 15px / 30px 30px;
+    radial-gradient(circle, rgba(30, 127, 232, .5) 1.6px, transparent 2.2px) 15px 15px / 30px 30px;
   opacity: .9;
   transform: rotateX(62deg);
   transform-origin: 50% 100%;
@@ -1355,7 +1355,7 @@ img.avx-tint {
 .avx-ihub-spin {
   position: absolute;
   inset: 0;
-  border: 2px dashed rgba(30, 160, 232, .45);
+  border: 2px dashed rgba(30, 127, 232, .45);
   border-radius: 50%;
   transform-style: preserve-3d;
   animation: avxSpinZ 30s linear infinite;
@@ -1371,7 +1371,7 @@ img.avx-tint {
   margin-left: -1px;
   transform-origin: 50% 100%;
   transform: rotateZ(var(--a));
-  background: linear-gradient(180deg, rgba(30, 160, 232, .45), rgba(30, 160, 232, .05));
+  background: linear-gradient(180deg, rgba(30, 127, 232, .45), rgba(30, 127, 232, .05));
 }
 
 .avx-ihub-spoke::after {
@@ -1382,8 +1382,8 @@ img.avx-tint {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #1ea0e8;
-  box-shadow: 0 0 10px rgba(30, 160, 232, .9);
+  background: #1e7fe8;
+  box-shadow: 0 0 10px rgba(30, 127, 232, .9);
   animation: avxSpokePacket 2.4s ease-in infinite;
   animation-delay: var(--pd, 0s);
 }
@@ -1414,7 +1414,7 @@ img.avx-tint {
   justify-content: center;
   width: 64px;
   height: 64px;
-  border: 1px solid rgba(30, 160, 232, .25);
+  border: 1px solid rgba(30, 127, 232, .25);
   border-radius: 16px;
   background: rgba(255, 255, 255, .92);
   box-shadow: 0 10px 24px rgba(20, 32, 51, .14);
@@ -1878,7 +1878,7 @@ img.avx-tint {
 .avx-aurora i:nth-child(2) {
   right: -14%;
   bottom: -45%;
-  background: radial-gradient(circle, rgba(129, 140, 248, .18), transparent 62%);
+  background: radial-gradient(circle, rgba(129, 163, 248, .18), transparent 62%);
   animation-duration: 32s;
   animation-delay: -10s;
 }
@@ -1887,7 +1887,7 @@ img.avx-tint {
   top: 10%;
   left: 40%;
   width: 36vw;
-  background: radial-gradient(circle, rgba(56, 189, 248, .12), transparent 62%);
+  background: radial-gradient(circle, rgba(56, 150, 248, .12), transparent 62%);
   animation-duration: 22s;
   animation-delay: -5s;
 }
@@ -2488,7 +2488,7 @@ img.avx-tint {
 
 .avx-pill-ok { color: #6e9ce7; background: rgba(16, 81, 185, .14); }
 .avx-pill-ring { color: #93c5fd; background: rgba(59, 130, 246, .16); }
-.avx-pill-bid { color: #fcd34d; background: rgba(245, 158, 11, .14); }
+.avx-pill-bid { color: #4db0fc; background: rgba(11, 144, 245, .14); }
 
 .avx-live-new {
   animation: avxLiveIn .6s var(--avx-ease) both;
@@ -2556,7 +2556,7 @@ img.avx-tint {
 /* ---------- CTA band: flowing neon waves ---------- */
 
 [data-bs-theme="dark"] .marketing-cta-band {
-  background: linear-gradient(135deg, #0a0f2b 0%, #101c60 55%, #1e3a8a 100%);
+  background: linear-gradient(135deg, #0a142b 0%, #102760 55%, #1e3a8a 100%);
 }
 
 .avx-cta-waves {
@@ -3492,7 +3492,7 @@ img.avx-tint {
 }
 
 .avx-up { color: #6e9ce7; }
-.avx-down { color: #fda4af; }
+.avx-down { color: #a4b6fd; }
 
 .avx-cs-grid {
   display: grid;
@@ -3603,7 +3603,7 @@ img.avx-tint {
   transition: transform .8s var(--avx-ease);
 }
 
-.avx-pill-cap { color: #fda4af; background: rgba(244, 63, 94, .14); }
+.avx-pill-cap { color: #a4b6fd; background: rgba(63, 99, 244, .14); }
 
 .avx-cs-log td:first-child {
   font-family: var(--avx-font-mono, monospace);
@@ -4526,7 +4526,7 @@ html.avx-booted main {
 [data-bs-theme="dark"] .avx-hero-calm.hero-constellation-bg {
   background:
     radial-gradient(900px 460px at 50% -6%, rgba(37, 99, 235, .22), transparent 70%),
-    linear-gradient(180deg, #0c0e15 0%, #0a0b10 100%) !important;
+    linear-gradient(180deg, #0c0e15 0%, #0a0c10 100%) !important;
 }
 
 .avx-hero-calm .hero-home__bg,
@@ -6171,8 +6171,8 @@ main > section {
   inset: 0;
   background:
     radial-gradient(48% 60% at 50% -8%, rgba(59, 130, 246, .26), rgba(37, 99, 235, .08) 45%, rgba(37, 99, 235, 0) 75%),
-    radial-gradient(28% 34% at 16% 18%, rgba(99, 102, 241, .08), rgba(99, 102, 241, 0) 70%),
-    radial-gradient(28% 34% at 84% 22%, rgba(56, 189, 248, .06), rgba(56, 189, 248, 0) 70%);
+    radial-gradient(28% 34% at 16% 18%, rgba(99, 137, 241, .08), rgba(99, 137, 241, 0) 70%),
+    radial-gradient(28% 34% at 84% 22%, rgba(56, 150, 248, .06), rgba(56, 150, 248, 0) 70%);
   animation: avxPbgBreathe 12s ease-in-out infinite alternate;
 }
 
@@ -6629,9 +6629,9 @@ main.avx-main-layer {
 }
 
 .avx-free .avx-dl-status { color: #6e9ce7; }
-.avx-dial .avx-dl-status { color: #fcd34d; }
+.avx-dial .avx-dl-status { color: #4db0fc; }
 .avx-call .avx-dl-status { color: #93c5fd; }
-.avx-wrap .avx-dl-status { color: #a5b4fc; }
+.avx-wrap .avx-dl-status { color: #a5bffc; }
 
 .avx-dl-phone.avx-call {
   border-color: rgba(96, 165, 250, .45);
@@ -6676,8 +6676,8 @@ main.avx-main-layer {
 }
 
 .avx-dl-keys .avx-dl-end {
-  background: rgba(244, 63, 94, .16);
-  color: #fda4af;
+  background: rgba(63, 99, 244, .16);
+  color: #a4b6fd;
 }
 
 .avx-dl-rows {
@@ -6778,13 +6778,13 @@ main.avx-main-layer {
 }
 
 .avx-ct-node.avx-ring {
-  border-color: rgba(252, 211, 77, .45);
+  border-color: rgba(77, 176, 252, .45);
   animation: avxDemoRing 1s ease-in-out infinite;
 }
 
 @keyframes avxDemoRing {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(252, 211, 77, 0); }
-  50% { box-shadow: 0 0 0 4px rgba(252, 211, 77, .12); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(77, 176, 252, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(77, 176, 252, .12); }
 }
 
 .avx-ct-node.avx-won {
@@ -6922,12 +6922,12 @@ main.avx-main-layer {
 }
 
 .avx-la-step.avx-run i {
-  border-color: rgba(252, 211, 77, .55);
-  color: #fcd34d;
+  border-color: rgba(77, 176, 252, .55);
+  color: #4db0fc;
   animation: avxDemoRing 1s ease-in-out infinite;
 }
 
-.avx-la-step.avx-run em { color: #fcd34d; }
+.avx-la-step.avx-run em { color: #4db0fc; }
 
 .avx-la-step.avx-done i {
   border-color: rgba(96, 165, 250, .6);
@@ -7078,8 +7078,8 @@ main.avx-main-layer {
 }
 
 .avx-ag-xfer.avx-busy {
-  border-color: rgba(252, 211, 77, .45);
-  color: #fcd34d;
+  border-color: rgba(77, 176, 252, .45);
+  color: #4db0fc;
 }
 
 .avx-ag-xfer.avx-done {
@@ -7430,8 +7430,8 @@ main.avx-main-layer {
 }
 
 .avx-mapi-res i { color: #93c5fd; font-style: normal; }
-.avx-mapi-res s { color: #a5b4fc; text-decoration: none; }
-.avx-mapi-res u { color: #fcd34d; text-decoration: none; }
+.avx-mapi-res s { color: #a5bffc; text-decoration: none; }
+.avx-mapi-res u { color: #4db0fc; text-decoration: none; }
 
 /* ---------- "More Capabilities": a bordered grid of tiles ---------- */
 
@@ -8093,7 +8093,7 @@ button:focus-visible,
 }
 
 .avx-dc-sent b[data-tone="neutral"] { background: rgba(148, 163, 184, .14); color: #cbd5e1; }
-.avx-dc-sent b[data-tone="urgent"] { background: rgba(245, 158, 11, .14); color: #fcd34d; }
+.avx-dc-sent b[data-tone="urgent"] { background: rgba(11, 144, 245, .14); color: #4db0fc; }
 
 .avx-dc-tags {
   display: flex;
@@ -8417,11 +8417,11 @@ button:focus-visible,
 }
 
 .avx-ask-bar.avx-flag i {
-  background: linear-gradient(180deg, #f59e0b, #b45309);
+  background: linear-gradient(180deg, #0b90f5, #092bb4);
 }
 
 .avx-ask-bar.avx-flag b {
-  color: #fcd34d;
+  color: #4db0fc;
 }
 
 .avx-ask-table {
@@ -8449,7 +8449,7 @@ button:focus-visible,
 
 .avx-ask-pick td {
   background: rgba(16, 81, 185, .08);
-  color: #e6fff4;
+  color: #e6f4ff;
 }
 
 .avx-ask-pick td:first-child {
@@ -8629,7 +8629,7 @@ button:focus-visible,
 }
 
 .avx-ls-agent b { color: #93c5fd; }
-.avx-ls-caller b { color: #c4b5fd; }
+.avx-ls-caller b { color: #b5c6fd; }
 
 .avx-listen-lines p,
 .avx-voice-lines p {
@@ -8641,8 +8641,8 @@ button:focus-visible,
 .avx-listen-lines mark {
   padding: 0 3px;
   border-radius: 4px;
-  background: rgba(250, 204, 21, .16);
-  color: #fde68a;
+  background: rgba(21, 151, 250, .16);
+  color: #8acbfd;
 }
 
 .avx-listen-side {
@@ -8744,8 +8744,8 @@ button:focus-visible,
 }
 
 .avx-voice-on[data-speaker="caller"] .avx-voice-orb i:first-child {
-  background: radial-gradient(circle at 35% 30%, #ddd6fe, #8b5cf6 45%, #4c1d95 80%);
-  box-shadow: 0 0 60px rgba(139, 92, 246, .4);
+  background: radial-gradient(circle at 35% 30%, #d6e0fe, #5c7ff6 45%, #1d3795 80%);
+  box-shadow: 0 0 60px rgba(92, 127, 246, .4);
 }
 
 .avx-voice-on .avx-voice-orb i:nth-child(2) { animation: avxOrbRing 1.8s ease-out infinite; }
@@ -9229,8 +9229,8 @@ button:focus-visible,
 .avx-viz-sp b { font-size: 14px; }
 .avx-viz-sp span { font: 500 11px var(--avx-font-mono, monospace); color: #8b95a8; }
 
-.avx-viz-sp .avx-sp-bad { border: 1px solid rgba(248, 113, 113, .3); background: rgba(239, 68, 68, .08); }
-.avx-viz-sp .avx-sp-bad b { color: #fca5a5; }
+.avx-viz-sp .avx-sp-bad { border: 1px solid rgba(113, 140, 248, .3); background: rgba(68, 102, 239, .08); }
+.avx-viz-sp .avx-sp-bad b { color: #a5b6fc; }
 .avx-viz-sp .avx-sp-good { border: 1px solid rgba(52, 113, 211, .3); background: rgba(16, 81, 185, .08); }
 .avx-viz-sp .avx-sp-good b { color: #a7c4f3; }
 
@@ -9285,7 +9285,7 @@ button:focus-visible,
 }
 
 .avx-viz-ex code {
-  color: #c4b5fd;
+  color: #b5c6fd;
   font-size: 12px;
   white-space: nowrap;
 }
@@ -11392,12 +11392,12 @@ body.home .avx-ag-dispo {
 }
 
 .avx-sh-alert .avx-sh-core {
-  background: radial-gradient(circle at 35% 30%, #f87171, #b91c1c);
-  box-shadow: 0 0 44px -4px rgba(239, 68, 68, .8);
+  background: radial-gradient(circle at 35% 30%, #718cf8, #1c3bb9);
+  box-shadow: 0 0 44px -4px rgba(68, 102, 239, .8);
 }
 
 .avx-sh-alert > i {
-  border-color: rgba(248, 113, 113, .35) !important;
+  border-color: rgba(113, 140, 248, .35) !important;
 }
 
 .avx-sh-call {
@@ -11445,9 +11445,9 @@ body.home .avx-ag-dispo {
 .avx-sh-checks li.avx-ok::before { content: "✓ "; }
 
 .avx-sh-checks li.avx-bad {
-  border-color: rgba(248, 113, 113, .5);
-  background: rgba(239, 68, 68, .14);
-  color: #fecaca;
+  border-color: rgba(113, 140, 248, .5);
+  background: rgba(68, 102, 239, .14);
+  color: #cad4fe;
 }
 
 .avx-sh-checks li.avx-bad::before { content: "✕ "; }
@@ -11470,8 +11470,8 @@ body.home .avx-ag-dispo {
 }
 
 .avx-sh-verdict.avx-block {
-  border-color: rgba(248, 113, 113, .4);
-  color: #fecaca;
+  border-color: rgba(113, 140, 248, .4);
+  color: #cad4fe;
 }
 
 .avx-shield-layers {
@@ -12676,7 +12676,7 @@ dialog.avx-mail::backdrop {
 
 .avx-mail-err {
   margin: 0;
-  color: #fca5a5;
+  color: #a5b6fc;
   font-size: 13.5px;
 }
 
@@ -14065,7 +14065,7 @@ main .avx-art-toc ol a.avx-on { color: #dbeafe; }
 .avx-dg .avx-fc-die,
 .avx-dg .avx-fc-core.avx-on .avx-fc-die {
   border: 0;
-  background: radial-gradient(circle, rgba(4, 8, 28, .62) 0%, rgba(4, 8, 28, .3) 48%, rgba(4, 8, 28, 0) 70%);
+  background: radial-gradient(circle, rgba(4, 11, 28, .62) 0%, rgba(4, 11, 28, .3) 48%, rgba(4, 11, 28, 0) 70%);
   box-shadow: none;
 }
 .avx-dg .avx-fc-die b { text-shadow: 0 0 16px rgba(96, 165, 250, .85), 0 2px 8px rgba(0, 0, 0, .7); }
@@ -14073,9 +14073,9 @@ main .avx-art-toc ol a.avx-on { color: #dbeafe; }
 
 /* each buyer's avatar matches its orb */
 .avx-dg .avx-fc-buyers li .avx-fc-b-main > i { color: #fff; text-shadow: 0 1px 2px rgba(0, 0, 0, .5); }
-.avx-dg .avx-fc-buyers li:nth-child(1) .avx-fc-b-main > i { background: radial-gradient(circle at 35% 30%, #fed7aa, #f97316 48%, #7c2d12); box-shadow: 0 0 14px -2px rgba(249, 115, 22, .7); }
-.avx-dg .avx-fc-buyers li:nth-child(2) .avx-fc-b-main > i { background: radial-gradient(circle at 35% 30%, #99f6e4, #14b8a6 48%, #134e4a); box-shadow: 0 0 14px -2px rgba(20, 184, 166, .7); }
-.avx-dg .avx-fc-buyers li:nth-child(3) .avx-fc-b-main > i { background: radial-gradient(circle at 35% 30%, #ddd6fe, #8b5cf6 48%, #3b0764); box-shadow: 0 0 14px -2px rgba(139, 92, 246, .7); }
+.avx-dg .avx-fc-buyers li:nth-child(1) .avx-fc-b-main > i { background: radial-gradient(circle at 35% 30%, #aabbfe, #1643f9 48%, #12277c); box-shadow: 0 0 14px -2px rgba(22, 67, 249, .7); }
+.avx-dg .avx-fc-buyers li:nth-child(2) .avx-fc-b-main > i { background: radial-gradient(circle at 35% 30%, #99ccf6, #146db8 48%, #13334e); box-shadow: 0 0 14px -2px rgba(20, 109, 184, .7); }
+.avx-dg .avx-fc-buyers li:nth-child(3) .avx-fc-b-main > i { background: radial-gradient(circle at 35% 30%, #d6e0fe, #5c7ff6 48%, #071b64); box-shadow: 0 0 14px -2px rgba(92, 127, 246, .7); }
 
 /* the live quote and the rule behind the decision (their rows were showing empty) */
 body.home .avx-decide-pro [data-dc="quote"] {
@@ -14169,12 +14169,12 @@ body.home main section .mktg-section-header { margin-bottom: 36px; }
   perspective-origin: 50% 46%;
   background:
     radial-gradient(60% 55% at 50% 36%, rgba(var(--c), .26), transparent 70%),
-    linear-gradient(180deg, #060818 0%, #0a0d26 58%, #0c0f2c 100%);
+    linear-gradient(180deg, #060b18 0%, #0a1226 58%, #0c152c 100%);
 }
 .avx-pws-scale { --c: 59, 130, 246; }
-.avx-pws-support { --c: 236, 72, 153; }
-.avx-pws-grow { --c: 34, 197, 94; }
-.avx-pws-open { --c: 249, 115, 22; }
+.avx-pws-support { --c: 72, 105, 236; }
+.avx-pws-grow { --c: 34, 126, 197; }
+.avx-pws-open { --c: 22, 67, 249; }
 
 /* the floor: a grid laid back in perspective, its lines streaming toward the viewer */
 .avx-pws::before {
@@ -14272,7 +14272,7 @@ body.home main section .mktg-section-header { margin-bottom: 36px; }
   padding: 4px 9px;
   border: 1px solid rgba(var(--c), .38);
   border-radius: 999px;
-  background: rgba(6, 9, 28, .72);
+  background: rgba(6, 12, 28, .72);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: #cbd5e1;

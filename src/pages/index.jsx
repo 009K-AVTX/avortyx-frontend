@@ -191,7 +191,7 @@ export const meta = {
     .avx-decide-pro { min-height: 460px; }
     .avx-dc-telecom-chip {
       display: inline-flex; align-items: center; font-size: 11px; font-family: ui-monospace, SFMono-Regular, monospace;
-      padding: 2px 8px; border-radius: 999px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 2px 8px; border-radius: 999px; background: rgba(56, 150, 248, 0.12); color: #3896f8; border: 1px solid rgba(56, 150, 248, 0.25);
     }
     .avx-dc-audio-bar {
       display: flex; align-items: center; gap: 12px; margin: 10px 14px 4px; padding: 7px 14px;
@@ -200,7 +200,7 @@ export const meta = {
     }
     .avx-dc-voice-bars { display: inline-flex; align-items: flex-end; gap: 2.5px; height: 16px; width: 28px; }
     .avx-dc-voice-bars i {
-      width: 2.5px; height: 40%; background: #38bdf8; border-radius: 1px;
+      width: 2.5px; height: 40%; background: #3896f8; border-radius: 1px;
       animation: avxVoiceBars 0.8s ease-in-out infinite alternate;
     }
     .avx-dc-voice-bars i:nth-child(2) { animation-delay: 0.15s; height: 75%; }
@@ -212,16 +212,16 @@ export const meta = {
     .avx-dc-voice-bars i:nth-child(8) { animation-delay: 0.25s; height: 35%; }
     @keyframes avxVoiceBars { 0% { height: 20%; opacity: 0.4; } 100% { height: 100%; opacity: 1; } }
     .avx-dc-quote { color: #93c5fd; font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; font-family: ui-sans-serif, system-ui; }
-    .avx-fc-verified { display: block; font-size: 11px; color: #10b981; font-weight: 600; margin-top: 3px; }
+    .avx-fc-verified { display: block; font-size: 11px; color: #106eb9; font-weight: 600; margin-top: 3px; }
     .avx-fc-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-top: 8px; }
     .avx-fc-tag { font-size: 10px; background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 4px; padding: 1px 6px; }
     .avx-fc-sent { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; margin-top: 4px; }
-    .avx-sent-pos { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+    .avx-sent-pos { background: rgba(16, 110, 185, 0.2); color: #106eb9; }
     .avx-sent-neutral { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; }
-    .avx-sent-urgent { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+    .avx-sent-urgent { background: rgba(11, 144, 245, 0.2); color: #0b90f5; }
     .avx-fc-b-main { display: flex; align-items: center; gap: 8px; flex: 1; }
     .avx-fc-b-bid { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #f8fafc; font-family: ui-monospace, monospace; }
-    .avx-fc-win-pill { font-size: 9px; font-weight: 800; background: #10b981; color: #041f14; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.5px; }
+    .avx-fc-win-pill { font-size: 9px; font-weight: 800; background: #106eb9; color: #04131f; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.5px; }
     .avx-fc-footer { border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 10px 16px 12px; margin-top: 8px; }
     .avx-fc-reason { font-size: 11.5px; color: #94a3b8; margin-top: 4px; }
 
@@ -254,13 +254,13 @@ export const meta = {
     .avx-studio-params { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .avx-param-card { background: rgba(255, 255, 255, 0.025); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 10px 12px; }
     .avx-param-label { font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px; }
-    .avx-param-val { font-size: 14px; font-weight: 700; color: #38bdf8; font-family: ui-monospace, monospace; }
+    .avx-param-val { font-size: 14px; font-weight: 700; color: #3896f8; font-family: ui-monospace, monospace; }
     .avx-studio-telemetry { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
     .avx-stat-chip { background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 10px; text-align: center; }
     .avx-stat-chip small { font-size: 10.5px; color: #94a3b8; display: block; }
     .avx-stat-chip b { font-size: 16px; color: #f8fafc; font-weight: 800; font-family: ui-monospace, monospace; }
     .avx-transcript-box { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
-    .avx-json-box { background: #07090e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px; font-family: ui-monospace, monospace; font-size: 11px; color: #7dd3fc; }
+    .avx-json-box { background: #07090e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px; font-family: ui-monospace, monospace; font-size: 11px; color: #7dbbfc; }
 
     /* Ringba-inspired AI at the Core 3D Stage */
     .avx-ringba-stage {
@@ -301,15 +301,15 @@ export const meta = {
       stroke-dasharray: none;
       opacity: 0.95;
     }
-    .avx-path-green { stroke: #10b981; }
-    .avx-path-blue { stroke: #38bdf8; }
-    .avx-path-purple { stroke: #c084fc; }
-    .avx-path-orange { stroke: #fb923c; }
+    .avx-path-green { stroke: #106eb9; }
+    .avx-path-blue { stroke: #3896f8; }
+    .avx-path-purple { stroke: #849dfc; }
+    .avx-path-orange { stroke: #3c62fb; }
 
     .avx-conduit-packet {
       fill: #ffffff;
       opacity: 0;
-      filter: drop-shadow(0 0 8px #38bdf8);
+      filter: drop-shadow(0 0 8px #3896f8);
       transition: opacity 0.2s ease;
     }
     .avx-conduit-packet.avx-on {
@@ -356,20 +356,20 @@ export const meta = {
       transform: translateY(-4px) scale(1.02);
     }
     .avx-sphere-green.avx-active {
-      border-color: rgba(16, 185, 129, 0.65);
-      box-shadow: 0 12px 30px -10px rgba(16, 185, 129, 0.3), inset 0 0 20px rgba(16, 185, 129, 0.08);
+      border-color: rgba(16, 110, 185, 0.65);
+      box-shadow: 0 12px 30px -10px rgba(16, 110, 185, 0.3), inset 0 0 20px rgba(16, 110, 185, 0.08);
     }
     .avx-sphere-blue.avx-active {
-      border-color: rgba(56, 189, 248, 0.65);
-      box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(56, 189, 248, 0.08);
+      border-color: rgba(56, 150, 248, 0.65);
+      box-shadow: 0 12px 30px -10px rgba(56, 150, 248, 0.3), inset 0 0 20px rgba(56, 150, 248, 0.08);
     }
     .avx-sphere-purple.avx-active {
-      border-color: rgba(192, 132, 252, 0.65);
-      box-shadow: 0 12px 30px -10px rgba(192, 132, 252, 0.3), inset 0 0 20px rgba(192, 132, 252, 0.08);
+      border-color: rgba(132, 157, 252, 0.65);
+      box-shadow: 0 12px 30px -10px rgba(132, 157, 252, 0.3), inset 0 0 20px rgba(132, 157, 252, 0.08);
     }
     .avx-sphere-orange.avx-active {
-      border-color: rgba(251, 146, 60, 0.65);
-      box-shadow: 0 12px 30px -10px rgba(251, 146, 60, 0.3), inset 0 0 20px rgba(251, 146, 60, 0.08);
+      border-color: rgba(60, 98, 251, 0.65);
+      box-shadow: 0 12px 30px -10px rgba(60, 98, 251, 0.3), inset 0 0 20px rgba(60, 98, 251, 0.08);
     }
 
     /* 3D Glossy Sphere element (Ringba style) */
@@ -401,20 +401,20 @@ export const meta = {
       pointer-events: none;
     }
     .avx-sphere-emerald {
-      background: radial-gradient(circle at 35% 35%, #6ee7b7 0%, #10b981 45%, #047857 80%, #064e3b 100%);
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+      background: radial-gradient(circle at 35% 35%, #6eb2e7 0%, #106eb9 45%, #044478 80%, #062e4e 100%);
+      box-shadow: 0 0 20px rgba(16, 110, 185, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
     }
     .avx-sphere-azure {
-      background: radial-gradient(circle at 35% 35%, #93c5fd 0%, #38bdf8 45%, #0284c7 80%, #0c4a6e 100%);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+      background: radial-gradient(circle at 35% 35%, #93c5fd 0%, #3896f8 45%, #0261c7 80%, #0c3b6e 100%);
+      box-shadow: 0 0 20px rgba(56, 150, 248, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
     }
     .avx-sphere-violet {
-      background: radial-gradient(circle at 35% 35%, #f472b6 0%, #c084fc 45%, #7c3aed 80%, #4c1d95 100%);
-      box-shadow: 0 0 20px rgba(192, 132, 252, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+      background: radial-gradient(circle at 35% 35%, #728cf4 0%, #849dfc 45%, #3a61ed 80%, #1d3795 100%);
+      box-shadow: 0 0 20px rgba(132, 157, 252, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
     }
     .avx-sphere-amber {
-      background: radial-gradient(circle at 35% 35%, #fde047 0%, #fb923c 45%, #ea580c 80%, #7c2d12 100%);
-      box-shadow: 0 0 20px rgba(251, 146, 60, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+      background: radial-gradient(circle at 35% 35%, #47aefd 0%, #3c62fb 45%, #0c38ea 80%, #12277c 100%);
+      box-shadow: 0 0 20px rgba(60, 98, 251, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
     }
 
     .avx-sphere-info {
@@ -429,10 +429,10 @@ export const meta = {
       padding: 2px 7px;
       border-radius: 4px;
     }
-    .pill-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-    .pill-azure { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
-    .pill-violet { background: rgba(192, 132, 252, 0.15); color: #c084fc; }
-    .pill-amber { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+    .pill-emerald { background: rgba(16, 110, 185, 0.15); color: #348dd3; }
+    .pill-azure { background: rgba(56, 150, 248, 0.15); color: #3896f8; }
+    .pill-violet { background: rgba(132, 157, 252, 0.15); color: #849dfc; }
+    .pill-amber { background: rgba(60, 98, 251, 0.15); color: #3c62fb; }
 
     .avx-sphere-latency {
       font-size: 11px;
@@ -483,19 +483,19 @@ export const meta = {
     .avx-orbit-1 {
       width: 108%;
       height: 108%;
-      border: 1px dashed rgba(56, 189, 248, 0.35);
+      border: 1px dashed rgba(56, 150, 248, 0.35);
       animation: avxOrbitCW 28s linear infinite;
     }
     .avx-orbit-2 {
       width: 116%;
       height: 116%;
-      border: 1px dotted rgba(16, 185, 129, 0.3);
+      border: 1px dotted rgba(16, 110, 185, 0.3);
       animation: avxOrbitCCW 36s linear infinite;
     }
     .avx-orbit-3 {
       width: 124%;
       height: 124%;
-      border: 1px solid rgba(192, 132, 252, 0.15);
+      border: 1px solid rgba(132, 157, 252, 0.15);
     }
     .avx-orbit-node {
       position: absolute;
@@ -504,8 +504,8 @@ export const meta = {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #38bdf8;
-      box-shadow: 0 0 10px #38bdf8;
+      background: #3896f8;
+      box-shadow: 0 0 10px #3896f8;
     }
     @keyframes avxOrbitCW {
       from { transform: translate(-50%, -50%) rotate(0deg); }
@@ -519,33 +519,29 @@ export const meta = {
     .avx-core-glow-aura {
       position: absolute;
       inset: -20px;
-      border-radius: 30px;
+      border-radius: 50%;
       filter: blur(40px);
       opacity: 0.45;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.5) 0%, rgba(16, 185, 129, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(56, 150, 248, 0.5) 0%, rgba(16, 110, 185, 0.3) 50%, transparent 70%);
       pointer-events: none;
       transition: all 0.6s ease;
     }
     .avx-aura-green .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.65) 0%, rgba(56, 189, 248, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(16, 110, 185, 0.65) 0%, rgba(56, 150, 248, 0.3) 50%, transparent 70%);
     }
     .avx-aura-blue .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.7) 0%, rgba(99, 102, 241, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(56, 150, 248, 0.7) 0%, rgba(99, 137, 241, 0.3) 50%, transparent 70%);
     }
     .avx-aura-purple .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(192, 132, 252, 0.65) 0%, rgba(244, 114, 182, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(132, 157, 252, 0.65) 0%, rgba(114, 140, 244, 0.3) 50%, transparent 70%);
     }
     .avx-aura-orange .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(251, 146, 60, 0.65) 0%, rgba(234, 88, 12, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(60, 98, 251, 0.65) 0%, rgba(12, 56, 234, 0.3) 50%, transparent 70%);
     }
 
+    /* no frame: the agent floats on the page in her own glow */
     .avx-core-viewport {
       position: relative;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(56, 189, 248, 0.25);
-      background: #060910;
     }
     .avx-3d-core-img {
       width: 100%;
@@ -563,16 +559,16 @@ export const meta = {
     /* the hologram's stage: deep indigo into magenta, like a ringba hero card */
     .avx-agent3d {
       position: relative;
-      background:
-        radial-gradient(55% 50% at 50% 40%, rgba(124, 58, 237, 0.34), transparent 70%),
-        radial-gradient(60% 40% at 50% 100%, rgba(219, 39, 119, 0.28), transparent 70%),
-        linear-gradient(165deg, #0a1240 0%, #170f52 48%, #3a0c4f 100%);
+      background: radial-gradient(50% 50% at 50% 45%, rgba(37, 99, 235, 0.32), rgba(29, 78, 216, 0.12) 55%, transparent 75%);
+      /* edges fade out, so the stage never reads as a box */
+      -webkit-mask-image: radial-gradient(72% 68% at 50% 46%, #000 62%, transparent 100%);
+      mask-image: radial-gradient(72% 68% at 50% 46%, #000 62%, transparent 100%);
     }
     .avx-agent3d::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(148, 163, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 255, 0.07) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(148, 179, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 179, 255, 0.07) 1px, transparent 1px);
       background-size: 32px 32px;
       mask-image: radial-gradient(65% 60% at 50% 45%, #000, transparent);
       -webkit-mask-image: radial-gradient(65% 60% at 50% 45%, #000, transparent);
@@ -611,8 +607,8 @@ export const meta = {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
+      background: #106eb9;
+      box-shadow: 0 0 8px #106eb9;
       animation: avxPulseGlow 1.5s infinite;
     }
     @keyframes avxPulseGlow {
@@ -629,7 +625,7 @@ export const meta = {
     }
     .avx-hud-tag-box {
       background: rgba(10, 15, 29, 0.88);
-      border: 1px solid rgba(56, 189, 248, 0.35);
+      border: 1px solid rgba(56, 150, 248, 0.35);
       border-radius: 12px;
       padding: 10px 14px;
       backdrop-filter: blur(10px);
@@ -643,7 +639,7 @@ export const meta = {
     }
     .avx-3d-eq i {
       flex: 1;
-      background: #10b981;
+      background: #106eb9;
       border-radius: 1px;
       animation: avxEqDance 0.8s ease-in-out infinite alternate;
     }
@@ -718,8 +714,8 @@ export const meta = {
       align-items: center;
     }
     .avx-rail-chip:hover {
-      background: rgba(56, 189, 248, 0.15);
-      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(56, 150, 248, 0.15);
+      border-color: rgba(56, 150, 248, 0.4);
       color: #fff;
       transform: translateY(-2px);
     }
@@ -2038,9 +2034,9 @@ export default function Home() {
           </div>
           <div className="avx-blog-grid">
             {[
-              postBySlug['healthcare-call-tracking-measure-marketing-roi'],
-              postBySlug['real-estate-call-tracking-track-every-lead'],
-              postBySlug['marketing-agency-call-tracking-success-story'],
+              postBySlug['call-tracking-for-healthcare-practices'],
+              postBySlug['real-estate-calls-from-listing-to-showing'],
+              postBySlug['agency-playbook-proving-call-quality'],
               postBySlug['what-ai-call-scoring-measures'],
               postBySlug['sending-call-conversions-to-ad-platforms'],
               postBySlug['tcpa-dnc-consent-checklist']

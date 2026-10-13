@@ -1,5 +1,5 @@
 import BlogCard from './BlogCard.jsx'
-import { LATEST, SHOTS, formatDate } from '../blog/posts.js'
+import { LATEST, SHOTS, coverSrc, formatDate } from '../blog/posts.js'
 
 const slugify = (text) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
@@ -49,7 +49,7 @@ export default function BlogPost({ post }) {
   ].slice(0, 3)
   const ld = {
     '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, description: post.excerpt,
-    datePublished: post.date, image: `https://avortyx-prototype.vercel.app/assets/avx-blog/${post.slug}.webp`,
+    datePublished: post.date, image: `https://avortyx-prototype.vercel.app${coverSrc(post.slug)}`,
     author: { '@type': 'Organization', name: 'Avortyx' }, publisher: { '@type': 'Organization', name: 'Avortyx' },
   }
   return (
@@ -75,7 +75,7 @@ export default function BlogPost({ post }) {
       <section className="avx-art">
         <div className="container">
           <div className="avx-art-cover">
-            <img src={`/assets/avx-blog/${post.slug}.webp`} alt="" width="1200" height="630" fetchPriority="high" />
+            <img src={coverSrc(post.slug)} alt="" width="1200" height="630" fetchPriority="high" />
           </div>
           <div className="avx-art-grid">
             <nav className="avx-art-toc" aria-label="On this page">

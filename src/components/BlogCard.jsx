@@ -1,4 +1,4 @@
-import { formatDate } from '../blog/posts.js'
+import { coverSrc, formatDate } from '../blog/posts.js'
 
 // One post as a card: cover, category, title, excerpt, then author, date and read time.
 // `large` is the featured layout (cover beside the text on wide screens).
@@ -8,7 +8,7 @@ export default function BlogCard({ post, large = false, headingLevel = 3 }) {
     <a href={`/blog/${post.slug}`} className={large ? 'avx-post-card avx-post-card--lg' : 'avx-post-card'} data-cat={post.category}>
       <span className="avx-post-cover">
         <img
-          src={`/assets/avx-blog/${post.slug}${large ? '' : '-600'}.webp`}
+          src={coverSrc(post.slug, !large)}
           alt=""
           width={large ? 1200 : 600}
           height={large ? 630 : 315}

@@ -3,6 +3,23 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/blog/healthcare-call-tracking-measure-marketing-roi",
+      "destination": "/blog/call-tracking-for-healthcare-practices",
+      "permanent": true
+    },
+    {
+      "source": "/blog/real-estate-call-tracking-track-every-lead",
+      "destination": "/blog/real-estate-calls-from-listing-to-showing",
+      "permanent": true
+    },
+    {
+      "source": "/blog/marketing-agency-call-tracking-success-story",
+      "destination": "/blog/agency-playbook-proving-call-quality",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

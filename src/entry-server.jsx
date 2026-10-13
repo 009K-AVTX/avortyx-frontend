@@ -2,7 +2,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import Head from './components/Head.jsx'
 import BlogPost from './components/BlogPost.jsx'
 import Layout from './components/Layout.jsx'
-import { POSTS } from './blog/posts.js'
+import { POSTS, coverSrc } from './blog/posts.js'
 import template from './document.html?raw'
 
 // Every file in src/pages is a page: pages/index.jsx is "/", pages/features/api.jsx is
@@ -23,7 +23,7 @@ const postPages = Object.fromEntries(POSTS.map((post) => [`/blog/${post.slug}.ht
     bodyClass: 'avortyx_marketing blog-post without-waves',
     layout: 'site',
     ogType: 'article',
-    ogImage: `/assets/avx-blog/${post.slug}.webp`,
+    ogImage: coverSrc(post.slug),
   },
 }]))
 
