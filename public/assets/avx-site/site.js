@@ -368,7 +368,7 @@
       track('assistant_team_pick', { member: id, intent: intent });
       state.agent = id;
       add({ who: 'sys', text: 'You’re now talking to ' + t[1] + ' · ' + t[2] });
-      var links = [['#email-support', 'Email ' + first], ['https://t.me/avortyx', 'Message on Telegram']];
+      var links = [['#email-support', 'Email ' + first], ['https://t.me/avortyxsupport', 'Telegram @avortyxsupport']];
       if (intent === 'sales') links.push(['/p/request_demo', 'Request a demo']);
       add({ who: 'agent', id: id, text: 'Hi! I’m ' + first + '. Send me your details by email or Telegram and I’ll get back to you there.', links: links });
       setHead();

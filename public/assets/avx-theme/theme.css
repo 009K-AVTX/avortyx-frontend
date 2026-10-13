@@ -1190,3 +1190,21 @@ abbr[data-bs-original-title] {
   font-size: .8rem;
   color: var(--bs-secondary-color);
 }
+
+/* pricing footnotes: numbers in a fixed column on the text's first line, so they line up */
+.pricing-footnotes p {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+.pricing-footnotes sup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.25em;
+  margin: 0;
+  font-size: .8em;
+  line-height: 2.1;
+  text-align: right;
+  vertical-align: baseline;
+}
