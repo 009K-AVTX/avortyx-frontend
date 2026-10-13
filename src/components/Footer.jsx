@@ -20,6 +20,7 @@ const COLUMNS = [
   ['Company', [
     ['/terms_of_service', 'Terms of Service'],
     ['/privacy_policy', 'Privacy Policy'],
+    ['/legal', 'Legal Center'],
     ['/blog', 'Blog'],
     ['/careers', 'Careers'],
     ['/brand_assets', 'Brand Kit'],

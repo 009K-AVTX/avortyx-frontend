@@ -48,7 +48,7 @@ export default function Careers() {
       <section className="py-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="fw-bold mb-3">100+ people, real-time stakes</h2>
+            <h2 className="fw-bold mb-3">A team of 100+ experts, operating where every millisecond matters</h2>
             <p className="text-muted max-w-2xl mx-auto">Avortyx is a growing company of over 100 employees: engineers, operators and sellers. Every call that rings through the platform is someone’s revenue, and that shapes how we build and who we hire.</p>
           </div>
           <div className="row g-4 mb-5">

@@ -683,3 +683,47 @@
     '</div>';
   box.hidden = false;
 })();
+
+/* ---------- Legal Center: /legal?doc=NN shows one document ----------
+   Every document is in the page; this shows the one in ?doc (or the list), highlights it in the
+   menu and switches on click without a reload. Back and forward work. Without JS, all show. */
+(function () {
+  'use strict';
+  var root = document.querySelector('[data-avx-legal]');
+  if (!root) return;
+  var panels = root.querySelectorAll('[data-doc-panel]');
+  var links = root.querySelectorAll('.avx-legal-nav a[data-doc]');
+
+  function show(id, scroll) {
+    var found = false;
+    panels.forEach(function (p) {
+      var on = p.getAttribute('data-doc-panel') === id;
+      p.hidden = !on;
+      if (on) found = true;
+    });
+    if (!found) return show('', scroll);
+    links.forEach(function (a) {
+      if (a.getAttribute('data-doc') === id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    var panel = root.querySelector('[data-doc-panel="' + id + '"]');
+    var title = panel.querySelector('h2').textContent;
+    document.title = (id ? title + ' | ' : '') + 'Legal Center | Avortyx';
+    if (scroll) root.scrollIntoView({ block: 'start' });
+  }
+
+  root.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-doc]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+    e.preventDefault();
+    var id = a.getAttribute('data-doc');
+    history.pushState({ doc: id }, '', id ? '/legal?doc=' + id : '/legal');
+    show(id, true);
+  });
+  window.addEventListener('popstate', function () {
+    show(new URLSearchParams(location.search).get('doc') || '', false);
+  });
+
+  root.classList.add('avx-legal-ready');
+  show(new URLSearchParams(location.search).get('doc') || '', false);
+})();
