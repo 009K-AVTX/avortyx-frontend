@@ -1,5 +1,6 @@
 import BrandMark from './BrandMark.jsx'
 import Bolt from './Bolt.jsx'
+import LangMenu from './LangMenu.jsx'
 
 const FEATURE_SECTIONS = [
   ['ping-post', 'Ping/Post'],
@@ -64,6 +65,7 @@ export default function Navbar({ brandHref, isLanding }) {
                 </li>
               </ul>
             </li>
+            <LangMenu />
             {/* the same button as avortyx.com's header: pill, keppel-400 on keppel-950, with its dark bolt */}
             <li className="nav-item ms-lg-3">
               <a className="avx-request-access" href="/request-access">

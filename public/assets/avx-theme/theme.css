@@ -1394,3 +1394,137 @@ abbr[data-bs-original-title] {
     font-size: 1.6rem;
   }
 }
+
+/* ---------- Language menu (navbar globe) ---------- */
+.avx-lang-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--td-border-color);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--td-text-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.avx-lang-btn:hover,
+.avx-lang-btn[aria-expanded="true"] {
+  border-color: var(--avx-primary);
+  color: var(--avx-link);
+}
+
+.avx-lang-menu {
+  min-width: 250px;
+  padding: 8px;
+  border: 1px solid var(--td-border-color);
+  border-radius: 14px;
+  background: var(--td-surface-bg);
+}
+
+.avx-lang-head {
+  padding: 6px 10px 8px;
+  color: var(--td-text-muted);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.avx-lang-menu .dropdown-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--td-text-color);
+}
+
+.avx-lang-menu .dropdown-item:hover,
+.avx-lang-menu .dropdown-item:focus {
+  background: var(--avx-primary-soft);
+  color: var(--td-text-color);
+}
+
+.avx-lang-menu .dropdown-item[aria-current="true"] {
+  border-color: var(--avx-primary);
+  background: var(--avx-primary-soft);
+}
+
+.avx-flag {
+  flex: none;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .12);
+}
+
+.avx-lang-en {
+  color: var(--td-text-muted);
+  font-size: .85rem;
+}
+
+.avx-lang-check {
+  margin-left: auto;
+  color: var(--avx-link);
+  visibility: hidden;
+}
+
+.avx-lang-menu .dropdown-item[aria-current="true"] .avx-lang-check {
+  visibility: visible;
+}
+
+/* Poppins has Latin only: Cyrillic, Japanese and Chinese use the system's own faces */
+html[lang="ru"] {
+  --avx-font-sans: "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --avx-font-display: var(--avx-font-sans);
+}
+
+html[lang="ja"] {
+  --avx-font-sans: "Poppins", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic", Meiryo, "Noto Sans JP", sans-serif;
+  --avx-font-display: var(--avx-font-sans);
+}
+
+html[lang="zh-Hans"] {
+  --avx-font-sans: "Poppins", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --avx-font-display: var(--avx-font-sans);
+}
+
+html[lang="ja"] body,
+html[lang="zh-Hans"] body {
+  line-break: strict;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.avx-lang {
+  position: relative;
+}
+
+.avx-lang .avx-lang-menu {
+  top: calc(100% + 8px);
+  right: 0;
+  left: auto;
+}
+
+@media (max-width: 991.98px) {
+  .avx-lang .avx-lang-menu {
+    position: static;
+    margin-top: 8px;
+  }
+}
+
+/* Russian runs longer than English: keep the hero headline inside its column and let long
+   words hyphenate in headings */
+html[lang="ru"] .hero-heading h1.display-4 {
+  font-size: clamp(2rem, 3.6vw, 3.4rem) !important;
+}
+
+html[lang="ru"] h1,
+html[lang="ru"] h2,
+html[lang="ru"] h3 {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}

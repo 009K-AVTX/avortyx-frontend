@@ -378,6 +378,7 @@
       if (m.who === 'team') { log.appendChild(teamCard()); log.scrollTop = log.scrollHeight; return; }
       var row = document.createElement('div');
       row.className = 'avx-help-msg avx-help-' + m.who;
+      if (m.who === 'me') row.setAttribute('data-avx-no-i18n', '');
       var p = document.createElement('p');
       p.textContent = m.text;
       // a teammate's message: their photo, then name and role over the bubble
@@ -717,7 +718,7 @@
     if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
     e.preventDefault();
     var id = a.getAttribute('data-doc');
-    history.pushState({ doc: id }, '', id ? '/legal?doc=' + id : '/legal');
+    history.pushState({ doc: id }, '', id ? location.pathname + '?doc=' + id : location.pathname);
     show(id, true);
   });
   window.addEventListener('popstate', function () {
@@ -726,4 +727,30 @@
 
   root.classList.add('avx-legal-ready');
   show(new URLSearchParams(location.search).get('doc') || '', false);
+})();
+
+/* ---------- Language menu: the globe in the navbar opens and closes its list ---------- */
+(function () {
+  'use strict';
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-avx-lang-toggle]');
+    document.querySelectorAll('.avx-lang-menu.show').forEach(function (m) {
+      if (!btn || m.previousElementSibling !== btn) {
+        m.classList.remove('show');
+        m.previousElementSibling.setAttribute('aria-expanded', 'false');
+      }
+    });
+    if (!btn) return;
+    var menu = btn.nextElementSibling, open = !menu.classList.contains('show');
+    menu.classList.toggle('show', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var m = document.querySelector('.avx-lang-menu.show');
+    if (!m) return;
+    m.classList.remove('show');
+    m.previousElementSibling.setAttribute('aria-expanded', 'false');
+    m.previousElementSibling.focus();
+  });
 })();

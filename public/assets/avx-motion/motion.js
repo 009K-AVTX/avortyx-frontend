@@ -5,6 +5,9 @@
 (function () {
   'use strict';
 
+  // the page's path without its /ru, /ja or /zh language prefix
+  function avxPath() { return location.pathname.replace(/^\/(ru|ja|zh)(?=\/|$)/, '') || '/'; }
+
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
@@ -631,7 +634,7 @@
   var WAVE_ROTATION = ['ribbons', 'mesh', 'grid', 'signal', 'streak'];
 
   function pageKey() {
-    var path = location.pathname.replace(/index\.html$/, '').replace(/\/$/, '') || '/';
+    var path = avxPath().replace(/index\.html$/, '').replace(/\/$/, '') || '/';
     return path === '/' ? '/' : (/\.html$/.test(path) ? path : path + '.html');
   }
 
@@ -673,9 +676,9 @@
   };
 
   function initBottomWaves() {
-    if (/^\/features(\.html)?\/?$/.test(location.pathname)) return; // features page ends clean
+    if (/^\/features(\.html)?\/?$/.test(avxPath())) return; // features page ends clean
     if (pageKey() === '/' || pageKey() === '/pricing.html' || pageKey() === '/users/sign_in.html') return; // these pages end clean
-    if (/^\/features\/(voice_agents|ai_sms_bots|transcriptions)\b/.test(location.pathname)) return; // AI pages too
+    if (/^\/features\/(voice_agents|ai_sms_bots|transcriptions)\b/.test(avxPath())) return; // AI pages too
     var sections = topSections().filter(function (sec) {
       return !sec.classList.contains('marketing-cta-band');
     });
@@ -689,7 +692,7 @@
   // ---------- Sign-in: one tilted ring behind the login card ----------
 
   function initAuthRing() {
-    if (!/\/users\/sign_in(\.html)?$/.test(location.pathname)) return;
+    if (!/\/users\/sign_in(\.html)?$/.test(avxPath())) return;
     var card = document.querySelector('main .mktg-auth-card');
     if (!card) return;
     var stage = card.parentElement;
@@ -709,7 +712,7 @@
   // ---------- Integrations page: 3D hub of orbiting integration logos ----------
 
   function initIntegrationsHub() {
-    if (!/\/features\/integrations(\.html)?$/.test(location.pathname)) return;
+    if (!/\/features\/integrations(\.html)?$/.test(avxPath())) return;
     var h1 = document.querySelector('main section h1');
     var section = h1 && h1.closest('section');
     var container = section && section.querySelector('.container');
@@ -760,7 +763,7 @@
   // ---------- Integrations heading: 3D environment behind the top section ----------
 
   function initIntegrationsBackdrop() {
-    if (!/\/features\/integrations(\.html)?$/.test(location.pathname)) return;
+    if (!/\/features\/integrations(\.html)?$/.test(avxPath())) return;
     var h1 = document.querySelector('main section h1');
     var section = h1 && h1.closest('section');
     if (!section) return;
