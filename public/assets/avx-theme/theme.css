@@ -1137,3 +1137,11 @@ html[data-bs-theme="dark"] {
   transform: none !important;
 }
 
+/* Remove asterisk dotted underline on all forms */
+abbr[title],
+abbr[data-bs-original-title] {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  cursor: inherit !important;
+}
+

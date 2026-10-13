@@ -18,19 +18,18 @@ export default function Contact() {
             </div>
             <div className="d-flex flex-wrap justify-content-center gap-4 mb-4 pb-3 border-bottom mktg-contact-links">
               <a href="mailto:support@avortyx.com" className="d-flex align-items-center text-decoration-none text-body">
-                {" "}
-                <i className="fa-solid fa-envelope text-success me-2" aria-hidden="true" />
-                {" "}
+                <i className="fa-solid fa-envelope text-primary me-2" aria-hidden="true" />
                 <span className="fw-semibold small">support@avortyx.com</span>
-                {" "}
               </a>
-              {" "}
+              <a href="https://t.me/avortyx" target="_blank" rel="noopener noreferrer" className="d-flex align-items-center text-decoration-none text-body">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="me-2 text-primary" aria-hidden="true">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                </svg>
+                <span className="fw-semibold small">Telegram ID: @avortyx</span>
+              </a>
               <a href="/p/request_demo" className="d-flex align-items-center text-decoration-none text-body">
-                {" "}
-                <i className="fa-solid fa-desktop text-success me-2" aria-hidden="true" />
-                {" "}
+                <i className="fa-solid fa-desktop text-primary me-2" aria-hidden="true" />
                 <span className="fw-semibold small">Request a Demo</span>
-                {" "}
               </a>
             </div>
             <form className="simple_form contact-form" id="new_contact_request" action="https://avortyx.com/contact_requests" acceptCharset="UTF-8" method="post">
@@ -38,8 +37,7 @@ export default function Contact() {
               <input type="hidden" name="authenticity_token" value="e4f3LRf-elFcayYwsiYRpt950BX4udrK4QsszeoMMEVVAvm7CHjHMxTbLpwFM5hrid5bYJ1czo4nSzu5Xc1skA" autoComplete="off" />
               <div className="row mb-3 js-form-validation form-group string required contact_request_first_name">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="contact_request_first_name">
-                  <abbr title="required">*</abbr>
-                  {" "}First Name
+                  First Name
                 </label>
                 <div className="col-sm-9">
                   <input className="form-control string required" required aria-required="true" type="text" name="contact_request[first_name]" id="contact_request_first_name" />
@@ -47,8 +45,7 @@ export default function Contact() {
               </div>
               <div className="row mb-3 js-form-validation form-group string required contact_request_last_name">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="contact_request_last_name">
-                  <abbr title="required">*</abbr>
-                  {" "}Last Name
+                  Last Name
                 </label>
                 <div className="col-sm-9">
                   <input className="form-control string required" required aria-required="true" type="text" name="contact_request[last_name]" id="contact_request_last_name" />
@@ -56,8 +53,7 @@ export default function Contact() {
               </div>
               <div className="row mb-3 js-form-validation form-group email required contact_request_email">
                 <label className="col-sm-3 col-form-label text-start text-sm-end email required" htmlFor="contact_request_email">
-                  <abbr title="required">*</abbr>
-                  {" "}Email
+                  Email
                 </label>
                 <div className="col-sm-9">
                   <input className="form-control string email required" required aria-required="true" type="email" name="contact_request[email]" id="contact_request_email" />
@@ -65,8 +61,7 @@ export default function Contact() {
               </div>
               <div className="row mb-3 js-form-validation form-group tel required contact_request_phone_number">
                 <label className="col-sm-3 col-form-label text-start text-sm-end tel required" htmlFor="contact_request_phone_number">
-                  <abbr title="required">*</abbr>
-                  {" "}Phone Number
+                  Phone Number
                 </label>
                 <div className="col-sm-9">
                   <input className="form-control string tel required" required aria-required="true" type="tel" name="contact_request[phone_number]" id="contact_request_phone_number" />
@@ -74,8 +69,7 @@ export default function Contact() {
               </div>
               <div className="row mb-3 js-form-validation form-group string required contact_request_company">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="contact_request_company">
-                  <abbr title="required">*</abbr>
-                  {" "}Company Name
+                  Company Name
                 </label>
                 <div className="col-sm-9">
                   <input className="form-control string required" required aria-required="true" type="text" name="contact_request[company]" id="contact_request_company" />
@@ -88,6 +82,15 @@ export default function Contact() {
                 </label>
                 <div className="col-sm-9">
                   <input className="form-control string optional" placeholder="your-handle" type="text" name="contact_request[microsoft_teams]" id="contact_request_microsoft_teams" />
+                </div>
+              </div>
+              <div className="row mb-3 js-form-validation form-group string optional contact_request_telegram">
+                <label className="col-sm-3 col-form-label text-start text-sm-end string optional" htmlFor="contact_request_telegram">
+                  Telegram ID{" "}
+                  <span className="text-muted fw-normal">(optional)</span>
+                </label>
+                <div className="col-sm-9">
+                  <input className="form-control string optional" placeholder="@yourhandle" type="text" name="contact_request[telegram]" id="contact_request_telegram" />
                 </div>
               </div>
               <div className="row mb-3 js-form-validation form-group check_boxes optional contact_request_feature_interests">
@@ -125,8 +128,7 @@ export default function Contact() {
               </div>
               <div className="row mb-3 js-form-validation form-group text required contact_request_message">
                 <label className="col-sm-3 col-form-label text-start text-sm-end text required" htmlFor="contact_request_message">
-                  <abbr title="required">*</abbr>
-                  {" "}Message
+                  Message
                 </label>
                 <div className="col-sm-9">
                   <textarea className="form-control text required" rows="4" required aria-required="true" name="contact_request[message]" id="contact_request_message" />
