@@ -3384,6 +3384,8 @@
     function later(ms, fn) { timers.push(setTimeout(fn, ms)); }
     function clear() { timers.forEach(clearTimeout); timers = []; }
     function initials(name) { return name.split(' ').map(function (w) { return w.charAt(0); }).join('').slice(0, 2); }
+    // each step is announced for the globe (initDecideGlobe)
+    function emit(phase, data) { card.dispatchEvent(new CustomEvent('avx-dc', { detail: { phase: phase, data: data || {} } })); }
 
     // one call: it rings, flows into the AI core, the gauge fills to its intent, then it flows
     // out to the buyers and the best one lights up
@@ -3430,25 +3432,28 @@
         list.appendChild(li);
         return li;
       });
+      emit('ring', { sent: d.sent[1] });
 
       later(900, function () {
         if (q('quote')) q('quote').classList.add('avx-on');
       });
-      later(1300, function () { link1.classList.add('avx-on'); });
+      later(1300, function () { link1.classList.add('avx-on'); emit('flow'); });
       later(1800, function () {
         say('AI scoring intent', 'core');
         caller.className = 'avx-fc-caller avx-fc-done';
         core.classList.add('avx-on');
+        emit('score', { intent: d.intent, sent: d.sent[1] });
         q('gauge').style.setProperty('--v', d.intent);
         var t0 = performance.now();
-        (function count(now) {
-          var p = Math.min((now - t0) / 900, 1);
+        (function count() {
+          // read the clock, not the frame timestamp: that can predate t0 and ran the count negative
+          var p = Math.max(0, Math.min((performance.now() - t0) / 900, 1));
           q('intent').textContent = (d.intent * (1 - Math.pow(1 - p, 3))).toFixed(2);
           if (p < 1) requestAnimationFrame(count);
         })(t0);
       });
-      later(2800, function () { link2.classList.add('avx-on'); say('Simulating ping auction', 'buyers'); });
-      rows.forEach(function (li, k) { later(3300 + k * 160, function () { li.className = 'avx-scan'; }); });
+      later(2800, function () { link2.classList.add('avx-on'); say('Simulating ping auction', 'buyers'); emit('auction'); });
+      rows.forEach(function (li, k) { later(3300 + k * 160, function () { li.className = 'avx-scan'; emit('ping', { row: k }); }); });
       later(3300 + rows.length * 160 + 250, function () {
         rows.forEach(function (li) {
           if (li.dataset.win) {
@@ -3458,6 +3463,7 @@
             li.className = 'avx-lose';
           }
         });
+        emit('won', { row: rows.findIndex(function (li) { return li.dataset.win; }) });
         q('winner').textContent = d.bids[0][0];
         q('pay').textContent = '$' + d.bids[0][1].toFixed(2);
         q('ms').textContent = d.ms + 'ms';
@@ -3488,6 +3494,254 @@
     setInterval(function () { if (waiting && running && !motionPaused() && !document.hidden) { waiting = false; play(); } }, 600);
     // the 3D stage leans toward the pointer (eased, mouse and pen only)
     reactive(card, card.querySelector('.avx-fc'), true);
+  }
+
+  // ---------- Hero live decision, Ringba style: a point-cloud globe on a ring pedestal ----------
+  // The AI core becomes a spinning globe of light on a holographic pedestal, with one glossy orb
+  // in orbit per buyer, over a synthwave floor. initDecision announces each step ('avx-dc'):
+  // the call streams in from the caller, a ripple runs across the globe while it scores intent,
+  // each orb pings as its buyer bids, and a beam fires to the winner. The orbs share their colors
+  // with the buyer rows' avatars (motion.css .avx-dg).
+
+  function initDecideGlobe() {
+    var card = document.querySelector('[data-avx-decide]');
+    if (!card) return;
+    var stage = card.querySelector('.avx-fc3d'), chip = card.querySelector('.avx-fc-chip');
+    var phone = card.querySelector('.avx-fc-phone'), list = card.querySelector('[data-dc="buyers"]');
+    var caller = card.querySelector('.avx-fc-caller');
+    if (!stage || !chip || !phone || !list || !caller) return;
+    var cv = document.createElement('canvas');
+    cv.className = 'avx-dg-canvas';
+    cv.setAttribute('aria-hidden', 'true');
+    stage.insertBefore(cv, stage.firstChild);
+    var ctx = cv.getContext('2d');
+    if (!ctx) return;
+    card.classList.add('avx-dg');
+    var PI = Math.PI;
+
+    // the globe: points spread evenly over a sphere (golden-angle spiral)
+    var N = 900, PTS = new Float32Array(N * 3);
+    for (var i = 0; i < N; i++) {
+      var y = 1 - 2 * (i + 0.5) / N, r = Math.sqrt(1 - y * y), th = i * 2.399963;
+      PTS[3 * i] = r * Math.cos(th); PTS[3 * i + 1] = y; PTS[3 * i + 2] = r * Math.sin(th);
+    }
+    // buyer orbs, Ringba's palette: [light, main, dark]
+    var ORBS = [[[254, 215, 170], [249, 115, 22], [124, 45, 18]], [[153, 246, 228], [20, 184, 166], [19, 78, 74]], [[221, 214, 254], [139, 92, 246], [59, 7, 100]]];
+    var SENT = { pos: [52, 211, 153], neutral: [96, 165, 250], urgent: [251, 191, 36] };
+
+    // the HTML ships the first call won: start there
+    var winLi = list.querySelector('.avx-win');
+    var st = { phase: 'won', at: -10, win: winLi ? Array.prototype.indexOf.call(list.children, winLi) : 0, tint: SENT.pos };
+    var tint = st.tint.slice(), pings = [], ripple = -10, spin = 0, spinSpeed = 0.3;
+    card.addEventListener('avx-dc', function (e) {
+      var d = e.detail, now = performance.now() / 1000;
+      if (d.phase === 'ping') { pings.push({ row: d.data.row, t0: now }); return; }
+      st.phase = d.phase; st.at = now;
+      if (d.data.sent) st.tint = SENT[d.data.sent] || SENT.neutral;
+      if (d.phase === 'ring') st.tint = SENT.neutral;
+      if (d.phase === 'score') ripple = now;
+      if (d.phase === 'won') st.win = d.data.row;
+    });
+
+    var W = 0, H = 0, dpr = 1, OX = 0, OY = 0;
+    function size() {
+      var r = cv.getBoundingClientRect();
+      W = r.width; H = r.height;
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    }
+    function center(el2) {
+      var r = el2.getBoundingClientRect();
+      return [r.left + r.width / 2 - OX, r.top + r.height / 2 - OY, r];
+    }
+    function rgba(c, a) { return 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',' + Math.max(0, Math.min(1, a)).toFixed(3) + ')'; }
+    function mix(a, b, f) { return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f]; }
+    function quad(p0, c, p1, u) {
+      var v = 1 - u;
+      return [v * v * p0[0] + 2 * v * u * c[0] + u * u * p1[0], v * v * p0[1] + 2 * v * u * c[1] + u * u * p1[1]];
+    }
+
+    var last = 0;
+    function draw() {
+      if (!W) return;
+      // one clock for the step times and the frame (frame timestamps can lag performance.now)
+      var t = performance.now() / 1000, dt = Math.max(0, Math.min(0.05, last ? t - last : 0.016));
+      last = t;
+      var cr = cv.getBoundingClientRect();
+      OX = cr.left; OY = cr.top;
+      var G = center(chip), P = center(phone), rows = Array.prototype.slice.call(list.children);
+      // the globe fills the gap between the caller and the buyers, never over either
+      var gap = list.getBoundingClientRect().left - caller.getBoundingClientRect().right;
+      var R = Math.max(30, Math.min(70, gap * 0.42));
+      var gx = G[0], gy = G[1] - 4, since = t - st.at;
+      for (var c = 0; c < 3; c++) tint[c] += (st.tint[c] - tint[c]) * Math.min(1, dt * 3);
+      // the globe spins up while it thinks and settles once the call is placed
+      var target = st.phase === 'score' ? 1.6 : st.phase === 'auction' ? 0.9 : st.phase === 'flow' ? 0.7 : 0.3;
+      spinSpeed += (target - spinSpeed) * Math.min(1, dt * 2.5);
+      if (!reduced) spin += spinSpeed * dt;
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+
+      // synthwave floor: lines run to a vanishing point behind the globe and stream toward us
+      var hy = gy + R * 1.12, vy = hy - R * 0.9, bottom = H;
+      ctx.lineWidth = 1;
+      for (var k = -14; k <= 14; k++) {
+        var bx = gx + k * W * 0.075, a1 = 0.16 * (1 - Math.abs(k) / 15);
+        var gr = ctx.createLinearGradient(0, hy, 0, bottom);
+        gr.addColorStop(0, 'rgba(139,92,246,0)');
+        gr.addColorStop(1, 'rgba(139,92,246,' + a1.toFixed(3) + ')');
+        ctx.strokeStyle = gr;
+        var fy = (hy - vy) / (bottom - vy), sx = gx + (bx - gx) * fy;
+        ctx.beginPath(); ctx.moveTo(sx, hy); ctx.lineTo(bx, bottom); ctx.stroke();
+      }
+      var scroll = reduced ? 0 : (t * 0.6) % 1;
+      for (k = 0; k < 9; k++) {
+        var dd = k + 1 - scroll, fy2 = 1.4 / (dd + 0.4), ly = hy + (bottom - hy) * fy2;
+        if (ly > bottom) continue;
+        var half = (ly - vy) / (bottom - vy) * W * 1.05;
+        ctx.strokeStyle = 'rgba(96,165,250,' + (0.2 * fy2).toFixed(3) + ')';
+        ctx.beginPath(); ctx.moveTo(gx - half, ly); ctx.lineTo(gx + half, ly); ctx.stroke();
+      }
+
+      // the pedestal: a bright disc and rings rippling outward, as on ringba.com
+      var py = gy + R * 1.1, sq = 0.26;
+      var disc = ctx.createRadialGradient(gx, py, 0, gx, py, R * 1.3);
+      disc.addColorStop(0, rgba(mix([147, 197, 253], tint, 0.3), 0.55));
+      disc.addColorStop(0.5, 'rgba(37,99,235,0.18)');
+      disc.addColorStop(1, 'rgba(37,99,235,0)');
+      ctx.save(); ctx.translate(gx, py); ctx.scale(1, sq); ctx.translate(-gx, -py);
+      ctx.fillStyle = disc; ctx.beginPath(); ctx.arc(gx, py, R * 1.3, 0, 2 * PI); ctx.fill();
+      var flow = reduced ? 0 : (t * 0.5) % 1;
+      for (k = 0; k < 5; k++) {
+        var rr = R * (0.25 + 0.24 * (k + flow)), ra = 0.7 * (1 - (k + flow) / 5);
+        ctx.strokeStyle = 'rgba(96,165,250,' + ra.toFixed(3) + ')';
+        ctx.lineWidth = 1.6 / sq * 0.5;
+        ctx.beginPath(); ctx.arc(gx, py, rr, 0, 2 * PI); ctx.stroke();
+      }
+      ctx.strokeStyle = 'rgba(147,197,253,0.25)'; ctx.lineWidth = 9;
+      ctx.beginPath(); ctx.arc(gx, py, R * 1.12, 0, 2 * PI); ctx.stroke();
+      ctx.strokeStyle = 'rgba(219,234,254,0.9)'; ctx.lineWidth = 2.6;
+      ctx.beginPath(); ctx.arc(gx, py, R * 1.12, 0, 2 * PI); ctx.stroke();
+      ctx.restore();
+
+      // orbs: on a tilted orbit around the globe; those behind it are drawn first
+      var orbs = [];
+      for (k = 0; k < 3; k++) {
+        var oa = (reduced ? 0.7 : t * 0.45) + k * 2 * PI / 3, ox = Math.cos(oa) * R * 1.55, oz = Math.sin(oa) * R * 1.55;
+        var oy = -oz * 0.28 - R * 0.05, depth = oz / (R * 1.55), kk = 1 + depth * 0.18;
+        orbs.push({ k: k, x: gx + ox * kk, y: gy + oy, z: depth, r: R * 0.19 * kk });
+      }
+      function drawOrb(o) {
+        var col = ORBS[o.k], won = st.phase === 'won' && st.win === o.k, glow = won ? 0.55 + 0.25 * Math.sin(t * 4) : 0.22;
+        pings.forEach(function (pg) {
+          if (pg.row !== o.k) return;
+          var u = (t - pg.t0) / 0.8;
+          if (u < 0 || u > 1) return;
+          ctx.strokeStyle = rgba(col[1], 0.8 * (1 - u)); ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.arc(o.x, o.y, o.r * (1.2 + 2.2 * u), 0, 2 * PI); ctx.stroke();
+          glow = Math.max(glow, 0.6 * (1 - u));
+        });
+        var halo = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r * 2.6);
+        halo.addColorStop(0, rgba(col[1], glow)); halo.addColorStop(1, rgba(col[1], 0));
+        ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(o.x, o.y, o.r * 2.6, 0, 2 * PI); ctx.fill();
+        ctx.globalCompositeOperation = 'source-over';
+        var body = ctx.createRadialGradient(o.x - o.r * 0.35, o.y - o.r * 0.4, o.r * 0.05, o.x, o.y, o.r);
+        body.addColorStop(0, rgba(col[0], 1)); body.addColorStop(0.45, rgba(col[1], 1)); body.addColorStop(1, rgba(col[2], 1));
+        ctx.fillStyle = body; ctx.beginPath(); ctx.arc(o.x, o.y, o.r, 0, 2 * PI); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,0.55)';
+        ctx.beginPath(); ctx.ellipse(o.x - o.r * 0.32, o.y - o.r * 0.42, o.r * 0.32, o.r * 0.18, -0.5, 0, 2 * PI); ctx.fill();
+        ctx.globalCompositeOperation = 'lighter';
+      }
+      orbs.filter(function (o) { return o.z < 0; }).forEach(drawOrb);
+
+      // the globe: a halo, then the points, brighter toward the rim, with the scoring ripple
+      var halo2 = ctx.createRadialGradient(gx, gy, R * 0.2, gx, gy, R * 1.6);
+      halo2.addColorStop(0, rgba(mix([59, 130, 246], tint, 0.4), 0.28));
+      halo2.addColorStop(1, 'rgba(59,130,246,0)');
+      ctx.fillStyle = halo2; ctx.beginPath(); ctx.arc(gx, gy, R * 1.6, 0, 2 * PI); ctx.fill();
+      var cs = Math.cos(spin), sn = Math.sin(spin), ct = Math.cos(-0.38), stt = Math.sin(-0.38);
+      var rp = t - ripple, rOn = rp >= 0 && rp < 1.6, base = mix([147, 197, 253], tint, st.phase === 'flow' ? 0.15 : 0.45);
+      for (i = 0; i < N; i++) {
+        var x = PTS[3 * i], yv = PTS[3 * i + 1], z = PTS[3 * i + 2];
+        var x1 = x * cs + z * sn, z1 = -x * sn + z * cs;
+        var y1 = yv * ct - z1 * stt, z2 = yv * stt + z1 * ct;
+        var sc = 1, boost = 0;
+        if (rOn) {
+          // the wave enters on the caller's side and rolls across
+          var ang = Math.acos(Math.max(-1, Math.min(1, -x1))), wf = ang - rp * 2.6;
+          var w = Math.exp(-wf * wf / 0.05) * (1 - rp / 1.6);
+          sc += 0.1 * w; boost = w;
+        }
+        var kk2 = 3.2 / (3.2 - z2), sx2 = gx + x1 * R * sc * kk2, sy2 = gy - y1 * R * sc * kk2;
+        var front = (z2 + 1) / 2, rim = Math.pow(1 - Math.abs(z2), 3);
+        var al = 0.12 + 0.6 * front * front + 0.35 * rim + boost * 0.6;
+        var sz = 0.8 + 1.1 * front + boost;
+        ctx.fillStyle = boost > 0.3 ? rgba(mix(base, [255, 255, 255], boost), al) : rgba(front > 0.85 ? mix(base, [255, 255, 255], 0.5) : base, al);
+        ctx.fillRect(sx2 - sz / 2, sy2 - sz / 2, sz, sz);
+      }
+      orbs.filter(function (o) { return o.z >= 0; }).forEach(drawOrb);
+
+      // the call streams in from the caller
+      var gin = [gx - R * 1.02, gy], pr = P[2], pin = [P[0] + pr.width / 2 + 2, P[1]];
+      var cin = [(pin[0] + gin[0]) / 2, Math.min(pin[1], gin[1]) - 18];
+      var inA = st.phase === 'flow' ? 1 : st.phase === 'score' ? Math.max(0, 1 - since / 0.8) : st.phase === 'ring' ? 0.15 : 0.12;
+      ctx.strokeStyle = rgba([96, 165, 250], 0.12 + 0.2 * inA); ctx.lineWidth = 1;
+      ctx.setLineDash([2, 5]);
+      ctx.beginPath(); ctx.moveTo(pin[0], pin[1]); ctx.quadraticCurveTo(cin[0], cin[1], gin[0], gin[1]); ctx.stroke();
+      ctx.setLineDash([]);
+      for (k = 0; k < 6; k++) {
+        var u2 = reduced ? k / 6 : (t * (inA > 0.5 ? 1.1 : 0.4) + k / 6) % 1;
+        // each packet is a bright head with a short fading tail
+        for (var tl = 0; tl < 5; tl++) {
+          var q = quad(pin, cin, gin, Math.max(0, u2 - tl * 0.018)), fa = inA * Math.sin(u2 * PI) * (1 - tl / 5);
+          ctx.fillStyle = rgba(tl ? [96, 165, 250] : [224, 242, 254], fa);
+          ctx.beginPath(); ctx.arc(q[0], q[1], tl ? 1.4 : 2.1, 0, 2 * PI); ctx.fill();
+        }
+      }
+
+      // the auction fans out to every buyer; the winner gets a beam
+      var gout = [gx + R * 1.02, gy];
+      rows.forEach(function (li, ri) {
+        var av = li.querySelector('.avx-fc-b-main > i') || li, ar = center(av), dst = [ar[2].left - OX - 3, ar[1]];
+        var cc = [(gout[0] + dst[0]) / 2, (gout[1] + dst[1]) / 2 - 10];
+        var col = ORBS[ri % 3][1], isWin = st.phase === 'won' && st.win === ri;
+        var fanA = st.phase === 'auction' ? 0.65 : 0;
+        if (isWin) {
+          var ba = Math.min(1, since / 0.3) * (since > 5 ? 0.55 : 1);
+          var lg = ctx.createLinearGradient(gout[0], gout[1], dst[0], dst[1]);
+          lg.addColorStop(0, rgba(tint, ba)); lg.addColorStop(1, rgba([52, 211, 153], ba));
+          ctx.strokeStyle = rgba([52, 211, 153], 0.18 * ba); ctx.lineWidth = 7;
+          ctx.beginPath(); ctx.moveTo(gout[0], gout[1]); ctx.quadraticCurveTo(cc[0], cc[1], dst[0], dst[1]); ctx.stroke();
+          ctx.strokeStyle = lg; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.moveTo(gout[0], gout[1]); ctx.quadraticCurveTo(cc[0], cc[1], dst[0], dst[1]); ctx.stroke();
+          fanA = ba;
+        }
+        if (!fanA) return;
+        for (k = 0; k < 6; k++) {
+          var u3 = reduced ? k / 6 : (t * (isWin ? 1.3 : 0.9) + k / 6 + ri * 0.13) % 1, q2 = quad(gout, cc, dst, u3);
+          ctx.fillStyle = rgba(isWin ? [209, 250, 229] : col, fanA * Math.sin(u3 * PI));
+          ctx.beginPath(); ctx.arc(q2[0], q2[1], isWin ? 2.2 : 1.6, 0, 2 * PI); ctx.fill();
+        }
+      });
+      pings = pings.filter(function (pg) { return t - pg.t0 < 1; });
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    size();
+    if ('ResizeObserver' in window) new ResizeObserver(function () { size(); draw(performance.now()); }).observe(cv);
+    else window.addEventListener('resize', function () { size(); draw(performance.now()); });
+    draw(performance.now());
+    if (reduced) return;
+    var on = false, raf = 0;
+    function frame(now) {
+      raf = 0;
+      if (!on) return;
+      if (!motionPaused() && !document.hidden && !scrolling()) draw(now);
+      raf = requestAnimationFrame(frame);
+    }
+    onVisible(card, function () { on = true; if (!raf) raf = requestAnimationFrame(frame); }, function () { on = false; }, 0.05);
   }
 
   // ---------- AI at work: Ask Avortyx, a live transcript and a voice agent ----------
@@ -4457,7 +4711,7 @@
 
   function init() {
     // calm set: product UI, data and gentle reveals; no game-like decoration
-    var steps = [initMotionToggle, initProgress, initRingbaHero, initDecision, initLeadFlow, initPlatformFlow,
+    var steps = [initMotionToggle, initProgress, initRingbaHero, initDecision, initDecideGlobe, initLeadFlow, initPlatformFlow,
       initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initAiStudio, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta, initShield, initHub, initAgent3d, initLandingWaves, initLiveReadouts,
       initBackLinks, initFloatingBack, initZoom, initNavScroll, initPalette, initWindows, initAuthRing, initIntegrationsHub, initIntegrationsBackdrop,
       initPricingHorizon, initIntegrationWaves, initFlowSequences, initTables, initCounters,
