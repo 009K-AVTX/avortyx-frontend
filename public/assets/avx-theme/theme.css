@@ -1112,3 +1112,37 @@ body.pages.home .marketing-navbar.avx-nav-scrolled .navbar-brand,
   transform: none !important;
 }
 
+/* On scroll: the name disappears, leaving only the logo mark */
+.marketing-navbar .avx-wordmark {
+  max-width: 240px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.35s ease, margin 0.3s ease;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+body.home .marketing-navbar.avx-nav-scrolled .avx-wordmark,
+body.pages.home .marketing-navbar.avx-nav-scrolled .avx-wordmark,
+.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .avx-wordmark,
+.marketing-navbar.avx-nav-scrolled .avx-wordmark {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  max-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateX(-8px) scale(0.95);
+  pointer-events: none !important;
+}
+
+body.home .marketing-navbar.avx-nav-scrolled .avx-logo-mark,
+body.pages.home .marketing-navbar.avx-nav-scrolled .avx-logo-mark,
+.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .avx-logo-mark,
+.marketing-navbar.avx-nav-scrolled .avx-logo-mark {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-flex !important;
+  transform: none !important;
+}
+
