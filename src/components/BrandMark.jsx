@@ -20,7 +20,22 @@ export default function BrandMark({ gradientId }) {
           </g>
         </svg>
       </span>
-      <span className="avx-wordmark" style={{ fontSize: '28px', fontWeight: '800', fontFamily: "'Inter', sans-serif", letterSpacing: '-1px', color: '#0658d2' }}>Avortyx</span>
+      <span
+        className="avx-wordmark"
+        style={{
+          fontSize: '28px',
+          fontWeight: '800',
+          fontFamily: "'Inter', sans-serif",
+          letterSpacing: '-1px',
+          background: 'linear-gradient(135deg, #ffffff 0%, #93c5fd 45%, #60a5fa 85%, #3b82f6 100%)',
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          color: '#93c5fd'
+        }}
+      >
+        Avortyx
+      </span>
     </>
   )
 }
