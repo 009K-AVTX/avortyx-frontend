@@ -2782,6 +2782,308 @@
     onVisible(hub, function () { visible = true; if (!timer) step(); }, function () { visible = false; }, 0.2);
   }
 
+  // ---------- AI core: the voice agent in 3D ----------
+  // Her HD picture (avx-agent.webp, 1024² from a Real-ESRGAN 4x upscale) is drawn on a WebGL mesh that a depth map built from her
+  // silhouette (scripts/build-agent-3d.py) pushes toward the viewer, so she turns with real
+  // parallax. Orbit rings pass behind and in front of her, a scan line sweeps down, the amber
+  // lights in her circuitry twinkle, and her rim light takes the active pod's color. Each time
+  // the hub switches pods she speaks: voice rings leave her lips and call packets fly to that pod.
+
+  function initAgent3d() {
+    var box = document.querySelector('[data-avx-agent3d]');
+    if (!box) return;
+    function layer() {
+      var c = document.createElement('canvas');
+      c.setAttribute('aria-hidden', 'true');
+      box.appendChild(c);
+      return c;
+    }
+    var backCv = layer(), glCv = layer(), frontCv = layer();
+    var bctx = backCv.getContext('2d'), fctx = frontCv.getContext('2d');
+    if (!bctx || !fctx) return;
+    var chassis = box.closest('.avx-3d-core-chassis');
+    var PI = Math.PI;
+    function ss(a, b, x) { var t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+
+    // the picture spans 2 units tall; x shifts so her head's center sits on the turning axis
+    var IW = 420, IH = 452, AR = IW / IH, SHIFT = 0.13, DZ = 0.45;
+    var MOUTH_UV = [0.679, 0.642], CRANIUM = [-0.36, 0.52, 0.25];
+    function planeX(u) { return (u - 0.5) * 2 * AR + SHIFT; }
+    function planeY(v) { return 1 - 2 * v; }
+
+    // pods: green and blue on the left, violet and amber on the right
+    var TINTS = { 'avx-aura-green': [110, 231, 183], 'avx-aura-blue': [125, 211, 252], 'avx-aura-purple': [216, 180, 254], 'avx-aura-orange': [253, 186, 116] };
+    var NODE_OF = { 'avx-aura-green': 0, 'avx-aura-blue': 1, 'avx-aura-purple': 2, 'avx-aura-orange': 3 };
+    var tint = [125, 211, 252], tintTo = tint.slice();
+
+    var W = 0, H = 0, dpr = 1, S = 1, CX = 0, CY = 0, F = 4.5;
+    var cyw = 1, syw = 0, cp = 1, sp = 0;
+    function rot(x, y, z, out) {
+      var x1 = x * cyw + z * syw, z1 = -x * syw + z * cyw;
+      var y2 = y * cp - z1 * sp, z2 = y * sp + z1 * cp, k = F / (F - z2);
+      out[0] = CX + x1 * k * S; out[1] = CY - y2 * k * S; out[2] = z2;
+      return out;
+    }
+    function size() {
+      W = box.clientWidth; H = box.clientHeight;
+      if (!W || !H) return;
+      dpr = Math.min(3, window.devicePixelRatio || 1);
+      [backCv, glCv, frontCv].forEach(function (c) { c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); });
+      S = Math.min(H * 0.4, W / 2.3);
+      CX = W / 2; CY = H * 0.53;
+    }
+
+    // ---- WebGL: the depth mesh ----
+    var gl = null, prog, count = 0, U = {}, ready = false, depthAt = function () { return 0; }, flatImg = null;
+    try { gl = glCv.getContext('webgl', { premultipliedAlpha: true, alpha: true, antialias: true }); } catch (e) { gl = null; }
+    var VS = 'attribute vec3 p;attribute vec3 n;attribute vec2 uv;uniform vec4 R;uniform vec4 V;uniform vec2 VP;varying vec2 vUv;varying vec3 vN;' +
+      'vec3 rot(vec3 q){float x1=q.x*R.x+q.z*R.y;float z1=-q.x*R.y+q.z*R.x;return vec3(x1,q.y*R.z-z1*R.w,q.y*R.w+z1*R.z);}' +
+      'void main(){vec3 r=rot(p);float k=V.w/(V.w-r.z);vec2 s=vec2(V.x+r.x*k*V.z,V.y-r.y*k*V.z);' +
+      'gl_Position=vec4(s.x/VP.x*2.0-1.0,1.0-s.y/VP.y*2.0,-r.z/4.0,1.0);vN=rot(n);vUv=uv;}';
+    var FS = 'precision mediump float;uniform sampler2D T;uniform vec3 tint;uniform float time;uniform float scan;uniform float talk;varying vec2 vUv;varying vec3 vN;' +
+      'float hash(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5453);}' +
+      'void main(){vec4 c=texture2D(T,vUv);if(c.a<0.02)discard;vec3 col=c.rgb/c.a;' +
+      'float e=smoothstep(0.26,0.42,col.r-col.b)*smoothstep(0.62,0.85,col.r);' +
+      'float tw=0.5+0.5*sin(time*(2.4+talk*3.0)+hash(floor(vUv*30.0))*6.283);' +
+      'col+=vec3(1.0,0.62,0.25)*e*(0.25+0.85*tw);' +
+      'float rim=pow(1.0-clamp(vN.z,0.0,1.0),2.6);col+=tint*rim*0.4;' +
+      'col+=tint*smoothstep(0.005,0.0,abs(vUv.y-scan))*0.22;' +
+      'gl_FragColor=vec4(col*c.a,c.a);}';
+
+    function buildMesh(depthImg) {
+      // read the depth on the CPU (vertex texture fetch isn't guaranteed in WebGL 1)
+      var dc = document.createElement('canvas'), dw = depthImg.naturalWidth, dh = depthImg.naturalHeight;
+      dc.width = dw; dc.height = dh;
+      var dx = dc.getContext('2d');
+      dx.drawImage(depthImg, 0, 0);
+      var D = dx.getImageData(0, 0, dw, dh).data;
+      depthAt = function (u, v) {
+        var x = Math.min(dw - 1, Math.max(0, Math.round(u * (dw - 1)))), y = Math.min(dh - 1, Math.max(0, Math.round(v * (dh - 1))));
+        return D[(y * dw + x) * 4] / 255 * DZ;
+      };
+      var NX = 140, NY = 150, pos = [], nor = [], uvs = [], ind = [], e = 1 / NX;
+      for (var j = 0; j <= NY; j++) {
+        for (var i = 0; i <= NX; i++) {
+          var u = i / NX, v = j / NY, z = depthAt(u, v);
+          // normal from the depth gradient, in plane units
+          var gx = (depthAt(u + e, v) - depthAt(u - e, v)) / (4 * AR * e), gy = (depthAt(u, v - e) - depthAt(u, v + e)) / (4 * e);
+          var nl = Math.sqrt(gx * gx + gy * gy + 1);
+          pos.push(planeX(u), planeY(v), z);
+          nor.push(-gx / nl, -gy / nl, 1 / nl);
+          uvs.push(u, v);
+        }
+      }
+      for (j = 0; j < NY; j++) {
+        for (i = 0; i < NX; i++) {
+          var a = j * (NX + 1) + i;
+          ind.push(a, a + 1, a + NX + 1, a + 1, a + NX + 2, a + NX + 1);
+        }
+      }
+      count = ind.length;
+      function buf(data, name, n) {
+        var b = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, b);
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATIC_DRAW);
+        var loc = gl.getAttribLocation(prog, name);
+        gl.enableVertexAttribArray(loc);
+        gl.vertexAttribPointer(loc, n, gl.FLOAT, false, 0, 0);
+      }
+      buf(pos, 'p', 3); buf(nor, 'n', 3); buf(uvs, 'uv', 2);
+      var ib = gl.createBuffer();
+      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib);
+      gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(ind), gl.STATIC_DRAW);
+    }
+
+    function setupGl(colorImg, depthImg) {
+      function sh(type, src) { var o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o; }
+      prog = gl.createProgram();
+      gl.attachShader(prog, sh(gl.VERTEX_SHADER, VS));
+      gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, FS));
+      gl.linkProgram(prog);
+      if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return false;
+      gl.useProgram(prog);
+      buildMesh(depthImg);
+      ['R', 'V', 'VP', 'tint', 'T', 'time', 'scan', 'talk'].forEach(function (k) { U[k] = gl.getUniformLocation(prog, k); });
+      var tex = gl.createTexture();
+      gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, colorImg);
+      // the HD texture is a power-of-two square: mipmaps keep it crisp, not shimmery, at any size
+      gl.generateMipmap(gl.TEXTURE_2D);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+      var aniso = gl.getExtension('EXT_texture_filter_anisotropic') || gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic');
+      if (aniso) gl.texParameterf(gl.TEXTURE_2D, aniso.TEXTURE_MAX_ANISOTROPY_EXT, Math.min(8, gl.getParameter(aniso.MAX_TEXTURE_MAX_ANISOTROPY_EXT)));
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.uniform1i(U.T, 0);
+      return true;
+    }
+
+    var BASE_URL = '/assets/avx-site/img/';
+    function load(name, done) { var im = new Image(); im.decoding = 'async'; im.onload = function () { done(im); }; im.src = BASE_URL + name; }
+    load('avx-agent.webp', function (colorImg) {
+      load('avx-agent-depth.webp', function (depthImg) {
+        if (!(gl && setupGl(colorImg, depthImg))) { gl = null; flatImg = colorImg; }
+        ready = true;
+        draw(performance.now());
+      });
+    });
+
+    // ---- the scene around her ----
+    var tmp = [0, 0, 0];
+    function proj(x, y, z) { return rot(x, y, z, [0, 0, 0]); }
+    var RINGS = [
+      { r: 0.74, tilt: 1.24, roll: 0.16, speed: 0.5, color: null },
+      { r: 0.86, tilt: 1.34, roll: -0.22, speed: -0.32, color: '240,171,252' },
+      { r: 0.64, tilt: 1.14, roll: 0.05, speed: 0.75, color: '125,211,252' }
+    ];
+    var HEAD_C = [0, 0.27, 0.12];
+    function ringPoint(rg, th, out) {
+      var x = rg.r * Math.cos(th), z = rg.r * Math.sin(th), y = 0;
+      var y1 = y * Math.cos(rg.tilt) - z * Math.sin(rg.tilt), z1 = y * Math.sin(rg.tilt) + z * Math.cos(rg.tilt);
+      var x2 = x * Math.cos(rg.roll) - y1 * Math.sin(rg.roll), y2 = x * Math.sin(rg.roll) + y1 * Math.cos(rg.roll);
+      return rot(HEAD_C[0] + x2, HEAD_C[1] + y2, HEAD_C[2] + z1, out);
+    }
+    var rings = [], packets = [], speakUntil = 0, lastRing = 0, seed = 7;
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    function speakTo(node) {
+      var now = performance.now() / 1000;
+      speakUntil = now + 1.8;
+      var tx = node < 2 ? -10 : W + 10, ty = H * (node % 2 ? 0.78 : 0.26);
+      for (var n = 0; n < 7; n++) packets.push({ t0: now + 0.35 + n * 0.12, tx: tx, ty: ty, left: node < 2, wob: (rnd() - 0.5) * 40 });
+    }
+
+    var yaw = 0, pitch = 0, pYaw = 0, pPitch = 0, tYaw = 0, tPitch = 0;
+    function draw(now) {
+      if (!W) return;
+      var t = now / 1000, c;
+      pYaw += (tYaw - pYaw) * 0.06; pPitch += (tPitch - pPitch) * 0.06;
+      yaw = (reduced ? 0.2 : 0.36 * Math.sin(t * 0.42)) + pYaw;
+      pitch = (reduced ? 0.03 : 0.05 * Math.sin(t * 0.31)) + pPitch;
+      cyw = Math.cos(yaw); syw = Math.sin(yaw); cp = Math.cos(pitch); sp = Math.sin(pitch);
+      for (c = 0; c < 3; c++) tint[c] += (tintTo[c] - tint[c]) * 0.05;
+      var tc = Math.round(tint[0]) + ',' + Math.round(tint[1]) + ',' + Math.round(tint[2]);
+      var speaking = !reduced && t < speakUntil;
+
+      [bctx, fctx].forEach(function (x) { x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, W, H); x.globalCompositeOperation = 'lighter'; x.lineCap = 'round'; });
+
+      // halo behind her head
+      var hc = proj(HEAD_C[0], HEAD_C[1], 0), g = bctx.createRadialGradient(hc[0], hc[1], 0, hc[0], hc[1], 1.25 * S);
+      g.addColorStop(0, 'rgba(' + tc + ',0.22)');
+      g.addColorStop(0.5, 'rgba(139,92,246,0.10)');
+      g.addColorStop(1, 'rgba(139,92,246,0)');
+      bctx.fillStyle = g;
+      bctx.fillRect(0, 0, W, H);
+
+      // orbit rings: the far half behind her, the near half in front
+      RINGS.forEach(function (rg, ri) {
+        var col = rg.color || tc, N = 96, prev = ringPoint(rg, 0, [0, 0, 0]);
+        for (var k = 1; k <= N; k++) {
+          var cur = ringPoint(rg, 2 * PI * k / N, [0, 0, 0]), zc = (prev[2] + cur[2]) / 2 - HEAD_C[2];
+          var x = zc < 0 ? bctx : fctx;
+          x.strokeStyle = 'rgba(' + col + ',' + (zc < 0 ? 0.18 : 0.5).toFixed(3) + ')';
+          x.lineWidth = zc < 0 ? 1 : 1.4;
+          x.beginPath(); x.moveTo(prev[0], prev[1]); x.lineTo(cur[0], cur[1]); x.stroke();
+          prev = cur;
+        }
+        for (var m = 0; m < 2; m++) {
+          var q = ringPoint(rg, (reduced ? 0.6 : t * rg.speed) + m * PI + ri, [0, 0, 0]), x2 = q[2] - HEAD_C[2] < 0 ? bctx : fctx;
+          x2.fillStyle = 'rgba(' + col + ',0.3)';
+          x2.beginPath(); x2.arc(q[0], q[1], 6, 0, 2 * PI); x2.fill();
+          x2.fillStyle = 'rgba(255,255,255,0.95)';
+          x2.beginPath(); x2.arc(q[0], q[1], 2.2, 0, 2 * PI); x2.fill();
+        }
+      });
+
+      // her picture: the WebGL depth mesh, or flat if WebGL is unavailable
+      if (ready && gl) {
+        gl.viewport(0, 0, glCv.width, glCv.height);
+        gl.clearColor(0, 0, 0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        gl.enable(gl.DEPTH_TEST);
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+        gl.uniform4f(U.R, cyw, syw, cp, sp);
+        gl.uniform4f(U.V, CX, CY, S, F);
+        gl.uniform2f(U.VP, W, H);
+        gl.uniform3f(U.tint, tint[0] / 255, tint[1] / 255, tint[2] / 255);
+        gl.uniform1f(U.time, t);
+        gl.uniform1f(U.scan, reduced ? -1 : ((t % 6) / 6) * 1.5 - 0.2);
+        gl.uniform1f(U.talk, speaking ? 1 : 0);
+        gl.drawElements(gl.TRIANGLES, count, gl.UNSIGNED_SHORT, 0);
+      } else if (flatImg) {
+        bctx.globalCompositeOperation = 'source-over';
+        bctx.drawImage(flatImg, CX + (planeX(0)) * S, CY - S, 2 * AR * S, 2 * S);
+      }
+      if (!ready) return;
+
+      // voice rings leave her lips while she speaks
+      var mouth = proj(planeX(MOUTH_UV[0]), planeY(MOUTH_UV[1]), depthAt(MOUTH_UV[0], MOUTH_UV[1]));
+      if (speaking && t - lastRing > 0.32) { rings.push(t); lastRing = t; }
+      rings = rings.filter(function (r0) { return t - r0 < 1.3; });
+      rings.forEach(function (r0) {
+        var p2 = (t - r0) / 1.3, rad = 8 + p2 * 0.55 * S;
+        fctx.strokeStyle = 'rgba(' + tc + ',' + ((1 - p2) * 0.75).toFixed(3) + ')';
+        fctx.lineWidth = 1.6;
+        fctx.beginPath(); fctx.arc(mouth[0], mouth[1], rad, -0.6, 0.6); fctx.stroke();
+      });
+
+      // call packets: from her lips to the right-hand pods, from her circuitry to the left
+      var cran = proj(CRANIUM[0], CRANIUM[1], CRANIUM[2]);
+      packets = packets.filter(function (pk) { return t - pk.t0 < 1; });
+      packets.forEach(function (pk) {
+        var u = t - pk.t0;
+        if (u < 0) return;
+        var o = pk.left ? cran : mouth, e2 = u * u * (3 - 2 * u);
+        var mx = (o[0] + pk.tx) / 2, my = Math.min(o[1], pk.ty) - 30 + pk.wob;
+        var px = (1 - e2) * (1 - e2) * o[0] + 2 * (1 - e2) * e2 * mx + e2 * e2 * pk.tx;
+        var py = (1 - e2) * (1 - e2) * o[1] + 2 * (1 - e2) * e2 * my + e2 * e2 * pk.ty;
+        var pa = Math.sin(u * PI);
+        fctx.fillStyle = 'rgba(' + tc + ',' + (pa * 0.35).toFixed(3) + ')';
+        fctx.beginPath(); fctx.arc(px, py, 7, 0, 2 * PI); fctx.fill();
+        fctx.fillStyle = 'rgba(255,255,255,' + pa.toFixed(3) + ')';
+        fctx.beginPath(); fctx.arc(px, py, 2.4, 0, 2 * PI); fctx.fill();
+      });
+    }
+
+    if (chassis) {
+      var watchAura = function () {
+        for (var cls in TINTS) {
+          if (chassis.classList.contains(cls)) {
+            if (TINTS[cls] !== tintTo) { tintTo = TINTS[cls]; if (W && ready) speakTo(NODE_OF[cls]); }
+            return;
+          }
+        }
+      };
+      watchAura();
+      if ('MutationObserver' in window) new MutationObserver(watchAura).observe(chassis, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    if (finePointer && !reduced) {
+      box.addEventListener('pointermove', function (ev) {
+        var r = box.getBoundingClientRect();
+        tYaw = ((ev.clientX - r.left) / r.width - 0.5) * 0.4;
+        tPitch = ((ev.clientY - r.top) / r.height - 0.5) * 0.2;
+      });
+      box.addEventListener('pointerleave', function () { tYaw = 0; tPitch = 0; });
+    }
+
+    size();
+    if ('ResizeObserver' in window) new ResizeObserver(function () { size(); draw(performance.now()); }).observe(box);
+    else window.addEventListener('resize', function () { size(); draw(performance.now()); });
+    if (reduced) return;
+
+    var on = false, raf = 0;
+    function frame(now) {
+      raf = 0;
+      if (!on) return;
+      if (!motionPaused() && !document.hidden && !scrolling()) draw(now);
+      raf = requestAnimationFrame(frame);
+    }
+    onVisible(box, function () { on = true; if (!raf) raf = requestAnimationFrame(frame); }, function () { on = false; }, 0.05);
+  }
+
   // ---------- AI protection: each call runs the checks, then is routed or blocked ----------
   // The HTML ships the first call passed; each cycle lights the checks one by one, a failed
   // check stops the call before dialing and the radar flashes.
@@ -4156,7 +4458,7 @@
   function init() {
     // calm set: product UI, data and gentle reveals; no game-like decoration
     var steps = [initMotionToggle, initProgress, initRingbaHero, initDecision, initLeadFlow, initPlatformFlow,
-      initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initAiStudio, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta, initShield, initHub, initLandingWaves, initLiveReadouts,
+      initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initAiStudio, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta, initShield, initHub, initAgent3d, initLandingWaves, initLiveReadouts,
       initBackLinks, initFloatingBack, initZoom, initNavScroll, initPalette, initWindows, initAuthRing, initIntegrationsHub, initIntegrationsBackdrop,
       initPricingHorizon, initIntegrationWaves, initFlowSequences, initTables, initCounters,
       initOffscreenPause, initScrollHints, initAnchors];

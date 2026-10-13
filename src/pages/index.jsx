@@ -596,6 +596,29 @@ export const meta = {
         height: 320px;
       }
     }
+    /* the hologram's stage: deep indigo into magenta, like a ringba hero card */
+    .avx-agent3d {
+      position: relative;
+      background:
+        radial-gradient(55% 50% at 50% 40%, rgba(124, 58, 237, 0.34), transparent 70%),
+        radial-gradient(60% 40% at 50% 100%, rgba(219, 39, 119, 0.28), transparent 70%),
+        linear-gradient(165deg, #0a1240 0%, #170f52 48%, #3a0c4f 100%);
+    }
+    .avx-agent3d::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(148, 163, 255, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 255, 0.07) 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(65% 60% at 50% 45%, #000, transparent);
+      -webkit-mask-image: radial-gradient(65% 60% at 50% 45%, #000, transparent);
+    }
+    .avx-agent3d canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
 
     /* Core HUD overlays */
     .avx-core-hud-top {
@@ -1036,12 +1059,8 @@ export default function Home() {
 
                 {/* 3D Visual Frame */}
                 <div className="avx-core-viewport">
-                  <img
-                    src="/assets/avx-site/img/avx-humanoid-ai.jpg"
-                    alt="Avortyx AI Voice & Telecommunications Copilot"
-                    className="avx-3d-core-img"
-                    loading="lazy"
-                  />
+                  {/* motion.js draws the voice agent here in 3D (WebGL depth mesh, scripts/build-agent-3d.py) */}
+                  <div className="avx-3d-core-img avx-agent3d" data-avx-agent3d="" role="img" aria-label="Avortyx AI voice agent: a female android with a glass circuit cranium, turning in 3D as she speaks and forwards calls" />
 
                   {/* Holographic HUD Overlays */}
                   <div className="avx-core-hud-top">
