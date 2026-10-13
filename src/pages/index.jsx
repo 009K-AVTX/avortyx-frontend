@@ -2,18 +2,6 @@ import BlogCard from '../components/BlogCard.jsx'
 import BrandMark from '../components/BrandMark.jsx'
 import { postBySlug, LATEST } from '../blog/posts.js'
 // /
-// What the AI handles, around the hub [icon, label, page, detail, x %, y %] (wording from the feature pages)
-const AI_HUB = [
-  ['fa-brain', 'Scores intent', '/#how-it-decides', 'Every call scored for intent before a buyer is dialed.', 14, 16],
-  ['fa-route', 'Routes every call', '/features/inbound_call_routing', 'The best eligible buyer wins the call, in milliseconds.', 50, 4],
-  ['fa-shield-halved', 'Blocks spam and duplicates', '/features/spam_tag_mitigation', 'Spam and duplicate checks run before anyone is dialed.', 86, 16],
-  ['fa-file-signature', 'Checks DNC and consent', '/features/suppression_lists', 'TCPA, DNC and VOIP screening, with consent on record.', 94, 50],
-  ['fa-closed-captioning', 'Transcribes and summarizes', '/features/transcriptions', 'Summaries, sentiment and topics on every recorded call.', 86, 84],
-  ['fa-headset', 'Answers and qualifies calls', '/features/voice_agents', 'Voice agents answer and qualify callers, then transfer.', 50, 96],
-  ['fa-comment-sms', 'Texts and follows up', '/features/ai_sms_bots', 'SMS bots engage leads and schedule calls automatically.', 14, 84],
-  ['fa-user-shield', 'Redacts personal data', '/features/pii_redaction', 'PII redacted from transcriptions and cleared from aged data.', 6, 50],
-]
-
 // the intro's four outcomes, Salesloft-style
 const HERO_POINTS = ['Score every call’s intent with AI', 'Route to the highest-value buyer', 'Block spam, DNC and duplicates', 'See the revenue behind every call']
 
@@ -24,6 +12,14 @@ const POWER = [
   ['grow', 'Grow on your terms', 'No onboarding fees. Usage-based rates with volume discounts: use what you need and scale as you grow.', '/pricing', 'See pricing'],
   ['open', 'Open by design', 'API-first: everything in the dashboard runs on the same REST API, for seamless integrations and custom workflows.', '/features/api', 'REST API'],
 ]
+
+// each card's stage [ring icon, chips [value, label]]: only facts the card itself states
+const POWER_STAGE = {
+  scale: ['fa-route', [['99.9%', 'uptime'], ['85ms', 'avg routing']]],
+  support: ['fa-headset', [['', 'Phone'], ['', 'Live chat'], ['', 'Email'], ['', 'Video']]],
+  grow: ['fa-chart-line', [['$0', 'onboarding'], ['', 'Volume discounts']]],
+  open: ['fa-code', [['', 'REST API'], ['', 'Webhooks'], ['', 'Scoped tokens']]],
+}
 
 // each capability sphere gets its own hue in the blue-violet range
 const HUB_HUES = [217, 232, 199, 250, 210, 190, 240, 205]
@@ -229,39 +225,7 @@ export const meta = {
     .avx-fc-footer { border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 10px 16px 12px; margin-top: 8px; }
     .avx-fc-reason { font-size: 11.5px; color: #94a3b8; margin-top: 4px; }
 
-    /* Why Avortyx telemetry panels */
-    .avx-pw-telemetry { width: 100%; height: 100%; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; text-align: left; }
-    .avx-pwt-box { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: space-between; font-size: 12px; }
-    .avx-pwt-hdr { display: flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 600; color: #cbd5e1; margin-bottom: 8px; }
-    .avx-pwt-pulse { width: 7px; height: 7px; border-radius: 50%; }
-    .avx-pulse-green { background: #10b981; box-shadow: 0 0 8px #10b981; }
-    .avx-pulse-blue { background: #38bdf8; box-shadow: 0 0 8px #38bdf8; }
-    .avx-pulse-purple { background: #a855f7; box-shadow: 0 0 8px #a855f7; }
-    .avx-pwt-badge-green { font-size: 10px; font-weight: 700; background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 1px 6px; border-radius: 4px; }
-    .avx-pwt-badge-blue { font-size: 10px; font-weight: 700; background: rgba(56, 189, 248, 0.2); color: #38bdf8; padding: 1px 6px; border-radius: 4px; }
-    .avx-pwt-badge-purple { font-size: 10px; font-weight: 700; background: rgba(168, 85, 247, 0.2); color: #c084fc; padding: 1px 6px; border-radius: 4px; }
-    .avx-pwt-nodes { display: flex; justify-content: space-between; background: rgba(0, 0, 0, 0.35); padding: 6px 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.05); }
-    .avx-pwt-node { display: flex; flex-direction: column; align-items: center; }
-    .avx-pwt-node i { font-style: normal; font-size: 10px; color: #94a3b8; }
-    .avx-pwt-node b { font-size: 11.5px; color: #38bdf8; font-family: ui-monospace, monospace; }
-    .avx-pwt-metric { display: flex; justify-content: space-between; align-items: center; font-size: 11px; margin-top: 4px; }
-    .avx-pwt-metric b { color: #10b981; }
-    .avx-pwt-agent-row { display: flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.35); padding: 8px 10px; border-radius: 8px; }
-    .avx-pwt-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #0284c7, #2563eb); display: grid; place-items: center; color: #fff; font-size: 13px; }
-    .avx-pwt-agent-row b { display: block; font-size: 12px; color: #f1f5f9; }
-    .avx-pwt-agent-row small { font-size: 10px; color: #94a3b8; }
-    .avx-pwt-chips { display: flex; gap: 6px; margin-top: 6px; }
-    .avx-pwt-chips span { font-size: 10px; background: rgba(255, 255, 255, 0.07); color: #cbd5e1; padding: 2px 7px; border-radius: 4px; border: 1px solid rgba(255, 255, 255, 0.08); }
-    .avx-pwt-grow-stats { display: flex; justify-content: space-between; background: rgba(0, 0, 0, 0.35); padding: 6px 12px; border-radius: 8px; }
-    .avx-pwt-grow-stats div { display: flex; flex-direction: column; }
-    .avx-pwt-grow-stats small { font-size: 10px; color: #94a3b8; }
-    .avx-pwt-grow-stats b { font-size: 12px; font-family: ui-monospace, monospace; }
-    .avx-pwt-progress { height: 18px; background: rgba(255, 255, 255, 0.06); border-radius: 6px; overflow: hidden; margin-top: 6px; }
-    .avx-pwt-bar { height: 100%; background: linear-gradient(90deg, #2563eb, #10b981); display: flex; align-items: center; padding-left: 6px; font-size: 9.5px; font-weight: 700; color: #fff; white-space: nowrap; }
-    .avx-pwt-snippet { background: rgba(0, 0, 0, 0.45); padding: 6px 8px; border-radius: 6px; font-family: ui-monospace, monospace; font-size: 10px; color: #a5f3fc; overflow: hidden; }
-
     /* Magnific AI inspired interactive studio */
-    .avx-ai-studio { background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(10, 15, 29, 0.95) 100%); padding: 80px 0; border-top: 1px solid rgba(255, 255, 255, 0.06); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
     .avx-studio-scenarios { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
     .avx-scenario-btn {
       display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px;
@@ -1164,53 +1128,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Core Capabilities Rail */}
-          <div className="avx-capabilities-rail mt-5 mb-5">
-            <p className="text-center small text-muted text-uppercase fw-bold letter-spacing-1 mb-3">Enterprise AI Core Capabilities</p>
-            <div className="avx-rail-chips">
-              {AI_HUB.map(([icon, label, href, text]) => (
-                <a key={label} href={href} className="avx-rail-chip" title={text}>
-                  <i className={`fa-solid ${icon} me-2`} aria-hidden="true" />
-                  <span>{label}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="avx-shield">
-            <div className="avx-console avx-shield-demo" data-avx-shield="" role="img" aria-label="Live screening: each call is checked for spam, duplicates, DNC, line type and consent, then routed or blocked before dialing (demo data)">
-              <div className="avx-cs-bar">
-                <i /><i /><i />
-                <span className="avx-cs-path">app.avortyx.com / <b>screening</b></span>
-                <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
-              </div>
-              <div className="avx-sh">
-                <div className="avx-sh-radar" aria-hidden="true">
-                  <i /><i /><i />
-                  <span className="avx-sh-sweep" />
-                  <span className="avx-sh-core"><i className="fa-solid fa-shield-halved" /></span>
-                </div>
-                <div className="avx-sh-call">
-                  <b data-sh="num">(312) 555-0142</b>
-                  <span data-sh="src">Google Ads · Medicare</span>
-                </div>
-                <ul className="avx-sh-checks">
-                  {SHIELD_CHECKS.map(([key, label]) => <li key={key} data-c={key} className="avx-ok">{label}</li>)}
-                </ul>
-                <p className="avx-sh-verdict avx-pass" data-sh="verdict">Passed · routed to Apex Insurance</p>
-              </div>
-              <div className="avx-cs-foot">AI screening on every call · demo data</div>
-            </div>
-            <div className="avx-shield-layers">
-              {SHIELD_LAYERS.map(([icon, title, text, href, label]) => (
-                <a key={title} href={href} className="avx-shield-layer">
-                  <i className={`fa-solid ${icon}`} aria-hidden="true" />
-                  <b>{title}</b>
-                  <span>{text}</span>
-                  <em>{label} <span aria-hidden="true">→</span></em>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
       <section className="mktg-section avx-power" id="power">
@@ -1223,88 +1140,14 @@ export default function Home() {
           <div className="avx-power-grid">
             {POWER.map(([kind, title, text, href, label]) => (
               <a key={kind} href={href} className="avx-power-card">
-                <div className={`avx-pw-stage avx-pw-${kind}`} aria-hidden="true">
-                  <div className="avx-pw-telemetry">
-                    {kind === 'scale' && (
-                      <div className="avx-pwt-box avx-pwt-scale">
-                        <div className="avx-pwt-hdr">
-                          <span className="avx-pwt-pulse avx-pulse-green" />
-                          <span>Edge SLA: 85ms</span>
-                          <span className="avx-pwt-badge-green ms-auto">99.99%</span>
-                        </div>
-                        <div className="avx-pwt-nodes">
-                          <div className="avx-pwt-node"><i>US-East</i><b>42ms</b></div>
-                          <div className="avx-pwt-node"><i>US-West</i><b>51ms</b></div>
-                          <div className="avx-pwt-node"><i>EU-Central</i><b>68ms</b></div>
-                        </div>
-                        <div className="avx-pwt-metric">
-                          <span>Throughput</span>
-                          <b>14,820 live streams</b>
-                        </div>
-                      </div>
-                    )}
-                    {kind === 'support' && (
-                      <div className="avx-pwt-box avx-pwt-support">
-                        <div className="avx-pwt-hdr">
-                          <span className="avx-pwt-pulse avx-pulse-green" />
-                          <span>Telephony Architect</span>
-                          <span className="avx-pwt-badge-blue ms-auto">&lt; 2m reply</span>
-                        </div>
-                        <div className="avx-pwt-agent-row">
-                          <span className="avx-pwt-avatar"><i className="fa-solid fa-headset" /></span>
-                          <div>
-                            <b>Tier-3 Lead Assigned</b>
-                            <small>Dedicated Slack Bridge</small>
-                          </div>
-                        </div>
-                        <div className="avx-pwt-chips">
-                          <span><i className="fa-brands fa-slack me-1" />Slack Connect</span>
-                          <span><i className="fa-solid fa-video me-1" />War Room</span>
-                        </div>
-                      </div>
-                    )}
-                    {kind === 'grow' && (
-                      <div className="avx-pwt-box avx-pwt-grow">
-                        <div className="avx-pwt-hdr">
-                          <span className="avx-pwt-pulse avx-pulse-blue" />
-                          <span>EPC Lift Monitor</span>
-                          <span className="avx-pwt-badge-green ms-auto">+34.8% EPC</span>
-                        </div>
-                        <div className="avx-pwt-grow-stats">
-                          <div>
-                            <small>Onboarding</small>
-                            <b className="text-success">$0.00</b>
-                          </div>
-                          <div>
-                            <small>Carrier Markup</small>
-                            <b>0% Pure SIP</b>
-                          </div>
-                        </div>
-                        <div className="avx-pwt-progress">
-                          <div className="avx-pwt-bar" style={{ width: '84%' }}>
-                            <span>Tier 3 · 25% Auto-rebate</span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                    {kind === 'open' && (
-                      <div className="avx-pwt-box avx-pwt-code-box">
-                        <div className="avx-pwt-hdr">
-                          <span className="avx-pwt-pulse avx-pulse-purple" />
-                          <code>POST /v1/calls/route</code>
-                          <span className="avx-pwt-badge-purple ms-auto">200 OK</span>
-                        </div>
-                        <div className="avx-pwt-snippet">
-                          <code>{`{"intent":0.94,"epc":64.00,"dest":"apex_live"}`}</code>
-                        </div>
-                        <div className="avx-pwt-chips">
-                          <span>OpenAPI 3.1</span>
-                          <span>Webhooks</span>
-                          <span>REST</span>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                {/* Ringba-style stage: a neon ring over a streaming grid floor, and the card's facts */}
+                <div className={`avx-pws avx-pws-${kind}`} aria-hidden="true">
+                  <span className="avx-pws-ring"><i className={`fa-solid ${POWER_STAGE[kind][0]}`} /></span>
+                  <span className="avx-pws-hud">
+                    {POWER_STAGE[kind][1].map(([value, label]) => (
+                      <span key={label} className="avx-pws-chip">{value && <b>{value}</b>}{label}</span>
+                    ))}
+                  </span>
                 </div>
                 <h3>{title}</h3>
                 <p>{text}</p>
@@ -1434,6 +1277,14 @@ export default function Home() {
             <button type="button" className="avx-tour-tab" role="tab" aria-selected="false" aria-controls="avx-ai-voice" id="avx-ai-tab-voice" data-ai="voice" tabIndex="-1">
               <span><i className="fa-solid fa-headset" aria-hidden="true" /> Voice agent</span>
             </button>
+            {" "}
+            <button type="button" className="avx-tour-tab" role="tab" aria-selected="false" aria-controls="avx-ai-studio" id="avx-ai-tab-studio" data-ai="studio" tabIndex="-1">
+              <span><i className="fa-solid fa-sliders" aria-hidden="true" /> Scenarios</span>
+            </button>
+            {" "}
+            <button type="button" className="avx-tour-tab" role="tab" aria-selected="false" aria-controls="avx-ai-shield" id="avx-ai-tab-shield" data-ai="shield" tabIndex="-1">
+              <span><i className="fa-solid fa-shield-halved" aria-hidden="true" /> Screening</span>
+            </button>
           </div>
           <div className="avx-ai-panel avx-on" id="avx-ai-ask" role="tabpanel" aria-labelledby="avx-ai-tab-ask" data-panel="ask">
             <div className="avx-console avx-ask">
@@ -1528,6 +1379,162 @@ export default function Home() {
                 </div>
               </div>
               <div className="avx-cs-foot">Voice agents through the ElevenLabs integration · this sample uses your browser’s voice</div>
+            </div>
+          </div>
+          {/* the AI Copilot scenarios (formerly their own section): motion.js initAiStudio */}
+          <div className="avx-ai-panel avx-ai-studio-panel" id="avx-ai-studio" role="tabpanel" aria-labelledby="avx-ai-tab-studio" data-panel="studio" data-avx-studio="" hidden>
+            <div className="avx-studio-scenarios">
+              {AI_STUDIO_SCENARIOS.map((s, idx) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  className={`avx-scenario-btn ${idx === 0 ? 'avx-active' : ''}`}
+                  data-studio-btn={s.id}
+                >
+                  <i className={`fa-solid ${s.icon}`} aria-hidden="true" />
+                  <span>{s.title}</span>
+                </button>
+              ))}
+            </div>
+
+            <div className="avx-studio-card">
+              <div className="avx-studio-header">
+                <span className="d-flex align-items-center gap-2">
+                  <i className="fa-solid fa-sparkles text-info" />
+                  <b>Avortyx-Voice-LLM v4.2</b>
+                  <span className="badge bg-success-subtle text-success">Online · 38ms inference</span>
+                </span>
+                <span className="text-muted small d-none d-sm-inline">
+                  <i className="fa-solid fa-shield-halved text-success me-1" />
+                  STIR/SHAKEN Level A · TCPA Compliant
+                </span>
+              </div>
+
+              <div className="avx-studio-body">
+                <div className="avx-studio-left">
+                  <div className="avx-studio-prompt-box">
+                    <div className="avx-studio-prompt-title">Active Scenario Prompt</div>
+                    <div className="avx-studio-prompt-text" data-studio-out="prompt">
+                      “{AI_STUDIO_SCENARIOS[0].prompt}”
+                    </div>
+                  </div>
+
+                  <div className="avx-studio-params">
+                    <div className="avx-param-card">
+                      <span className="avx-param-label">AI Intent Threshold</span>
+                      <span className="avx-param-val" data-studio-out="intent-thresh">85% Minimum</span>
+                    </div>
+                    <div className="avx-param-card">
+                      <span className="avx-param-label">Target Revenue Floor</span>
+                      <span className="avx-param-val" data-studio-out="epc-target">$45.00 EPC</span>
+                    </div>
+                    <div className="avx-param-card">
+                      <span className="avx-param-label">Max Routing Latency</span>
+                      <span className="avx-param-val">&lt; 85ms SLA</span>
+                    </div>
+                    <div className="avx-param-card">
+                      <span className="avx-param-label">Compliance Gate</span>
+                      <span className="avx-param-val text-success">Strict Auto-Screen</span>
+                    </div>
+                  </div>
+
+                  <div className="avx-transcript-box">
+                    <div className="d-flex align-items-center justify-content-between mb-2">
+                      <span className="avx-studio-prompt-title mb-0">Live Voice Diarization</span>
+                      <span className="badge bg-primary-subtle text-primary" data-studio-out="sentiment">
+                        {AI_STUDIO_SCENARIOS[0].metrics.sentiment}
+                      </span>
+                    </div>
+                    <p className="small mb-2 text-slate-300" data-studio-out="transcript">
+                      {AI_STUDIO_SCENARIOS[0].transcript}
+                    </p>
+                    <div className="d-flex flex-wrap gap-1" data-studio-out="entities">
+                      {AI_STUDIO_SCENARIOS[0].entities.map(e => (
+                        <span key={e} className="badge bg-secondary-subtle text-secondary">{e}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="avx-studio-right">
+                  <div className="avx-studio-telemetry">
+                    <div className="avx-stat-chip">
+                      <small>Intent Score</small>
+                      <b className="text-info" data-studio-out="score">{AI_STUDIO_SCENARIOS[0].metrics.intent}</b>
+                    </div>
+                    <div className="avx-stat-chip">
+                      <small>Top Bid (EPC)</small>
+                      <b className="text-success" data-studio-out="epc">{AI_STUDIO_SCENARIOS[0].metrics.epc}</b>
+                    </div>
+                    <div className="avx-stat-chip">
+                      <small>Decision Latency</small>
+                      <b className="text-warning" data-studio-out="latency">{AI_STUDIO_SCENARIOS[0].metrics.latency}</b>
+                    </div>
+                    <div className="avx-stat-chip">
+                      <small>Projected Lift</small>
+                      <b className="text-primary" data-studio-out="lift">{AI_STUDIO_SCENARIOS[0].metrics.lift}</b>
+                    </div>
+                  </div>
+
+                  <div className="mb-3 p-3 rounded" style={{ background: 'rgba(15, 23, 42, 0.6)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                    <div className="d-flex align-items-center gap-2 mb-1">
+                      <i className="fa-solid fa-brain text-info" />
+                      <b className="small text-white">AI Reasoning &amp; Strategy Analysis</b>
+                    </div>
+                    <p className="small text-muted mb-0" data-studio-out="summary">
+                      {AI_STUDIO_SCENARIOS[0].summary}
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="d-flex align-items-center justify-content-between mb-1">
+                      <span className="avx-studio-prompt-title mb-0">Generated Webhook Dispatch</span>
+                      <small className="text-muted">sub-millisecond JSON</small>
+                    </div>
+                    <pre className="avx-json-box mb-0" data-studio-out="json">
+  {JSON.stringify(AI_STUDIO_SCENARIOS[0].routePayload, null, 2)}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* live screening (formerly under the AI core): motion.js initShield */}
+          <div className="avx-ai-panel" id="avx-ai-shield" role="tabpanel" aria-labelledby="avx-ai-tab-shield" data-panel="shield" hidden>
+            <div className="avx-shield">
+              <div className="avx-console avx-shield-demo" data-avx-shield="" role="img" aria-label="Live screening: each call is checked for spam, duplicates, DNC, line type and consent, then routed or blocked before dialing (demo data)">
+                <div className="avx-cs-bar">
+                  <i /><i /><i />
+                  <span className="avx-cs-path">app.avortyx.com / <b>screening</b></span>
+                  <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
+                </div>
+                <div className="avx-sh">
+                  <div className="avx-sh-radar" aria-hidden="true">
+                    <i /><i /><i />
+                    <span className="avx-sh-sweep" />
+                    <span className="avx-sh-core"><i className="fa-solid fa-shield-halved" /></span>
+                  </div>
+                  <div className="avx-sh-call">
+                    <b data-sh="num">(312) 555-0142</b>
+                    <span data-sh="src">Google Ads · Medicare</span>
+                  </div>
+                  <ul className="avx-sh-checks">
+                    {SHIELD_CHECKS.map(([key, label]) => <li key={key} data-c={key} className="avx-ok">{label}</li>)}
+                  </ul>
+                  <p className="avx-sh-verdict avx-pass" data-sh="verdict">Passed · routed to Apex Insurance</p>
+                </div>
+                <div className="avx-cs-foot">AI screening on every call · demo data</div>
+              </div>
+              <div className="avx-shield-layers">
+                {SHIELD_LAYERS.map(([icon, title, text, href, label]) => (
+                  <a key={title} href={href} className="avx-shield-layer">
+                    <i className={`fa-solid ${icon}`} aria-hidden="true" />
+                    <b>{title}</b>
+                    <span>{text}</span>
+                    <em>{label} <span aria-hidden="true">→</span></em>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -1994,131 +2001,6 @@ export default function Home() {
               {" "}
             </a>
           </div>
-          </div>
-        </div>
-      </section>
-      <section className="mktg-section avx-ai-studio" id="ai-studio" data-avx-studio="">
-        <div className="container">
-          <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">Autonomous Voice &amp; Call Intelligence</p>
-            <h2 className="fw-bold">Experience the Avortyx AI Copilot in Real Time</h2>
-            <p className="text-muted">Simulate conversational intent scoring, automated fraud elimination, and high-velocity ping-tree buyer bidding. Select a relatable scenario below to test our neural routing model live.</p>
-          </div>
-
-          <div className="avx-studio-scenarios">
-            {AI_STUDIO_SCENARIOS.map((s, idx) => (
-              <button
-                key={s.id}
-                type="button"
-                className={`avx-scenario-btn ${idx === 0 ? 'avx-active' : ''}`}
-                data-studio-btn={s.id}
-              >
-                <i className={`fa-solid ${s.icon}`} aria-hidden="true" />
-                <span>{s.title}</span>
-              </button>
-            ))}
-          </div>
-
-          <div className="avx-studio-card">
-            <div className="avx-studio-header">
-              <span className="d-flex align-items-center gap-2">
-                <i className="fa-solid fa-sparkles text-info" />
-                <b>Avortyx-Voice-LLM v4.2</b>
-                <span className="badge bg-success-subtle text-success">Online · 38ms inference</span>
-              </span>
-              <span className="text-muted small d-none d-sm-inline">
-                <i className="fa-solid fa-shield-halved text-success me-1" />
-                STIR/SHAKEN Level A · TCPA Compliant
-              </span>
-            </div>
-
-            <div className="avx-studio-body">
-              <div className="avx-studio-left">
-                <div className="avx-studio-prompt-box">
-                  <div className="avx-studio-prompt-title">Active Scenario Prompt</div>
-                  <div className="avx-studio-prompt-text" data-studio-out="prompt">
-                    “{AI_STUDIO_SCENARIOS[0].prompt}”
-                  </div>
-                </div>
-
-                <div className="avx-studio-params">
-                  <div className="avx-param-card">
-                    <span className="avx-param-label">AI Intent Threshold</span>
-                    <span className="avx-param-val" data-studio-out="intent-thresh">85% Minimum</span>
-                  </div>
-                  <div className="avx-param-card">
-                    <span className="avx-param-label">Target Revenue Floor</span>
-                    <span className="avx-param-val" data-studio-out="epc-target">$45.00 EPC</span>
-                  </div>
-                  <div className="avx-param-card">
-                    <span className="avx-param-label">Max Routing Latency</span>
-                    <span className="avx-param-val">&lt; 85ms SLA</span>
-                  </div>
-                  <div className="avx-param-card">
-                    <span className="avx-param-label">Compliance Gate</span>
-                    <span className="avx-param-val text-success">Strict Auto-Screen</span>
-                  </div>
-                </div>
-
-                <div className="avx-transcript-box">
-                  <div className="d-flex align-items-center justify-content-between mb-2">
-                    <span className="avx-studio-prompt-title mb-0">Live Voice Diarization</span>
-                    <span className="badge bg-primary-subtle text-primary" data-studio-out="sentiment">
-                      {AI_STUDIO_SCENARIOS[0].metrics.sentiment}
-                    </span>
-                  </div>
-                  <p className="small mb-2 text-slate-300" data-studio-out="transcript">
-                    {AI_STUDIO_SCENARIOS[0].transcript}
-                  </p>
-                  <div className="d-flex flex-wrap gap-1" data-studio-out="entities">
-                    {AI_STUDIO_SCENARIOS[0].entities.map(e => (
-                      <span key={e} className="badge bg-secondary-subtle text-secondary">{e}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="avx-studio-right">
-                <div className="avx-studio-telemetry">
-                  <div className="avx-stat-chip">
-                    <small>Intent Score</small>
-                    <b className="text-info" data-studio-out="score">{AI_STUDIO_SCENARIOS[0].metrics.intent}</b>
-                  </div>
-                  <div className="avx-stat-chip">
-                    <small>Top Bid (EPC)</small>
-                    <b className="text-success" data-studio-out="epc">{AI_STUDIO_SCENARIOS[0].metrics.epc}</b>
-                  </div>
-                  <div className="avx-stat-chip">
-                    <small>Decision Latency</small>
-                    <b className="text-warning" data-studio-out="latency">{AI_STUDIO_SCENARIOS[0].metrics.latency}</b>
-                  </div>
-                  <div className="avx-stat-chip">
-                    <small>Projected Lift</small>
-                    <b className="text-primary" data-studio-out="lift">{AI_STUDIO_SCENARIOS[0].metrics.lift}</b>
-                  </div>
-                </div>
-
-                <div className="mb-3 p-3 rounded" style={{ background: 'rgba(15, 23, 42, 0.6)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                  <div className="d-flex align-items-center gap-2 mb-1">
-                    <i className="fa-solid fa-brain text-info" />
-                    <b className="small text-white">AI Reasoning &amp; Strategy Analysis</b>
-                  </div>
-                  <p className="small text-muted mb-0" data-studio-out="summary">
-                    {AI_STUDIO_SCENARIOS[0].summary}
-                  </p>
-                </div>
-
-                <div>
-                  <div className="d-flex align-items-center justify-content-between mb-1">
-                    <span className="avx-studio-prompt-title mb-0">Generated Webhook Dispatch</span>
-                    <small className="text-muted">sub-millisecond JSON</small>
-                  </div>
-                  <pre className="avx-json-box mb-0" data-studio-out="json">
-{JSON.stringify(AI_STUDIO_SCENARIOS[0].routePayload, null, 2)}
-                  </pre>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

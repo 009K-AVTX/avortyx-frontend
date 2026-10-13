@@ -4048,8 +4048,9 @@
     });
     onVisible(sec, function () { visible = true; activate(); }, function () { visible = false; listen.stop(); voice.stop(); }, 0.3);
     // long enough for each demo to finish: the asked question and its answer, the whole
-    // transcript and its summary; the voice agent only plays when asked, so its tab is brief
-    var DWELL = { ask: 15000, listen: 19000, voice: 8000 };
+    // transcript and its summary; the voice agent only plays when asked, so its tab is brief;
+    // the scenarios wait for a click, and screening runs a few calls through its checks
+    var DWELL = { ask: 15000, listen: 19000, voice: 8000, studio: 10000, shield: 14000 };
     autoAdvance(sec, sec.querySelector('.avx-ai-tabs'), function (t) { return DWELL[t.dataset.ai] || 12000; });
   }
 

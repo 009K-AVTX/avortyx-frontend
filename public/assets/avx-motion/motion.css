@@ -14091,3 +14091,202 @@ body.home .avx-decide-pro [data-dc="quote"] {
   text-overflow: ellipsis;
 }
 body.home .avx-decide-pro [data-dc="why"] { display: inline !important; color: #cbd5e1; }
+
+/* ---------- Landing, shorter: tighter section rhythm, and swipeable rows on phones ----------
+   Card stacks that ran several screens on a phone become one row that snaps card by card,
+   with the next card peeking in (the same pattern as the capability tiles). */
+body.home main > section.mktg-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+@media (min-width: 768px) {
+  body.home main > section.mktg-section { padding-top: 64px; padding-bottom: 64px; }
+}
+@media (min-width: 992px) {
+  body.home main > section.mktg-section { padding-top: 80px; padding-bottom: 80px; }
+}
+body.home main section .mktg-section-header { margin-bottom: 36px; }
+
+@media (max-width: 575.98px) {
+  body.home .avx-power-grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+  }
+  body.home .avx-cap-list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 16px; }
+}
+@media (max-width: 767.98px) {
+  body.home .avx-win > .container > .row { flex-wrap: nowrap; }
+  body.home .avx-win > .container > .row > [class*="col-"] { flex: 0 0 82%; max-width: 82%; }
+}
+@media (max-width: 640px) {
+  body.home .avx-ringba-stage .avx-ringba-flank {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+  }
+}
+/* the shared swipe behavior */
+@media (max-width: 575.98px) {
+  body.home .avx-power-grid { margin: 0 -12px; padding: 2px 12px 10px; }
+}
+@media (max-width: 767.98px) {
+  body.home .avx-win > .container > .row { margin-right: -12px; margin-left: -12px; padding: 2px 0 10px; }
+}
+@media (max-width: 640px) {
+  body.home .avx-ringba-stage .avx-ringba-flank { margin: 0 -12px; padding: 2px 12px 10px; }
+}
+@media (max-width: 767.98px) {
+  body.home .avx-power-grid,
+  body.home .avx-win > .container > .row,
+  body.home .avx-ringba-stage .avx-ringba-flank {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 12px;
+    scrollbar-width: none;
+  }
+  body.home .avx-power-grid::-webkit-scrollbar,
+  body.home .avx-win > .container > .row::-webkit-scrollbar,
+  body.home .avx-ringba-stage .avx-ringba-flank::-webkit-scrollbar { display: none; }
+  body.home .avx-power-grid > *,
+  body.home .avx-win > .container > .row > *,
+  body.home .avx-ringba-stage .avx-ringba-flank > * { scroll-snap-align: start; }
+}
+
+/* ---------- Why Avortyx: Ringba-style card stages ----------
+   Each card opens on its own neon ring over a perspective grid floor that streams toward the
+   viewer, in Ringba's four colors, with a glass strip of the facts the card states. */
+.avx-pws {
+  --c: 59, 130, 246;
+  position: relative;
+  height: 170px;
+  margin: 0 -22px 18px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(var(--c), .22);
+  /* eye level at the horizon, so the floor below it reads as a plane running away */
+  perspective: 220px;
+  perspective-origin: 50% 46%;
+  background:
+    radial-gradient(60% 55% at 50% 36%, rgba(var(--c), .26), transparent 70%),
+    linear-gradient(180deg, #060818 0%, #0a0d26 58%, #0c0f2c 100%);
+}
+.avx-pws-scale { --c: 59, 130, 246; }
+.avx-pws-support { --c: 236, 72, 153; }
+.avx-pws-grow { --c: 34, 197, 94; }
+.avx-pws-open { --c: 249, 115, 22; }
+
+/* the floor: a grid laid back in perspective, its lines streaming toward the viewer */
+.avx-pws::before {
+  content: "";
+  position: absolute;
+  left: -150%;
+  right: -150%;
+  bottom: 0;
+  height: 480px;
+  background-image:
+    linear-gradient(rgba(var(--c), .45) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--c), .3) 1px, transparent 1px);
+  background-size: 26px 26px;
+  transform: rotateX(84deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 85%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 85%);
+  animation: avxPwsFloor 2.4s linear infinite;
+}
+@keyframes avxPwsFloor { to { background-position: 0 26px, 0 0; } }
+
+/* the horizon: a lit line where the floor meets the sky */
+.avx-pws::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 46%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(var(--c), .9), transparent);
+  box-shadow: 0 0 14px 1px rgba(var(--c), .55);
+}
+
+/* the ring: a neon torus with a moving highlight, floating over its reflection */
+.avx-pws-ring {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  margin-left: -33px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
+  background: radial-gradient(circle, rgba(var(--c), .3), rgba(var(--c), 0) 62%);
+  filter: drop-shadow(0 0 10px rgba(var(--c), .75));
+  animation: avxPwsFloat 4.5s ease-in-out infinite;
+}
+.avx-pws-ring::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(var(--c), .35), #fff 12%, rgb(var(--c)) 26%, rgba(var(--c), .5) 55%, rgb(var(--c)) 80%, rgba(var(--c), .35));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5px), #000 calc(100% - 4px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 5px), #000 calc(100% - 4px));
+  animation: avxPwsSpin 3.2s linear infinite;
+}
+.avx-pws-ring::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 30px);
+  left: 50%;
+  width: 84px;
+  height: 14px;
+  margin-left: -42px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(var(--c), .55), transparent);
+  animation: avxPwsGlow 4.5s ease-in-out infinite;
+}
+.avx-pws-ring i { position: relative; text-shadow: 0 0 10px rgba(var(--c), .9); }
+@keyframes avxPwsSpin { to { transform: rotate(360deg); } }
+@keyframes avxPwsFloat { 50% { transform: translateY(-5px); } }
+@keyframes avxPwsGlow { 50% { opacity: .55; transform: scaleX(.85); } }
+
+/* the facts, on a glass strip over the floor */
+.avx-pws-hud {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.avx-pws-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 4px 9px;
+  border: 1px solid rgba(var(--c), .38);
+  border-radius: 999px;
+  background: rgba(6, 9, 28, .72);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: #cbd5e1;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.avx-pws-chip b { color: #fff; font: 700 12.5px/1 ui-monospace, SFMono-Regular, Menlo, monospace; text-shadow: 0 0 8px rgba(var(--c), .8); }
+
+.avx-power-card:hover .avx-pws-ring::before { animation-duration: 1.4s; }
+
+@media (max-width: 575.98px) {
+  .avx-pws { height: 150px; }
+  .avx-pws-ring { top: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .avx-pws::before, .avx-pws-ring, .avx-pws-ring::before, .avx-pws-ring::after { animation: none; }
+}
