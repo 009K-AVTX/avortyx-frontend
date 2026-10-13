@@ -942,7 +942,6 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <TrustBox />
       <section className="mktg-section avx-proof avx-shield-sec" id="trust">
         <div className="container">
           <div className="mktg-section-header text-center">
@@ -2077,6 +2076,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <TrustBox />
       {/* phones: sign-up stays one tap away once the hero has scrolled off (motion.js shows it) */}
       <div className="avx-mcta" data-avx-mcta="">
         <a href="/request-access" className="btn btn-td-green fw-semibold">Request Access</a>

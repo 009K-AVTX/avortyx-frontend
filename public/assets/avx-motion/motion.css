@@ -14524,7 +14524,7 @@ pre, code, kbd, samp,
 
 /* ---------- Trustpilot TrustBox (home page, under the stats bar) ---------- */
 .avx-tp {
-  padding: 8px 0 40px;
+  padding: 48px 0 56px;
 }
 
 .avx-tp[hidden] {
