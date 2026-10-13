@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'public/assets/avx-blog'
 W, H, SS = 1200, 630, 2  # supersampled 2x, then scaled down
 MX, MY = 905, 318         # center of the illustration, in 1x pixels
+DEEP_HUE = 224.3          # avortyx.com's deep blue, #1d4ed8, for every cover
 
 
 def posts():
@@ -44,10 +45,9 @@ def ttf(woff2):
     return buf
 
 
-def font(name, size, axes):
-    f = ImageFont.truetype(ttf(ROOT / 'public/assets/avx-fonts' / name), int(size * SS))
-    f.set_variation_by_axes(axes)
-    return f
+def font(weight, size):
+    # Poppins, the site face (static weights, self-hosted in avx-fonts)
+    return ImageFont.truetype(ttf(ROOT / 'public/assets/avx-fonts' / f'poppins-{weight}-latin.woff2'), int(size * SS))
 
 
 def icon_codes():
@@ -392,8 +392,8 @@ def wrap(draw, text, f, width):
 
 
 def render(post, fonts, ic, index):
-    canvas = background(post['hue'], index + 3)
-    pen = Pen(post['hue'])
+    canvas = background(DEEP_HUE, index + 3)
+    pen = Pen(DEEP_HUE)
     MOTIFS[post['slug']](pen, fonts, ic)
     canvas.alpha_composite(glow(pen.img, 9))
 
@@ -409,7 +409,7 @@ def render(post, fonts, ic, index):
     for ln in lines:
         d.text((64 * SS, y * SS), ln, font=tf, fill=(236, 243, 255, 255))
         y += size * 1.16
-    lab = Pen(post['hue'])
+    lab = Pen(DEEP_HUE)
     label = post['category'].upper()
     tw = d.textlength(label, font=fonts['label']) / SS
     lab.rect(48, 58, 64 + tw + 16, 96, 19, fill=(10, 18, 44, 255), outline=lab.c(.68), width=2)
@@ -427,12 +427,12 @@ def main():
     fonts = {
         'icons': ImageFont.truetype(ttf(icon_file), int(40 * SS)),
         'icons_sm': ImageFont.truetype(ttf(icon_file), int(20 * SS)),
-        'label': font('inter-latin.woff2', 17, [24, 650]),
-        'small': font('inter-latin.woff2', 15, [18, 500]),
-        'mono': font('inter-latin.woff2', 14, [14, 650]),
+        'label': font(600, 16),
+        'small': font(500, 14),
+        'mono': font(600, 13),
     }
     for size in (50, 46, 42, 38):
-        fonts['title%d' % size] = font('inter-tight-latin.woff2', size, [780])
+        fonts['title%d' % size] = font(600, size)
     ic = {k: codes[k] for k in ('phone', 'gavel', 'brain', 'headset', 'sliders', 'hourglass-half')}
     for i, p in enumerate(posts()):
         img = render(p, fonts, ic, i)

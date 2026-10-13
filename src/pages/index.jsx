@@ -190,8 +190,8 @@ export const meta = {
     /* Pro live decision styling */
     .avx-decide-pro { min-height: 460px; }
     .avx-dc-telecom-chip {
-      display: inline-flex; align-items: center; font-size: 11px; font-family: ui-monospace, SFMono-Regular, monospace;
-      padding: 2px 8px; border-radius: 999px; background: rgba(56, 150, 248, 0.12); color: #3896f8; border: 1px solid rgba(56, 150, 248, 0.25);
+      display: inline-flex; align-items: center; font-size: 11px; font-family: var(--avx-font-mono);
+      padding: 2px 8px; border-radius: 999px; background: rgba(29, 78, 216, 0.12); color: #1d4ed8; border: 1px solid rgba(29, 78, 216, 0.25);
     }
     .avx-dc-audio-bar {
       display: flex; align-items: center; gap: 12px; margin: 10px 14px 4px; padding: 7px 14px;
@@ -200,7 +200,7 @@ export const meta = {
     }
     .avx-dc-voice-bars { display: inline-flex; align-items: flex-end; gap: 2.5px; height: 16px; width: 28px; }
     .avx-dc-voice-bars i {
-      width: 2.5px; height: 40%; background: #3896f8; border-radius: 1px;
+      width: 2.5px; height: 40%; background: #1d4ed8; border-radius: 1px;
       animation: avxVoiceBars 0.8s ease-in-out infinite alternate;
     }
     .avx-dc-voice-bars i:nth-child(2) { animation-delay: 0.15s; height: 75%; }
@@ -212,16 +212,16 @@ export const meta = {
     .avx-dc-voice-bars i:nth-child(8) { animation-delay: 0.25s; height: 35%; }
     @keyframes avxVoiceBars { 0% { height: 20%; opacity: 0.4; } 100% { height: 100%; opacity: 1; } }
     .avx-dc-quote { color: #93c5fd; font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; font-family: ui-sans-serif, system-ui; }
-    .avx-fc-verified { display: block; font-size: 11px; color: #106eb9; font-weight: 600; margin-top: 3px; }
+    .avx-fc-verified { display: block; font-size: 11px; color: #1d4ed8; font-weight: 600; margin-top: 3px; }
     .avx-fc-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-top: 8px; }
-    .avx-fc-tag { font-size: 10px; background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 4px; padding: 1px 6px; }
+    .avx-fc-tag { font-size: 10px; background: rgba(29, 78, 216, 0.15); color: #93c5fd; border: 1px solid rgba(29, 78, 216, 0.25); border-radius: 4px; padding: 1px 6px; }
     .avx-fc-sent { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; margin-top: 4px; }
-    .avx-sent-pos { background: rgba(16, 110, 185, 0.2); color: #106eb9; }
+    .avx-sent-pos { background: rgba(29, 78, 216, 0.2); color: #1d4ed8; }
     .avx-sent-neutral { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; }
-    .avx-sent-urgent { background: rgba(11, 144, 245, 0.2); color: #0b90f5; }
+    .avx-sent-urgent { background: rgba(29, 78, 216, 0.2); color: #1d4ed8; }
     .avx-fc-b-main { display: flex; align-items: center; gap: 8px; flex: 1; }
-    .avx-fc-b-bid { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #f8fafc; font-family: ui-monospace, monospace; }
-    .avx-fc-win-pill { font-size: 9px; font-weight: 800; background: #106eb9; color: #04131f; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.5px; }
+    .avx-fc-b-bid { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #f8fafc; font-family: var(--avx-font-mono); }
+    .avx-fc-win-pill { font-size: 9px; font-weight: 800; background: #1d4ed8; color: #040f1f; padding: 1px 5px; border-radius: 3px; letter-spacing: 0.5px; }
     .avx-fc-footer { border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 10px 16px 12px; margin-top: 8px; }
     .avx-fc-reason { font-size: 11.5px; color: #94a3b8; margin-top: 4px; }
 
@@ -233,11 +233,11 @@ export const meta = {
       font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all 0.25s ease;
     }
     .avx-scenario-btn:hover, .avx-scenario-btn.avx-active {
-      background: rgba(59, 130, 246, 0.18); border-color: rgba(96, 165, 250, 0.6); color: #fff; box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
+      background: rgba(29, 78, 216, 0.18); border-color: rgba(96, 165, 250, 0.6); color: #fff; box-shadow: 0 0 16px rgba(29, 78, 216, 0.25);
     }
     .avx-studio-card {
       background: #0d1117; border: 1px solid rgba(96, 165, 250, 0.25); border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 60px rgba(59, 130, 246, 0.08); overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 60px rgba(29, 78, 216, 0.08); overflow: hidden;
     }
     .avx-studio-header {
       display: flex; align-items: center; justify-content: space-between; padding: 14px 22px;
@@ -250,17 +250,17 @@ export const meta = {
       background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px;
     }
     .avx-studio-prompt-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8; font-weight: 700; margin-bottom: 6px; }
-    .avx-studio-prompt-text { font-size: 14px; color: #f1f5f9; line-height: 1.5; font-style: italic; }
+    .avx-studio-prompt-text { font-size: 14px; color: #f1f4f9; line-height: 1.5; font-style: italic; }
     .avx-studio-params { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .avx-param-card { background: rgba(255, 255, 255, 0.025); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 10px 12px; }
     .avx-param-label { font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px; }
-    .avx-param-val { font-size: 14px; font-weight: 700; color: #3896f8; font-family: ui-monospace, monospace; }
+    .avx-param-val { font-size: 14px; font-weight: 700; color: #1d4ed8; font-family: var(--avx-font-mono); }
     .avx-studio-telemetry { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
     .avx-stat-chip { background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 10px; text-align: center; }
     .avx-stat-chip small { font-size: 10.5px; color: #94a3b8; display: block; }
-    .avx-stat-chip b { font-size: 16px; color: #f8fafc; font-weight: 800; font-family: ui-monospace, monospace; }
+    .avx-stat-chip b { font-size: 16px; color: #f8fafc; font-weight: 800; font-family: var(--avx-font-mono); }
     .avx-transcript-box { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
-    .avx-json-box { background: #07090e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px; font-family: ui-monospace, monospace; font-size: 11px; color: #7dbbfc; }
+    .avx-json-box { background: #07090e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px; font-family: var(--avx-font-mono); font-size: 11px; color: #7daffc; }
 
     /* Ringba-inspired AI at the Core 3D Stage */
     .avx-ringba-stage {
@@ -301,15 +301,15 @@ export const meta = {
       stroke-dasharray: none;
       opacity: 0.95;
     }
-    .avx-path-green { stroke: #106eb9; }
-    .avx-path-blue { stroke: #3896f8; }
-    .avx-path-purple { stroke: #849dfc; }
-    .avx-path-orange { stroke: #3c62fb; }
+    .avx-path-green { stroke: #1d4ed8; }
+    .avx-path-blue { stroke: #1d4ed8; }
+    .avx-path-purple { stroke: #1d4ed8; }
+    .avx-path-orange { stroke: #60a5fa; }
 
     .avx-conduit-packet {
       fill: #ffffff;
       opacity: 0;
-      filter: drop-shadow(0 0 8px #3896f8);
+      filter: drop-shadow(0 0 8px #1d4ed8);
       transition: opacity 0.2s ease;
     }
     .avx-conduit-packet.avx-on {
@@ -336,40 +336,34 @@ export const meta = {
       }
     }
 
+    /* the four capabilities beside the AI: open text, no box borders */
     .avx-sphere-card {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(10, 15, 29, 0.9));
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      padding: 20px;
+      padding: 14px 6px;
       display: flex;
       gap: 16px;
       cursor: pointer;
       position: relative;
-      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-      backdrop-filter: blur(12px);
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .avx-sphere-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-3px);
+      border: none !important;
+      box-shadow: none !important;
     }
     .avx-sphere-card.avx-active {
-      transform: translateY(-4px) scale(1.02);
+      transform: translateY(-4px);
+      border: none !important;
+      box-shadow: none !important;
     }
-    .avx-sphere-green.avx-active {
-      border-color: rgba(16, 110, 185, 0.65);
-      box-shadow: 0 12px 30px -10px rgba(16, 110, 185, 0.3), inset 0 0 20px rgba(16, 110, 185, 0.08);
+    .avx-sphere-card.avx-active .avx-3d-sphere {
+      box-shadow: 0 0 28px rgba(29, 78, 216, 0.75), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
     }
-    .avx-sphere-blue.avx-active {
-      border-color: rgba(56, 150, 248, 0.65);
-      box-shadow: 0 12px 30px -10px rgba(56, 150, 248, 0.3), inset 0 0 20px rgba(56, 150, 248, 0.08);
-    }
-    .avx-sphere-purple.avx-active {
-      border-color: rgba(132, 157, 252, 0.65);
-      box-shadow: 0 12px 30px -10px rgba(132, 157, 252, 0.3), inset 0 0 20px rgba(132, 157, 252, 0.08);
-    }
-    .avx-sphere-orange.avx-active {
-      border-color: rgba(60, 98, 251, 0.65);
-      box-shadow: 0 12px 30px -10px rgba(60, 98, 251, 0.3), inset 0 0 20px rgba(60, 98, 251, 0.08);
+    .avx-sphere-card.avx-active .avx-sphere-title {
+      color: #bfdbfe;
     }
 
     /* 3D Glossy Sphere element (Ringba style) */
@@ -400,21 +394,13 @@ export const meta = {
       transform: rotate(-30deg);
       pointer-events: none;
     }
-    .avx-sphere-emerald {
-      background: radial-gradient(circle at 35% 35%, #6eb2e7 0%, #106eb9 45%, #044478 80%, #062e4e 100%);
-      box-shadow: 0 0 20px rgba(16, 110, 185, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
-    }
-    .avx-sphere-azure {
-      background: radial-gradient(circle at 35% 35%, #93c5fd 0%, #3896f8 45%, #0261c7 80%, #0c3b6e 100%);
-      box-shadow: 0 0 20px rgba(56, 150, 248, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
-    }
-    .avx-sphere-violet {
-      background: radial-gradient(circle at 35% 35%, #728cf4 0%, #849dfc 45%, #3a61ed 80%, #1d3795 100%);
-      box-shadow: 0 0 20px rgba(132, 157, 252, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
-    }
+    /* one sphere style for all four, in avortyx.com's blues */
+    .avx-sphere-emerald,
+    .avx-sphere-azure,
+    .avx-sphere-violet,
     .avx-sphere-amber {
-      background: radial-gradient(circle at 35% 35%, #47aefd 0%, #3c62fb 45%, #0c38ea 80%, #12277c 100%);
-      box-shadow: 0 0 20px rgba(60, 98, 251, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
+      background: radial-gradient(circle at 35% 35%, #93c5fd 0%, #1d4ed8 45%, #1d4ed8 80%, #172e54 100%);
+      box-shadow: 0 0 20px rgba(29, 78, 216, 0.4), inset 0 -6px 12px rgba(0, 0, 0, 0.4);
     }
 
     .avx-sphere-info {
@@ -428,17 +414,20 @@ export const meta = {
       letter-spacing: 0.6px;
       padding: 2px 7px;
       border-radius: 4px;
+      background: rgba(29, 78, 216, 0.15) !important;
+      color: #60a5fa !important;
     }
-    .pill-emerald { background: rgba(16, 110, 185, 0.15); color: #348dd3; }
-    .pill-azure { background: rgba(56, 150, 248, 0.15); color: #3896f8; }
-    .pill-violet { background: rgba(132, 157, 252, 0.15); color: #849dfc; }
-    .pill-amber { background: rgba(60, 98, 251, 0.15); color: #3c62fb; }
+    .pill-emerald,
+    .pill-azure,
+    .pill-violet,
+    .pill-amber { background: rgba(29, 78, 216, 0.15) !important; color: #60a5fa !important; }
 
     .avx-sphere-latency {
       font-size: 11px;
       font-weight: 600;
       margin-left: auto;
-      font-family: ui-monospace, monospace;
+      font-family: var(--avx-font-mono);
+      color: #93c5fd !important;
     }
     .avx-sphere-title {
       font-size: 15.5px;
@@ -457,8 +446,8 @@ export const meta = {
       align-items: center;
       font-size: 11px;
       color: #cbd5e1;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 7px;
+      border-top: none !important;
+      padding-top: 4px;
     }
 
     /* Center 3D AI Core Stage */
@@ -483,19 +472,19 @@ export const meta = {
     .avx-orbit-1 {
       width: 108%;
       height: 108%;
-      border: 1px dashed rgba(56, 150, 248, 0.35);
+      border: 1px dashed rgba(29, 78, 216, 0.35);
       animation: avxOrbitCW 28s linear infinite;
     }
     .avx-orbit-2 {
       width: 116%;
       height: 116%;
-      border: 1px dotted rgba(16, 110, 185, 0.3);
+      border: 1px dotted rgba(29, 78, 216, 0.3);
       animation: avxOrbitCCW 36s linear infinite;
     }
     .avx-orbit-3 {
       width: 124%;
       height: 124%;
-      border: 1px solid rgba(132, 157, 252, 0.15);
+      border: 1px solid rgba(132, 177, 252, 0.15);
     }
     .avx-orbit-node {
       position: absolute;
@@ -504,8 +493,8 @@ export const meta = {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #3896f8;
-      box-shadow: 0 0 10px #3896f8;
+      background: #1d4ed8;
+      box-shadow: 0 0 10px #1d4ed8;
     }
     @keyframes avxOrbitCW {
       from { transform: translate(-50%, -50%) rotate(0deg); }
@@ -522,21 +511,21 @@ export const meta = {
       border-radius: 50%;
       filter: blur(40px);
       opacity: 0.45;
-      background: radial-gradient(circle, rgba(56, 150, 248, 0.5) 0%, rgba(16, 110, 185, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.5) 0%, rgba(29, 78, 216, 0.3) 50%, transparent 70%);
       pointer-events: none;
       transition: all 0.6s ease;
     }
     .avx-aura-green .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(16, 110, 185, 0.65) 0%, rgba(56, 150, 248, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.65) 0%, rgba(29, 78, 216, 0.3) 50%, transparent 70%);
     }
     .avx-aura-blue .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(56, 150, 248, 0.7) 0%, rgba(99, 137, 241, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.7) 0%, rgba(99, 137, 241, 0.3) 50%, transparent 70%);
     }
     .avx-aura-purple .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(132, 157, 252, 0.65) 0%, rgba(114, 140, 244, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(132, 177, 252, 0.65) 0%, rgba(114, 162, 244, 0.3) 50%, transparent 70%);
     }
     .avx-aura-orange .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(60, 98, 251, 0.65) 0%, rgba(12, 56, 234, 0.3) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(29, 78, 216, 0.65) 0%, rgba(29, 78, 216, 0.3) 50%, transparent 70%);
     }
 
     /* no frame: the agent floats on the page in her own glow */
@@ -559,7 +548,7 @@ export const meta = {
     /* the hologram's stage: deep indigo into magenta, like a ringba hero card */
     .avx-agent3d {
       position: relative;
-      background: radial-gradient(50% 50% at 50% 45%, rgba(37, 99, 235, 0.32), rgba(29, 78, 216, 0.12) 55%, transparent 75%);
+      background: radial-gradient(50% 50% at 50% 45%, rgba(29, 78, 216, 0.32), rgba(29, 78, 216, 0.12) 55%, transparent 75%);
       /* edges fade out, so the stage never reads as a box */
       -webkit-mask-image: radial-gradient(72% 68% at 50% 46%, #000 62%, transparent 100%);
       mask-image: radial-gradient(72% 68% at 50% 46%, #000 62%, transparent 100%);
@@ -597,7 +586,7 @@ export const meta = {
       border-radius: 999px;
       padding: 5px 12px;
       font-size: 11px;
-      color: #f1f5f9;
+      color: #f1f4f9;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -607,8 +596,8 @@ export const meta = {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #106eb9;
-      box-shadow: 0 0 8px #106eb9;
+      background: #1d4ed8;
+      box-shadow: 0 0 8px #1d4ed8;
       animation: avxPulseGlow 1.5s infinite;
     }
     @keyframes avxPulseGlow {
@@ -625,7 +614,7 @@ export const meta = {
     }
     .avx-hud-tag-box {
       background: rgba(10, 15, 29, 0.88);
-      border: 1px solid rgba(56, 150, 248, 0.35);
+      border: 1px solid rgba(29, 78, 216, 0.35);
       border-radius: 12px;
       padding: 10px 14px;
       backdrop-filter: blur(10px);
@@ -639,7 +628,7 @@ export const meta = {
     }
     .avx-3d-eq i {
       flex: 1;
-      background: #106eb9;
+      background: #1d4ed8;
       border-radius: 1px;
       animation: avxEqDance 0.8s ease-in-out infinite alternate;
     }
@@ -656,7 +645,7 @@ export const meta = {
     .avx-hud-status-text {
       font-size: 11px;
       color: #94a3b8;
-      font-family: ui-monospace, monospace;
+      font-family: var(--avx-font-mono);
     }
 
     /* Ringba Telemetry bar */
@@ -686,7 +675,7 @@ export const meta = {
     .avx-rb-stat-num {
       font-size: 26px;
       font-weight: 800;
-      font-family: ui-monospace, monospace;
+      font-family: var(--avx-font-mono);
       letter-spacing: -0.5px;
     }
     .avx-rb-stat-lbl {
@@ -714,8 +703,8 @@ export const meta = {
       align-items: center;
     }
     .avx-rail-chip:hover {
-      background: rgba(56, 150, 248, 0.15);
-      border-color: rgba(56, 150, 248, 0.4);
+      background: rgba(29, 78, 216, 0.15);
+      border-color: rgba(29, 78, 216, 0.4);
       color: #fff;
       transform: translateY(-2px);
     }
@@ -822,7 +811,7 @@ export default function Home() {
                   {" "}
                   Route.
                   {" "}
-                  <span className="text-success">Grow.</span>
+                  <span className="text-primary">Grow.</span>
                 </h1>
               </div>
               <p className="lead hero-lead">
@@ -830,12 +819,12 @@ export default function Home() {
               </p>
               <ul className="avx-hero-points">
                 {HERO_POINTS.map((point) => (
-                  <li key={point}><i className="fa-solid fa-circle-check" aria-hidden="true" />{point}</li>
+                  <li key={point}><i className="fa-solid fa-circle-check text-primary" aria-hidden="true" />{point}</li>
                 ))}
               </ul>
               <p className="avx-hero-for">For marketers, advertisers, and brands.</p>
               <div className="d-flex flex-wrap gap-3 avx-hero-ctas">
-                <a href="/sign_up" className="btn btn-td-green btn-lg fw-semibold">Sign Up Free</a>
+                <a href="https://avortyx.com/request-access" className="btn btn-td-green btn-lg fw-semibold">Request Access</a>
                 {" "}
                 <a href="/p/request_demo" className="btn btn-outline-td-green btn-lg fw-semibold">Request Demo</a>
               </div>
@@ -956,38 +945,38 @@ export default function Home() {
             
             {/* SVG Connecting Conduits for Desktop */}
             <svg className="avx-ringba-conduits" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
-              <path id="avx-line-0" d="M 180 110 C 320 110, 380 220, 480 240" className="avx-conduit-path avx-path-green avx-on" />
+              <path id="avx-line-0" d="M 180 110 C 320 110, 380 220, 480 240" className="avx-conduit-path avx-path-blue avx-on" />
               <path id="avx-line-1" d="M 180 390 C 320 390, 380 280, 480 260" className="avx-conduit-path avx-path-blue" />
-              <path id="avx-line-2" d="M 820 110 C 680 110, 620 220, 520 240" className="avx-conduit-path avx-path-purple" />
-              <path id="avx-line-3" d="M 820 390 C 680 390, 620 280, 520 260" className="avx-conduit-path avx-path-orange" />
+              <path id="avx-line-2" d="M 820 110 C 680 110, 620 220, 520 240" className="avx-conduit-path avx-path-blue" />
+              <path id="avx-line-3" d="M 820 390 C 680 390, 620 280, 520 260" className="avx-conduit-path avx-path-blue" />
               <circle className="avx-conduit-packet" r="5" />
             </svg>
 
             {/* Left Flank: Ringba Spheres 1 & 2 */}
             <div className="avx-ringba-flank avx-flank-left">
-              {/* Pod 1: Green Sphere - Voice AI & IVR */}
-              <div className="avx-sphere-card avx-sphere-green avx-active" data-hub-node="0">
+              {/* Pod 1: Voice AI & IVR */}
+              <div className="avx-sphere-card avx-sphere-blue avx-active" data-hub-node="0">
                 <div className="avx-sphere-icon-wrap">
-                  <div className="avx-3d-sphere avx-sphere-emerald">
+                  <div className="avx-3d-sphere avx-sphere-azure">
                     <span className="avx-sphere-glare" />
                     <i className="fa-solid fa-headset" />
                   </div>
                 </div>
                 <div className="avx-sphere-info">
                   <div className="d-flex align-items-center gap-2 mb-1">
-                    <span className="avx-sphere-pill pill-emerald">VOICE AI &amp; IVA</span>
-                    <span className="avx-sphere-latency text-emerald">&lt;45ms Latency</span>
+                    <span className="avx-sphere-pill pill-azure">VOICE AI &amp; IVA</span>
+                    <span className="avx-sphere-latency text-azure">&lt;45ms Latency</span>
                   </div>
                   <h3 className="avx-sphere-title">Interactive Voice Agents</h3>
                   <p className="avx-sphere-desc">Real-time speech-to-speech models answer instantly, qualify multi-turn intent, and warm-transfer.</p>
                   <div className="avx-sphere-kpi">
                     <span>Avg Handle Time: <b>58s</b></span>
-                    <span className="ms-auto text-emerald">94.2% Success</span>
+                    <span className="ms-auto text-azure">94.2% Success</span>
                   </div>
                 </div>
               </div>
 
-              {/* Pod 2: Blue Sphere - Ping-Tree Engine */}
+              {/* Pod 2: Ping-Tree Engine */}
               <div className="avx-sphere-card avx-sphere-blue" data-hub-node="1">
                 <div className="avx-sphere-icon-wrap">
                   <div className="avx-3d-sphere avx-sphere-azure">
@@ -1012,7 +1001,7 @@ export default function Home() {
 
             {/* Center Stage: The 3D AI Intelligence Core */}
             <div className="avx-ringba-center">
-              <div className="avx-3d-core-chassis avx-aura-green">
+              <div className="avx-3d-core-chassis avx-aura-blue">
                 {/* Orbital animated rings */}
                 <div className="avx-core-orbit avx-orbit-1" aria-hidden="true"><span className="avx-orbit-node" /></div>
                 <div className="avx-core-orbit avx-orbit-2" aria-hidden="true"><span className="avx-orbit-node" /></div>
@@ -1041,7 +1030,7 @@ export default function Home() {
                     <div className="avx-hud-tag-box">
                       <div className="d-flex align-items-center justify-content-between mb-1">
                         <small className="text-muted fw-bold">AUTONOMOUS CONVERSATIONAL DIARIZATION</small>
-                        <span className="badge bg-success-subtle text-success" id="avx-core-telemetry-badge">99.4% Human Cadence Match</span>
+                        <span className="badge bg-primary-subtle text-primary" id="avx-core-telemetry-badge">99.4% Human Cadence Match</span>
                       </div>
                       <div className="d-flex align-items-center gap-2">
                         <div className="avx-3d-eq" aria-hidden="true">
@@ -1059,46 +1048,46 @@ export default function Home() {
 
             {/* Right Flank: Ringba Spheres 3 & 4 */}
             <div className="avx-ringba-flank avx-flank-right">
-              {/* Pod 3: Violet Sphere - Carrier Screening */}
-              <div className="avx-sphere-card avx-sphere-purple" data-hub-node="2">
+              {/* Pod 3: Carrier Screening */}
+              <div className="avx-sphere-card avx-sphere-blue" data-hub-node="2">
                 <div className="avx-sphere-icon-wrap">
-                  <div className="avx-3d-sphere avx-sphere-violet">
+                  <div className="avx-3d-sphere avx-sphere-azure">
                     <span className="avx-sphere-glare" />
                     <i className="fa-solid fa-shield-halved" />
                   </div>
                 </div>
                 <div className="avx-sphere-info">
                   <div className="d-flex align-items-center gap-2 mb-1">
-                    <span className="avx-sphere-pill pill-violet">CARRIER SHIELD</span>
-                    <span className="avx-sphere-latency text-violet">STIR/SHAKEN A</span>
+                    <span className="avx-sphere-pill pill-azure">CARRIER SHIELD</span>
+                    <span className="avx-sphere-latency text-azure">STIR/SHAKEN A</span>
                   </div>
                   <h3 className="avx-sphere-title">Autonomous TCPA Guard</h3>
                   <p className="avx-sphere-desc">Carrier-grade screening filters spam, disconnected VOIP, spoofed numbers, and DNC lists before buyers ring.</p>
                   <div className="avx-sphere-kpi">
                     <span>Clean Traffic: <b>99.94%</b></span>
-                    <span className="ms-auto text-violet">Zero TCPA Leaks</span>
+                    <span className="ms-auto text-azure">Zero TCPA Leaks</span>
                   </div>
                 </div>
               </div>
 
-              {/* Pod 4: Amber Sphere - Instant Caller Profile */}
-              <div className="avx-sphere-card avx-sphere-orange" data-hub-node="3">
+              {/* Pod 4: Instant Caller Profile */}
+              <div className="avx-sphere-card avx-sphere-blue" data-hub-node="3">
                 <div className="avx-sphere-icon-wrap">
-                  <div className="avx-3d-sphere avx-sphere-amber">
+                  <div className="avx-3d-sphere avx-sphere-azure">
                     <span className="avx-sphere-glare" />
-                    <i className="fa-solid fa-id-card-clip" />
+                    <i className="fa-solid fa-id-card" />
                   </div>
                 </div>
                 <div className="avx-sphere-info">
                   <div className="d-flex align-items-center gap-2 mb-1">
-                    <span className="avx-sphere-pill pill-amber">CALLER 360°</span>
-                    <span className="avx-sphere-latency text-warning">Zero-Delay Lookup</span>
+                    <span className="avx-sphere-pill pill-azure">CALLER 360°</span>
+                    <span className="avx-sphere-latency text-azure">Zero-Delay Lookup</span>
                   </div>
                   <h3 className="avx-sphere-title">Demographic Enrichment</h3>
                   <p className="avx-sphere-desc">Attaches caller ad campaign keywords, location, lifetime intent, and carrier metadata directly to the live call.</p>
                   <div className="avx-sphere-kpi">
                     <span>Enrichment Speed: <b>28ms</b></span>
-                    <span className="ms-auto text-warning">100% Attributed</span>
+                    <span className="ms-auto text-azure">100% Attributed</span>
                   </div>
                 </div>
               </div>
@@ -2071,7 +2060,7 @@ export default function Home() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
             {" "}
             <a href="/p/request_demo" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>
@@ -2079,7 +2068,7 @@ export default function Home() {
       </section>
       {/* phones: sign-up stays one tap away once the hero has scrolled off (motion.js shows it) */}
       <div className="avx-mcta" data-avx-mcta="">
-        <a href="/sign_up" className="btn btn-td-green fw-semibold">Sign Up Free</a>
+        <a href="https://avortyx.com/request-access" className="btn btn-td-green fw-semibold">Request Access</a>
         <a href="/p/request_demo" className="btn btn-outline-td-green fw-semibold">Request Demo</a>
       </div>
     </main>

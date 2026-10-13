@@ -31,7 +31,7 @@
   // ---------- Analytics: which calls to action get clicked, and from where ----------
   // cta_click for sign-up, demo and contact links; feature_explore for links into feature pages.
 
-  var CTAS = [[/^\/sign_up(\.html)?$/, 'sign_up'], [/^\/p\/request_demo(\.html)?$/, 'request_demo'], [/^\/p\/contact(\.html)?$/, 'contact']];
+  var CTAS = [[/^\/sign_up(\.html)?$/, 'sign_up'], [/^\/request-access$/, 'request_access'], [/^\/p\/request_demo(\.html)?$/, 'request_demo'], [/^\/p\/contact(\.html)?$/, 'contact']];
 
   function clickPlace(a) {
     if (a.closest('.marketing-hero-simple')) return 'hero';
@@ -51,7 +51,8 @@
     var a = e.target.closest && e.target.closest('a[href]');
     if (!a || typeof window.gtag !== 'function') return;
     var url = new URL(a.href, location.href);
-    if (url.origin !== location.origin) return;
+    // same-site links, plus Request Access on avortyx.com
+    if (url.origin !== location.origin && url.host !== 'avortyx.com') return;
     var params = {
       cta_location: clickPlace(a),
       link_text: a.textContent.replace(/\s+/g, ' ').trim().slice(0, 80),
@@ -202,7 +203,7 @@
       [['/pricing', 'Compare plans'], ['/p/contact', 'Contact our team']]],
     ['signup', ['sign up', 'signup', 'get started', 'start', 'free', 'trial', 'register', 'create an account', 'open an account'],
       'You can start free: create your Avortyx account and start tracking, routing and selling calls.',
-      [['/sign_up', 'Sign up free'], ['/p/request_demo', 'Or book a walkthrough']]],
+      [['https://avortyx.com/request-access', 'Request Access'], ['/p/request_demo', 'Or book a walkthrough']]],
     ['demo', ['demo', 'walkthrough', 'show me', 'sales', 'specialist'],
       'Book a walkthrough with a specialist to see how Avortyx can optimize your call tracking and increase conversions.',
       [['/p/request_demo', 'Request a demo']]],

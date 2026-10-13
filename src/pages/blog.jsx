@@ -43,7 +43,7 @@ export default function Blog() {
           <h2 className="marketing-cta-band__title">Put it into practice</h2>
           <p className="marketing-cta-band__subtitle">Track every call, route it to the right buyer and see the revenue behind it.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
             {" "}
             <a href="/p/request_demo" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

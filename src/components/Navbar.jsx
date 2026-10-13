@@ -63,8 +63,15 @@ export default function Navbar({ brandHref }) {
                 </li>
               </ul>
             </li>
-            <li className="nav-item"><a className="nav-link" href="/users/sign_in">Sign In</a></li>
-            <li className="nav-item ms-lg-2"><a className="btn btn-td-green btn-sm px-3" href="/sign_up">Sign Up Free</a></li>
+            {/* the same button as avortyx.com's header: pill, keppel-400 on keppel-950, with its dark bolt */}
+            <li className="nav-item ms-lg-3">
+              <a className="avx-request-access" href="https://avortyx.com/request-access">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
+                  <path d="M213.85,125.46l-112,120a8,8,0,0,1-13.69-7l14.66-73.33L45.19,143.49a8,8,0,0,1-3-13l112-120a8,8,0,0,1,13.69,7L153.18,90.9l57.63,21.61a8,8,0,0,1,3,12.95Z" />
+                </svg>
+                Request Access
+              </a>
+            </li>
           </ul>
         </div>
       </div>

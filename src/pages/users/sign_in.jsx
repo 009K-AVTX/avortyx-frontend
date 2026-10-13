@@ -16,7 +16,7 @@ export default function SignIn() {
               <h2 className="fw-bold mb-2">Welcome Back</h2>
               <p className="text-muted mb-0">
                 Sign in to your Avortyx account. Don't have an account?{" "}
-                <a href="/sign_up" className="text-decoration-none fw-semibold mktg-link-green">Sign up free</a>
+                <a href="https://avortyx.com/request-access" className="text-decoration-none fw-semibold mktg-link-green">Request Access</a>
               </p>
             </div>
             <form className="simple_form mktg-auth-form" id="new_user" data-become="Avortyx.Base.SimpleForm" noValidate action="sign_in.html" acceptCharset="UTF-8" method="post">

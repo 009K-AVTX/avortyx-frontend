@@ -26,7 +26,7 @@ const VALUES = [
   ['fa-bolt', 'text-warning', 'Decide in the first ring', 'We ship in small, fast loops. A call can’t wait, and neither should a fix.'],
   ['fa-shield-halved', 'text-success', 'Compliance is a feature', 'TCPA, DNC and consent aren’t paperwork: they’re product. We build them in, never bolt them on.'],
   ['fa-headset', 'text-info', 'Operators first', 'Every screen is designed for the people running campaigns at 2am, not for a slide deck.'],
-  ['fa-bullseye', 'text-danger', 'Own the outcome', 'Small teams, real scope. You’ll carry problems from customer call to production and back.'],
+  ['fa-bullseye', 'text-danger', 'Own the outcome', 'Real scope from day one. You’ll carry problems from customer call to production and back.'],
 ]
 
 export default function Careers() {
@@ -47,8 +47,8 @@ export default function Careers() {
       <section className="py-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="fw-bold mb-3">Small team, real-time stakes</h2>
-            <p className="text-muted max-w-2xl mx-auto">Every call that rings through Avortyx is someone’s revenue. That shapes how we build and who we hire.</p>
+            <h2 className="fw-bold mb-3">100+ people, real-time stakes</h2>
+            <p className="text-muted max-w-2xl mx-auto">Avortyx is a growing company of over 100 employees: engineers, operators and sellers. Every call that rings through the platform is someone’s revenue, and that shapes how we build and who we hire.</p>
           </div>
           <div className="row g-4 mb-5">
             {VALUES.map(([icon, color, title, text]) => (
@@ -100,7 +100,7 @@ export default function Careers() {
           <h2 className="marketing-cta-band__title">Ready to get started?</h2>
           <p className="marketing-cta-band__subtitle">See how Avortyx turns every lead into a routed, tracked and paid call — start free, or book a walkthrough with a specialist.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
-            <a href="/sign_up" className="btn btn-cta-primary fw-semibold">Sign Up Free</a>
+            <a href="https://avortyx.com/request-access" className="btn btn-cta-primary fw-semibold">Request Access</a>
             {" "}
             <a href="/p/contact" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
           </div>

@@ -268,11 +268,12 @@
     var calls = [], nextCall = 0.4, ripples = [], flash = -9;
     // the scene is seen from slightly above
     var TILT = 0.42, CT = Math.cos(TILT), ST = Math.sin(TILT);
+    // avortyx.com's blue scale (keppel-200 / 700 / 900 / 950) for every sphere in the scene
     var TINT = {
-      leads: ['#c7d2fe', '#6a8ef5', '#2e4381', '#0b1533'],
-      revenue: ['#badafd', '#0e79e9', '#0c3b6e', '#03172a'],
-      moonA: ['#e0e7ff', '#81a3f8', '#304da3', '#0f1c40'],
-      moonB: ['#cfe8fe', '#228cee', '#0e5090', '#041629']
+      leads: ['#bfdbfe', '#1d4ed8', '#1e3a8a', '#0b1533'],
+      revenue: ['#bfdbfe', '#1d4ed8', '#1e3a8a', '#0b1533'],
+      moonA: ['#dbeafe', '#3b82f6', '#1d4ed8', '#172554'],
+      moonB: ['#dbeafe', '#1d4ed8', '#1e3a8a', '#172554']
     };
     var SPR = {}, CURVES = globeCurves(), DOTS = fibSphere(140);
 
@@ -344,7 +345,7 @@
       b.addColorStop(0, c[0]); b.addColorStop(0.34, c[1]); b.addColorStop(0.74, c[2]); b.addColorStop(1, c[3]);
       g.fillStyle = b; g.fillRect(-r, -r, r * 2, r * 2);
       var u = g.createRadialGradient(r * 0.1, r * 0.98, 0, r * 0.1, r * 0.98, r * 0.95);
-      u.addColorStop(0, 'rgba(125,187,252,.4)'); u.addColorStop(1, 'rgba(125,187,252,0)');
+      u.addColorStop(0, 'rgba(125,175,252,.4)'); u.addColorStop(1, 'rgba(125,175,252,0)');
       g.fillStyle = u; g.fillRect(-r, -r, r * 2, r * 2);
       var f = g.createRadialGradient(0, 0, r * 0.6, 0, 0, r);
       f.addColorStop(0, 'rgba(191,219,254,0)'); f.addColorStop(0.85, 'rgba(191,219,254,.08)'); f.addColorStop(1, 'rgba(219,234,254,.5)');
@@ -372,7 +373,7 @@
       ctx.globalCompositeOperation = 'lighter';
       ctx.save(); ctx.translate(cx, cy); ctx.scale(1, 0.26);
       var g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx * 1.2);
-      g.addColorStop(0, 'rgba(59,130,246,.32)'); g.addColorStop(0.55, 'rgba(37,99,235,.1)'); g.addColorStop(1, 'rgba(37,99,235,0)');
+      g.addColorStop(0, 'rgba(29,78,216,.32)'); g.addColorStop(0.55, 'rgba(29,78,216,.1)'); g.addColorStop(1, 'rgba(29,78,216,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx * 1.2, 0, TAU); ctx.fill();
       ctx.restore();
       [1, 0.8, 0.6, 0.4].forEach(function (k, i) {
@@ -391,7 +392,7 @@
         ctx.moveTo(cx + ca * rx * 1.08, cy + sa * ry * 1.08);
         ctx.lineTo(cx + ca * rx * r2, cy + sa * ry * r2);
       }
-      ctx.strokeStyle = 'rgba(125,187,252,.3)';
+      ctx.strokeStyle = 'rgba(125,175,252,.3)';
       ctx.lineWidth = 1;
       ctx.stroke();
       ripples.forEach(function (rp) {
@@ -435,11 +436,11 @@
       ctx.save();
       ctx.globalCompositeOperation = 'lighter';
       var hg = ctx.createRadialGradient(x, y, r * 0.8, x, y, r * 1.7);
-      hg.addColorStop(0, 'rgba(59,130,246,' + (0.2 + fl * 0.2).toFixed(3) + ')'); hg.addColorStop(1, 'rgba(59,130,246,0)');
+      hg.addColorStop(0, 'rgba(29,78,216,' + (0.2 + fl * 0.2).toFixed(3) + ')'); hg.addColorStop(1, 'rgba(29,78,216,0)');
       ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(x, y, r * 1.7, 0, TAU); ctx.fill();
       ctx.restore();
       var cg = ctx.createRadialGradient(x - r * 0.25, y - r * 0.3, r * 0.1, x, y, r);
-      cg.addColorStop(0, 'rgba(37,99,235,.55)'); cg.addColorStop(0.7, 'rgba(23,37,84,.6)'); cg.addColorStop(1, 'rgba(96,165,250,.4)');
+      cg.addColorStop(0, 'rgba(29,78,216,.55)'); cg.addColorStop(0.7, 'rgba(23,46,84,.6)'); cg.addColorStop(1, 'rgba(96,165,250,.4)');
       ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
       ctx.save();
       ctx.globalCompositeOperation = 'lighter';
@@ -466,7 +467,7 @@
         dots.moveTo(x + q[0] * r + 1.1, y + q[1] * r);
         dots.arc(x + q[0] * r, y + q[1] * r, 1.1, 0, TAU);
       });
-      ctx.fillStyle = 'rgba(191,222,255,.55)';
+      ctx.fillStyle = 'rgba(191,216,255,.55)';
       ctx.fill(dots);
       // rim light, then a shell that expands when a call lands
       ctx.strokeStyle = 'rgba(147,198,255,.5)';
@@ -520,14 +521,14 @@
         var u = e - k / 14 * 0.2;
         if (u < 0) continue;
         var q = arc(a, b, u), w = 1 - k / 14;
-        ctx.fillStyle = 'rgba(125,187,252,' + (w * 0.45 * fade).toFixed(3) + ')';
+        ctx.fillStyle = 'rgba(125,175,252,' + (w * 0.45 * fade).toFixed(3) + ')';
         ctx.beginPath(); ctx.arc(q.x, q.y, 0.6 + w * 2.6 * q.s, 0, TAU); ctx.fill();
       }
       var h = arc(a, b, e), R = 12 * h.s;
       var g = ctx.createRadialGradient(h.x, h.y, 0, h.x, h.y, R);
       g.addColorStop(0, 'rgba(224,238,254,' + (0.95 * fade).toFixed(3) + ')');
-      g.addColorStop(0.3, 'rgba(56,150,248,' + (0.4 * fade).toFixed(3) + ')');
-      g.addColorStop(1, 'rgba(56,150,248,0)');
+      g.addColorStop(0.3, 'rgba(29,78,216,' + (0.4 * fade).toFixed(3) + ')');
+      g.addColorStop(1, 'rgba(29,78,216,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(h.x, h.y, R, 0, TAU); ctx.fill();
       ctx.fillStyle = 'rgba(255,255,255,' + fade.toFixed(3) + ')';
       ctx.beginPath(); ctx.arc(h.x, h.y, 2.2 * h.s, 0, TAU); ctx.fill();
@@ -665,7 +666,7 @@
     '/sign_up.html': function () { return lanesScene('avx-cv-bottom avx-cv-lanes'); },
     '/features/integrations.html': function () {
       return silkScene('avx-cv-bottom', [
-        { color: '56,150,248', lines: 36, alpha: .28, base: .56, amp: .13, spread: .3, freq: .9, phase: 1, speed: .26 },
+        { color: '29,78,216', lines: 36, alpha: .28, base: .56, amp: .13, spread: .3, freq: .9, phase: 1, speed: .26 },
         { color: '99,137,241', lines: 30, alpha: .26, base: .66, amp: .12, spread: .28, freq: 1.2, phase: 3.6, speed: .2 }
       ]);
     }
@@ -749,7 +750,7 @@
     });
 
     orbit.appendChild(spin);
-    stage.appendChild(img('icon-sphere--blue.webp?v=2', 'avx-ihub-core'));
+    stage.appendChild(img('icon-sphere--blue.webp?v=3', 'avx-ihub-core'));
     stage.appendChild(orbit);
     hub.appendChild(stage);
     container.appendChild(hub);
@@ -956,7 +957,7 @@
         svg.setAttribute('height', diagram.offsetHeight);
         var defs = '<defs><linearGradient id="avx-plat-g' + di + '" x1="0" y1="0" x2="1" y2="0">' +
           '<stop offset="0%" stop-color="#60a5fa" stop-opacity=".15"/>' +
-          '<stop offset="50%" stop-color="#3b82f6" stop-opacity=".7"/>' +
+          '<stop offset="50%" stop-color="#1d4ed8" stop-opacity=".7"/>' +
           '<stop offset="100%" stop-color="#60a5fa" stop-opacity=".15"/></linearGradient></defs>';
         var paths = '';
         function wire(item, i, n, out) {
@@ -1094,7 +1095,7 @@
       var x0 = W / 2 - W * 0.6 * depth, x1 = W / 2 + W * 0.6 * depth;
       var g = ctx.createLinearGradient(x0, 0, x1, 0);
       var a = (0.05 + 0.22 * Math.pow(d, 1.6)).toFixed(3);
-      var col = d < 0.5 ? '99,137,241' : '59,130,246';
+      var col = d < 0.5 ? '99,137,241' : '29,78,216';
       g.addColorStop(0, 'rgba(' + col + ',0)');
       g.addColorStop(0.3, 'rgba(' + col + ',' + a + ')');
       g.addColorStop(0.7, 'rgba(' + col + ',' + a + ')');
@@ -1143,7 +1144,7 @@
 
   // ---------- Hero: a call attribution card (source, campaign, keyword, buyer, revenue) ----------
 
-  // ---------- Motion toggle: one button pauses every 3D scene and live feed ----------
+  // ---------- Motion: scenes honour the visitor's reduced-motion setting (no pause button) ----------
 
   var MOTION_KEY = 'avx-motion';
 
@@ -1153,28 +1154,12 @@
 
   function setPaused(on) {
     document.documentElement.classList.toggle('avx-paused', on);
-    var btn = document.querySelector('.avx-motion-toggle');
-    if (btn) {
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      btn.setAttribute('aria-label', on ? 'Play animations' : 'Pause animations');
-      btn.title = on ? 'Play animations' : 'Pause animations';
-    }
   }
 
+  // the pause button is gone: forget any pause a visitor saved with it, so nothing stays frozen
   function initMotionToggle() {
-    var stored = null;
-    try { stored = localStorage.getItem(MOTION_KEY); } catch (e) { /* storage blocked */ }
-    var btn = el('button', 'avx-motion-toggle',
-      '<svg class="avx-mt-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" rx="1"/><rect x="9.4" y="3" width="2.6" height="10" rx="1"/></svg>' +
-      '<svg class="avx-mt-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6a.6.6 0 0 0 .9.5l7.6-4.8a.6.6 0 0 0 0-1L5.9 2.7a.6.6 0 0 0-.9.5z"/></svg>');
-    btn.type = 'button';
-    btn.addEventListener('click', function () {
-      var on = !motionPaused();
-      setPaused(on);
-      try { localStorage.setItem(MOTION_KEY, on ? 'paused' : 'playing'); } catch (e) { /* storage blocked */ }
-    });
-    document.body.appendChild(btn);
-    setPaused(stored ? stored === 'paused' : reduced);
+    try { localStorage.removeItem(MOTION_KEY); } catch (e) { /* storage blocked */ }
+    setPaused(false);
   }
 
   // ---------- Landing intro: "Signal Sea" — a 3D field of light that ripples with each call ----------
@@ -1321,7 +1306,7 @@
         for (var c = 0; c < COLS; c++) { var q = point(c, r); if (c) ctx.lineTo(q.x, q.y); else ctx.moveTo(q.x, q.y); }
         var g = ctx.createLinearGradient(0, 0, W, 0);
         var la = (0.08 + 0.2 * (r / ROWS)).toFixed(3);
-        g.addColorStop(0, 'rgba(59,130,246,0)'); g.addColorStop(0.5, 'rgba(59,130,246,' + la + ')'); g.addColorStop(1, 'rgba(59,130,246,0)');
+        g.addColorStop(0, 'rgba(29,78,216,0)'); g.addColorStop(0.5, 'rgba(29,78,216,' + la + ')'); g.addColorStop(1, 'rgba(29,78,216,0)');
         ctx.strokeStyle = g; ctx.lineWidth = 1; ctx.stroke();
       }
       // the points: brighter on the crests
@@ -1347,7 +1332,7 @@
         var glow = ctx.createRadialGradient(x, y, 0, x, y, rad);
         glow.addColorStop(0, 'rgba(191,219,254,' + (0.9 * al).toFixed(3) + ')');
         glow.addColorStop(0.25, 'rgba(96,165,250,' + (0.45 * al).toFixed(3) + ')');
-        glow.addColorStop(1, 'rgba(59,130,246,0)');
+        glow.addColorStop(1, 'rgba(29,78,216,0)');
         ctx.fillStyle = glow;
         ctx.fillRect(x - rad, y - rad, rad * 2, rad * 2);
       });
@@ -1498,19 +1483,19 @@
   var STYLE_SCENES = {
     mesh: function () { return meshScene('avx-cv-bottom avx-cv-floor', { cols: 44, rows: 18, amp: 1, f1: 6.5, f2: 3, s1: 0.5, s2: 0.32, color: '96,165,250', alpha: 0.95 }); },
     grid: function () { return meshScene('avx-cv-bottom avx-cv-floor', { cols: 56, rows: 22, amp: 0.35, f1: 4, f2: 2.2, s1: 0.3, s2: 0.2, color: '96,165,250', alpha: 0.75, pulses: 9 }); },
-    strands: function () { return contourScene('avx-cv-bottom avx-cv-floor', { rows: 26, amp: 0.9, f1: 6, s1: 0.4, roll: 0, color: '59,130,246', accent: '56,150,248', alpha: 0.55 }); },
-    tide: function () { return contourScene('avx-cv-bottom avx-cv-floor', { rows: 30, amp: 0.7, f1: 4.5, s1: 0.25, roll: 1.1, color: '59,130,246', accent: '147,197,253', alpha: 0.6 }); },
-    signal: function () { return signalScene('avx-cv-bottom avx-cv-floor', { lines: 5, speed: 0.12, color: '96,165,250', accent: '56,150,248', alpha: 0.55 }); },
+    strands: function () { return contourScene('avx-cv-bottom avx-cv-floor', { rows: 26, amp: 0.9, f1: 6, s1: 0.4, roll: 0, color: '29,78,216', accent: '29,78,216', alpha: 0.55 }); },
+    tide: function () { return contourScene('avx-cv-bottom avx-cv-floor', { rows: 30, amp: 0.7, f1: 4.5, s1: 0.25, roll: 1.1, color: '29,78,216', accent: '147,197,253', alpha: 0.6 }); },
+    signal: function () { return signalScene('avx-cv-bottom avx-cv-floor', { lines: 5, speed: 0.12, color: '96,165,250', accent: '29,78,216', alpha: 0.55 }); },
     ribbons: function () {
       return silkScene('avx-cv-bottom avx-cv-floor', [
-        { color: '59,130,246', lines: 34, alpha: 0.3, base: 0.58, amp: 0.14, spread: 0.32, freq: 0.8, phase: 0.4, speed: 0.22 },
+        { color: '29,78,216', lines: 34, alpha: 0.3, base: 0.58, amp: 0.14, spread: 0.32, freq: 0.8, phase: 0.4, speed: 0.22 },
         { color: '99,137,241', lines: 26, alpha: 0.24, base: 0.7, amp: 0.1, spread: 0.24, freq: 1.1, phase: 2.8, speed: 0.17 }
       ]);
     },
     streak: function () {
       return silkScene('avx-cv-bottom avx-cv-floor', [
-        { color: '56,150,248', lines: 18, alpha: 0.32, base: 0.5, amp: 0.16, spread: 0.12, freq: 1.4, phase: 1.2, speed: 0.36 },
-        { color: '59,130,246', lines: 22, alpha: 0.28, base: 0.64, amp: 0.12, spread: 0.18, freq: 1, phase: 3.9, speed: 0.28 },
+        { color: '29,78,216', lines: 18, alpha: 0.32, base: 0.5, amp: 0.16, spread: 0.12, freq: 1.4, phase: 1.2, speed: 0.36 },
+        { color: '29,78,216', lines: 22, alpha: 0.28, base: 0.64, amp: 0.12, spread: 0.18, freq: 1, phase: 3.9, speed: 0.28 },
         { color: '147,197,253', lines: 14, alpha: 0.22, base: 0.76, amp: 0.08, spread: 0.1, freq: 1.8, phase: 5.1, speed: 0.4 }
       ]);
     }
@@ -1576,9 +1561,9 @@
 
       // atmosphere: a thin lit limb, brightest along the top
       var limb = ctx.createRadialGradient(cx, cy, R * 0.94, cx, cy, R * 1.16);
-      limb.addColorStop(0, 'rgba(59,130,246,0)');
+      limb.addColorStop(0, 'rgba(29,78,216,0)');
       limb.addColorStop(0.3, 'rgba(96,165,250,.22)');
-      limb.addColorStop(1, 'rgba(59,130,246,0)');
+      limb.addColorStop(1, 'rgba(29,78,216,0)');
       ctx.fillStyle = limb;
       ctx.beginPath(); ctx.arc(cx, cy, R * 1.16, 0, Math.PI * 2); ctx.fill();
       var body = ctx.createRadialGradient(cx, cy - R * 0.6, R * 0.1, cx, cy, R);
@@ -1687,7 +1672,7 @@
       ctx.scale(1, 0.12);
       var sky = ctx.createRadialGradient(0, 0, 0, 0, 0, W * 0.45);
       sky.addColorStop(0, 'rgba(96,165,250,.16)');
-      sky.addColorStop(1, 'rgba(59,130,246,0)');
+      sky.addColorStop(1, 'rgba(29,78,216,0)');
       ctx.fillStyle = sky;
       ctx.beginPath(); ctx.arc(0, 0, W * 0.45, 0, Math.PI * 2); ctx.fill();
       ctx.restore();
@@ -1696,8 +1681,8 @@
       for (var l = 0; l < LANES; l++) {
         var a = at(l, 0.02), b = at(l, 1);
         var g = ctx.createLinearGradient(a[0], a[1], b[0], b[1]);
-        g.addColorStop(0, 'rgba(59,130,246,0)');
-        g.addColorStop(1, 'rgba(59,130,246,' + (0.22 * edge(b[0])).toFixed(3) + ')');
+        g.addColorStop(0, 'rgba(29,78,216,0)');
+        g.addColorStop(1, 'rgba(29,78,216,' + (0.22 * edge(b[0])).toFixed(3) + ')');
         ctx.strokeStyle = g;
         ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
       }
@@ -1740,8 +1725,8 @@
       }
       var hx = s.hx, hy = s.hy;
       var halo = ctx.createRadialGradient(hx, hy, 0, hx, hy, Math.min(W, 900) * 0.42);
-      halo.addColorStop(0, 'rgba(59,130,246,.16)');
-      halo.addColorStop(1, 'rgba(59,130,246,0)');
+      halo.addColorStop(0, 'rgba(29,78,216,.16)');
+      halo.addColorStop(1, 'rgba(29,78,216,0)');
       ctx.fillStyle = halo;
       ctx.fillRect(0, 0, W, H);
 
@@ -1752,8 +1737,8 @@
       ctx.lineWidth = 1;
       s.lines.forEach(function (L) {
         var g = ctx.createLinearGradient(L.sx, L.sy, hx, hy);
-        g.addColorStop(0, 'rgba(59,130,246,0)');
-        g.addColorStop(0.5, 'rgba(59,130,246,.09)');
+        g.addColorStop(0, 'rgba(29,78,216,0)');
+        g.addColorStop(0.5, 'rgba(29,78,216,.09)');
         g.addColorStop(0.92, 'rgba(96,165,250,.22)');
         g.addColorStop(1, 'rgba(96,165,250,0)');
         ctx.strokeStyle = g;
@@ -1935,7 +1920,7 @@
       var labels = o.labels, BW = 240, BH = 70, gap = 8, bw = (BW - gap * (labels.length - 1)) / labels.length;
       var vals = labels.map(function () { return o.min + Math.random() * (o.max - o.min); });
       svg = svgEl('svg', { viewBox: '0 0 ' + BW + ' ' + (BH + 14), class: 'avx-ch avx-ch-bars' });
-      var html = '<defs><linearGradient id="' + id + 'b" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#3b82f6" stop-opacity=".35"/></linearGradient></defs>';
+      var html = '<defs><linearGradient id="' + id + 'b" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#1d4ed8" stop-opacity=".35"/></linearGradient></defs>';
       labels.forEach(function (lb, k) {
         var x = k * (bw + gap);
         html += '<rect class="avx-ch-track" x="' + x.toFixed(1) + '" y="0" width="' + bw.toFixed(1) + '" height="' + BH + '" rx="3"/>' +
@@ -1952,7 +1937,7 @@
       value = function () { return vals.reduce(function (a, b) { return a + b; }, 0) / (o.avg ? vals.length : 1); };
     } else if (o.type === 'donut') {
       var segs = o.labels.map(function (lb, k) { return { lb: lb, v: o.weights[k] }; });
-      var R = 30, C = 2 * Math.PI * R, colors = ['#60a5fa', '#2563eb', '#93c5fd', '#475569', '#3471d3'];
+      var R = 30, C = 2 * Math.PI * R, colors = ['#60a5fa', '#1d4ed8', '#93c5fd', '#475569', '#1d4ed8'];
       svg = svgEl('svg', { viewBox: '0 0 240 76', class: 'avx-ch avx-ch-donut' });
       var dh = '<circle class="avx-ch-ring" cx="38" cy="38" r="' + R + '"/>';
       segs.forEach(function (sg, k) {
@@ -2812,9 +2797,9 @@
     function planeY(v) { return 1 - 2 * v; }
 
     // pods: green and blue on the left, violet and amber on the right
-    var TINTS = { 'avx-aura-green': [110, 178, 231], 'avx-aura-blue': [125, 187, 252], 'avx-aura-purple': [180, 196, 254], 'avx-aura-orange': [116, 143, 253] };
+    var TINTS = { 'avx-aura-green': [110, 158, 231], 'avx-aura-blue': [125, 175, 252], 'avx-aura-purple': [180, 208, 254], 'avx-aura-orange': [116, 167, 253] };
     var NODE_OF = { 'avx-aura-green': 0, 'avx-aura-blue': 1, 'avx-aura-purple': 2, 'avx-aura-orange': 3 };
-    var tint = [125, 187, 252], tintTo = tint.slice();
+    var tint = [125, 175, 252], tintTo = tint.slice();
 
     var W = 0, H = 0, dpr = 1, S = 1, CX = 0, CY = 0, F = 4.5;
     var cyw = 1, syw = 0, cp = 1, sp = 0;
@@ -2937,8 +2922,8 @@
     function proj(x, y, z) { return rot(x, y, z, [0, 0, 0]); }
     var RINGS = [
       { r: 0.74, tilt: 1.24, roll: 0.16, speed: 0.5, color: null },
-      { r: 0.86, tilt: 1.34, roll: -0.22, speed: -0.32, color: '171,187,252' },
-      { r: 0.64, tilt: 1.14, roll: 0.05, speed: 0.75, color: '125,187,252' }
+      { r: 0.86, tilt: 1.34, roll: -0.22, speed: -0.32, color: '171,201,252' },
+      { r: 0.64, tilt: 1.14, roll: 0.05, speed: 0.75, color: '125,175,252' }
     ];
     var HEAD_C = [0, 0.27, 0.12];
     function ringPoint(rg, th, out) {
@@ -2973,8 +2958,8 @@
       // halo behind her head
       var hc = proj(HEAD_C[0], HEAD_C[1], 0), g = bctx.createRadialGradient(hc[0], hc[1], 0, hc[0], hc[1], 1.25 * S);
       g.addColorStop(0, 'rgba(' + tc + ',0.22)');
-      g.addColorStop(0.5, 'rgba(92,127,246,0.10)');
-      g.addColorStop(1, 'rgba(92,127,246,0)');
+      g.addColorStop(0.5, 'rgba(92,150,246,0.10)');
+      g.addColorStop(1, 'rgba(92,150,246,0)');
       bctx.fillStyle = g;
       bctx.fillRect(0, 0, W, H);
 
@@ -3532,8 +3517,8 @@
       PTS[3 * i] = r * Math.cos(th); PTS[3 * i + 1] = y; PTS[3 * i + 2] = r * Math.sin(th);
     }
     // buyer orbs, Ringba's palette: [light, main, dark]
-    var ORBS = [[[170, 187, 254], [22, 67, 249], [18, 39, 124]], [[153, 204, 246], [20, 109, 184], [19, 51, 78]], [[214, 224, 254], [92, 127, 246], [7, 27, 100]]];
-    var SENT = { pos: [52, 141, 211], neutral: [96, 165, 250], urgent: [36, 158, 251] };
+    var ORBS = [[[170, 201, 254], [29, 78, 216], [18, 57, 124]], [[153, 190, 246], [29, 78, 216], [19, 42, 78]], [[214, 224, 254], [92, 150, 246], [7, 42, 100]]];
+    var SENT = { pos: [29, 78, 216], neutral: [96, 165, 250], urgent: [29, 78, 216] };
 
     // the HTML ships the first call won: start there
     var winLi = list.querySelector('.avx-win');
@@ -3596,8 +3581,8 @@
       for (var k = -14; k <= 14; k++) {
         var bx = gx + k * W * 0.075, a1 = 0.16 * (1 - Math.abs(k) / 15);
         var gr = ctx.createLinearGradient(0, hy, 0, bottom);
-        gr.addColorStop(0, 'rgba(92,127,246,0)');
-        gr.addColorStop(1, 'rgba(92,127,246,' + a1.toFixed(3) + ')');
+        gr.addColorStop(0, 'rgba(92,150,246,0)');
+        gr.addColorStop(1, 'rgba(92,150,246,' + a1.toFixed(3) + ')');
         ctx.strokeStyle = gr;
         var fy = (hy - vy) / (bottom - vy), sx = gx + (bx - gx) * fy;
         ctx.beginPath(); ctx.moveTo(sx, hy); ctx.lineTo(bx, bottom); ctx.stroke();
@@ -3615,8 +3600,8 @@
       var py = gy + R * 1.1, sq = 0.26;
       var disc = ctx.createRadialGradient(gx, py, 0, gx, py, R * 1.3);
       disc.addColorStop(0, rgba(mix([147, 197, 253], tint, 0.3), 0.55));
-      disc.addColorStop(0.5, 'rgba(37,99,235,0.18)');
-      disc.addColorStop(1, 'rgba(37,99,235,0)');
+      disc.addColorStop(0.5, 'rgba(29,78,216,0.18)');
+      disc.addColorStop(1, 'rgba(29,78,216,0)');
       ctx.save(); ctx.translate(gx, py); ctx.scale(1, sq); ctx.translate(-gx, -py);
       ctx.fillStyle = disc; ctx.beginPath(); ctx.arc(gx, py, R * 1.3, 0, 2 * PI); ctx.fill();
       var flow = reduced ? 0 : (t * 0.5) % 1;
@@ -3664,8 +3649,8 @@
 
       // the globe: a halo, then the points, brighter toward the rim, with the scoring ripple
       var halo2 = ctx.createRadialGradient(gx, gy, R * 0.2, gx, gy, R * 1.6);
-      halo2.addColorStop(0, rgba(mix([59, 130, 246], tint, 0.4), 0.28));
-      halo2.addColorStop(1, 'rgba(59,130,246,0)');
+      halo2.addColorStop(0, rgba(mix([29, 78, 216], tint, 0.4), 0.28));
+      halo2.addColorStop(1, 'rgba(29,78,216,0)');
       ctx.fillStyle = halo2; ctx.beginPath(); ctx.arc(gx, gy, R * 1.6, 0, 2 * PI); ctx.fill();
       var cs = Math.cos(spin), sn = Math.sin(spin), ct = Math.cos(-0.38), stt = Math.sin(-0.38);
       var rp = t - ripple, rOn = rp >= 0 && rp < 1.6, base = mix([147, 197, 253], tint, st.phase === 'flow' ? 0.15 : 0.45);
@@ -3717,8 +3702,8 @@
         if (isWin) {
           var ba = Math.min(1, since / 0.3) * (since > 5 ? 0.55 : 1);
           var lg = ctx.createLinearGradient(gout[0], gout[1], dst[0], dst[1]);
-          lg.addColorStop(0, rgba(tint, ba)); lg.addColorStop(1, rgba([52, 141, 211], ba));
-          ctx.strokeStyle = rgba([52, 141, 211], 0.18 * ba); ctx.lineWidth = 7;
+          lg.addColorStop(0, rgba(tint, ba)); lg.addColorStop(1, rgba([29, 78, 216], ba));
+          ctx.strokeStyle = rgba([29, 78, 216], 0.18 * ba); ctx.lineWidth = 7;
           ctx.beginPath(); ctx.moveTo(gout[0], gout[1]); ctx.quadraticCurveTo(cc[0], cc[1], dst[0], dst[1]); ctx.stroke();
           ctx.strokeStyle = lg; ctx.lineWidth = 2;
           ctx.beginPath(); ctx.moveTo(gout[0], gout[1]); ctx.quadraticCurveTo(cc[0], cc[1], dst[0], dst[1]); ctx.stroke();
@@ -3727,7 +3712,7 @@
         if (!fanA) return;
         for (k = 0; k < 6; k++) {
           var u3 = reduced ? k / 6 : (t * (isWin ? 1.3 : 0.9) + k / 6 + ri * 0.13) % 1, q2 = quad(gout, cc, dst, u3);
-          ctx.fillStyle = rgba(isWin ? [209, 232, 250] : col, fanA * Math.sin(u3 * PI));
+          ctx.fillStyle = rgba(isWin ? [209, 225, 250] : col, fanA * Math.sin(u3 * PI));
           ctx.beginPath(); ctx.arc(q2[0], q2[1], isWin ? 2.2 : 1.6, 0, 2 * PI); ctx.fill();
         }
       });
@@ -4181,41 +4166,6 @@
     onVisible(flow, function () { flow.classList.add('avx-on'); }, null, 0.35);
   }
 
-  // ---------- Command palette: ⌘K / Ctrl+K jumps to any page or feature ----------
-
-  var PALETTE = [
-    ['Home', '/', 'Page', 'fa-house'], ['All features', '/features', 'Page', 'fa-grip'], ['Pricing', '/pricing', 'Page', 'fa-tag'],
-    ['Integrations', '/features/integrations', 'Page', 'fa-plug'], ['Request a demo', '/p/request_demo', 'Page', 'fa-calendar-check'],
-    ['Contact', '/p/contact', 'Page', 'fa-envelope'], ['Sign up free', '/sign_up', 'Page', 'fa-user-plus'], ['Sign in', '/users/sign_in', 'Page', 'fa-right-to-bracket'],
-    ['Careers', '/careers', 'Page', 'fa-briefcase'], ['Blog', '/blog', 'Page', 'fa-book'], ['Brand assets', '/brand_assets', 'Page', 'fa-palette'],
-    ['Privacy policy', '/privacy_policy', 'Page', 'fa-file-shield'], ['Terms of service', '/terms_of_service', 'Page', 'fa-file-contract'],
-    ['AI at work: Ask Avortyx, live transcript, voice agent', '/#ai-at-work', 'Home', 'fa-wand-magic-sparkles'], ['How the AI decides', '/#how-it-decides', 'Home', 'fa-diagram-project'],
-    ['Product tour', '/#product-tour', 'Home', 'fa-display'], ['Trust and compliance', '/#trust', 'Home', 'fa-shield-halved'],
-    ['Ping/Post and real-time bidding', '/features/ping_post', 'Feature', 'fa-gavel'], ['Ping/Post integration guide', '/features/ping_post_integration', 'Feature', 'fa-book'],
-    ['Call tracking', '/features/call_tracking', 'Feature', 'fa-phone'], ['Inbound call routing', '/features/inbound_call_routing', 'Feature', 'fa-route'],
-    ['Agent control center and power dialer', '/features/agent_controls', 'Feature', 'fa-headset'], ['Lead automation', '/features/lead_automation', 'Feature', 'fa-bolt'],
-    ['AI call transcriptions', '/features/transcriptions', 'Feature', 'fa-closed-captioning'], ['AI voice agents', '/features/voice_agents', 'Feature', 'fa-robot'],
-    ['AI SMS bots', '/features/ai_sms_bots', 'Feature', 'fa-comment-sms'], ['Call recordings', '/features/call_recordings', 'Feature', 'fa-microphone-lines'],
-    ['Buyer management', '/features/buyer_management', 'Feature', 'fa-users'], ['Simultaneously dial buyers', '/features/simul_dial', 'Feature', 'fa-phone-volume'],
-    ['Hold queue and callback', '/features/hold_queue', 'Feature', 'fa-hourglass-half'], ['Dynamic number insertion', '/features/dynamic_number_insertion', 'Feature', 'fa-hashtag'],
-    ['Formulas', '/features/formulas', 'Feature', 'fa-square-root-variable'], ['Custom webhooks', '/features/custom_webhook', 'Feature', 'fa-link'],
-    ['REST API', '/features/api', 'Feature', 'fa-code'], ['API IP whitelist', '/features/api_whitelist', 'Feature', 'fa-network-wired'],
-    ['Data exports', '/features/data_export', 'Feature', 'fa-file-export'], ['Multiple telephone providers', '/features/multiple_telephone_providers', 'Feature', 'fa-tower-cell'],
-    ['SIP support', '/features/sip_support', 'Feature', 'fa-server'], ['Spam tag mitigation', '/features/spam_tag_mitigation', 'Compliance', 'fa-shield-halved'],
-    ['Verified identity and caller ID', '/features/verified_identity', 'Compliance', 'fa-id-card'], ['Consent and opt-out', '/features/consent_opt_out', 'Compliance', 'fa-file-signature'],
-    ['Suppression lists and DNC', '/features/suppression_lists', 'Compliance', 'fa-ban'], ['State rules', '/features/state_rules', 'Compliance', 'fa-map-location-dot'],
-    ['PII redaction', '/features/pii_redaction', 'Compliance', 'fa-user-shield'],
-    ['Google Ads', '/features/adwords', 'Integration', 'fa-plug'], ['Salesforce', '/features/salesforce', 'Integration', 'fa-plug'],
-    ['Zoho CRM', '/features/zoho_crm', 'Integration', 'fa-plug'], ['Zapier', '/features/zapier', 'Integration', 'fa-plug'], ['Slack', '/features/slack', 'Integration', 'fa-plug'],
-    ['ElevenLabs voice agents', '/features/voice_agents/elevenlabs', 'Integration', 'fa-plug'], ['AWS S3', '/features/aws_s3', 'Integration', 'fa-plug'],
-    ['Typeform', '/features/typeform', 'Integration', 'fa-plug'], ['MailChimp', '/features/mailchimp', 'Integration', 'fa-plug'],
-    ['Mailgun', '/features/mailgun', 'Integration', 'fa-plug'], ['SendGrid', '/features/sendgrid', 'Integration', 'fa-plug'],
-    ['Infusionsoft', '/features/infusionsoft', 'Integration', 'fa-plug'], ['Twilio', '/features/twilio', 'Integration', 'fa-plug'],
-    ['Telnyx', '/features/telnyx', 'Integration', 'fa-plug'], ['Plivo', '/features/plivo', 'Integration', 'fa-plug'],
-    ['Cake', '/features/cake', 'Integration', 'fa-plug'], ['HasOffers', '/features/hasoffers', 'Integration', 'fa-plug'],
-    ['Voluum', '/features/voluum', 'Integration', 'fa-plug'], ['LinkTrust', '/features/linktrust', 'Integration', 'fa-plug']
-  ];
-
   // ---------- Navbar: the floating bar firms up once the page scrolls ----------
 
   function initNavScroll() {
@@ -4228,121 +4178,6 @@
     }
     window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
     update();
-  }
-
-  function initPalette() {
-    var isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
-    var box = null, input, list, items = [], sel = 0, last = null;
-
-    // a search button in the navbar, before Sign In
-    var nav = document.querySelector('.marketing-navbar .navbar-nav');
-    if (nav && !nav.querySelector('.avx-k-btn')) {
-      var li = el('li', 'nav-item avx-k-item', '<button type="button" class="avx-k-btn" aria-label="Search pages and features"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span>Search</span><kbd>' + (isMac ? '⌘' : 'Ctrl') + ' K</kbd></button>');
-      var signIn = Array.prototype.filter.call(nav.children, function (n) { return /sign_in/.test(n.innerHTML); })[0];
-      nav.insertBefore(li, signIn || null);
-      li.querySelector('button').addEventListener('click', function () { open(); });
-    }
-
-    function build() {
-      box = el('div', 'avx-k',
-        '<div class="avx-k-panel" role="dialog" aria-modal="true" aria-label="Search">' +
-        '<div class="avx-k-head"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>' +
-        '<input type="text" placeholder="Search pages, features and integrations" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="avx-k-list" aria-autocomplete="list"><kbd>Esc</kbd></div>' +
-        '<ul class="avx-k-list" id="avx-k-list" role="listbox"></ul>' +
-        '<div class="avx-k-foot"><span><kbd>↑</kbd><kbd>↓</kbd> to move</span><span><kbd>↵</kbd> to open</span></div></div>');
-      input = box.querySelector('input');
-      list = box.querySelector('.avx-k-list');
-      box.addEventListener('mousedown', function (e) { if (e.target === box) close(); });
-      input.addEventListener('input', render);
-      input.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-          e.preventDefault();
-          sel = (sel + (e.key === 'ArrowDown' ? 1 : -1) + items.length) % Math.max(items.length, 1);
-          mark();
-        } else if (e.key === 'Enter' && items[sel]) {
-          e.preventDefault();
-          go(items[sel]);
-        }
-      });
-      list.addEventListener('click', function (e) {
-        var li = e.target.closest('li[data-i]');
-        if (li) go(items[+li.dataset.i]);
-      });
-      list.addEventListener('mousemove', function (e) {
-        var li = e.target.closest('li[data-i]');
-        if (li && +li.dataset.i !== sel) { sel = +li.dataset.i; mark(); }
-      });
-      document.body.appendChild(box);
-    }
-    // ranks by where the query matches: start of the title, start of a word, anywhere, then loose letters in order
-    function score(item, q) {
-      var t = item[0].toLowerCase(), g = item[2].toLowerCase();
-      if (!q) return 1;
-      if (t.indexOf(q) === 0) return 100;
-      if (new RegExp('\\b' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(t)) return 80;
-      if (t.indexOf(q) > -1) return 60;
-      if (g.indexOf(q) === 0) return 40;
-      var i = 0;
-      for (var k = 0; k < t.length && i < q.length; k++) if (t[k] === q[i]) i++;
-      return i === q.length ? 20 : 0;
-    }
-    function render() {
-      var q = input.value.trim().toLowerCase();
-      items = PALETTE.map(function (p) { return [p, score(p, q)]; }).filter(function (x) { return x[1] > 0; })
-        .sort(function (a, b) { return b[1] - a[1]; }).map(function (x) { return x[0]; }).slice(0, q ? 30 : 16);
-      sel = 0;
-      list.innerHTML = items.length ? '' : '<li class="avx-k-empty">No matches. Try “routing”, “AI” or “Twilio”.</li>';
-      items.forEach(function (it, i) {
-        var li = el('li', '', '<i class="fa-solid ' + it[3] + '" aria-hidden="true"></i><span></span><em>' + it[2] + '</em>');
-        li.querySelector('span').textContent = it[0];
-        li.dataset.i = i;
-        li.id = 'avx-k-' + i;
-        li.setAttribute('role', 'option');
-        list.appendChild(li);
-      });
-      mark();
-    }
-    function mark() {
-      list.querySelectorAll('li[data-i]').forEach(function (li) {
-        var on = +li.dataset.i === sel;
-        li.classList.toggle('avx-on', on);
-        li.setAttribute('aria-selected', on ? 'true' : 'false');
-        if (on) { input.setAttribute('aria-activedescendant', li.id); li.scrollIntoView({ block: 'nearest' }); }
-      });
-    }
-    function go(it) {
-      close();
-      var url = new URL(it[1], location.href);
-      if (samePage(url) && url.hash) {
-        var t = document.getElementById(url.hash.slice(1));
-        if (t) { jumpTo(t); history.replaceState(null, '', url.hash); return; }
-      }
-      location.href = it[1];
-    }
-    function open() {
-      if (!box) build();
-      last = document.activeElement;
-      input.value = '';
-      render();
-      box.classList.add('avx-k-on');
-      document.documentElement.style.overflow = 'hidden';
-      setTimeout(function () { input.focus(); }, 0);
-    }
-    function close() {
-      if (!box || !box.classList.contains('avx-k-on')) return;
-      box.classList.remove('avx-k-on');
-      document.documentElement.style.overflow = '';
-      if (last && last.focus) last.focus({ preventScroll: true });
-    }
-    document.addEventListener('keydown', function (e) {
-      if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
-        e.preventDefault();
-        if (box && box.classList.contains('avx-k-on')) close(); else open();
-      } else if (e.key === 'Escape' && box && box.classList.contains('avx-k-on')) {
-        e.stopImmediatePropagation();
-        close();
-      }
-    }, true);
   }
 
   // ---------- Screenshot zoom: enlarge in place, in the same dark app window ----------
@@ -4722,7 +4557,7 @@
     // calm set: product UI, data and gentle reveals; no game-like decoration
     var steps = [initMotionToggle, initProgress, initRingbaHero, initDecision, initDecideGlobe, initLeadFlow, initPlatformFlow,
       initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initAiStudio, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta, initShield, initHub, initAgent3d, initLandingWaves, initLiveReadouts,
-      initBackLinks, initFloatingBack, initZoom, initNavScroll, initPalette, initWindows, initAuthRing, initIntegrationsHub, initIntegrationsBackdrop,
+      initBackLinks, initFloatingBack, initZoom, initNavScroll, initWindows, initAuthRing, initIntegrationsHub, initIntegrationsBackdrop,
       initPricingHorizon, initIntegrationWaves, initFlowSequences, initTables, initCounters,
       initOffscreenPause, initScrollHints, initAnchors];
     if (!reduced) steps.push(initReveal);
