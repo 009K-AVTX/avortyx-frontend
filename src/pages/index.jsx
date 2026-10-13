@@ -4,6 +4,7 @@ import { postBySlug, LATEST } from '../blog/posts.js'
 // /
 // the intro's four outcomes, Salesloft-style
 import Bolt from '../components/Bolt.jsx'
+import TrustBox from '../components/TrustBox.jsx'
 const HERO_POINTS = ['Score every call’s intent with AI', 'Route to the highest-value buyer', 'Block spam, DNC and duplicates', 'See the revenue behind every call']
 
 // "Power your entire call business" [3D object, title, text, page, link] (facts from the site's own pages)
@@ -941,6 +942,7 @@ export default function Home() {
           </ul>
         </div>
       </section>
+      <TrustBox />
       <section className="mktg-section avx-proof avx-shield-sec" id="trust">
         <div className="container">
           <div className="mktg-section-header text-center">

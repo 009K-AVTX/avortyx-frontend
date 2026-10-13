@@ -14521,3 +14521,184 @@ pre, code, kbd, samp,
 }
 .avx-integrations .integration-card .text-dark { color: #f1f5f9 !important; font-weight: 600; }
 .avx-integrations .integration-card .text-muted { color: #94a3b8 !important; }
+
+/* ---------- Trustpilot TrustBox (home page, under the stats bar) ---------- */
+.avx-tp {
+  padding: 8px 0 40px;
+}
+
+.avx-tp[hidden] {
+  display: none;
+}
+
+.avx-tp-label {
+  margin: 0 0 14px;
+  color: #8f98a8;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.avx-tp-sample {
+  position: relative;
+}
+
+.avx-tp-flag {
+  position: absolute;
+  top: -10px;
+  right: 12px;
+  z-index: 1;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.avx-tp-carousel {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  padding: 22px;
+  border: 1px dashed rgba(96, 165, 250, .5);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .03);
+}
+
+.avx-tp-score {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  color: #c8d0dc;
+  font-size: 13px;
+  text-align: center;
+}
+
+.avx-tp-score b {
+  color: #f1f4f9;
+  font-size: 22px;
+}
+
+.avx-tp-brand {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  color: #f1f4f9;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.avx-tp-brand svg {
+  width: 20px;
+  height: 20px;
+  fill: #00b67a;
+}
+
+.avx-tp-stars {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.avx-tp-stars i {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  background: #4b5563;
+}
+
+.avx-tp-stars i.on {
+  background: #3b82f6;
+}
+
+.avx-tp-stars svg {
+  width: 13px;
+  height: 13px;
+  fill: #fff;
+}
+
+.avx-tp-stars-lg i {
+  width: 28px;
+  height: 28px;
+}
+
+.avx-tp-stars-lg svg {
+  width: 20px;
+  height: 20px;
+}
+
+.avx-tp-reviews {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.avx-tp-reviews li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  color: #c8d0dc;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.avx-tp-reviews b {
+  color: #f1f4f9;
+  font-size: 14px;
+}
+
+.avx-tp-reviews p {
+  margin: 0;
+}
+
+.avx-tp-reviews small,
+.avx-tp-when {
+  color: #8f98a8;
+  font-size: 12px;
+}
+
+.avx-tp-reviews small {
+  color: #60a5fa;
+  font-weight: 500;
+}
+
+.avx-tp-when {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+@media (max-width: 991.98px) {
+  .avx-tp-carousel {
+    flex-direction: column;
+  }
+
+  .avx-tp-score {
+    width: auto;
+  }
+
+  .avx-tp-reviews {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575.98px) {
+  .avx-tp-reviews {
+    grid-template-columns: 1fr;
+  }
+}

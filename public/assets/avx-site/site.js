@@ -621,3 +621,49 @@
     done.hidden = false;
   });
 })();
+
+/* ---------- Trustpilot TrustBox (home page) ----------
+   Live: loads Trustpilot's official bootstrap script, which renders the real reviews into
+   .trustpilot-widget. No business unit ID yet: on localhost only, the section shows sample
+   reviews in the carousel layout, marked "Sample data", so the design can be reviewed.
+   The sample never shows on the deployed site. */
+(function () {
+  'use strict';
+  var box = document.querySelector('[data-avx-tp]');
+  if (!box) return;
+
+  if (box.getAttribute('data-avx-tp') === 'live') {
+    var s = document.createElement('script');
+    s.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
+    s.async = true;
+    document.head.appendChild(s);
+    return;
+  }
+  if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
+
+  // [name, stars, title, text, when]
+  var SAMPLE = [
+    ['Sample reviewer A', 5, 'Routing set up in an afternoon', 'Sample text: we moved our health campaigns over and calls started reaching buyers the same day.', '2 days ago'],
+    ['Sample reviewer B', 5, 'Ping/Post that just works', 'Sample text: bids come back fast and the reporting shows exactly why a call went where it did.', '5 days ago'],
+    ['Sample reviewer C', 4, 'Helpful specialists', 'Sample text: a live video session sorted out our caps and failover in under an hour.', '1 week ago'],
+    ['Sample reviewer D', 5, 'Clear pricing', 'Sample text: per-minute billing with no onboarding fee made it easy to test.', '2 weeks ago']
+  ];
+  function stars(n, cls) {
+    var out = '<span class="avx-tp-stars ' + (cls || '') + '" role="img" aria-label="' + n + ' out of 5 stars">';
+    for (var i = 0; i < 5; i++) out += '<i class="' + (i < n ? 'on' : '') + '"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.7l7.1-.6z"/></svg></i>';
+    return out + '</span>';
+  }
+  var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
+  box.querySelector('.avx-tp-sample').innerHTML =
+    '<span class="avx-tp-flag">Sample data · localhost only</span>' +
+    '<div class="avx-tp-carousel">' +
+      '<div class="avx-tp-score"><b>Excellent</b>' + stars(5, 'avx-tp-stars-lg') +
+      '<span>Based on <u>sample</u> reviews</span>' +
+      '<span class="avx-tp-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.7l7.1-.6z"/></svg>Trustpilot</span></div>' +
+      '<ul class="avx-tp-reviews">' + SAMPLE.map(function (r) {
+        return '<li>' + stars(r[1]) + '<span class="avx-tp-when">' + esc(r[4]) + '</span>' +
+          '<b>' + esc(r[2]) + '</b><p>' + esc(r[3]) + '</p><small>' + esc(r[0]) + '</small></li>';
+      }).join('') + '</ul>' +
+    '</div>';
+  box.hidden = false;
+})();
