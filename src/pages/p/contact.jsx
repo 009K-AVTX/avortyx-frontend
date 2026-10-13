@@ -1,4 +1,6 @@
 // /p/contact.html
+import SupportTeam from '../../components/SupportTeam.jsx'
+
 export const meta = {
   title: "Contact Avortyx | Talk to the team",
   description: "Talk to the Avortyx team about routing, ping/post, compliance or your account. Real people who know pay-per-call.",
@@ -16,6 +18,7 @@ export default function Contact() {
               <h2 className="fw-bold mb-2">Talk to the Avortyx team</h2>
               <p className="text-muted mb-0">Questions about routing, ping/post, compliance or your account? Send a note and someone who knows pay-per-call will get back to you.</p>
             </div>
+            <SupportTeam className="justify-content-center mb-4" />
             <div className="d-flex flex-wrap justify-content-center gap-4 mb-4 pb-3 border-bottom mktg-contact-links">
               <a href="mailto:support@avortyx.com" className="d-flex align-items-center text-decoration-none text-body">
                 <i className="fa-solid fa-envelope text-primary me-2" aria-hidden="true" />

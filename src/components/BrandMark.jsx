@@ -9,7 +9,7 @@ export default function BrandMark({ gradientId }) {
             <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stopColor="#60a5fa" />
               <stop offset="50%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#1d4ed8" />
+              <stop offset="100%" stopColor="#3b82f6" />
             </linearGradient>
           </defs>
           <g transform="translate(32 32) scale(1.3) translate(-32 -32)">

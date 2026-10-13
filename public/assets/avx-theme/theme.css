@@ -15,24 +15,24 @@ html {
 /*
  * Avortyx color theme — loaded on every page after the site stylesheet.
  *   Backgrounds: clean bright white, subtle off-white/gray card surfaces
- *   Primary:     royal blue — buttons, active states, key headlines, brand accents
+ *   Primary:     avortyx.com blue (#3b82f6, hover #2563eb) — buttons, active states, key headlines, brand accents
  *   Accent:      blue as well — badges, status pills, success highlights, secondary tags
  *   Text:        dark slate
  */
 
 :root {
-  --avx-primary: #1d4ed8;
-  --avx-primary-hover: #1e40af;
-  --avx-primary-active: #1e3a8a;
+  --avx-primary: #3b82f6;
+  --avx-primary-hover: #2563eb;
+  --avx-primary-active: #1e40af;
   --avx-primary-tint: #eff6ff;
-  --avx-primary-soft: rgba(29, 78, 216, .14);
-  --avx-headline: #1d4ed8;
+  --avx-primary-soft: rgba(59, 130, 246, .14);
+  --avx-headline: #3b82f6;
   /* blue used for text (links, accents); lightened in dark mode for contrast */
-  --avx-link: #1d4ed8;
-  --avx-link-hover: #1d4ed8;
+  --avx-link: #3b82f6;
+  --avx-link-hover: #2563eb;
 
-  --avx-accent: #1d4ed8;
-  --avx-accent-hover: #1d4ed8;
+  --avx-accent: #3b82f6;
+  --avx-accent-hover: #2563eb;
   --avx-accent-tint: #dbeafe;
 
   --avx-ink: #0f172a;
@@ -42,25 +42,25 @@ html {
   --avx-border: #e2e8f0;
   --avx-bg: #fff;
 
-  --bs-primary: #1d4ed8;
-  --bs-primary-rgb: 29, 78, 216;
-  --bs-link-color: #1d4ed8;
-  --bs-link-color-rgb: 29, 78, 216;
-  --bs-link-hover-color: #1d4ed8;
-  --bs-link-hover-color-rgb: 29, 78, 216;
-  --bs-success: #1d4ed8;
-  --bs-success-rgb: 29, 78, 216;
-  --bs-green: #1d4ed8;
-  --bs-form-valid-color: #1d4ed8;
-  --bs-form-valid-border-color: #1d4ed8;
+  --bs-primary: #3b82f6;
+  --bs-primary-rgb: 59, 130, 246;
+  --bs-link-color: #3b82f6;
+  --bs-link-color-rgb: 59, 130, 246;
+  --bs-link-hover-color: #3b82f6;
+  --bs-link-hover-color-rgb: 59, 130, 246;
+  --bs-success: #3b82f6;
+  --bs-success-rgb: 59, 130, 246;
+  --bs-green: #3b82f6;
+  --bs-form-valid-color: #3b82f6;
+  --bs-form-valid-border-color: #3b82f6;
   /* the site's own green scale, remapped to the blue scale */
   --td-green-100: #dbeafe;
   --td-green-200: #bfdbfe;
   --td-green-300: #93c5fd;
-  --td-green-400: #1d4ed8;
-  --td-green-500: #1d4ed8;
-  --td-green-600: #1d4ed8;
-  --td-green-700: #1d4ed8;
+  --td-green-400: #3b82f6;
+  --td-green-500: #3b82f6;
+  --td-green-600: #3b82f6;
+  --td-green-700: #3b82f6;
   --td-green-800: #1e3a8a;
 }
 
@@ -71,14 +71,14 @@ html {
   --bs-secondary-color: #475569;
   --bs-light-rgb: 248, 250, 252;
   --bs-border-color: #e2e8f0;
-  --bs-primary: #1d4ed8;
-  --bs-primary-rgb: 29, 78, 216;
-  --bs-link-color: #1d4ed8;
-  --bs-link-color-rgb: 29, 78, 216;
-  --bs-link-hover-color: #1d4ed8;
-  --bs-link-hover-color-rgb: 29, 78, 216;
-  --bs-success: #1d4ed8;
-  --bs-success-rgb: 29, 78, 216;
+  --bs-primary: #3b82f6;
+  --bs-primary-rgb: 59, 130, 246;
+  --bs-link-color: #3b82f6;
+  --bs-link-color-rgb: 59, 130, 246;
+  --bs-link-hover-color: #3b82f6;
+  --bs-link-hover-color-rgb: 59, 130, 246;
+  --bs-success: #3b82f6;
+  --bs-success-rgb: 59, 130, 246;
 }
 
 /* ---------- Light mode: porcelain-blue canvas, white elevated surfaces ----------
@@ -91,8 +91,8 @@ html {
   --avx-card: #fff;
   --avx-card-border: #dfe7f4;
   --avx-inset: #f5f8fd;
-  --avx-card-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 10px 28px -8px rgba(29, 78, 216, .12);
-  --avx-card-shadow-hover: 0 2px 4px rgba(15, 23, 42, .05), 0 18px 40px -10px rgba(29, 78, 216, .2);
+  --avx-card-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 10px 28px -8px rgba(59, 130, 246, .12);
+  --avx-card-shadow-hover: 0 2px 4px rgba(15, 23, 42, .05), 0 18px 40px -10px rgba(59, 130, 246, .2);
 }
 
 [data-bs-theme="light"] {
@@ -114,7 +114,7 @@ html {
   background:
     radial-gradient(900px 560px at 6% -8%, rgba(96, 165, 250, .22), transparent 62%),
     radial-gradient(820px 520px at 98% 2%, rgba(129, 163, 248, .16), transparent 60%),
-    radial-gradient(1100px 680px at 50% 112%, rgba(29, 78, 216, .12), transparent 62%),
+    radial-gradient(1100px 680px at 50% 112%, rgba(59, 130, 246, .12), transparent 62%),
     linear-gradient(180deg, #f6f8fd 0%, #eef3fb 100%);
 }
 
@@ -269,7 +269,14 @@ html {
 .btn-primary {
   color: #fff;
   background-color: var(--avx-primary);
-  border-color: var(--avx-primary);
+  /* avortyx.com's button gradient */
+  background-image: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
+  border-color: #2563eb;
+}
+
+.btn-td-green:hover,
+.btn-primary:hover {
+  background-image: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
 }
 
 .btn-td-green:hover,
@@ -297,7 +304,7 @@ html {
 .mktg-link-green,
 .mktg-link-green:focus {
   color: var(--avx-link);
-  text-decoration-color: rgba(29, 78, 216, .4);
+  text-decoration-color: rgba(59, 130, 246, .4);
 }
 
 .mktg-link-green:hover {
@@ -337,7 +344,7 @@ html {
 .features-grid-card:hover,
 .integration-card:hover,
 .mktg-brand-card:hover {
-  border-color: rgba(29, 78, 216, .35);
+  border-color: rgba(59, 130, 246, .35);
 }
 
 .mktg-compact-feature-item:hover {
@@ -351,7 +358,7 @@ html {
 
 .pricing-highlight-card {
   border-color: var(--avx-primary) !important;
-  box-shadow: 0 10px 30px rgba(29, 78, 216, .12) !important;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, .12) !important;
 }
 
 .pricing-calculator-breakdown .pricing-calculator-row-total {
@@ -360,8 +367,8 @@ html {
 
 .flow-center-box {
   background: var(--avx-primary-tint);
-  border-color: rgba(29, 78, 216, .35);
-  box-shadow: 0 6px 20px rgba(29, 78, 216, .12);
+  border-color: rgba(59, 130, 246, .35);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, .12);
 }
 
 .flow-arrows-column {
@@ -415,7 +422,7 @@ html {
 
 /* call-to-action band: brand blue */
 .marketing-cta-band {
-  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 55%, #1d4ed8 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 55%, #3b82f6 100%);
 }
 
 .btn-cta-primary,
@@ -467,7 +474,7 @@ html {
 .formula-type-badge {
   color: var(--avx-accent-hover);
   background-color: var(--avx-accent-tint);
-  border: 1px solid rgba(29, 78, 216, .25);
+  border: 1px solid rgba(59, 130, 246, .25);
   border-radius: 999px;
 }
 
@@ -547,15 +554,15 @@ main a:not([class]):hover,
 
 /* brand kit swatches follow the new palette */
 .color-palette.primary-gradient {
-  background: linear-gradient(134deg, #1d4ed8 0%, #1d4ed8 55%, #1d4ed8 100%);
+  background: linear-gradient(134deg, #3b82f6 0%, #3b82f6 55%, #3b82f6 100%);
 }
 
 .color-palette.primary-color {
-  background: #1d4ed8;
+  background: #3b82f6;
 }
 
 .color-palette.accent-color {
-  background: #1d4ed8;
+  background: #3b82f6;
 }
 
 /* ---------- Hover / focus states (light and dark) ---------- */
@@ -583,7 +590,7 @@ a:hover {
 
 [data-bs-theme="dark"] .marketing-navbar.navbar .navbar-nav .nav-link:hover,
 [data-bs-theme="dark"] .marketing-navbar .dropdown-menu .dropdown-item:hover {
-  background-color: rgba(29, 78, 216, .18);
+  background-color: rgba(59, 130, 246, .18);
 }
 
 .mktg-compact-feature-item:hover,
@@ -599,7 +606,7 @@ a:hover {
 [data-bs-theme="dark"] .feature-card:hover,
 [data-bs-theme="dark"] .integration-card:hover,
 [data-bs-theme="dark"] .features-grid-card:hover {
-  border-color: rgba(29, 78, 216, .35);
+  border-color: rgba(59, 130, 246, .35);
 }
 
 .mktg-contact-links a:hover,
@@ -668,8 +675,8 @@ a,
   --bs-form-valid-border-color: #93c5fd;
   --bs-green-100: #172e54;
   --bs-green-200: #1e3a8a;
-  --bs-green-300: #1d4ed8;
-  --bs-green-400: #1d4ed8;
+  --bs-green-300: #3b82f6;
+  --bs-green-400: #3b82f6;
   --bs-green-500: #60a5fa;
   --bs-green-600: #93c5fd;
   --bs-green-700: #bfdbfe;
@@ -678,11 +685,11 @@ a,
   --td-green-200: #bfdbfe;
   --td-green-300: #93c5fd;
   --td-green-400: #60a5fa;
-  --td-green-500: #1d4ed8;
-  --td-green-600: #1d4ed8;
-  --td-green-700: #1d4ed8;
-  --td-green-800: #1d4ed8;
-  --td-flash-success-bg: #1d4ed8;
+  --td-green-500: #3b82f6;
+  --td-green-600: #3b82f6;
+  --td-green-700: #3b82f6;
+  --td-green-800: #3b82f6;
+  --td-flash-success-bg: #3b82f6;
 }
 
 /* text accents use a lighter blue so they stay readable on dark backgrounds */
@@ -703,8 +710,8 @@ a,
 }
 
 [data-bs-theme="dark"] .pricing-highlight-card {
-  border-color: #1d4ed8 !important;
-  box-shadow: 0 4px 16px rgba(29, 78, 216, .12) !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, .12) !important;
 }
 
 [data-bs-theme="dark"] .marketing-cta-band {
@@ -712,8 +719,8 @@ a,
 }
 
 [data-bs-theme="dark"] .flow-center-box {
-  background: linear-gradient(135deg, rgba(29, 78, 216, .12) 0%, rgba(29, 78, 216, .08) 100%);
-  border-color: rgba(29, 78, 216, .35);
+  background: linear-gradient(135deg, rgba(59, 130, 246, .12) 0%, rgba(59, 130, 246, .08) 100%);
+  border-color: rgba(59, 130, 246, .35);
 }
 
 [data-bs-theme="dark"] .mktg-lead-flow .hero-simple-node-icon-success {
@@ -728,27 +735,27 @@ a,
 
 /* same gradient treatment as the original dark buttons, in blue */
 [data-bs-theme="dark"] .btn-success {
-  background: linear-gradient(#1d4ed8, #1d4ed8);
-  border-color: #1d4ed8;
+  background: linear-gradient(#3b82f6, #3b82f6);
+  border-color: #3b82f6;
 }
 
 [data-bs-theme="dark"] .btn-success:hover {
-  background: linear-gradient(#1d4ed8, #1d4ed8);
-  border-color: #1d4ed8;
+  background: linear-gradient(#3b82f6, #3b82f6);
+  border-color: #3b82f6;
 }
 
 [data-bs-theme="dark"] .btn-success:focus {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
+  background: #3b82f6;
+  border-color: #3b82f6;
 }
 
 [data-bs-theme="dark"] .btn-outline-success {
   --bs-btn-color: #93c5fd;
   --bs-btn-border-color: #60a5fa;
-  --bs-btn-hover-bg: #1d4ed8;
-  --bs-btn-hover-border-color: #1d4ed8;
-  --bs-btn-active-bg: #1d4ed8;
-  --bs-btn-active-border-color: #1d4ed8;
+  --bs-btn-hover-bg: #3b82f6;
+  --bs-btn-hover-border-color: #3b82f6;
+  --bs-btn-active-bg: #3b82f6;
+  --bs-btn-active-border-color: #3b82f6;
   --bs-btn-disabled-color: #93c5fd;
   --bs-btn-disabled-border-color: #60a5fa;
 }
@@ -760,14 +767,14 @@ a,
 [data-bs-theme="dark"] .table tr:hover .icon-text,
 [data-bs-theme="dark"] .table tr:hover .icon-link,
 [data-bs-theme="dark"] .trackdrive-base-table-container .table.ui-table-reflow .icon-text {
-  background: linear-gradient(to bottom, #1d4ed8, #1d4ed8);
+  background: linear-gradient(to bottom, #3b82f6, #3b82f6);
 }
 
 [data-bs-theme="dark"] .navigation-menu .nav-item .nav-link.active,
 [data-bs-theme="dark"] .navigation-menu .nav-item > .nav-link:hover,
 [data-bs-theme="dark"] .navigation-menu .submenu .nav-item:hover,
 [data-bs-theme="dark"] .navigation-menu .submenu .nav-item .nav-link.active {
-  background-color: #1d4ed8;
+  background-color: #3b82f6;
 }
 
 /* ---------- Dark theme: near-black with blue light (avortyx console palette) ----------
@@ -779,9 +786,9 @@ a,
 :root[data-bs-theme="dark"] {
   --avx-link: #60a5fa;
   --avx-link-hover: #93c5fd;
-  --avx-primary-tint: rgba(29, 78, 216, .12);
-  --avx-accent-tint: rgba(29, 78, 216, .14);
-  --avx-indigo: #1d4ed8;
+  --avx-primary-tint: rgba(59, 130, 246, .12);
+  --avx-accent-tint: rgba(59, 130, 246, .14);
+  --avx-indigo: #3b82f6;
   --avx-glass: rgba(17, 19, 24, .78);
   --avx-glass-border: rgba(255, 255, 255, .09);
 
@@ -847,7 +854,7 @@ a,
 :root {
   --vortyx-teal: #3b82f6;
   --vortyx-cyan: #60a5fa;
-  --vortyx-deep: #1d4ed8;
+  --vortyx-deep: #3b82f6;
   --vortyx-bright: #93c5fd;
   --vortyx-ultra: #eff6ff;
   --vortyx-glow: rgba(59, 130, 246, .2);
@@ -856,7 +863,7 @@ a,
 :root[data-bs-theme="dark"] {
   --vortyx-teal: #3b82f6;
   --vortyx-cyan: #60a5fa;
-  --vortyx-deep: #1d4ed8;
+  --vortyx-deep: #3b82f6;
   --vortyx-bright: #93c5fd;
   --vortyx-ultra: #eff6ff;
   --vortyx-glow: rgba(59, 130, 246, .25);
@@ -1145,3 +1152,41 @@ abbr[data-bs-original-title] {
   cursor: inherit !important;
 }
 
+
+/* Support team strip (contact + help pages) */
+.avx-team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.avx-team-member {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.avx-team-member img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(59, 130, 246, .35);
+}
+
+.avx-team-name {
+  display: block;
+  font-weight: 600;
+  font-size: .9rem;
+  line-height: 1.2;
+}
+
+.avx-team-role {
+  display: block;
+  font-size: .8rem;
+  color: var(--bs-secondary-color);
+}

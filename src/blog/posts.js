@@ -6,7 +6,7 @@
 // Product statements stick to what the feature pages already say; example figures are illustrative.
 
 // covers are cached for a week: bump the version whenever they are re-rendered
-export const COVER_VERSION = 3
+export const COVER_VERSION = 4
 export const coverSrc = (slug, small) => `/assets/avx-blog/${slug}${small ? '-600' : ''}.webp?v=${COVER_VERSION}`
 
 export const CATEGORIES = ['Pay-per-call', 'Attribution', 'Ping/Post', 'Automation', 'Agents', 'Compliance', 'AI']

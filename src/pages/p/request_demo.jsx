@@ -58,7 +58,7 @@ export default function RequestDemo() {
                       <p className="fst-italic text-secondary mb-0">"The live monitor alone is worth it. For the first time we can see what our buyers are actually doing with the calls we send them."</p>
                     </blockquote>
                     <div className="d-flex align-items-center justify-content-center gap-3">
-                      <span className="rounded-circle d-inline-flex align-items-center justify-content-center fw-semibold text-white flex-shrink-0" style={{ width: 44, height: 44, background: "#1d4ed8" }} aria-hidden="true">MW</span>
+                      <span className="rounded-circle d-inline-flex align-items-center justify-content-center fw-semibold text-white flex-shrink-0" style={{ width: 44, height: 44, background: "#3b82f6" }} aria-hidden="true">MW</span>
                       <div className="text-start">
                         <div className="fw-bold text-white lh-sm">Marcus Webb</div>
                         <div className="text-muted small">COO, Ringwell</div>

@@ -1,6 +1,7 @@
 // /help.html — the Help Center: search, popular topics and articles, then every article by topic.
 // Articles live in src/help/articles.js; site.js runs the search and topic filter.
 import Bolt from '../components/Bolt.jsx'
+import SupportTeam from '../components/SupportTeam.jsx'
 import { ARTICLES, POPULAR, TOPICS } from '../help/articles.js'
 
 export const meta = {
@@ -82,6 +83,7 @@ export default function Help() {
               <i className="fa-solid fa-comments avx-help-band-icon" aria-hidden="true" />
               <h2>Still have a question?</h2>
               <p>Our team knows pay-per-call. Write to us and a specialist will get back to you.</p>
+              <SupportTeam className="mb-4" />
               <a href="mailto:support@avortyx.com" className="btn btn-cta-outline fw-semibold" data-avx-email="">Email support@avortyx.com</a>
             </div>
             <div className="col-md-6">

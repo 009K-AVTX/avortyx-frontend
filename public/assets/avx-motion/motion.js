@@ -270,10 +270,10 @@
     var TILT = 0.42, CT = Math.cos(TILT), ST = Math.sin(TILT);
     // avortyx.com's blue scale (keppel-200 / 700 / 900 / 950) for every sphere in the scene
     var TINT = {
-      leads: ['#bfdbfe', '#1d4ed8', '#1e3a8a', '#0b1533'],
-      revenue: ['#bfdbfe', '#1d4ed8', '#1e3a8a', '#0b1533'],
-      moonA: ['#dbeafe', '#3b82f6', '#1d4ed8', '#172554'],
-      moonB: ['#dbeafe', '#1d4ed8', '#1e3a8a', '#172554']
+      leads: ['#bfdbfe', '#3b82f6', '#1e3a8a', '#0b1533'],
+      revenue: ['#bfdbfe', '#3b82f6', '#1e3a8a', '#0b1533'],
+      moonA: ['#dbeafe', '#3b82f6', '#3b82f6', '#172554'],
+      moonB: ['#dbeafe', '#3b82f6', '#1e3a8a', '#172554']
     };
     var SPR = {}, CURVES = globeCurves(), DOTS = fibSphere(140);
 
@@ -373,7 +373,7 @@
       ctx.globalCompositeOperation = 'lighter';
       ctx.save(); ctx.translate(cx, cy); ctx.scale(1, 0.26);
       var g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx * 1.2);
-      g.addColorStop(0, 'rgba(29,78,216,.32)'); g.addColorStop(0.55, 'rgba(29,78,216,.1)'); g.addColorStop(1, 'rgba(29,78,216,0)');
+      g.addColorStop(0, 'rgba(59,130,246,.32)'); g.addColorStop(0.55, 'rgba(59,130,246,.1)'); g.addColorStop(1, 'rgba(59,130,246,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx * 1.2, 0, TAU); ctx.fill();
       ctx.restore();
       [1, 0.8, 0.6, 0.4].forEach(function (k, i) {
@@ -436,11 +436,11 @@
       ctx.save();
       ctx.globalCompositeOperation = 'lighter';
       var hg = ctx.createRadialGradient(x, y, r * 0.8, x, y, r * 1.7);
-      hg.addColorStop(0, 'rgba(29,78,216,' + (0.2 + fl * 0.2).toFixed(3) + ')'); hg.addColorStop(1, 'rgba(29,78,216,0)');
+      hg.addColorStop(0, 'rgba(59,130,246,' + (0.2 + fl * 0.2).toFixed(3) + ')'); hg.addColorStop(1, 'rgba(59,130,246,0)');
       ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(x, y, r * 1.7, 0, TAU); ctx.fill();
       ctx.restore();
       var cg = ctx.createRadialGradient(x - r * 0.25, y - r * 0.3, r * 0.1, x, y, r);
-      cg.addColorStop(0, 'rgba(29,78,216,.55)'); cg.addColorStop(0.7, 'rgba(23,46,84,.6)'); cg.addColorStop(1, 'rgba(96,165,250,.4)');
+      cg.addColorStop(0, 'rgba(59,130,246,.55)'); cg.addColorStop(0.7, 'rgba(23,46,84,.6)'); cg.addColorStop(1, 'rgba(96,165,250,.4)');
       ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
       ctx.save();
       ctx.globalCompositeOperation = 'lighter';
@@ -527,8 +527,8 @@
       var h = arc(a, b, e), R = 12 * h.s;
       var g = ctx.createRadialGradient(h.x, h.y, 0, h.x, h.y, R);
       g.addColorStop(0, 'rgba(224,238,254,' + (0.95 * fade).toFixed(3) + ')');
-      g.addColorStop(0.3, 'rgba(29,78,216,' + (0.4 * fade).toFixed(3) + ')');
-      g.addColorStop(1, 'rgba(29,78,216,0)');
+      g.addColorStop(0.3, 'rgba(59,130,246,' + (0.4 * fade).toFixed(3) + ')');
+      g.addColorStop(1, 'rgba(59,130,246,0)');
       ctx.fillStyle = g; ctx.beginPath(); ctx.arc(h.x, h.y, R, 0, TAU); ctx.fill();
       ctx.fillStyle = 'rgba(255,255,255,' + fade.toFixed(3) + ')';
       ctx.beginPath(); ctx.arc(h.x, h.y, 2.2 * h.s, 0, TAU); ctx.fill();
@@ -957,7 +957,7 @@
         svg.setAttribute('height', diagram.offsetHeight);
         var defs = '<defs><linearGradient id="avx-plat-g' + di + '" x1="0" y1="0" x2="1" y2="0">' +
           '<stop offset="0%" stop-color="#60a5fa" stop-opacity=".15"/>' +
-          '<stop offset="50%" stop-color="#1d4ed8" stop-opacity=".7"/>' +
+          '<stop offset="50%" stop-color="#3b82f6" stop-opacity=".7"/>' +
           '<stop offset="100%" stop-color="#60a5fa" stop-opacity=".15"/></linearGradient></defs>';
         var paths = '';
         function wire(item, i, n, out) {
@@ -1306,7 +1306,7 @@
         for (var c = 0; c < COLS; c++) { var q = point(c, r); if (c) ctx.lineTo(q.x, q.y); else ctx.moveTo(q.x, q.y); }
         var g = ctx.createLinearGradient(0, 0, W, 0);
         var la = (0.08 + 0.2 * (r / ROWS)).toFixed(3);
-        g.addColorStop(0, 'rgba(29,78,216,0)'); g.addColorStop(0.5, 'rgba(29,78,216,' + la + ')'); g.addColorStop(1, 'rgba(29,78,216,0)');
+        g.addColorStop(0, 'rgba(59,130,246,0)'); g.addColorStop(0.5, 'rgba(59,130,246,' + la + ')'); g.addColorStop(1, 'rgba(59,130,246,0)');
         ctx.strokeStyle = g; ctx.lineWidth = 1; ctx.stroke();
       }
       // the points: brighter on the crests
@@ -1332,7 +1332,7 @@
         var glow = ctx.createRadialGradient(x, y, 0, x, y, rad);
         glow.addColorStop(0, 'rgba(191,219,254,' + (0.9 * al).toFixed(3) + ')');
         glow.addColorStop(0.25, 'rgba(96,165,250,' + (0.45 * al).toFixed(3) + ')');
-        glow.addColorStop(1, 'rgba(29,78,216,0)');
+        glow.addColorStop(1, 'rgba(59,130,246,0)');
         ctx.fillStyle = glow;
         ctx.fillRect(x - rad, y - rad, rad * 2, rad * 2);
       });
@@ -1561,9 +1561,9 @@
 
       // atmosphere: a thin lit limb, brightest along the top
       var limb = ctx.createRadialGradient(cx, cy, R * 0.94, cx, cy, R * 1.16);
-      limb.addColorStop(0, 'rgba(29,78,216,0)');
+      limb.addColorStop(0, 'rgba(59,130,246,0)');
       limb.addColorStop(0.3, 'rgba(96,165,250,.22)');
-      limb.addColorStop(1, 'rgba(29,78,216,0)');
+      limb.addColorStop(1, 'rgba(59,130,246,0)');
       ctx.fillStyle = limb;
       ctx.beginPath(); ctx.arc(cx, cy, R * 1.16, 0, Math.PI * 2); ctx.fill();
       var body = ctx.createRadialGradient(cx, cy - R * 0.6, R * 0.1, cx, cy, R);
@@ -1672,7 +1672,7 @@
       ctx.scale(1, 0.12);
       var sky = ctx.createRadialGradient(0, 0, 0, 0, 0, W * 0.45);
       sky.addColorStop(0, 'rgba(96,165,250,.16)');
-      sky.addColorStop(1, 'rgba(29,78,216,0)');
+      sky.addColorStop(1, 'rgba(59,130,246,0)');
       ctx.fillStyle = sky;
       ctx.beginPath(); ctx.arc(0, 0, W * 0.45, 0, Math.PI * 2); ctx.fill();
       ctx.restore();
@@ -1681,8 +1681,8 @@
       for (var l = 0; l < LANES; l++) {
         var a = at(l, 0.02), b = at(l, 1);
         var g = ctx.createLinearGradient(a[0], a[1], b[0], b[1]);
-        g.addColorStop(0, 'rgba(29,78,216,0)');
-        g.addColorStop(1, 'rgba(29,78,216,' + (0.22 * edge(b[0])).toFixed(3) + ')');
+        g.addColorStop(0, 'rgba(59,130,246,0)');
+        g.addColorStop(1, 'rgba(59,130,246,' + (0.22 * edge(b[0])).toFixed(3) + ')');
         ctx.strokeStyle = g;
         ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
       }
@@ -1725,8 +1725,8 @@
       }
       var hx = s.hx, hy = s.hy;
       var halo = ctx.createRadialGradient(hx, hy, 0, hx, hy, Math.min(W, 900) * 0.42);
-      halo.addColorStop(0, 'rgba(29,78,216,.16)');
-      halo.addColorStop(1, 'rgba(29,78,216,0)');
+      halo.addColorStop(0, 'rgba(59,130,246,.16)');
+      halo.addColorStop(1, 'rgba(59,130,246,0)');
       ctx.fillStyle = halo;
       ctx.fillRect(0, 0, W, H);
 
@@ -1737,8 +1737,8 @@
       ctx.lineWidth = 1;
       s.lines.forEach(function (L) {
         var g = ctx.createLinearGradient(L.sx, L.sy, hx, hy);
-        g.addColorStop(0, 'rgba(29,78,216,0)');
-        g.addColorStop(0.5, 'rgba(29,78,216,.09)');
+        g.addColorStop(0, 'rgba(59,130,246,0)');
+        g.addColorStop(0.5, 'rgba(59,130,246,.09)');
         g.addColorStop(0.92, 'rgba(96,165,250,.22)');
         g.addColorStop(1, 'rgba(96,165,250,0)');
         ctx.strokeStyle = g;
@@ -1920,7 +1920,7 @@
       var labels = o.labels, BW = 240, BH = 70, gap = 8, bw = (BW - gap * (labels.length - 1)) / labels.length;
       var vals = labels.map(function () { return o.min + Math.random() * (o.max - o.min); });
       svg = svgEl('svg', { viewBox: '0 0 ' + BW + ' ' + (BH + 14), class: 'avx-ch avx-ch-bars' });
-      var html = '<defs><linearGradient id="' + id + 'b" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#1d4ed8" stop-opacity=".35"/></linearGradient></defs>';
+      var html = '<defs><linearGradient id="' + id + 'b" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#3b82f6" stop-opacity=".35"/></linearGradient></defs>';
       labels.forEach(function (lb, k) {
         var x = k * (bw + gap);
         html += '<rect class="avx-ch-track" x="' + x.toFixed(1) + '" y="0" width="' + bw.toFixed(1) + '" height="' + BH + '" rx="3"/>' +
@@ -1937,7 +1937,7 @@
       value = function () { return vals.reduce(function (a, b) { return a + b; }, 0) / (o.avg ? vals.length : 1); };
     } else if (o.type === 'donut') {
       var segs = o.labels.map(function (lb, k) { return { lb: lb, v: o.weights[k] }; });
-      var R = 30, C = 2 * Math.PI * R, colors = ['#60a5fa', '#1d4ed8', '#93c5fd', '#475569', '#1d4ed8'];
+      var R = 30, C = 2 * Math.PI * R, colors = ['#60a5fa', '#3b82f6', '#93c5fd', '#475569', '#3b82f6'];
       svg = svgEl('svg', { viewBox: '0 0 240 76', class: 'avx-ch avx-ch-donut' });
       var dh = '<circle class="avx-ch-ring" cx="38" cy="38" r="' + R + '"/>';
       segs.forEach(function (sg, k) {
@@ -3600,8 +3600,8 @@
       var py = gy + R * 1.1, sq = 0.26;
       var disc = ctx.createRadialGradient(gx, py, 0, gx, py, R * 1.3);
       disc.addColorStop(0, rgba(mix([147, 197, 253], tint, 0.3), 0.55));
-      disc.addColorStop(0.5, 'rgba(29,78,216,0.18)');
-      disc.addColorStop(1, 'rgba(29,78,216,0)');
+      disc.addColorStop(0.5, 'rgba(59,130,246,0.18)');
+      disc.addColorStop(1, 'rgba(59,130,246,0)');
       ctx.save(); ctx.translate(gx, py); ctx.scale(1, sq); ctx.translate(-gx, -py);
       ctx.fillStyle = disc; ctx.beginPath(); ctx.arc(gx, py, R * 1.3, 0, 2 * PI); ctx.fill();
       var flow = reduced ? 0 : (t * 0.5) % 1;
@@ -3650,7 +3650,7 @@
       // the globe: a halo, then the points, brighter toward the rim, with the scoring ripple
       var halo2 = ctx.createRadialGradient(gx, gy, R * 0.2, gx, gy, R * 1.6);
       halo2.addColorStop(0, rgba(mix([29, 78, 216], tint, 0.4), 0.28));
-      halo2.addColorStop(1, 'rgba(29,78,216,0)');
+      halo2.addColorStop(1, 'rgba(59,130,246,0)');
       ctx.fillStyle = halo2; ctx.beginPath(); ctx.arc(gx, gy, R * 1.6, 0, 2 * PI); ctx.fill();
       var cs = Math.cos(spin), sn = Math.sin(spin), ct = Math.cos(-0.38), stt = Math.sin(-0.38);
       var rp = t - ripple, rOn = rp >= 0 && rp < 1.6, base = mix([147, 197, 253], tint, st.phase === 'flow' ? 0.15 : 0.45);

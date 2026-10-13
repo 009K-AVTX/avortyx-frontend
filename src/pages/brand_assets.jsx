@@ -72,12 +72,12 @@ export default function BrandAssets() {
             <div className="col-6 col-md-4 col-lg-2">
               <div className="mktg-color-swatch color-palette primary-gradient" />
               <p className="small fw-semibold mt-2 mb-0">Deep blue gradient</p>
-              <p className="small text-muted mb-0"><code>#1e3a8a → #1d4ed8</code></p>
+              <p className="small text-muted mb-0"><code>#1e3a8a → #3b82f6</code></p>
             </div>
             <div className="col-6 col-md-4 col-lg-2">
               <div className="mktg-color-swatch color-palette primary-color" />
               <p className="small fw-semibold mt-2 mb-0">Avortyx deep blue</p>
-              <p className="small text-muted mb-0"><code>#1d4ed8</code></p>
+              <p className="small text-muted mb-0"><code>#3b82f6</code></p>
             </div>
             <div className="col-6 col-md-4 col-lg-2">
               <div className="mktg-color-swatch color-palette accent-color" />

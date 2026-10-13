@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'public/assets/avx-blog'
 W, H, SS = 1200, 630, 2  # supersampled 2x, then scaled down
 MX, MY = 905, 318         # center of the illustration, in 1x pixels
-DEEP_HUE = 224.3          # avortyx.com's deep blue, #1d4ed8, for every cover
+DEEP_HUE = 217.2          # avortyx.com's blue, #3b82f6, for every cover
 
 
 def posts():
