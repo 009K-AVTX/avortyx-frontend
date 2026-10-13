@@ -19,9 +19,9 @@ const LINKS = [
   ['/careers', 'Careers'],
 ]
 
-export default function Navbar({ brandHref }) {
+export default function Navbar({ brandHref, isLanding }) {
   return (
-    <nav className="navbar navbar-expand-lg sticky-top marketing-navbar">
+    <nav className={`navbar navbar-expand-lg sticky-top marketing-navbar${isLanding ? ' avx-landing-navbar' : ''}`}>
       <div className="container">
         <a className="navbar-brand d-flex align-items-center gap-2" href={brandHref} style={{ textDecoration: 'none' }}>
           <BrandMark gradientId="avx-mk-g-nav" />

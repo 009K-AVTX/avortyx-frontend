@@ -4,7 +4,7 @@ import { CATEGORIES, LATEST } from '../blog/posts.js'
 import Bolt from '../components/Bolt.jsx'
 
 export const meta = {
-  title: "Avortyx Blog | Routing, attribution and pay-per-call guides",
+  title: "Advanced Playbooks For Call Intelligence, Real-Time Routing, And Pay-Per-Call Growth | Avortyx Blog",
   description: "Practical guides on call routing, attribution, ping/post, compliance and AI from the team behind Avortyx.",
   bodyClass: "avortyx_marketing blog without-waves",
   layout: "site",
@@ -18,8 +18,8 @@ export default function Blog() {
     <main>
       <section className="avx-blog-hero">
         <div className="container">
-          <p className="avx-eyebrow">From the Avortyx team</p>
-          <h1 className="fw-bold">Tactical playbooks for call tracking, real-time routing &amp; <em>pay-per-call</em></h1>
+          <p className="avx-eyebrow">Signals &amp; Field Notes</p>
+          <h1 className="fw-bold">Advanced Playbooks For Call Intelligence, Real-Time Routing, And Pay-Per-Call Growth</h1>
           <p className="lead">What we have learned routing calls for pay-per-call networks: margin, attribution, compliance and AI, written for the people running campaigns.</p>
         </div>
       </section>

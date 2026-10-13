@@ -141,10 +141,10 @@ html {
   background: transparent;
 }
 
-/* frosted navbar with a hairline edge */
+/* frosted navbar without edge */
 [data-bs-theme="light"] .marketing-navbar {
   background-color: rgba(246, 248, 253, .78) !important;
-  border-bottom: 1px solid rgba(148, 170, 210, .25);
+  border-bottom: none !important;
   -webkit-backdrop-filter: saturate(170%) blur(14px);
   backdrop-filter: saturate(170%) blur(14px);
 }
@@ -845,21 +845,21 @@ a,
 /* ---------- Logo: the avortyx.com vortex mark and gradient wordmark ---------- */
 
 :root {
-  --vortyx-teal: #1d4ed8;
+  --vortyx-teal: #3b82f6;
   --vortyx-cyan: #60a5fa;
   --vortyx-deep: #1d4ed8;
-  --vortyx-bright: #60a5fa;
-  --vortyx-ultra: #dbeafe;
-  --vortyx-glow: rgba(29, 78, 216, .16);
+  --vortyx-bright: #93c5fd;
+  --vortyx-ultra: #eff6ff;
+  --vortyx-glow: rgba(59, 130, 246, .2);
 }
 
 :root[data-bs-theme="dark"] {
-  --vortyx-teal: #1d4ed8;
-  --vortyx-cyan: #93c5fd;
+  --vortyx-teal: #3b82f6;
+  --vortyx-cyan: #60a5fa;
   --vortyx-deep: #1d4ed8;
-  --vortyx-bright: #bfdbfe;
+  --vortyx-bright: #93c5fd;
   --vortyx-ultra: #eff6ff;
-  --vortyx-glow: rgba(29, 78, 216, .2);
+  --vortyx-glow: rgba(59, 130, 246, .25);
 }
 
 .avx-logo-mark {
@@ -883,29 +883,38 @@ a,
   display: none;
 }
 
-.avx-logo-mark path {
-  transform-box: view-box;
-  transform-origin: 32px 32px;
-  transition: transform .8s cubic-bezier(.2, .8, .2, 1);
+.avx-logo-mark path,
+.avx-logo-mark svg,
+.avx-logo-mark g,
+.avx-logo-mark {
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
 }
 
+a:hover > .avx-logo-mark,
+a:hover > .avx-logo-mark path,
+a:hover > .avx-logo-mark .avx-mk-r1,
+a:hover > .avx-logo-mark .avx-mk-r2,
+a:hover > .avx-logo-mark .avx-mk-r3 {
+  transform: none !important;
+  animation: none !important;
+}
 
-
-a:hover > .avx-logo-mark .avx-mk-r1 { transform: rotate(-30deg); }
-a:hover > .avx-logo-mark .avx-mk-r2 { transform: rotate(45deg); }
-a:hover > .avx-logo-mark .avx-mk-r3 { transform: rotate(-60deg); }
-
-/* wordmark: Inter Tight semibold, tight tracking, a quiet silver finish */
+/* wordmark: signature Avortyx blue matching avortyx.com */
 .avx-wordmark {
   font-size: 25px !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   letter-spacing: -.035em !important;
   line-height: 1;
-  background: linear-gradient(180deg, #ffffff 30%, #c3cbd8 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: #0658d2 !important;
+  -webkit-text-fill-color: #0658d2 !important;
+  background: none !important;
+}
+
+.hero-simple-hub-name {
+  color: #0658d2 !important;
+  -webkit-text-fill-color: #0658d2 !important;
 }
 
 /* ---------- Typography: ftmo.com's type system ----------
@@ -1036,5 +1045,70 @@ html[data-bs-theme="dark"] {
 .request_demo .fa-circle-check,
 .request_demo .fa-check {
   color: #2563eb !important;
+}
+
+/* Navbar: remove floating island box styling */
+.marketing-navbar > .container,
+.marketing-navbar .container,
+:root[data-bs-theme="dark"] .marketing-navbar .container {
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.marketing-navbar > .container::before {
+  display: none !important;
+}
+
+/* ---------- Remove navbar edge across all themes and states ---------- */
+.marketing-navbar,
+.marketing-navbar.navbar,
+:root[data-bs-theme="dark"] .marketing-navbar,
+[data-bs-theme="light"] .marketing-navbar,
+.marketing-navbar.avx-nav-scrolled {
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* ---------- Landing page: navbar disappears on scroll, leaving the logo alone static ---------- */
+.marketing-navbar .navbar-collapse,
+.marketing-navbar .navbar-toggler {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.home .marketing-navbar.avx-nav-scrolled,
+body.pages.home .marketing-navbar.avx-nav-scrolled,
+.marketing-navbar.avx-landing-navbar.avx-nav-scrolled {
+  background: transparent !important;
+  background-color: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+body.home .marketing-navbar.avx-nav-scrolled .navbar-collapse,
+body.home .marketing-navbar.avx-nav-scrolled .navbar-toggler,
+body.pages.home .marketing-navbar.avx-nav-scrolled .navbar-collapse,
+body.pages.home .marketing-navbar.avx-nav-scrolled .navbar-toggler,
+.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .navbar-collapse,
+.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .navbar-toggler {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(-8px);
+}
+
+body.home .marketing-navbar.avx-nav-scrolled .navbar-brand,
+body.pages.home .marketing-navbar.avx-nav-scrolled .navbar-brand,
+.marketing-navbar.avx-landing-navbar.avx-nav-scrolled .navbar-brand {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
 }
 

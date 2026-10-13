@@ -50,7 +50,7 @@ export default function Features() {
             </div>
             <div className="flow-column-center">
               <div className="flow-center-box">
-                <div className="flow-center-title"><i className="fa-solid fa-bolt text-success me-1" aria-hidden="true" /> Avortyx</div>
+                <div className="flow-center-title"><i className="fa-solid fa-bolt text-primary me-1" style={{ color: "#2563eb" }} aria-hidden="true" /> Avortyx</div>
                 <div className="flow-center-features"><span>Score, route and settle every call and lead in real time.</span></div>
               </div>
             </div>

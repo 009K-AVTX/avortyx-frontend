@@ -9,7 +9,7 @@ export default function Layout({ route, layout, children }) {
   const home = route === '/'
   return (
     <>
-      {layout === 'feature' ? <FeatureHeader route={route} /> : <Navbar brandHref={home ? '#' : '/'} />}
+      {layout === 'feature' ? <FeatureHeader route={route} /> : <Navbar brandHref={home ? '#' : '/'} isLanding={home} />}
       <div className="container" />
       {children}
       <Footer />

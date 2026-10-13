@@ -189,7 +189,15 @@ export const meta = {
     @media (max-width: 768px) { .avx-blog-grid-2 { grid-template-columns: 1fr !important; } }
 
     /* Pro live decision styling */
-    .avx-decide-pro { min-height: 460px; }
+    .avx-decide,
+    .avx-decide-pro {
+      min-height: 460px;
+      border: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+    .avx-decide::after { display: none !important; }
     .avx-dc-telecom-chip {
       display: inline-flex; align-items: center; font-size: 11px; font-family: var(--avx-font-mono);
       padding: 2px 8px; border-radius: 999px; background: rgba(29, 78, 216, 0.12); color: #1d4ed8; border: 1px solid rgba(29, 78, 216, 0.25);
@@ -861,7 +869,7 @@ export default function Home() {
                   <span className="avx-fc-pad" aria-hidden="true" />
                   <b data-dc="num">(312) 555-0142</b>
                   <span data-dc="meta">Google Ads · Medicare</span>
-                  <span className="avx-fc-verified"><i className="fa-solid fa-shield-check text-success" /> Verified (99.4%)</span>
+                  <span className="avx-fc-verified"><i className="fa-solid fa-shield-check text-primary" style={{ color: "#2563eb" }} /> Verified (99.4%)</span>
                 </div>
                 <span className="avx-fc-link avx-on" data-dc="link1"><i /></span>
                 <div className="avx-fc-core avx-on">
@@ -2017,8 +2025,8 @@ export default function Home() {
         <div className="container">
           <div className="avx-caps-head">
             <div>
-              <h2 className="fw-bold">From the blog</h2>
-              <p>Guides and worked examples on call tracking, routing and pay-per-call.</p>
+              <h2 className="fw-bold">Field Intelligence &amp; Playbooks</h2>
+              <p>Deep-dive architectures, live routing breakdowns, and high-volume growth strategies.</p>
             </div>
             <a href="/blog" className="avx-more-link">All posts <span aria-hidden="true">→</span></a>
           </div>

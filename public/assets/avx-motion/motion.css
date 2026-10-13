@@ -2035,7 +2035,7 @@ img.avx-tint {
 
 :root[data-bs-theme="dark"] .marketing-navbar {
   background-color: rgba(11, 13, 16, .72) !important;
-  border-bottom: 1px solid rgba(148, 163, 184, .12);
+  border-bottom: none !important;
   -webkit-backdrop-filter: saturate(160%) blur(14px);
   backdrop-filter: saturate(160%) blur(14px);
 }
@@ -7825,12 +7825,12 @@ button:focus-visible,
   max-width: 1040px;
   margin: 72px auto 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .09);
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(20, 23, 30, .82), rgba(11, 13, 18, .9));
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 40px 90px -40px rgba(0, 0, 0, .95), 0 0 0 6px rgba(29, 78, 216, .05), inset 0 1px 0 rgba(255, 255, 255, .04);
+  border: none !important;
+  border-radius: 0;
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
   text-align: left;
 }
 
@@ -9589,43 +9589,35 @@ body.home main section .mktg-section-header {
 /* ---------- Navbar: a floating glass bar with rounded, lit edges (every page) ---------- */
 
 :root[data-bs-theme="dark"] .marketing-navbar {
-  padding: 12px 0 0;
-  border-bottom: 0;
-  background: transparent !important;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  pointer-events: none;
+  padding: 14px 0;
+  border-bottom: none !important;
+  background: rgba(6, 11, 26, .85) !important;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  pointer-events: auto;
 }
 
 .marketing-navbar > .container {
   position: relative;
-  padding: 8px 10px 8px 18px;
-  border: 1px solid rgba(148, 163, 184, .14);
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(20, 23, 31, .78), rgba(11, 13, 18, .74));
-  -webkit-backdrop-filter: saturate(160%) blur(16px);
-  backdrop-filter: saturate(160%) blur(16px);
-  box-shadow: 0 18px 50px -24px rgba(0, 0, 0, .9), 0 0 0 1px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .05);
+  padding: 0 16px;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
   pointer-events: auto;
-  transition: background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
 }
 
 /* a thin blue light along the top edge, fading out towards the corners */
 .marketing-navbar > .container::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  right: 18%;
-  left: 18%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, .7), transparent);
-  pointer-events: none;
+  display: none !important;
 }
 
 .marketing-navbar.avx-nav-scrolled > .container {
-  border-color: rgba(148, 163, 184, .2);
-  background: linear-gradient(180deg, rgba(17, 20, 27, .92), rgba(10, 12, 16, .9));
-  box-shadow: 0 22px 60px -20px rgba(0, 0, 0, .95), 0 0 0 1px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .06);
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .marketing-navbar .avx-wordmark {
@@ -9663,13 +9655,16 @@ body.home main section .mktg-section-header {
 
 @media (max-width: 991.98px) {
   .marketing-navbar {
-    padding: 10px 12px 0 !important;
+    padding: 10px 0 !important;
   }
 
   .marketing-navbar > .container {
     max-width: none;
-    padding: 8px 8px 8px 14px;
-    border-radius: 16px;
+    padding: 0 16px;
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
 
   .marketing-navbar .navbar-toggler {
@@ -12803,7 +12798,9 @@ dialog.avx-mail::backdrop {
 :root[data-bs-theme="dark"] .marketing-navbar .container {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  background: linear-gradient(180deg, rgba(19, 22, 30, .97), rgba(11, 13, 18, .96)) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .marketing-navbar .dropdown-menu,
