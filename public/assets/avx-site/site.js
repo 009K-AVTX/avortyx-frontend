@@ -655,6 +655,7 @@
   'use strict';
   var TO = 'hello@avortyx.io';
   var MAX = 4 * 1024 * 1024;
+  var DONE = 'Thank you, your application is with our hiring team. We\u2019ll be in touch by email.';
   var dlg = null, form, err, done, send, role = '';
 
   function build() {
@@ -724,6 +725,11 @@
         if (!r.ok) return fail(r.body.error || 'We could not send your application just now.', true);
         if (typeof window.gtag === 'function') window.gtag('event', 'job_application', { role: role });
         form.querySelectorAll('label, .avx-mail-row, .avx-mail-actions').forEach(function (el) { el.hidden = true; });
+        // the careers backend answers with the applicant's reference (AVX-00012), also in their email
+        var ref = r.body && typeof r.body.reference === 'string' ? r.body.reference.slice(0, 20) : '';
+        done.textContent = ref
+          ? 'Thank you, your application is with our hiring team. Your reference is ' + ref + '. We\u2019ll be in touch by email.'
+          : DONE;
         done.hidden = false;
       })
       .catch(function () { fail('We could not send your application just now.', true); })

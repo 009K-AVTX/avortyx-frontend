@@ -63,3 +63,22 @@ npm run preview   # serve dist/
 ```
 
 Deploy with `vercel --prod`.
+
+## Careers applications
+
+The careers page's **Apply** form posts to the careers backend (the separate `avortyx-backend`
+repo, on the Hostinger VPS at `https://api.avortyx.com`). It saves the application, sends it to the
+team on Telegram (the Avortyx Careers bot) and by email, emails the applicant a confirmation, and
+lets the team reply from the panel or from Telegram. The form shows the applicant their reference
+(`AVX-00012`) when it is sent.
+
+Set this in Vercel → Project → Settings → Environment Variables (Production), then redeploy:
+
+```
+VITE_APPLY_URL=https://api.avortyx.com/careers/apply
+```
+
+It is read at build time, so changing it needs a new deploy. The backend must list this site in its
+`CORS_ORIGINS` (`https://avortyx.com,https://www.avortyx.com`). Without `VITE_APPLY_URL` the form
+falls back to `api/apply.js` on this site (Telegram and email only, no bot or panel).
+
