@@ -104,6 +104,10 @@ export default function InboundCallRouting() {
               <a href="/features/suppression_lists">Suppression & DNC</a>
               .
             </p>
+            <h3 id="routing-rules">Rules you can see</h3>
+            <p>
+              Routing rules are built visually, as a tree of conditions rather than rows in a spreadsheet: a minimum intent score, the states a campaign serves, the hours it runs and each buyer’s caps and concurrency, all on one screen. Anyone on the team can read a campaign’s routing at a glance and change a geo or schedule without waiting on an engineer.
+            </p>
             <h3>Every decision shows up in the numbers</h3>
             <p>
               Each routed call brings its offer, buyer and revenue into{" "}

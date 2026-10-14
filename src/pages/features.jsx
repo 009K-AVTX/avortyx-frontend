@@ -136,6 +136,24 @@ export default function Features() {
                 </div>
               </a>
             </div>
+            <div className="col-md-6 col-lg-4">
+              <a href="/features/call_tracking#live-monitor" className="text-decoration-none">
+                <div className="card features-grid-card p-4">
+                  <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3"><i className="fa-solid fa-tower-broadcast" aria-hidden="true" /></div>
+                  <h3 className="h5 fw-bold text-body">Live Call Monitoring</h3>
+                  <p className="text-muted small mb-0">Watch every call in flight, and let supervisors whisper to an agent or barge in.</p>
+                </div>
+              </a>
+            </div>
+            <div className="col-md-6 col-lg-4">
+              <a href="/features/inbound_call_routing#routing-rules" className="text-decoration-none">
+                <div className="card features-grid-card p-4">
+                  <div className="features-grid-icon bg-success bg-opacity-10 text-success mb-3"><i className="fa-solid fa-diagram-project" aria-hidden="true" /></div>
+                  <h3 className="h5 fw-bold text-body">Visual Routing Rules</h3>
+                  <p className="text-muted small mb-0">Geo, schedule, intent and cap rules laid out as a tree your whole team can read and change.</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>

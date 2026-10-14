@@ -989,9 +989,13 @@
         function wire(item, i, n, out) {
           var r = offsetIn(item, diagram);
           var hy = Math.round(h.y + h.h * (n > 1 ? 0.28 + 0.44 * i / (n - 1) : 0.5));
+          var ry = Math.round(r.y + r.h / 2);
+          // a perfectly level wire has a zero-height box, and its bounding-box gradient would not
+          // paint at all (the REST API wire, level with the hub): tilt it by a pixel
+          if (hy === ry) hy += 1;
           var d = out
-            ? curve(h.x + h.w, hy, r.x, Math.round(r.y + r.h / 2))
-            : curve(r.x + r.w, Math.round(r.y + r.h / 2), h.x, hy);
+            ? curve(h.x + h.w, hy, r.x, ry)
+            : curve(r.x + r.w, ry, h.x, hy);
           paths += '<path class="avx-plat-wire" d="' + d + '" stroke="url(#avx-plat-g' + di + ')"/>' +
             '<path class="avx-plat-flow" d="' + d + '" style="--avx-d:' + item.style.getPropertyValue('--avx-d') + '"/>';
           var p = document.createElement('div');

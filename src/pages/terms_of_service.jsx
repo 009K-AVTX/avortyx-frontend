@@ -27,7 +27,7 @@ export default function TermsOfService() {
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="mktg-legal-content">
-                <h3 className="c30"><span className="c7 c38">Updated on May 2nd, 2026</span></h3>
+                <h3 className="c30"><span className="c7 c38">Updated on October 14th, 2026</span></h3>
                 <h3 className="c30 c47"><span className="c35 c19 c41" /></h3>
                 <p className="c43"><span className="c20 c48">Avortyx Platform Terms of Service </span></p>
                 <p className="c22 c28"><span className="c15 c20" /></p>
@@ -189,6 +189,8 @@ export default function TermsOfService() {
                 <p className="c34 c26">
                   <span className="c9 c20">2.1.1. Warranties.</span>
                   <span className="c9">&nbsp;You warrant that You own or have the right to use your Content, have obtained lawful consent from all parties with whom You interface, and are not violating any privacy, proprietary, or other rights of others.</span>
+                </p>
+                <p className="c34 c26">
                   <span className="c9 c20">2.1.2. Account Liability.</span>
                   <span className="c6">&nbsp;You are solely responsible for all acts or omissions that occur under your account.</span>
                 </p>
@@ -642,7 +644,134 @@ export default function TermsOfService() {
                   <span className="c1">&nbsp;Routine customer support inquiries, technical questions, and non-legal communications may be directed to our support team at support@avortyx.com. Such electronic communications do not constitute formal legal notice under this Agreement.</span>
                 </p>
                 <h2 className="c7">
-                  <span>15. Miscellaneous.</span>
+                  <span>15. Eligibility and Business Use.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c9 c20">15.1. Business Use Only.</span>
+                  <span className="c1">&nbsp;The Service is offered to businesses and to individuals acting for a business. It may not be used for personal, family or household purposes.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">15.2. Authority to Bind.</span>
+                  <span className="c1">&nbsp;If You accept this Agreement on behalf of a company or other organization, You confirm that You are authorized to bind it, and “You” then refers to that organization as well as to You.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">15.3. Verification.</span>
+                  <span className="c1">&nbsp;You agree to provide accurate business, identity and contact information when We ask for it, including the information carriers require for number registration, and to keep it current. Avortyx may decline, suspend or close an account whose information cannot be verified.</span>
+                </p>
+                <h2 className="c7">
+                  <span>16. Policies Incorporated by Reference.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c1">The following policies, published in the <a href="/legal">Avortyx Legal Center</a>, form part of this Agreement and apply to your use of the Service:</span>
+                </p>
+                <ul className="avx-tos-list">
+                  <li><span className="c1"><a href="/legal?doc=03">Acceptable Use Policy</a></span></li>
+                  <li><span className="c1"><a href="/legal?doc=04">TCPA &amp; Consent Compliance Policy</a></span></li>
+                  <li><span className="c1"><a href="/legal?doc=05">Service Level Agreement</a>, where your plan includes it</span></li>
+                  <li><span className="c1"><a href="/legal?doc=06">Billing, Cancellation &amp; Refund Policy</a></span></li>
+                  <li><span className="c1"><a href="/legal?doc=07">Call Recording &amp; Data Retention Policy</a></span></li>
+                  <li><span className="c1"><a href="/legal?doc=08">Messaging (SMS) Terms</a>, when You send or receive messages</span></li>
+                  <li><span className="c1"><a href="/legal?doc=09">AI Features Terms</a>, when You use AI-powered features</span></li>
+                  <li><span className="c1"><a href="/legal?doc=10">Emergency Calling (911) Notice</a></span></li>
+                  <li><span className="c1"><a href="/legal?doc=11">Cookie Policy</a> and the <a href="/privacy_policy">Privacy Policy</a></span></li>
+                </ul>
+                <p className="c10">
+                  <span className="c1">If a policy conflicts with these Terms, these Terms control, unless the policy says it overrides a specific section. An Order Form signed by both parties controls over both.</span>
+                </p>
+                <h2 className="c7">
+                  <span>17. Phone Numbers and Carrier Registration.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c9 c20">17.1. No Ownership of Numbers.</span>
+                  <span className="c1">&nbsp;Phone numbers are assigned by carriers and regulators. While your account is active and in good standing, You may use the numbers assigned to your account, but You do not acquire any ownership or property right in them.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">17.2. Porting.</span>
+                  <span className="c1">&nbsp;You may port numbers into Avortyx where the losing carrier supports it. You may also ask to port numbers out to another provider. Avortyx will not unreasonably delay a valid port-out request, which follows the gaining and losing carriers’ processes and requires the account information those carriers ask for. Porting a number out does not cancel your account or release any amounts You owe.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">17.3. Your Own Carrier Accounts.</span>
+                  <span className="c1">&nbsp;Numbers and traffic that run through a carrier account You connect to Avortyx, such as your own Plivo, Telnyx or SIP account, are also governed by your agreement with that carrier. You are responsible for that account, its fees and its compliance requirements.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">17.4. Registration and Caller ID.</span>
+                  <span className="c1">&nbsp;Carriers require registration for certain traffic, including 10DLC brand and campaign registration and toll-free verification for messaging, and they assign STIR/SHAKEN attestation and caller name (CNAM) display under their own rules. You agree to provide complete and truthful registration information. Avortyx does not control and does not guarantee carrier approval, attestation levels, caller name display, call labeling or message delivery.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">17.5. Release After Cancellation.</span>
+                  <span className="c1">&nbsp;As set out in Section 1.5.4, numbers that are not ported out before your cancellation takes effect may be released to the carrier and reassigned to someone else, and cannot be recovered.</span>
+                </p>
+                <h2 className="c7">
+                  <span>18. Call Recording and Monitoring.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c9 c20">18.1. Your Responsibility.</span>
+                  <span className="c1">&nbsp;Recording and monitoring laws differ by state and country, and some require every party to a call to consent before it is recorded. You are responsible for giving any notice and obtaining any consent that applies to each call You record, transcribe or monitor, including calls to your buyers and their agents.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">18.2. Platform Tools.</span>
+                  <span className="c1">&nbsp;Avortyx may offer tools such as per-state recording rules, recording announcements and live monitoring with whisper and barge. These tools help You meet your obligations; they do not transfer those obligations to Avortyx, and You are responsible for how they are configured on your account.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">18.3. Agents and Staff.</span>
+                  <span className="c1">&nbsp;If You or your buyers use live monitoring, You are responsible for telling the agents and staff who may be monitored, where law requires it.</span>
+                </p>
+                <h2 className="c7">
+                  <span>19. Emergency Calling.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c1">The Service does not support calls to 911, E911 or other emergency numbers and is not a replacement for a landline or mobile phone service. You must make sure that everyone who uses Avortyx numbers on your behalf has another way to reach emergency services. Avortyx is not liable for any inability to reach emergency services through the Service. The <a href="/legal?doc=10">Emergency Calling (911) Notice</a> has more detail.</span>
+                </p>
+                <h2 className="c7">
+                  <span>20. AI Features.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c9 c20">20.1. Nature of Outputs.</span>
+                  <span className="c1">&nbsp;Features such as intent scoring, transcription and call summaries produce results automatically. Those results can be incomplete or wrong. You are responsible for reviewing them before relying on them for routing, payouts, compliance or decisions about people, and for how You use them.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">20.2. Third-Party Providers.</span>
+                  <span className="c1">&nbsp;Some AI features rely on third-party model or speech providers. Call audio and transcripts sent to those providers are handled as described in the Privacy Policy and the <a href="/legal?doc=09">AI Features Terms</a>.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">20.3. Restrictions.</span>
+                  <span className="c1">&nbsp;You may not use AI features to impersonate a real person without authorization, to create content that breaks the Acceptable Use Policy, or to make decisions that law requires a human to make. If You use an artificial or AI-generated voice to speak with consumers, You are responsible for any disclosure and consent the law requires.</span>
+                </p>
+                <h2 className="c7">
+                  <span>21. Confidentiality.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c9 c20">21.1. Confidential Information.</span>
+                  <span className="c1">&nbsp;Confidential information means non-public information one party shares with the other in connection with the Service that is marked confidential or that a reasonable person would treat as confidential, such as pricing in an Order Form, product plans, security details and the other party’s customer data.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">21.2. Obligations.</span>
+                  <span className="c1">&nbsp;Each party will use the other’s confidential information only to perform or use the Service under this Agreement, will share it only with employees, contractors and advisers who need it and are bound by similar duties, and will protect it with at least reasonable care.</span>
+                </p>
+                <p className="c10">
+                  <span className="c9 c20">21.3. Exceptions.</span>
+                  <span className="c1">&nbsp;These duties do not apply to information that is or becomes public through no fault of the receiving party, that the receiving party already had or develops independently, or that it receives lawfully from someone else without a duty of confidence. A party may disclose confidential information where law or a court requires, after giving the other party prompt notice where the law allows it.</span>
+                </p>
+                <h2 className="c7">
+                  <span>22. Feedback.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c1">If You send Avortyx suggestions, ideas or other feedback about the Service, Avortyx may use them for any purpose without paying You or crediting You. Feedback does not give Avortyx any right to your Content or your confidential information.</span>
+                </p>
+                <h2 className="c7">
+                  <span>23. Beta and Preview Features.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c1">Avortyx may offer features labeled beta, preview, early access or similar. They are provided as-is for evaluation, may be changed or withdrawn at any time, may be less reliable than the rest of the Service, and are not covered by the Service Level Agreement. Use of them is otherwise governed by this Agreement.</span>
+                </p>
+                <h2 className="c7">
+                  <span>24. Export Controls and Sanctions.</span>
+                </h2>
+                <p className="c10">
+                  <span className="c1">You will comply with United States export control and economic sanctions laws in using the Service. You confirm that You are not located in, organized under the laws of, or ordinarily resident in a country or region subject to comprehensive U.S. sanctions, and that You are not named on, or owned or controlled by anyone named on, a U.S. government restricted-party list. You will not allow anyone in those categories to use the Service through your account.</span>
+                </p>
+                <h2 className="c7">
+                  <span>25. Miscellaneous.</span>
                 </h2>
                 <p className="c5"><span className="c15 c7" /></p>
                 <p className="c10">
@@ -679,7 +808,7 @@ export default function TermsOfService() {
                 <p className="c5"><span className="c1" /></p>
                 <p className="c10">
                   <span className="c7">G. Survival. </span>
-                  <span className="c1">The provisions of this Agreement that by their nature should survive termination or expiration shall survive, specifically including, but not limited to: Section 1.4.3 (Effect of Termination), Sections 1.7 and 1.8 (Platform Access and Security Restrictions), Section 3 (to the extent of any unpaid fees), Section 4 (Indemnification), Sections 8 and 9 (Disclaimers), Section 10 (Limitation of Liability), Section 12 (Arbitration), and all of the provisions contained in Section 15 (Miscellaneous). All such provisions shall extend beyond the termination of this Agreement or otherwise beyond the expiration of your right to use the Service and will remain in full force and effect in perpetuity.</span>
+                  <span className="c1">The provisions of this Agreement that by their nature should survive termination or expiration shall survive, specifically including, but not limited to: Section 1.4.3 (Effect of Termination), Sections 1.7 and 1.8 (Platform Access and Security Restrictions), Section 3 (to the extent of any unpaid fees), Section 4 (Indemnification), Sections 8 and 9 (Disclaimers), Section 10 (Limitation of Liability), Section 12 (Arbitration), Section 17.5 (Release After Cancellation), Section 21 (Confidentiality), Section 22 (Feedback), and all of the provisions contained in Section 25 (Miscellaneous). All such provisions shall extend beyond the termination of this Agreement or otherwise beyond the expiration of your right to use the Service and will remain in full force and effect in perpetuity.</span>
                 </p>
                 <p className="c5"><span className="c1" /></p>
                 <p className="c10">

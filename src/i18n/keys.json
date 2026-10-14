@@ -1284,6 +1284,86 @@
   "page": "index.html"
  },
  {
+  "k": "Our buyers fill caps 3x faster because calls hit the right desk on the first ring. Nothing else we tried came close.",
+  "page": "index.html"
+ },
+ {
+  "k": "DP",
+  "page": "index.html"
+ },
+ {
+  "k": "David Park",
+  "page": "index.html"
+ },
+ {
+  "k": "VP Growth, Halcyon Insurance Leads",
+  "page": "index.html"
+ },
+ {
+  "k": "The visual routing rules mean our whole team can ship a geo change without waiting on an engineer.",
+  "page": "index.html"
+ },
+ {
+  "k": "AP",
+  "page": "index.html"
+ },
+ {
+  "k": "Aisha Patel",
+  "page": "index.html"
+ },
+ {
+  "k": "Campaign Manager, Bellcast",
+  "page": "index.html"
+ },
+ {
+  "k": "TCPA screening on every attempt cut our compliance exceptions to zero. Our legal team stopped asking for weekly exports.",
+  "page": "index.html"
+ },
+ {
+  "k": "MT",
+  "page": "index.html"
+ },
+ {
+  "k": "Michael Torres",
+  "page": "index.html"
+ },
+ {
+  "k": "Compliance Director, Signalfront",
+  "page": "index.html"
+ },
+ {
+  "k": "Automated payouts closed the month in a day instead of a week. Our publishers get paid on time, every time.",
+  "page": "index.html"
+ },
+ {
+  "k": "RK",
+  "page": "index.html"
+ },
+ {
+  "k": "Rachel Kim",
+  "page": "index.html"
+ },
+ {
+  "k": "Finance Lead, Ringwell",
+  "page": "index.html"
+ },
+ {
+  "k": "From first number to paid call in an afternoon. Avortyx changed how we launch verticals.",
+  "page": "index.html"
+ },
+ {
+  "k": "TA",
+  "page": "index.html"
+ },
+ {
+  "k": "Tom Anderson",
+  "page": "index.html"
+ },
+ {
+  "k": "CEO, Tenpoint Performance",
+  "page": "index.html"
+ },
+ {
   "k": "Request Demo",
   "page": "index.html"
  },
@@ -3248,6 +3328,22 @@
   "page": "features.html"
  },
  {
+  "k": "Live Call Monitoring",
+  "page": "features.html"
+ },
+ {
+  "k": "Watch every call in flight, and let supervisors whisper to an agent or barge in.",
+  "page": "features.html"
+ },
+ {
+  "k": "Visual Routing Rules",
+  "page": "features.html"
+ },
+ {
+  "k": "Geo, schedule, intent and cap rules laid out as a tree your whole team can read and change.",
+  "page": "features.html"
+ },
+ {
   "k": "Reach every lead while they are still interested, by text, email and phone.",
   "page": "features.html"
  },
@@ -4445,6 +4541,14 @@
  },
  {
   "k": "<0>Exports when you want them.</0> A step-by-step wizard for one-time or recurring exports, with column picking and email delivery.",
+  "page": "features/call_tracking.html"
+ },
+ {
+  "k": "The live monitor shows every call in flight as it happens: who is calling, which campaign and buyer it is on, how long it has run and where it was routed. Counts, connect rates and payouts per campaign, buyer and publisher update as calls land, with nothing to refresh.",
+  "page": "features/call_tracking.html"
+ },
+ {
+  "k": "Supervisors can listen to any live call, <0>whisper</0> to the agent without the caller hearing, or <1>barge</1> in and join the conversation, so a call that is going wrong can be saved while it is still on the line.",
   "page": "features/call_tracking.html"
  },
  {
@@ -5697,6 +5801,14 @@
  },
  {
   "k": "Set caps up in <0>Buyer Management</0> and lists in <1>Suppression &amp; DNC</1>.",
+  "page": "features/inbound_call_routing.html"
+ },
+ {
+  "k": "Rules you can see",
+  "page": "features/inbound_call_routing.html"
+ },
+ {
+  "k": "Routing rules are built visually, as a tree of conditions rather than rows in a spreadsheet: a minimum intent score, the states a campaign serves, the hours it runs and each buyer’s caps and concurrency, all on one screen. Anyone on the team can read a campaign’s routing at a glance and change a geo or schedule without waiting on an engineer.",
   "page": "features/inbound_call_routing.html"
  },
  {
@@ -8980,6 +9092,30 @@
   "page": "pricing.html"
  },
  {
+  "k": "<0/>Dedicated number pools",
+  "page": "pricing.html"
+ },
+ {
+  "k": "<0/>Private routing infrastructure",
+  "page": "pricing.html"
+ },
+ {
+  "k": "<0/>99.99% routing uptime SLA",
+  "page": "pricing.html"
+ },
+ {
+  "k": "<0/>24/7 dedicated support",
+  "page": "pricing.html"
+ },
+ {
+  "k": "<0/>Custom integrations",
+  "page": "pricing.html"
+ },
+ {
+  "k": "<0/>Dedicated account manager",
+  "page": "pricing.html"
+ },
+ {
   "k": "<0/>Contact Sales",
   "page": "pricing.html"
  },
@@ -10668,7 +10804,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "Updated on May 2nd, 2026",
+  "k": "Updated on October 14th, 2026",
   "page": "terms_of_service.html"
  },
  {
@@ -10820,7 +10956,11 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.1.1. Warranties.</0><1> You warrant that You own or have the right to use your Content, have obtained lawful consent from all parties with whom You interface, and are not violating any privacy, proprietary, or other rights of others.</1><2>2.1.2. Account Liability.</2><3> You are solely responsible for all acts or omissions that occur under your account.</3>",
+  "k": "<0>2.1.1. Warranties.</0><1> You warrant that You own or have the right to use your Content, have obtained lawful consent from all parties with whom You interface, and are not violating any privacy, proprietary, or other rights of others.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>2.1.2. Account Liability.</0><1> You are solely responsible for all acts or omissions that occur under your account.</1>",
   "page": "terms_of_service.html"
  },
  {
@@ -11280,7 +11420,155 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "15. Miscellaneous.",
+  "k": "15. Eligibility and Business Use.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>15.1. Business Use Only.</0><1> The Service is offered to businesses and to individuals acting for a business. It may not be used for personal, family or household purposes.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>15.2. Authority to Bind.</0><1> If You accept this Agreement on behalf of a company or other organization, You confirm that You are authorized to bind it, and “You” then refers to that organization as well as to You.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>15.3. Verification.</0><1> You agree to provide accurate business, identity and contact information when We ask for it, including the information carriers require for number registration, and to keep it current. Avortyx may decline, suspend or close an account whose information cannot be verified.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "16. Policies Incorporated by Reference.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "The following policies, published in the <0>Avortyx Legal Center</0>, form part of this Agreement and apply to your use of the Service:",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>Service Level Agreement</0>, where your plan includes it",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>Messaging (SMS) Terms</0>, when You send or receive messages",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>AI Features Terms</0>, when You use AI-powered features",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>Cookie Policy</0> and the <1>Privacy Policy</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "If a policy conflicts with these Terms, these Terms control, unless the policy says it overrides a specific section. An Order Form signed by both parties controls over both.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "17. Phone Numbers and Carrier Registration.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>17.1. No Ownership of Numbers.</0><1> Phone numbers are assigned by carriers and regulators. While your account is active and in good standing, You may use the numbers assigned to your account, but You do not acquire any ownership or property right in them.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>17.2. Porting.</0><1> You may port numbers into Avortyx where the losing carrier supports it. You may also ask to port numbers out to another provider. Avortyx will not unreasonably delay a valid port-out request, which follows the gaining and losing carriers’ processes and requires the account information those carriers ask for. Porting a number out does not cancel your account or release any amounts You owe.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>17.3. Your Own Carrier Accounts.</0><1> Numbers and traffic that run through a carrier account You connect to Avortyx, such as your own Plivo, Telnyx or SIP account, are also governed by your agreement with that carrier. You are responsible for that account, its fees and its compliance requirements.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>17.4. Registration and Caller ID.</0><1> Carriers require registration for certain traffic, including 10DLC brand and campaign registration and toll-free verification for messaging, and they assign STIR/SHAKEN attestation and caller name (CNAM) display under their own rules. You agree to provide complete and truthful registration information. Avortyx does not control and does not guarantee carrier approval, attestation levels, caller name display, call labeling or message delivery.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>17.5. Release After Cancellation.</0><1> As set out in Section 1.5.4, numbers that are not ported out before your cancellation takes effect may be released to the carrier and reassigned to someone else, and cannot be recovered.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "18. Call Recording and Monitoring.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>18.1. Your Responsibility.</0><1> Recording and monitoring laws differ by state and country, and some require every party to a call to consent before it is recorded. You are responsible for giving any notice and obtaining any consent that applies to each call You record, transcribe or monitor, including calls to your buyers and their agents.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>18.2. Platform Tools.</0><1> Avortyx may offer tools such as per-state recording rules, recording announcements and live monitoring with whisper and barge. These tools help You meet your obligations; they do not transfer those obligations to Avortyx, and You are responsible for how they are configured on your account.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>18.3. Agents and Staff.</0><1> If You or your buyers use live monitoring, You are responsible for telling the agents and staff who may be monitored, where law requires it.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "19. Emergency Calling.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "The Service does not support calls to 911, E911 or other emergency numbers and is not a replacement for a landline or mobile phone service. You must make sure that everyone who uses Avortyx numbers on your behalf has another way to reach emergency services. Avortyx is not liable for any inability to reach emergency services through the Service. The <0>Emergency Calling (911) Notice</0> has more detail.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "20. AI Features.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>20.1. Nature of Outputs.</0><1> Features such as intent scoring, transcription and call summaries produce results automatically. Those results can be incomplete or wrong. You are responsible for reviewing them before relying on them for routing, payouts, compliance or decisions about people, and for how You use them.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>20.2. Third-Party Providers.</0><1> Some AI features rely on third-party model or speech providers. Call audio and transcripts sent to those providers are handled as described in the Privacy Policy and the <2>AI Features Terms</2>.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>20.3. Restrictions.</0><1> You may not use AI features to impersonate a real person without authorization, to create content that breaks the Acceptable Use Policy, or to make decisions that law requires a human to make. If You use an artificial or AI-generated voice to speak with consumers, You are responsible for any disclosure and consent the law requires.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "21. Confidentiality.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>21.1. Confidential Information.</0><1> Confidential information means non-public information one party shares with the other in connection with the Service that is marked confidential or that a reasonable person would treat as confidential, such as pricing in an Order Form, product plans, security details and the other party’s customer data.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>21.2. Obligations.</0><1> Each party will use the other’s confidential information only to perform or use the Service under this Agreement, will share it only with employees, contractors and advisers who need it and are bound by similar duties, and will protect it with at least reasonable care.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>21.3. Exceptions.</0><1> These duties do not apply to information that is or becomes public through no fault of the receiving party, that the receiving party already had or develops independently, or that it receives lawfully from someone else without a duty of confidence. A party may disclose confidential information where law or a court requires, after giving the other party prompt notice where the law allows it.</1>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "22. Feedback.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "If You send Avortyx suggestions, ideas or other feedback about the Service, Avortyx may use them for any purpose without paying You or crediting You. Feedback does not give Avortyx any right to your Content or your confidential information.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "23. Beta and Preview Features.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "Avortyx may offer features labeled beta, preview, early access or similar. They are provided as-is for evaluation, may be changed or withdrawn at any time, may be less reliable than the rest of the Service, and are not covered by the Service Level Agreement. Use of them is otherwise governed by this Agreement.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "24. Export Controls and Sanctions.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "You will comply with United States export control and economic sanctions laws in using the Service. You confirm that You are not located in, organized under the laws of, or ordinarily resident in a country or region subject to comprehensive U.S. sanctions, and that You are not named on, or owned or controlled by anyone named on, a U.S. government restricted-party list. You will not allow anyone in those categories to use the Service through your account.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "25. Miscellaneous.",
   "page": "terms_of_service.html"
  },
  {
@@ -11308,7 +11596,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>G. Survival. </0><1>The provisions of this Agreement that by their nature should survive termination or expiration shall survive, specifically including, but not limited to: Section 1.4.3 (Effect of Termination), Sections 1.7 and 1.8 (Platform Access and Security Restrictions), Section 3 (to the extent of any unpaid fees), Section 4 (Indemnification), Sections 8 and 9 (Disclaimers), Section 10 (Limitation of Liability), Section 12 (Arbitration), and all of the provisions contained in Section 15 (Miscellaneous). All such provisions shall extend beyond the termination of this Agreement or otherwise beyond the expiration of your right to use the Service and will remain in full force and effect in perpetuity.</1>",
+  "k": "<0>G. Survival. </0><1>The provisions of this Agreement that by their nature should survive termination or expiration shall survive, specifically including, but not limited to: Section 1.4.3 (Effect of Termination), Sections 1.7 and 1.8 (Platform Access and Security Restrictions), Section 3 (to the extent of any unpaid fees), Section 4 (Indemnification), Sections 8 and 9 (Disclaimers), Section 10 (Limitation of Liability), Section 12 (Arbitration), Section 17.5 (Release After Cancellation), Section 21 (Confidentiality), Section 22 (Feedback), and all of the provisions contained in Section 25 (Miscellaneous). All such provisions shall extend beyond the termination of this Agreement or otherwise beyond the expiration of your right to use the Service and will remain in full force and effect in perpetuity.</1>",
   "page": "terms_of_service.html"
  },
  {

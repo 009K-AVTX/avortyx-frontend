@@ -181,6 +181,14 @@ export default function Pricing() {
             <div className="pricing-highlight-card">
               <h2 className="fw-bold mb-2">Enterprise</h2>
               <p className="text-muted mx-auto pricing-enterprise-desc">Running serious volume? Talk to us about custom rates, dedicated number pools and a routing setup designed around your network.</p>
+              <ul className="avx-ent-list">
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Dedicated number pools</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Private routing infrastructure</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />99.99% routing uptime SLA</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />24/7 dedicated support</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Custom integrations</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Dedicated account manager</li>
+              </ul>
               <a className="btn btn-td-green btn-lg" href="/p/contact"> <i className="fa-solid fa-envelope me-2" aria-hidden="true" />Contact Sales </a>
             </div>
           </div>

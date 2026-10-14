@@ -2119,3 +2119,51 @@ html[lang="ru"] h3 {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* terms of service: the list of policies that form part of the agreement */
+.avx-tos-list {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+
+.avx-tos-list li {
+  margin-bottom: .35rem;
+}
+
+/* pricing: what Enterprise adds, in two short columns */
+.avx-ent-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 8px 28px;
+  justify-content: center;
+  margin: 0 auto 20px;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.avx-ent-list li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #cbd5e1;
+  font-size: .92rem;
+}
+
+.avx-ent-list i {
+  color: #93c5fd;
+}
+
+[data-bs-theme="light"] .avx-ent-list li {
+  color: #334155;
+}
+
+[data-bs-theme="light"] .avx-ent-list i {
+  color: #2563eb;
+}
+
+@media (max-width: 575.98px) {
+  .avx-ent-list {
+    grid-template-columns: minmax(0, max-content);
+  }
+}

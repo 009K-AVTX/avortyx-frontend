@@ -7,6 +7,11 @@ const QUOTES = [
   ['PS', 'Priya Sharma', 'Operations Lead, Calibr Media', 'Avortyx lets us focus on traffic instead of plumbing. Setting up a new buyer went from a two-day ticket to a ten-minute form.'],
   ['JL', 'James Liu', 'Founder, Tenpoint Performance', 'Finally, a router that actually understands intent. The scoring pays for itself on the first week of health traffic.'],
   ['ER', 'Elena Rodriguez', 'VP Partnerships, Meridian Call Network', 'We went from six spreadsheets and a carrier portal to one campaign config. Our publishers noticed the payout accuracy immediately.'],
+  ['DP', 'David Park', 'VP Growth, Halcyon Insurance Leads', 'Our buyers fill caps 3x faster because calls hit the right desk on the first ring. Nothing else we tried came close.'],
+  ['AP', 'Aisha Patel', 'Campaign Manager, Bellcast', 'The visual routing rules mean our whole team can ship a geo change without waiting on an engineer.'],
+  ['MT', 'Michael Torres', 'Compliance Director, Signalfront', 'TCPA screening on every attempt cut our compliance exceptions to zero. Our legal team stopped asking for weekly exports.'],
+  ['RK', 'Rachel Kim', 'Finance Lead, Ringwell', 'Automated payouts closed the month in a day instead of a week. Our publishers get paid on time, every time.'],
+  ['TA', 'Tom Anderson', 'CEO, Tenpoint Performance', 'From first number to paid call in an afternoon. Avortyx changed how we launch verticals.'],
 ]
 
 function Card({ q: [initials, name, role, text], copy }) {

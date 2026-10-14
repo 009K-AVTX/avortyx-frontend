@@ -14537,6 +14537,8 @@ pre, code, kbd, samp,
 }
 
 .avx-testi-row {
+  max-width: 1760px;
+  margin: 0 auto;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -14547,7 +14549,7 @@ pre, code, kbd, samp,
   gap: 20px;
   width: max-content;
   padding: 6px 10px 14px;
-  animation: avx-testi-glide 55s linear infinite;
+  animation: avx-testi-glide 110s linear infinite;
 }
 
 .avx-testi-row:hover .avx-testi-track,
@@ -14636,7 +14638,7 @@ pre, code, kbd, samp,
 
   .avx-testi-track {
     gap: 14px;
-    animation-duration: 45s;
+    animation-duration: 90s;
   }
 
   @keyframes avx-testi-glide {
@@ -16332,5 +16334,17 @@ body:has(#okCookie) .avx-help-btn {
 @media (min-width: 576px) and (max-width: 991.98px) {
   body > .avx-backbar:not(.avx-backbar-nav) {
     top: 88px;
+  }
+}
+
+/* very wide windows (or a browser zoomed far out): the feature pages' pinned strip and back button
+   line up with the 1760px content column instead of drifting to the screen corners */
+@media (min-width: 1785px) {
+  body > #injected-modal-header {
+    margin-right: calc((100% - 1760px) / 2 + 12px);
+  }
+
+  body > .avx-backbar:not(.avx-backbar-nav) {
+    left: calc((100vw - 1760px) / 2 + 12px);
   }
 }

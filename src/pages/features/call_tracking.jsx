@@ -110,6 +110,13 @@ export default function CallTracking() {
               {" "}A step-by-step wizard for one-time or recurring exports, with column picking and email delivery.
             </p>
             <img alt="Export wizard for one-time or recurring call exports with column selection and email notification" className="img-fluid rounded border mb-4" src="/assets/avx-shots/features-call-tracking-003.webp" width="1073" height="783" loading="lazy" decoding="async" />
+            <h3 id="live-monitor">Live Call Monitoring</h3>
+            <p>
+              The live monitor shows every call in flight as it happens: who is calling, which campaign and buyer it is on, how long it has run and where it was routed. Counts, connect rates and payouts per campaign, buyer and publisher update as calls land, with nothing to refresh.
+            </p>
+            <p>
+              Supervisors can listen to any live call, <strong>whisper</strong> to the agent without the caller hearing, or <strong>barge</strong> in and join the conversation, so a call that is going wrong can be saved while it is still on the line.
+            </p>
             <h3>What the transcripts add up to</h3>
             <p>
               Switch on{" "}
