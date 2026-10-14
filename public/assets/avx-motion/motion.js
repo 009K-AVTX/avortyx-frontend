@@ -135,8 +135,6 @@
     });
   }
 
-  // ---------- Pointer tilt ----------
-
   // ---------- Floating spheres (heroes, CTA bands, convert section) ----------
 
   // Writes a custom property only when its value changes (avoids needless style recalcs).
@@ -578,8 +576,6 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (visible) measure(); });
   }
 
-  // ---------- Spotlight headings: unique 3D scene behind each heading ----------
-
   // ---------- Bottom-of-page 3D wave floors: one live canvas scene per page, edge-free ----------
 
   var WAVE_BY_PAGE = {
@@ -744,8 +740,6 @@
     // the same quiet 3D floor as the landing page
     hero.insertBefore(el('div', 'avx-pbg', '<div class="avx-pbg-spot"></div><div class="avx-pbg-dots"></div><div class="avx-pbg-eclipse"></div><div class="avx-pbg-fade"></div>'), hero.firstChild);
   }
-
-  // ---------- Section backgrounds ----------
 
   // ---------- Step-by-step highlight for flow diagrams ----------
 
@@ -1003,8 +997,6 @@
     });
   }
 
-  // ---------- Aurora: drifting light behind sections that have no scene of their own ----------
-
   // ---------- Ringba art (optimized WebP in /assets/avx-ringba) ----------
 
   var RB = '/assets/avx-ringba/';
@@ -1127,8 +1119,6 @@
       }).observe(main);
     }
   }
-
-  // ---------- Hero: a call attribution card (source, campaign, keyword, buyer, revenue) ----------
 
   // ---------- Motion: scenes honour the visitor's reduced-motion setting (no pause button) ----------
 
@@ -1491,44 +1481,6 @@
       ]);
     }
   };
-
-  // AI hub: a sea of light points in perspective; ripples spread out from the chip at the
-  // centre every couple of seconds and a slow swell rolls through, crests catching the light.
-  // The field fades toward every edge, so the scene has no border.
-  function rippleSeaScene(cls) {
-    return canvasScene(cls, function (ctx, W, H, t, s) {
-      var COLS = W > 900 ? 92 : 54, ROWS = 30;
-      var horizon = H * 0.1, near = H * 1.05;
-      if (!s.rings) s.rings = [];
-      if (!s.next || t > s.next) { s.rings.push(t); s.next = t + 2.1; }
-      s.rings = s.rings.filter(function (r0) { return t - r0 < 6; });
-      ctx.globalCompositeOperation = 'lighter';
-      for (var r = 0; r < ROWS; r++) {
-        var d = r / (ROWS - 1), depth = 0.3 + 0.7 * d;
-        for (var c = 0; c < COLS; c++) {
-          var u = c / (COLS - 1) - 0.5;
-          // distance from the ripple centre (the chip sits at about u 0, d 0.5) in surface units
-          var du = u * 1.9, dd = (d - 0.5) * 1.15, dist = Math.sqrt(du * du + dd * dd);
-          var swell = Math.sin(u * 5 + t * 0.5 + d * 3) * 0.35 + Math.sin(u * 2.3 - t * 0.3 + d * 6) * 0.25;
-          var ripple = 0;
-          for (var k = 0; k < s.rings.length; k++) {
-            var front = (t - s.rings[k]) * 0.28, gap = dist - front;
-            ripple += Math.exp(-gap * gap * 70) * Math.max(0, 1 - (t - s.rings[k]) / 6);
-          }
-          var lift = swell + ripple * 1.4 + pointerSwell(s, u, d, t) * 0.8;
-          var x = W / 2 + u * W * (0.7 + 0.9 * d);
-          var y = horizon + (near - horizon) * Math.pow(d, 1.3) - lift * H * 0.075 * depth;
-          var edge = sideFade(u) * Math.pow(d, 0.7) * Math.max(0, 1 - Math.pow(Math.max(0, d - 0.82) / 0.18, 2));
-          if (edge < 0.02) continue;
-          var lit = Math.min(1, 0.3 + 0.35 * Math.max(0, swell) + ripple * 1.1);
-          // blue in the troughs, toward violet-white on the ripple fronts
-          ctx.fillStyle = 'rgba(' + Math.round(70 + 150 * lit) + ',' + Math.round(120 + 100 * lit) + ',255,' + Math.min(1, edge * (0.25 + 0.9 * lit)).toFixed(3) + ')';
-          var z = 0.8 + 2.4 * depth * (0.6 + lit * 0.6);
-          ctx.fillRect(x - z / 2, y - z / 2, z, z);
-        }
-      }
-    });
-  }
 
   // contact: a dotted planet rising over the horizon, calls arcing between cities
   function globeScene(cls) {
@@ -1971,27 +1923,13 @@
     return { svg: svg, update: update, value: value, o: o };
   }
 
-  // ---------- Landing hero: the Signal Core, built from ringba art ----------
-
-  // ---------- Ping/Post: live consoles replace the static dashboard screenshots ----------
-  // Each console mirrors what its screenshot showed, with demo data that keeps moving.
+  // ---------- Shared helpers for the live demo screens ----------
 
   var PP_OFFERS = ['Medicare', 'Auto Ins.', 'Solar', 'Home Svc', 'Legal', 'Debt'];
-  var PP_SOURCES = ['Google Ads', 'Meta', 'Bing', 'Native', 'Email', 'Affiliates'];
   var rnd = function (a, b) { return a + Math.random() * (b - a); };
   var pick = function (arr) { return arr[Math.floor(Math.random() * arr.length)]; };
   var fmtInt = function (v) { return Math.round(v).toLocaleString('en-US'); };
   var fmtMoney = function (v) { return '$' + Math.round(v).toLocaleString('en-US'); };
-
-  function consoleShell(title, sub) {
-    var c = el('div', 'avx-console',
-      '<div class="avx-cs-bar"><i></i><i></i><i></i><span class="avx-cs-path">app.avortyx.com / ping-post / <b>' + title + '</b></span>' +
-      '<span class="avx-cs-live"><i class="avx-live-dot"></i>Live</span></div>' +
-      '<div class="avx-cs-body"></div>' +
-      '<div class="avx-cs-foot">' + sub + ' · demo data</div>');
-    c.setAttribute('role', 'img');
-    return c;
-  }
 
   // run fn every `every` ms while the console is on screen and motion is playing
   function ticker(host, every, fn) {
@@ -2004,147 +1942,6 @@
     onVisible(host, function () { if (!timer) timer = setTimeout(tick, 500); },
       function () { clearTimeout(timer); timer = null; }, 0.05);
   }
-
-  function ppDashboard(c) {
-    var body = c.querySelector('.avx-cs-body');
-    var k = { pings: rnd(9000, 9400), accept: rnd(20, 23), toCall: rnd(10.5, 12), revenue: rnd(168000, 172000), payout: rnd(134000, 138000), ms: rnd(320, 360) };
-    var tiles = [['pings', 'Pings today', fmtInt], ['accept', 'Accept rate', function (v) { return v.toFixed(1) + '%'; }],
-      ['toCall', 'Ping → call', function (v) { return v.toFixed(1) + '%'; }], ['revenue', 'Revenue', fmtMoney],
-      ['payout', 'Payout', fmtMoney], ['ms', 'Avg response', function (v) { return Math.round(v) + 'ms'; }]];
-    var html = '<div class="avx-kpis">';
-    tiles.forEach(function (t) { html += '<div class="avx-kpi" data-k="' + t[0] + '"><span>' + t[1] + '</span><b></b><em></em></div>'; });
-    html += '</div><div class="avx-cs-grid"><div class="avx-cs-card"><h6>Pings over time</h6><div class="avx-cs-chart"></div></div>' +
-      '<div class="avx-cs-card"><h6>Ping → post funnel</h6><div class="avx-funnel"></div></div></div>';
-    body.innerHTML = html;
-    var chart = makeChart({ type: 'area', points: 30, min: 120, max: 420, start: 260, step: 45 });
-    body.querySelector('.avx-cs-chart').appendChild(chart.svg);
-    var funnel = body.querySelector('.avx-funnel');
-    var stages = [['Pings', 1], ['Accepted', .21], ['Posted', .16], ['Converted', .11]];
-    funnel.innerHTML = stages.map(function (s) { return '<div class="avx-fn-row"><span>' + s[0] + '</span><i><b></b></i><em></em></div>'; }).join('');
-    var prev = {};
-    function render() {
-      tiles.forEach(function (t) {
-        var tile = body.querySelector('[data-k="' + t[0] + '"]');
-        tile.querySelector('b').textContent = t[2](k[t[0]]);
-        if (prev[t[0]] !== undefined) {
-          var up = k[t[0]] >= prev[t[0]];
-          var em = tile.querySelector('em');
-          em.textContent = up ? '▲' : '▼';
-          em.className = up ? 'avx-up' : 'avx-down';
-        }
-        prev[t[0]] = k[t[0]];
-      });
-      var rows = funnel.querySelectorAll('.avx-fn-row');
-      stages.forEach(function (s, i) {
-        var share = i ? s[1] * (k.accept / 21) : 1;
-        rows[i].querySelector('b').style.transform = 'scaleX(' + Math.max(.04, share).toFixed(3) + ')';
-        rows[i].querySelector('em').textContent = fmtInt(k.pings * share);
-      });
-    }
-    render();
-    ticker(c, 1800, function () {
-      k.pings += rnd(4, 18); k.accept = Math.max(18, Math.min(25, k.accept + rnd(-.4, .4)));
-      k.toCall = Math.max(9, Math.min(13, k.toCall + rnd(-.25, .25)));
-      k.revenue += rnd(40, 260); k.payout += rnd(30, 210); k.ms = Math.max(280, Math.min(420, k.ms + rnd(-14, 14)));
-      chart.update();
-      render();
-    });
-  }
-
-  function ppSources(c) {
-    var body = c.querySelector('.avx-cs-body');
-    var rows = PP_SOURCES.map(function (s) {
-      return { s: s, acc: rnd(14, 34), conv: rnd(60, 420), rev: rnd(4000, 28000), pay: rnd(.7, .86) };
-    });
-    body.innerHTML = '<table class="avx-cs-table"><thead><tr><th>Traffic source</th><th>Accept</th><th>Conv.</th><th>Revenue</th><th>Payout</th><th>Margin</th></tr></thead><tbody></tbody></table>';
-    var tb = body.querySelector('tbody');
-    function render(changed) {
-      tb.innerHTML = rows.map(function (r, i) {
-        var payout = r.rev * r.pay, margin = (r.rev - payout) / r.rev * 100;
-        return '<tr' + (i === changed ? ' class="avx-cs-hot"' : '') + '><td>' + r.s + '</td><td>' + r.acc.toFixed(1) + '%</td><td>' + fmtInt(r.conv) +
-          '</td><td>' + fmtMoney(r.rev) + '</td><td>' + fmtMoney(payout) + '</td><td><span class="avx-cs-bar-in"><i style="transform:scaleX(' +
-          (margin / 30).toFixed(2) + ')"></i></span>' + margin.toFixed(1) + '%</td></tr>';
-      }).join('');
-    }
-    render(-1);
-    ticker(c, 1600, function () {
-      var i = Math.floor(Math.random() * rows.length), r = rows[i];
-      r.acc = Math.max(10, Math.min(40, r.acc + rnd(-1.2, 1.4)));
-      r.conv += rnd(1, 6); r.rev += rnd(40, 320); r.pay = Math.max(.68, Math.min(.88, r.pay + rnd(-.006, .006)));
-      render(i);
-    });
-  }
-
-  function ppLog(c) {
-    var body = c.querySelector('.avx-cs-body');
-    body.innerHTML = '<table class="avx-cs-table avx-cs-log"><thead><tr><th>Time</th><th>Offer</th><th>Source</th><th>Buyers</th><th>Winning bid</th><th>Status</th></tr></thead><tbody></tbody></table>';
-    var tb = body.querySelector('tbody');
-    var ST = [['Won', 'ok'], ['Won', 'ok'], ['Posted', 'ring'], ['No bid', 'bid'], ['Won', 'ok'], ['Capped', 'cap']];
-    function row(fresh) {
-      var d = new Date(), st = pick(ST), buyers = 1 + Math.floor(Math.random() * 6);
-      var tr = document.createElement('tr');
-      if (fresh) tr.className = 'avx-live-new';
-      tr.innerHTML = '<td>' + d.toLocaleTimeString('en-US', { hour12: false }) + '</td><td>' + pick(PP_OFFERS) + '</td><td>' + pick(PP_SOURCES) +
-        '</td><td>' + buyers + ' matched</td><td>' + (st[0] === 'No bid' ? '—' : '$' + rnd(18, 74).toFixed(2)) +
-        '</td><td><span class="avx-live-pill avx-pill-' + st[1] + '">' + st[0] + '</span></td>';
-      return tr;
-    }
-    for (var i = 0; i < 7; i++) tb.appendChild(row(false));
-    ticker(c, 1300, function () {
-      tb.insertBefore(row(true), tb.firstChild);
-      if (tb.children.length > 7) tb.removeChild(tb.lastChild);
-    });
-  }
-
-  function ppUsage(c) {
-    var body = c.querySelector('.avx-cs-body');
-    var days = [], labels = [];
-    for (var i = 13; i >= 0; i--) {
-      var d = new Date(Date.now() - i * 864e5);
-      labels.push((d.getMonth() + 1) + '/' + d.getDate());
-      days.push(i ? rnd(160, 290) : 40);
-    }
-    body.innerHTML = '<div class="avx-cs-grid avx-cs-grid-wide"><div class="avx-cs-card"><h6>Unique pings / day (thousands)</h6><div class="avx-usage"></div></div>' +
-      '<div class="avx-cs-card"><h6>Cost today</h6><ul class="avx-cost"></ul></div></div>';
-    var u = body.querySelector('.avx-usage');
-    u.innerHTML = days.map(function (v, i) { return '<div class="avx-ub' + (i === 13 ? ' avx-ub-today' : '') + '"><i><b></b></i><span>' + labels[i] + '</span></div>'; }).join('');
-    var cost = body.querySelector('.avx-cost');
-    function render() {
-      var bars = u.querySelectorAll('b');
-      days.forEach(function (v, i) { bars[i].style.transform = 'scaleY(' + (v / 300).toFixed(3) + ')'; });
-      var today = days[13] * 1000, billed = today * .82;
-      cost.innerHTML =
-        '<li><span>Unique pings</span><b>' + fmtInt(today) + '</b></li>' +
-        '<li><span>Duplicates (free)</span><b>' + fmtInt(today - billed) + '</b></li>' +
-        '<li><span>Billable</span><b>' + fmtInt(billed) + '</b></li>' +
-        '<li class="avx-cost-total"><span>Est. cost @ $0.12/1k</span><b>$' + (billed / 1000 * .12).toFixed(2) + '</b></li>';
-    }
-    render();
-    ticker(c, 1500, function () { days[13] = Math.min(300, days[13] + rnd(1.5, 5)); render(); });
-  }
-
-  var PP_DEMOS = [
-    [/ping-post-dashboard-1/, 'dashboard', 'KPIs and the ping-to-post funnel', ppDashboard],
-    [/ping-post-dashboard-3/, 'sources', 'Performance by traffic source', ppSources],
-    [/ping-post-dashboard-5/, 'ping-log', 'Real-time ping log', ppLog],
-    [/ping-post-analytics-1/, 'usage', 'Usage and cost', ppUsage]
-  ];
-
-  function initPingPostDemos() {
-    document.querySelectorAll('main img').forEach(function (im) {
-      var demo = PP_DEMOS.filter(function (d) { return d[0].test(im.getAttribute('src') || ''); })[0];
-      if (!demo) return;
-      var c = consoleShell(demo[1], demo[2]);
-      c.setAttribute('aria-label', im.getAttribute('alt') || demo[2]);
-      var target = im.closest('.zoomable-marketing-image') || im;
-      if (im.classList.contains('mb-4')) c.classList.add('mb-4');
-      target.parentNode.insertBefore(c, target);
-      target.classList.add('avx-replaced');
-      demo[3](c);
-    });
-  }
-
-  // ---------- Landing hero: the vortex sculpture with its live chips ----------
 
   // ---------- Homepage feature sections: one small, live product screen each ----------
 
@@ -3264,104 +3061,6 @@
   // ---------- Product tour: one app window, four live views ----------
 
   var CALL_SOURCES = ['Google Ads', 'Meta', 'Bing', 'TikTok', 'Email', 'Affiliate', 'Organic'];
-  var CALL_STATES = [['Connected', 'ok'], ['Connected', 'ok'], ['Converted', 'ok'], ['Ringing', 'ring'], ['In queue', 'bid'], ['Missed', 'cap']];
-
-  function callLog(c) {
-    var body = c.querySelector('.avx-cs-body');
-    body.innerHTML = '<div class="avx-kpis avx-kpis-4">' +
-      '<div class="avx-kpi" data-k="live"><span>Live calls</span><b>42</b><em class="avx-up">▲ 6</em></div>' +
-      '<div class="avx-kpi" data-k="today"><span>Calls today</span><b>3,918</b><em class="avx-up">▲ 12.4%</em></div>' +
-      '<div class="avx-kpi" data-k="conv"><span>Converted</span><b>27.8%</b><em class="avx-up">▲ 1.9%</em></div>' +
-      '<div class="avx-kpi" data-k="rev"><span>Revenue today</span><b>$84,210</b><em class="avx-up">▲ 8.1%</em></div></div>' +
-      '<table class="avx-cs-table avx-cs-log"><thead><tr><th>Time</th><th>Caller</th><th>Source</th><th>Buyer</th><th>Duration</th><th>Revenue</th><th>Status</th></tr></thead><tbody></tbody></table>';
-    var tb = body.querySelector('tbody');
-    var k = { live: 42, today: 3918, conv: 27.8, rev: 84210 };
-    function row(fresh) {
-      var st = pick(CALL_STATES), d = new Date();
-      var dur = st[0] === 'Missed' || st[0] === 'Ringing' || st[0] === 'In queue' ? '—' : Math.floor(rnd(1, 9)) + ':' + String(Math.floor(rnd(0, 59))).padStart(2, '0');
-      var tr = document.createElement('tr');
-      if (fresh) tr.className = 'avx-live-new';
-      tr.innerHTML = '<td>' + d.toLocaleTimeString('en-US', { hour12: false }) + '</td><td>(' + Math.floor(rnd(201, 989)) + ') ··' + Math.floor(rnd(10, 99)) +
-        '</td><td>' + pick(CALL_SOURCES) + '</td><td>' + pick(LIVE_BUYERS) + '</td><td>' + dur + '</td><td>' +
-        (st[1] === 'ok' ? '$' + rnd(24, 96).toFixed(2) : '—') + '</td><td><span class="avx-live-pill avx-pill-' + st[1] + '">' + st[0] + '</span></td>';
-      return tr;
-    }
-    for (var i = 0; i < 7; i++) tb.appendChild(row(false));
-    ticker(c, 1600, function () {
-      tb.insertBefore(row(true), tb.firstChild);
-      if (tb.children.length > 7) tb.removeChild(tb.lastChild);
-      k.live = Math.max(28, Math.min(64, k.live + Math.round(rnd(-3, 3))));
-      k.today += Math.floor(rnd(1, 5));
-      k.conv = Math.max(22, Math.min(33, k.conv + rnd(-.3, .3)));
-      k.rev += Math.floor(rnd(20, 140));
-      body.querySelector('[data-k="live"] b').textContent = k.live;
-      body.querySelector('[data-k="today"] b').textContent = fmtInt(k.today);
-      body.querySelector('[data-k="conv"] b').textContent = k.conv.toFixed(1) + '%';
-      body.querySelector('[data-k="rev"] b').textContent = '$' + fmtInt(k.rev);
-    });
-  }
-
-  var TOUR = [
-    ['calls', 'Live calls', 'calls', 'Every call with its source, buyer and revenue', callLog],
-    ['sources', 'Sources', 'reports', 'Margin by traffic source', ppSources],
-    ['usage', 'Usage', 'billing', 'Usage and cost, updated live', ppUsage]
-  ];
-
-  function initProductTour() {
-    var tour = document.querySelector('[data-avx-tour]');
-    if (!tour) return;
-    var tabs = tour.querySelector('.avx-tour-tabs');
-    var stage = tour.querySelector('.avx-tour-stage');
-    var views = {}, current = null, auto = null, touched = false;
-    // the HTML ships the first view prerendered (for crawlers and no-JS); the live views replace it
-    tabs.textContent = '';
-    stage.textContent = '';
-    TOUR.forEach(function (t, i) {
-      var b = el('button', 'avx-tour-tab', '<span>' + t[1] + '</span><i></i>');
-      b.type = 'button';
-      b.id = 'tour-tab-' + t[0];
-      b.setAttribute('role', 'tab');
-      b.setAttribute('aria-controls', stage.id || 'tour-stage');
-      b.dataset.tour = t[0];
-      b.addEventListener('click', function () { touched = true; tour.classList.add('avx-tour-touched'); show(t[0]); });
-      tabs.appendChild(b);
-    });
-    tabKeys(tabs, function (b) { touched = true; tour.classList.add('avx-tour-touched'); show(b.dataset.tour); });
-    function show(key) {
-      if (current === key) return;
-      var t = TOUR.filter(function (x) { return x[0] === key; })[0];
-      if (!views[key]) {
-        var c = consoleShell(t[2], t[3]);
-        c.querySelector('.avx-cs-path').innerHTML = 'app.avortyx.com / <b>' + t[2] + '</b>';
-        c.setAttribute('aria-label', t[1] + ': ' + t[3].charAt(0).toLowerCase() + t[3].slice(1) + ' (demo data)');
-        t[4](c);
-        views[key] = c;
-        stage.appendChild(c);
-      }
-      Object.keys(views).forEach(function (k) { views[k].classList.toggle('avx-tour-on', k === key); });
-      tabs.querySelectorAll('.avx-tour-tab').forEach(function (b) {
-        var on = b.dataset.tour === key;
-        b.classList.toggle('avx-on', on);
-        b.setAttribute('aria-selected', on ? 'true' : 'false');
-        b.tabIndex = on ? 0 : -1;
-      });
-      stage.setAttribute('aria-labelledby', 'tour-tab-' + key);
-      current = key;
-    }
-    show('calls');
-    // walk through the views on its own until the visitor picks one
-    if (!reduced) {
-      onVisible(tour, function () {
-        if (auto || touched) return;
-        auto = setInterval(function () {
-          if (touched) { clearInterval(auto); return; }
-          if (motionPaused()) return;
-          var i = TOUR.map(function (x) { return x[0]; }).indexOf(current);
-          show(TOUR[(i + 1) % TOUR.length][0]);
-        }, 10000);
-      }, function () { clearInterval(auto); auto = null; }, 0.3);
-    }
-  }
 
   // ---------- Product screenshots: framed as app windows ----------
 
@@ -4179,30 +3878,6 @@
     }
   };
 
-  function initBento() {
-    var grid = document.querySelector('[data-avx-bento]');
-    if (!grid) return;
-    grid.querySelectorAll('.avx-cap').forEach(function (card) {
-      var href = card.getAttribute('href') || '';
-      var key = /security-compliance/.test(href) ? 'compliance' : (href.match(/features\/([a-z_]+)(?:\.html)?(?:[#?]|$)/) || [])[1];
-      if (!BENTO[key]) return;
-      var v = el('div', 'avx-cap-viz');
-      v.setAttribute('aria-hidden', 'true');
-      card.insertBefore(v, card.firstChild);
-      var tick = BENTO[key](v);
-      ticker(card, tick[0], tick[1]);
-    });
-    // a soft glow follows the pointer across the card (mouse and pen only)
-    if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
-    grid.querySelectorAll('.avx-cap').forEach(function (card) {
-      card.addEventListener('pointermove', function (e) {
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-      });
-    });
-  }
-
   // "How it decides": the links between the steps carry a pulse once the flow is on screen
   function initHowFlow() {
     var flow = document.querySelector('[data-avx-how]');
@@ -4350,12 +4025,6 @@
       setTimeout(land, 600); // in case the modal library doesn't announce the close
     }, true);
   }
-
-  // ---------- Buttons: primary calls to action lean towards the cursor ----------
-
-  // ---------- Page heroes: ringba portal rings with a counter-rotating shine ----------
-
-  // ---------- CTA band: neon trading waves flowing across ----------
 
   // ---------- Tables: staggered rows, live header sheen, count-up prices, row + column focus ----------
 
@@ -4549,43 +4218,10 @@
     }
   };
 
-  function initAiStudio() {
-    var studio = document.querySelector('[data-avx-studio]');
-    if (!studio) return;
-    var btns = studio.querySelectorAll('[data-studio-btn]');
-    var q = function (k) { return studio.querySelector('[data-studio-out="' + k + '"]'); };
-
-    btns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        btns.forEach(function (b) { b.classList.remove('avx-active'); });
-        btn.classList.add('avx-active');
-        var key = btn.getAttribute('data-studio-btn');
-        var d = STUDIO_DATA[key];
-        if (!d) return;
-        if (q('prompt')) q('prompt').textContent = '“' + d.prompt + '”';
-        if (q('intent-thresh')) q('intent-thresh').textContent = d.thresh;
-        if (q('epc-target')) q('epc-target').textContent = d.epcTarget;
-        if (q('sentiment')) q('sentiment').textContent = d.sentiment;
-        if (q('transcript')) q('transcript').textContent = d.transcript;
-        if (q('score')) q('score').textContent = d.score;
-        if (q('epc')) q('epc').textContent = d.epc;
-        if (q('latency')) q('latency').textContent = d.latency;
-        if (q('lift')) q('lift').textContent = d.lift;
-        if (q('summary')) q('summary').textContent = d.summary;
-        if (q('json')) q('json').textContent = d.json;
-        if (q('entities')) {
-          q('entities').innerHTML = d.entities.map(function (e) {
-            return '<span class="badge bg-secondary-subtle text-secondary me-1">' + e + '</span>';
-          }).join('');
-        }
-      });
-    });
-  }
-
   function init() {
     // calm set: product UI, data and gentle reveals; no game-like decoration
     var steps = [initMotionToggle, initProgress, initRingbaHero, initDecision, initDecideGlobe, initLeadFlow, initPlatformFlow,
-      initBottomWaves, initPingPostDemos, initProductTour, initAiAtWork, initAiStudio, initHowFlow, initBento, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta, initShield, initHub, initAgent3d, initLandingWaves, initLiveReadouts,
+      initBottomWaves, initAiAtWork, initHowFlow, initFeatureDemos, initMiniPreviews, initPlatform, initMobileCta, initShield, initHub, initAgent3d, initLandingWaves, initLiveReadouts,
       initBackLinks, initFloatingBack, initZoom, initNavScroll, initWindows, initAuthRing, initIntegrationsHub, initIntegrationsBackdrop,
       initPricingHorizon, initIntegrationWaves, initFlowSequences, initTables, initCounters,
       initOffscreenPause, initScrollHints, initAnchors];

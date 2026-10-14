@@ -49,42 +49,9 @@ export const meta = {
     /* Hero rings: centered behind the h1, tilted in 3D and slowly spinning */
     .hero-heading { position: relative; }
     .hero-heading h1 { position: relative; z-index: 1; }
-    .hero-rings {
-      position: absolute; top: 50%; left: 50%; z-index: 0;
-      width: min(1040px, 150vw); aspect-ratio: 1;
-      transform: translate(-50%, -50%);
-      perspective: 1400px;
-      pointer-events: none;
-    }
-    .hero-rings-tilt {
-      width: 100%; height: 100%;
-      transform-style: preserve-3d;
-      animation: heroRingsTilt 18s ease-in-out infinite alternate;
-    }
-    .hero-rings img {
-      display: block; width: 100%; height: 100%; max-width: none;
-      opacity: .55;
-      /* pre-rendered art (assets/avx-baked): already blue on transparent, no runtime filters */
-      animation: heroRingsSpin 48s linear infinite;
-      will-change: transform;
-    }
-    [data-bs-theme="dark"] .hero-rings img { opacity: .8; }
-    @keyframes heroRingsSpin { to { transform: rotateZ(360deg); } }
-    @keyframes heroRingsTilt {
-      0% { transform: rotateX(30deg) rotateY(-14deg); }
-      50% { transform: rotateX(16deg) rotateY(4deg); }
-      100% { transform: rotateX(26deg) rotateY(14deg); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-rings-tilt, .hero-rings img { animation: none; }
-      .hero-rings-tilt { transform: rotateX(24deg); }
-    }
     /* Disable wave backgrounds behind FAQ and live demo animation */
-    .avx-hero-3d, #hero-option-s .avx-hero-3d, .avx-cv-card, .avx-decide .avx-cv-card, #hero-option-s .avx-cv-card { display: none !important; }
     #faq .avx-cv-bottom, #faq canvas, #faq .avx-bwaves, #faq .avx-bwaves-host, #faq .avx-fx-host,
     .avx-faq .avx-cv-bottom, .avx-faq canvas, .avx-faq .avx-bwaves, .avx-faq .avx-bwaves-host, .avx-faq .avx-fx-host { display: none !important; }
-    .avx-blog-grid-2 { grid-template-columns: repeat(2, 1fr) !important; max-width: 960px; margin: 0 auto; }
-    @media (max-width: 768px) { .avx-blog-grid-2 { grid-template-columns: 1fr !important; } }
 
     /* Pro live decision styling */
     .avx-decide,
@@ -135,41 +102,6 @@ export const meta = {
     .avx-fc-reason { font-size: 11.5px; color: #94a3b8; margin-top: 4px; }
 
     /* Magnific AI inspired interactive studio */
-    .avx-studio-scenarios { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
-    .avx-scenario-btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); color: #cbd5e1;
-      font-size: 13.5px; font-weight: 600; cursor: pointer; transition: all 0.25s ease;
-    }
-    .avx-scenario-btn:hover, .avx-scenario-btn.avx-active {
-      background: rgba(59, 130, 246, 0.18); border-color: rgba(96, 165, 250, 0.6); color: #fff; box-shadow: 0 0 16px rgba(59, 130, 246, 0.25);
-    }
-    .avx-studio-card {
-      background: #0d1117; border: 1px solid rgba(96, 165, 250, 0.25); border-radius: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 60px rgba(59, 130, 246, 0.08); overflow: hidden;
-    }
-    .avx-studio-header {
-      display: flex; align-items: center; justify-content: space-between; padding: 14px 22px;
-      background: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.06); font-size: 12.5px;
-    }
-    .avx-studio-body { display: grid; grid-template-columns: 1fr 1.25fr; gap: 24px; padding: 26px; }
-    @media (max-width: 992px) { .avx-studio-body { grid-template-columns: 1fr; } }
-    .avx-studio-left { display: flex; flex-direction: column; gap: 18px; }
-    .avx-studio-prompt-box {
-      background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 14px;
-    }
-    .avx-studio-prompt-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #94a3b8; font-weight: 700; margin-bottom: 6px; }
-    .avx-studio-prompt-text { font-size: 14px; color: #f1f4f9; line-height: 1.5; font-style: italic; }
-    .avx-studio-params { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .avx-param-card { background: rgba(255, 255, 255, 0.025); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 10px 12px; }
-    .avx-param-label { font-size: 11px; color: #94a3b8; display: block; margin-bottom: 4px; }
-    .avx-param-val { font-size: 14px; font-weight: 700; color: #3b82f6; font-family: var(--avx-font-mono); }
-    .avx-studio-telemetry { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
-    .avx-stat-chip { background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 10px; text-align: center; }
-    .avx-stat-chip small { font-size: 10.5px; color: #94a3b8; display: block; }
-    .avx-stat-chip b { font-size: 16px; color: #f8fafc; font-weight: 800; font-family: var(--avx-font-mono); }
-    .avx-transcript-box { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
-    .avx-json-box { background: #07090e; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 12px; font-family: var(--avx-font-mono); font-size: 11px; color: #60a5fa; }
 
     /* Ringba-inspired AI at the Core 3D Stage */
     .avx-ringba-stage {
@@ -210,10 +142,7 @@ export const meta = {
       stroke-dasharray: none;
       opacity: 0.95;
     }
-    .avx-path-green { stroke: #3b82f6; }
     .avx-path-blue { stroke: #3b82f6; }
-    .avx-path-purple { stroke: #3b82f6; }
-    .avx-path-orange { stroke: #60a5fa; }
 
     .avx-conduit-packet {
       fill: #ffffff;
@@ -316,28 +245,6 @@ export const meta = {
       flex: 1;
       min-width: 0;
     }
-    .avx-sphere-pill {
-      font-size: 10px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      padding: 2px 7px;
-      border-radius: 4px;
-      background: rgba(59, 130, 246, 0.15) !important;
-      color: #60a5fa !important;
-    }
-    .pill-emerald,
-    .pill-azure,
-    .pill-violet,
-    .pill-amber { background: rgba(59, 130, 246, 0.15) !important; color: #60a5fa !important; }
-
-    .avx-sphere-latency {
-      font-size: 11px;
-      font-weight: 600;
-      margin-left: auto;
-      font-family: var(--avx-font-mono);
-      color: #93c5fd !important;
-    }
     .avx-sphere-title {
       font-size: 15.5px;
       font-weight: 700;
@@ -349,14 +256,6 @@ export const meta = {
       color: #94a3b8;
       line-height: 1.45;
       margin-bottom: 8px;
-    }
-    .avx-sphere-kpi {
-      display: flex;
-      align-items: center;
-      font-size: 11px;
-      color: #cbd5e1;
-      border-top: none !important;
-      padding-top: 4px;
     }
 
     /* Center 3D AI Core Stage */
@@ -514,49 +413,6 @@ export const meta = {
       50% { transform: scale(1.3); opacity: 0.6; }
     }
 
-    .avx-core-hud-bottom {
-      position: absolute;
-      bottom: 14px;
-      left: 14px;
-      right: 14px;
-      pointer-events: none;
-    }
-    .avx-hud-tag-box {
-      background: rgba(10, 15, 29, 0.88);
-      border: 1px solid rgba(59, 130, 246, 0.35);
-      border-radius: 12px;
-      padding: 10px 14px;
-      backdrop-filter: blur(10px);
-    }
-    .avx-3d-eq {
-      display: inline-flex;
-      align-items: flex-end;
-      gap: 2.5px;
-      height: 14px;
-      width: 22px;
-    }
-    .avx-3d-eq i {
-      flex: 1;
-      background: #3b82f6;
-      border-radius: 1px;
-      animation: avxEqDance 0.8s ease-in-out infinite alternate;
-    }
-    .avx-3d-eq i:nth-child(1) { height: 40%; animation-delay: 0.1s; }
-    .avx-3d-eq i:nth-child(2) { height: 80%; animation-delay: 0.3s; }
-    .avx-3d-eq i:nth-child(3) { height: 100%; animation-delay: 0.15s; }
-    .avx-3d-eq i:nth-child(4) { height: 60%; animation-delay: 0.4s; }
-    .avx-3d-eq i:nth-child(5) { height: 90%; animation-delay: 0.25s; }
-    .avx-3d-eq i:nth-child(6) { height: 50%; animation-delay: 0.35s; }
-    @keyframes avxEqDance {
-      0% { height: 25%; }
-      100% { height: 100%; }
-    }
-    .avx-hud-status-text {
-      font-size: 11px;
-      color: #94a3b8;
-      font-family: var(--avx-font-mono);
-    }
-
     /* Ringba Telemetry bar */
     .avx-ringba-telemetry-bar {
       display: grid;
@@ -593,30 +449,6 @@ export const meta = {
     }
 
     /* Capabilities Rail */
-    .avx-rail-chips {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-    .avx-rail-chip {
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #cbd5e1;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-    }
-    .avx-rail-chip:hover {
-      background: rgba(59, 130, 246, 0.15);
-      border-color: rgba(59, 130, 246, 0.4);
-      color: #fff;
-      transform: translateY(-2px);
-    }
 ` }} />
     </>
   ),
@@ -664,15 +496,16 @@ export default function Home() {
             <svg viewBox="0 0 64 64" fill="none">
               <defs>
                 <linearGradient id="avx-mk-g-film" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#bfdbfe" />
-                  <stop offset="100%" stopColor="#60a5fa" />
+                  <stop offset="0%" stopColor="var(--vortyx-bright, #93c5fd)" />
+                  <stop offset="55%" stopColor="var(--vortyx-teal, #3b82f6)" />
+                  <stop offset="100%" stopColor="var(--vortyx-deep, #1739a8)" />
                 </linearGradient>
               </defs>
               <g transform="translate(32 32) scale(1.3) translate(-32 -32)">
                 <path d="M52 32a20 20 0 1 1-13.2-18.8" stroke="url(#avx-mk-g-film)" strokeWidth="3" strokeLinecap="round" />
                 <path d="M44.5 32a12.5 12.5 0 1 1-8.9-11.9" stroke="url(#avx-mk-g-film)" strokeWidth="2.5" strokeLinecap="round" opacity="0.9" />
                 <path d="M38 32a6 6 0 1 1-4.2-5.7" stroke="url(#avx-mk-g-film)" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
-                <circle cx="32" cy="32" r="1.7" fill="#bfdbfe" />
+                <circle cx="32" cy="32" r="1.7" fill="var(--vortyx-ultra, #dbeafe)" />
               </g>
             </svg>
           </span>

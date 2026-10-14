@@ -13,8 +13,8 @@ export const CATEGORIES = ['Pay-per-call', 'Attribution', 'Automation', 'Operati
 
 // screenshot sizes, for width/height on the <img> (and whether a 1000px copy exists)
 export const SHOTS = {
-  'summary-report-by-offer': [1650, 540, true], 'ping-post-dashboard-1': [1400, 1032, true], 'ping-post-dashboard-3': [1400, 1029, true],
-  'ping-post-analytics-1': [2000, 419, true], 'features-call-tracking-001': [2000, 977, true], 'features-call-tracking-call-details': [2000, 1450, true],
+  'summary-report-by-offer': [1650, 540, true],
+  'features-call-tracking-001': [2000, 977, true], 'features-call-tracking-call-details': [2000, 1450, true],
   'mitigation-1': [2000, 954, true], 'mitigation-2': [1927, 1481, true], 'features-verified-identity-kyb-profile': [1600, 1120, true],
   'features-transcription-analytics-dashboard': [1800, 1320, true], 'features-transcription-sentiment-breakdowns': [1800, 1320, true],
   'features-transcription-transcripts-search': [2000, 1414, true], 'features-transcription-call-recording': [1800, 1311, true],

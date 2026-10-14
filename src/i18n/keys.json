@@ -11596,10 +11596,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "A live video session sorted out our caps and failover in under an hour. Would like more report exports.",
-  "page": "(runtime)"
- },
- {
   "k": "AI SMS bots →",
   "page": "(runtime)"
  },
@@ -11752,10 +11748,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Avortyx grants You a non-transferable, non-exclusive, revocable, limited right to access and use the Service as made accessible to You through avortyx.com (“Platform”) and for the limited purpose of managing/conducting individual SMS and telephone call campaigns, both directly and/or on behalf of third-party clients, and to access and use campaign analytics. We shall exclusively retain all rights not expressly granted to You as set forth in this Agreement in and to each separate component comprising our Platform, together with all trademarks, trade secrets and any other proprietary rights inherent therein and related thereto. Access and use rights in and to the Platform and Service are being granted and not sold to You under the terms of this Agreement. All content other than Your Content (defined in Section {#}), features and functionality and each separate element/component of our Service and Platform are owned exclusively by Avortyx and are protected by copyright, trademark, and other intellectual property laws. You acknowledge that any derivative works, improvements, or modifications to the Platform created by You or anyone else shall be owned exclusively by Avortyx. Our trademarks, including the mark AVORTYX and our design marks/logos, all copyrighted material, any patents, and any other protectable components of the Platform generally are the intellectual property of Avortyx and/or its licensors.",
-  "page": "(runtime)"
- },
- {
   "k": "Avortyx is API-first: anything you can do in the dashboard, you can do through the REST API, with access tokens limited to exactly the resources they need.",
   "page": "(runtime)"
  },
@@ -11773,10 +11765,6 @@
  },
  {
   "k": "Beacon Law answered · <0>+${#}</0>",
-  "page": "(runtime)"
- },
- {
-  "k": "Bids come back fast and the reporting shows exactly why a call went where it did. No more guessing.",
   "page": "(runtime)"
  },
  {
@@ -11801,10 +11789,6 @@
  },
  {
   "k": "Bridged in {#}ms",
-  "page": "(runtime)"
- },
- {
-  "k": "Bring your own AI voice provider: your agent answers and qualifies calls, routed with the same controls as your live team. AI SMS bots engage leads, answer questions and schedule calls automatically.",
   "page": "(runtime)"
  },
  {
@@ -12076,10 +12060,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Every call goes through the same three steps — signal, score, route — before a buyer’s phone rings. The best eligible buyer wins, with match rules, caps, hours, concurrency and failover if a buyer misses. Average routing time is {#}ms.",
-  "page": "(runtime)"
- },
- {
   "k": "Every call with its source, buyer and revenue · demo data",
   "page": "(runtime)"
  },
@@ -12180,19 +12160,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "Highest bid · homeowner verified · serves CO",
-  "page": "(runtime)"
- },
- {
   "k": "Highest bid · intent above {#} · licensed in IL",
-  "page": "(runtime)"
- },
- {
-  "k": "Highest bid · practice area match · MA bar",
-  "page": "(runtime)"
- },
- {
-  "k": "Highest bid · renewal window · open capacity",
   "page": "(runtime)"
  },
  {
@@ -12256,10 +12224,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Inbound Call — Caller dials your tracking number; IVR Greeting — Menu and keypress collection; Smart Routing — Route by tier, bid, or EPC; Ring Buyers — In priority order or all at once; Connected — Call bridged to the buyer",
-  "page": "(runtime)"
- },
- {
   "k": "Inbound call flow · demo data",
   "page": "(runtime)"
  },
@@ -12316,10 +12280,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "KPIs and the ping-to-post funnel · demo data",
-  "page": "(runtime)"
- },
- {
   "k": "LL",
   "page": "(runtime)"
  },
@@ -12357,10 +12317,6 @@
  },
  {
   "k": "Lead sequence · demo data",
-  "page": "(runtime)"
- },
- {
-  "k": "Leads Queue — Leads enter via API, import, actions, and more; Agent Available — Agent on the line, ready for the next call; Place Call — Dials the next lead when an agent is free; Connected — Live answer bridged to agent; Disposition — Agent selects outcome, next lead",
   "page": "(runtime)"
  },
  {
@@ -12516,10 +12472,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "OU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT IN ITS ENTIRETY, THAT YOU UNDERSTAND THIS AGREEMENT AND THAT YOU ARE ENTERING INTO A LEGALLY BINDING AGREEMENT WITH AVORTYX. IN THE EVENT YOU DO NOT AGREE TO ACCEPT ANY OF THE TERMS CONTAINED HEREIN, YOU ARE NOT PERMITTED TO USE OUR SERVICE.",
-  "page": "(runtime)"
- },
- {
   "k": "Offer",
   "page": "(runtime)"
  },
@@ -12572,14 +12524,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Per-minute billing with no onboarding fee made it easy to test before we moved our volume.",
-  "page": "(runtime)"
- },
- {
-  "k": "Performance by traffic source · demo data",
-  "page": "(runtime)"
- },
- {
   "k": "Ping",
   "page": "(runtime)"
  },
@@ -12596,15 +12540,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "Ping-Tree: 12 Buyers Bidding · High Bid $68.50 Won",
-  "page": "(runtime)"
- },
- {
   "k": "Ping/Post",
-  "page": "(runtime)"
- },
- {
-  "k": "Ping/Post is real-time bidding for inbound calls: publishers ping to find available buyers and collect live bids, then post to get a tracking number. Route by bid, priority or earnings-per-call, with static and live webhook bidders in one auction.",
   "page": "(runtime)"
  },
  {
@@ -12700,10 +12636,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Publisher — Sends lead data; PING — Check available buyers, get bids; Buyer Matching — Hours, caps, geo, filters, duplicates; POST — Get tracking number for the call; Connected — Caller routes to selected buyer",
-  "page": "(runtime)"
- },
- {
   "k": "Qualified",
   "page": "(runtime)"
  },
@@ -12781,10 +12713,6 @@
  },
  {
   "k": "SIP support →",
-  "page": "(runtime)"
- },
- {
-  "k": "SMS delivered · “Hi Tom, your quote is ready”",
   "page": "(runtime)"
  },
  {
@@ -12988,10 +12916,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "The waiver of a breach of any provision of this Agreement by You shall not operate or be construed as a waiver by Avortyx of any other or subsequent breach by You.",
-  "page": "(runtime)"
- },
- {
   "k": "Tied to Its Source",
   "page": "(runtime)"
  },
@@ -13084,14 +13008,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "We assume no responsibility to investigate any Campaign Content either before any Campaign Content is uploaded or after the same is initiated published. We shall not be responsible or liable to You for any damages whatsoever of any kind for any Campaign Content which is ultimately relied upon by You for any purpose whatsoever",
-  "page": "(runtime)"
- },
- {
-  "k": "We moved our health campaigns over and calls started reaching buyers the same day. The routing rules are easy to follow.",
-  "page": "(runtime)"
- },
- {
   "k": "We offer phone, live chat and email support, plus live video sessions with our specialists. You can also write to support@avortyx.com.",
   "page": "(runtime)"
  },
@@ -13109,10 +13025,6 @@
  },
  {
   "k": "When every buyer is busy, callers hold with music and connect automatically as capacity frees up.",
-  "page": "(runtime)"
- },
- {
-  "k": "When you register to use the Service, you must provide PII about yourself and your business. This includes, without limitation: (i) \"Contact Data\" such as your first and last name if you are a sole proprietor, phone number, fax number, mailing address, and/or email address; (ii) \"Third-Party Social Media Account Data\" such as your account information for connected social media integrations; and (iii) “Business Information” such as Your business name, tradename, and any other business contact or identifying information provided directly by you (collectively “BI”).",
   "page": "(runtime)"
  },
  {
