@@ -8136,7 +8136,7 @@
   "page": "legal.html"
  },
  {
-  "k": "These documents form part of your agreement with Avortyx, LLC. If a policy and the Terms of Service conflict, the Terms of Service control unless the policy says otherwise.",
+  "k": "These documents form part of your agreement with Avortyx. If a policy and the Terms of Service conflict, the Terms of Service control unless the policy says otherwise.",
   "page": "legal.html"
  },
  {
@@ -8256,7 +8256,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Abandoned, unanswered and rejected calls place load on carrier networks. Where more than 20% of an account's call attempts in the last 30 days are abandoned (unanswered, 0 seconds), or calls are repeatedly rejected for lack of an eligible destination, Avortyx may apply the network surcharges described on the pricing page and in the Terms of Service, limit call volume, or ask you to correct the traffic source.",
+  "k": "Abandoned, unanswered and rejected calls place load on carrier networks. When over a fifth (20%) of the calls an account tried to place in the past 30 days went unanswered (abandoned at 0 seconds), or calls are repeatedly rejected for lack of an eligible destination, Avortyx may apply the network surcharges described on the pricing page and in the Terms of Service, limit call volume, or ask you to correct the traffic source.",
   "page": "legal.html"
  },
  {
@@ -8276,7 +8276,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Questions about this document? Email <0>support@avortyx.com</0>. Formal legal notices must be sent by certified U.S. Mail to Avortyx, LLC, 1500 N Grant St #10831, Denver, CO 80203, as the Terms of Service describe.",
+  "k": "Questions about this document? Email <0>support@avortyx.com</0>. Formal legal notices go by email to <1>hello@avortyx.io</1>, as the Terms of Service describe.",
   "page": "legal.html"
  },
  {
@@ -8292,7 +8292,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Where consent is required, you must obtain prior express written consent that clearly names you and Avortyx, LLC as parties who may contact the consumer, discloses the use of automated technology and pre-recorded messages where applicable, and states that consent is not a condition of purchase. The required consent language is set out in section 2.3.1 of the Terms of Service.",
+  "k": "Where consent is required, you must obtain prior express written consent that clearly names you and Avortyx as parties who may contact the consumer, discloses the use of automated technology and pre-recorded messages where applicable, and states that agreeing is not required to buy anything. What the consent wording must cover is set out in section 5.2 of the Terms of Service.",
   "page": "legal.html"
  },
  {
@@ -8336,7 +8336,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Scrub your lists against the National Do Not Call Registry, applicable state lists and your internal Do Not Call list before every campaign. Where Avortyx provides a suppression list, review and scrub against it at least every three (3) business days, and never call or text a number on it.",
+  "k": "Scrub your lists against the National Do Not Call Registry, applicable state lists and your internal Do Not Call list before every campaign. Where Avortyx provides a suppression list, clean your lists against it no less than once in any three (3) business days, and never call or text a number on it.",
   "page": "legal.html"
  },
  {
@@ -8432,7 +8432,7 @@
   "page": "legal.html"
  },
  {
-  "k": "If more than 20% of your call attempts in the last 30 days were abandoned (unanswered, 0 seconds), a surcharge applies to each call as stated on the pricing page. Calls rejected because they have nowhere eligible to go are charged per call. Carrier administrative fees, traceback fees and penalties caused by your traffic are passed through to your account.",
+  "k": "When over a fifth (20%) of the calls you tried to place in the past 30 days went unanswered (abandoned at 0 seconds), each call carries the surcharge shown on the pricing page. Calls rejected because they have nowhere eligible to go are charged per call. Carrier administrative fees, traceback fees and penalties caused by your traffic are passed through to your account.",
   "page": "legal.html"
  },
  {
@@ -8440,7 +8440,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Keep a positive balance. If usage exceeds your deposit or fees go unpaid, Avortyx may suspend the account. If your balance stays below $0 for ninety (90) consecutive days, call recording retention is reduced to ninety (90) days and older recordings are permanently deleted.",
+  "k": "Keep a positive balance. If usage exceeds your deposit or fees go unpaid, Avortyx may suspend the account. If your balance remains negative for ninety (90) days in a row, recording retention drops to ninety (90) days and anything older is deleted for good.",
   "page": "legal.html"
  },
  {
@@ -8448,7 +8448,7 @@
   "page": "legal.html"
  },
  {
-  "k": "You can cancel at any time from your account dashboard or by contacting support. Cancellation requests take up to three (3) calendar days to process. Recurring charges then stop, and access continues until the end of the current billing cycle.",
+  "k": "Cancel whenever you like, in the dashboard or through our support team. We process a cancellation within three (3) calendar days. Recurring charges then stop, and access continues until the end of the current billing cycle.",
   "page": "legal.html"
  },
  {
@@ -8484,7 +8484,7 @@
   "page": "legal.html"
  },
  {
-  "k": "The platform redacts or obfuscates personally identifiable information, including names, birthdates and physical addresses, in inactive data and system logs after a default period of ninety (90) days. You may be able to change this period for your account; if you do, you are responsible for the retention you choose.",
+  "k": "By default, ninety (90) days after data goes inactive the platform masks or removes the personal details in it and in system logs, such as names, dates of birth and street addresses. You may be able to change this period for your account; if you do, you are responsible for the retention you choose.",
   "page": "legal.html"
  },
  {
@@ -8500,7 +8500,7 @@
   "page": "legal.html"
  },
  {
-  "k": "When an account is closed, call logs and recordings become inaccessible. If a balance stays below $0 for ninety (90) consecutive days, recordings older than ninety (90) days are permanently deleted.",
+  "k": "When an account is closed, call logs and recordings become inaccessible. If an account’s balance is negative for ninety (90) days in a row, every recording more than ninety (90) days old is deleted for good.",
   "page": "legal.html"
  },
  {
@@ -8532,7 +8532,7 @@
   "page": "legal.html"
  },
  {
-  "k": "To use messaging, you must keep a publicly accessible privacy policy on your website. To meet A2P 10DLC requirements it must state that mobile phone numbers, SMS consent and messaging data are not shared with or sold to third parties for their marketing purposes.",
+  "k": "Messaging requires a privacy policy that anyone can read on your website. Under A2P 10DLC rules it has to say that you never sell or hand over mobile numbers, SMS consent or messaging data to any third party for its marketing purposes.",
   "page": "legal.html"
  },
  {
@@ -8612,7 +8612,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Avortyx is not liable for any inability to reach emergency services through the platform.",
+  "k": "Avortyx bears no responsibility if emergency services cannot be reached through the platform.",
   "page": "legal.html"
  },
  {
@@ -8652,7 +8652,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Avortyx and the Avortyx logo are trademarks of Avortyx, LLC. Approved logo files and colors are in the Brand Kit.",
+  "k": "The Avortyx name and logo are trademarks of Avortyx. Approved logo files and colors are in the Brand Kit.",
   "page": "legal.html"
  },
  {
@@ -8884,7 +8884,7 @@
   "page": "legal.html"
  },
  {
-  "k": "We may update these terms from time to time. We will post the new version here with a new date and, for material changes, tell active partners by email. Continuing to promote Avortyx after a change takes effect means you accept it.",
+  "k": "We may revise these terms. We will post the new version here with a new date and, for material changes, tell active partners by email. Continuing to promote Avortyx after a change takes effect means you accept it.",
   "page": "legal.html"
  },
  {
@@ -9364,7 +9364,7 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "This Privacy Policy explains how Avortyx, LLC, a Colorado limited liability company (“Avortyx”, “we”, “us” or “our”), collects, uses, shares and protects information through avortyx.com and the Avortyx call routing platform, its applications and APIs (together, the “Service”). Terms in capitals that are not defined here have the meaning given in our <0>Terms of Service</0>.",
+  "k": "This Privacy Policy explains how Avortyx (“we”, “us” or “our”) collects, uses, shares and protects information through avortyx.com and the Avortyx call routing platform, its applications and APIs (together, the “Service”). Terms in capitals that are not defined here have the meaning given in our <0>Terms of Service</0>.",
   "page": "privacy_policy.html"
  },
  {
@@ -9528,7 +9528,7 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "Avortyx is based in the United States, and information is stored and processed there and in other countries where our providers operate. If you use the Service from outside the United States, your information will be transferred to the United States.",
+  "k": "Avortyx is based in the United States, and information is stored and processed there and in other countries where our providers operate. If you use the Service from outside the United States, your information will be moved to and handled in the United States.",
   "page": "privacy_policy.html"
  },
  {
@@ -9548,7 +9548,7 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>7.4. U.S. state privacy rights.</0> If you live in a U.S. state with a general consumer privacy law, such as California, Colorado, Connecticut, Utah and Virginia, you may have the right to learn which personal information we collected about you over the past twelve (12) months and how we use and disclose it, to receive a copy, to have it corrected or deleted (subject to legal exceptions), and to opt out of its sale or its use for targeted advertising. We do not sell personal information or use it for cross-context behavioral advertising. We will not treat you differently for exercising these rights.",
+  "k": "<0>7.4. U.S. state privacy rights.</0> If you live in a U.S. state with a general consumer privacy law, such as California, Colorado, Connecticut, Utah and Virginia, you may be entitled to learn which personal information we collected about you over the past twelve (12) months and how we use and disclose it, to receive a copy, to have it corrected or deleted (subject to legal exceptions), and to opt out of its sale or its use for targeted advertising. We do not sell personal information or use it for cross-context behavioral advertising. We will not treat you differently for exercising these rights.",
   "page": "privacy_policy.html"
  },
  {
@@ -9576,11 +9576,7 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "For questions or requests about this policy, email support@avortyx.com or write to:",
-  "page": "privacy_policy.html"
- },
- {
-  "k": "<0>Avortyx, LLC<1/></0><2>1500 N Grant St #10831<3/></2><4>Denver, CO 80203<5/></4>",
+  "k": "For questions or requests about this policy, email support@avortyx.com. Formal notices can be sent to hello@avortyx.io.",
   "page": "privacy_policy.html"
  },
  {
@@ -10788,7 +10784,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "These Terms of Service (the “Terms”) are a contract between you and Avortyx, LLC, a Colorado limited liability company (“Avortyx”, “we”, “us” or “our”). They govern the Avortyx platform, its web application, APIs, phone numbers and related services, and the avortyx.com website (together, the “Service”).",
+  "k": "These Terms of Service (the “Terms”) set out the agreement between you and Avortyx (“we”, “us” or “our”). They govern the Avortyx platform, its web application, APIs, phone numbers and related services, and the avortyx.com website (together, the “Service”).",
   "page": "terms_of_service.html"
  },
  {
@@ -10796,7 +10792,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "You accept these Terms when you create an account, sign an Order Form that refers to them, or otherwise use the Service. If you do not accept them, you may not use the Service. You must be at least 18 years old and able to enter into a binding contract.",
+  "k": "You accept these Terms when you create an account, sign an Order Form that refers to them, or otherwise use the Service. If you do not accept them, you may not use the Service. You must be an adult (18 or over) with the legal capacity to make a binding contract.",
   "page": "terms_of_service.html"
  },
  {
@@ -10956,7 +10952,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>5.2. Wording.</0> Your consent wording must satisfy the law and must clearly name both you and Avortyx, LLC. It must cover the channels you will use (such as calls, texts, fax and instant messages), say that automated technology and prerecorded or artificial voice messages may be used, state that consent is not required to make a purchase, and include the consumer’s agreement to arbitrate disputes.",
+  "k": "<0>5.2. Wording.</0> Your consent wording must satisfy the law and must clearly name both you and Avortyx. It must cover the channels you will use (such as calls, texts, fax and instant messages), say that automated technology and prerecorded or artificial voice messages may be used, state that consent is not required to make a purchase, and include the consumer’s agreement to arbitrate disputes.",
   "page": "terms_of_service.html"
  },
  {
@@ -10968,7 +10964,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>5.5. Suppression lists.</0> If we give you a suppression list, you will clean your contact lists against it no less often than once every three (3) business days and never call or text a number on it.",
+  "k": "<0>5.5. Suppression lists.</0> If we give you a suppression list, you will check your contact lists against it at least once in any period of three (3) business days, and never call or text a number on it.",
   "page": "terms_of_service.html"
  },
  {
@@ -11188,7 +11184,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "If you send us ideas or suggestions about the Service, we may use them for any purpose without payment or credit to you. Feedback does not give us any right to your Content or confidential information.",
+  "k": "Ideas and suggestions you send us about the Service are ours to use for any purpose, without payment or credit to you. Feedback does not give us any right to your Content or confidential information.",
   "page": "terms_of_service.html"
  },
  {
@@ -11244,7 +11240,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "The Service is provided “as is” and “as available”. To the extent the law allows, Avortyx makes no warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, availability, security or compatibility, and does not promise that the Service will run without interruption or errors, that it is free from viruses or other malicious code, or that any errors will be fixed.",
+  "k": "The Service is provided “as is” and “as available”. To the extent the law allows, Avortyx makes no warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, availability, security or compatibility, and does not promise that the Service will run without interruption or errors, that it is free from viruses or other malicious code, or that every error will be corrected.",
   "page": "terms_of_service.html"
  },
  {
@@ -11276,7 +11272,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "the combined liability of Avortyx, its owners, directors, staff and affiliates for all claims relating to the Service or these Terms is capped at the fees you actually paid Avortyx for the Service in the twelve (12) months before the event that gave rise to the claim.",
+  "k": "the combined liability of Avortyx, its owners, directors, staff and affiliates for all claims relating to the Service or these Terms is capped at the amount you actually paid Avortyx for the Service in the twelve (12) months leading up to the claim.",
   "page": "terms_of_service.html"
  },
  {
@@ -11296,15 +11292,15 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>20.3. Rules and place.</0> Arbitration will be run by the American Arbitration Association (AAA) under its Commercial Arbitration Rules then in force, before a single arbitrator, in Denver, Colorado. Where twenty-five (25) or more substantially similar demands are filed against Avortyx by one law firm, or by people working together or represented in a coordinated way, the AAA will handle them in batches of fifty (50), and Avortyx only has to pay filing fees for the batch currently being handled.",
+  "k": "<0>20.3. Rules and place.</0> The American Arbitration Association (AAA) administers any arbitration under the Commercial Arbitration Rules in force at the time, with a single arbitrator, by video conference or, where a hearing must be held in person, in the county of Avortyx’s principal place of business. Where twenty-five (25) or more substantially similar demands are filed against Avortyx by one law firm, or by people working together or represented in a coordinated way, the AAA will handle them in batches of fifty (50), and Avortyx only has to pay filing fees for the batch currently being handled.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>20.4. The arbitrator’s powers.</0> The arbitrator may award any relief available in law or equity, and the award is final and binding. The arbitrator may not award punitive damages unless a Colorado statute governing the claim allows them, and may not make an award that goes beyond Section 19. The arbitrator will award the winning party its reasonable costs, attorneys’ fees and arbitration fees. Judgment on the award may be entered in any court with jurisdiction.",
+  "k": "<0>20.4. The arbitrator’s powers.</0> The arbitrator may award any relief available in law or equity, and the award is final and binding. The arbitrator may not award punitive damages unless the law that governs the claim expressly allows them, and may not make an award that goes beyond Section 19. The arbitrator will award the winning party its reasonable costs, attorneys’ fees and arbitration fees. Judgment on the award may be entered in any court with jurisdiction.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>20.5. One year to bring a claim.</0> A party that wants to bring a claim must give the other written notice of it by certified U.S. mail within one (1) year of the earlier of when the events giving rise to the claim happened or when the party discovered them, or reasonably should have discovered them using ordinary business care. A claim not raised in time is permanently barred.",
+  "k": "<0>20.5. One year to bring a claim.</0> A party that wants to bring a claim must notify the other in writing within one (1) year, counted from the earlier of when the events giving rise to the claim happened or when the party discovered them, or reasonably should have discovered them using ordinary business care. A claim not raised in time is permanently barred.",
   "page": "terms_of_service.html"
  },
  {
@@ -11320,7 +11316,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "You will follow U.S. export control and sanctions laws when using the Service. You confirm that you are not located in, organized under the laws of, or ordinarily resident in a country or region under comprehensive U.S. sanctions, and that you are not on, or owned or controlled by anyone on, a U.S. government restricted-party list. You will not let anyone in those categories use the Service through your account.",
+  "k": "You will follow U.S. export control and sanctions laws when using the Service. You confirm that you are not located in, organized under the laws of, or ordinarily resident in a country or region under comprehensive U.S. sanctions, and that neither you nor anyone who owns or controls you appears on any U.S. government list of restricted or blocked parties. You will not let anyone in those categories use the Service through your account.",
   "page": "terms_of_service.html"
  },
  {
@@ -11328,7 +11324,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>23.1. Updates.</0> We may change these Terms from time to time. We will post the new version here with its effective date, and may also tell you by email or in the dashboard.",
+  "k": "<0>23.1. Updates.</0> We may revise these Terms. We will post the new version here with its effective date, and may also tell you by email or in the dashboard.",
   "page": "terms_of_service.html"
  },
  {
@@ -11348,7 +11344,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>24.2. Legal notices to Avortyx.</0> Legal notices to Avortyx, including notices of a dispute or arbitration under Section 20, must be written and posted by certified U.S. mail with a return receipt to:",
+  "k": "<0>24.2. Legal notices to Avortyx.</0> Legal notices to Avortyx, including notices of a dispute or arbitration under Section 20, must be in writing and emailed to hello@avortyx.io with “Legal Notice” in the subject line. A notice takes effect when we confirm receipt.",
   "page": "terms_of_service.html"
  },
  {
@@ -11360,7 +11356,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>25.1. Governing law and courts.</0> Colorado law governs these Terms, without regard to its conflict-of-law rules. The United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transactions Act do not apply. Any claim that is not arbitrated under Section 20 must be brought only in the state courts located in the City and County of Denver, Colorado, or the United States District Court for the District of Colorado, and you consent to their jurisdiction and to service of process outside Colorado.",
+  "k": "<0>25.1. Governing law and courts.</0> The laws of the U.S. state in which Avortyx is organized govern these Terms, together with applicable U.S. federal law, without applying conflict-of-law principles. Neither the United Nations Convention on Contracts for the International Sale of Goods nor the Uniform Computer Information Transactions Act applies. A claim that is not arbitrated under Section 20 may be brought only in the state or federal courts serving the county of Avortyx’s principal place of business, and you agree to those courts’ jurisdiction.",
   "page": "terms_of_service.html"
  },
  {
@@ -11368,7 +11364,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>25.3. Whole agreement.</0> These Terms, with the policies and any Order Form, are the entire agreement between you and Avortyx about the Service and replace any earlier discussions or agreements about it.",
+  "k": "<0>25.3. Whole agreement.</0> These Terms, with the policies and any Order Form, are the complete understanding between you and Avortyx about the Service and replace any earlier discussions or agreements about it.",
   "page": "terms_of_service.html"
  },
  {
@@ -11392,7 +11388,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>25.9. Independent parties.</0> You and Avortyx are independent. These Terms do not create a partnership, joint venture or agency between you and Avortyx, and neither of us can commit the other to anything. Each party is responsible for its own compliance with the laws that apply to its business and employees.",
+  "k": "<0>25.9. Independent parties.</0> You and Avortyx are independent. Nothing in these Terms makes you and Avortyx partners, joint venturers or each other’s agents, and neither of us can commit the other to anything. Each party is responsible for its own compliance with the laws that apply to its business and employees.",
   "page": "terms_of_service.html"
  },
  {

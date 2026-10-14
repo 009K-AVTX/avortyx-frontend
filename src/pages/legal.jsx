@@ -1,7 +1,7 @@
 // /legal.html — the Legal Center: every agreement and policy in one place, Nextiva-style.
 // /legal lists them; /legal?doc=NN opens one (site.js switches documents without a reload).
 // Documents live in src/legal/docs.js; Terms and Privacy keep their own pages and are linked.
-import { ADDRESS, DOCS, ENTITY, GROUPS, SUPPORT, UPDATED } from '../legal/docs.js'
+import { DOCS, ENTITY, GROUPS, LEGAL_EMAIL, SUPPORT, UPDATED } from '../legal/docs.js'
 
 export const meta = {
   title: 'Legal Center | Avortyx',
@@ -80,7 +80,7 @@ export default function Legal() {
                     </section>
                   ))}
                   <div className="avx-legal-contact">
-                    <p>Questions about this document? Email <a href={`mailto:${SUPPORT}`}>{SUPPORT}</a>. Formal legal notices must be sent by certified U.S. Mail to {ADDRESS}, as the Terms of Service describe.</p>
+                    <p>Questions about this document? Email <a href={`mailto:${SUPPORT}`}>{SUPPORT}</a>. Formal legal notices go by email to <a href={`mailto:${LEGAL_EMAIL}`}>{LEGAL_EMAIL}</a>, as the Terms of Service describe.</p>
                   </div>
                 </article>
               ))}

@@ -4,8 +4,9 @@
 // Docs with `href` live on their own page and are only linked from the menu.
 
 export const UPDATED = 'October 13, 2026'
-export const ENTITY = 'Avortyx, LLC'
-export const ADDRESS = 'Avortyx, LLC, 1500 N Grant St #10831, Denver, CO 80203'
+export const ENTITY = 'Avortyx'
+// formal legal notices: the contact address avortyx.com publishes
+export const LEGAL_EMAIL = 'hello@avortyx.io'
 export const SUPPORT = 'support@avortyx.com'
 
 export const GROUPS = [
@@ -51,7 +52,7 @@ export const DOCS = [
         ]],
       ]],
       ['3. Traffic quality', [
-        'Abandoned, unanswered and rejected calls place load on carrier networks. Where more than 20% of an account\'s call attempts in the last 30 days are abandoned (unanswered, 0 seconds), or calls are repeatedly rejected for lack of an eligible destination, Avortyx may apply the network surcharges described on the pricing page and in the Terms of Service, limit call volume, or ask you to correct the traffic source.',
+        'Abandoned, unanswered and rejected calls place load on carrier networks. When over a fifth (20%) of the calls an account tried to place in the past 30 days went unanswered (abandoned at 0 seconds), or calls are repeatedly rejected for lack of an eligible destination, Avortyx may apply the network surcharges described on the pricing page and in the Terms of Service, limit call volume, or ask you to correct the traffic source.',
       ]],
       ['4. Monitoring and enforcement', [
         'Avortyx may review campaigns, call metadata, recordings and messages to confirm compliance with this AUP, applicable law and carrier requirements. If we believe a violation has occurred we may, with or without notice: suspend numbers, campaigns or the account; block specific traffic; pass through carrier fines, traceback fees or penalties caused by your traffic; and cooperate with carriers, the Industry Traceback Group, regulators and law enforcement.',
@@ -70,7 +71,7 @@ export const DOCS = [
         'You are solely responsible for making sure that every call and message you place, route or receive through Avortyx complies with the TCPA, the Telemarketing Sales Rule, state telemarketing and mini-TCPA laws, and carrier policies. Avortyx\'s compliance tools help you meet those obligations; they do not transfer them to Avortyx and are not legal advice.',
       ]],
       ['2. Consent', [
-        'Where consent is required, you must obtain prior express written consent that clearly names you and Avortyx, LLC as parties who may contact the consumer, discloses the use of automated technology and pre-recorded messages where applicable, and states that consent is not a condition of purchase. The required consent language is set out in section 2.3.1 of the Terms of Service.',
+        'Where consent is required, you must obtain prior express written consent that clearly names you and Avortyx as parties who may contact the consumer, discloses the use of automated technology and pre-recorded messages where applicable, and states that agreeing is not required to buy anything. What the consent wording must cover is set out in section 5.2 of the Terms of Service.',
       ]],
       ['3. Consent records', [
         'Keep consent records for at least five (5) years, or longer where law requires. Each record must include:',
@@ -85,7 +86,7 @@ export const DOCS = [
         'You must produce consent records to Avortyx on request within the time stated in the Terms of Service.',
       ]],
       ['4. Do Not Call and suppression', [
-        'Scrub your lists against the National Do Not Call Registry, applicable state lists and your internal Do Not Call list before every campaign. Where Avortyx provides a suppression list, review and scrub against it at least every three (3) business days, and never call or text a number on it.',
+        'Scrub your lists against the National Do Not Call Registry, applicable state lists and your internal Do Not Call list before every campaign. Where Avortyx provides a suppression list, clean your lists against it no less than once in any three (3) business days, and never call or text a number on it.',
       ]],
       ['5. Tools Avortyx provides', [
         'Depending on your plan and configuration, Avortyx can screen each attempt before it reaches a buyer against federal, state and internal DNC lists, check for consent proof, flag VoIP and velocity fraud signals, and apply per-state two-party recording rules. The screening decision is stored on the call record and can be exported for audit. These tools reduce risk; they do not guarantee compliance.',
@@ -136,13 +137,13 @@ export const DOCS = [
         ]],
       ]],
       ['2. Surcharges and pass-through fees', [
-        'If more than 20% of your call attempts in the last 30 days were abandoned (unanswered, 0 seconds), a surcharge applies to each call as stated on the pricing page. Calls rejected because they have nowhere eligible to go are charged per call. Carrier administrative fees, traceback fees and penalties caused by your traffic are passed through to your account.',
+        'When over a fifth (20%) of the calls you tried to place in the past 30 days went unanswered (abandoned at 0 seconds), each call carries the surcharge shown on the pricing page. Calls rejected because they have nowhere eligible to go are charged per call. Carrier administrative fees, traceback fees and penalties caused by your traffic are passed through to your account.',
       ]],
       ['3. Balance and payment', [
-        'Keep a positive balance. If usage exceeds your deposit or fees go unpaid, Avortyx may suspend the account. If your balance stays below $0 for ninety (90) consecutive days, call recording retention is reduced to ninety (90) days and older recordings are permanently deleted.',
+        'Keep a positive balance. If usage exceeds your deposit or fees go unpaid, Avortyx may suspend the account. If your balance remains negative for ninety (90) days in a row, recording retention drops to ninety (90) days and anything older is deleted for good.',
       ]],
       ['4. Cancellation', [
-        'You can cancel at any time from your account dashboard or by contacting support. Cancellation requests take up to three (3) calendar days to process. Recurring charges then stop, and access continues until the end of the current billing cycle.',
+        'Cancel whenever you like, in the dashboard or through our support team. We process a cancellation within three (3) calendar days. Recurring charges then stop, and access continues until the end of the current billing cycle.',
         'When access ends, campaign content, call logs and recordings become inaccessible, and rented local and toll-free numbers are released to the carriers and cannot be recovered. Port numbers out or export data before your cycle ends.',
       ]],
       ['5. Refunds', [
@@ -162,13 +163,13 @@ export const DOCS = [
         'Some states require every party to a call to consent to recording. You are responsible for giving the notice and obtaining the consent that applies to each call. Avortyx can apply per-state two-party recording rules to help you do this.',
       ]],
       ['3. Automated redaction', [
-        'The platform redacts or obfuscates personally identifiable information, including names, birthdates and physical addresses, in inactive data and system logs after a default period of ninety (90) days. You may be able to change this period for your account; if you do, you are responsible for the retention you choose.',
+        'By default, ninety (90) days after data goes inactive the platform masks or removes the personal details in it and in system logs, such as names, dates of birth and street addresses. You may be able to change this period for your account; if you do, you are responsible for the retention you choose.',
       ]],
       ['4. Consent records', [
         'Consent records you keep for TCPA purposes must be kept for at least five (5) years. Because redaction can remove personal information from inactive data, keep your consent records in your own systems as well, as the Terms of Service require.',
       ]],
       ['5. After cancellation or non-payment', [
-        'When an account is closed, call logs and recordings become inaccessible. If a balance stays below $0 for ninety (90) consecutive days, recordings older than ninety (90) days are permanently deleted.',
+        'When an account is closed, call logs and recordings become inaccessible. If an account’s balance is negative for ninety (90) days in a row, every recording more than ninety (90) days old is deleted for good.',
       ]],
       ['6. Legal holds', [
         'Avortyx may keep data longer where needed to meet a legal obligation, respond to lawful requests, resolve disputes or enforce our agreements.',
@@ -187,7 +188,7 @@ export const DOCS = [
         'Send messages only to people who have given the consent required for that type of message. Honor STOP and other opt-out keywords immediately, and respond to HELP with your business name and contact details.',
       ]],
       ['3. Privacy policy requirement', [
-        'To use messaging, you must keep a publicly accessible privacy policy on your website. To meet A2P 10DLC requirements it must state that mobile phone numbers, SMS consent and messaging data are not shared with or sold to third parties for their marketing purposes.',
+        'Messaging requires a privacy policy that anyone can read on your website. Under A2P 10DLC rules it has to say that you never sell or hand over mobile numbers, SMS consent or messaging data to any third party for its marketing purposes.',
       ]],
       ['4. Content', [
         'Messages must not contain prohibited content under the Acceptable Use Policy or carrier rules, including content about cannabis, firearms, high-risk financial offers or other categories carriers restrict.',
@@ -231,7 +232,7 @@ export const DOCS = [
         'Make sure everyone who uses Avortyx numbers on your behalf, including agents and call centers, has another way to reach emergency services.',
       ]],
       ['3. No liability', [
-        'Avortyx is not liable for any inability to reach emergency services through the platform.',
+        'Avortyx bears no responsibility if emergency services cannot be reached through the platform.',
       ]],
     ],
   },
@@ -261,7 +262,7 @@ export const DOCS = [
     summary: 'How to use the Avortyx name and logo.',
     sections: [
       ['1. Our marks', [
-        'Avortyx and the Avortyx logo are trademarks of Avortyx, LLC. Approved logo files and colors are in the Brand Kit.',
+        'The Avortyx name and logo are trademarks of Avortyx. Approved logo files and colors are in the Brand Kit.',
       ]],
       ['2. You may', [
         ['ul', [
@@ -355,7 +356,7 @@ export const DOCS = [
         'Either party may end participation at any time with written notice. Commission earned on qualifying referrals before termination is paid on the normal schedule, unless termination was for a breach of these terms.',
       ]],
       ['12. Changes to these terms', [
-        'We may update these terms from time to time. We will post the new version here with a new date and, for material changes, tell active partners by email. Continuing to promote Avortyx after a change takes effect means you accept it.',
+        'We may revise these terms. We will post the new version here with a new date and, for material changes, tell active partners by email. Continuing to promote Avortyx after a change takes effect means you accept it.',
       ]],
       ['13. Contact', [
         'To apply, ask about the program or request partner logos, email hello@avortyx.io.',

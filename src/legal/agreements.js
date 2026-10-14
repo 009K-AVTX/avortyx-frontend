@@ -9,14 +9,15 @@
 // Text may link with [[label|/path]].
 
 export const UPDATED = 'October 14, 2026'
-const ADDRESS = ['Avortyx, LLC', '1500 N Grant St #10831', 'Denver, CO 80203']
+// avortyx.com publishes no postal address; formal notices go to its contact email
+const LEGAL_EMAIL = 'hello@avortyx.io'
 
 export const TERMS = {
   title: 'Avortyx Terms of Service',
   intro: [
-    'These Terms of Service (the “Terms”) are a contract between you and Avortyx, LLC, a Colorado limited liability company (“Avortyx”, “we”, “us” or “our”). They govern the Avortyx platform, its web application, APIs, phone numbers and related services, and the avortyx.com website (together, the “Service”).',
+    'These Terms of Service (the “Terms”) set out the agreement between you and Avortyx (“we”, “us” or “our”). They govern the Avortyx platform, its web application, APIs, phone numbers and related services, and the avortyx.com website (together, the “Service”).',
     ['strong', 'Please read Section 20 closely: it sends most disputes to individual arbitration and waives class actions. Section 9 makes you responsible for claims that come from how you use the Service.'],
-    'You accept these Terms when you create an account, sign an Order Form that refers to them, or otherwise use the Service. If you do not accept them, you may not use the Service. You must be at least 18 years old and able to enter into a binding contract.',
+    'You accept these Terms when you create an account, sign an Order Form that refers to them, or otherwise use the Service. If you do not accept them, you may not use the Service. You must be an adult (18 or over) with the legal capacity to make a binding contract.',
   ],
   sections: [
     ['1. Who may use the Service', [
@@ -68,10 +69,10 @@ export const TERMS = {
     ]],
     ['5. Consent and consent records', [
       ['sub', '5.1', 'Consent first', 'Before you, or anyone acting for you, calls, texts or messages a consumer through the Service, you must have that consumer’s prior express written consent where the law requires it.'],
-      ['sub', '5.2', 'Wording', 'Your consent wording must satisfy the law and must clearly name both you and Avortyx, LLC. It must cover the channels you will use (such as calls, texts, fax and instant messages), say that automated technology and prerecorded or artificial voice messages may be used, state that consent is not required to make a purchase, and include the consumer’s agreement to arbitrate disputes.'],
+      ['sub', '5.2', 'Wording', 'Your consent wording must satisfy the law and must clearly name both you and Avortyx. It must cover the channels you will use (such as calls, texts, fax and instant messages), say that automated technology and prerecorded or artificial voice messages may be used, state that consent is not required to make a purchase, and include the consumer’s agreement to arbitrate disputes.'],
       ['sub', '5.3', 'What to keep', 'Keep a record of each consent for at least five (5) years, or longer if a law requires it. Each record must show the date and time of the opt-in, where it was given, the person’s first and last name, address and phone number, and any other information collected at the time.'],
       ['sub', '5.4', 'Producing records', 'If we ask for a consent record, you will give it to us within two (2) business days. You will make sure that anyone generating leads or traffic for you keeps these records too and hands them over when we ask.'],
-      ['sub', '5.5', 'Suppression lists', 'If we give you a suppression list, you will clean your contact lists against it no less often than once every three (3) business days and never call or text a number on it.'],
+      ['sub', '5.5', 'Suppression lists', 'If we give you a suppression list, you will check your contact lists against it at least once in any period of three (3) business days, and never call or text a number on it.'],
       ['sub', '5.6', 'Keep your own copies', 'The Service routes communications in real time; it is not an archive. Export your consent records as they are created, by API, webhook or regular exports, and store them in your own secure systems. By default the Service also removes or masks personal information, such as names, birth dates and street addresses, from inactive data and logs after ninety (90) days. You can change that period in your settings, but you are responsible for keeping whatever you need to prove compliance. We are not liable if records held only in the Service are deleted, redacted or unavailable.'],
       ['sub', '5.7', 'A privacy policy for messaging', 'To use messaging features you must publish a privacy policy on your website. It must state that you do not sell or share mobile numbers, SMS consent or opt-in data with any third party or affiliate for its marketing.'],
     ]],
@@ -140,7 +141,7 @@ export const TERMS = {
       ['sub', '14.3', 'Exceptions', 'These duties do not cover information that becomes public without the receiving party’s fault, that the receiving party already had or developed on its own, or that it lawfully received from someone else without a duty of confidence. Either party may disclose confidential information when a law or court requires it, after telling the other party promptly where allowed.'],
     ]],
     ['15. Feedback', [
-      'If you send us ideas or suggestions about the Service, we may use them for any purpose without payment or credit to you. Feedback does not give us any right to your Content or confidential information.',
+      'Ideas and suggestions you send us about the Service are ours to use for any purpose, without payment or credit to you. Feedback does not give us any right to your Content or confidential information.',
     ]],
     ['16. Communications and privacy', [
       ['sub', '16.1', 'Messages from us', 'By using the Service and giving us your contact details, you agree that Avortyx and its agents may contact you by email, phone, text message or fax about your account and our services. You can opt out of marketing messages at any time with the unsubscribe link in them or by writing to support@avortyx.com.'],
@@ -159,7 +160,7 @@ export const TERMS = {
       ]],
     ]],
     ['18. Disclaimers', [
-      ['strong', 'The Service is provided “as is” and “as available”. To the extent the law allows, Avortyx makes no warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, availability, security or compatibility, and does not promise that the Service will run without interruption or errors, that it is free from viruses or other malicious code, or that any errors will be fixed.'],
+      ['strong', 'The Service is provided “as is” and “as available”. To the extent the law allows, Avortyx makes no warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, availability, security or compatibility, and does not promise that the Service will run without interruption or errors, that it is free from viruses or other malicious code, or that every error will be corrected.'],
       ['strong', 'We do not promise any particular number of leads, calls, conversions, sales or revenue, or that campaigns you run through the Service will comply with the TCPA, the Telemarketing Sales Rule or any other law.'],
       'The Service may be unavailable during maintenance (which we may announce by email), during events described in Section 21, because of problems with your own equipment, network or internet provider, or because of outages at carriers or other providers we rely on. We are not liable for that downtime, however long it lasts.',
     ]],
@@ -169,44 +170,43 @@ export const TERMS = {
         'Avortyx is not liable for indirect, incidental, special, consequential, exemplary or punitive damages, or for lost profits, revenue, goodwill or data, even if it was told they were possible;',
         'Avortyx routes communications and is not a party to your business relationships. It is not liable for disputes between you and your buyers, publishers, clients or other third parties about lead quality, conversions or payment, or for compliance failures in your campaigns;',
         'these limits apply to every kind of claim, whether in contract, tort (including negligence), strict liability, under statute or otherwise; and',
-        'the combined liability of Avortyx, its owners, directors, staff and affiliates for all claims relating to the Service or these Terms is capped at the fees you actually paid Avortyx for the Service in the twelve (12) months before the event that gave rise to the claim.',
+        'the combined liability of Avortyx, its owners, directors, staff and affiliates for all claims relating to the Service or these Terms is capped at the amount you actually paid Avortyx for the Service in the twelve (12) months leading up to the claim.',
       ]],
       'You give up the benefit of any law that would otherwise stop you from releasing claims you do not yet know about. Where a law does not allow a disclaimer or limit in these Terms, it applies to the greatest extent that law permits.',
     ]],
     ['20. Disputes and arbitration', [
       ['sub', '20.1', 'Arbitration instead of court', 'Except as Section 20.2 allows, you and Avortyx agree to resolve any dispute arising from or relating to these Terms or the Service, including about their meaning or validity, only by final and binding individual arbitration. Both parties waive any right to have a judge or jury decide the dispute, and any right to bring, join or take part in a class or representative action.'],
       ['sub', '20.2', 'Exceptions', 'Either party may bring an individual claim in small claims court where it qualifies. Avortyx may ask a court for an injunction or other urgent relief to protect its intellectual property or to halt scraping, intrusions or other unauthorized access to the Service, and either party may ask a court to enforce an arbitration award.'],
-      ['sub', '20.3', 'Rules and place', 'Arbitration will be run by the American Arbitration Association (AAA) under its Commercial Arbitration Rules then in force, before a single arbitrator, in Denver, Colorado. Where twenty-five (25) or more substantially similar demands are filed against Avortyx by one law firm, or by people working together or represented in a coordinated way, the AAA will handle them in batches of fifty (50), and Avortyx only has to pay filing fees for the batch currently being handled.'],
-      ['sub', '20.4', 'The arbitrator’s powers', 'The arbitrator may award any relief available in law or equity, and the award is final and binding. The arbitrator may not award punitive damages unless a Colorado statute governing the claim allows them, and may not make an award that goes beyond Section 19. The arbitrator will award the winning party its reasonable costs, attorneys’ fees and arbitration fees. Judgment on the award may be entered in any court with jurisdiction.'],
-      ['sub', '20.5', 'One year to bring a claim', 'A party that wants to bring a claim must give the other written notice of it by certified U.S. mail within one (1) year of the earlier of when the events giving rise to the claim happened or when the party discovered them, or reasonably should have discovered them using ordinary business care. A claim not raised in time is permanently barred.'],
+      ['sub', '20.3', 'Rules and place', 'The American Arbitration Association (AAA) administers any arbitration under the Commercial Arbitration Rules in force at the time, with a single arbitrator, by video conference or, where a hearing must be held in person, in the county of Avortyx’s principal place of business. Where twenty-five (25) or more substantially similar demands are filed against Avortyx by one law firm, or by people working together or represented in a coordinated way, the AAA will handle them in batches of fifty (50), and Avortyx only has to pay filing fees for the batch currently being handled.'],
+      ['sub', '20.4', 'The arbitrator’s powers', 'The arbitrator may award any relief available in law or equity, and the award is final and binding. The arbitrator may not award punitive damages unless the law that governs the claim expressly allows them, and may not make an award that goes beyond Section 19. The arbitrator will award the winning party its reasonable costs, attorneys’ fees and arbitration fees. Judgment on the award may be entered in any court with jurisdiction.'],
+      ['sub', '20.5', 'One year to bring a claim', 'A party that wants to bring a claim must notify the other in writing within one (1) year, counted from the earlier of when the events giving rise to the claim happened or when the party discovered them, or reasonably should have discovered them using ordinary business care. A claim not raised in time is permanently barred.'],
     ]],
     ['21. Events beyond our control', [
       'Avortyx is not liable for any failure or delay caused by events beyond its reasonable control, including the failure or refusal of carriers, hosting providers or other suppliers; network failures, denial-of-service and other cyberattacks; pandemics and public health emergencies; government orders and changes in law; and war, terrorism, civil unrest and natural disasters. These events do not excuse you from paying fees.',
     ]],
     ['22. Export controls and sanctions', [
-      'You will follow U.S. export control and sanctions laws when using the Service. You confirm that you are not located in, organized under the laws of, or ordinarily resident in a country or region under comprehensive U.S. sanctions, and that you are not on, or owned or controlled by anyone on, a U.S. government restricted-party list. You will not let anyone in those categories use the Service through your account.',
+      'You will follow U.S. export control and sanctions laws when using the Service. You confirm that you are not located in, organized under the laws of, or ordinarily resident in a country or region under comprehensive U.S. sanctions, and that neither you nor anyone who owns or controls you appears on any U.S. government list of restricted or blocked parties. You will not let anyone in those categories use the Service through your account.',
     ]],
     ['23. Changes to these Terms', [
-      ['sub', '23.1', 'Updates', 'We may change these Terms from time to time. We will post the new version here with its effective date, and may also tell you by email or in the dashboard.'],
+      ['sub', '23.1', 'Updates', 'We may revise these Terms. We will post the new version here with its effective date, and may also tell you by email or in the dashboard.'],
       ['sub', '23.2', 'When changes apply', 'Changes take effect when posted unless we give a later date. For material changes that significantly affect your rights, such as shorter data retention, we will make reasonable efforts to give you at least thirty (30) days’ notice. Using the Service after a change takes effect means you accept it.'],
       ['sub', '23.3', 'If you do not agree', 'If you do not accept a change, close your account by emailing us before it takes effect. We will refund any prepaid fees for the unused part of your period.'],
     ]],
     ['24. Notices', [
       ['sub', '24.1', 'Notices to you', 'We may send notices to the email address on your account or post them in the dashboard. They take effect when sent or posted, so keep your contact details current.'],
-      ['sub', '24.2', 'Legal notices to Avortyx', 'Legal notices to Avortyx, including notices of a dispute or arbitration under Section 20, must be written and posted by certified U.S. mail with a return receipt to:'],
-      ['address', ADDRESS],
+      ['sub', '24.2', 'Legal notices to Avortyx', 'Legal notices to Avortyx, including notices of a dispute or arbitration under Section 20, must be in writing and emailed to ' + LEGAL_EMAIL + ' with “Legal Notice” in the subject line. A notice takes effect when we confirm receipt.'],
       ['sub', '24.3', 'Everyday questions', 'For support and other everyday questions, write to support@avortyx.com. Those messages are not legal notices.'],
     ]],
     ['25. General terms', [
-      ['sub', '25.1', 'Governing law and courts', 'Colorado law governs these Terms, without regard to its conflict-of-law rules. The United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transactions Act do not apply. Any claim that is not arbitrated under Section 20 must be brought only in the state courts located in the City and County of Denver, Colorado, or the United States District Court for the District of Colorado, and you consent to their jurisdiction and to service of process outside Colorado.'],
+      ['sub', '25.1', 'Governing law and courts', 'The laws of the U.S. state in which Avortyx is organized govern these Terms, together with applicable U.S. federal law, without applying conflict-of-law principles. Neither the United Nations Convention on Contracts for the International Sale of Goods nor the Uniform Computer Information Transactions Act applies. A claim that is not arbitrated under Section 20 may be brought only in the state or federal courts serving the county of Avortyx’s principal place of business, and you agree to those courts’ jurisdiction.'],
       ['sub', '25.2', 'Policies that form part of these Terms', 'These policies in the [[Legal Center|/legal]] are part of these Terms: the Acceptable Use Policy, the TCPA & Consent Compliance Policy, the Service Level Agreement (where your plan includes it), the Billing, Cancellation & Refund Policy, the Call Recording & Data Retention Policy, the Messaging (SMS) Terms, the AI Features Terms, the Emergency Calling (911) Notice, the Cookie Policy and the Privacy Policy. If a policy conflicts with these Terms, these Terms prevail unless the policy says it overrides a specific section. An Order Form signed by both parties prevails over both.'],
-      ['sub', '25.3', 'Whole agreement', 'These Terms, with the policies and any Order Form, are the entire agreement between you and Avortyx about the Service and replace any earlier discussions or agreements about it.'],
+      ['sub', '25.3', 'Whole agreement', 'These Terms, with the policies and any Order Form, are the complete understanding between you and Avortyx about the Service and replace any earlier discussions or agreements about it.'],
       ['sub', '25.4', 'If part is unenforceable', 'If a court or arbitrator finds part of these Terms invalid or unenforceable, that part will be applied as closely to its purpose as the law allows, and the rest of the Terms will continue in full force.'],
       ['sub', '25.5', 'Legal costs', 'In any proceeding to enforce these Terms, including arbitration, the winning party may recover its reasonable costs and attorneys’ fees.'],
       ['sub', '25.6', 'No waiver', 'If we do not enforce a right in one case, we have not given it up for that or any other case.'],
       ['sub', '25.7', 'Transfers', 'We may transfer these Terms, with or without notice, for example in a merger or sale. You may not transfer them without our written consent, and any attempt to do so is void. These Terms bind each party’s successors and permitted assigns.'],
       ['sub', '25.8', 'What continues after closure', 'Sections 3.2 to 3.4, 5.3 to 5.6, 8 (for amounts owed), 9, 10.4, 10.5, 14, 15 and 17 to 25 continue to apply after your account closes or these Terms end.'],
-      ['sub', '25.9', 'Independent parties', 'You and Avortyx are independent. These Terms do not create a partnership, joint venture or agency between you and Avortyx, and neither of us can commit the other to anything. Each party is responsible for its own compliance with the laws that apply to its business and employees.'],
+      ['sub', '25.9', 'Independent parties', 'You and Avortyx are independent. Nothing in these Terms makes you and Avortyx partners, joint venturers or each other’s agents, and neither of us can commit the other to anything. Each party is responsible for its own compliance with the laws that apply to its business and employees.'],
     ]],
   ],
 }
@@ -214,7 +214,7 @@ export const TERMS = {
 export const PRIVACY = {
   title: 'Avortyx Privacy Policy',
   intro: [
-    'This Privacy Policy explains how Avortyx, LLC, a Colorado limited liability company (“Avortyx”, “we”, “us” or “our”), collects, uses, shares and protects information through avortyx.com and the Avortyx call routing platform, its applications and APIs (together, the “Service”). Terms in capitals that are not defined here have the meaning given in our [[Terms of Service|/terms_of_service]].',
+    'This Privacy Policy explains how Avortyx (“we”, “us” or “our”) collects, uses, shares and protects information through avortyx.com and the Avortyx call routing platform, its applications and APIs (together, the “Service”). Terms in capitals that are not defined here have the meaning given in our [[Terms of Service|/terms_of_service]].',
     'We handle information in two roles. For our website visitors and for the businesses that use Avortyx, we decide how information is used. For the consumer data our customers route through the platform (their leads, callers and messages), we act on our customers’ instructions as their service provider, and our customer is responsible for how that data is collected and used.',
     'Questions about this policy can be sent to support@avortyx.com.',
   ],
@@ -266,13 +266,13 @@ export const PRIVACY = {
       'We protect information with encryption in transit (TLS), encrypted storage of API keys, access controls, firewalls and monitoring. No system is completely secure, so we cannot guarantee that information will never be accessed without permission. If a breach affects your personal information, we will tell you promptly, as the law requires, and work to fix its cause.',
     ]],
     ['6. Where information is processed', [
-      'Avortyx is based in the United States, and information is stored and processed there and in other countries where our providers operate. If you use the Service from outside the United States, your information will be transferred to the United States.',
+      'Avortyx is based in the United States, and information is stored and processed there and in other countries where our providers operate. If you use the Service from outside the United States, your information will be moved to and handled in the United States.',
     ]],
     ['7. Your choices and rights', [
       ['sub', '7.1', 'Marketing', 'You can stop marketing emails from us at any time with the unsubscribe link in each one or by writing to support@avortyx.com.'],
       ['sub', '7.2', 'Cookies and Do Not Track', 'You can block or delete cookies in your browser and opt out of Google Analytics with Google’s browser add-on. Our website does not currently act on the Do Not Track setting in browsers.'],
       ['sub', '7.3', 'Access and correction', 'You can see and update most account information in your dashboard, or ask us for a copy of the personal information we hold about you.'],
-      ['sub', '7.4', 'U.S. state privacy rights', 'If you live in a U.S. state with a general consumer privacy law, such as California, Colorado, Connecticut, Utah and Virginia, you may have the right to learn which personal information we collected about you over the past twelve (12) months and how we use and disclose it, to receive a copy, to have it corrected or deleted (subject to legal exceptions), and to opt out of its sale or its use for targeted advertising. We do not sell personal information or use it for cross-context behavioral advertising. We will not treat you differently for exercising these rights.'],
+      ['sub', '7.4', 'U.S. state privacy rights', 'If you live in a U.S. state with a general consumer privacy law, such as California, Colorado, Connecticut, Utah and Virginia, you may be entitled to learn which personal information we collected about you over the past twelve (12) months and how we use and disclose it, to receive a copy, to have it corrected or deleted (subject to legal exceptions), and to opt out of its sale or its use for targeted advertising. We do not sell personal information or use it for cross-context behavioral advertising. We will not treat you differently for exercising these rights.'],
       ['sub', '7.5', 'Making a request', 'Send your request to support@avortyx.com, headed “Privacy Request”. We will need to confirm your identity before acting on it, and an authorized agent may make a request for you with your written permission. If we decline your request, you may ask us to reconsider by replying to our answer. If your request is about consumer data that one of our customers routes through Avortyx, we will pass it to that customer, who decides how to respond.'],
     ]],
     ['8. Other websites', [
@@ -282,8 +282,7 @@ export const PRIVACY = {
       'We may update this policy from time to time. We will post the new version here with its effective date and, for material changes, tell you by email, in the dashboard or on our website. Using the Service after a change takes effect means you accept the updated policy.',
     ]],
     ['10. Contact us', [
-      'For questions or requests about this policy, email support@avortyx.com or write to:',
-      ['address', ADDRESS],
+      'For questions or requests about this policy, email support@avortyx.com. Formal notices can be sent to ' + LEGAL_EMAIL + '.',
     ]],
   ],
 }

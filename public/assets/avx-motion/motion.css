@@ -16645,3 +16645,27 @@ body:has(#okCookie) .avx-help-btn {
   height: 70%;
   filter: drop-shadow(0 0 10px rgba(96, 165, 250, .55)) drop-shadow(0 1px 6px rgba(8, 27, 60, .7));
 }
+
+/* strand backdrops are drawn once (motion.js, canvasScene still) and drift on the GPU: a slow sway
+   and swell instead of redrawing every strand every frame */
+.avx-cv-drift .avx-cv-canvas {
+  transform-origin: 50% 60%;
+  animation: avxCvDrift 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes avxCvDrift {
+  from { transform: translate3d(-1.5%, 0, 0) scale(1.04, 1); }
+  to { transform: translate3d(1.5%, -1.5%, 0) scale(1.06, 1.1); }
+}
+
+.avx-scrolling .avx-cv-drift .avx-cv-canvas,
+.avx-paused .avx-cv-drift .avx-cv-canvas {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avx-cv-drift .avx-cv-canvas {
+    animation: none;
+  }
+}

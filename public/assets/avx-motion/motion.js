@@ -1157,8 +1157,11 @@
   // shared runner: sizes to its box, 15 fps at normal pixel density (these are slow, soft
   // backdrops: more frames or pixels cost the page its responsiveness without looking any
   // different), pauses off-screen and with the motion toggle
-  function canvasScene(cls, draw) {
-    var wrap = el('div', 'avx-cv ' + cls);
+  // opts.still: draw once (and again on resize) and let CSS drift the drawn canvas, instead of
+  // redrawing every frame; for the strand backdrops that kept feature pages fully busy
+  function canvasScene(cls, draw, opts) {
+    var still = !!(opts && opts.still);
+    var wrap = el('div', 'avx-cv ' + cls + (still ? ' avx-cv-drift' : ''));
     wrap.setAttribute('aria-hidden', 'true');
     var canvas = el('canvas', 'avx-cv-canvas');
     wrap.appendChild(canvas);
@@ -1209,7 +1212,7 @@
     }
 
     function schedule() {
-      if (raf || !visible || reduced) return;
+      if (raf || !visible || reduced || (still && lastDraw)) return;
       // paused: hold still, but only after the first frame is on screen
       if (motionPaused() && lastDraw) { last = 0; setTimeout(schedule, 400); return; }
       raf = requestAnimationFrame(frame);
@@ -1263,7 +1266,7 @@
           ctx.stroke();
         }
       });
-    });
+    }, { still: true });
   }
 
   // data exports: a rolling sea of data points in perspective, with packets running along
