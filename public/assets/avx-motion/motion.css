@@ -16272,3 +16272,26 @@ body:has(#okCookie) .avx-help-btn {
   background: #fff;
   color: #2563eb;
 }
+
+/* chat: Avortyx's replies in blue, the visitor's own messages in the dark bubble */
+.avx-help-bot p {
+  border: 0;
+  background: #2563eb;
+  color: #fff;
+}
+
+.avx-help-me p {
+  border: 1px solid rgba(255, 255, 255, .08);
+  background: #1a1e27;
+  color: #e2e8f0;
+}
+
+.avx-help-typing i {
+  background: rgba(255, 255, 255, .85);
+}
+
+[data-bs-theme="light"] .avx-help-me p {
+  border-color: rgba(15, 23, 42, .1);
+  background: #eef2f7;
+  color: #0f172a;
+}
