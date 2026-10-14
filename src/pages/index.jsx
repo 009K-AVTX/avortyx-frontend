@@ -656,10 +656,12 @@ export default function Home() {
             <div className="avx-hero-copy">
               <p className="avx-hero-eyebrow"><span>AI</span>The AI Tracking Platform Built for Peak Performance</p>
               <div className="hero-heading">
-                {/* A/B test "hero_headline": document.html picks a or b per visitor before first paint */}
                 <h1 className="display-4 fw-bold">
-                  <span className="avx-ab-a">Track. Route. <span className="text-primary">Grow.</span></span>
-                  <span className="avx-ab-b">Every call routed to the right buyer in <span className="text-primary">85ms.</span></span>
+                  Track.
+                  {" "}
+                  Route.
+                  {" "}
+                  <span className="text-primary">Grow.</span>
                 </h1>
               </div>
               <p className="lead hero-lead">

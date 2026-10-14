@@ -976,8 +976,7 @@
 
 /* ---------- Measuring the page: how far visitors read ----------
    section_view fires once per section per visit (as half of it comes on screen), so reports show
-   where readers stop; scroll_depth fires at 25, 50, 75 and 100% of the page. Both carry the hero
-   headline variant through the user property set in document.html. */
+   where readers stop; scroll_depth fires at 25, 50, 75 and 100% of the page. */
 (function () {
   'use strict';
   function send(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params); }

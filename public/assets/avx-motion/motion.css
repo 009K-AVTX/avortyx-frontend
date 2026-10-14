@@ -15857,16 +15857,6 @@ main > section.marketing-cta-band {
   margin-top: 18px;
 }
 
-/* ---------- Hero headline test: show the visitor's variant (set in document.html) ---------- */
-.avx-ab-b,
-html[data-ab-hero="b"] .avx-ab-a {
-  display: none;
-}
-
-html[data-ab-hero="b"] .avx-ab-b {
-  display: inline;
-}
-
 /* ---------- Hero live decision on phones: fit the screen ----------
    The card used to size itself to its widest content (507px on a 390px phone) and run off the
    right edge. It now shrinks with the column: the top bar wraps, the clock steps aside and the
@@ -16128,4 +16118,26 @@ html[data-ab-hero="b"] .avx-ab-b {
     justify-content: center;
     min-height: 2.6em;
   }
+}
+
+/* hero: the eyebrow and the Request Access button, a little smaller */
+.avx-hero-eyebrow {
+  gap: 10px;
+  padding: 7px 15px 7px 7px;
+  font-size: clamp(13.5px, .72rem + .36vw, 16px);
+}
+
+.avx-hero-eyebrow span {
+  padding: 2px 8px;
+  font-size: 10px;
+}
+
+.avx-hero-ctas .btn-lg {
+  min-width: 0;
+  padding: .6rem 1.35rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 575.98px) {
+  .avx-hero-eyebrow { padding: 5px 12px 5px 5px; }
 }

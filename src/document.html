@@ -10,22 +10,6 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    // A/B test "hero_headline" on the home pages: each visitor keeps one variant (a: "Track. Route.
-    // Grow.", b: "Every call routed to the right buyer in 85ms."). It is set before the first paint,
-    // so the headline never swaps, and reported as a user property, so conversions split by it.
-    (function () {
-      if (!/^\/((ru|ja|zh)\/?)?$/.test(location.pathname)) return;
-      var v = null;
-      try { v = localStorage.getItem('avx-ab-hero'); } catch (e) { /* storage blocked */ }
-      if (v !== 'a' && v !== 'b') {
-        v = Math.random() < 0.5 ? 'a' : 'b';
-        try { localStorage.setItem('avx-ab-hero', v); } catch (e) { /* storage blocked */ }
-      }
-      document.documentElement.setAttribute('data-ab-hero', v);
-      gtag('set', 'user_properties', { hero_headline: v });
-      gtag('event', 'experiment_impression', { experiment_id: 'hero_headline', variant_id: v });
-    })();
-
     gtag('config', 'G-HD8WHHFDQV');
     (function () {
       // loads only when the page is idle: never on a scroll (its ~0.4s of script would land
