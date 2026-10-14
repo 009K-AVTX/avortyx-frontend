@@ -11099,7 +11099,7 @@ body:has(#okCookie) .avx-help-btn {
   overflow: hidden;
   pointer-events: none;
   /* dim and subtle: the film is atmosphere, the copy and the live panel stay the focus */
-  opacity: .5;
+  opacity: .34;
   background: #07090f url("/assets/avx-site/video/hero-blue-poster.webp") 50% 50% / cover no-repeat;
 }
 
@@ -11118,13 +11118,15 @@ body:has(#okCookie) .avx-help-btn {
   opacity: 1;
 }
 
-/* keeps the copy readable over the bright strands: deeper on the text side and at the edges,
-   and the bottom melts into the page so the next section starts cleanly */
+/* keeps the copy and the live panel readable over the bright strands: a soft dark spot over the
+   point where they meet, deeper on the text side and at the edges, and the bottom melts into the
+   page so the next section starts cleanly */
 .avx-hero-film-veil {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(7, 9, 15, .9) 0%, rgba(7, 9, 15, .72) 34%, rgba(7, 9, 15, .42) 62%, rgba(7, 9, 15, .55) 100%),
+    radial-gradient(ellipse 36% 42% at 50% 53%, rgba(7, 9, 15, .55) 0%, rgba(7, 9, 15, 0) 100%),
+    linear-gradient(90deg, rgba(7, 9, 15, .9) 0%, rgba(7, 9, 15, .74) 34%, rgba(7, 9, 15, .58) 62%, rgba(7, 9, 15, .66) 100%),
     linear-gradient(180deg, rgba(7, 9, 15, .55) 0%, rgba(7, 9, 15, 0) 22%, rgba(7, 9, 15, 0) 70%, #07090f 100%);
 }
 
@@ -11211,42 +11213,6 @@ body:has(#okCookie) .avx-help-btn {
 
 [data-bs-theme="light"] .avx-ph img {
   filter: grayscale(1) contrast(1.02) brightness(1.02);
-}
-
-/* ---------- Hero film: the Avortyx mark on the point where the strands meet ----------
-   The film is cropped to cover its box, so the meeting point (the frame's centre across, 52.8%
-   down) moves as the box changes shape. With the box as a size container, its position is the
-   centre plus 2.8% of the rendered video height, which is the larger of the box height and 9/16
-   of its width. A soft dark disc under the mark dims the flare a little. */
-.avx-hero-film {
-  container-type: size;
-}
-
-.avx-hero-film-core {
-  position: absolute;
-  top: calc(50cqh + .028 * max(100cqh, 56.25cqw));
-  left: 50%;
-  display: grid;
-  place-items: center;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(7, 9, 15, .62) 0%, rgba(7, 9, 15, .4) 32%, rgba(7, 9, 15, 0) 70%);
-  transform: translate(-50%, -50%);
-}
-
-.avx-hero-film-core svg {
-  width: 40px;
-  height: 40px;
-  opacity: .95;
-  filter: drop-shadow(0 0 10px rgba(96, 165, 250, .55));
-}
-
-/* phones and tablets: the copy sits over the meeting point, so the mark steps aside */
-@media (max-width: 991.98px) {
-  .avx-hero-film-core {
-    display: none;
-  }
 }
 
 /* how-it-decides: the centre orb shows the Avortyx mark (no globe), a little larger and lit */

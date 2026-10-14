@@ -491,24 +491,6 @@ export default function Home() {
         <div className="avx-hero-film" aria-hidden="true">
           <video data-avx-hero-film="" muted loop playsInline preload="none" poster="/assets/avx-site/video/hero-blue-poster.webp" />
           <span className="avx-hero-film-veil" />
-          {/* the Avortyx mark where the strands meet; the dimmer behind it softens the flare */}
-          <span className="avx-hero-film-core">
-            <svg viewBox="0 0 64 64" fill="none">
-              <defs>
-                <linearGradient id="avx-mk-g-film" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="var(--vortyx-bright, #93c5fd)" />
-                  <stop offset="55%" stopColor="var(--vortyx-teal, #3b82f6)" />
-                  <stop offset="100%" stopColor="var(--vortyx-deep, #1739a8)" />
-                </linearGradient>
-              </defs>
-              <g transform="translate(32 32) scale(1.3) translate(-32 -32)">
-                <path d="M52 32a20 20 0 1 1-13.2-18.8" stroke="url(#avx-mk-g-film)" strokeWidth="3" strokeLinecap="round" />
-                <path d="M44.5 32a12.5 12.5 0 1 1-8.9-11.9" stroke="url(#avx-mk-g-film)" strokeWidth="2.5" strokeLinecap="round" opacity="0.9" />
-                <path d="M38 32a6 6 0 1 1-4.2-5.7" stroke="url(#avx-mk-g-film)" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
-                <circle cx="32" cy="32" r="1.7" fill="var(--vortyx-ultra, #dbeafe)" />
-              </g>
-            </svg>
-          </span>
         </div>
         <div className="container">
           <div className="avx-hero-grid">
