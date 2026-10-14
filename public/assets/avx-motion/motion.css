@@ -16295,3 +16295,42 @@ body:has(#okCookie) .avx-help-btn {
   background: #eef2f7;
   color: #0f172a;
 }
+
+/* feature pages: the Avortyx mark and name at the start of the sticky header strip */
+.avx-strip-brand {
+  display: inline-flex;
+  flex: none;
+  gap: 8px;
+  align-items: center;
+  margin-right: 14px;
+  text-decoration: none;
+}
+
+.avx-strip-brand .avx-logo-mark svg {
+  width: 26px;
+  height: 26px;
+}
+
+.avx-strip-brand .avx-wordmark {
+  font-size: 21px !important;
+  letter-spacing: -.8px !important;
+  line-height: 1;
+}
+
+/* phones: the mark alone, as in the navbar, so the strip keeps one line */
+@media (max-width: 430px) {
+  .avx-strip-brand {
+    margin-right: 8px;
+  }
+
+  .avx-strip-brand .avx-wordmark {
+    display: none !important;
+  }
+}
+
+/* tablets: the feature strip is wide enough to reach the back button, so it drops under the strip */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  body > .avx-backbar:not(.avx-backbar-nav) {
+    top: 88px;
+  }
+}

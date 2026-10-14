@@ -1085,7 +1085,7 @@ html[data-bs-theme="dark"] {
   outline: none !important;
 }
 
-/* ---------- All pages: navbar disappears on scroll, leaving the logo alone static ---------- */
+/* ---------- All pages: navbar disappears on scroll, leaving the logo and name in place ---------- */
 .marketing-navbar .navbar-collapse,
 .marketing-navbar .navbar-toggler {
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1116,25 +1116,17 @@ html[data-bs-theme="dark"] {
   transform: none !important;
 }
 
-/* On scroll: the name disappears on all pages, leaving only the logo mark */
+/* On scroll: the logo mark and the Avortyx name both stay in place (phones show the mark alone,
+   see the 430px rule in motion.css) */
 .marketing-navbar .avx-wordmark {
-  max-width: 240px;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), max-width 0.35s ease, margin 0.3s ease;
   display: inline-block;
-  overflow: hidden;
   white-space: nowrap;
 }
 
 .marketing-navbar.avx-nav-scrolled .avx-wordmark {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  max-width: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  transform: translateX(-8px) scale(0.95);
-  pointer-events: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
 }
 
 .marketing-navbar.avx-nav-scrolled .avx-logo-mark {
