@@ -107,17 +107,19 @@ export const meta = {
     }
     .avx-dc-voice-bars { display: inline-flex; align-items: flex-end; gap: 2.5px; height: 16px; width: 28px; }
     .avx-dc-voice-bars i {
-      width: 2.5px; height: 40%; background: #3b82f6; border-radius: 1px;
+      width: 2.5px; height: 100%; background: #3b82f6; border-radius: 1px;
+      transform-origin: bottom;
       animation: avxVoiceBars 0.8s ease-in-out infinite alternate;
     }
-    .avx-dc-voice-bars i:nth-child(2) { animation-delay: 0.15s; height: 75%; }
-    .avx-dc-voice-bars i:nth-child(3) { animation-delay: 0.3s; height: 100%; }
-    .avx-dc-voice-bars i:nth-child(4) { animation-delay: 0.45s; height: 60%; }
-    .avx-dc-voice-bars i:nth-child(5) { animation-delay: 0.2s; height: 85%; }
-    .avx-dc-voice-bars i:nth-child(6) { animation-delay: 0.35s; height: 50%; }
-    .avx-dc-voice-bars i:nth-child(7) { animation-delay: 0.5s; height: 90%; }
-    .avx-dc-voice-bars i:nth-child(8) { animation-delay: 0.25s; height: 35%; }
-    @keyframes avxVoiceBars { 0% { height: 20%; opacity: 0.4; } 100% { height: 100%; opacity: 1; } }
+    .avx-dc-voice-bars i:nth-child(2) { animation-delay: 0.15s; }
+    .avx-dc-voice-bars i:nth-child(3) { animation-delay: 0.3s; }
+    .avx-dc-voice-bars i:nth-child(4) { animation-delay: 0.45s; }
+    .avx-dc-voice-bars i:nth-child(5) { animation-delay: 0.2s; }
+    .avx-dc-voice-bars i:nth-child(6) { animation-delay: 0.35s; }
+    .avx-dc-voice-bars i:nth-child(7) { animation-delay: 0.5s; }
+    .avx-dc-voice-bars i:nth-child(8) { animation-delay: 0.25s; }
+    /* scaled, not resized, so the bars never trigger a layout */
+    @keyframes avxVoiceBars { 0% { transform: scaleY(.2); opacity: 0.4; } 100% { transform: scaleY(1); opacity: 1; } }
     .avx-dc-quote { color: #93c5fd; font-style: italic; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; font-family: ui-sans-serif, system-ui; }
     .avx-fc-verified { display: block; font-size: 11px; color: #3b82f6; font-weight: 600; margin-top: 3px; }
     .avx-fc-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin-top: 8px; }
@@ -651,6 +653,30 @@ export default function Home() {
   return (
     <main>
       <section className="marketing-hero-simple hero-constellation-bg avx-hero-calm" id="hero-option-s">
+        {/* background film: light strands meeting at one point, graded to the site's blue
+            (public/assets/avx-site/video). site.js picks the 480p or 720p file and only starts it
+            after the page has loaded; until then, and for reduced motion or data saver, the poster shows */}
+        <div className="avx-hero-film" aria-hidden="true">
+          <video data-avx-hero-film="" muted loop playsInline preload="none" poster="/assets/avx-site/video/hero-blue-poster.webp" />
+          <span className="avx-hero-film-veil" />
+          {/* the Avortyx mark where the strands meet; the dimmer behind it softens the flare */}
+          <span className="avx-hero-film-core">
+            <svg viewBox="0 0 64 64" fill="none">
+              <defs>
+                <linearGradient id="avx-mk-g-film" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#bfdbfe" />
+                  <stop offset="100%" stopColor="#60a5fa" />
+                </linearGradient>
+              </defs>
+              <g transform="translate(32 32) scale(1.3) translate(-32 -32)">
+                <path d="M52 32a20 20 0 1 1-13.2-18.8" stroke="url(#avx-mk-g-film)" strokeWidth="3" strokeLinecap="round" />
+                <path d="M44.5 32a12.5 12.5 0 1 1-8.9-11.9" stroke="url(#avx-mk-g-film)" strokeWidth="2.5" strokeLinecap="round" opacity="0.9" />
+                <path d="M38 32a6 6 0 1 1-4.2-5.7" stroke="url(#avx-mk-g-film)" strokeWidth="2" strokeLinecap="round" opacity="0.8" />
+                <circle cx="32" cy="32" r="1.7" fill="#bfdbfe" />
+              </g>
+            </svg>
+          </span>
+        </div>
         <div className="container">
           <div className="avx-hero-grid">
             <div className="avx-hero-copy">

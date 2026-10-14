@@ -698,6 +698,67 @@
   update();
 })();
 
+/* ---------- Images: fetch the rest of the page's pictures before they are needed ----------
+   Below-the-fold images are lazy, so on a quick scroll they used to arrive late. Once the page
+   has loaded and the browser is idle, the remaining lazy images are switched to eager a few at
+   a time, in page order, so they are already decoded when the visitor reaches them. Skipped on
+   data-saver connections. */
+(function () {
+  'use strict';
+  var c = navigator.connection;
+  if (c && (c.saveData || /2g/.test(c.effectiveType || ''))) return;
+  var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 200); };
+  function step() {
+    var batch = [].slice.call(document.querySelectorAll('img[loading="lazy"]'), 0, 4);
+    if (!batch.length) return;
+    batch.forEach(function (img) { img.loading = 'eager'; });
+    idle(step, { timeout: 2000 });
+  }
+  addEventListener('load', function () { setTimeout(function () { idle(step, { timeout: 3000 }); }, 1500); });
+})();
+
+/* ---------- Home hero: the background film ----------
+   Starts only after the page has loaded, so it never competes with the first paint. Phones get the
+   480p file, wider screens the 720p one. It plays only while the hero is on screen and the tab is
+   visible; with reduced motion or data saver the poster stays instead. */
+(function () {
+  'use strict';
+  var v = document.querySelector('[data-avx-hero-film]');
+  if (!v) return;
+  var wrap = v.parentNode;
+  var c = navigator.connection;
+  var still = (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) ||
+    (c && (c.saveData || /2g/.test(c.effectiveType || '')));
+  if (still) return;
+  var inView = true, started = false;
+  function sync() {
+    if (!started) return;
+    if (inView && !document.hidden && !scrollingNow) { var p = v.play(); if (p) p.catch(function () {}); }
+    else v.pause();
+  }
+  function start() {
+    v.muted = true;
+    v.src = '/assets/avx-site/video/hero-blue-' + (innerWidth < 768 ? '480' : '720') + '.mp4';
+    v.addEventListener('playing', function () { wrap.classList.add('avx-on'); }, { once: true });
+    started = true;
+    sync();
+  }
+  // it plays only while at least half the hero is on screen, and holds still while the page is
+  // being scrolled (decoding and drawing video on top of every scroll frame caused jank)
+  var scrollT = 0, scrollingNow = false;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { inView = e[e.length - 1].isIntersecting; sync(); }, { threshold: 0.5 }).observe(wrap);
+  }
+  addEventListener('scroll', function () {
+    if (!scrollingNow) { scrollingNow = true; if (started) v.pause(); }
+    clearTimeout(scrollT);
+    scrollT = setTimeout(function () { scrollingNow = false; sync(); }, 250);
+  }, { passive: true });
+  document.addEventListener('visibilitychange', sync);
+  function later() { setTimeout(start, 300); }
+  if (document.readyState === 'complete') later(); else addEventListener('load', later);
+})();
+
 /* ---------- Legal Center: /legal?doc=NN shows one document ----------
    Every document is in the page; this shows the one in ?doc (or the list), highlights it in the
    menu and switches on click without a reload. Back and forward work. Without JS, all show. */
@@ -999,11 +1060,13 @@
     }, { threshold: 0.5 });
     sections.forEach(function (s) { io.observe(s); });
   }
-  // read in the scroll event itself (the layout is clean there), and only report new milestones
-  var marks = [25, 50, 75, 100], next = 0;
+  // the page height is read once and then kept current by a ResizeObserver (it runs after layout),
+  // so a scroll never forces a layout of its own; only new milestones are reported
+  var marks = [25, 50, 75, 100], next = 0, pageH = document.documentElement.scrollHeight;
+  if ('ResizeObserver' in window) new ResizeObserver(function () { pageH = document.documentElement.scrollHeight; }).observe(document.body);
   function depth() {
     if (next >= marks.length) return;
-    var h = document.documentElement.scrollHeight;
+    var h = pageH;
     var pct = h ? (window.scrollY + window.innerHeight) / h * 100 : 0;
     while (next < marks.length && pct >= marks[next] - 1) {
       send('scroll_depth', { percent: marks[next], page_path: location.pathname });

@@ -9348,259 +9348,239 @@
   "page": "pricing.html"
  },
  {
-  "k": "How we collect, use, and protect your information.",
+  "k": "<0/> Back to Legal Center",
   "page": "privacy_policy.html"
  },
  {
-  "k": "Avortyx Data Collection &amp; Use Policy",
+  "k": "How Avortyx collects, uses and protects information.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>Effective Date:</0><1> Ma</1><2>y 2nd</2><3>, 2026</3>",
+  "k": "Effective October 14, 2026",
   "page": "privacy_policy.html"
  },
  {
-  "k": "1. Introduction.",
+  "k": "Avortyx Privacy Policy",
   "page": "privacy_policy.html"
  },
  {
-  "k": "This Data Collection &amp; Use Policy (\"Policy\") sets forth how Avortyx, LLC, a Colorado limited liability company (\"Avortyx or “We\"), collects and uses the information you give us and certain other information that we automatically collect through your access and use of our centralized Lead Automation platform made available on Avortyx.com.",
+  "k": "This Privacy Policy explains how Avortyx, LLC, a Colorado limited liability company (“Avortyx”, “we”, “us” or “our”), collects, uses, shares and protects information through avortyx.com and the Avortyx call routing platform, its applications and APIs (together, the “Service”). Terms in capitals that are not defined here have the meaning given in our <0>Terms of Service</0>.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>Users of our Platform are referred to throughout this Policy as \"</0><1>y</1><2>ou\" or \"your\". Capitalized terms shall have the same meaning as defined in the Avortyx Terms of Service. Both our Platform and any associated applications are collectively hereinafter referred to as the \"Website\".</2>",
+  "k": "We handle information in two roles. For our website visitors and for the businesses that use Avortyx, we decide how information is used. For the consumer data our customers route through the platform (their leads, callers and messages), we act on our customers’ instructions as their service provider, and our customer is responsible for how that data is collected and used.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>How to Contact Us</0><1> If you have any general questions or concerns about this Policy, you can email us at support@avortyx.com.</1>",
+  "k": "Questions about this policy can be sent to support@avortyx.com.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "2. Modifications to this Policy.",
+  "k": "1. Information we collect",
   "page": "privacy_policy.html"
  },
  {
-  "k": "We reserve the right to update or modify this Policy at any time. If we decide to change this Policy, we will revise the effective date posted at the top of this Policy. For material changes, we may also notify you by posting a notice prominently on our home page, sending an email to your registered account address, or notifying you upon your next log-in to access the Website or Service. Your continued use of the Website or Service after the effective date of any changes constitutes your acknowledgment and acceptance of the revised Policy. If you do not agree to the modifications, your sole remedy is to cease using the Website and Service.",
+  "k": "<0>1.1. Information you give us.</0> When you request access, create an account, contact us or use the Service, you may give us your name, email address, phone and fax numbers, postal address, company name and other business details, account settings, and the content of messages and support requests you send us. If you connect a social media or other third-party account, we receive the account details needed for that connection.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>3. Information Collection Practices-</0><1>How We Collect Your Data.</1>",
+  "k": "<0>1.2. Billing information.</0> To bill you we collect billing contact details and payment card information, such as the card number and expiry date. Payments are handled with third-party payment processors.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>3.1. Personally Identifiable Information (“PII”).</0><1> For the purposes of this Policy, \"Personal Information\" or \"PII\" refers broadly to any information that identifies, relates to, describes, or could reasonably be linked to a specific individual. Avortyx collects and processes PII in two distinct contexts:</1>",
+  "k": "<0>1.3. Information collected automatically.</0> When you visit avortyx.com or use the Service, we receive technical information such as your IP address, domain, device and browser type, the pages you view and the links you click. Our use of cookies and similar tools is described in the <1>Cookie Policy</1>: on our website these are limited to essential and functional storage and Google Analytics.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>(a) Business User Data (Registration).</0><1> When you register to use the Service, you must provide PII about yourself and your business. This includes, without limitation: (i) \"Contact Data\" such as your first and last name if you are a sole proprietor, phone number, fax number, mailing address, and/or email address; (ii) \"Third-Party Social Media Account Data\" such as your account information for connected social media integrations; and (iii) “Business Information”  such as Your business name, tradename, and any other business contact or identifying information provided directly by you (collectively “BI”).</1>",
+  "k": "<0>1.4. API and security logs.</0> We log access to the Service and use of our APIs to keep the Service secure and working. API keys are stored encrypted.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>(b) Consumer Lead &amp; Call Data.</0><1> While utilizing our routing and automation Service, Avortyx processes PII belonging to your end-consumers that you upload, route, or generate through the Platform. This includes consumer names, birthdates, physical addresses, phone numbers, and other demographic data contained within your lead lists, as well as the Telephony &amp; Audio Data (described below).</1>",
+  "k": "<0>1.5. Data our customers route through Avortyx.</0> Our customers use Avortyx to handle calls, messages and leads. That data can include consumers’ names, phone numbers, addresses, dates of birth and other details in lead records, together with call logs, routing details, message metadata and content, call recordings and transcripts.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>3.2.</0><1> </1><2>Automatic </2><3>Traffic Data.</3><4> </4><5>We </5><6>gather information that web browsers automatically make available, including: (i) IP addresses; (ii) Internet domain names; (iii) types of devices accessing Avortyx's website; and (iv) types of web browsers accessing the website, which is anonymous information that is not meant to personally identify </6><7>Y</7><8>ou.</8>",
+  "k": "<0>1.6. Children.</0> The Service is for businesses and is not directed to children. We do not intend to collect personal information from anyone under 13. If we learn that we have, we delete it.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>3.3</0><1>. </1><2>Cookie &amp; Tracking Policy.</2><3> We use cookies, web beacons, and other automatic data collection tools in the operation of our Website. Cookies and similar collection tools are files with a small amount of data, which includes a unique identifier. Avortyx uses two types of Cookies:</3>",
+  "k": "2. How we use information",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>First-Party Cookies</0><1>.</1><2> Used to gather </2><3>visitors</3><4> and access information relevant to customizing the Service to your interests, and to store your password so you do not have to re-enter it. If you refuse Cookies, you assume all responsibility for any resulting loss of functionality.</4>",
+  "k": "We use information to:",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>Third-Party Cookies and Advertising</0><1>.</1><2> Avortyx and third-party marketing partners (including Google</2><3> </3><4>and Facebook) may use cookies and web beacons across multiple devices to inform, optimize, and serve advertisements to you based on your use of the Service (retargeting). You may opt-out of using third-party Cookies by visiting the Network Advertising Initiative opt-out page.</4><5><6/></5>",
+  "k": "provide, operate and maintain the Service, including routing calls and messages as our customers configure;",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>3.4. </0><1>API Use Data.</1><2> We use an API key(s) for calls against the </2><3>P</3><4>latform made available to our </4><5>u</5><6>s</6><7>ers</7><8>. We track user access patterns and API usage for logging and security. We also store your API keys in our databases, which are encrypted.</8>",
+  "k": "create and manage accounts, verify identity and register numbers and traffic with carriers;",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>3.5. </0><1>Financial Data</1><2>.</2><3> We collect and store </3><4>your credit/debit card number and expiration date when you pay Service Use Fees</4><5>.</5>",
+  "k": "bill for the Service and collect payment;",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>3.6.</0><1> </1><2>Telephony &amp; Audio Data</2><3>.</3><4> </4><5>C</5><6>all logs, routing information, SMS/MMS metadata, text message contents, transcriptions, and audio call recordings are captured via </6><7>y</7><8>our use of the Service.</8>",
+  "k": "respond to requests and provide support;",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>3.7.</0><1> </1><2>Website Forms</2><3>. When you provide any PII, BI through any form contained on this Website in order to contact us, we collect and store this information. We may use your email as expressly set forth in this Policy. </3>",
+  "k": "tell you about changes to the Service, and send marketing to business contacts, who can opt out at any time;",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>3.8. </0><1>Children Under 13.</1><2> Children under the age of 13 are expressly prohibited from submitting or posting any PII on this Website</2><3>. If Avortyx obtains actual knowledge that it has collected </3><4>p</4><5>ersonal </5><6>i</6><7>nformation from a child under the age of 13, Avortyx will delete such information immediately.</7>",
+  "k": "understand how our website and Service are used so we can improve them;",
   "page": "privacy_policy.html"
  },
  {
-  "k": "4. Information Use-How We Use Your Data.",
+  "k": "detect, prevent and investigate fraud, abuse, unlawful traffic and security incidents; and",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>4.1. </0><1>Website Use Data.</1><2> We may bundle your Website use history with any PII for a short period of time for internal analysis and security purposes only. The foregoing described bundled data is referred to hereinafter both singularly and collectively as \"Use Data\". We use Use Data strictly for internal analytics purposes and We do not share Use Data with third parties.</2>",
+  "k": "meet our legal obligations and enforce our agreements.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>4.2. </0><1>Promotional &amp; Informational Use.</1><2> Avortyx uses information you provide to fulfill any purpose for which you provide it, to carry out Avortyx's obligations and enforce its rights arising from the Services, and to notify you about changes to the Services. Avortyx may use your Financial Data to bill you.</2>",
+  "k": "<0>2.1. AI features.</0> When a customer turns on AI features such as transcription, intent scoring or summaries, we process the related call audio and message content, with our AI service providers, to produce those results. Avortyx can redact personal information from transcripts, but our customers remain responsible for any consent that recording, transcribing and analyzing their calls requires.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>4.3. Premium Services: AI Processing and Transcriptions.</0><1> Avortyx offers certain Premium Services, including audio transcriptions and AI-powered communication bots.</1>",
+  "k": "<0>2.2. Opt-outs and suppression lists.</0> When a consumer opts out, for example by replying STOP, we keep their number on the relevant suppression list so they are not contacted again, and we may pass it to compliance services our customer chooses to connect. Because these lists exist to honor opt-outs, the numbers on them are kept even when other data is deleted.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>Audio &amp; AI Processing.</0><1> If you utilize call transcriptions or AI bots, your audio recordings and message contents will be processed by Avortyx (and our authorized third-party AI sub-processors) to generate text, spot keywords, and facilitate automated conversations. While Avortyx offers automated PII redaction features for transcriptions, you remain solely responsible for ensuring you have obtained all necessary consumer consents under applicable wiretapping and privacy laws to record, transcribe, and process such communications.</1>",
+  "k": "3. How we share information",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>4.4. Opt-Outs, Suppression Lists, and Telephony Compliance.</0><1> To comply with applicable telecommunications laws (including the TCPA and 10DLC guidelines), We process and store consumer Contact Data (such as phone numbers) on your behalf within \"Suppression Lists\" or \"Blacklists\" when a consumer revokes consent (e.g., replies \"STOP\"). Avortyx retains and utilizes this data solely to prevent unauthorized outbound communications to opted-out consumers on your behalf and to facilitate your chosen third-party compliance integrations (e.g., TCPA Shield, Blacklist Alliance). Please note that while consumers may request the deletion of their personally identifiable information, Avortyx and its users are legally required to retain opted-out phone numbers within these suppression lists to ensure ongoing compliance with consumer communication laws.</1>",
+  "k": "We do not sell personal information. We share it only as follows:",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>5. Disclosure Practices-</0><1>How We Share Your Data.</1>",
+  "k": "Service providers that host, store, secure, support and bill for the Service, under contracts that limit how they use it.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>5.1. Service Providers. </0><1>We may share your information, including PII, with our agents, contractors, service providers, and other third parties used to support the Service (such as cloud hosting, billing processing, data storage, and security).</1>",
+  "k": "Carriers, routing partners and industry bodies, such as The Campaign Registry and the Industry Traceback Group, when needed to connect calls and messages, register traffic, apply STIR/SHAKEN and 10DLC requirements, prevent fraud and answer traceback requests.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>5.2. Telecommunications Partners and Registries.</0><1> To provide the telephony and routing services, We must share certain Contact Data, BI, and Telephony &amp; Audio Data (including call logs, caller ID information, and SMS/MMS metadata) with upstream telecommunications carriers, routing partners, and industry registries (such as The Campaign Registry). This disclosure is strictly required for the purposes of routing communications, maintaining network security, preventing fraud, responding to industry traceback requests, and ensuring compliance with modern telecom frameworks (such as A2P 10DLC and STIR/SHAKEN). We process and transmit this data to facilitate client-configured lead routing and real-time bidding distribution.</1>",
+  "k": "Integrations that you choose to connect, such as a CRM or Zapier. Once data reaches them, their own terms and privacy policies apply.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>5.3. User-Authorized Third-Party Integrations.</0><1> If you choose to connect or integrate the Services with third-party applications (such as Zoho CRM, Salesforce, Zapier, or other third-party platforms), you authorize Avortyx to share, sync, and transmit your PII, BI, and Lead/Contact data (including call logs and agent details) with that third-party service to facilitate the requested integration. Avortyx is not responsible for how these third-party services collect, use, or protect your data once it has been transferred. Your use of any third-party integration is governed solely by the privacy policies and terms of those third parties.</1>",
+  "k": "Our support team, which may sign in to your account temporarily, with appropriate access controls, to resolve an issue you raise.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>5.4. ​​Customer Support Tools and Internal Access.</0><1> To provide efficient customer service, we utilize third-party customer support widgets (such as the \"Help!\" feature within the App) and communication tools like Microsoft Teams. When you interact with these tools, they may automatically collect your Contact Data, IP address, and session information. Furthermore, to assist with technical troubleshooting, authorized Avortyx support personnel may be granted secure, temporary access to impersonate your user account. This internal access is strictly limited to resolving your support inquiries and is governed by Avortyx's internal security access controls.</1>",
+  "k": "Authorities and others when the law requires it, for example in response to a subpoena or court order, or when it is needed to protect the rights, property or safety of Avortyx, our customers or others, or to investigate fraud and security threats.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>5.5.</0><1> </1><2>Aggregated and De-Identified Data.</2><3> Avortyx may aggregate and de-identify information collected through the Services (such as overall call volume trends, routing performance metrics, SMS delivery rates, and general API usage statistics) so that it can no longer be reasonably linked to you, your business, or your specific consumers. We may use and share this anonymized, statistical data for our own legitimate business purposes, including system optimization, algorithm training, industry benchmarking, and public marketing materials (such as case studies or performance reports). Because this aggregated data is entirely stripped of all Personally Identifiable Information, it no longer constitutes PII and is not subject to the sharing restrictions of this Policy.</3>",
+  "k": "A buyer or successor if Avortyx is involved in a merger, acquisition, financing, reorganization, insolvency or sale of assets.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>5.6.</0><1> </1><2>Protection of Client Lead Data &amp; B2B Marketing Disclosures</2><3>.</3><4> </4><5>As a B2B technology provider, Avortyx acts as a data processor for the lead data our clients route through our Platform. Avortyx will never access, aggregate, sell, or supply the personal information or lead data loaded into the Avortyx Platform by our clients to any third-party marketing companies, affiliates, or data aggregation companies. Furthermore, regarding the Contact Data we collect directly from you, no mobile information, including B2B SMS consent or text messaging originator opt-in data, will be shared with third parties or affiliates for marketing or promotional purposes.</5>",
+  "k": "<0>3.1. Our customers’ lead data.</0> We do not sell, rent or supply the lead and consumer data our customers load into Avortyx to marketers, affiliates or data brokers, and we do not combine it across customers to build our own marketing lists.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>5.7. </0><1>By Law or to Protect Rights.</1><2> We may disclose certain PII if requested via a subpoena, court order, or local, state, federal or international law enforcement request to release any such information; or in order to investigate and help prevent security threats, fraud or other malicious activity; </2><3>or</3><4> to protect our rights or protect our property, or any of the rights of our customers or other third parties.</4>",
+  "k": "<0>3.2. Mobile and SMS data.</0> Mobile numbers, SMS consent and text message opt-in data are never sold or passed to any third party or affiliate for its marketing or promotions.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "6. Communications &amp; Opt-Out.",
+  "k": "<0>3.3. Aggregated statistics.</0> We may produce statistics, such as overall call volumes, routing speed and message delivery rates, that cannot reasonably be traced back to you, your company or any consumer, and use them to run and improve the Service, for benchmarking and in our marketing.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>6.1. </0><1>Email Marketing Opt-Out.</1><2> You can opt-out of receiving any promotional emails or newsletters at any time by either clicking \"unsubscribe\" in the body of the email communication and following the opt-out procedure contained in the email, or by sending an email to support@avortyx.com and requesting to opt-out of receiving such communications.</2>",
+  "k": "4. Keeping information",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>6.2. </0><1>Electronic Communications.</1><2> When you visit this Website or send emails to us, you are communicating with us electronically. You consent to receive communications from us electronically. You agree that all agreements, notices and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing.</2>",
+  "k": "<0>4.1. Account and website data.</0> Account, contact and business information is kept while your account remains open and afterwards as needed to meet legal, tax and accounting obligations, resolve disputes and enforce our agreements.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "7. Data Security.",
+  "k": "<0>4.2. Customer data.</0> Our customers choose how long recordings, transcripts, call logs and lead data are kept, using the retention and auto-deletion settings in their account, and they are responsible for choosing periods that comply with the law. Recordings are kept free for ninety (90) days, and longer storage is billed as shown on the pricing page.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "We take the security of your data very seriously. All traffic between your browser and our servers is encrypted during transmission using Secure Sockets Layer (SSL) encryption. The data we collect and store is protected by industry-standard firewall and password protection systems. However, we make no guarantee, warranty or representation that any information provided through this Website will remain secure at all times from any illegal or unauthorized access of any data including any PII by third parties. We will report any unauthorized access to your information promptly upon discovery, and we will use our best efforts to remedy any security vulnerability that contributed to unauthorized access.",
+  "k": "<0>4.3. Automatic redaction.</0> By default, the platform removes or masks personal information such as names, street addresses and dates of birth from inactive data and logs after ninety (90) days. Customers can change that period in their settings.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "8. Third-Party Websites.",
+  "k": "<0>4.4. Legal holds.</0> We may keep information longer when the law requires it or when it is needed for a legal claim or investigation.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "Avortyx neither owns nor controls Third-Party Websites. Third-Party Websites are under no obligation to comply with this Policy except with respect to PII provided directly to them by Avortyx. Before visiting or providing any personal information to Third-Party Websites, you should inform yourself of the privacy policies and practices of those websites.",
+  "k": "5. Security",
   "page": "privacy_policy.html"
  },
  {
-  "k": "9. General Information (Storage &amp; Access).",
+  "k": "We protect information with encryption in transit (TLS), encrypted storage of API keys, access controls, firewalls and monitoring. No system is completely secure, so we cannot guarantee that information will never be accessed without permission. If a breach affects your personal information, we will tell you promptly, as the law requires, and work to fix its cause.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>9.1. </0><1>Information Storage And International Transfer.</1><2> Any PII and all other information that we collect on this Website will be stored and processed in our servers located in the United States. If you reside outside the United States, you consent to the collection, transfer, storage, and processing of any information from your country to the United States.</2>",
+  "k": "6. Where information is processed",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>9.2. </0><1>How to View Your PII.</1><2> You can request to view any of your collected PII at any time by emailing us at support@avortyx.com. Please include the words \"Information Request\". If you make any information requests, we will require that you provide proof of your identity. We also reserve the right to require that you sign and provide us with a notarized affidavit verifying your identity before we update or release any information to you.</2>",
+  "k": "Avortyx is based in the United States, and information is stored and processed there and in other countries where our providers operate. If you use the Service from outside the United States, your information will be transferred to the United States.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>9.3. Data Retention and Call Recordings.</0><1> We retain Website Use Data, Contact Data, and BI for as long as your account is active or as needed to provide the Service to you. However, regarding consumer lead data and Telephony &amp; Audio Data (including call recordings and transcriptions) processed on your behalf, </1><2>you are solely responsible for configuring your account's data retention settings.</2><3> Avortyx provides tools to customize call recording retention periods (including auto-deletion schedules). You represent and warrant that your chosen retention periods comply with all applicable data minimization and privacy laws. Avortyx is not responsible for your failure to delete consumer data in accordance with applicable law. </3>",
+  "k": "7. Your choices and rights",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>     9.3.1. Automated PII Redaction.</0><1> In accordance with data minimization principles, Avortyx employs automated systems to redact specific PII (such as names, addresses, and birthdates) from inactive data, call logs, and archives after a default period of ninety (90) days. While Business Users may configure these redaction timelines within their account settings to meet their specific compliance needs, Avortyx strictly minimizes the long-term retention of raw consumer PII in its routing and system logs.</1>",
+  "k": "<0>7.1. Marketing.</0> You can stop marketing emails from us at any time with the unsubscribe link in each one or by writing to support@avortyx.com.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "10. Business Transitions.",
+  "k": "<0>7.2. Cookies and Do Not Track.</0> You can block or delete cookies in your browser and opt out of Google Analytics with Google’s browser add-on. Our website does not currently act on the Do Not Track setting in browsers.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "Upon any acquisition, merger, sale or other change of control of our business/organization, we reserve the right to transfer any PII you have submitted to this Website as part of the property owned by us to our successor resulting from such merger, acquisition, sale, etc. In the event of our bankruptcy, insolvency, reorganization, receivership, or assignment for the benefit of creditors, We reserve the right to transfer your PII to protect any of our rights or as required by law.",
+  "k": "<0>7.3. Access and correction.</0> You can see and update most account information in your dashboard, or ask us for a copy of the personal information we hold about you.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "11. Do-Not-Track Disclosure.",
+  "k": "<0>7.4. U.S. state privacy rights.</0> If you live in a U.S. state with a general consumer privacy law, such as California, Colorado, Connecticut, Utah and Virginia, you may have the right to learn which personal information we collected about you over the past twelve (12) months and how we use and disclose it, to receive a copy, to have it corrected or deleted (subject to legal exceptions), and to opt out of its sale or its use for targeted advertising. We do not sell personal information or use it for cross-context behavioral advertising. We will not treat you differently for exercising these rights.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "Avortyx does not respond to \"Do Not Track\" signals sent by browsers.",
+  "k": "<0>7.5. Making a request.</0> Send your request to support@avortyx.com, headed “Privacy Request”. We will need to confirm your identity before acting on it, and an authorized agent may make a request for you with your written permission. If we decline your request, you may ask us to reconsider by replying to our answer. If your request is about consumer data that one of our customers routes through Avortyx, we will pass it to that customer, who decides how to respond.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "12. U.S. State Privacy Rights (CCPA/CPRA and Similar Laws).",
+  "k": "8. Other websites",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>12.1. Applicability</0><1>.</1><2> This section applies exclusively to residents of states with comprehensive privacy laws in effect, including but not limited to California (CCPA/CPRA), Virginia (VCDPA), Colorado (CPA), Connecticut (CTDPA), and Utah (UCPA). It outlines your rights regarding your Personally Identifiable Information (PII) and how you can exercise those rights.</2>",
+  "k": "Our website and the Service may link to sites and services we do not own or control. Their privacy practices are their own, so please read their policies before giving them your information.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>12.2. Notice of Collection and Use</0><1>.</1><2> In the preceding twelve (12) months, we have collected the categories of P</2><3>II </3><4>detailed in Section 3 (Information Collection Practices) of this Policy. We collect and use this information for the business and commercial purposes outlined in Section 4 (Information Use).</4>",
+  "k": "9. Changes to this policy",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>12.3. No Sale of P</0><1>II. </1><2>Avortyx does not \"sell\" any of your </2><3>PII </3><4>to third parties for monetary consideration. However, we may \"share\" certain data (like cookies and tracking identifiers) with third-party advertising partners for targeted advertising purposes, as described in Section 3. You have the right to opt-out of this sharing.</4>",
+  "k": "We may update this policy from time to time. We will post the new version here with its effective date and, for material changes, tell you by email, in the dashboard or on our website. Using the Service after a change takes effect means you accept the updated policy.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>12.4. Your Consumer Privacy Rights</0><1>.</1><2> Depending on your state of residence, you may have the following rights regarding your P</2><3>II</3><4>:</4>",
+  "k": "10. Contact us",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>The Right to Know and Access</0><1>.</1><2> You have the right to request that we disclose what P</2><3>II</3><4> we have collected, used, shared, or sold about you over the past 12 months, including the specific pieces of data we hold.</4>",
+  "k": "For questions or requests about this policy, email support@avortyx.com or write to:",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>The Right to Delete</0><1>.</1><2> You have the right to request the deletion of the P</2><3>II</3><4> that we have collected from you, subject to certain legal exceptions.</4>",
-  "page": "privacy_policy.html"
- },
- {
-  "k": "<0>The Right to Correct</0><1>.</1><2> You may ask us to correct any inaccurate P</2><3>II </3><4>we maintain about you.</4>",
-  "page": "privacy_policy.html"
- },
- {
-  "k": "<0>The Right to Opt-Out of Sharing</0><1>.</1><2> You may opt out of our sharing your P</2><3>II</3><4> for cross-context behavioral advertising or targeted advertising.</4>",
-  "page": "privacy_policy.html"
- },
- {
-  "k": "<0>The Right to Non-Discrimination</0><1>.</1><2> Using any of your state privacy rights will not change how we treat you or the service you receive.</2>",
-  "page": "privacy_policy.html"
- },
- {
-  "k": "<0>12.5. How to Exercise Your Rights</0><1>.</1><2> To submit a verifiable consumer request to exercise your Right to Know, Right to Delete, or Right to Correct, please contact us via one of the following methods:</2>",
-  "page": "privacy_policy.html"
- },
- {
-  "k": "<0>Email:</0><1> support@avortyx.com (Please use the subject line \"State Privacy Rights Request\")</1>",
+  "k": "<0>Avortyx, LLC<1/></0><2>1500 N Grant St #10831<3/></2><4>Denver, CO 80203<5/></4>",
   "page": "privacy_policy.html"
  },
  {
@@ -10800,807 +10780,619 @@
   "page": "sign_up.html"
  },
  {
-  "k": "Please review these terms carefully before using our services.",
+  "k": "The agreement between Avortyx and the businesses that use it.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Updated on October 14th, 2026",
+  "k": "Avortyx Terms of Service",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Avortyx Platform Terms of Service",
+  "k": "These Terms of Service (the “Terms”) are a contract between you and Avortyx, LLC, a Colorado limited liability company (“Avortyx”, “we”, “us” or “our”). They govern the Avortyx platform, its web application, APIs, phone numbers and related services, and the avortyx.com website (together, the “Service”).",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Your use of the Avortyx Platform (the “Service”), operated by Avortyx, LLC, a Colorado limited liability company (“Avortyx” or “We”), is subject to these Terms of Service (“Terms” or “Agreement”) at all times. By creating an account and using the Service, each user (“You”) agrees to be bound by these terms</0><1>.</1>",
+  "k": "Please read Section 20 closely: it sends most disputes to individual arbitration and waives class actions. Section 9 makes you responsible for claims that come from how you use the Service.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>PLEASE REVIEW THESE TERMS CAREFULLY BEFORE USING THE SERVICE</0><1>. </1><2>These Terms contain a mandatory arbitration provision and require you to defend and indemnify Avortyx for any claim arising from your use of the Service.</2>",
+  "k": "You accept these Terms when you create an account, sign an Order Form that refers to them, or otherwise use the Service. If you do not accept them, you may not use the Service. You must be at least 18 years old and able to enter into a binding contract.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>BY CREATING AN ACCOUNT AND USING THE SERVICE, Y</0><1>OU  ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT IN ITS ENTIRETY, THAT YOU UNDERSTAND THIS AGREEMENT AND THAT YOU ARE ENTERING INTO A LEGALLY BINDING AGREEMENT WITH AVORTYX. IN THE EVENT YOU DO NOT AGREE TO ACCEPT ANY OF THE TERMS CONTAINED HEREIN, YOU ARE NOT PERMITTED TO USE OUR SERVICE.</1>",
+  "k": "1. Who may use the Service",
   "page": "terms_of_service.html"
  },
  {
-  "k": "THE INDIVIDUAL ENTERING INTO THIS AGREEMENT REPRESENTS THAT HE OR SHE IS AT LEAST 18 YEARS OF AGE.",
+  "k": "<0>1.1. Businesses only.</0> The Service is for businesses and for individuals acting on behalf of a business. It is not offered for personal, family or household use.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "1. Platform Access &amp; Restrictions.",
+  "k": "<0>1.2. Accepting for an organization.</0> If you accept these Terms for a company or other organization, you confirm that you have authority to bind it. In that case “you” means both you and that organization.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.1. Access Rights Grant</0><1>. </1><2>Avortyx grants You a non-transferable, non-exclusive, revocable, limited right  to access and use the Service as made accessible to You through avortyx.com (“Platform”) and for the limited purpose of managing/conducting individual SMS and telephone call campaigns, both directly and/or on behalf of third-party clients, and to access and use campaign analytics. We shall exclusively retain all rights not expressly granted to You as set forth in this Agreement in and to each separate component comprising our Platform, together with all trademarks, trade secrets and any other proprietary rights inherent therein and related thereto. Access and use rights in and to the Platform and Service are being granted and not sold to You under the terms of this Agreement. All content other than Your Content (defined in Section 2), features and functionality and each separate element/component of our Service and Platform are owned exclusively by Avortyx and are protected by copyright, trademark, and other intellectual property laws. You acknowledge that any derivative works, improvements, or modifications to the Platform created by You or anyone else shall be owned exclusively by Avortyx. Our trademarks, including the mark AVORTYX and our design marks/logos, all copyrighted material, any patents, and any other  protectable components of the Platform generally are the intellectual property of Avortyx and/or its licensors. </2>",
+  "k": "<0>1.3. Verification.</0> You will give us accurate business, identity and contact details when we ask, including anything carriers need to register your numbers and traffic, and you will keep them up to date. We may refuse, suspend or close an account whose details we cannot verify.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.1.1. Platform Availability. </0><1>In our sole discretion, we may set, impose or enforce limits on your use, or restrict your access to some or all of the Service features, change, discontinue, suspend or terminate the availability of some or all of your Content or any other separate feature of the Service at any time for any reason with or without notice to You. We will not be liable to You for any damages of any kind as a result of any such future restriction, modification, deletion, discontinuation, suspension and/or termination including access to any Content. </1>",
+  "k": "2. Your account",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.2. Taxes.</0><1> Your ability to access and use the Service or any separate functionality of the Service in connection therewith may require the payment of third party fees and charges (including but not limited to fees and charges such as Internet service provider fees, or fees or taxes imposed on Internet service, including any sales or use taxes, by governmental agencies). You are responsible for paying all such fees, charges and taxes. We are not responsible for any equipment You may need to be able to access or use the Service. </1>",
+  "k": "<0>2.1. Sign-in details.</0> Each user signs in with their own credentials. Do not share them, use anyone else’s, or try to get around any sign-in or access control. Tell us straight away at support@avortyx.com if you suspect someone has gained access to your account without permission.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.3.</0><1> </1><2>User Account.</2><3> </3><4>You are required to set up a Avortyx account to use the Service. You may not use the username or password of any other person, nor may You circumvent any authentication mechanism requiring the entry of usernames, passwords, or any other information to gain unauthorized access to the Service. You are responsible for the quality and integrity of the data in your account. You agree to take all reasonable precautions to prevent unauthorized access to your account and agree to immediately notify Avortyx of any suspected or actual unauthorized access. Avortyx shall not be liable for any loss incurred by You or any third party relating to your account, including unauthorized access or if the Service is not continuous. You are responsible for any loss incurred by Avortyx or its agents for activity under your account. Your account may be suspended, disabled, or terminated at any time for any reason, including for violation of these Terms. If Avortyx suspends or terminates your account, it will make reasonable efforts to notify You after doing so.</4>",
+  "k": "<0>2.2. Activity on your account.</0> You are responsible for everything done through your account, for the accuracy of the data in it, and for any loss Avortyx suffers because of that activity. We are not responsible for losses caused by someone using your credentials.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.4. Term, Suspension and Termination.</0><1> </1>",
+  "k": "<0>2.3. Clients and people working for you.</0> If you use the Service for clients or let contractors, agents or call centers act for you, you are responsible for them, and you will make sure they follow these Terms and the law.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.4.1. Term of Agreement.</0><1> Your rights to access and use the Service shall begin on the date You register and create an account on our Platform and shall continue until either such access rights are terminated by Avortyx or upon any cancellation by You (\"Term\"). These Terms shall also terminate immediately upon the windup, dissolution, or insolvency of either party, whether voluntary or not.</1>",
+  "k": "3. Using the platform",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.4.2. Suspension and Termination Without Notice.</0><1> Avortyx reserves the right to immediately suspend or terminate your account, this Agreement, and/or your access to the Service at any time, for any reason not prohibited by law, </1><2>without advance notice to You.</2><3> This includes, but is not limited to:</3>",
+  "k": "<0>3.1. Permission to use the Service.</0> While your account is in good standing, we give you a limited, non-exclusive, non-transferable and revocable right to use the Service to run your own call and messaging campaigns, or campaigns for your clients, and to view the analytics that come with them. This is permission to use the Service; it does not transfer ownership of any software.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Breach of Terms.</0><1> Any violation of these Terms, specifically including violations of Section 2 (Platform Use Compliance &amp; Restrictions) or failure to pay applicable fees under Section 3.</1>",
+  "k": "<0>3.2. What belongs to Avortyx.</0> Avortyx and its licensors own the Service, including its software, design, documentation, the AVORTYX name and logos, and any improvements or derivative works made to it by anyone. All rights not expressly given to you in these Terms are kept by Avortyx.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Third-Party Discontinuation.</0><1> If We are unable to access or use any of the third-party services required to operate the Service, or if such services are discontinued, become obsolete, or are otherwise not commercially available.</1>",
+  "k": "<0>3.3. What you may not do.</0> Unless we agree in writing, you may not:",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Regulatory or Carrier Action.</0><1> If directed, requested, or recommended by any regulatory authority (including the FCC, FTC, or State Attorneys General), the Industry Traceback Group (ITG), or any upstream telecommunications carrier, or if Avortyx determines in its sole discretion that your traffic poses a legal, financial, or reputational risk to Avortyx's network integrity.</1>",
+  "k": "resell, sublicense, white-label or co-brand the Service, or use it to build or run a product that competes with it;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.4.3. Effect of Termination.</0><1> Upon termination, your access to the Service and your access to any Campaign Content, including the Content dashboard, will be immediately disabled, and You shall immediately cease all use of the Service. Avortyx shall have no obligation to maintain, retain, export, or provide You with access to any of Your data, call logs, PII, or Consent Records following termination, and Avortyx reserves the right to immediately and permanently delete all such information from its servers without liability.</1>",
+  "k": "copy or reuse any part of the Service, including its text, images, screens or code, except as these Terms allow;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.4.4. Release of Liability</0><1>. Avortyx will have no liability to You or any third party for loss caused by any suspension or termination of the Service or termination of your access to the Service, including any damage or loss to any data, call recordings, computers, systems, or networks. </1>",
+  "k": "reverse engineer, decompile or disassemble the Service, or try to work out its source code, algorithms or structure;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.5.</0><1> </1><2>Cancellation. </2>",
+  "k": "collect data from the Service with bots, scrapers or other automated tools, other than through our published APIs used as documented.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.5.1. Method of Cancellation.</0><1> You may cancel your account and rights to access and use the Service at any time, for any reason, directly through your account dashboard or by contacting Avortyx customer support.</1>",
+  "k": "<0>3.4. Security.</0> You may not overload or disrupt the Service, probe or test its security, introduce malware or spam, give anyone access to it without our permission, or forge or alter network packets, protocol headers or SIP data.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.5.2. Effective Date and Access.</0><1> Cancellation requests require up to three (3) calendar days to process. Upon processing, We will cease new recurring charges to your payment method, but your account and access to the Platform will remain active until the conclusion of your current subscription period or monthly commitment cycle.</1>",
+  "k": "<0>3.5. Changes to the Service.</0> We improve the Service all the time. We may add, change, limit or remove features, and set usage limits, at any time. Where a change materially reduces what you have paid for, we will tell you in advance where we reasonably can.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.5.3. Outstanding Financial Obligations. </0><1>Cancellation of your account does not relieve You of the obligation to pay for any Service Use Fees as utilized prior to the effective date of cancellation. You remain fully responsible for any outstanding usage fees, fractional billing, and delayed carrier surcharges or compliance penalties resulting from your traffic, even if such fees are assessed by upstream carriers after your account has been closed.</1>",
+  "k": "4. Following the law",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.5.4. Loss of Data and Telephony Assets. </0><1>Upon the final effective date of cancellation at the end of your billing cycle, your access to the Platform will be terminated. You acknowledge that all Campaign Content, call logs, and call recordings will become inaccessible, and any rented telephony assets (including local DIDs and Toll-Free Numbers) will be immediately released back to the upstream carriers and cannot be recovered.</1>",
+  "k": "<0>4.1. Your responsibility.</0> You will use the Service only in ways that comply with every law, regulation and industry rule that applies to you. Avortyx does not tolerate unlawful traffic, and breaking the law in connection with the Service is a serious breach of these Terms. The laws that most often apply include:",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.6. Force Majeure. </0><1>Notwithstanding the foregoing, Avortyx will not be liable to You for any failure or delay in the availability of the Service during the Term due to causes beyond its reasonable control. Such causes may include, without limitation: i. inability to obtain and/or denial of services essential to the operation of the Service (including acts or omissions of third-party telecommunications and hosting providers); ii.telecommunications network failures or degradation, Distributed Denial of Service (DDoS) attacks, malicious attacks, or cyber-terrorism; or iii. pandemics, epidemics, public health emergencies, governmental orders and acts, or material changes in law, or iv. war, terrorism, riots, acts of God, or any other true </1><2>force majeure</2><3> event. Nothing in this section shall excuse or delay Your obligation to pay any fees or charges owed to Avortyx under this Agreement.</3>",
+  "k": "the Telephone Consumer Protection Act (TCPA), 47 U.S.C. § 227, and the FCC rules at 47 C.F.R. § 64.1200;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.7. Platform Access Restrictions. </0><1> Without express, written authorization from Avortyx, You are not authorized to and You shall not do any of the following:</1>",
+  "k": "the Telemarketing Sales Rule, 16 C.F.R. Part 310;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>No White-Labeling or Reselling. </0><1>Co-brand, co-market, white-label, distribute, syndicate, or use the Platform or Service to build, offer, or operate a service that is similar to or competitive with Avortyx;</1>",
+  "k": "state telemarketing, “mini-TCPA” and call recording laws;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>No Commercial Misuse of Assets.</0><1> Copy, modify, or use any text, graphics, headers, banners, images, videos, applications, files, or any other separate Platform element for any purpose outside of the access rights expressly granted to You under this Agreement; </1>",
+  "k": "the CAN-SPAM Act; and",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>No Reverse Engineering.</0><1> Modify, create derivative works from, decompose, decompile, reverse engineer, disassemble, or otherwise attempt to derive the source code, underlying ideas, algorithms, structure, or organization of the Platform or Service; or</1>",
+  "k": "the Federal Trade Commission Act and the FTC’s rules and guidance.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>No Scraping or Indexing.</0><1> Use any robot, spider, scraper, deep-link, or other automated data gathering or extraction tools to access, acquire, copy, or index any portion of the Platform, its infrastructure, or its underlying data, except through explicitly authorized and published Avortyx APIs in accordance with our API documentation.</1>",
+  "k": "<0>4.2. Prohibited activity.</0> In particular, you may not use the Service to:",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.8. Platform Security Restrictions.</0><1> At all times during your access and use of our Service, You strictly agree that You shall not:</1>",
+  "k": "make calls or send messages that the law does not permit, including unwanted marketing calls, texts, voicemails or faxes;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "attempt to interfere with, disrupt, disable, overburden or limit the Service via automated means;",
+  "k": "ignore an opt-out, whether a STOP reply, a spoken do-not-call request or any other way a person withdraws consent, or fail to give people a working way to opt out;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "attempt to bypass, probe, scan or test any existing security measures or authentication mechanisms;",
+  "k": "collect information about people for unlawful purposes;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "use spam, malware, bots or other malicious code;",
+  "k": "give false or misleading information, impersonate any person or brand, or display caller ID you are not entitled to use;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "provide unauthorized third parties with access to the Platform or your account without express written permission from Avortyx; or",
+  "k": "play or distribute audio, music or scripts you do not have the rights to use;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "forge, modify, or falsify any network packet or protocol header or SIP metadata.",
+  "k": "send content that is defamatory, discriminatory, harassing or otherwise harmful;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "2. Service Use.",
+  "k": "carry content about sex, hate, alcohol, firearms or tobacco, payday lending, or anything else that CTIA guidelines or our carriers do not allow;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.1. General Responsibility and Content Ownership. </0><1>You are solely responsible for all content and information that You send or transmit via phone call, SMS/MMS message, instant messages, email, mail, or other form (“Content”), including its legality, reliability, and appropriateness.</1>",
+  "k": "handle protected health information as defined under HIPAA;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.1.1. Warranties.</0><1> You warrant that You own or have the right to use your Content, have obtained lawful consent from all parties with whom You interface, and are not violating any privacy, proprietary, or other rights of others.</1>",
+  "k": "send traffic that has not been registered as carriers require, including 10DLC registration for messaging, or that breaks STIR/SHAKEN requirements; or",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.1.2. Account Liability.</0><1> You are solely responsible for all acts or omissions that occur under your account.</1>",
+  "k": "connect to or stand in for emergency services such as 911 or E911.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.1.3. Regulatory Compliance Documentation.</0><1> You are responsible for filing, subscribing, and holding appropriate regulatory compliance documentation as required by competent jurisdictions and/or purchasing access to any do-not-call lists.</1>",
+  "k": "<0>4.3. Documentation and lists.</0> You are responsible for any registrations, filings and licenses your traffic needs, and for subscribing to the do-not-call lists that apply to you. The <1>Acceptable Use Policy</1> and the <2>TCPA &amp; Consent Compliance Policy</2> set out more of what is expected.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.1.4. Third-Party Representation.</0><1> To the extent You represent or act on behalf of a third-party, You assume all liability for such third parties and will ensure they comply with these Terms and all applicable laws.</1>",
+  "k": "5. Consent and consent records",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.2. ZERO-TOLERANCE POLICY FOR LEGAL VIOLATIONS. </0><1>Avortyx has a zero-tolerance policy toward violations of the law.</1><2> </2><3>You represent and warrant that You will not violate any applicable local, state, federal, international, or other statutes, laws, ordinances, rules, regulations, or industry standards in connection with using the Service. Any such violation constitutes a material breach of these Terms. This includes, but is not limited to:</3>",
+  "k": "<0>5.1. Consent first.</0> Before you, or anyone acting for you, calls, texts or messages a consumer through the Service, you must have that consumer’s prior express written consent where the law requires it.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "The Telephone Consumer Protection Act (TCPA), 47 U.S.C. §227 et seq. and corresponding regulations, 47 C.F.R. §64.1200(a)(1) et seq;",
+  "k": "<0>5.2. Wording.</0> Your consent wording must satisfy the law and must clearly name both you and Avortyx, LLC. It must cover the channels you will use (such as calls, texts, fax and instant messages), say that automated technology and prerecorded or artificial voice messages may be used, state that consent is not required to make a purchase, and include the consumer’s agreement to arbitrate disputes.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "The Telemarketing Sales Rule, 16 C.F.R. §310;",
+  "k": "<0>5.3. What to keep.</0> Keep a record of each consent for at least five (5) years, or longer if a law requires it. Each record must show the date and time of the opt-in, where it was given, the person’s first and last name, address and phone number, and any other information collected at the time.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "State telemarketing laws and regulations;",
+  "k": "<0>5.4. Producing records.</0> If we ask for a consent record, you will give it to us within two (2) business days. You will make sure that anyone generating leads or traffic for you keeps these records too and hands them over when we ask.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "The CAN-SPAM Act of 2003; and",
+  "k": "<0>5.5. Suppression lists.</0> If we give you a suppression list, you will clean your contact lists against it no less often than once every three (3) business days and never call or text a number on it.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "The Federal Trade Commission Act and corresponding rules, regulations, and guidelines.",
+  "k": "<0>5.6. Keep your own copies.</0> The Service routes communications in real time; it is not an archive. Export your consent records as they are created, by API, webhook or regular exports, and store them in your own secure systems. By default the Service also removes or masks personal information, such as names, birth dates and street addresses, from inactive data and logs after ninety (90) days. You can change that period in your settings, but you are responsible for keeping whatever you need to prove compliance. We are not liable if records held only in the Service are deleted, redacted or unavailable.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.3. CONSUMER CONSENT AND RECORD-KEEPING. </0><1>You agree to have the prior express written consent of each recipient contacted by or on behalf of You by phone call, SMS/MMS message and/or instant message.</1>",
+  "k": "<0>5.7. A privacy policy for messaging.</0> To use messaging features you must publish a privacy policy on your website. It must state that you do not sell or share mobile numbers, SMS consent or opt-in data with any third party or affiliate for its marketing.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.3.1. Mandatory Consent Language.</0><1> In addition to any language required to make your conduct comply with all laws, You are required to use language that is the same or substantially the same as the following in obtaining consumer consent: </1><2>\"I agree to receive offers and other communications via [calls, fax, text message, and instant message] from [You] and Avortyx, LLC including by automatic telephone dialing systems and pre-recorded messages. I understand consent is not a condition of purchase. I agree to binding arbitration for any disputes.\"</2>",
+  "k": "6. Your content and our oversight",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.3.2. Consent Records.</0><1> You shall maintain records evidencing such consent (“Consent Records”) for a minimum of five (5) years, or for the maximum duration required by applicable state or federal law, whichever is longer. These records must include: (i) opt-in date and time, (ii) source, (iii) first and last name, (iv) address, (v) phone number, and (vi) any other information collected.</1>",
+  "k": "<0>6.1. Your content.</0> “Content” means anything you send, route, upload or store through the Service, including calls, recordings, messages, emails, scripts, audio and lead data. You are responsible for your Content. You promise that you have the rights to it and the consents needed to use it, and that it does not infringe anyone’s privacy or other rights.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.3.3. Record Production.</0><1> You agree to provide such Consent Records to Avortyx within two (2) business days of any request. You warrant that anyone acting on your behalf has expressly agreed to maintain such Consent Records and shall provide them upon demand to Avortyx.</1>",
+  "k": "<0>6.2. Review.</0> We may, but do not have to, review Content, and we may block, change or remove Content that we believe is unlawful or against these Terms. We do not check campaigns before they run and are not responsible for decisions you make based on your Content.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.3.4. Suppression Lists.</0><1> To the extent Avortyx provides a suppression list for phone numbers to You, You shall regularly review and scrub your phone number list against such suppression list no less than every three (3) business days and shall not at any time send any text messages or make calls whatsoever to any individuals on such suppression list.</1>",
+  "k": "<0>6.3. Monitoring.</0> You agree that we may monitor use of the Service to detect and stop activity that does not comply with these Terms, the law or carrier requirements.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.3.5. Customer Privacy Policy Requirement:</0><1> To utilize the SMS/MMS functionalities of the Service, You represent and warrant that You maintain a publicly accessible Privacy Policy on your website(s). To comply with A2P 10DLC guidelines, your Privacy Policy must explicitly state that consumer mobile phone numbers, SMS consent, and text messaging opt-in data will not be shared with or sold to third parties or affiliates for marketing or promotional purposes.</1>",
+  "k": "<0>6.4. Questions and investigations.</0> You will promptly answer reasonable questions from us or our carriers about your traffic and your compliance. If you learn of a lawsuit, complaint or government investigation about your marketing practices, you will tell us immediately, whether or not it involves Avortyx.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.3.6. External Storage of Consent Records.</0><1> You acknowledge and agree that the Platform is a real-time communications routing system and is not designed, intended, or guaranteed to serve as a permanent or long-term data repository for Your Consent Records. You are strictly responsible for independently exporting, downloading in real time (e.g., via API or webhook) or at frequent, regular intervals, and storing all Consent Records in Your own external, secure systems to fulfill Your compliance and record-keeping obligations. Avortyx assumes no liability whatsoever for the loss, auto-deletion, or unavailability of any Consent Records stored solely within the Platform.</1>",
+  "k": "7. Numbers, carriers, recording and emergency calls",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>     2.3.6.1. Automated Data Redaction.</0><1> </1><2>To comply with data minimization principles, you acknowledge and agree that</2><3> Avortyx’s Platform includes automated routines that redact or obfuscate Personally Identifiable Information (PII), including names, birthdates, and physical addresses, from inactive data and system logs after a default period of ninety (90) days. While You may have the ability to adjust these redaction parameters within Your account settings, </3><4>You are solely responsible for exporting and securing all PII necessary to prove Your TCPA and regulatory compliance (including complete Consent Records) prior to any automated redaction.</4><5> Avortyx shall bear no liability for Your inability to defend against regulatory or third-party claims due to the automated redaction of PII from Your account.</5>",
+  "k": "<0>7.1. Numbers.</0> Phone numbers are assigned by carriers and regulators. You may use the numbers on your account while it is active and paid up, but you do not own them.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "2.4. Monitoring, Enforcement, and Litigation.",
+  "k": "<0>7.2. Porting.</0> You may port numbers in where the current carrier allows it, and ask to port numbers out. We will not unreasonably delay a valid port-out request; porting follows the carriers’ own processes and requires the account details they ask for. Porting numbers out does not close your account or cancel anything you owe.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.4.1. Content Review.</0><1> Avortyx reserves the right, but has no obligation, to review your Content and to reject, modify, or remove Content for any reason without notice or explanation, including for violations of these Terms or the law. </1><2>We assume no responsibility to investigate any Campaign Content either before any Campaign Content is uploaded or after the same is initiated published. We shall not be responsible or liable to You for any damages whatsoever of any kind for any Campaign Content  which is ultimately relied upon by You for any purpose whatsoever</2>",
+  "k": "<0>7.3. Your own carrier accounts.</0> If you connect your own carrier account to Avortyx, such as Plivo, Telnyx or a SIP trunk, your agreement with that carrier also applies, and you are responsible for that account, its charges and its rules.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>           2.4.2. Right to Monitor.</0><1> You agree to allow Avortyx to use any means of monitoring your use of the Service for non-compliant activity.</1>",
+  "k": "<0>7.4. Registration and caller ID.</0> Carriers decide whether to approve registrations, which STIR/SHAKEN attestation level to give, how caller names (CNAM) display, how calls are labeled and whether messages are delivered. You will give complete and truthful registration information, but we cannot promise any of these outcomes.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.4.3. Information Requests.</0><1> You agree to promptly provide any information requested by Avortyx or its agents that is reasonably related to your compliance with the law or these Terms.</1>",
+  "k": "<0>7.5. Recording and monitoring.</0> Some states and countries require every party to agree before a call is recorded. You are responsible for any notice and consent each recorded, transcribed or monitored call needs, including calls with your buyers and their agents, and for telling staff when they may be monitored. Features such as per-state recording rules, recording announcements and live whisper and barge help with this but do not shift your responsibility to us.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.4.4. Litigation Notification.</0><1> To the extent that You become aware of any litigation or investigation concerning your marketing practices or procedures, irrespective of whether such litigation relates to Avortyx, You shall immediately notify Avortyx of such litigation or investigation.</1>",
+  "k": "<0>7.6. No emergency calling.</0> The Service cannot be used to call 911, E911 or any other emergency number and does not replace a landline or mobile phone. Everyone who uses Avortyx numbers for you must have another way to reach emergency services. We are not liable if emergency services cannot be reached through the Service. See the <1>Emergency Calling (911) Notice</1>.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.5. Use Restrictions. </0><1>You shall not do any of the following in relation to Your use of the Service:</1>",
+  "k": "8. Fees and payment",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Violate, or encourage violation of, these Terms or any applicable law or regulation;",
+  "k": "<0>8.1. Fees.</0> You will pay the fees for the Service at the rates on our <1>pricing page</1> or in your Order Form, for the commitment level you choose. Fees are in U.S. dollars and do not include taxes, which you will pay. Your own internet, equipment and similar costs are yours.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Violate industry standards, other Avortyx or third-party policies, upstream telecommunications carrier policies or guidelines, or other requirements that Avortyx may communicate, including usage requirements;",
+  "k": "<0>8.2. Billing details.</0> You confirm that you are entitled to use the payment method you give us and that your billing details are accurate. We use third-party payment processors and may give them the information they need to take payment.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Engage in any unsolicited advertising, marketing, or other activities, including unwanted phone calls, SMS/MMS messages, voice mail, or faxes, in violation of any laws or regulations, including the Telephone Consumer Protection Act, the Do-Not-Call Implementation Act, anti-spam laws and regulations, the CAN SPAM Act of 2003, or any similar telemarketing, anti-spam, data protection, or privacy legislation;",
+  "k": "<0>8.3. How usage is measured.</0> Usage is billed in the increments shown on the pricing page or your rate sheet. Unless your rate sheet says otherwise:",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Fail to immediately process and honor consumer opt-out requests, including but not limited to 'STOP' SMS replies or verbal Do-Not-Call requests, or fail to maintain functional mechanisms for consumers to revoke consent;",
+  "k": "inbound calls are billed per minute, rounded up to the next full minute;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Harvest or collect information about users for unlawful purposes;",
+  "k": "outbound calls are billed with a 12-second minimum and then in 6-second increments;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Provide false, misleading, or inaccurate information, including through impersonation;",
+  "k": "calls rejected because no destination is eligible are charged per call; and",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Infringe upon the intellectual property rights or other rights of Avortyx or third parties; including, but not limited to, failing to secure the necessary mechanical or performance licenses for any audio files, hold music, or scripts uploaded to or broadcasted via the Service;",
+  "k": "a per-call surcharge applies when over a fifth (20%) of the calls you attempted in the past 30 days were abandoned (unanswered, 0 seconds).",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Engage in brand impersonation or trademark infringement by using unauthorized third-party brand names or misleading caller identification (spoofing) in your SMS/MMS messages, voice calls, or IVR campaigns to deceive consumers;",
+  "k": "<0>8.4. Carrier charges.</0> If a carrier or regulator charges administrative fees, traceback fees, fines or surcharges because of your traffic or Content, you will pay them, and you authorize us to charge them to your account or payment method.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Engage in conduct, or encourage conduct, that is libelous, defamatory, discriminatory, or otherwise malicious or harmful to any person or entity;",
+  "k": "<0>8.5. Keeping a positive balance.</0> Keep your balance above zero. If it stays below $0 for ninety (90) days in a row, call recording retention on your account is cut to ninety (90) days and every recording older than that is permanently deleted.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Transmit or route any content related to Sex, Hate, Alcohol, Firearms, and Tobacco (SHAFT), payday loans, or any other content explicitly prohibited by the Cellular Telecommunications Industry Association (CTIA) guidelines or our upstream carriers' Acceptable Use Policies;",
+  "k": "<0>8.6. Unpaid fees.</0> If your usage exceeds your deposit or you do not pay on time, we may suspend or close your account and release or reassign its phone numbers without further notice. We are not liable for the loss of data, numbers, profits or anything else that results.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Receive, send, or otherwise process Protected Health Information as defined by the Health Insurance Portability and Accountability Act of 1996 as amended</0><1>;</1>",
+  "k": "<0>8.7. Refunds.</0> Fees for usage are not refundable. We may refund deposits that have not been used, less any amounts you owe. The <1>Billing, Cancellation &amp; Refund Policy</1> has the details.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Fail to comply with modern telecom registry requirements, including but not limited to failing to properly register your brands and campaigns under A2P 10DLC guidelines for SMS/MMS, or failing to maintain proper attestation levels under the STIR/SHAKEN framework for voice calls; and",
+  "k": "9. Your responsibility for claims",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Use the Service to route to, connect with, or operate any emergency services, including but not limited to 911, E911, or any similar emergency response systems.",
+  "k": "You (and your successors and permitted assigns) will defend Avortyx, together with its owners, directors, staff, agents, affiliates, contractors and licensees, and hold them harmless and compensate them, against any claim, demand, investigation, penalty, judgment, settlement, loss or cost (including reasonable attorneys’ fees and the cost of responding to subpoenas) that arises from or relates to how you, or anyone acting for you, use the Service. This includes breaches of these Terms, violations of law, and regulatory inquiries or proceedings about your traffic by any authority, including the FCC, the FTC or a state Attorney General. Avortyx may choose, at its own cost, to take over the defense of any such matter, and if it does you will cooperate fully.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>2.6. Data Retention and Legal Compliance. </0><1>Avortyx provides customizable tools allowing You to configure data retention periods and auto-deletion schedules for the Telephony &amp; Audio Data (including call recordings, logs, and transcriptions) stored within Your account. You acknowledge and expressly agree that You are solely responsible for configuring these settings to comply with all applicable local, state, and federal data retention and data minimization laws, including without limitation the FTC Telemarketing Sales Rule, the FCC toll record regulations, the TCPA, and state consumer privacy laws. We assume no responsibility and accept no liability if you fail to retain required records for mandated minimum periods or fail to delete consumer data in accordance with applicable privacy laws.</1>",
+  "k": "10. Term, suspension and cancellation",
   "page": "terms_of_service.html"
  },
  {
-  "k": "3. Service Use Fees.",
+  "k": "<0>10.1. Term.</0> These Terms apply from the moment you register until your account is closed by you or by us. They end automatically if either party is wound up, dissolved or becomes insolvent.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.1. General Payment Terms.</0><1> Avortyx may charge fees in accordance with the terms of either a separate agreement or the registration process You complete.</1>",
+  "k": "<0>10.2. Suspension or closure by Avortyx.</0> We may suspend or close your account, or end these Terms, at any time and without notice for any reason the law allows, including:",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.1.1. Currency and Taxes.</0><1> Unless otherwise stated, all fees are quoted in U.S. dollars. You are responsible for paying all fees associated with using the Service and all applicable taxes.</1>",
+  "k": "a breach of these Terms, especially Sections 4 to 6, or unpaid fees;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.1.2. Billing Information.</0><1> You may be asked to supply certain billing information for your use of the Service, including your credit card information, billing address, and shipping information. You represent and warrant that: (i) You have the legal right to use the payment information provided, and (ii) the information You provide is true, correct, and complete.</1>",
+  "k": "a third-party service the Service depends on becoming unavailable to us;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.1.3. Payment Processing.</0><1> Avortyx may use third parties for facilitating payment and purchases, and You grant Avortyx the right to provide your personally identifiable information to those third parties.</1>",
+  "k": "a request or recommendation from a regulator (such as the FCC, the FTC or a state Attorney General), the Industry Traceback Group or a carrier; or",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.1.4. Refunds:</0><1> Avortyx may give refunds on deposited amounts that are not used for the Service.</1>",
+  "k": "our reasonable view that your traffic creates legal, financial or reputational risk for Avortyx or its network.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.2. Usage-Based Billing &amp; Increments.</0><1> You agree to be billed based on Avortyx's then-current usage rates and your selected monthly commitment tier. You acknowledge that telephony usage is subject to specific billing increments and surcharges as published on the Avortyx pricing page including, but not limited to:</1>",
+  "k": "Where reasonable, we will let you know afterwards.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Inbound Calls:</0><1> billed in full-minute increments rounded UP to the nearest minute.</1>",
+  "k": "<0>10.3. Cancelling.</0> You may cancel at any time from your dashboard or by contacting support. We process cancellations within three (3) calendar days. After that, recurring charges stop, and your account stays available until the end of your current billing or commitment period. You still owe all fees for usage before cancellation takes effect, including carrier charges and penalties that arrive later.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Outbound Calls:</0><1> billed at 12/6 increments (a 12-second minimum charge for any connected call, billed in 6-second increments thereafter).</1>",
+  "k": "<0>10.4. When access ends.</0> When your account closes, you lose access to the Service, your campaigns, call logs and recordings. We do not have to keep, export or return your data after that and may delete it permanently. Numbers you have not ported out are released to the carriers and cannot be recovered.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Network Abuse Surcharges:</0><1> for network abuse, including per-call fees for rejected calls or surcharges applied when more than 20% of your call attempts are abandoned (0-second, unanswered calls) during the last 30 days.</1>",
+  "k": "<0>10.5. No liability for suspension or closure.</0> Avortyx is not liable to you or anyone else for losses caused by a suspension or closure under these Terms, including lost data, recordings or numbers.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.3. Carrier Penalties &amp; Compliance Pass-Through.</0><1> You agree to pay and authorize Avortyx to charge your account or payment method for any administrative fees, traceback fees, compliance penalties, or network surcharges imposed by upstream telecommunications carriers or regulatory bodies directly resulting from your specific traffic, Content, or violation of these Terms.</1>",
+  "k": "11. Third-party services",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.4. Account Balances &amp; Data Retention.</0><1> You must maintain a positive balance to ensure the uninterrupted preservation of your data.</1>",
+  "k": "<0>11.1. Links and content.</0> The Service may show third-party content or link to other websites. We do not control or endorse them, and they have their own terms and privacy policies. You use them at your own risk.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.4.1. Call Recording Deletion.</0><1> If your account balance remains below $0 for ninety (90) consecutive days, your call recording retention period will be automatically reduced to ninety (90) days, at which time all call recordings older than ninety (90) days will be permanently automatically deleted.</1>",
+  "k": "<0>11.2. Infrastructure.</0> The Service runs on independent carriers, cloud providers and other infrastructure. An outage at any of them, including power, internet or carrier outages, can interrupt the Service.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3.5. Suspension and Termination for Non-Payment.</0><1> If your usage of the Service exceeds the amount You deposited or You fail to pay any Service Fees when due, Avortyx will be entitled to suspend or terminate your access to the Service, including your account, in its sole discretion. We will not have any liability whatsoever for any damage, liabilities, losses (including any loss of data, loss of rented phone numbers/DIDs, or profits), or any other consequences that You may incur with respect to any suspension and/or termination of your ability to access and use the Service in such case. Upon suspension or termination for non-payment, Avortyx reserves the right to immediately release, reclaim, or reassign any phone numbers associated with your account without further notice or liability.</1>",
+  "k": "<0>11.3. Integrations you connect.</0> When you connect an integration, such as a CRM, Zapier or another third-party API, that provider’s terms govern your use of it. We are not responsible for how it handles your data, and you release Avortyx from claims about data you choose to send to it, including its loss, corruption or exposure.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "4. Indemnification.",
+  "k": "12. AI features",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>You, Your estate</0><1>,</1><2> successors and/or permitted assigns, as applicable, voluntarily agree to hold harmless, defend, and indemnify Avortyx and its members, managers, officers, employees, agents, affiliates, consultants, representatives, licensees, successors and/or assigns from any and all claims, actions, liabilities, judgments, settlements, fees, costs (including reasonable attorneys' fees and costs of responding to subpoenas) or any other damages of any kind or nature arising out of or in any way relating to your use of the Service, or use of the Service by any of your agents, including, but not limited to, any violation of any laws by You, any regulatory investigations, administrative proceedings, or inquiries by federal or state authorities (including the FCC, FTC, or state Attorneys General) related to Your traffic, or any other breach of these Terms by You, provided, however, that Avortyx reserves the right, at its own expense, to take sole charge of defending any claim You would otherwise have to indemnify, and You will then cooperate fully with Avortyx in raising any available defenses. </2>",
+  "k": "<0>12.1. Outputs.</0> Intent scores, transcripts, summaries and other AI outputs are produced automatically and may be incomplete or wrong. Check them before relying on them for routing, payouts, compliance or decisions about people.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "5. Communications and Data Privacy.",
+  "k": "<0>12.2. Providers.</0> Some AI features use third-party model and speech providers. Audio and transcripts sent to them are handled as the <1>Privacy Policy</1> and the <2>AI Features Terms</2> describe.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>5.1. Consent to Receive Communications.</0><1> By using the Service and providing your contact information, You expressly consent to receive communications from Avortyx, its agents, and affiliates.</1>",
+  "k": "<0>12.3. Limits.</0> Do not use AI features to impersonate a real person without permission, to create content that breaks the Acceptable Use Policy, or to make decisions the law requires a person to make. If you use an artificial or AI-generated voice with consumers, you are responsible for any disclosure and consent the law requires.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>5.1.1. Methods of Contact.</0><1> Depending on the information You provide, these communications may occur via email, phone call, fax, SMS/MMS message, or Microsoft Teams.</1>",
+  "k": "13. Beta and preview features",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>5.1.2. Opting Out. </0><1>You may opt out of promotional communications at any time by following the unsubscribe instructions included in each communication or by sending an email to </1><2>support@avortyx.com</2><3>.</3>",
+  "k": "Features marked beta, preview or early access are offered as they are, for evaluation. They may change or be withdrawn at any time, may be less reliable than the rest of the Service and are not covered by the Service Level Agreement. Otherwise these Terms apply to them.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>5.2. Data Privacy Practices and Processing.</0><1> We collect and store certain information submitted by our users in connection with using our Platform. All details regarding our collection, use, and sharing of your information (including automatic collection and cookies) are set forth in our Data Use Policy, which is incorporated into this Agreement by reference.</1>",
+  "k": "14. Confidentiality",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>5.2.1. Consent to Processing.</0><1> By entering into this Agreement, You agree to our collection, use, and disclosure of your information in accordance with our Data Use Policy.</1>",
+  "k": "<0>14.1. What is confidential.</0> Confidential information is non-public information that one party shares with the other in connection with the Service and that is marked confidential or would reasonably be understood to be confidential, such as Order Form pricing, product plans, security details and customer data.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>5.2.2. Controlling Document.</0><1> If there is any conflict between the terms of our Data Use Policy and the terms of this Agreement, the terms of this Agreement shall control.</1>",
+  "k": "<0>14.2. How it is protected.</0> Each party will use the other’s confidential information only for the purposes of these Terms, share it only with employees, contractors and advisers who need it and are bound by similar duties, and protect it with at least reasonable care.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>5.2.3. International Data Transfer.</0><1> Personally Identifiable information collected by us may be stored and processed in the United States or any other country in which We maintain facilities. You explicitly consent to any such transfer of your information outside of your country of citizenship or residence.</1>",
+  "k": "<0>14.3. Exceptions.</0> These duties do not cover information that becomes public without the receiving party’s fault, that the receiving party already had or developed on its own, or that it lawfully received from someone else without a duty of confidence. Either party may disclose confidential information when a law or court requires it, after telling the other party promptly where allowed.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "6. Third-Party Intellectual Property Rights.",
+  "k": "15. Feedback",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>6.1. DMCA Safe Harbor and Copyright Infringement. </0><1>Avortyx respects the intellectual property rights of others and complies with the Digital Millennium Copyright Act (DMCA) Safe Harbor policy. We will respond promptly to notices of alleged copyright infringement that comply with applicable law and are properly provided to us.</1>",
+  "k": "If you send us ideas or suggestions about the Service, we may use them for any purpose without payment or credit to you. Feedback does not give us any right to your Content or confidential information.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>6.2. Submitting a Takedown Notice. </0><1>If You believe that any material on the Service infringes upon one or more of your copyrights, please submit a claim via email to Avortyx at support@avortyx.com with the subject line \"Copyright Infringement\". </1>",
+  "k": "16. Communications and privacy",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Your notice must include all of the following:",
+  "k": "<0>16.1. Messages from us.</0> By using the Service and giving us your contact details, you agree that Avortyx and its agents may contact you by email, phone, text message or fax about your account and our services. You can opt out of marketing messages at any time with the unsubscribe link in them or by writing to support@avortyx.com.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Identification</0><1>. An identification of the specific copyright claimed to have been infringed;</1>",
+  "k": "<0>16.2. Your data.</0> The <1>Privacy Policy</1> explains how we collect, use and share information, and forms part of these Terms. If the two conflict, these Terms prevail.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Location</0><1>. A description of the allegedly infringing material and where on the Service it can be found;</1>",
+  "k": "<0>16.3. Where data is processed.</0> Your information may be held and handled in the United States and in other countries where Avortyx or its providers work, and you agree to that transfer.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Contact Information</0><1>. Your full name, physical address, telephone number, and email address;</1>",
+  "k": "17. Copyright complaints",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Good Faith Statement</0><1>. A statement that You believe in good faith that the use of your copyrighted material is not authorized by law, the copyright owner, or such owner's agent;</1>",
+  "k": "Avortyx respects intellectual property and follows the notice-and-takedown process of the Digital Millennium Copyright Act (DMCA). To report material on the Service that you believe infringes your copyright, send an email headed “Copyright Infringement” to support@avortyx.com that includes:",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Penalty of Perjury Statement</0><1>. A statement made under penalty of perjury that all of the information contained in your notice is accurate and that You are either the copyright owner or a person legally authorized to act on their behalf; and</1>",
+  "k": "the copyrighted work you believe is infringed;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Signature</0><1>. A physical or electronic signature of the copyright owner or authorized representative</1>",
+  "k": "the material you believe infringes it and where it appears on the Service;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "7. Third-Party Websites and Services.",
+  "k": "your name, postal address, phone number and email address;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>7.1.</0><1> </1><2>Third-Party Content and Links.</2><3> The Service may contain third-party content or links to third-party websites. Avortyx does not guarantee the accuracy, completeness, or usefulness of any third-party information or adopt, endorse, warrant, or accept responsibility for the same. Avortyx does not have control over third parties, each of which may have its own terms and conditions and/or privacy policy. You assume all responsibility for any harm resulting from third-party content or websites. </3>",
+  "k": "a statement of your good-faith belief that neither the copyright owner, its agent nor the law permits the use;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>7.2. Third-Party Infrastructure.</0><1> While Avortyx uses commercially reasonable efforts to manage the Service, the platform relies on independent third-party infrastructure. The loss or interruption of any one of those independent services may prevent the Service from operating for reasons including power outages or ISP or telecommunications services provider outages.</1>",
+  "k": "a statement, made under penalty of perjury, that the information in your notice is correct and that you own the copyright or may act for its owner; and",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>7.3. User-Authorized Third-Party Integrations. </0><1>If You elect to enable, access, or use third-party services, applications, or integrations (including but not limited to Zoho CRM, Salesforce, Zapier, or other third-party APIs) in conjunction with the Service, your access and use of such third-party services are governed solely by the terms and conditions of such third parties. We do not endorse, are not responsible or liable for, and make no representations as to any aspect of such third-party services, including, without limitation, their content or the manner in which they handle, protect, manage, or process data, or any interaction between You and the provider of such third-party services. We shall not be liable for any damage or loss caused or alleged to be caused by or in connection with your enablement, access, or use of any such third-party services, including any data loss, data corruption, or breach of privacy resulting from the transfer of your data to such third parties. You irrevocably waive any claim against Avortyx, our members, managers, officers, agents, successors and/or assigns with respect to such third-party services.</1>",
+  "k": "your physical or electronic signature.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "8. DISCLAIMER OF WARRANTIES.",
+  "k": "18. Disclaimers",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>NO WARRANTIES. THE SERVICE IS BEING PROVIDED \"AS IS\" AND \"AS AVAILABLE,\" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DO NOT GUARANTEE ANY SPECIFIC RESULTS FROM THE USE OF THE SERVICE.</0><1> </1><2>WITHOUT LIMITATION OF THE FOREGOING, WE SPECIFICALLY DISCLAIM ANY AND ALL WARRANTIES INCLUDING, BUT NOT LIMITED TO:</2>",
+  "k": "The Service is provided “as is” and “as available”. To the extent the law allows, Avortyx makes no warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, availability, security or compatibility, and does not promise that the Service will run without interruption or errors, that it is free from viruses or other malicious code, or that any errors will be fixed.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "A. GENERAL SOFTWARE &amp; SECURITY DISCLAIMERS:",
+  "k": "We do not promise any particular number of leads, calls, conversions, sales or revenue, or that campaigns you run through the Service will comply with the TCPA, the Telemarketing Sales Rule or any other law.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "ANY WARRANTIES CONCERNING THE AVAILABILITY, ACCURACY, SECURITY, USEFULNESS, OR INTEROPERABILITY OF THE SERVICE;",
+  "k": "The Service may be unavailable during maintenance (which we may announce by email), during events described in Section 21, because of problems with your own equipment, network or internet provider, or because of outages at carriers or other providers we rely on. We are not liable for that downtime, however long it lasts.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE;",
+  "k": "19. Limits on liability",
   "page": "terms_of_service.html"
  },
  {
-  "k": "THAT ANY PORTION OF THE PLATFORM WILL BE FREE OF INFECTION BY VIRUSES, WORMS, TROJAN HORSES, OR ANYTHING ELSE MANIFESTING CONTAMINATING OR DESTRUCTIVE PROPERTIES; AND",
+  "k": "To the fullest extent the law allows:",
   "page": "terms_of_service.html"
  },
  {
-  "k": "THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR THAT ANY ERRORS WILL BE CORRECTED.",
+  "k": "Avortyx is not liable for indirect, incidental, special, consequential, exemplary or punitive damages, or for lost profits, revenue, goodwill or data, even if it was told they were possible;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "B. MARKETING &amp; TELECOM SPECIFIC DISCLAIMERS:",
+  "k": "Avortyx routes communications and is not a party to your business relationships. It is not liable for disputes between you and your buyers, publishers, clients or other third parties about lead quality, conversions or payment, or for compliance failures in your campaigns;",
   "page": "terms_of_service.html"
  },
  {
-  "k": "THE NUMBER OF LEADS THAT WILL BE GENERATED BY YOUR CAMPAIGN CONTENT;",
+  "k": "these limits apply to every kind of claim, whether in contract, tort (including negligence), strict liability, under statute or otherwise; and",
   "page": "terms_of_service.html"
  },
  {
-  "k": "ANY SPECIFIC LEVEL OF REVENUE OR SALES GENERATED THROUGH YOUR USE OF THE SERVICE; AND",
+  "k": "the combined liability of Avortyx, its owners, directors, staff and affiliates for all claims relating to the Service or these Terms is capped at the fees you actually paid Avortyx for the Service in the twelve (12) months before the event that gave rise to the claim.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "THAT CONDUCTING SMS AND TELEPHONE LEAD GENERATION CAMPAIGNS USING THE SERVICE WILL COMPLY WITH ANY LAWS, INCLUDING BUT NOT LIMITED TO VIOLATIONS UNDER THE TELEPHONE CONSUMER PROTECTION ACT (TCPA) AND THE TELEMARKETING SALES RULE (TSR).",
+  "k": "You give up the benefit of any law that would otherwise stop you from releasing claims you do not yet know about. Where a law does not allow a disclaimer or limit in these Terms, it applies to the greatest extent that law permits.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "9. DOWN TIME DISCLAIMER.",
+  "k": "20. Disputes and arbitration",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>9.1. Service Interruptions.</0><1> Your access to the Service may be unavailable, whether due to periodic maintenance, unavailability from the acts or omissions of third-party platform providers, or for other reasons outside of our control. </1>",
+  "k": "<0>20.1. Arbitration instead of court.</0> Except as Section 20.2 allows, you and Avortyx agree to resolve any dispute arising from or relating to these Terms or the Service, including about their meaning or validity, only by final and binding individual arbitration. Both parties waive any right to have a judge or jury decide the dispute, and any right to bring, join or take part in a class or representative action.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>9.2. No Liability for Down Time</0><1>. We shall not have any liability to You of any kind whatsoever for any Service interruptions or downtime regardless of the duration of such interruption that may restrict your access and use of the Service for any of the following reasons: (i) periodic maintenance (notice of which may be emailed to the email address You provide to Us in relation to your account); (ii) any reason described in the section regarding Force Majeure contained in Section 1.6; (iii) your inability to access the Service due to problems related to your computer/device hardware, wireless Internet network, your Internet service provider, or any other similar problem; or (iv) unavailability from the acts or omissions of any third-party providers or upstream telecommunications carriers We use and rely upon to provide the Service to You. You agree to assume this risk before electing to use the Service.</1>",
+  "k": "<0>20.2. Exceptions.</0> Either party may bring an individual claim in small claims court where it qualifies. Avortyx may ask a court for an injunction or other urgent relief to protect its intellectual property or to halt scraping, intrusions or other unauthorized access to the Service, and either party may ask a court to enforce an arbitration award.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "10. GENERAL LIMITATION OF LIABILITY.",
+  "k": "<0>20.3. Rules and place.</0> Arbitration will be run by the American Arbitration Association (AAA) under its Commercial Arbitration Rules then in force, before a single arbitrator, in Denver, Colorado. Where twenty-five (25) or more substantially similar demands are filed against Avortyx by one law firm, or by people working together or represented in a coordinated way, the AAA will handle them in batches of fifty (50), and Avortyx only has to pay filing fees for the batch currently being handled.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "TO THE FULLEST EXTENT PERMITTED BY LAW, YOU AGREE TO THE FOLLOWING LIMITATIONS:",
+  "k": "<0>20.4. The arbitrator’s powers.</0> The arbitrator may award any relief available in law or equity, and the award is final and binding. The arbitrator may not award punitive damages unless a Colorado statute governing the claim allows them, and may not make an award that goes beyond Section 19. The arbitrator will award the winning party its reasonable costs, attorneys’ fees and arbitration fees. Judgment on the award may be entered in any court with jurisdiction.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>NO CONSEQUENTIAL DAMAGES. </0><1>AVORTYX SHALL NOT BE LIABLE TO YOU FOR ANY INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, LOST PROFITS, REVENUES, REPLACEMENT OF GOODS, LOSS OR DAMAGE TO DATA, OR SIMILAR DAMAGES RELATED TO YOUR USE OF THE SERVICE, REGARDLESS OF ANY NOTICE.</1>",
+  "k": "<0>20.5. One year to bring a claim.</0> A party that wants to bring a claim must give the other written notice of it by certified U.S. mail within one (1) year of the earlier of when the events giving rise to the claim happened or when the party discovered them, or reasonably should have discovered them using ordinary business care. A claim not raised in time is permanently barred.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>NO LIABILITY FOR THIRD-PARTY DISPUTES.</0><1> AVORTYX IS STRICTLY A CONDUIT FOR ROUTING COMMUNICATIONS. WE SHALL NOT BE LIABLE IN ANY MANNER WHATSOEVER FOR ANY TYPE OF DAMAGES STEMMING FROM DISPUTES BETWEEN YOU, YOUR AFFILIATES, YOUR CUSTOMERS/CLIENTS, OR ANY THIRD PARTIES REGARDING LEAD QUALITY, LEAD CONVERSION, OR PAYMENT FOR ROUTED LEADS; OR FOR ANY LEGAL/COMPLIANCE VIOLATIONS. YOU ASSUME THE SOLE RISK REGARDING YOUR COMMERCIAL RELATIONSHIPS MANAGED USING THE SERVICE.</1>",
+  "k": "21. Events beyond our control",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>BROAD APPLICATION. </0><1>WE SHALL NOT BE LIABLE AS STATED ABOVE REGARDLESS OF THE CAUSE OF ANY DAMAGES INCURRED, INCLUDING ANY DAMAGES NOT FORESEEABLE AND REGARDLESS OF THE NATURE OF ANY CLAIM, WHETHER FOR BREACH OF CONTRACT, BY STATUTE, FOR ANY TORTS (INCLUDING, WITHOUT LIMITATION, NEGLIGENCE, AND STRICT LIABILITY) OR ANY OTHER LEGAL THEORY, WHETHER OR NOT WE HAVE BEEN ADVISED OF THE SAME.</1>",
+  "k": "Avortyx is not liable for any failure or delay caused by events beyond its reasonable control, including the failure or refusal of carriers, hosting providers or other suppliers; network failures, denial-of-service and other cyberattacks; pandemics and public health emergencies; government orders and changes in law; and war, terrorism, civil unrest and natural disasters. These events do not excuse you from paying fees.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>FINANCIAL CAP. </0><1>IN ALL CASES, YOU SHALL BE LIMITED IN YOUR RECOVERY FROM AVORTYX (AND OUR MEMBERS, MANAGERS, OFFICERS, EMPLOYEES, AND AFFILIATES) FOR ANY AND ALL DAMAGES OF ANY KIND OR NATURE BASED ON ANY BREACH OF THIS AGREEMENT OR OTHERWISE IN CONNECTION WITH YOUR USE OF THE SERVICE TO THE TOTAL AMOUNT OF ALL FEES ACTUALLY PAID BY YOU TO AVORTYX FOR THE SERVICE DURING THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE DATE OF THE EVENT GIVING RISE TO THE CLAIM. </1>",
+  "k": "22. Export controls and sanctions",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>WAIVER OF UNKNOWN CLAIMS. </0><1>YOU ACKNOWLEDGE YOU ARE WAIVING RIGHTS CONCERNING CLAIMS THAT ARE UNKNOWN OR ARE UNSUSPECTED. ACCORDINGLY, YOU AGREE TO WAIVE THE BENEFIT OF AND YOUR RIGHTS UNDER ANY LAW THAT OTHERWISE MIGHT LIMIT WAIVER OF SUCH CLAIMS, TO THE FULLEST EXTENT PERMITTED BY LAW.</1>",
+  "k": "You will follow U.S. export control and sanctions laws when using the Service. You confirm that you are not located in, organized under the laws of, or ordinarily resident in a country or region under comprehensive U.S. sanctions, and that you are not on, or owned or controlled by anyone on, a U.S. government restricted-party list. You will not let anyone in those categories use the Service through your account.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "11. Exceptions to Disclaimers &amp; Limitations.",
+  "k": "23. Changes to these Terms",
   "page": "terms_of_service.html"
  },
  {
-  "k": "To the extent that We may not disclaim any implied warranty or limit our damages, the scope and duration of any required warranties under law and the extent of our liability shall be as limited as allowed under any applicable laws.",
+  "k": "<0>23.1. Updates.</0> We may change these Terms from time to time. We will post the new version here with its effective date, and may also tell you by email or in the dashboard.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "12. BINDING ARBITRATION AND CLASS ACTION WAIVER.",
+  "k": "<0>23.2. When changes apply.</0> Changes take effect when posted unless we give a later date. For material changes that significantly affect your rights, such as shorter data retention, we will make reasonable efforts to give you at least thirty (30) days’ notice. Using the Service after a change takes effect means you accept it.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>12.1. Agreement to Arbitrate &amp; Class Action Waiver. </0><1>EXCEPT AS EXPLICITLY STATED IN SECTION 12.2</1><2>, </2><3>THE PARTIES AGREE TO GIVE UP THEIR RESPECTIVE RIGHTS TO SEEK INJUNCTIVE RELIEF AND/OR BRING ANY CLAIMS RELATING TO THIS AGREEMENT BEFORE A COURT OF LAW OR OTHER LEGAL TRIBUNAL INCLUDING WAIVING THE RIGHT TO A TRIAL BY JUDGE OR JURY AND THE RIGHT TO BRING OR PARTICIPATE IN ANY CLASS ACTION LAWSUIT(S) AND TO OTHERWISE RESOLVE ALL DISPUTES OR CLAIMS EXCLUSIVELY BY BINDING ARBITRATION. </3>",
+  "k": "<0>23.3. If you do not agree.</0> If you do not accept a change, close your account by emailing us before it takes effect. We will refund any prepaid fees for the unused part of your period.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>12.2. Exceptions.</0><1> Avortyx reserves the right to bypass arbitration and seek immediate injunctive or equitable relief in a court of law to protect its intellectual property rights or to stop unauthorized access, data breaches, or scraping of the Platform. Additionally, either Party may bring qualifying claims in a Small Claims Court of competent jurisdiction, and Avortyx may seek legal relief in court to enforce an arbitrator’s decision hereunder. </1>",
+  "k": "24. Notices",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>12.3. Arbitration Rules, Venue, &amp; Mass Arbitration.</0><1> Except as stated above, any claims, disputes or controversies of whatever kind and nature between You and Avortyx, our agents, employees, members, managers, officers, successors and assigns, to the extent applicable, arising from or relating to this Agreement, its interpretation or validity, shall be resolved exclusively by binding arbitration under the then-current Commercial Arbitration Rules of the American Arbitration Association (“AAA”) and shall be administered by a single arbitrator. Any arbitration proceeding shall be brought and heard exclusively in El Paso County, state of Colorado, USA. </1><2>If twenty-five (25) or more similar demands for arbitration are filed against Avortyx by or with the assistance of the same law firm or coordinated group, the AAA shall administer the demands in batches of fifty (50) per batch, and Avortyx shall only be responsible for paying filing fees for the current active batch.</2>",
+  "k": "<0>24.1. Notices to you.</0> We may send notices to the email address on your account or post them in the dashboard. They take effect when sent or posted, so keep your contact details current.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>12.4. Arbitrator Authority &amp; Judgments</0><1>. The arbitrator shall be authorized to grant any relief available under law or in equity and any award rendered shall be final and conclusive upon the parties, except that the arbitrator shall not be authorized to i) award punitive damages to either You or Avortyx unless such punitive damages are an available remedy as codified under any of the laws of the state of Colorado governing the specific substantive subject matter of the claim(s) the subject of any arbitration proceeding then in effect at the time of such claim, or ii) any award inconsistent with the limitation on liability set forth in Section 10. Any judgment may be entered exclusively in </1><2>The 4th Judicial District and El Paso County Combined Courts</2><3>, situated in Colorado Springs, Colorado, USA, and the arbitrator shall award reasonable costs and fees, including reasonable attorney’s fees and all arbitration fees, to the prevailing party, notwithstanding the then-current rules of the AAA. </3>",
+  "k": "<0>24.2. Legal notices to Avortyx.</0> Legal notices to Avortyx, including notices of a dispute or arbitration under Section 20, must be written and posted by certified U.S. mail with a return receipt to:",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>12.5.</0><1> </1><2>One-Year Time Limitation on Claims.</2><3> EACH PARTY MUST NOTIFY THE OTHER PARTY IN WRITING VIA CERTIFIED U.S. MAIL IF SUCH PARTY ELECTS TO BRING ANY CLAIMS REQUIRED TO BE RESOLVED BY BINDING ARBITRATION </3><4>WITHIN ONE (1) YEAR</4><5> AFTER THE EARLIER OF I) THE DATE THE ACT GIVING RISE TO THE CLAIM FIRST OCCURS, OR II) THE DATE THE CLAIMING PARTY DISCOVERS THE EXISTENCE OF ANY SUCH CLAIM. THE DATE OF DISCOVERY SHALL BE DEFINED AS THE DATE SUCH PARTY SHOULD HAVE DISCOVERED THE EXISTENCE OF THE FIRST ACT GIVING RISE TO THE CLAIM HAD SUCH PARTY USED EITHER CUSTOMARY AND/OR COMMERCIALLY PRUDENT PRACTICES REASONABLY EXPECTED TO BE USED BY SUCH PARTY UNDER THE CIRCUMSTANCES. OTHERWISE, SUCH CLAIM SHALL BE PERMANENTLY BARRED. </5>",
+  "k": "<0>24.3. Everyday questions.</0> For support and other everyday questions, write to support@avortyx.com. Those messages are not legal notices.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "13. Modifications.",
+  "k": "25. General terms",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>13.1. Right to Amend.</0><1> We reserve the right, at any time, to amend the provisions of this Agreement. Notice of any such modification(s) will be posted at the top of our Website page displaying this Agreement along with the effective date of such change(s), and/or You will be notified upon the first time You log in after such modification(s) are effective. You agree to regularly check this Agreement as posted on our Website to view the then-current terms.</1>",
+  "k": "<0>25.1. Governing law and courts.</0> Colorado law governs these Terms, without regard to its conflict-of-law rules. The United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transactions Act do not apply. Any claim that is not arbitrated under Section 20 must be brought only in the state courts located in the City and County of Denver, Colorado, or the United States District Court for the District of Colorado, and you consent to their jurisdiction and to service of process outside Colorado.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>13.2. Effective Date &amp; Continued Use.</0><1> If We post amended terms to this Agreement on our Website, such terms will automatically become effective and shall be incorporated into this Agreement immediately upon being posted, unless a later effective date is explicitly stated in the notice of modification</1><2>.</2><3> For material changes that significantly alter Your rights or obligations (such as destructive data retention limits), We will use commercially reasonable efforts to provide at least thirty (30) days' advance notice before such changes take effect. If inconsistent with any other terms and conditions of this Agreement, the amended terms shall supersede any such conflicting terms or conditions. By accessing and using the Service after such revised terms are posted and effective, You agree to be bound by any such revised terms. Your access and use of the Service will always be subject to the most current versions of these terms and our Privacy Policy in effect at the time of such use.</3>",
+  "k": "<0>25.2. Policies that form part of these Terms.</0> These policies in the <1>Legal Center</1> are part of these Terms: the Acceptable Use Policy, the TCPA &amp; Consent Compliance Policy, the Service Level Agreement (where your plan includes it), the Billing, Cancellation &amp; Refund Policy, the Call Recording &amp; Data Retention Policy, the Messaging (SMS) Terms, the AI Features Terms, the Emergency Calling (911) Notice, the Cookie Policy and the Privacy Policy. If a policy conflicts with these Terms, these Terms prevail unless the policy says it overrides a specific section. An Order Form signed by both parties prevails over both.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>13.3. Rejection of Amendments.</0><1> If You do not accept any amendments, You must terminate your account by notifying us in writing by email of your election to do so. This Agreement will then terminate, in which case You shall receive a prorated refund of the Service Fees.</1>",
+  "k": "<0>25.3. Whole agreement.</0> These Terms, with the policies and any Order Form, are the entire agreement between you and Avortyx about the Service and replace any earlier discussions or agreements about it.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "14. NOTICE.",
+  "k": "<0>25.4. If part is unenforceable.</0> If a court or arbitrator finds part of these Terms invalid or unenforceable, that part will be applied as closely to its purpose as the law allows, and the rest of the Terms will continue in full force.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>14.1. Notices to You.</0><1> Avortyx may provide any legal or operational notices to You under this Agreement by sending an email to the email address currently associated with your account, or by posting a conspicuous notice on the Platform dashboard. Notices sent by Avortyx shall be deemed effective immediately upon sending or posting. It is your sole responsibility to keep your account contact information current and accurate.</1>",
+  "k": "<0>25.5. Legal costs.</0> In any proceeding to enforce these Terms, including arbitration, the winning party may recover its reasonable costs and attorneys’ fees.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>14.2. Legal Notices to Avortyx.</0><1> Except as otherwise explicitly permitted in this Agreement, all formal legal notices, demands, or claims directed to Avortyx (specifically including, but not limited to, notices of dispute or arbitration under Section 12) must be provided in writing and sent via certified U.S. Mail, return receipt requested, to our official registered address:</1>",
+  "k": "<0>25.6. No waiver.</0> If we do not enforce a right in one case, we have not given it up for that or any other case.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Avortyx, LLC",
+  "k": "<0>25.7. Transfers.</0> We may transfer these Terms, with or without notice, for example in a merger or sale. You may not transfer them without our written consent, and any attempt to do so is void. These Terms bind each party’s successors and permitted assigns.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "1500 N Grant St #10831",
+  "k": "<0>25.8. What continues after closure.</0> Sections 3.2 to 3.4, 5.3 to 5.6, 8 (for amounts owed), 9, 10.4, 10.5, 14, 15 and 17 to 25 continue to apply after your account closes or these Terms end.",
   "page": "terms_of_service.html"
  },
  {
-  "k": "Denver, CO 80203",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>14.3. General Support.</0><1> Routine customer support inquiries, technical questions, and non-legal communications may be directed to our support team at support@avortyx.com. Such electronic communications do not constitute formal legal notice under this Agreement.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "15. Eligibility and Business Use.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>15.1. Business Use Only.</0><1> The Service is offered to businesses and to individuals acting for a business. It may not be used for personal, family or household purposes.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>15.2. Authority to Bind.</0><1> If You accept this Agreement on behalf of a company or other organization, You confirm that You are authorized to bind it, and “You” then refers to that organization as well as to You.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>15.3. Verification.</0><1> You agree to provide accurate business, identity and contact information when We ask for it, including the information carriers require for number registration, and to keep it current. Avortyx may decline, suspend or close an account whose information cannot be verified.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "16. Policies Incorporated by Reference.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "The following policies, published in the <0>Avortyx Legal Center</0>, form part of this Agreement and apply to your use of the Service:",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>Service Level Agreement</0>, where your plan includes it",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>Messaging (SMS) Terms</0>, when You send or receive messages",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>AI Features Terms</0>, when You use AI-powered features",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>Cookie Policy</0> and the <1>Privacy Policy</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "If a policy conflicts with these Terms, these Terms control, unless the policy says it overrides a specific section. An Order Form signed by both parties controls over both.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "17. Phone Numbers and Carrier Registration.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>17.1. No Ownership of Numbers.</0><1> Phone numbers are assigned by carriers and regulators. While your account is active and in good standing, You may use the numbers assigned to your account, but You do not acquire any ownership or property right in them.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>17.2. Porting.</0><1> You may port numbers into Avortyx where the losing carrier supports it. You may also ask to port numbers out to another provider. Avortyx will not unreasonably delay a valid port-out request, which follows the gaining and losing carriers’ processes and requires the account information those carriers ask for. Porting a number out does not cancel your account or release any amounts You owe.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>17.3. Your Own Carrier Accounts.</0><1> Numbers and traffic that run through a carrier account You connect to Avortyx, such as your own Plivo, Telnyx or SIP account, are also governed by your agreement with that carrier. You are responsible for that account, its fees and its compliance requirements.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>17.4. Registration and Caller ID.</0><1> Carriers require registration for certain traffic, including 10DLC brand and campaign registration and toll-free verification for messaging, and they assign STIR/SHAKEN attestation and caller name (CNAM) display under their own rules. You agree to provide complete and truthful registration information. Avortyx does not control and does not guarantee carrier approval, attestation levels, caller name display, call labeling or message delivery.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>17.5. Release After Cancellation.</0><1> As set out in Section 1.5.4, numbers that are not ported out before your cancellation takes effect may be released to the carrier and reassigned to someone else, and cannot be recovered.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "18. Call Recording and Monitoring.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>18.1. Your Responsibility.</0><1> Recording and monitoring laws differ by state and country, and some require every party to a call to consent before it is recorded. You are responsible for giving any notice and obtaining any consent that applies to each call You record, transcribe or monitor, including calls to your buyers and their agents.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>18.2. Platform Tools.</0><1> Avortyx may offer tools such as per-state recording rules, recording announcements and live monitoring with whisper and barge. These tools help You meet your obligations; they do not transfer those obligations to Avortyx, and You are responsible for how they are configured on your account.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>18.3. Agents and Staff.</0><1> If You or your buyers use live monitoring, You are responsible for telling the agents and staff who may be monitored, where law requires it.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "19. Emergency Calling.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "The Service does not support calls to 911, E911 or other emergency numbers and is not a replacement for a landline or mobile phone service. You must make sure that everyone who uses Avortyx numbers on your behalf has another way to reach emergency services. Avortyx is not liable for any inability to reach emergency services through the Service. The <0>Emergency Calling (911) Notice</0> has more detail.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "20. AI Features.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>20.1. Nature of Outputs.</0><1> Features such as intent scoring, transcription and call summaries produce results automatically. Those results can be incomplete or wrong. You are responsible for reviewing them before relying on them for routing, payouts, compliance or decisions about people, and for how You use them.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>20.2. Third-Party Providers.</0><1> Some AI features rely on third-party model or speech providers. Call audio and transcripts sent to those providers are handled as described in the Privacy Policy and the <2>AI Features Terms</2>.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>20.3. Restrictions.</0><1> You may not use AI features to impersonate a real person without authorization, to create content that breaks the Acceptable Use Policy, or to make decisions that law requires a human to make. If You use an artificial or AI-generated voice to speak with consumers, You are responsible for any disclosure and consent the law requires.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "21. Confidentiality.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>21.1. Confidential Information.</0><1> Confidential information means non-public information one party shares with the other in connection with the Service that is marked confidential or that a reasonable person would treat as confidential, such as pricing in an Order Form, product plans, security details and the other party’s customer data.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>21.2. Obligations.</0><1> Each party will use the other’s confidential information only to perform or use the Service under this Agreement, will share it only with employees, contractors and advisers who need it and are bound by similar duties, and will protect it with at least reasonable care.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>21.3. Exceptions.</0><1> These duties do not apply to information that is or becomes public through no fault of the receiving party, that the receiving party already had or develops independently, or that it receives lawfully from someone else without a duty of confidence. A party may disclose confidential information where law or a court requires, after giving the other party prompt notice where the law allows it.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "22. Feedback.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "If You send Avortyx suggestions, ideas or other feedback about the Service, Avortyx may use them for any purpose without paying You or crediting You. Feedback does not give Avortyx any right to your Content or your confidential information.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "23. Beta and Preview Features.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "Avortyx may offer features labeled beta, preview, early access or similar. They are provided as-is for evaluation, may be changed or withdrawn at any time, may be less reliable than the rest of the Service, and are not covered by the Service Level Agreement. Use of them is otherwise governed by this Agreement.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "24. Export Controls and Sanctions.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "You will comply with United States export control and economic sanctions laws in using the Service. You confirm that You are not located in, organized under the laws of, or ordinarily resident in a country or region subject to comprehensive U.S. sanctions, and that You are not named on, or owned or controlled by anyone named on, a U.S. government restricted-party list. You will not allow anyone in those categories to use the Service through your account.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "25. Miscellaneous.",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>A. Entire Agreement. </0><1>This Agreement constitutes the complete, final, and exclusive agreement between the parties regarding your access to and use of the Service, and it supersedes and merges all prior or contemporaneous communications, representations, proposals, understandings, or agreements of the parties, whether written or oral, relating to the subject matter hereof.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>B. Severability.</0><1> If any provision of this Agreement is held by a court or other tribunal of competent jurisdiction, in whole or in part, to be invalid or unenforceable for any reason, the validity, legality, and enforceability of the remainder of that provision, any other remaining provisions, and of the entire Agreement shall not in any way be affected or impaired thereby and shall be interpreted, to the extent possible, to achieve the purposes as originally expressed with the provision found to be invalid, illegal or unenforceable. Each provision hereof is intended to be severable, and the validity, legality, or enforceability of any provision of this Agreement shall not affect the validity, legality, or enforceability of the remainder of the Agreement. </1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>C. Venue &amp; Choice of Law. </0><1>This Agreement shall be construed and enforced under the laws of the state of Colorado, USA, without regard to any applicable conflict of laws principles and without regard to any applicable International laws, treaties or regulations, specifically including the United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transactions Act, both of which are expressly excluded. Other than claims required to be submitted to arbitration pursuant to Section 12 above, all other claims, demands, controversies or legal proceedings arising out of or related to this Agreement and/or your use of the Service in general may only be brought and heard exclusively in </1><2>The 4th Judicial District and El Paso County Combined Courts</2><3>, situated in Colorado Springs, Colorado, USA, or the United States District Court for the District of Colorado, and You hereby expressly agree to submit to the personal jurisdiction of such court and consent to extraterritorial service of process. Further, You waive any right to challenge the selection and choice of jurisdiction and You acknowledge that the right of selection of jurisdiction being waived by You is a valid part of the consideration of allowing access to and use of the Service by You.</3>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>D. Prevailing Party Fees.</0><1> In the event of any action or proceeding brought by either party to enforce the validity of this Agreement and/or to enforce any provision hereof including, but not limited to, any arbitration proceeding brought pursuant to Section 12, any declaratory action or any other action at law or equity, the prevailing party shall be entitled to recover from the other party all costs and expenses incurred by such party in connection therewith including all reasonable attorneys’ fees. </1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>E. Waiver. </0><1>The waiver of a breach of any provision of this Agreement by You shall not operate or be construed as a waiver by Avortyx  of any other or subsequent breach by You. </1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>F. Assignment. </0><1>We may assign our rights and obligations under this Agreement without your consent at any time with or without notice to You. You may not assign, delegate or otherwise transfer all or any part of your rights or obligations under this Agreement without our prior written consent. Any such attempted assignment, delegation, or transfer will be null and void. This Agreement will be binding upon and will inure to the benefit of the parties and their respective successors and permitted assigns. </1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>G. Survival. </0><1>The provisions of this Agreement that by their nature should survive termination or expiration shall survive, specifically including, but not limited to: Section 1.4.3 (Effect of Termination), Sections 1.7 and 1.8 (Platform Access and Security Restrictions), Section 3 (to the extent of any unpaid fees), Section 4 (Indemnification), Sections 8 and 9 (Disclaimers), Section 10 (Limitation of Liability), Section 12 (Arbitration), Section 17.5 (Release After Cancellation), Section 21 (Confidentiality), Section 22 (Feedback), and all of the provisions contained in Section 25 (Miscellaneous). All such provisions shall extend beyond the termination of this Agreement or otherwise beyond the expiration of your right to use the Service and will remain in full force and effect in perpetuity.</1>",
-  "page": "terms_of_service.html"
- },
- {
-  "k": "<0>H. No Joint Venture or Partnership Relationship.</0><1> Nothing in this Agreement shall be construed to create a partnership, joint venture or combined entity by or between Avortyx and You or to make either the agent of the other and neither shall have the authority to bind the other. Each party shall be solely responsible for determining the applicability of, and compliance with, any present and future federal, state and local laws, orders, codes, regulations, and ordinances that may apply to each party and their respective businesses and employees.</1>",
+  "k": "<0>25.9. Independent parties.</0> You and Avortyx are independent. These Terms do not create a partnership, joint venture or agency between you and Avortyx, and neither of us can commit the other to anything. Each party is responsible for its own compliance with the laws that apply to its business and employees.",
   "page": "terms_of_service.html"
  },
  {

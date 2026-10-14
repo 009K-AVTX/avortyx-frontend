@@ -115,9 +115,15 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
+    // a block taller than the screen can never show 12% of itself at once, so it would never be
+    // revealed (the legal pages' text stayed invisible until scrolled far down): those blocks are
+    // left as they are. Heights are all read first, before any class is written.
+    var vh = window.innerHeight;
+    var tall = new Set();
+    document.querySelectorAll(REVEAL).forEach(function (el) { if (el.offsetHeight > vh * 0.9) tall.add(el); });
     var counts = new Map();
     document.querySelectorAll(REVEAL).forEach(function (el) {
-      if (el.closest(SKIP)) return;
+      if (el.closest(SKIP) || tall.has(el)) return;
       if (el.parentElement && el.parentElement.closest('.avx-reveal') && !el.matches(STAGGER)) return;
       var parent = el.parentElement;
       var i = counts.get(parent) || 0;
@@ -285,7 +291,7 @@
       moonA: ['#dbeafe', '#3b82f6', '#3b82f6', '#172554'],
       moonB: ['#dbeafe', '#3b82f6', '#1e3a8a', '#172554']
     };
-    var SPR = {}, CURVES = globeCurves(), DOTS = fibSphere(140);
+    var SPR = {};
 
     function centre(elm) {
       var x = elm.offsetWidth / 2, y = elm.offsetHeight / 2, n = elm;
@@ -293,7 +299,7 @@
       return { x: x + PAD_X, y: y + PAD_T, r: elm.offsetWidth / 2 };
     }
     function measure() {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       W = tilt.offsetWidth + PAD_X * 2;
       H = tilt.offsetHeight + PAD_T + PAD_B;
       canvas.width = Math.round(W * dpr);
@@ -306,32 +312,6 @@
       SPR = { leads: glass(pos.leads.r, TINT.leads), revenue: glass(pos.revenue.r, TINT.revenue), moonA: glass(6, TINT.moonA), moonB: glass(4.5, TINT.moonB) };
     }
 
-    function fibSphere(n) {
-      var pts = [], ga = Math.PI * (3 - Math.sqrt(5));
-      for (var i = 0; i < n; i++) {
-        var y = 1 - (i + 0.5) / n * 2, rr = Math.sqrt(1 - y * y), a = i * ga;
-        pts.push([Math.cos(a) * rr, y, Math.sin(a) * rr]);
-      }
-      return pts;
-    }
-    // the globe's wireframe: five latitudes and six meridians, as 3D polylines
-    function globeCurves() {
-      var c = [], i, pts;
-      [-0.7, -0.36, 0, 0.36, 0.7].forEach(function (y) {
-        var rr = Math.sqrt(1 - y * y);
-        for (pts = [], i = 0; i <= 40; i++) pts.push([Math.cos(i / 40 * TAU) * rr, y, Math.sin(i / 40 * TAU) * rr]);
-        c.push(pts);
-      });
-      for (var m = 0; m < 6; m++) {
-        var th = m / 6 * Math.PI;
-        for (pts = [], i = 0; i <= 40; i++) {
-          var a = i / 40 * TAU;
-          pts.push([Math.cos(a) * Math.cos(th), Math.sin(a), Math.cos(a) * Math.sin(th)]);
-        }
-        c.push(pts);
-      }
-      return c;
-    }
     // turn about the vertical axis, then tip towards the viewer; z > 0 faces the viewer
     function project(P, rot) {
       var cr = Math.cos(rot), sr = Math.sin(rot);
@@ -439,9 +419,10 @@
       halo(p.x, y, p.r, true);
     }
 
-    // the Avortyx globe: a lit core, a turning wireframe and a dust of points
+    // the Avortyx orb: a lit glass core that holds the Avortyx mark (the HTML mark sits on top);
+    // no wireframe globe, so the logo is what reads
     function globe(t, off) {
-      var p = pos.hub, x = p.x, y = p.y + off, r = p.r * 1.02, rot = reduced ? 0.4 : t * 0.35;
+      var p = pos.hub, x = p.x, y = p.y + off, r = p.r * 1.02;
       var fl = Math.max(0, 1 - (t - flash) / 0.9);
       ctx.save();
       ctx.globalCompositeOperation = 'lighter';
@@ -454,31 +435,6 @@
       ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
       ctx.save();
       ctx.globalCompositeOperation = 'lighter';
-      var back = new Path2D(), front = new Path2D();
-      CURVES.forEach(function (pts) {
-        var prev = project(pts[0], rot);
-        for (var i = 1; i < pts.length; i++) {
-          var q = project(pts[i], rot), path = prev[2] + q[2] > 0 ? front : back;
-          path.moveTo(x + prev[0] * r, y + prev[1] * r);
-          path.lineTo(x + q[0] * r, y + q[1] * r);
-          prev = q;
-        }
-      });
-      ctx.lineWidth = 0.8;
-      ctx.strokeStyle = 'rgba(96,165,250,.2)';
-      ctx.stroke(back);
-      ctx.lineWidth = 1.1;
-      ctx.strokeStyle = 'rgba(147,198,255,' + (0.5 + fl * 0.35).toFixed(3) + ')';
-      ctx.stroke(front);
-      var dots = new Path2D();
-      DOTS.forEach(function (P) {
-        var q = project(P, rot * 1.3);
-        if (q[2] < 0.2) return;
-        dots.moveTo(x + q[0] * r + 1.1, y + q[1] * r);
-        dots.arc(x + q[0] * r, y + q[1] * r, 1.1, 0, TAU);
-      });
-      ctx.fillStyle = 'rgba(191,216,255,.55)';
-      ctx.fill(dots);
       // rim light, then a shell that expands when a call lands
       ctx.strokeStyle = 'rgba(147,198,255,.5)';
       ctx.lineWidth = 1.2;
@@ -592,9 +548,9 @@
 
     function frame(now) {
       raf = 0;
-      // the calls move slowly: 30 fps reads the same and halves the work. This scene is small,
-      // so unlike the big backgrounds it keeps moving while the page scrolls.
-      if (!reduced && now - lastDraw < 32) { schedule(); return; }
+      // the calls move slowly: 30 fps reads the same and halves the work, and like the other
+      // scenes it holds its frame while the page scrolls
+      if (!reduced && (now - lastDraw < 32 || (lastDraw && scrolling()))) { schedule(); return; }
       clock += last ? Math.min(0.05, (now - last) / 1000) : 0;
       last = now;
       lastDraw = now;
@@ -1198,7 +1154,9 @@
 
   // ---------- Canvas scenes: procedural backdrops drawn edge-free (no image tiles or seams) ----------
 
-  // shared runner: sizes to its box, 30 fps, pauses off-screen and with the motion toggle
+  // shared runner: sizes to its box, 15 fps at normal pixel density (these are slow, soft
+  // backdrops: more frames or pixels cost the page its responsiveness without looking any
+  // different), pauses off-screen and with the motion toggle
   function canvasScene(cls, draw) {
     var wrap = el('div', 'avx-cv ' + cls);
     wrap.setAttribute('aria-hidden', 'true');
@@ -1224,7 +1182,7 @@
     // resizing a canvas wipes it, so only resize when the size really changed
     function size() {
       var r = wrap.getBoundingClientRect();
-      var d = Math.min(window.devicePixelRatio || 1, 1.5);
+      var d = 1;
       var w = Math.max(1, Math.round(r.width)), h = Math.max(1, Math.round(r.height));
       if (w === W && h === H && d === dpr) return false;
       dpr = d; W = w; H = h;
@@ -1236,7 +1194,7 @@
 
     function frame(now, force) {
       raf = 0;
-      if (!force && !reduced && (now - lastDraw < 32 || (lastDraw && scrolling()))) { schedule(); return; }
+      if (!force && !reduced && (now - lastDraw < 64 || (lastDraw && scrolling()))) { schedule(); return; }
       lastDraw = now;
       state.px = (state.px || 0) + ((pointer.x) - (state.px || 0)) * 0.06;
       state.pi = (state.pi || 0) + ((pointer.on ? 1 : 0) - (state.pi || 0)) * 0.05;
@@ -1282,7 +1240,7 @@
     return canvasScene(cls, function (ctx, W, H, t, s) {
       ctx.globalCompositeOperation = 'lighter';
       ctx.lineWidth = 1;
-      var step = W > 900 ? 10 : 8;
+      var step = W > 900 ? 16 : 12;
       ribbons.forEach(function (rb) {
         var grad = ctx.createLinearGradient(0, 0, W, 0);
         grad.addColorStop(0, rgba(rb.color, 0));
@@ -2842,7 +2800,7 @@
     function size() {
       W = box.clientWidth; H = box.clientHeight;
       if (!W || !H) return;
-      dpr = Math.min(3, window.devicePixelRatio || 1);
+      dpr = Math.min(2, window.devicePixelRatio || 1);
       [backCv, glCv, frontCv].forEach(function (c) { c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); });
       S = Math.min(H * 0.4, W / 2.3);
       CX = W / 2; CY = H * 0.53;
@@ -2961,12 +2919,16 @@
         load('avx-agent-depth.webp', function (depthImg) { upgradeWhenQuiet(colorImg, depthImg); });
       });
     }
+    // the 3D upgrade (~0.45s of main-thread work on a mid-range laptop) waits until the section is
+    // within about a screen, so a visitor who never scrolls that far never pays for it
+    var nearNow = false, pendingUpgrade = null;
     function upgradeWhenQuiet(colorImg, depthImg) {
       if (!gl) return;
+      if (!nearNow) { pendingUpgrade = [colorImg, depthImg]; return; }
       if (scrolling()) { setTimeout(function () { upgradeWhenQuiet(colorImg, depthImg); }, 200); return; }
       var go = function () {
         if (scrolling()) { setTimeout(function () { upgradeWhenQuiet(colorImg, depthImg); }, 200); return; }
-        if (setupGl(colorImg, depthImg)) { glReady = true; flatImg = null; } else { gl = null; }
+        if (setupGl(colorImg, depthImg)) { glReady = true; flatImg = null; box.setAttribute('data-avx-3d', 'on'); } else { gl = null; }
         draw(performance.now());
       };
       if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 600 }); else go();
@@ -2982,6 +2944,15 @@
         start();
       }, { rootMargin: '1800px 0px' });
       near.observe(box);
+      var nearer = new IntersectionObserver(function (entries) {
+        if (!entries[entries.length - 1].isIntersecting) return;
+        nearer.disconnect();
+        nearNow = true;
+        if (pendingUpgrade) { var u = pendingUpgrade; pendingUpgrade = null; upgradeWhenQuiet(u[0], u[1]); }
+      }, { rootMargin: '900px 0px' });
+      nearer.observe(box);
+    } else {
+      nearNow = true;
     }
 
     // ---- the scene around her ----
@@ -3608,7 +3579,7 @@
     function size() {
       var r = cv.getBoundingClientRect();
       W = r.width; H = r.height;
-      dpr = Math.min(2, window.devicePixelRatio || 1);
+      dpr = Math.min(1.5, window.devicePixelRatio || 1);
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     }
     function center(el2) {

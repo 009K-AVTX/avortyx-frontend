@@ -2167,3 +2167,66 @@ html[lang="ru"] h3 {
     grid-template-columns: minmax(0, max-content);
   }
 }
+
+/* ---------- Terms of Service and Privacy Policy (components/LegalText.jsx) ---------- */
+.avx-legal-text {
+  color: #c3cad6;
+  font-size: .98rem;
+  line-height: 1.7;
+}
+
+.avx-legal-text .avx-legal-updated {
+  margin-bottom: .4rem;
+  color: #93c5fd;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+.avx-legal-text h1 {
+  margin-bottom: 1.25rem;
+  color: #f1f5f9;
+}
+
+.avx-legal-text .avx-legal-sec {
+  margin-top: 2.2rem;
+}
+
+.avx-legal-text h2 {
+  margin-bottom: .9rem;
+  color: #f1f5f9;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.avx-legal-text p {
+  margin-bottom: .9rem;
+}
+
+.avx-legal-text strong {
+  color: #e2e8f0;
+}
+
+.avx-legal-text a {
+  color: #93c5fd;
+}
+
+.avx-legal-text .avx-legal-address {
+  padding-left: 1rem;
+  border-left: 2px solid rgba(59, 130, 246, .4);
+}
+
+[data-bs-theme="light"] .avx-legal-text {
+  color: #334155;
+}
+
+[data-bs-theme="light"] .avx-legal-text h1,
+[data-bs-theme="light"] .avx-legal-text h2,
+[data-bs-theme="light"] .avx-legal-text strong {
+  color: #0f172a;
+}
+
+[data-bs-theme="light"] .avx-legal-text a,
+[data-bs-theme="light"] .avx-legal-text .avx-legal-updated {
+  color: #2563eb;
+}

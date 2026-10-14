@@ -16348,3 +16348,299 @@ body:has(#okCookie) .avx-help-btn {
     left: calc((100vw - 1760px) / 2 + 12px);
   }
 }
+
+/* ---------- Smooth scrolling: animations that move or glow use only transform and opacity ----------
+   (left, top, height and box-shadow animations repaint, and some re-lay out, every frame) */
+
+/* travelling dots: the element spans its track and the dot rides on its leading edge */
+.avx-how-link i,
+.avx-fc-link i {
+  width: 100%;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.avx-how-link i {
+  height: 6px;
+  transform: translate(0, -50%);
+}
+
+.avx-fc-link i {
+  height: 10px;
+  margin-top: -5px;
+}
+
+.avx-how-link i::before,
+.avx-fc-link i::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 999px;
+  background: #93c5fd;
+}
+
+.avx-how-link i::before {
+  width: 18px;
+  height: 6px;
+  margin-left: -9px;
+  box-shadow: 0 0 14px 3px rgba(96, 165, 250, .7);
+}
+
+.avx-fc-link i::before {
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  background: #bfdbfe;
+  box-shadow: 0 0 12px 3px rgba(96, 165, 250, .8);
+}
+
+@keyframes avxHowPulse {
+  0% { transform: translate(0, -50%); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translate(100%, -50%); opacity: 0; }
+}
+
+@keyframes avxFcPulse {
+  0% { transform: translateX(0); opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* the photo section's wire packet: the same idea, top to bottom */
+.avx-ph-wire i {
+  top: 0;
+  width: 8px;
+  height: 100%;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.avx-ph-wire i::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bfdbfe;
+  box-shadow: 0 0 10px 3px rgba(96, 165, 250, .9);
+}
+
+@keyframes avx-ph-packet {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* how-it-works steps: the glow is a layer that fades, not a box-shadow that repaints */
+.avx-how-step::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border: 1px solid rgba(96, 165, 250, .4);
+  border-radius: inherit;
+  box-shadow: 0 0 40px -12px rgba(59, 130, 246, .55);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.avx-how-flow.avx-on .avx-how-step {
+  animation: none;
+}
+
+.avx-how-flow.avx-on .avx-how-step::after {
+  animation: avxHowGlow 2.4s ease-in-out infinite;
+}
+
+.avx-how-flow.avx-on .avx-how-step:nth-child(3)::after { animation-delay: .8s; }
+.avx-how-flow.avx-on .avx-how-step:nth-child(5)::after { animation-delay: 1.6s; }
+
+@keyframes avxHowGlow {
+  0%, 100% { opacity: 0; }
+  30% { opacity: 1; }
+}
+
+.avx-paused .avx-how-flow .avx-how-step::after {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avx-how-step::after,
+  .avx-how-link i,
+  .avx-fc-link i,
+  .avx-ph-wire i {
+    animation: none !important;
+  }
+}
+
+/* ---------- Hero: the blue light-strand film behind the copy ---------- */
+.avx-hero-film {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  /* dim and subtle: the film is atmosphere, the copy and the live panel stay the focus */
+  opacity: .5;
+  background: #07090f url("/assets/avx-site/video/hero-blue-poster.webp") 50% 50% / cover no-repeat;
+}
+
+.avx-hero-film video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+
+.avx-hero-film.avx-on video {
+  opacity: 1;
+}
+
+/* keeps the copy readable over the bright strands: deeper on the text side and at the edges,
+   and the bottom melts into the page so the next section starts cleanly */
+.avx-hero-film-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 9, 15, .9) 0%, rgba(7, 9, 15, .72) 34%, rgba(7, 9, 15, .42) 62%, rgba(7, 9, 15, .55) 100%),
+    linear-gradient(180deg, rgba(7, 9, 15, .55) 0%, rgba(7, 9, 15, 0) 22%, rgba(7, 9, 15, 0) 70%, #07090f 100%);
+}
+
+/* the film replaces the drawn backdrop (spotlight, dots and arc) */
+.avx-hero-calm:has(.avx-hero-film) .avx-pbg {
+  display: none !important;
+}
+
+/* phones: the copy sits over the centre of the film, so the veil evens out */
+@media (max-width: 991.98px) {
+  .avx-hero-film-veil {
+    background:
+      linear-gradient(180deg, rgba(7, 9, 15, .7) 0%, rgba(7, 9, 15, .62) 45%, rgba(7, 9, 15, .75) 80%, #07090f 100%);
+  }
+}
+
+/* light theme keeps the light hero */
+[data-bs-theme="light"] .avx-hero-film {
+  display: none;
+}
+
+/* very wide windows (or zoomed far out): the film stays the width of the content column and its
+   sides fade into the page, instead of the clouds stretching across the whole screen */
+@media (min-width: 1800px) {
+  .avx-hero-film {
+    right: auto;
+    left: 50%;
+    width: 1760px;
+    transform: translateX(-50%);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+}
+
+/* ---------- Landing page, a notch quieter ----------
+   softer photo tint, muted logo tiles (full colour on hover), calmer blog art, a dimmer AI halo
+   and a smaller glow on the closing call to action */
+.avx-ph::after {
+  background: rgba(37, 99, 235, .32);
+}
+
+.avx-ph img {
+  filter: grayscale(1) contrast(1.02) brightness(.74);
+}
+
+.avx-int-tile {
+  border-color: rgba(255, 255, 255, .12);
+  background: #dfe5ee;
+  box-shadow: none;
+  opacity: .62;
+  transition: opacity .25s ease, border-color .25s ease;
+}
+
+.avx-int-tile img {
+  filter: grayscale(1);
+  transition: filter .25s ease;
+}
+
+.avx-int-tile:hover,
+.avx-int-tile:focus-visible {
+  border-color: #60a5fa;
+  background: #fff;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.avx-int-tile:hover img,
+.avx-int-tile:focus-visible img {
+  filter: none;
+}
+
+.avx-post-cover img {
+  filter: saturate(.7) brightness(.86);
+}
+
+.avx-ringba-stage .avx-core-glow-aura {
+  opacity: .5;
+}
+
+.marketing-cta-band .btn-cta-primary.avx-ra-cta,
+.marketing-cta-band .btn-cta-primary.avx-ra-cta:focus {
+  box-shadow: 0 8px 22px -14px rgba(37, 99, 235, .7);
+}
+
+[data-bs-theme="light"] .avx-ph img {
+  filter: grayscale(1) contrast(1.02) brightness(1.02);
+}
+
+/* ---------- Hero film: the Avortyx mark on the point where the strands meet ----------
+   The film is cropped to cover its box, so the meeting point (the frame's centre across, 52.8%
+   down) moves as the box changes shape. With the box as a size container, its position is the
+   centre plus 2.8% of the rendered video height, which is the larger of the box height and 9/16
+   of its width. A soft dark disc under the mark dims the flare a little. */
+.avx-hero-film {
+  container-type: size;
+}
+
+.avx-hero-film-core {
+  position: absolute;
+  top: calc(50cqh + .028 * max(100cqh, 56.25cqw));
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(7, 9, 15, .62) 0%, rgba(7, 9, 15, .4) 32%, rgba(7, 9, 15, 0) 70%);
+  transform: translate(-50%, -50%);
+}
+
+.avx-hero-film-core svg {
+  width: 40px;
+  height: 40px;
+  opacity: .95;
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, .55));
+}
+
+/* phones and tablets: the copy sits over the meeting point, so the mark steps aside */
+@media (max-width: 991.98px) {
+  .avx-hero-film-core {
+    display: none;
+  }
+}
+
+/* how-it-decides: the centre orb shows the Avortyx mark (no globe), a little larger and lit */
+.avx-lf-sph .hero-simple-hub-icon .avx-hub-mark {
+  width: 70%;
+  height: 70%;
+  filter: drop-shadow(0 0 10px rgba(96, 165, 250, .55)) drop-shadow(0 1px 6px rgba(8, 27, 60, .7));
+}
