@@ -3448,6 +3448,10 @@
   "page": "features.html"
  },
  {
+  "k": "Avortyx home",
+  "page": "features/adwords.html"
+ },
+ {
   "k": "<0/>View full page",
   "page": "features/adwords.html"
  },
@@ -9028,6 +9032,98 @@
   "page": "pricing.html"
  },
  {
+  "k": "Monthly Cost Estimator",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Enter your expected volume to see an estimated monthly bill on every plan, and which one costs least.",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Tracking numbers",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Calls per month",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Average minutes per call",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Number type",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Toll free",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Connecting to buyers with",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Toll free or SIP (included)",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Local (+$0.0050 /min)",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Calls transcribed (%)",
+  "page": "pricing.html"
+ },
+ {
+  "k": "SMS sent per month",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Spam tag mitigation on every number",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Lowest cost",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Breakdown on <0>Pay As You Go</0>",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Call minutes",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Local buyer forwarding",
+  "page": "pricing.html"
+ },
+ {
+  "k": "AI transcription",
+  "page": "pricing.html"
+ },
+ {
+  "k": "SMS",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Spam tag mitigation",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Usage",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Commit top-up",
+  "page": "pricing.html"
+ },
+ {
+  "k": "An estimate from the rates above, before taxes and fees. Each plan’s commit counts as the least you pay that month, so a plan never costs less than its commit. Calls are billed in whole minutes, so the average is rounded up.",
+  "page": "pricing.html"
+ },
+ {
   "k": "Pricing questions",
   "page": "pricing.html"
  },
@@ -12612,10 +12708,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "SMS",
-  "page": "(runtime)"
- },
- {
   "k": "SMS delivered · “Hi Tom, your quote is ready”",
   "page": "(runtime)"
  },
@@ -12877,10 +12969,6 @@
  },
  {
   "k": "Urgent",
-  "page": "(runtime)"
- },
- {
-  "k": "Usage",
   "page": "(runtime)"
  },
  {

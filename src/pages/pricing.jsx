@@ -7,6 +7,17 @@ export const meta = {
   layout: "site",
 }
 
+// Monthly Cost Estimator plans, from the rate table:
+// [id, name, commit, number /mo, spam tag /mo, local /min, toll free /min, SMS, AI transcription /min]
+const EST_PLANS = [
+  ['base', 'Pay As You Go', 0, 4, 5, 0.055, 0.06, 0.04, 0.035],
+  ['commit_50', '$50', 50, 3, 4, 0.05, 0.055, 0.035, 0.0325],
+  ['commit_250', '$250', 250, 2, 3, 0.04, 0.045, 0.03, 0.03],
+  ['commit_1000', '$1,000', 1000, 1.5, 2.5, 0.035, 0.04, 0.025, 0.0275],
+  ['commit_4000', '$4,000', 4000, 1, 2, 0.03, 0.035, 0.02, 0.025],
+  ['commit_8000', '$8,000', 8000, 1, 2, 0.025, 0.03, 0.015, 0.02],
+]
+
 export default function Pricing() {
   return (
     <main>
@@ -238,6 +249,60 @@ export default function Pricing() {
               </div>
               <p className="text-muted pricing-calculator-note">Per-minute cost of an inbound call connected to a buyer. Every call record in Avortyx shows the same leg-by-leg breakdown.</p>
             </div>
+          </div>
+          {/* monthly estimate: site.js prices the inputs on every plan from the rate table above */}
+          <div className="avx-est" data-avx-est="" data-plans={JSON.stringify(EST_PLANS)}>
+            <h3 className="fw-bold mt-5">Monthly Cost Estimator</h3>
+            <p className="text-muted pricing-calculator-intro">Enter your expected volume to see an estimated monthly bill on every plan, and which one costs least.</p>
+            <div className="avx-est-grid">
+              <div className="avx-est-inputs">
+                <label><span>Tracking numbers</span><input className="form-control" type="number" min="0" step="1" defaultValue="10" data-est="numbers" /></label>
+                <label><span>Calls per month</span><input className="form-control" type="number" min="0" step="100" defaultValue="2000" data-est="calls" /></label>
+                <label><span>Average minutes per call</span><input className="form-control" type="number" min="0" step="0.5" defaultValue="3" data-est="minutes" /></label>
+                <label>
+                  <span>Number type</span>
+                  <select className="form-select" defaultValue="local" data-est="type">
+                    <option value="local">Local</option>
+                    <option value="tf">Toll free</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Connecting to buyers with</span>
+                  <select className="form-select" defaultValue="tf" data-est="buyer">
+                    <option value="tf">Toll free or SIP (included)</option>
+                    <option value="local">Local (+$0.0050 /min)</option>
+                  </select>
+                </label>
+                <label><span>Calls transcribed (%)</span><input className="form-control" type="number" min="0" max="100" step="5" defaultValue="0" data-est="transcribed" /></label>
+                <label><span>SMS sent per month</span><input className="form-control" type="number" min="0" step="100" defaultValue="0" data-est="sms" /></label>
+                <label className="avx-est-check"><input className="form-check-input" type="checkbox" data-est="spam" /><span>Spam tag mitigation on every number</span></label>
+              </div>
+              <div className="avx-est-out">
+                <ul className="avx-est-plans" aria-live="polite">
+                  {EST_PLANS.map(([id, name]) => (
+                    <li key={id} data-plan={id}>
+                      <span className="avx-est-plan">{name}</span>
+                      <span className="avx-est-best" hidden>Lowest cost</span>
+                      <b className="avx-est-total">$0.00</b>
+                    </li>
+                  ))}
+                </ul>
+                <div className="avx-est-break">
+                  <p className="avx-est-break-head">Breakdown on <b data-est-out="plan">Pay As You Go</b></p>
+                  <dl>
+                    <div><dt>Numbers</dt><dd data-est-out="numbers">$0.00</dd></div>
+                    <div><dt>Call minutes</dt><dd data-est-out="calls">$0.00</dd></div>
+                    <div><dt>Local buyer forwarding</dt><dd data-est-out="buyer">$0.00</dd></div>
+                    <div><dt>AI transcription</dt><dd data-est-out="ai">$0.00</dd></div>
+                    <div><dt>SMS</dt><dd data-est-out="sms">$0.00</dd></div>
+                    <div><dt>Spam tag mitigation</dt><dd data-est-out="spam">$0.00</dd></div>
+                    <div><dt>Usage</dt><dd data-est-out="usage">$0.00</dd></div>
+                    <div className="avx-est-commit-row"><dt>Commit top-up</dt><dd data-est-out="topup">$0.00</dd></div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <p className="text-muted pricing-calculator-note">An estimate from the rates above, before taxes and fees. Each plan’s commit counts as the least you pay that month, so a plan never costs less than its commit. Calls are billed in whole minutes, so the average is rounded up.</p>
           </div>
         </div>
         <section className="pricing-faq-section">

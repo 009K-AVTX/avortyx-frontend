@@ -647,6 +647,57 @@
   });
 })();
 
+/* ---------- Pricing: monthly cost estimator ----------
+   Prices the visitor's volume on every plan with the rate-table figures in data-plans, marks the
+   cheapest and itemises it. A plan's commit is a monthly minimum: usage below it is topped up. */
+(function () {
+  'use strict';
+  var box = document.querySelector('[data-avx-est]');
+  if (!box) return;
+  var PLANS = JSON.parse(box.getAttribute('data-plans'));
+  var LOCAL_BUYER = 0.005; // forwarding to a local buyer number, on top of the tracking rate
+  var field = function (k) { return box.querySelector('[data-est="' + k + '"]'); };
+  var num = function (k) { var v = parseFloat(field(k).value); return isNaN(v) || v < 0 ? 0 : v; };
+  var money = function (v) { return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
+  var out = function (k, v) { box.querySelector('[data-est-out="' + k + '"]').textContent = v; };
+
+  function price(p) {
+    var numbers = num('numbers'), calls = num('calls'), mins = num('minutes');
+    var billed = calls * Math.ceil(mins);
+    var pct = Math.min(num('transcribed'), 100) / 100;
+    var parts = {
+      numbers: numbers * p[3],
+      calls: billed * (field('type').value === 'tf' ? p[6] : p[5]),
+      buyer: field('buyer').value === 'local' ? billed * LOCAL_BUYER : 0,
+      ai: calls * mins * pct * p[8],
+      sms: num('sms') * p[7],
+      spam: field('spam').checked ? numbers * p[4] : 0
+    };
+    parts.usage = parts.numbers + parts.calls + parts.buyer + parts.ai + parts.sms + parts.spam;
+    parts.topup = Math.max(0, p[2] - parts.usage);
+    parts.total = parts.usage + parts.topup;
+    return parts;
+  }
+
+  function update() {
+    var priced = PLANS.map(price), best = 0;
+    priced.forEach(function (r, i) { if (r.total < priced[best].total - 1e-9) best = i; });
+    box.querySelectorAll('.avx-est-plans li').forEach(function (li, i) {
+      li.querySelector('.avx-est-total').textContent = money(priced[i].total);
+      li.classList.toggle('avx-on', i === best);
+      li.querySelector('.avx-est-best').hidden = i !== best;
+    });
+    var r = priced[best];
+    // the plan's name as the page shows it (translated on /ru, /ja and /zh)
+    out('plan', box.querySelectorAll('.avx-est-plan')[best].textContent);
+    ['numbers', 'calls', 'buyer', 'ai', 'sms', 'spam', 'usage', 'topup'].forEach(function (k) { out(k, money(r[k])); });
+  }
+
+  box.addEventListener('input', update);
+  box.addEventListener('change', update);
+  update();
+})();
+
 /* ---------- Legal Center: /legal?doc=NN shows one document ----------
    Every document is in the page; this shows the one in ?doc (or the list), highlights it in the
    menu and switches on click without a reload. Back and forward work. Without JS, all show. */
