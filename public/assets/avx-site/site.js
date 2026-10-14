@@ -841,7 +841,7 @@
   }
   function start() {
     v.muted = true;
-    v.src = (v.getAttribute('data-avx-hero-film') || '/assets/avx-site/video/hero-blue') + '-' + (innerWidth < 768 ? '480' : '720') + '.mp4';
+    v.src = '/assets/avx-site/video/hero-blue-' + (innerWidth < 768 ? '480' : '720') + '.mp4';
     v.addEventListener('playing', function () { wrap.classList.add('avx-on'); }, { once: true });
     started = true;
     sync();
