@@ -11,6 +11,8 @@ QUESTIONS = ['pricing', 'onboarding fee', 'discount', 'sign up', 'demo', 'suppor
              'dialer', 'automation', 'export', 'hold queue', 'uptime', 'blog', 'careers', 'terms', 'hi', 'thanks',
              'zzzz unknown question']
 keys = set()
+# runtime strings that also appear on a static page but are still needed in the runtime dictionary
+keep = set()
 
 def routes():
     out = []
@@ -65,6 +67,19 @@ with sync_playwright() as p:
     pg.goto(BASE + '/request-access?i18n-record', wait_until='networkidle')
     js_click(pg, 'form button[type=submit]')
     grab(pg)
+    # careers application form: each check, a failed send, then a sent one (the API stubbed)
+    pg.goto(BASE + '/careers?i18n-record', wait_until='networkidle')
+    js_click(pg, '[data-avx-apply="Open application"]')
+    for name, value in (('', ''), ('name', 'Test'), ('email', 'test@example.com')):
+        if name: pg.fill(f'dialog.avx-apply input[name={name}]', value)
+        js_click(pg, '.avx-apply-send'); grab(pg)
+    for cv, size in (('cv.txt', 10), ('cv.pdf', 5 * 1024 * 1024), ('cv.pdf', 10)):
+        pg.set_input_files('dialog.avx-apply input[name=cv]', {'name': cv, 'mimeType': 'application/pdf', 'buffer': b'%PDF' + b'0' * size})
+        js_click(pg, '.avx-apply-send'); grab(pg)
+    pg.route('**/api/apply', lambda r: r.fulfill(status=200, content_type='application/json', body='{"ok":true}'))
+    js_click(pg, '.avx-apply-send'); grab(pg)
+    # the dialog is built by script, so its labels and the role titles it shows (also on the page) are kept
+    keep.update(pg.evaluate("[...AVXI18N.collect(document.querySelector('dialog.avx-apply')), ...[...document.querySelectorAll('.avx-job-title')].flatMap((h) => AVXI18N.collect(h))]"))
     # help search with no results, legal menu
     pg.goto(BASE + '/help?i18n-record', wait_until='networkidle')
     try:
@@ -79,6 +94,6 @@ with sync_playwright() as p:
 def template(k):
     return re.sub(r'(<[^>]*>)|\d+(?:[.,]\d+)*', lambda m: m.group(1) or '{#}', k)
 static = {x['k'] for x in json.load(open(os.path.join(ROOT, 'src/i18n/keys.json'))) if x['page'] != '(runtime)'}
-out = sorted({template(k) if re.search(r'\d', re.sub(r'<[^>]*>', '', k)) else k for k in keys if k not in static})
+out = sorted({template(k) if re.search(r'\d', re.sub(r'<[^>]*>', '', k)) else k for k in keys if k not in static or k in keep})
 json.dump(out, open(os.path.join(ROOT, 'src/i18n/runtime-keys.json'), 'w'), ensure_ascii=False, indent=1)
 print(len(keys), 'runtime strings seen,', len(out), 'not on the static pages')

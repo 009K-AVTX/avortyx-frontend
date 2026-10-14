@@ -7,11 +7,13 @@ export const meta = {
   layout: "site",
 }
 
-// Roles, values and apply links match avortyx.com/careers: each Apply opens an email to
-// hello@avortyx.io with the role in the subject.
+// Roles and values match avortyx.com/careers. Each Apply opens the application form in site.js,
+// which posts the CV to the careers backend (VITE_APPLY_URL at build time, else /api/apply);
+// without script it opens an email to hello@avortyx.io with the role in the subject.
 const CAREERS_EMAIL = 'hello@avortyx.io'
 const apply = (title) => `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(`Application: ${title}`)}`
 const OPEN_APPLICATION = `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent('Open application')}`
+const APPLY_URL = import.meta.env.VITE_APPLY_URL || '/api/apply'
 
 // [title, team, description]. Every role is full-time; no locations are listed.
 const ROLES = [
@@ -92,7 +94,7 @@ export default function Careers() {
             ))}
           </div>
 
-          <div className="mb-5" data-avx-jobs="">
+          <div className="mb-5" data-avx-jobs="" data-avx-apply-url={APPLY_URL}>
             <h2 className="fw-bold mb-3 text-center">Where we’re hiring now</h2>
             <p className="text-muted text-center mb-4">{ROLES.length} open roles, all full-time.</p>
             {/* site.js filters the list by team; without script every role shows */}
@@ -112,7 +114,7 @@ export default function Careers() {
                     <h3 className="avx-job-title">{title}</h3>
                     <p className="avx-job-text">{text}</p>
                   </div>
-                  <a href={apply(title)} className="btn btn-sm btn-td-green fw-semibold avx-job-apply">Apply Now →</a>
+                  <a href={apply(title)} data-avx-apply={title} className="btn btn-sm btn-td-green fw-semibold avx-job-apply">Apply Now →</a>
                 </li>
               ))}
             </ul>
@@ -120,8 +122,8 @@ export default function Careers() {
 
           <div className="text-center p-4 rounded" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
             <h3 className="h5 fw-bold text-white mb-2">Nothing that fits?</h3>
-            <p className="text-muted small mb-3"><a href={OPEN_APPLICATION}>Tell us what you’d build here</a>, we read every note.</p>
-            <a className="btn btn-td-green px-4 py-2 fw-semibold" href={OPEN_APPLICATION}>Send an open application</a>
+            <p className="text-muted small mb-3"><a href={OPEN_APPLICATION} data-avx-apply="Open application">Tell us what you’d build here</a>, we read every note.</p>
+            <a className="btn btn-td-green px-4 py-2 fw-semibold" href={OPEN_APPLICATION} data-avx-apply="Open application">Send an open application</a>
           </div>
         </div>
       </section>

@@ -7810,6 +7810,58 @@ dialog.avx-mail::backdrop {
   color: #bfdbfe;
 }
 
+/* the careers application form: the same dialog, with a CV upload */
+.avx-apply .avx-mail-form label em {
+  color: #6b7486;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.avx-apply .avx-mail-form ::placeholder {
+  color: #5b6474;
+}
+
+.avx-apply .avx-mail-form small {
+  color: #6b7486;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.avx-apply .avx-mail-form input[type="file"] {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.avx-apply .avx-mail-form input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .04);
+  color: #d4d9e3;
+  font: 600 13px var(--avx-font-sans);
+  cursor: pointer;
+}
+
+.avx-apply .avx-mail-form label[hidden],
+.avx-apply .avx-mail-row[hidden],
+.avx-apply .avx-mail-actions[hidden] {
+  display: none;
+}
+
+.avx-apply-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.avx-apply-send:disabled {
+  opacity: .6;
+  cursor: progress;
+}
+
 @media (max-width: 575.98px) {
   dialog.avx-mail { padding: 22px 18px; }
   .avx-mail-row { grid-template-columns: 1fr; }

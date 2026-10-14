@@ -1,6 +1,8 @@
 import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
+import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { Readable } from 'node:stream'
 import { pathToFileURL } from 'node:url'
 
 const ENTRY = '/src/entry-server.jsx'
@@ -46,6 +48,34 @@ function renderPages() {
   }
 }
 
+// /api/<name> runs api/<name>.js in dev the way Vercel runs it in production: the request goes to
+// its GET/POST export as a web Request, with the settings from .env.local in process.env.
+function apiRoutes() {
+  return {
+    name: 'avortyx-api-routes',
+    configureServer(server) {
+      Object.assign(process.env, loadEnv(server.config.mode, process.cwd(), ''))
+      server.middlewares.use(async (req, res, next) => {
+        const name = (req.url.match(/^\/api\/([\w-]+)(?=[?#]|$)/) || [])[1]
+        const file = name && resolve('api', name + '.js')
+        if (!file || !existsSync(file)) return next()
+        try {
+          const mod = await server.ssrLoadModule(file)
+          const handler = mod[req.method]
+          if (!handler) { res.statusCode = 405; return res.end() }
+          const body = req.method === 'GET' || req.method === 'HEAD' ? undefined : Readable.toWeb(req)
+          const out = await handler(new Request('http://' + req.headers.host + req.url, { method: req.method, headers: req.headers, body, duplex: 'half' }))
+          res.statusCode = out.status
+          out.headers.forEach((v, k) => res.setHeader(k, v))
+          res.end(Buffer.from(await out.arrayBuffer()))
+        } catch (err) {
+          next(err)
+        }
+      })
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [react(), renderPages()],
+  plugins: [react(), apiRoutes(), renderPages()],
 })

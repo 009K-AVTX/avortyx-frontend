@@ -647,6 +647,109 @@
   });
 })();
 
+/* ---------- Careers: apply with a CV ----------
+   Opens from any [data-avx-apply="<role>"] link. The form posts the CV and details to the
+   careers backend named by [data-avx-apply-url], which hands them to the hiring team. The link's own
+   mailto: stays as the fallback when script is off or the upload fails. */
+(function () {
+  'use strict';
+  var TO = 'hello@avortyx.io';
+  var MAX = 4 * 1024 * 1024;
+  var dlg = null, form, err, done, send, role = '';
+
+  function build() {
+    dlg = document.createElement('dialog');
+    dlg.className = 'avx-mail avx-apply';
+    dlg.setAttribute('aria-labelledby', 'avx-apply-title');
+    dlg.innerHTML =
+      '<form method="dialog" class="avx-mail-x"><button type="submit" aria-label="Close">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></form>' +
+      '<h2 id="avx-apply-title">Apply</h2>' +
+      '<p class="avx-mail-sub"><b class="avx-apply-role"></b></p>' +
+      '<form class="avx-mail-form" novalidate>' +
+        '<div class="avx-mail-row"><label>Full name<input name="name" autocomplete="name" required></label>' +
+        '<label>Email<input name="email" type="email" autocomplete="email" required></label></div>' +
+        '<div class="avx-mail-row"><label><span>Phone <em>(optional)</em></span><input name="phone" type="tel" autocomplete="tel"></label>' +
+        '<label><span>Telegram <em>(optional)</em></span><input name="telegram" placeholder="@yourhandle"></label></div>' +
+        '<label><span>LinkedIn or portfolio <em>(optional)</em></span><input name="link" type="url" placeholder="https://"></label>' +
+        '<label>CV<input name="cv" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>' +
+          '<small>PDF or Word, up to 4 MB.</small></label>' +
+        '<label><span>Anything you’d like us to know? <em>(optional)</em></span><textarea name="note" rows="4"></textarea></label>' +
+        '<input name="company_site" tabindex="-1" autocomplete="off" aria-hidden="true" class="avx-apply-hp">' +
+        '<p class="avx-mail-err" role="alert" hidden></p>' +
+        '<div class="avx-mail-actions"><button type="submit" class="btn btn-td-green avx-apply-send">Send application</button></div>' +
+        '<p class="avx-mail-done" role="status" hidden>Thank you, your application is with our hiring team. We’ll be in touch by email.</p>' +
+      '</form>';
+    document.body.appendChild(dlg);
+    form = dlg.querySelector('.avx-mail-form');
+    err = dlg.querySelector('.avx-mail-err');
+    done = dlg.querySelector('.avx-mail-done');
+    send = dlg.querySelector('.avx-apply-send');
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    form.addEventListener('submit', submit);
+  }
+
+  function fail(msg, mail) {
+    err.textContent = msg;
+    if (mail) {
+      var a = document.createElement('a');
+      a.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Application: ' + role);
+      a.textContent = TO;
+      err.appendChild(document.createTextNode(' You can also email your CV to '));
+      err.appendChild(a);
+      err.appendChild(document.createTextNode('.'));
+    }
+    err.hidden = false;
+  }
+
+  function submit(e) {
+    e.preventDefault();
+    var f = form.elements, v = function (k) { return f[k].value.trim(); };
+    var cv = f.cv.files && f.cv.files[0];
+    var problem = !v('name') ? 'Please add your full name.' :
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email')) ? 'Please add a valid email address.' :
+      !cv ? 'Please attach your CV.' :
+      !/\.(pdf|docx?)$/i.test(cv.name) ? 'Please attach your CV as a PDF or Word document.' :
+      cv.size > MAX ? 'Your CV is over 4 MB. Please send a smaller file.' : '';
+    err.hidden = true;
+    if (problem) return fail(problem);
+    var data = new FormData(form);
+    data.set('role', role);
+    send.disabled = true;
+    send.textContent = 'Sending…';
+    var box = document.querySelector('[data-avx-apply-url]');
+    fetch(box ? box.getAttribute('data-avx-apply-url') : '/api/apply', { method: 'POST', body: data })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (b) { return { ok: r.ok, body: b }; }); })
+      .then(function (r) {
+        if (!r.ok) return fail(r.body.error || 'We could not send your application just now.', true);
+        if (typeof window.gtag === 'function') window.gtag('event', 'job_application', { role: role });
+        form.querySelectorAll('label, .avx-mail-row, .avx-mail-actions').forEach(function (el) { el.hidden = true; });
+        done.hidden = false;
+      })
+      .catch(function () { fail('We could not send your application just now.', true); })
+      .then(function () { send.disabled = false; send.textContent = 'Send application'; });
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-avx-apply]');
+    if (!a || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    if (!dlg) build();
+    var next = a.getAttribute('data-avx-apply');
+    // a fresh form for a new role; the same role reopens with what was typed
+    if (next !== role || !done.hidden) {
+      form.reset();
+      form.querySelectorAll('[hidden]').forEach(function (el) { if (el !== err && el !== done) el.hidden = false; });
+      err.hidden = true;
+      done.hidden = true;
+    }
+    role = next;
+    dlg.querySelector('.avx-apply-role').textContent = role;
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    form.elements.name.focus();
+  });
+})();
+
 /* ---------- Pricing: monthly cost estimator ----------
    Prices the visitor's volume on every plan with the rate-table figures in data-plans, marks the
    cheapest and itemises it. A plan's commit is a monthly minimum: usage below it is topped up. */
