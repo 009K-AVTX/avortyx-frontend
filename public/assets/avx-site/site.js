@@ -632,25 +632,14 @@
   });
 })();
 
-/* ---------- Trustpilot TrustBox (home page) ----------
-   Live: loads Trustpilot's official bootstrap script, which renders the real reviews into
-   .trustpilot-widget. No business unit ID yet: the public page shows sample reviews, every
-   part marked as sample. A realistic, unlabelled mock (for design review only) shows on
-   localhost, or after any page is opened with ?preview (remembered in this browser, across
-   tabs, until a page is opened with ?preview=off). */
+/* ---------- Testimonials (home page) ----------
+   The quotes are placeholders, so the public page labels them as samples. The label hides on
+   localhost, or after any page is opened with ?preview (remembered in this browser, across tabs,
+   until a page is opened with ?preview=off), for design review. */
 (function () {
   'use strict';
-  var box = document.querySelector('[data-avx-tp]');
-  if (!box) return;
-
-  if (box.getAttribute('data-avx-tp') === 'live') {
-    var s = document.createElement('script');
-    s.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
-    s.async = true;
-    document.head.appendChild(s);
-    return;
-  }
-
+  var flag = document.querySelector('[data-testi-flag]');
+  if (!flag) return;
   var preview = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
   try {
     var q = new URLSearchParams(location.search).get('preview');
@@ -658,40 +647,7 @@
     else if (q !== null) localStorage.setItem('avx-preview', '1');
     preview = preview || localStorage.getItem('avx-preview') === '1';
   } catch (e) { /* storage blocked */ }
-
-  // [name, stars, title, text, when]
-  var SAMPLE = [
-    ['Sample reviewer A', 5, 'Routing set up in an afternoon', 'Sample text: we moved our health campaigns over and calls started reaching buyers the same day.', '2 days ago'],
-    ['Sample reviewer B', 5, 'Routing that just works', 'Sample text: calls connect fast and the reporting shows exactly why a call went where it did.', '5 days ago'],
-    ['Sample reviewer C', 4, 'Helpful specialists', 'Sample text: a live video session sorted out our caps and failover in under an hour.', '1 week ago'],
-    ['Sample reviewer D', 5, 'Clear pricing', 'Sample text: per-minute billing with no onboarding fee made it easy to test.', '2 weeks ago']
-  ];
-  var MOCK = [
-    ['Daniel Reyes', 5, 'Routing set up in an afternoon', 'We moved our health campaigns over and calls started reaching buyers the same day. The routing rules are easy to follow.', '2 days ago'],
-    ['Priya Shah', 5, 'Routing that just works', 'Calls connect fast and the reporting shows exactly why a call went where it did. No more guessing.', '5 days ago'],
-    ['Marcus Bell', 4, 'Helpful specialists', 'A live video session sorted out our caps and failover in under an hour. Would like more report exports.', '1 week ago'],
-    ['Hannah Cole', 5, 'Clear pricing', 'Per-minute billing with no onboarding fee made it easy to test before we moved our volume.', '2 weeks ago']
-  ];
-  var reviews = preview ? MOCK : SAMPLE;
-
-  function stars(n, cls) {
-    var out = '<span class="avx-tp-stars ' + (cls || '') + '" role="img" aria-label="' + n + ' out of 5 stars">';
-    for (var i = 0; i < 5; i++) out += '<i class="' + (i < n ? 'on' : '') + '"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.7l7.1-.6z"/></svg></i>';
-    return out + '</span>';
-  }
-  var esc = function (t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
-  box.querySelector('.avx-tp-sample').innerHTML =
-    (preview ? '' : '<span class="avx-tp-flag">Sample data · not real reviews</span>') +
-    '<div class="avx-tp-carousel' + (preview ? ' avx-tp-mock' : '') + '">' +
-      '<div class="avx-tp-score"><b>Excellent</b>' + stars(5, 'avx-tp-stars-lg') +
-      (preview ? '<span>TrustScore <b class="avx-tp-num">4.8</b> | <u>128 reviews</u></span>' : '<span>Based on <u>sample</u> reviews</span>') +
-      '<span class="avx-tp-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.7l7.1-.6z"/></svg>Trustpilot</span></div>' +
-      '<ul class="avx-tp-reviews">' + reviews.map(function (r) {
-        return '<li>' + stars(r[1]) + '<span class="avx-tp-when">' + esc(r[4]) + '</span>' +
-          '<b>' + esc(r[2]) + '</b><p>' + esc(r[3]) + '</p><small>' + esc(r[0]) + '</small></li>';
-      }).join('') + '</ul>' +
-    '</div>';
-  box.hidden = false;
+  if (preview) flag.hidden = true;
 })();
 
 /* ---------- Legal Center: /legal?doc=NN shows one document ----------

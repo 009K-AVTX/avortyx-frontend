@@ -14522,196 +14522,188 @@ pre, code, kbd, samp,
 .avx-integrations .integration-card .text-dark { color: #f1f5f9 !important; font-weight: 600; }
 .avx-integrations .integration-card .text-muted { color: #94a3b8 !important; }
 
-/* ---------- Trustpilot TrustBox (home page, under the stats bar) ---------- */
-.avx-tp {
-  padding: 48px 0 56px;
+/* ---------- Testimonials (home page, under the closing call to action) ----------
+   One row of quote cards gliding left on a loop; it pauses on hover or focus, and holds still
+   (scrollable) for visitors who prefer less motion. Blue only, to match the rest of the page. */
+.avx-testi {
+  padding: 56px 0 64px;
+  overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 480px;
 }
 
-.avx-tp[hidden] {
+.avx-testi .mktg-section-header {
+  margin-bottom: 32px;
+}
+
+.avx-testi-flag {
+  display: inline-block;
+  margin: 10px 0 0;
+  padding: 3px 10px;
+  border: 1px dashed rgba(147, 197, 253, .4);
+  border-radius: 999px;
+  color: #93c5fd;
+  font-size: .75rem;
+}
+
+.avx-testi-flag[hidden] {
   display: none;
 }
 
-.avx-tp-label {
-  margin: 0 0 14px;
-  color: #8f98a8;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: .06em;
-  text-align: center;
-  text-transform: uppercase;
+.avx-testi-row {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
-.avx-tp-sample {
-  position: relative;
-}
-
-.avx-tp-flag {
-  position: absolute;
-  top: -10px;
-  right: 12px;
-  z-index: 1;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: #3b82f6;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
-
-.avx-tp-carousel {
+.avx-testi-track {
   display: flex;
-  gap: 24px;
-  align-items: stretch;
-  padding: 22px;
-  border: 1px dashed rgba(96, 165, 250, .5);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, .03);
+  gap: 20px;
+  width: max-content;
+  padding: 6px 10px 14px;
+  animation: avx-testi-glide 55s linear infinite;
 }
 
-.avx-tp-score {
+.avx-testi-row:hover .avx-testi-track,
+.avx-testi-row:focus-within .avx-testi-track {
+  animation-play-state: paused;
+}
+
+/* the track holds the cards twice, so moving it by half (plus half a gap) lands on the same view */
+@keyframes avx-testi-glide {
+  to { transform: translateX(calc(-50% - 10px)); }
+}
+
+.avx-testi-card {
   display: flex;
   flex: none;
   flex-direction: column;
-  gap: 6px;
-  align-items: center;
-  justify-content: center;
-  width: 190px;
-  color: #c8d0dc;
-  font-size: 13px;
-  text-align: center;
+  gap: 10px;
+  width: min(360px, 78vw);
+  margin: 0;
+  padding: 22px 22px 20px;
+  border: 1px solid rgba(59, 130, 246, .2);
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(59, 130, 246, .12), transparent 60%),
+    rgba(15, 23, 42, .6);
+  transition: transform .35s cubic-bezier(.2, .7, .2, 1), border-color .25s ease, box-shadow .35s ease;
 }
 
-.avx-tp-score b {
-  color: #f1f4f9;
-  font-size: 22px;
+.avx-testi-card:hover {
+  border-color: rgba(96, 165, 250, .5);
+  box-shadow: 0 18px 40px -22px rgba(37, 99, 235, .6);
+  transform: translateY(-4px);
 }
 
-.avx-tp-brand {
+.avx-testi-stars {
   display: inline-flex;
-  gap: 4px;
+  gap: 3px;
+}
+
+.avx-testi-stars svg {
+  width: 16px;
+  height: 16px;
+  fill: rgba(147, 197, 253, .22);
+}
+
+.avx-testi-stars svg.on {
+  fill: #60a5fa;
+}
+
+.avx-testi-title {
+  color: #f1f5f9;
+  font-size: 1rem;
+}
+
+.avx-testi-card blockquote {
+  flex: 1;
+  margin: 0;
+  color: #a3abb8;
+  font-size: .92rem;
+  line-height: 1.6;
+}
+
+.avx-testi-card figcaption {
+  display: flex;
+  gap: 10px;
   align-items: center;
-  color: #f1f4f9;
-  font-size: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 163, 184, .12);
+  color: #e2e8f0;
+  font-size: .88rem;
   font-weight: 600;
 }
 
-.avx-tp-brand svg {
-  width: 20px;
-  height: 20px;
-  fill: #3b82f6;
-}
-
-.avx-tp-stars {
-  display: inline-flex;
-  gap: 2px;
-}
-
-.avx-tp-stars i {
-  display: grid;
+.avx-testi-av {
+  display: inline-grid;
+  flex: none;
   place-items: center;
-  width: 18px;
-  height: 18px;
-  background: #4b5563;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
 }
 
-.avx-tp-stars i.on {
-  background: #3b82f6;
+[data-bs-theme="light"] .avx-testi-flag {
+  color: #2563eb;
 }
 
-.avx-tp-stars svg {
-  width: 13px;
-  height: 13px;
-  fill: #fff;
+[data-bs-theme="light"] .avx-testi-card {
+  border-color: rgba(37, 99, 235, .16);
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(59, 130, 246, .08), transparent 60%),
+    #fff;
 }
 
-.avx-tp-stars-lg i {
-  width: 28px;
-  height: 28px;
+[data-bs-theme="light"] .avx-testi-title,
+[data-bs-theme="light"] .avx-testi-card figcaption {
+  color: #0f172a;
 }
 
-.avx-tp-stars-lg svg {
-  width: 20px;
-  height: 20px;
-}
-
-.avx-tp-reviews {
-  display: grid;
-  flex: 1;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.avx-tp-reviews li {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 0;
-  color: #c8d0dc;
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.avx-tp-reviews b {
-  color: #f1f4f9;
-  font-size: 14px;
-}
-
-.avx-tp-reviews p {
-  margin: 0;
-}
-
-.avx-tp-reviews small,
-.avx-tp-when {
-  color: #8f98a8;
-  font-size: 12px;
-}
-
-.avx-tp-reviews small {
-  color: #60a5fa;
-  font-weight: 500;
-}
-
-.avx-tp-when {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-@media (max-width: 991.98px) {
-  .avx-tp-carousel {
-    flex-direction: column;
-  }
-
-  .avx-tp-score {
-    width: auto;
-  }
-
-  .avx-tp-reviews {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+[data-bs-theme="light"] .avx-testi-card blockquote {
+  color: #475569;
 }
 
 @media (max-width: 575.98px) {
-  .avx-tp-reviews {
-    grid-template-columns: 1fr;
+  .avx-testi {
+    padding: 40px 0 48px;
+  }
+
+  .avx-testi-track {
+    gap: 14px;
+    animation-duration: 45s;
+  }
+
+  @keyframes avx-testi-glide {
+    to { transform: translateX(calc(-50% - 7px)); }
+  }
+
+  .avx-testi-card {
+    padding: 18px;
   }
 }
 
-/* the unlabelled preview mock: a solid edge instead of the sample's dashed one */
-.avx-tp-mock {
-  border-style: solid;
-  border-color: rgba(96, 165, 250, .25);
-}
+@media (prefers-reduced-motion: reduce) {
+  .avx-testi-row {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
 
-.avx-tp-score .avx-tp-num {
-  color: #f1f4f9;
-  font-size: 13px;
+  .avx-testi-track {
+    animation: none;
+  }
+
+  .avx-testi-card {
+    scroll-snap-align: center;
+  }
+
+  .avx-testi-card[aria-hidden] {
+    display: none;
+  }
 }
 
 /* ---------- People: who is on the line (Unsplash photos with demo call overlays) ---------- */
@@ -15825,7 +15817,11 @@ main > section.marketing-cta-band {
 }
 
 .avx-price-hint i {
-  color: #4ade80;
+  color: #93c5fd;
+}
+
+[data-bs-theme="light"] .avx-price-hint i {
+  color: #2563eb;
 }
 
 /* four facts in the stats bar now */
@@ -16140,4 +16136,81 @@ main > section.marketing-cta-band {
 
 @media (max-width: 575.98px) {
   .avx-hero-eyebrow { padding: 5px 12px 5px 5px; }
+}
+
+/* People photos blend into the page: one theme-blue tone instead of full colour, no frame,
+   and edges that dissolve into the section background. The overlays sit above the mask. */
+.avx-ph {
+  --ph-fade: linear-gradient(90deg, transparent, #000 16%, #000 84%, transparent),
+    linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.avx-ph img,
+.avx-ph::before,
+.avx-ph::after {
+  -webkit-mask-image: var(--ph-fade);
+  -webkit-mask-composite: source-in;
+  mask-image: var(--ph-fade);
+  mask-composite: intersect;
+}
+
+.avx-ph img {
+  filter: grayscale(1) contrast(1.08) brightness(.82);
+}
+
+/* the theme's blue laid over the grey photo as its only colour */
+.avx-ph::after {
+  background: rgba(37, 99, 235, .55);
+  mix-blend-mode: color;
+}
+
+.avx-ph::before {
+  background: linear-gradient(105deg, transparent 35%, rgba(147, 197, 253, .12) 48%, transparent 62%);
+}
+
+.avx-people.avx-in .avx-ph,
+.avx-people.avx-anim:not(.avx-in) .avx-ph {
+  clip-path: none;
+}
+
+[data-bs-theme="light"] .avx-ph {
+  box-shadow: none;
+}
+
+[data-bs-theme="light"] .avx-ph img {
+  filter: grayscale(1) contrast(1.02) brightness(1.06);
+}
+
+@media (max-width: 575.98px) {
+  .avx-ph { border-radius: 0; }
+}
+
+/* the overlays keep to the same blue: no green or amber accents over the photos */
+.avx-ph-step [class*="fa-gavel"],
+.avx-ph-card b i,
+.avx-ph-sent b {
+  color: #93c5fd;
+}
+
+.avx-ph-progress i {
+  background: linear-gradient(90deg, #2563eb, #93c5fd);
+}
+
+.avx-ph-pay {
+  border-color: rgba(147, 197, 253, .45);
+  background: rgba(30, 58, 138, .78);
+  color: #dbeafe;
+}
+
+.avx-ph-tags span:first-child {
+  background: rgba(59, 130, 246, .2);
+  color: #bfdbfe;
+}
+
+.avx-ph-sent-bars i {
+  background: linear-gradient(180deg, #93c5fd, #3b82f6);
 }

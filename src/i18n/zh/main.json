@@ -3862,5 +3862,19 @@
  "<0>Bring your own VoIP.</0> Use your preferred telephony provider, or any SIP-compatible carrier. <1>All integrations <2>→</2></1>": "<0>自带 VoIP。</0> 使用您偏好的电话服务商，或任何兼容 SIP 的运营商。<1>全部集成 <2>→</2></1>",
  "<0/>No onboarding fees": "<0/>无开通费用",
  "<0/>Usage-based rates with volume discounts": "<0/>按用量计费，量大有折扣",
- "<0/>Phone, chat, email and video support": "<0/>电话、聊天、邮件和视频支持"
+ "<0/>Phone, chat, email and video support": "<0/>电话、聊天、邮件和视频支持",
+ "Testimonials": "客户评价",
+ "What teams say about Avortyx": "团队如何评价 Avortyx",
+ "Sample testimonials · not real customers yet": "示例评价 · 尚非真实客户",
+ "5 out of 5 stars": "5 星（满分 5 星）",
+ "<0>DR</0>Daniel Reyes": "<0>DR</0>Daniel Reyes",
+ "Routing that just works": "路由就是好用",
+ "Calls connect fast and the reporting shows exactly why a call went where it did. No more guessing.": "通话接通很快，报告准确显示每通电话为何被转到那里。再也不用猜了。",
+ "<0>PS</0>Priya Shah": "<0>PS</0>Priya Shah",
+ "We finally see what buyers do": "终于看清买家在做什么",
+ "The live monitor alone is worth it. For the first time we can see what our buyers are actually doing with the calls we send them.": "单是实时监控就值了。我们第一次能看到买家究竟如何处理我们发给他们的电话。",
+ "<0>MW</0>Marcus Webb": "<0>MW</0>Marcus Webb",
+ "4 out of 5 stars": "4 星（满分 5 星）",
+ "<0>MB</0>Marcus Bell": "<0>MB</0>Marcus Bell",
+ "<0>HC</0>Hannah Cole": "<0>HC</0>Hannah Cole"
 }

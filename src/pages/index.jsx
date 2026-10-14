@@ -3,7 +3,7 @@ import { postBySlug } from '../blog/posts.js'
 // /
 // the intro's four outcomes, Salesloft-style
 import Bolt from '../components/Bolt.jsx'
-import TrustBox from '../components/TrustBox.jsx'
+import Testimonials from '../components/Testimonials.jsx'
 import More from '../components/More.jsx'
 const HERO_POINTS = ['Score every call’s intent with AI', 'Route to the highest-value buyer', 'Block spam, DNC and duplicates', 'See the revenue behind every call']
 
@@ -1527,7 +1527,7 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <TrustBox />
+      <Testimonials />
       {/* phones: sign-up stays one tap away once the hero has scrolled off (motion.js shows it) */}
       <div className="avx-mcta" data-avx-mcta="">
         <a href="/request-access" className="btn btn-td-green fw-semibold"><Bolt />Request Access</a>

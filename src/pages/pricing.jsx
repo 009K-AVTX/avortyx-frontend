@@ -42,7 +42,7 @@ export default function Pricing() {
                   <th className="fw-semibold">
                     <a className="mktg-link-green" href="/features/call_tracking">Numbers</a>
                     {" "}
-                    <sup>1</sup>
+                    <a className="pricing-fn" href="#fn-1">1</a>
                   </th>
                   <td>$4.00</td>
                   <td>$3.00</td>
@@ -55,7 +55,7 @@ export default function Pricing() {
                   <th className="fw-semibold">
                     <a className="mktg-link-green" href="/features/spam_tag_mitigation">Spam Tag Mitigation</a>
                     {" "}
-                    <sup>2</sup>
+                    <a className="pricing-fn" href="#fn-2">2</a>
                   </th>
                   <td>$5.00</td>
                   <td>$4.00</td>
@@ -68,7 +68,7 @@ export default function Pricing() {
                   <th className="fw-semibold">
                     <a className="mktg-link-green" href="/features/inbound_call_routing">Local Tracking</a>
                     {" "}
-                    <sup>3</sup>
+                    <a className="pricing-fn" href="#fn-3">3</a>
                   </th>
                   <td>$0.0550</td>
                   <td>$0.0500</td>
@@ -81,7 +81,7 @@ export default function Pricing() {
                   <th className="fw-semibold">
                     <a className="mktg-link-green" href="/features/inbound_call_routing">Toll Free Tracking</a>
                     {" "}
-                    <sup>4</sup>
+                    <a className="pricing-fn" href="#fn-4">4</a>
                   </th>
                   <td>$0.0600</td>
                   <td>$0.0550</td>
@@ -94,7 +94,7 @@ export default function Pricing() {
                   <th className="fw-semibold">
                     <a className="mktg-link-green" href="/features/agent_controls">Outbound To Consumer</a>
                     {" "}
-                    <sup>5</sup>
+                    <a className="pricing-fn" href="#fn-5">5</a>
                   </th>
                   <td>$0.0450</td>
                   <td>$0.0400</td>
@@ -104,7 +104,7 @@ export default function Pricing() {
                   <td>$0.0150</td>
                 </tr>
                 <tr>
-                  <th className="fw-semibold"><a className="mktg-link-green" href="/features/ai_sms_bots">SMS Out</a> <sup>6</sup></th>
+                  <th className="fw-semibold"><a className="mktg-link-green" href="/features/ai_sms_bots">SMS Out</a> <a className="pricing-fn" href="#fn-6">6</a></th>
                   <td>$0.0400</td>
                   <td>$0.0350</td>
                   <td>$0.0300</td>
@@ -116,7 +116,7 @@ export default function Pricing() {
                   <th className="fw-semibold">
                     <a className="mktg-link-green" href="/features/lead_automation">Per Action</a>
                     {" "}
-                    <sup>7</sup>
+                    <a className="pricing-fn" href="#fn-7">7</a>
                   </th>
                   <td>$0.00250</td>
                   <td>$0.00150</td>
@@ -126,7 +126,7 @@ export default function Pricing() {
                   <td>$0.00060</td>
                 </tr>
                 <tr>
-                  <th className="fw-semibold">Rejected Call <sup>8</sup></th>
+                  <th className="fw-semibold">Rejected Call <a className="pricing-fn" href="#fn-8">8</a></th>
                   <td>$0.0250</td>
                   <td>$0.0200</td>
                   <td>$0.0200</td>
@@ -138,7 +138,7 @@ export default function Pricing() {
                   <th className="fw-semibold">
                     <a className="mktg-link-green" href="/features/transcriptions">AI Transcription</a>
                     {" "}
-                    <sup>9</sup>
+                    <a className="pricing-fn" href="#fn-9">9</a>
                   </th>
                   <td>$0.0350</td>
                   <td>$0.0325</td>
@@ -148,7 +148,7 @@ export default function Pricing() {
                   <td>$0.0200</td>
                 </tr>
                 <tr>
-                  <th className="fw-semibold">Recording Retention <sup>10</sup></th>
+                  <th className="fw-semibold">Recording Retention <a className="pricing-fn" href="#fn-10">10</a></th>
                   <td>$0.00040</td>
                   <td>$0.00040</td>
                   <td>$0.00040</td>
@@ -294,26 +294,26 @@ export default function Pricing() {
         <section className="pricing-footnotes-section">
           <div className="container">
             <div className="pricing-footnotes mb-0">
-              <p><sup>1</sup> Monthly price for each phone number.</p>
-              <p><sup>2</sup> Monthly price to protect a number, covering carrier registration and spam-label removal.</p>
-              <p>
-                <sup>3</sup>
+              <p id="fn-1"><span className="pricing-fn">1</span> Monthly price for each phone number.</p>
+              <p id="fn-2"><span className="pricing-fn">2</span> Monthly price to protect a number, covering carrier registration and spam-label removal.</p>
+              <p id="fn-3">
+                <span className="pricing-fn">3</span>
                 {" "}Inbound calls to your local tracking numbers, billed per minute and rounded up to the nearest full minute. Forwarding the call to a buyer over toll-free or SIP is included in that rate; international and premium rate centers can add cost.
               </p>
-              <p>
-                <sup>4</sup>
+              <p id="fn-4">
+                <span className="pricing-fn">4</span>
                 {" "}Inbound calls to your toll free tracking numbers, billed per minute and rounded up to the nearest full minute. Forwarding the call to a buyer over toll-free or SIP is included in that rate; international and premium rate centers can add cost.
               </p>
-              <p>
-                <sup>5</sup>
+              <p id="fn-5">
+                <span className="pricing-fn">5</span>
                 {" "}Outbound dialing to consumers, such as lead automation and scheduled callback calls. It does not apply to inbound calls - connecting a buyer is included in the tracking rates. Outbound calls are billed on call duration, on the billing increment and minimum billable duration configured for your account - the Six Second Billing section of the rate sheet states yours.
               </p>
-              <p>
-                <sup>6</sup>
+              <p id="fn-6">
+                <span className="pricing-fn">6</span>
                 {" "}Rate per outbound SMS message. Inbound SMS on your local numbers is free; inbound messages on toll-free numbers can bill at your toll-free inbound SMS rate.
               </p>
-              <p>
-                <sup>7</sup>
+              <p id="fn-7">
+                <span className="pricing-fn">7</span>
                 {" "}Rate per billable schedule step run against a lead, such as a webhook, email, wait or choice. SMS is not billed here; a call a schedule dials is, on top of the call itself. This fee is charged when the following schedule action types are processed:{" "}
                 <span className="pricing-footnote-badge">AWS S3 Upload</span>
                 {" "}
@@ -351,9 +351,9 @@ export default function Pricing() {
                 {" "}
                 <span className="pricing-footnote-badge">Webhook POST</span>
               </p>
-              <p><sup>8</sup> Charged when an inbound call has nowhere eligible to go and is rejected.</p>
-              <p><sup>9</sup> Per minute of transcribed audio.</p>
-              <p><sup>10</sup> Monthly price per minute of recordings kept beyond the free 90 days.</p>
+              <p id="fn-8"><span className="pricing-fn">8</span> Charged when an inbound call has nowhere eligible to go and is rejected.</p>
+              <p id="fn-9"><span className="pricing-fn">9</span> Per minute of transcribed audio.</p>
+              <p id="fn-10"><span className="pricing-fn">10</span> Monthly price per minute of recordings kept beyond the free 90 days.</p>
               <p className="mb-0">If more than 20% of call attempts in the last 30 days were abandoned (unanswered, 0 seconds), a $0.005 surcharge applies to each call.</p>
             </div>
           </div>

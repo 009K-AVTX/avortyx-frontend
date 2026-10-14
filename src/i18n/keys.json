@@ -1196,11 +1196,83 @@
   "page": "index.html"
  },
  {
-  "k": "Customer reviews on Trustpilot",
+  "k": "Testimonials",
   "page": "index.html"
  },
  {
-  "k": "What customers say on Trustpilot",
+  "k": "What teams say about Avortyx",
+  "page": "index.html"
+ },
+ {
+  "k": "Sample testimonials · not real customers yet",
+  "page": "index.html"
+ },
+ {
+  "k": "5 out of 5 stars",
+  "page": "index.html"
+ },
+ {
+  "k": "Routing set up in an afternoon",
+  "page": "index.html"
+ },
+ {
+  "k": "We moved our health campaigns over and calls started reaching buyers the same day. The routing rules are easy to follow.",
+  "page": "index.html"
+ },
+ {
+  "k": "<0>DR</0>Daniel Reyes",
+  "page": "index.html"
+ },
+ {
+  "k": "Routing that just works",
+  "page": "index.html"
+ },
+ {
+  "k": "Calls connect fast and the reporting shows exactly why a call went where it did. No more guessing.",
+  "page": "index.html"
+ },
+ {
+  "k": "<0>PS</0>Priya Shah",
+  "page": "index.html"
+ },
+ {
+  "k": "We finally see what buyers do",
+  "page": "index.html"
+ },
+ {
+  "k": "The live monitor alone is worth it. For the first time we can see what our buyers are actually doing with the calls we send them.",
+  "page": "index.html"
+ },
+ {
+  "k": "<0>MW</0>Marcus Webb",
+  "page": "index.html"
+ },
+ {
+  "k": "4 out of 5 stars",
+  "page": "index.html"
+ },
+ {
+  "k": "Helpful specialists",
+  "page": "index.html"
+ },
+ {
+  "k": "A live video session sorted out our caps and failover in under an hour. Would like more report exports.",
+  "page": "index.html"
+ },
+ {
+  "k": "<0>MB</0>Marcus Bell",
+  "page": "index.html"
+ },
+ {
+  "k": "Clear pricing",
+  "page": "index.html"
+ },
+ {
+  "k": "Per-minute billing with no onboarding fee made it easy to test before we moved our volume.",
+  "page": "index.html"
+ },
+ {
+  "k": "<0>HC</0>Hannah Cole",
   "page": "index.html"
  },
  {
@@ -10928,10 +11000,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "A live video session sorted out our caps and failover in under an hour. Would like more report exports.",
-  "page": "(runtime)"
- },
- {
   "k": "AI SMS bots →",
   "page": "(runtime)"
  },
@@ -11232,10 +11300,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Clear pricing",
-  "page": "(runtime)"
- },
- {
   "k": "Close Avortyx Help",
   "page": "(runtime)"
  },
@@ -11477,10 +11541,6 @@
  },
  {
   "k": "Harbor Mutual answered · <0>+${#}</0>",
-  "page": "(runtime)"
- },
- {
-  "k": "Helpful specialists",
   "page": "(runtime)"
  },
  {
@@ -11908,10 +11968,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Per-minute billing with no onboarding fee made it easy to test before we moved our volume.",
-  "page": "(runtime)"
- },
- {
   "k": "Performance by traffic source · demo data",
   "page": "(runtime)"
  },
@@ -12109,10 +12165,6 @@
  },
  {
   "k": "Router",
-  "page": "(runtime)"
- },
- {
-  "k": "Routing set up in an afternoon",
   "page": "(runtime)"
  },
  {
@@ -12429,10 +12481,6 @@
  },
  {
   "k": "We assume no responsibility to investigate any Campaign Content either before any Campaign Content is uploaded or after the same is initiated published. We shall not be responsible or liable to You for any damages whatsoever of any kind for any Campaign Content which is ultimately relied upon by You for any purpose whatsoever",
-  "page": "(runtime)"
- },
- {
-  "k": "We moved our health campaigns over and calls started reaching buyers the same day. The routing rules are easy to follow.",
   "page": "(runtime)"
  },
  {
