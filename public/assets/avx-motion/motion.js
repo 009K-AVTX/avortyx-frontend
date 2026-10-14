@@ -14,9 +14,16 @@
   // Canvas and WebGL scenes hold their current frame while the page is scrolling and pick up
   // again just after: redrawing them on top of every scroll frame was the main cause of jank.
   var scrollQuietAt = 0, scrollTimer = 0, root = document.documentElement;
+  // The scroll position, read once per frame in the scroll event, which fires first in the
+  // frame while the layout is still clean. Reading window.scrollY later in a frame (in rAF, after
+  // animations have written styles) forces a full style and layout pass on the spot; on a phone
+  // that was most of the cost of scrolling. Everything below uses scrollPos() instead.
+  var curY = window.scrollY;
+  function scrollPos() { return curY; }
   // the CSS loops hold still the same way (html.avx-scrolling pauses them), so a scroll frame
   // only moves the page
   window.addEventListener('scroll', function () {
+    curY = window.scrollY;
     scrollQuietAt = performance.now() + 150;
     if (!scrollTimer) root.classList.add('avx-scrolling');
     clearTimeout(scrollTimer);
@@ -57,7 +64,7 @@
     var max = 1, ticking = false;
     function measure() { max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight); }
     function update() {
-      bar.style.transform = 'scaleX(' + Math.min(window.scrollY / max, 1).toFixed(4) + ')';
+      bar.style.transform = 'scaleX(' + Math.min(scrollPos() / max, 1).toFixed(4) + ')';
       ticking = false;
     }
     window.addEventListener('scroll', function () {
@@ -148,7 +155,7 @@
   function runDrivers() {
     driverRaf = 0;
     var active = drivers.filter(function (d) { return d.visible && d.dirty; });
-    var y = window.scrollY;
+    var y = scrollPos();
     active.forEach(function (d) {          // read phase: cached geometry, no layout reads
       d.dirty = false;
       d.px += (d.tx - d.px) * d.ease;
@@ -840,6 +847,22 @@
       var decimals = (m[1].split('.')[1] || '').length;
       var suffix = m[2];
       el.classList.add('avx-count');
+      // hold the final width while the digits count, so the number never pushes its neighbours
+      // (the stats sit centred side by side: a growing number used to shake the whole row, and a
+      // label that wrapped and unwrapped moved the logo strip below it up and down)
+      var finalText = el.textContent;
+      function lockWidth() {
+        var now = el.textContent;
+        el.style.minWidth = '';
+        el.textContent = finalText;
+        el.style.minWidth = Math.ceil(el.getBoundingClientRect().width) + 'px';
+        el.textContent = now;
+      }
+      el.style.display = 'inline-block';
+      el.style.textAlign = 'center';
+      lockWidth();
+      // measured again once the web font is in, against the final text
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(lockWidth);
       onVisible(el, function () {
         if (el.dataset.avxCounted) return;
         el.dataset.avxCounted = '1';
@@ -2822,7 +2845,7 @@
     }
 
     // ---- WebGL: the depth mesh ----
-    var gl = null, prog, count = 0, U = {}, ready = false, depthAt = function () { return 0; }, flatImg = null;
+    var gl = null, glReady = false, prog, count = 0, U = {}, ready = false, depthAt = function () { return 0; }, flatImg = null;
     try { gl = glCv.getContext('webgl', { premultipliedAlpha: true, alpha: true, antialias: true }); } catch (e) { gl = null; }
     var VS = 'attribute vec3 p;attribute vec3 n;attribute vec2 uv;uniform vec4 R;uniform vec4 V;uniform vec2 VP;varying vec2 vUv;varying vec3 vN;' +
       'vec3 rot(vec3 q){float x1=q.x*R.x+q.z*R.y;float z1=-q.x*R.y+q.z*R.x;return vec3(x1,q.y*R.z-z1*R.w,q.y*R.w+z1*R.z);}' +
@@ -2911,14 +2934,51 @@
     }
 
     var BASE_URL = '/assets/avx-site/img/';
-    function load(name, done) { var im = new Image(); im.decoding = 'async'; im.onload = function () { done(im); }; im.src = BASE_URL + name; }
-    load('avx-agent.webp', function (colorImg) {
-      load('avx-agent-depth.webp', function (depthImg) {
-        if (!(gl && setupGl(colorImg, depthImg))) { gl = null; flatImg = colorImg; }
+    // decode off the main thread before handing the picture to WebGL
+    function load(name, done) {
+      var im = new Image();
+      im.decoding = 'async';
+      im.src = BASE_URL + name;
+      (im.decode ? im.decode() : new Promise(function (r) { im.onload = r; })).then(function () { done(im); }, function () { done(im); });
+    }
+    // In two steps, so she shows up at once but the heavy work never lands mid-scroll:
+    // 1. the pictures are fetched and decoded (off the main thread) early, and she is drawn flat
+    //    straight away, a cheap 2D draw;
+    // 2. the WebGL depth mesh (the ~0.2s texture upload) is built in an idle moment while nobody is
+    //    scrolling, and takes over from the flat picture.
+    var loading = false;
+    function start() {
+      if (loading) return;
+      loading = true;
+      load('avx-agent.webp', function (colorImg) {
+        flatImg = colorImg;
         ready = true;
         draw(performance.now());
+        load('avx-agent-depth.webp', function (depthImg) { upgradeWhenQuiet(colorImg, depthImg); });
       });
-    });
+    }
+    function upgradeWhenQuiet(colorImg, depthImg) {
+      if (!gl) return;
+      if (scrolling()) { setTimeout(function () { upgradeWhenQuiet(colorImg, depthImg); }, 200); return; }
+      var go = function () {
+        if (scrolling()) { setTimeout(function () { upgradeWhenQuiet(colorImg, depthImg); }, 200); return; }
+        if (setupGl(colorImg, depthImg)) { glReady = true; flatImg = null; } else { gl = null; }
+        draw(performance.now());
+      };
+      if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 600 }); else go();
+    }
+    // start right after load, in an idle moment; or as soon as the section comes within two
+    // screens, whichever is first
+    if (document.readyState === 'complete') setTimeout(start, 300);
+    else window.addEventListener('load', function () { setTimeout(start, 300); });
+    if ('IntersectionObserver' in window) {
+      var near = new IntersectionObserver(function (entries) {
+        if (!entries[entries.length - 1].isIntersecting) return;
+        near.disconnect();
+        start();
+      }, { rootMargin: '1800px 0px' });
+      near.observe(box);
+    }
 
     // ---- the scene around her ----
     var tmp = [0, 0, 0];
@@ -2987,7 +3047,7 @@
       });
 
       // her picture: the WebGL depth mesh, or flat if WebGL is unavailable
-      if (ready && gl) {
+      if (ready && glReady) {
         gl.viewport(0, 0, glCv.width, glCv.height);
         gl.clearColor(0, 0, 0, 0);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -3517,7 +3577,7 @@
     var PI = Math.PI;
 
     // the globe: points spread evenly over a sphere (golden-angle spiral)
-    var N = 900, PTS = new Float32Array(N * 3);
+    var N = window.innerWidth < 768 ? 560 : 900, PTS = new Float32Array(N * 3);
     for (var i = 0; i < N; i++) {
       var y = 1 - 2 * (i + 0.5) / N, r = Math.sqrt(1 - y * y), th = i * 2.399963;
       PTS[3 * i] = r * Math.cos(th); PTS[3 * i + 1] = y; PTS[3 * i + 2] = r * Math.sin(th);
@@ -3558,17 +3618,38 @@
       return [v * v * p0[0] + 2 * v * u * c[0] + u * u * p1[0], v * v * p0[1] + 2 * v * u * c[1] + u * u * p1[1]];
     }
 
+    // positions relative to the canvas: read from the layout only when it may have moved (a resize,
+    // a new step and the second or so its row transitions run), not every frame
+    var M = null, measureUntil = 0, frameNo = 0;
+    function measure() {
+      var cr = cv.getBoundingClientRect();
+      OX = cr.left; OY = cr.top;
+      var rows = Array.prototype.slice.call(list.children);
+      M = {
+        G: center(chip), P: center(phone), rows: rows,
+        // the globe fills the gap between the caller and the buyers, never over either
+        gap: list.getBoundingClientRect().left - caller.getBoundingClientRect().right,
+        av: rows.map(function (li) { return center(li.querySelector('.avx-fc-b-main > i') || li); })
+      };
+    }
+    card.addEventListener('avx-dc', function () { measureUntil = performance.now() + 1200; });
+
+    // the globe's points, drawn in batches: one fill per colour and brightness step instead of
+    // one per point (900 colour strings a frame was most of the hero's cost on phones)
+    var BUCKETS = 14, batch = [[], []];
+    for (var bi = 0; bi < BUCKETS; bi++) { batch[0].push([]); batch[1].push([]); }
+
     var last = 0;
     function draw() {
       if (!W) return;
       // one clock for the step times and the frame (frame timestamps can lag performance.now)
       var t = performance.now() / 1000, dt = Math.max(0, Math.min(0.05, last ? t - last : 0.016));
       last = t;
-      var cr = cv.getBoundingClientRect();
-      OX = cr.left; OY = cr.top;
-      var G = center(chip), P = center(phone), rows = Array.prototype.slice.call(list.children);
-      // the globe fills the gap between the caller and the buyers, never over either
-      var gap = list.getBoundingClientRect().left - caller.getBoundingClientRect().right;
+      frameNo++;
+      // never read the layout mid-scroll (it forces the page to lay out early): keep the last
+      // positions until the scroll settles
+      if (!M || (!scrolling() && performance.now() < measureUntil)) measure();
+      var G = M.G, P = M.P, rows = M.rows, gap = M.gap;
       var R = Math.max(30, Math.min(70, gap * 0.42));
       var gx = G[0], gy = G[1] - 4, since = t - st.at;
       for (var c = 0; c < 3; c++) tint[c] += (st.tint[c] - tint[c]) * Math.min(1, dt * 3);
@@ -3675,8 +3756,25 @@
         var front = (z2 + 1) / 2, rim = Math.pow(1 - Math.abs(z2), 3);
         var al = 0.12 + 0.6 * front * front + 0.35 * rim + boost * 0.6;
         var sz = 0.8 + 1.1 * front + boost;
-        ctx.fillStyle = boost > 0.3 ? rgba(mix(base, [255, 255, 255], boost), al) : rgba(front > 0.85 ? mix(base, [255, 255, 255], 0.5) : base, al);
-        ctx.fillRect(sx2 - sz / 2, sy2 - sz / 2, sz, sz);
+        if (boost > 0.3) {
+          // the few points in the scoring wave keep their own colour
+          ctx.fillStyle = rgba(mix(base, [255, 255, 255], boost), al);
+          ctx.fillRect(sx2 - sz / 2, sy2 - sz / 2, sz, sz);
+        } else {
+          batch[front > 0.85 ? 1 : 0][Math.min(BUCKETS - 1, Math.round(Math.min(1, al) * (BUCKETS - 1)))].push(sx2 - sz / 2, sy2 - sz / 2, sz);
+        }
+      }
+      var bright = mix(base, [255, 255, 255], 0.5);
+      for (var bc = 0; bc < 2; bc++) {
+        for (bi = 0; bi < BUCKETS; bi++) {
+          var pts = batch[bc][bi];
+          if (!pts.length) continue;
+          ctx.fillStyle = rgba(bc ? bright : base, bi / (BUCKETS - 1));
+          ctx.beginPath();
+          for (var pi = 0; pi < pts.length; pi += 3) ctx.rect(pts[pi], pts[pi + 1], pts[pi + 2], pts[pi + 2]);
+          ctx.fill();
+          pts.length = 0;
+        }
       }
       orbs.filter(function (o) { return o.z >= 0; }).forEach(drawOrb);
 
@@ -3701,7 +3799,7 @@
       // the auction fans out to every buyer; the winner gets a beam
       var gout = [gx + R * 1.02, gy];
       rows.forEach(function (li, ri) {
-        var av = li.querySelector('.avx-fc-b-main > i') || li, ar = center(av), dst = [ar[2].left - OX - 3, ar[1]];
+        var ar = M.av[ri], dst = [ar[2].left - OX - 3, ar[1]];
         var cc = [(gout[0] + dst[0]) / 2, (gout[1] + dst[1]) / 2 - 10];
         var col = ORBS[ri % 3][1], isWin = st.phase === 'won' && st.win === ri;
         var fanA = st.phase === 'auction' ? 0.65 : 0;
@@ -3727,17 +3825,18 @@
     }
 
     size();
-    if ('ResizeObserver' in window) new ResizeObserver(function () { size(); draw(performance.now()); }).observe(cv);
-    else window.addEventListener('resize', function () { size(); draw(performance.now()); });
+    if ('ResizeObserver' in window) new ResizeObserver(function () { size(); M = null; draw(performance.now()); }).observe(cv);
+    else window.addEventListener('resize', function () { size(); M = null; draw(performance.now()); });
     draw(performance.now());
     // the drawn globe takes over from the static one in the HTML
     card.classList.add('avx-dg-live');
     if (reduced) return;
-    var on = false, raf = 0;
+    // phones draw at 30fps: the globe still turns smoothly and the main thread stays free for taps
+    var on = false, raf = 0, every = window.innerWidth < 768 ? 2 : 1, tick = 0;
     function frame(now) {
       raf = 0;
       if (!on) return;
-      if (!motionPaused() && !document.hidden && !scrolling()) draw(now);
+      if (!motionPaused() && !document.hidden && !scrolling() && ++tick % every === 0) draw(now);
       raf = requestAnimationFrame(frame);
     }
     onVisible(card, function () { on = true; if (!raf) raf = requestAnimationFrame(frame); }, function () { on = false; }, 0.05);
@@ -4178,12 +4277,13 @@
   function initNavScroll() {
     var nav = document.querySelector('.marketing-navbar');
     if (!nav) return;
-    var ticking = false;
+    // only touch the class when the state changes, from the position the scroll event recorded
+    var on = null;
     function update() {
-      nav.classList.toggle('avx-nav-scrolled', (window.scrollY || document.documentElement.scrollTop) > 8);
-      ticking = false;
+      var next = scrollPos() > 8;
+      if (next !== on) { on = next; nav.classList.toggle('avx-nav-scrolled', next); }
     }
-    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener('scroll', update, { passive: true });
     update();
   }
 
@@ -4260,7 +4360,8 @@
   function initFloatingBack() {
     var a = document.querySelector('body > main .mktg-subpage-hero .mktg-subpage-back');
     if (!a) return;
-    var bar = el('div', 'avx-backbar');
+    var bar = el('nav', 'avx-backbar');
+    bar.setAttribute('aria-label', 'Back');
     document.body.appendChild(bar);
     bar.appendChild(a);
     // pages with the site navbar: sit just under it, lined up with its left edge
@@ -4400,32 +4501,15 @@
     });
   }
 
-  // lift the boot gate once the page is built and the web fonts are in (or after a short wait)
+  // lift the boot gate as soon as the page is built. It no longer waits for the web fonts: they
+  // load with font-display: swap, so waiting only delayed the page on a first visit
   function reveal() {
     var root = document.documentElement;
     if (!root.classList.contains('avx-boot')) return;
-    function show() {
-      requestAnimationFrame(function () {
-        root.classList.add('avx-booted');
-        root.classList.remove('avx-boot');
-      });
-    }
-    if (document.fonts && document.fonts.ready) {
-      // wait for the font stylesheet to land, then for its fonts
-      var fonts = new Promise(function (res) {
-        var t0 = Date.now();
-        (function wait() {
-          var css = Array.prototype.some.call(document.styleSheets, function (s) {
-            return s.href && /fonts\.googleapis|\/avx-fonts\//.test(s.href);
-          });
-          if (css || Date.now() - t0 > 600) document.fonts.ready.then(res, res);
-          else setTimeout(wait, 30);
-        })();
-      });
-      Promise.race([fonts, new Promise(function (r) { setTimeout(r, 800); })]).then(show, show);
-    } else {
-      show();
-    }
+    requestAnimationFrame(function () {
+      root.classList.add('avx-booted');
+      root.classList.remove('avx-boot');
+    });
   }
 
   // start-up runs in short slices (same order), yielding between them so a tap or click

@@ -5,21 +5,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/blog/healthcare-call-tracking-measure-marketing-roi",
-      "destination": "/blog/call-tracking-for-healthcare-practices",
-      "permanent": true
-    },
-    {
-      "source": "/blog/real-estate-call-tracking-track-every-lead",
-      "destination": "/blog/real-estate-calls-from-listing-to-showing",
-      "permanent": true
-    },
-    {
-      "source": "/blog/marketing-agency-call-tracking-success-story",
-      "destination": "/blog/agency-playbook-proving-call-quality",
-      "permanent": true
-    },
-    {
       "source": "/features/ping_post",
       "destination": "/features",
       "permanent": false
@@ -88,6 +73,106 @@
       "source": "/:lang(ru|ja|zh)/features/twilio",
       "destination": "/:lang/features/multiple_telephone_providers",
       "permanent": false
+    },
+    {
+      "source": "/blog/call-tracking-for-healthcare-practices",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/call-tracking-for-healthcare-practices",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/real-estate-calls-from-listing-to-showing",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/real-estate-calls-from-listing-to-showing",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/agency-playbook-proving-call-quality",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/agency-playbook-proving-call-quality",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/call-attribution-explained",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/call-attribution-explained",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/pay-per-call-margin-leaks",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/pay-per-call-margin-leaks",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/sending-call-conversions-to-ad-platforms",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/sending-call-conversions-to-ad-platforms",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/what-ai-call-scoring-measures",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/what-ai-call-scoring-measures",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/call-recording-retention-and-access",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/call-recording-retention-and-access",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/hold-queues-and-failover",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/hold-queues-and-failover",
+      "destination": "/:lang/blog",
+      "permanent": false
+    },
+    {
+      "source": "/blog/web-forms-into-live-calls",
+      "destination": "/blog",
+      "permanent": false
+    },
+    {
+      "source": "/:lang(ru|ja|zh)/blog/web-forms-into-live-calls",
+      "destination": "/:lang/blog",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -97,6 +182,33 @@
     }
   ],
   "headers": [
+    {
+      "source": "/assets/(avx-motion|avx-site|avx-theme|avx-i18n)/(.*)\\.(css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/avx-fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)\\.(webp|png|jpg|jpeg|svg|woff2)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
     {
       "source": "/assets/avx-baked/(.*)",
       "headers": [

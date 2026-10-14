@@ -75,7 +75,22 @@
     box.innerHTML = '<span>We use cookies to understand how you use our site and to improve your experience, ' +
       'including personalizing content and offering resources. By continuing to use our site, you accept our use of cookies. ' +
       '<a href="/privacy_policy">Privacy Policy</a></span><a href="#" id="okClose" role="button">I Accept</a>';
-    document.body.appendChild(box);
+    // never over the stats bar: where a page has one, the notice waits until it has scrolled out of
+    // view (it covered the figures under the hero on a laptop screen)
+    var stats = document.querySelector('.avx-statsbar');
+    if (stats && 'IntersectionObserver' in window) {
+      var shown = false;
+      var io = new IntersectionObserver(function (entries) {
+        var e = entries[entries.length - 1];
+        if (shown || e.isIntersecting || e.boundingClientRect.top > 0) return;
+        shown = true;
+        io.disconnect();
+        document.body.appendChild(box);
+      });
+      io.observe(stats);
+    } else {
+      document.body.appendChild(box);
+    }
     box.querySelector('#okClose').addEventListener('click', function (e) {
       e.preventDefault();
       var until = new Date();
@@ -586,12 +601,9 @@
     heads.forEach(function (h, i) { if (h && h.getBoundingClientRect().top < 200) current = i; });
     links.forEach(function (a, i) { a.classList.toggle('avx-on', i === current); });
   }
-  var ticking = false;
-  window.addEventListener('scroll', function () {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(function () { ticking = false; mark(); });
-  }, { passive: true });
+  // measured in the scroll event itself, where the layout is still clean, rather than in a later
+  // animation frame where reading positions would force a fresh layout pass
+  window.addEventListener('scroll', mark, { passive: true });
   mark();
 })();
 
@@ -857,4 +869,144 @@
   }
   document.addEventListener('pointerover', warm, { passive: true });
   document.addEventListener('touchstart', warm, { passive: true });
+})();
+
+/* ---------- Request Access / Request Demo: a one-line explanation on hover or keyboard focus ----------
+   So a new visitor can tell the two apart: access is an application for an account (invite-only,
+   reviewed, setup link by email), a demo is a walkthrough with a specialist. */
+(function () {
+  'use strict';
+  var TIPS = {
+    '/request-access': 'Apply for your own account. Our team reviews each request and emails you a setup link.',
+    '/p/request_demo': 'See Avortyx live with a specialist before you sign up.'
+  };
+  var tip = null, owner = null;
+  function tipFor(a) {
+    if (!a || a.closest('.avx-tip-off')) return null;
+    var path = a.pathname.replace(/^\/(ru|ja|zh)(?=\/)/, '');
+    return TIPS[path] || null;
+  }
+  function place() {
+    if (!owner || !tip) return;
+    var r = owner.getBoundingClientRect(), t = tip.getBoundingClientRect(), gap = 10;
+    var below = r.bottom + gap + t.height < window.innerHeight;
+    var left = Math.min(Math.max(r.left + r.width / 2 - t.width / 2, 12), window.innerWidth - t.width - 12);
+    tip.style.left = Math.round(left) + 'px';
+    tip.style.top = Math.round(below ? r.bottom + gap : r.top - gap - t.height) + 'px';
+    tip.style.setProperty('--avx-tip-x', Math.round(r.left + r.width / 2 - left) + 'px');
+    tip.classList.toggle('avx-tip-above', !below);
+  }
+  function show(a) {
+    var text = tipFor(a);
+    if (!text) return;
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.className = 'avx-cta-tip';
+      tip.id = 'avx-cta-tip';
+      tip.setAttribute('role', 'tooltip');
+      document.body.appendChild(tip);
+    }
+    owner = a;
+    tip.textContent = text;
+    a.setAttribute('aria-describedby', 'avx-cta-tip');
+    tip.classList.add('avx-on');
+    place();
+  }
+  function hide() {
+    if (owner) owner.removeAttribute('aria-describedby');
+    owner = null;
+    if (tip) tip.classList.remove('avx-on');
+  }
+  var hover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+  if (hover) {
+    document.addEventListener('mouseover', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (a && a !== owner && tipFor(a)) show(a);
+    });
+    document.addEventListener('mouseout', function (e) {
+      if (owner && !owner.contains(e.relatedTarget)) hide();
+    });
+  }
+  document.addEventListener('focusin', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (a && tipFor(a)) show(a); else hide();
+  });
+  document.addEventListener('focusout', hide);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+  window.addEventListener('scroll', function () { if (owner) place(); }, { passive: true });
+  window.addEventListener('resize', hide);
+})();
+
+/* ---------- Language switch without a wait ----------
+   The moment the language menu is about to open (pointer on the globe, a tap or keyboard focus),
+   the other languages' versions of this page are prepared in the background: Chromium prerenders
+   them, other browsers prefetch them. Picking a language then shows a page that is already there. */
+(function () {
+  'use strict';
+  var warmed = false;
+  function warm() {
+    if (warmed) return;
+    warmed = true;
+    var urls = [].slice.call(document.querySelectorAll('a[data-avx-lang]'))
+      .filter(function (a) { return a.getAttribute('aria-current') !== 'true'; })
+      .map(function (a) { return a.getAttribute('href'); })
+      .filter(function (h, i, all) { return h && all.indexOf(h) === i; });
+    if (!urls.length) return;
+    if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) {
+      var rules = document.createElement('script');
+      rules.type = 'speculationrules';
+      rules.textContent = JSON.stringify({ prerender: [{ source: 'list', urls: urls, eagerness: 'immediate' }] });
+      document.head.appendChild(rules);
+    } else {
+      urls.forEach(function (u) {
+        var l = document.createElement('link');
+        l.rel = 'prefetch';
+        l.href = u;
+        document.head.appendChild(l);
+      });
+    }
+  }
+  function maybe(e) {
+    if (e.target.closest && e.target.closest('.avx-lang')) warm();
+  }
+  document.addEventListener('pointerover', maybe, { passive: true });
+  document.addEventListener('touchstart', maybe, { passive: true });
+  document.addEventListener('focusin', maybe);
+})();
+
+/* ---------- Measuring the page: how far visitors read ----------
+   section_view fires once per section per visit (as half of it comes on screen), so reports show
+   where readers stop; scroll_depth fires at 25, 50, 75 and 100% of the page. Both carry the hero
+   headline variant through the user property set in document.html. */
+(function () {
+  'use strict';
+  function send(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params); }
+  var main = document.querySelector('main');
+  if (!main) return;
+  var sections = [].slice.call(main.querySelectorAll(':scope > section'));
+  if ('IntersectionObserver' in window && sections.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var s = e.target, i = sections.indexOf(s);
+        var name = s.id || ((s.className.match(/(?:avx|mktg|marketing)-[\w-]+/g) || []).filter(function (x) { return x !== 'mktg-section'; })[0]) || 'section';
+        send('section_view', { section: name, section_index: i + 1, section_count: sections.length, page_path: location.pathname });
+      });
+    }, { threshold: 0.5 });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+  // read in the scroll event itself (the layout is clean there), and only report new milestones
+  var marks = [25, 50, 75, 100], next = 0;
+  function depth() {
+    if (next >= marks.length) return;
+    var h = document.documentElement.scrollHeight;
+    var pct = h ? (window.scrollY + window.innerHeight) / h * 100 : 0;
+    while (next < marks.length && pct >= marks[next] - 1) {
+      send('scroll_depth', { percent: marks[next], page_path: location.pathname });
+      next++;
+    }
+    if (next >= marks.length) window.removeEventListener('scroll', depth);
+  }
+  window.addEventListener('scroll', depth, { passive: true });
 })();

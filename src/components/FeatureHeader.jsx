@@ -1,6 +1,7 @@
+import Bolt from './Bolt.jsx'
 import LangMenu from './LangMenu.jsx'
 
-// The "View full page ×" strip on feature pages, with the language menu and Request Demo
+// The "View full page ×" strip on feature pages, with the language menu and Request Access
 // that every page keeps in view. Close goes back a page (motion.js handles
 // data-avx-back; React does not render javascript: links).
 export default function FeatureHeader({ route }) {
@@ -9,7 +10,7 @@ export default function FeatureHeader({ route }) {
       <ul className="navbar-nav avx-nav-quick avx-nav-quick-strip me-auto">
         <LangMenu />
         <li className="nav-item">
-          <a className="avx-request-demo" href="/p/request_demo">Request Demo</a>
+          <a className="avx-request-access" href="/request-access"><Bolt />Request Access</a>
         </li>
       </ul>
       <a className="feature-modal-fullpage text-decoration-none text-secondary me-3" href={route.replace(/\.html$/, '')} target="_blank">

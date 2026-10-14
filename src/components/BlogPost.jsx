@@ -1,3 +1,4 @@
+import Bolt from './Bolt.jsx'
 import BlogCard from './BlogCard.jsx'
 import { LATEST, SHOTS, coverSrc, formatDate } from '../blog/posts.js'
 
@@ -87,7 +88,7 @@ export default function BlogPost({ post }) {
               <div className="avx-art-end">
                 <p><b>See it in your own numbers.</b> Track every call, route it to the right buyer and see the revenue behind it.</p>
                 <div className="d-flex flex-wrap gap-2">
-                  <a href="/request-access" className="btn btn-td-green">Request Access</a>
+                  <a href="/request-access" className="btn btn-td-green"><Bolt />Request Access</a>
                   <a href="/p/request_demo" className="btn btn-outline-td-green">Request Demo</a>
                 </div>
               </div>

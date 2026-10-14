@@ -68,7 +68,7 @@ export default function Api() {
               </li>
             </ul>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
-              <a href="/request-access" className="btn btn-td-green" title="Request API access from Avortyx">Request API Access</a>
+              <a href="/request-access" className="btn btn-td-green" title="Request API access from Avortyx"><Bolt />Request API Access</a>
               {" "}
               <a href="/features/api_whitelist" className="btn btn-outline-td-green">API IP Whitelist</a>
               {" "}

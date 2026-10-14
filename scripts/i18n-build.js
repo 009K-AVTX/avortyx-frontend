@@ -101,6 +101,9 @@ export function localize(html, route, lang, dict, missing) {
   set.textContent = `window.AVX_LANG=${JSON.stringify(lang)};`
   const dictTag = document.createElement('script')
   dictTag.setAttribute('src', `/assets/avx-i18n/${lang}.js`)
+  // deferred like core.js and runtime.js: the page is already translated, so the dictionary (only
+  // for text scripts add later) never holds up the first paint; defer keeps the three in order
+  dictTag.setAttribute('defer', '')
   core.parentNode.insertBefore(set, core)
   core.parentNode.insertBefore(dictTag, core)
   return finish(document, route, lang)

@@ -1,5 +1,7 @@
 // /request-access.html — Avortyx is invite-only: the request form, as on avortyx.com/request-access.
 // The form is static; site.js turns a submission into an email to the team (no backend).
+import Bolt from '../components/Bolt.jsx'
+
 const STEPS = [
   ['You send a request', 'Tell us who you are and what you want to do on the platform.'],
   ['We review it', 'Every request is looked at by our team; access is by invitation only.'],
@@ -57,6 +59,7 @@ export default function RequestAccess() {
                   <label>What are you looking to route?<textarea name="use_case" rows="3" placeholder="A few words on your verticals, monthly call volume, and current stack." required /></label>
                   <p className="avx-ra-err" role="alert" hidden />
                   <button type="submit" className="avx-ra-submit">
+                    <Bolt />
                     Request access
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                   </button>

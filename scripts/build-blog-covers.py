@@ -146,40 +146,6 @@ def background(hue, seed):
 
 # ---------- the illustrations, one per post ----------
 
-def m_healthcare(p, g, ic):
-    # an appointment calendar with booked days, a heartbeat line running across it
-    p.panel(735, 150, 1075, 470)
-    p.rect(735, 150, 1075, 205, 18, fill=p.c(.45, 230))
-    for x in (800, 1010):
-        p.rect(x - 7, 136, x + 7, 168, 6, fill=p.c(.85, 255))
-    booked = {(0, 1), (1, 3), (2, 0), (2, 2), (3, 4), (1, 1), (3, 1)}
-    for r in range(4):
-        for c in range(5):
-            x, y = 760 + c * 62, 222 + r * 60
-            on = (r, c) in booked
-            p.rect(x, y, x + 46, y + 44, 9, fill=p.c(.55, 255) if on else (255, 255, 255, 18), outline=None if on else p.c(.6, 60), width=1)
-            if on:
-                p.check(x + 23, y + 22, 18, (255, 255, 255, 255), 3)
-    pts = [(690, 400), (800, 400), (825, 360), (850, 445), (872, 330), (895, 400), (1120, 400)]
-    p.line(pts, p.c(.86, 255), 4)
-
-
-def m_realestate(p, g, ic):
-    # a small skyline on the floor, two listings pinned, each pin tied to an incoming call
-    blocks = [(745, 330, 55), (805, 270, 60), (870, 350, 50), (925, 230, 70), (1000, 300, 60)]
-    for x, top, w in blocks:
-        p.rect(x, top, x + w, 470, 6, fill=(14, 26, 62, 240), outline=p.c(.6, 150), width=2)
-        for wy in range(top + 18, 455, 26):
-            for wx in range(x + 12, x + w - 8, 18):
-                p.rect(wx, wy, wx + 8, wy + 10, 2, fill=p.c(.75, 120 if (wx + wy) % 3 else 220))
-    for x, y in ((830, 205), (960, 165)):
-        p.circle(x, y, 26, fill=p.c(.55, 255))
-        p.poly([(x - 20, y + 16), (x + 20, y + 16), (x, y + 52)], fill=p.c(.55, 255))
-        p.circle(x, y, 10, fill=(255, 255, 255, 255))
-        p.circle(x, y + 52, 14, outline=p.c(.75, 150), width=2)
-    p.line([(830, 165), (900, 110), (1050, 110)], p.c(.75, 160), 2)
-    p.line([(960, 125), (1050, 110)], p.c(.75, 160), 2)
-    p.sphere(1080, 110, 34, ic['phone'], g)
 
 
 def m_agency(p, g, ic):
@@ -195,18 +161,6 @@ def m_agency(p, g, ic):
     p.check(sx, sy, 56, (255, 255, 255, 255), 7)
 
 
-def m_leaks(p, g, ic):
-    # a funnel taking in calls, with margin dripping out of its sides
-    p.poly([(745, 160), (1065, 160), (935, 320), (875, 320)], fill=(14, 26, 62, 235), outline=p.c(.65, 255))
-    p.rect(875, 318, 935, 420, 6, fill=(14, 26, 62, 235), outline=p.c(.65, 255), width=2)
-    for i in range(14):
-        x = 770 + (i * 37) % 280
-        p.circle(x, 120 + (i * 23) % 40, 6, fill=p.c(.75, 230))
-    for (x, y) in ((820, 235), (990, 235), (905, 418)):
-        for k in range(4):
-            p.circle(x + (-1) ** k * 6, y + 26 + k * 28, 7 - k, fill=p.c(.62, 240 - k * 45))
-    p.d.ellipse(p.p(830, 455, 980, 480), fill=p.c(.5, 150))
-
 
 def m_attribution(p, g, ic):
     # sources on the left, every path traced into the one call it produced
@@ -219,19 +173,6 @@ def m_attribution(p, g, ic):
         p.rect(x - 9, y - 4, x + 9, y + 4, 3, fill=(255, 255, 255, 220 if hot else 120))
     p.sphere(target[0], target[1], 62, ic['phone'], g)
 
-
-def m_pingpost(p, g, ic):
-    # a hub pings the buyers, three bids rise, the tallest one wins
-    hx, hy = 800, 330
-    for r in (90, 125, 160):
-        p.d.arc(p.p(hx - r, hy - r, hx + r, hy + r), -50, 50, fill=p.c(.7, 140), width=3 * SS)
-    for i, (h, win) in enumerate(((150, False), (230, True), (110, False))):
-        x = 960 + i * 58
-        p.rect(x, 470 - h, x + 40, 470, 8, fill=p.c(.62 if win else .32, 255), outline=p.c(.75, 200), width=2)
-        if win:
-            p.circle(x + 20, 470 - h - 30, 16, fill=(255, 255, 255, 255))
-            p.check(x + 20, 470 - h - 30, 16, p.c(.4, 255), 3)
-    p.sphere(hx, hy, 66, ic['gavel'], g)
 
 
 def m_conversions(p, g, ic):
@@ -279,20 +220,6 @@ def m_spam(p, g, ic):
         p.d.arc(p.p(1000 - r, 300 - r, 1000 + r, 300 + r), -40, 40, fill=p.c(.75, 170), width=3 * SS)
 
 
-def m_ai(p, g, ic):
-    # a voice waveform flowing into an intent gauge that reads high
-    for i in range(16):
-        x = 730 + i * 12
-        h = 14 + 46 * abs(math.sin(i * .9)) * (1 - i / 22)
-        p.rect(x, 330 - h, x + 6, 330 + h, 3, fill=p.c(.7, 230))
-    cx, cy, r = 990, 360, 105
-    p.d.arc(p.p(cx - r, cy - r, cx + r, cy + r), 180, 360, fill=(255, 255, 255, 35), width=18 * SS)
-    p.d.arc(p.p(cx - r, cy - r, cx + r, cy + r), 180, 320, fill=p.c(.6, 255), width=18 * SS)
-    t = math.radians(320)
-    p.line([(cx, cy), (cx + (r - 30) * math.cos(t), cy + (r - 30) * math.sin(t))], (255, 255, 255, 255), 5)
-    p.circle(cx, cy, 12, fill=(255, 255, 255, 255))
-    p.sphere(cx, cy - 170, 34, ic['brain'], g)
-
 
 def m_caps(p, g, ic):
     # three buyers' capacity, filling at different rates, each with its cap line
@@ -306,76 +233,130 @@ def m_caps(p, g, ic):
     p.sphere(1080, 200, 36, ic['sliders'], g)
 
 
-def m_queue(p, g, ic):
-    # callers waiting in a curved queue, flowing into the buyer who frees up
-    pts = [(735 + i * 48, 430 - 30 * math.sin(i * .55)) for i in range(7)]
-    p.line(pts + [(1060, 300)], p.c(.55, 140), 2)
-    for i, (x, y) in enumerate(pts):
-        p.circle(x, y, 10 + i * 2.2, fill=p.c(.4 + i * .06, 255))
-    p.ring(1060, 290, 70, 9)
-    p.sphere(1060, 290, 44, ic['hourglass-half'], g)
 
 
-def m_forms(p, g, ic):
-    # a submitted web form turning straight into a live call
-    p.panel(730, 170, 930, 450, 18)
-    for i in range(3):
-        y = 205 + i * 58
-        p.rect(755, y, 855 + i * 15, y + 10, 5, fill=p.c(.7, 160))
-        p.rect(755, y + 18, 905, y + 42, 8, fill=(255, 255, 255, 22), outline=p.c(.55, 120), width=1)
-    p.rect(755, 385, 905, 425, 12, fill=p.c(.5, 255))
-    for i in range(6):
-        p.circle(955 + i * 14, 300 - i * 6, 4, fill=p.c(.8, 120 + i * 22))
-    for r in (70, 90):
-        p.circle(1060, 280, r, outline=p.c(.65, 150 - (r - 70) * 4), width=2)
-    p.sphere(1060, 280, 52, ic['phone'], g)
 
 
-def m_dialer(p, g, ic):
-    # a grid of leads, the dialer lighting the next one as each call ends
-    path = [(0, 0), (1, 0), (2, 1), (3, 1), (4, 2)]
+def m_night(p, g, ic):
+    # a closed office at night: a crescent moon, a clock at eleven, one window still lit
+    p.circle(1050, 170, 46, fill=p.c(.82, 255))
+    p.circle(1072, 152, 42, fill=(9, 16, 40, 255))
+    for x, y in ((760, 150), (820, 210), (990, 250), (1110, 260), (900, 130)):
+        p.circle(x, y, 3, fill=(255, 255, 255, 200))
+    p.rect(740, 300, 960, 470, 10, fill=(14, 26, 62, 240), outline=p.c(.6, 150), width=2)
+    for r in range(3):
+        for c in range(4):
+            x, y = 760 + c * 50, 318 + r * 48
+            lit = (r, c) == (1, 2)
+            p.rect(x, y, x + 30, y + 30, 4, fill=p.c(.75, 255) if lit else (255, 255, 255, 16))
+    cx, cy = 1030, 370
+    p.circle(cx, cy, 78, fill=(12, 22, 52, 240), outline=p.c(.65, 255), width=4)
+    for k in range(12):
+        t = math.radians(k * 30)
+        p.circle(cx + 62 * math.sin(t), cy - 62 * math.cos(t), 3.5, fill=p.c(.8, 230))
+    p.line([(cx, cy), (cx - 22, cy - 38)], p.c(.88, 255), 6)
+    p.line([(cx, cy), (cx, cy - 56)], p.c(.88, 255), 4)
+    p.circle(cx, cy, 7, fill=p.c(.88, 255))
+
+
+def m_pool(p, g, ic):
+    # a pool of tracking numbers: each lit tile is lent to a visitor, one call traced back
+    lit = {(0, 1), (1, 3), (2, 0), (2, 2), (3, 4), (0, 4), (1, 0)}
     for r in range(4):
         for c in range(5):
-            x, y = 750 + c * 62, 190 + r * 62
-            on = (c, r) in path
-            p.circle(x, y, 14, fill=p.c(.6 if on else .3, 255 if on else 170))
-    p.line([(750 + c * 62, 190 + r * 62) for c, r in path], p.c(.8, 230), 3)
-    p.sphere(1065, 365, 62, ic['headset'], g)
+            x, y = 735 + c * 64, 165 + r * 64
+            on = (r, c) in lit
+            p.rect(x, y, x + 50, y + 50, 10, fill=p.c(.52, 255) if on else (255, 255, 255, 14), outline=p.c(.65, 200 if on else 70), width=2)
+            p.text(x + 25, y + 25, '#', g['label'], (255, 255, 255, 235 if on else 70), 'mm')
+    p.line([(735 + 3 * 64 + 25, 165 + 64 + 25), (1010, 120), (1075, 120)], p.c(.8, 220), 3)
+    p.sphere(1080, 400, 58, ic['phone'], g)
+    p.line([(1080, 340), (1080, 150)], p.c(.6, 120), 2)
 
 
-def m_recordings(p, g, ic):
-    # a recording's waveform on a timeline, locked to the people allowed to hear it
+def m_timer(p, g, ic):
+    # a stopwatch with the qualifying seconds filled in, next to a keypad's "1"
+    cx, cy, r = 880, 330, 120
+    p.rect(cx - 18, cy - r - 34, cx + 18, cy - r - 8, 6, fill=p.c(.7, 255))
+    p.circle(cx, cy, r, fill=(12, 22, 52, 240), outline=p.c(.65, 255), width=5)
+    p.d.pieslice(p.p(cx - r + 14, cy - r + 14, cx + r - 14, cy + r - 14), -90, 90, fill=p.c(.55, 210))
+    for k in range(12):
+        t = math.radians(k * 30)
+        p.line([(cx + (r - 12) * math.sin(t), cy - (r - 12) * math.cos(t)), (cx + (r - 26) * math.sin(t), cy - (r - 26) * math.cos(t))], p.c(.85, 220), 3)
+    p.line([(cx, cy), (cx, cy + r - 30)], p.c(.9, 255), 5)
+    p.circle(cx, cy, 9, fill=p.c(.9, 255))
+    p.rect(1030, 250, 1120, 340, 18, fill=p.c(.5, 255), outline=p.c(.8, 230), width=2)
+    p.text(1075, 295, '1', g['title50'], (255, 255, 255, 255), 'mm')
+
+
+def m_audio(p, g, ic):
+    # a call's waveform that goes flat in the middle: dead air, flagged
     p.panel(725, 205, 1085, 425, 22)
-    for i in range(34):
-        x = 790 + i * 8.6
-        h = 6 + 52 * abs(math.sin(i * .47) * math.cos(i * .13))
-        p.rect(x, 315 - h, x + 4, 315 + h, 2, fill=p.c(.72 if i < 21 else .4, 255))
-    p.circle(758, 315, 20, fill=p.c(.5, 255))
-    p.poly([(752, 304), (752, 326), (768, 315)], fill=(255, 255, 255, 255))
-    p.rect(790, 395, 1060, 399, 2, fill=p.c(.4, 200))
-    p.rect(790, 395, 970, 399, 2, fill=p.c(.75, 255))
-    lx, ly = 1060, 170
-    p.d.arc(p.p(lx - 26, ly - 50, lx + 26, ly + 2), 180, 360, fill=p.c(.75, 255), width=7 * SS)
-    p.rect(lx - 36, ly - 24, lx + 36, ly + 34, 10, fill=p.c(.5, 255))
-    p.circle(lx, ly + 4, 7, fill=(255, 255, 255, 255))
+    for i in range(36):
+        x = 760 + i * 8.6
+        dead = 13 <= i <= 23
+        h = 3 if dead else 6 + 50 * abs(math.sin(i * .5) * math.cos(i * .17))
+        p.rect(x, 315 - h, x + 4, 315 + h, 2, fill=p.c(.35, 200) if dead else p.c(.72, 255))
+    p.rect(870, 236, 962, 270, 10, fill=p.c(.5, 255))
+    p.text(916, 253, 'DEAD AIR', g['mono'], (255, 255, 255, 255), 'mm')
+    p.line([(916, 270), (916, 300)], p.c(.75, 220), 2)
+    p.sphere(1095, 180, 40, ic['wave-square'], g)
+
+
+def m_team(p, g, ic):
+    # a sheet of rows becomes a floor of agents, each with a headset
+    p.panel(730, 170, 890, 460, 16)
+    for i in range(6):
+        y = 200 + i * 42
+        p.rect(750, y, 870 - (i % 3) * 18, y + 12, 5, fill=p.c(.75 if i == 0 else .55, 200))
+    for i in range(5):
+        p.circle(905 + i * 12, 315, 4, fill=p.c(.8, 120 + i * 25))
+    for r in range(2):
+        for c in range(3):
+            x, y = 990 + c * 58, 240 + r * 110
+            p.circle(x, y, 20, fill=p.c(.62, 255))
+            p.d.pieslice(p.p(x - 32, y + 18, x + 32, y + 82), 180, 360, fill=p.c(.5, 255))
+            p.d.arc(p.p(x - 25, y - 26, x + 25, y + 14), 200, 340, fill=p.c(.88, 255), width=3 * SS)
+
+
+def m_ring(p, g, ic):
+    # one call ringing three people at once, the order numbers beside them for the other way
+    cx, cy = 800, 320
+    p.sphere(cx, cy, 58, ic['phone'], g)
+    for k, y in enumerate((180, 320, 460)):
+        x = 1050
+        p.line([(cx + 60, cy), (x - 44, y)], p.c(.7, 200), 3)
+        for rr in (14, 26):
+            p.d.arc(p.p(x - 44 - rr - 40, y - rr, x - 44 + rr - 40, y + rr), -50, 50, fill=p.c(.75, 170), width=2 * SS)
+        p.circle(x, y, 34, fill=p.c(.55 - k * .07, 255), outline=p.c(.8, 220), width=2)
+        p.text(x, y, str(k + 1), g['label'], (255, 255, 255, 255), 'mm')
+
+
+def m_zones(p, g, ic):
+    # a globe between two clocks: the lead's local time, not the office's
+    p.sphere(905, 330, 90, ic['globe'], g)
+    for (cx, cy, hh) in ((760, 190, 9), (1060, 190, 12)):
+        p.circle(cx, cy, 52, fill=(12, 22, 52, 240), outline=p.c(.65, 255), width=4)
+        t = math.radians(hh * 30)
+        p.line([(cx, cy), (cx + 26 * math.sin(t), cy - 26 * math.cos(t))], p.c(.88, 255), 5)
+        p.line([(cx, cy), (cx, cy - 38)], p.c(.88, 255), 3)
+        p.circle(cx, cy, 5, fill=p.c(.88, 255))
+    p.d.arc(p.p(760, 150, 1060, 330), 200, 340, fill=p.c(.7, 170), width=3 * SS)
 
 
 MOTIFS = {
-    'call-tracking-for-healthcare-practices': m_healthcare,
-    'real-estate-calls-from-listing-to-showing': m_realestate,
-    'agency-playbook-proving-call-quality': m_agency,
-    'pay-per-call-margin-leaks': m_leaks,
-    'what-is-call-attribution': m_attribution,
-    'ping-post-explained': m_pingpost,
-    'sending-call-conversions-to-ad-platforms': m_conversions,
+    'planning-for-after-hours-calls': m_night,
+    'sizing-a-dynamic-number-pool': m_pool,
+    'setting-a-duplicate-call-window': m_agency,
+    'carrying-campaign-tokens-into-a-call': m_attribution,
+    'when-does-a-call-count-as-converted': m_timer,
+    'call-postbacks-to-affiliate-trackers': m_conversions,
     'tcpa-dnc-consent-checklist': m_checklist,
     'spam-labels-and-branded-caller-id': m_spam,
-    'what-ai-call-scoring-measures': m_ai,
+    'dead-air-and-one-way-audio': m_audio,
     'buyer-caps-that-dont-strand-calls': m_caps,
-    'hold-queues-and-failover': m_queue,
-    'web-forms-into-live-calls': m_forms,
-    'power-dialer-basics': m_dialer,
-    'call-recording-retention-and-access': m_recordings,
+    'ring-everyone-or-ring-in-order': m_ring,
+    'callbacks-across-time-zones': m_zones,
+    'onboarding-agents-in-bulk': m_team,
 }
 
 
@@ -433,7 +414,7 @@ def main():
     }
     for size in (50, 46, 42, 38):
         fonts['title%d' % size] = font(600, size)
-    ic = {k: codes[k] for k in ('phone', 'gavel', 'brain', 'headset', 'sliders', 'hourglass-half')}
+    ic = {k: codes[k] for k in ('phone', 'headset', 'sliders', 'hourglass-half', 'wave-square', 'globe')}
     for i, p in enumerate(posts()):
         img = render(p, fonts, ic, i)
         img.save(OUT / f"{p['slug']}.webp", 'WEBP', quality=86, method=6)

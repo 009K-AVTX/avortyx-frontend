@@ -25,7 +25,7 @@ export default function VerifiedIdentity() {
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
             {" "}
-            <a href="/request-access" className="btn btn-outline-td-green">Request Access</a>
+            <a href="/request-access" className="btn btn-outline-td-green"><Bolt />Request Access</a>
           </div>
         </div>
       </section>

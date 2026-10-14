@@ -1610,6 +1610,19 @@ html[lang="zh-Hans"] body {
 
   .marketing-navbar .navbar-toggler { order: 3; }
   .marketing-navbar .navbar-collapse { order: 4; }
+
+  /* the brand takes the space that is left, so the bar never wraps to two rows (it did for a
+     moment while the web fonts loaded, which pushed the whole page down) */
+  .marketing-navbar .navbar-brand {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .marketing-navbar .avx-nav-quick,
+  .marketing-navbar .navbar-toggler {
+    flex: none;
+  }
 }
 
 @media (max-width: 430px) {
@@ -1642,4 +1655,65 @@ html[lang="ru"] h3 {
     margin: 0 !important;
     opacity: 0 !important;
   }
+}
+
+/* ---------- Request Access / Request Demo hover note (site.js) ---------- */
+.avx-cta-tip {
+  position: fixed;
+  z-index: 10050;
+  max-width: 260px;
+  padding: 9px 12px;
+  border: 1px solid rgba(147, 197, 253, .25);
+  border-radius: 10px;
+  background: rgba(10, 15, 28, .96);
+  box-shadow: 0 14px 36px -12px rgba(2, 6, 23, .8);
+  color: #e2e8f0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+.avx-cta-tip.avx-tip-above {
+  transform: translateY(4px);
+}
+
+.avx-cta-tip.avx-on {
+  opacity: 1;
+  transform: none;
+}
+
+/* the little pointer, lined up with the button's centre */
+.avx-cta-tip::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: calc(var(--avx-tip-x, 50%) - 6px);
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid rgba(147, 197, 253, .25);
+  border-left: 1px solid rgba(147, 197, 253, .25);
+  background: rgba(10, 15, 28, .96);
+  transform: rotate(45deg);
+}
+
+.avx-cta-tip.avx-tip-above::before {
+  top: auto;
+  bottom: -6px;
+  transform: rotate(225deg);
+}
+
+[data-bs-theme="light"] .avx-cta-tip,
+[data-bs-theme="light"] .avx-cta-tip::before {
+  border-color: rgba(15, 23, 42, .12);
+  background: #fff;
+  color: #1e293b;
+}
+
+[data-bs-theme="light"] .avx-cta-tip {
+  box-shadow: 0 14px 36px -14px rgba(15, 23, 42, .35);
 }

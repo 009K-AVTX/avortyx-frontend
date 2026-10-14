@@ -1,6 +1,5 @@
 import BlogCard from '../components/BlogCard.jsx'
-import BrandMark from '../components/BrandMark.jsx'
-import { postBySlug, LATEST } from '../blog/posts.js'
+import { postBySlug } from '../blog/posts.js'
 // /
 // the intro's four outcomes, Salesloft-style
 import Bolt from '../components/Bolt.jsx'
@@ -8,31 +7,7 @@ import TrustBox from '../components/TrustBox.jsx'
 import More from '../components/More.jsx'
 const HERO_POINTS = ['Score every call’s intent with AI', 'Route to the highest-value buyer', 'Block spam, DNC and duplicates', 'See the revenue behind every call']
 
-// "Power your entire call business" [3D object, title, text, page, link] (facts from the site's own pages)
-const POWER = [
-  ['scale', 'Built for scale', '99.9% uptime and 85ms average routing, so every call reaches a buyer fast.', '/features/inbound_call_routing', 'Call routing'],
-  ['support', 'Specialist support', 'Phone, chat, email and live video with our specialists.', '/p/contact', 'Talk to us'],
-  ['grow', 'Grow on your terms', 'No onboarding fees. Usage-based rates with volume discounts.', '/pricing', 'See pricing'],
-  ['open', 'Open by design', 'Everything in the dashboard runs on the same REST API.', '/features/api', 'REST API'],
-]
-
-// each card's stage [ring icon, chips [value, label]]: only facts the card itself states
-const POWER_STAGE = {
-  scale: ['fa-route', [['99.9%', 'uptime'], ['85ms', 'avg routing']]],
-  support: ['fa-headset', [['', 'Phone'], ['', 'Live chat'], ['', 'Email'], ['', 'Video']]],
-  grow: ['fa-chart-line', [['$0', 'onboarding'], ['', 'Volume discounts']]],
-  open: ['fa-code', [['', 'REST API'], ['', 'Webhooks'], ['', 'Scoped tokens']]],
-}
-
 // each capability sphere gets its own hue in the blue-violet range
-const HUB_HUES = [217, 232, 199, 250, 210, 190, 240, 205]
-
-// a gentle curve from the chip (50,50) to a node, bowed to one side
-function hubPath(x, y) {
-  const mx = (50 + x) / 2, my = (50 + y) / 2, dx = x - 50, dy = y - 50
-  return `M50 50 Q${(mx - dy * 0.18).toFixed(1)} ${(my + dx * 0.18).toFixed(1)} ${x} ${y}`
-}
-
 // AI protection: the checks every call passes, and the three layers behind them
 const SHIELD_CHECKS = [['spam', 'Spam'], ['dup', 'Duplicate'], ['dnc', 'DNC'], ['line', 'Line type'], ['consent', 'Consent']]
 const SHIELD_LAYERS = [
@@ -672,62 +647,6 @@ const INTEGRATION_ROWS = [
 ]
 
 
-// Product tour: the first view (live calls) as it first appears, so crawlers and visitors
-// without JavaScript see it; motion.js replaces it with the live, switchable views.
-const TOUR_TABS = [['calls', 'Live calls'], ['sources', 'Sources'], ['usage', 'Usage']]
-const TOUR_CALLS = [
-  ['14:02:51', '(312) ··47', 'Google Ads', 'Apex Insurance', '4:12', '$64.00', 'Converted', 'ok'],
-  ['14:02:37', '(646) ··18', 'Meta', 'Northwind Benefits', '2:48', '$41.50', 'Connected', 'ok'],
-  ['14:02:12', '(415) ··62', 'Bing', 'Meridian Health', '—', '—', 'Ringing', 'ring'],
-  ['14:01:58', '(713) ··35', 'Affiliate', 'Summit Solar', '6:05', '$88.20', 'Connected', 'ok'],
-  ['14:01:40', '(480) ··91', 'TikTok', 'Lakeside Legal', '—', '—', 'In queue', 'bid'],
-  ['14:01:19', '(305) ··27', 'Organic', 'Harbor Home', '3:31', '$52.75', 'Converted', 'ok'],
-  ['14:00:56', '(720) ··83', 'Email', 'Pinnacle Auto', '—', '—', 'Missed', 'cap'],
-]
-
-function TourPreview() {
-  return (
-    <>
-      <div className="avx-tour-tabs" role="tablist" aria-label="Product views">
-        {TOUR_TABS.map(([key, label], i) => (
-          <button key={key} type="button" className={i ? 'avx-tour-tab' : 'avx-tour-tab avx-on'} role="tab" id={`tour-tab-${key}`} aria-controls="tour-stage" aria-selected={i ? 'false' : 'true'} tabIndex={i ? -1 : 0} data-tour={key}>
-            <span>{label}</span><i />
-          </button>
-        ))}
-      </div>
-      <div className="avx-tour-stage" id="tour-stage" role="tabpanel" aria-labelledby="tour-tab-calls">
-        <div className="avx-console avx-tour-on" role="img" aria-label="Live calls: every call with its source, buyer and revenue (demo data)">
-          <div className="avx-cs-bar">
-            <i /><i /><i />
-            <span className="avx-cs-path">app.avortyx.com / <b>calls</b></span>
-            <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
-          </div>
-          <div className="avx-cs-body">
-            <div className="avx-kpis avx-kpis-4">
-              <div className="avx-kpi" data-k="live"><span>Live calls</span><b>42</b><em className="avx-up">▲ 6</em></div>
-              <div className="avx-kpi" data-k="today"><span>Calls today</span><b>3,918</b><em className="avx-up">▲ 12.4%</em></div>
-              <div className="avx-kpi" data-k="conv"><span>Converted</span><b>27.8%</b><em className="avx-up">▲ 1.9%</em></div>
-              <div className="avx-kpi" data-k="rev"><span>Revenue today</span><b>$84,210</b><em className="avx-up">▲ 8.1%</em></div>
-            </div>
-            <table className="avx-cs-table avx-cs-log">
-              <thead><tr><th>Time</th><th>Caller</th><th>Source</th><th>Buyer</th><th>Duration</th><th>Revenue</th><th>Status</th></tr></thead>
-              <tbody>
-                {TOUR_CALLS.map(([time, caller, source, buyer, dur, rev, status, kind]) => (
-                  <tr key={time}>
-                    <td>{time}</td><td>{caller}</td><td>{source}</td><td>{buyer}</td><td>{dur}</td><td>{rev}</td>
-                    <td><span className={`avx-live-pill avx-pill-${kind}`}>{status}</span></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="avx-cs-foot">Every call with its source, buyer and revenue · demo data</div>
-        </div>
-      </div>
-    </>
-  )
-}
-
 export default function Home() {
   return (
     <main>
@@ -737,12 +656,10 @@ export default function Home() {
             <div className="avx-hero-copy">
               <p className="avx-hero-eyebrow"><span>AI</span>The AI Tracking Platform Built for Peak Performance</p>
               <div className="hero-heading">
+                {/* A/B test "hero_headline": document.html picks a or b per visitor before first paint */}
                 <h1 className="display-4 fw-bold">
-                  Track.
-                  {" "}
-                  Route.
-                  {" "}
-                  <span className="text-primary">Grow.</span>
+                  <span className="avx-ab-a">Track. Route. <span className="text-primary">Grow.</span></span>
+                  <span className="avx-ab-b">Every call routed to the right buyer in <span className="text-primary">85ms.</span></span>
                 </h1>
               </div>
               <p className="lead hero-lead">
@@ -754,11 +671,12 @@ export default function Home() {
                 ))}
               </ul>
               <p className="avx-hero-for">For marketers, advertisers, and brands.</p>
-              <div className="d-flex flex-wrap gap-3 avx-hero-ctas">
-                <a href="/request-access" className="btn btn-td-green btn-lg fw-semibold">Request Access</a>
+              <div className="avx-hero-ctas avx-cta-pair">
+                <a href="/request-access" className="btn btn-td-green btn-lg fw-semibold"><Bolt />Request Access</a>
                 {" "}
-                <a href="/p/request_demo" className="btn btn-outline-td-green btn-lg fw-semibold">Request Demo</a>
+                <a href="/p/request_demo" className="avx-cta-quiet">or book a demo <span aria-hidden="true">→</span></a>
               </div>
+              <p className="avx-cta-next"><i className="fa-solid fa-envelope" aria-hidden="true" />Invite-only. Our team reviews each request and emails you a setup link.</p>
               <a href="#how-it-decides" className="avx-hero-tour-link">How it works <span aria-hidden="true">↓</span></a>
             </div>
             {/* live decision: one call scored and matched to a buyer by its rules; motion.js replays it with new calls.
@@ -854,6 +772,7 @@ export default function Home() {
             <div><b className="avx-proof-num">99.9%</b><span>Uptime</span></div>
             <div><b className="avx-proof-num">85ms</b><span>Avg routing time</span></div>
             <div><b className="avx-proof-num">10+</b><span>Buyer match rules</span></div>
+            <div><b className="avx-proof-num">$0</b><span>Onboarding fees</span></div>
           </div>
           <p className="avx-logos-label">Works with the carriers and ad platforms you already run</p>
           <ul className="avx-logos">
@@ -882,7 +801,7 @@ export default function Home() {
             </div>
             <div className="avx-people-mosaic" data-ph="mosaic">
               <figure className="avx-ph avx-ph-a">
-                <img src="/assets/avx-site/img/people/smiling-call-2000.webp" srcSet="/assets/avx-site/img/people/smiling-call-1200.webp 1200w, /assets/avx-site/img/people/smiling-call-2000.webp 2000w, /assets/avx-site/img/people/smiling-call-2800.webp 2800w" sizes="(min-width: 992px) 720px, 130vw" alt="A smiling man in a white shirt on a phone call at his laptop" width="2000" height="1333" loading="lazy" decoding="async" />
+                <img src="/assets/avx-site/img/people/smiling-call-2000.webp" srcSet="/assets/avx-site/img/people/smiling-call-1200.webp 1200w, /assets/avx-site/img/people/smiling-call-2000.webp 2000w, /assets/avx-site/img/people/smiling-call-2800.webp 2800w" sizes="(min-width: 992px) 720px, 130vw" alt="A smiling man in a white shirt on a phone call at his laptop" width="2000" height="1333" loading="lazy" fetchPriority="low" decoding="async" />
                 <span className="avx-ph-chip"><i className="avx-live-dot" />Live call · <b data-ph="clock">0:42</b></span>
                 {/* what the agent sees about the caller, as in the product (demo data) */}
                 <span className="avx-ph-profile">
@@ -921,7 +840,7 @@ export default function Home() {
                 <span className="avx-ph-pay" aria-hidden="true">+$64.00</span>
               </figure>
               <figure className="avx-ph avx-ph-b">
-                <img src="/assets/avx-site/img/people/caller-laptop-1400.webp" srcSet="/assets/avx-site/img/people/caller-laptop-900.webp 900w, /assets/avx-site/img/people/caller-laptop-1400.webp 1400w, /assets/avx-site/img/people/caller-laptop-2000.webp 2000w" sizes="(min-width: 992px) 380px, 70vw" alt="A woman on her phone at a desk with a laptop" width="1400" height="933" loading="lazy" decoding="async" />
+                <img src="/assets/avx-site/img/people/caller-laptop-1400.webp" srcSet="/assets/avx-site/img/people/caller-laptop-900.webp 900w, /assets/avx-site/img/people/caller-laptop-1400.webp 1400w, /assets/avx-site/img/people/caller-laptop-2000.webp 2000w" sizes="(min-width: 992px) 380px, 70vw" alt="A woman on her phone at a desk with a laptop" width="1400" height="933" loading="lazy" fetchPriority="low" decoding="async" />
                 <span className="avx-ph-chip"><i className="fa-solid fa-phone" aria-hidden="true" />Caller · Google Ads</span>
                 <span className="avx-ph-quote">
                   <small><i className="fa-solid fa-wave-square" aria-hidden="true" />Live transcript</small>
@@ -929,7 +848,7 @@ export default function Home() {
                 </span>
               </figure>
               <figure className="avx-ph avx-ph-c">
-                <img src="/assets/avx-site/img/people/agent-desk-1400.webp" srcSet="/assets/avx-site/img/people/agent-desk-900.webp 900w, /assets/avx-site/img/people/agent-desk-1400.webp 1400w, /assets/avx-site/img/people/agent-desk-2000.webp 2000w" sizes="(min-width: 992px) 380px, 70vw" alt="An agent in glasses taking a call at his desk" width="1400" height="933" loading="lazy" decoding="async" />
+                <img src="/assets/avx-site/img/people/agent-desk-1400.webp" srcSet="/assets/avx-site/img/people/agent-desk-900.webp 900w, /assets/avx-site/img/people/agent-desk-1400.webp 1400w, /assets/avx-site/img/people/agent-desk-2000.webp 2000w" sizes="(min-width: 992px) 380px, 70vw" alt="An agent in glasses taking a call at his desk" width="1400" height="933" loading="lazy" fetchPriority="low" decoding="async" />
                 <span className="avx-ph-chip"><i className="fa-solid fa-headset" aria-hidden="true" />Agent · Warm transfer<span className="avx-ph-eq" aria-hidden="true"><i /><i /><i /><i /></span></span>
                 <span className="avx-ph-whisper">
                   <small><i className="fa-solid fa-wand-magic-sparkles" aria-hidden="true" />AI whisper</small>
@@ -942,163 +861,6 @@ export default function Home() {
                 <span className="avx-ph-node"><i className="fa-solid fa-bolt" />AI · 85ms</span>
               </span>
             </div>
-          </div>
-        </div>
-      </section>
-      <section className="mktg-section avx-proof avx-shield-sec" id="trust">
-        <div className="container">
-          <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">AI at the core</p>
-            <h2 className="fw-bold">AI on every call</h2>
-            <p className="text-muted">Split-second AI decisions on every call.</p>
-            <More id="more-trust"><p>High-volume call operations run on split-second decisions. Avortyx scores every caller’s intent, screens for spam and compliance, and routes to the best eligible buyer at the center of every call.</p></More>
-          </div>
-
-          {/* Ringba-inspired AI 3D Core Stage */}
-          <div className="avx-ringba-stage" data-avx-hub="" role="region" aria-label="Ringba-inspired AI 3D Core Architecture">
-            
-            {/* SVG Connecting Conduits for Desktop */}
-            <svg className="avx-ringba-conduits" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
-              <path id="avx-line-0" d="M 300 110 C 390 110, 420 220, 480 240" className="avx-conduit-path avx-path-blue avx-on" />
-              <path id="avx-line-1" d="M 300 390 C 390 390, 420 280, 480 260" className="avx-conduit-path avx-path-blue" />
-              <path id="avx-line-2" d="M 700 110 C 610 110, 580 220, 520 240" className="avx-conduit-path avx-path-blue" />
-              <path id="avx-line-3" d="M 700 390 C 610 390, 580 280, 520 260" className="avx-conduit-path avx-path-blue" />
-              <circle className="avx-conduit-packet" r="5" />
-            </svg>
-
-            {/* Left Flank: Ringba Spheres 1 & 2 */}
-            <div className="avx-ringba-flank avx-flank-left">
-              {/* Pod 1: AI call scoring */}
-              <div className="avx-sphere-card avx-sphere-blue avx-active" data-hub-node="0">
-                <div className="avx-sphere-icon-wrap">
-                  <div className="avx-3d-sphere avx-sphere-azure">
-                    <span className="avx-sphere-glare" />
-                    <i className="fa-solid fa-brain" />
-                  </div>
-                </div>
-                <div className="avx-sphere-info">
-                  <h3 className="avx-sphere-title">AI call scoring</h3>
-                  <p className="avx-sphere-desc">Intent and sentiment scored on every call.</p>
-                </div>
-              </div>
-
-              {/* Pod 2: Smart routing */}
-              <div className="avx-sphere-card avx-sphere-blue" data-hub-node="1">
-                <div className="avx-sphere-icon-wrap">
-                  <div className="avx-3d-sphere avx-sphere-azure">
-                    <span className="avx-sphere-glare" />
-                    <i className="fa-solid fa-route" />
-                  </div>
-                </div>
-                <div className="avx-sphere-info">
-                  <h3 className="avx-sphere-title">Smart routing</h3>
-                  <p className="avx-sphere-desc">Each call goes to the best eligible buyer.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Center Stage: The 3D AI Intelligence Core */}
-            <div className="avx-ringba-center">
-              <div className="avx-3d-core-chassis avx-aura-blue">
-                {/* Orbital animated rings */}
-                <div className="avx-core-orbit avx-orbit-1" aria-hidden="true"><span className="avx-orbit-node" /></div>
-                <div className="avx-core-orbit avx-orbit-2" aria-hidden="true"><span className="avx-orbit-node" /></div>
-                <div className="avx-core-orbit avx-orbit-3" aria-hidden="true" />
-                <div className="avx-core-glow-aura" />
-
-                {/* 3D Visual Frame */}
-                <div className="avx-core-viewport">
-                  {/* motion.js draws the AI here in 3D (WebGL depth mesh, scripts/build-agent-3d.py) */}
-                  <div className="avx-3d-core-img avx-agent3d" data-avx-agent3d="" role="img" aria-label="Avortyx AI: a female android with a glass circuit cranium, turning in 3D as it scores and routes calls" />
-
-                  {/* Holographic HUD Overlays */}
-                  <div className="avx-core-hud-top">
-                    <div className="avx-hud-chip">
-                      <span className="avx-hud-dot" />
-                      <b>AVORTYX AI</b>
-                      <span>ONLINE</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Flank: Ringba Spheres 3 & 4 */}
-            <div className="avx-ringba-flank avx-flank-right">
-              {/* Pod 3: Carrier Screening */}
-              <div className="avx-sphere-card avx-sphere-blue" data-hub-node="2">
-                <div className="avx-sphere-icon-wrap">
-                  <div className="avx-3d-sphere avx-sphere-azure">
-                    <span className="avx-sphere-glare" />
-                    <i className="fa-solid fa-shield-halved" />
-                  </div>
-                </div>
-                <div className="avx-sphere-info">
-                  <h3 className="avx-sphere-title">Compliance screening</h3>
-                  <p className="avx-sphere-desc">Spam, DNC and TCPA checks before any ring.</p>
-                </div>
-              </div>
-
-              {/* Pod 4: Instant Caller Profile */}
-              <div className="avx-sphere-card avx-sphere-blue" data-hub-node="3">
-                <div className="avx-sphere-icon-wrap">
-                  <div className="avx-3d-sphere avx-sphere-azure">
-                    <span className="avx-sphere-glare" />
-                    <i className="fa-solid fa-id-card" />
-                  </div>
-                </div>
-                <div className="avx-sphere-info">
-                  <h3 className="avx-sphere-title">Caller insights</h3>
-                  <p className="avx-sphere-desc">Source, location and intent on every call.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* three plain facts under the AI */}
-          <div className="avx-ringba-telemetry-bar avx-core-facts">
-            <div className="avx-rb-stat">
-              <span className="avx-rb-stat-num text-white">24/7</span>
-              <span className="avx-rb-stat-lbl">Every call scored by AI</span>
-            </div>
-            <div className="avx-rb-stat">
-              <span className="avx-rb-stat-num text-azure">5</span>
-              <span className="avx-rb-stat-lbl">Checks before each ring</span>
-            </div>
-            <div className="avx-rb-stat">
-              <span className="avx-rb-stat-num text-emerald">85ms</span>
-              <span className="avx-rb-stat-lbl">To the right buyer</span>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <section className="mktg-section avx-power" id="power">
-        <div className="container">
-          <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">Why Avortyx</p>
-            <h2 className="fw-bold">The Infrastructure Engineered for Maximum EPC</h2>
-            <p className="text-muted">Built for performance marketers, call centers and pay-per-call networks.</p>
-            <More id="more-power"><p>Built from the ground up for high-volume performance marketers, call centers, and pay-per-call networks. About 85ms routing, no vendor lock-in, and full financial transparency on every connected second.</p></More>
-          </div>
-          <div className="avx-power-grid">
-            {POWER.map(([kind, title, text, href, label]) => (
-              <a key={kind} href={href} className="avx-power-card">
-                {/* Ringba-style stage: a neon ring over a streaming grid floor, and the card's facts */}
-                <div className={`avx-pws avx-pws-${kind}`} aria-hidden="true">
-                  <span className="avx-pws-ring"><i className={`fa-solid ${POWER_STAGE[kind][0]}`} /></span>
-                  <span className="avx-pws-hud">
-                    {POWER_STAGE[kind][1].map(([value, label]) => (
-                      <span key={label} className="avx-pws-chip">{value && <b>{value}</b>}{label}</span>
-                    ))}
-                  </span>
-                </div>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <em>{label} <span aria-hidden="true">→</span></em>
-              </a>
-            ))}
           </div>
         </div>
       </section>
@@ -1191,146 +953,251 @@ export default function Home() {
           <p className="avx-how-note"><b>85ms</b> average routing time, from first ring to buyer.</p>
         </div>
       </section>
-      <section className="mktg-section avx-tour" id="product-tour" data-avx-tour="">
+      <section className="mktg-section avx-proof avx-shield-sec" id="trust">
         <div className="container">
           <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">Product tour</p>
-            <h2 className="fw-bold">See every call and conversion live</h2>
-            <p className="text-muted">One workspace for tracking, routing and reporting.</p>
+            <p className="avx-eyebrow">AI at the core</p>
+            <h2 className="fw-bold">AI on every call</h2>
+            <p className="text-muted">Split-second AI decisions on every call.</p>
+            <More id="more-trust"><p>High-volume call operations run on split-second decisions. Avortyx scores every caller’s intent, screens for spam and compliance, and routes to the best eligible buyer at the center of every call.</p></More>
           </div>
-          <div className="avx-obs" data-avx-obs="" aria-label="Live readouts (demo data)">
-            <span className="avx-obs-live"><i className="avx-live-dot" />Live <b data-obs="clock">14:02:51</b> UTC</span>
-            <span>Events/s <b data-obs="eps">1,284</b></span>
-            <span>P99 latency <b data-obs="p99">0.62 ms</b></span>
-            <span>Calls routed/min <b data-obs="apm">312</b></span>
-            <span>Voice sessions <b data-obs="vs">42</b></span>
-            <em>demo data</em>
-          </div>
-          <TourPreview />
-        </div>
-      </section>
-      <section className="mktg-section avx-ai" id="ai-at-work" data-avx-ai="">
-        <div className="container">
-          <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">Autonomous Call Intelligence</p>
-            <h2 className="fw-bold">Ask Anything. Score Real-Time Intent. Let AI Qualify First.</h2>
-            <p className="text-muted">Ask your calls anything and score intent live.</p>
-            <More id="more-ai"><p>Turn unstructured conversations into actionable revenue intelligence. Query your entire call history in plain language and score caller intent and sentiment in milliseconds, so every call reaches the right buyer.</p></More>
-          </div>
-          <div className="avx-tour-tabs avx-ai-tabs" role="tablist" aria-label="AI demos">
-            <button type="button" className="avx-tour-tab avx-on" role="tab" aria-selected="true" aria-controls="avx-ai-ask" id="avx-ai-tab-ask" data-ai="ask">
-              <span><i className="fa-solid fa-wand-magic-sparkles" aria-hidden="true" /> Ask Avortyx</span>
-            </button>
-            {" "}
-            <button type="button" className="avx-tour-tab" role="tab" aria-selected="false" aria-controls="avx-ai-listen" id="avx-ai-tab-listen" data-ai="listen" tabIndex="-1">
-              <span><i className="fa-solid fa-wave-square" aria-hidden="true" /> Live transcript</span>
-            </button>
-            {" "}
-            <button type="button" className="avx-tour-tab" role="tab" aria-selected="false" aria-controls="avx-ai-shield" id="avx-ai-tab-shield" data-ai="shield" tabIndex="-1">
-              <span><i className="fa-solid fa-shield-halved" aria-hidden="true" /> Screening</span>
-            </button>
-          </div>
-          <div className="avx-ai-panel avx-on" id="avx-ai-ask" role="tabpanel" aria-labelledby="avx-ai-tab-ask" data-panel="ask">
-            <div className="avx-console avx-ask">
-              <div className="avx-cs-bar">
-                <i />
-                <i />
-                <i />
-                <span className="avx-cs-path">app.avortyx.com / <b>ask</b></span>
-                <span className="avx-cs-live"><i className="avx-live-dot" />AI</span>
-              </div>
-              <div className="avx-ask-log" aria-live="polite">
-                <div className="avx-ask-hello">
-                  <span className="avx-ask-av" aria-hidden="true" />
-                  <p>Ask anything about your calls, sources and buyers. Try one of these:</p>
-                </div>
-              </div>
-              <div className="avx-ask-chips">
-                <button type="button" data-q="margin">Which traffic source had the best margin last week?</button>
-                {" "}
-                <button type="button" data-q="drop">Why did connect rate dip yesterday afternoon?</button>
-                {" "}
-                <button type="button" data-q="buyer">Which buyer should get more Medicare calls?</button>
-                {" "}
-                <button type="button" data-q="today">Summarize today’s calls</button>
-              </div>
-              <form className="avx-ask-form">
-                <input type="text" name="q" autoComplete="off" placeholder="Ask about your calls, buyers or sources…" aria-label="Ask Avortyx a question" />
-                {" "}
-                <button type="submit" aria-label="Ask"><i className="fa-solid fa-arrow-up" aria-hidden="true" /></button>
-              </form>
-              <div className="avx-cs-foot">Answers drawn from your workspace · demo data</div>
-            </div>
-          </div>
-          <div className="avx-ai-panel" id="avx-ai-listen" role="tabpanel" aria-labelledby="avx-ai-tab-listen" data-panel="listen" hidden>
-            <div className="avx-console avx-listen">
-              <div className="avx-cs-bar">
-                <i />
-                <i />
-                <i />
-                <span className="avx-cs-path">app.avortyx.com / calls / <b>live transcript</b></span>
-                <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
-              </div>
-              <div className="avx-listen-body">
-                <div className="avx-listen-main">
-                  <div className="avx-listen-head">
-                    <span className="avx-listen-wave" aria-hidden="true" />
-                    {" "}
-                    <span><b>(415) 555-0133</b> → Apex Insurance</span>
-                    {" "}
-                    <span className="avx-listen-clock" data-ls="clock">0:00</span>
+
+          {/* Ringba-inspired AI 3D Core Stage */}
+          <div className="avx-ringba-stage" data-avx-hub="" role="region" aria-label="Ringba-inspired AI 3D Core Architecture">
+            
+            {/* SVG Connecting Conduits for Desktop */}
+            <svg className="avx-ringba-conduits" viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
+              <path id="avx-line-0" d="M 300 110 C 390 110, 420 220, 480 240" className="avx-conduit-path avx-path-blue avx-on" />
+              <path id="avx-line-1" d="M 300 390 C 390 390, 420 280, 480 260" className="avx-conduit-path avx-path-blue" />
+              <path id="avx-line-2" d="M 700 110 C 610 110, 580 220, 520 240" className="avx-conduit-path avx-path-blue" />
+              <path id="avx-line-3" d="M 700 390 C 610 390, 580 280, 520 260" className="avx-conduit-path avx-path-blue" />
+              <circle className="avx-conduit-packet" r="5" />
+            </svg>
+
+            {/* Left Flank: Ringba Spheres 1 & 2 */}
+            <div className="avx-ringba-flank avx-flank-left" tabIndex={0} role="region" aria-label="AI capabilities, part 1">
+              {/* Pod 1: AI call scoring */}
+              <div className="avx-sphere-card avx-sphere-blue avx-active" data-hub-node="0">
+                <div className="avx-sphere-icon-wrap">
+                  <div className="avx-3d-sphere avx-sphere-azure">
+                    <span className="avx-sphere-glare" />
+                    <i className="fa-solid fa-brain" />
                   </div>
-                  <ol className="avx-listen-lines" data-ls="lines" />
                 </div>
-                <aside className="avx-listen-side">
-                  <p className="avx-listen-k">Sentiment</p>
-                  <svg className="avx-listen-spark" viewBox="0 0 200 48" preserveAspectRatio="none" aria-hidden="true">
-                    <path data-ls="spark" d="M0 24" />
-                  </svg>
-                  <p className="avx-listen-k">Topics</p>
-                  <p className="avx-listen-topics" data-ls="topics" />
-                  <p className="avx-listen-k">AI summary</p>
-                  <p className="avx-listen-sum" data-ls="sum">Builds as the call goes on…</p>
-                </aside>
+                <div className="avx-sphere-info">
+                  <h3 className="avx-sphere-title">AI call scoring</h3>
+                  <p className="avx-sphere-desc">Intent and sentiment scored on every call.</p>
+                </div>
               </div>
-              <div className="avx-cs-foot">Transcribed, scored and summarized in real time · demo data</div>
+
+              {/* Pod 2: Smart routing */}
+              <div className="avx-sphere-card avx-sphere-blue" data-hub-node="1">
+                <div className="avx-sphere-icon-wrap">
+                  <div className="avx-3d-sphere avx-sphere-azure">
+                    <span className="avx-sphere-glare" />
+                    <i className="fa-solid fa-route" />
+                  </div>
+                </div>
+                <div className="avx-sphere-info">
+                  <h3 className="avx-sphere-title">Smart routing</h3>
+                  <p className="avx-sphere-desc">Each call goes to the best eligible buyer.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Center Stage: The 3D AI Intelligence Core */}
+            <div className="avx-ringba-center">
+              <div className="avx-3d-core-chassis avx-aura-blue">
+                {/* Orbital animated rings */}
+                <div className="avx-core-orbit avx-orbit-1" aria-hidden="true"><span className="avx-orbit-node" /></div>
+                <div className="avx-core-orbit avx-orbit-2" aria-hidden="true"><span className="avx-orbit-node" /></div>
+                <div className="avx-core-orbit avx-orbit-3" aria-hidden="true" />
+                <div className="avx-core-glow-aura" />
+
+                {/* 3D Visual Frame */}
+                <div className="avx-core-viewport">
+                  {/* motion.js draws the AI here in 3D (WebGL depth mesh, scripts/build-agent-3d.py) */}
+                  <div className="avx-3d-core-img avx-agent3d" data-avx-agent3d="" role="img" aria-label="Avortyx AI: a female android with a glass circuit cranium, turning in 3D as it scores and routes calls" />
+
+                  {/* Holographic HUD Overlays */}
+                  <div className="avx-core-hud-top">
+                    <div className="avx-hud-chip">
+                      <span className="avx-hud-dot" />
+                      <b>AVORTYX AI</b>
+                      <span>ONLINE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Flank: Ringba Spheres 3 & 4 */}
+            <div className="avx-ringba-flank avx-flank-right" tabIndex={0} role="region" aria-label="AI capabilities, part 2">
+              {/* Pod 3: Carrier Screening */}
+              <div className="avx-sphere-card avx-sphere-blue" data-hub-node="2">
+                <div className="avx-sphere-icon-wrap">
+                  <div className="avx-3d-sphere avx-sphere-azure">
+                    <span className="avx-sphere-glare" />
+                    <i className="fa-solid fa-shield-halved" />
+                  </div>
+                </div>
+                <div className="avx-sphere-info">
+                  <h3 className="avx-sphere-title">Compliance screening</h3>
+                  <p className="avx-sphere-desc">Spam, DNC and TCPA checks before any ring.</p>
+                </div>
+              </div>
+
+              {/* Pod 4: Instant Caller Profile */}
+              <div className="avx-sphere-card avx-sphere-blue" data-hub-node="3">
+                <div className="avx-sphere-icon-wrap">
+                  <div className="avx-3d-sphere avx-sphere-azure">
+                    <span className="avx-sphere-glare" />
+                    <i className="fa-solid fa-id-card" />
+                  </div>
+                </div>
+                <div className="avx-sphere-info">
+                  <h3 className="avx-sphere-title">Caller insights</h3>
+                  <p className="avx-sphere-desc">Source, location and intent on every call.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* three plain facts under the AI */}
+          <div className="avx-ringba-telemetry-bar avx-core-facts">
+            <div className="avx-rb-stat">
+              <span className="avx-rb-stat-num text-white">24/7</span>
+              <span className="avx-rb-stat-lbl">Every call scored by AI</span>
+            </div>
+            <div className="avx-rb-stat">
+              <span className="avx-rb-stat-num text-azure">5</span>
+              <span className="avx-rb-stat-lbl">Checks before each ring</span>
+            </div>
+            <div className="avx-rb-stat">
+              <span className="avx-rb-stat-num text-emerald">85ms</span>
+              <span className="avx-rb-stat-lbl">To the right buyer</span>
             </div>
           </div>
-          {/* live screening (formerly under the AI core): motion.js initShield */}
-          <div className="avx-ai-panel" id="avx-ai-shield" role="tabpanel" aria-labelledby="avx-ai-tab-shield" data-panel="shield" hidden>
-            <div className="avx-shield">
-              <div className="avx-console avx-shield-demo" data-avx-shield="" role="img" aria-label="Live screening: each call is checked for spam, duplicates, DNC, line type and consent, then routed or blocked before dialing (demo data)">
+
+          {/* the AI at work, in the same section: ask, live transcript, screening (motion.js initAiAtWork) */}
+          <div className="avx-ai avx-ai-merged" data-avx-ai="">
+            <p className="avx-ai-merged-lead">See it work: ask your calls a question, watch a live transcript, or screen a call.</p>
+            <div className="avx-tour-tabs avx-ai-tabs" role="tablist" aria-label="AI demos">
+              <button type="button" className="avx-tour-tab avx-on" role="tab" aria-selected="true" aria-controls="avx-ai-ask" id="avx-ai-tab-ask" data-ai="ask">
+                <span><i className="fa-solid fa-wand-magic-sparkles" aria-hidden="true" /> Ask Avortyx</span>
+              </button>
+              {" "}
+              <button type="button" className="avx-tour-tab" role="tab" aria-selected="false" aria-controls="avx-ai-listen" id="avx-ai-tab-listen" data-ai="listen" tabIndex="-1">
+                <span><i className="fa-solid fa-wave-square" aria-hidden="true" /> Live transcript</span>
+              </button>
+              {" "}
+              <button type="button" className="avx-tour-tab" role="tab" aria-selected="false" aria-controls="avx-ai-shield" id="avx-ai-tab-shield" data-ai="shield" tabIndex="-1">
+                <span><i className="fa-solid fa-shield-halved" aria-hidden="true" /> Screening</span>
+              </button>
+            </div>
+            <div className="avx-ai-panel avx-on" id="avx-ai-ask" role="tabpanel" aria-labelledby="avx-ai-tab-ask" data-panel="ask">
+              <div className="avx-console avx-ask">
                 <div className="avx-cs-bar">
-                  <i /><i /><i />
-                  <span className="avx-cs-path">app.avortyx.com / <b>screening</b></span>
+                  <i />
+                  <i />
+                  <i />
+                  <span className="avx-cs-path">app.avortyx.com / <b>ask</b></span>
+                  <span className="avx-cs-live"><i className="avx-live-dot" />AI</span>
+                </div>
+                <div className="avx-ask-log" aria-live="polite">
+                  <div className="avx-ask-hello">
+                    <span className="avx-ask-av" aria-hidden="true" />
+                    <p>Ask anything about your calls, sources and buyers. Try one of these:</p>
+                  </div>
+                </div>
+                <div className="avx-ask-chips">
+                  <button type="button" data-q="margin">Which traffic source had the best margin last week?</button>
+                  {" "}
+                  <button type="button" data-q="drop">Why did connect rate dip yesterday afternoon?</button>
+                  {" "}
+                  <button type="button" data-q="buyer">Which buyer should get more Medicare calls?</button>
+                  {" "}
+                  <button type="button" data-q="today">Summarize today’s calls</button>
+                </div>
+                <form className="avx-ask-form">
+                  <input type="text" name="q" autoComplete="off" placeholder="Ask about your calls, buyers or sources…" aria-label="Ask Avortyx a question" />
+                  {" "}
+                  <button type="submit" aria-label="Ask"><i className="fa-solid fa-arrow-up" aria-hidden="true" /></button>
+                </form>
+                <div className="avx-cs-foot">Answers drawn from your workspace · demo data</div>
+              </div>
+            </div>
+            <div className="avx-ai-panel" id="avx-ai-listen" role="tabpanel" aria-labelledby="avx-ai-tab-listen" data-panel="listen" hidden>
+              <div className="avx-console avx-listen">
+                <div className="avx-cs-bar">
+                  <i />
+                  <i />
+                  <i />
+                  <span className="avx-cs-path">app.avortyx.com / calls / <b>live transcript</b></span>
                   <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
                 </div>
-                <div className="avx-sh">
-                  <div className="avx-sh-radar" aria-hidden="true">
-                    <i /><i /><i />
-                    <span className="avx-sh-sweep" />
-                    <span className="avx-sh-core"><i className="fa-solid fa-shield-halved" /></span>
+                <div className="avx-listen-body">
+                  <div className="avx-listen-main">
+                    <div className="avx-listen-head">
+                      <span className="avx-listen-wave" aria-hidden="true" />
+                      {" "}
+                      <span><b>(415) 555-0133</b> → Apex Insurance</span>
+                      {" "}
+                      <span className="avx-listen-clock" data-ls="clock">0:00</span>
+                    </div>
+                    <ol className="avx-listen-lines" data-ls="lines" />
                   </div>
-                  <div className="avx-sh-call">
-                    <b data-sh="num">(312) 555-0142</b>
-                    <span data-sh="src">Google Ads · Medicare</span>
-                  </div>
-                  <ul className="avx-sh-checks">
-                    {SHIELD_CHECKS.map(([key, label]) => <li key={key} data-c={key} className="avx-ok">{label}</li>)}
-                  </ul>
-                  <p className="avx-sh-verdict avx-pass" data-sh="verdict">Passed · routed to Apex Insurance</p>
+                  <aside className="avx-listen-side">
+                    <p className="avx-listen-k">Sentiment</p>
+                    <svg className="avx-listen-spark" viewBox="0 0 200 48" preserveAspectRatio="none" aria-hidden="true">
+                      <path data-ls="spark" d="M0 24" />
+                    </svg>
+                    <p className="avx-listen-k">Topics</p>
+                    <p className="avx-listen-topics" data-ls="topics" />
+                    <p className="avx-listen-k">AI summary</p>
+                    <p className="avx-listen-sum" data-ls="sum">Builds as the call goes on…</p>
+                  </aside>
                 </div>
-                <div className="avx-cs-foot">AI screening on every call · demo data</div>
+                <div className="avx-cs-foot">Transcribed, scored and summarized in real time · demo data</div>
               </div>
-              <div className="avx-shield-layers">
-                {SHIELD_LAYERS.map(([icon, title, text, href, label]) => (
-                  <a key={title} href={href} className="avx-shield-layer">
-                    <i className={`fa-solid ${icon}`} aria-hidden="true" />
-                    <b>{title}</b>
-                    <span>{text}</span>
-                    <em>{label} <span aria-hidden="true">→</span></em>
-                  </a>
-                ))}
+            </div>
+            {/* live screening (formerly under the AI core): motion.js initShield */}
+            <div className="avx-ai-panel" id="avx-ai-shield" role="tabpanel" aria-labelledby="avx-ai-tab-shield" data-panel="shield" hidden>
+              <div className="avx-shield">
+                <div className="avx-console avx-shield-demo" data-avx-shield="" role="img" aria-label="Live screening: each call is checked for spam, duplicates, DNC, line type and consent, then routed or blocked before dialing (demo data)">
+                  <div className="avx-cs-bar">
+                    <i /><i /><i />
+                    <span className="avx-cs-path">app.avortyx.com / <b>screening</b></span>
+                    <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
+                  </div>
+                  <div className="avx-sh">
+                    <div className="avx-sh-radar" aria-hidden="true">
+                      <i /><i /><i />
+                      <span className="avx-sh-sweep" />
+                      <span className="avx-sh-core"><i className="fa-solid fa-shield-halved" /></span>
+                    </div>
+                    <div className="avx-sh-call">
+                      <b data-sh="num">(312) 555-0142</b>
+                      <span data-sh="src">Google Ads · Medicare</span>
+                    </div>
+                    <ul className="avx-sh-checks">
+                      {SHIELD_CHECKS.map(([key, label]) => <li key={key} data-c={key} className="avx-ok">{label}</li>)}
+                    </ul>
+                    <p className="avx-sh-verdict avx-pass" data-sh="verdict">Passed · routed to Apex Insurance</p>
+                  </div>
+                  <div className="avx-cs-foot">AI screening on every call · demo data</div>
+                </div>
+                <div className="avx-shield-layers">
+                  {SHIELD_LAYERS.map(([icon, title, text, href, label]) => (
+                    <a key={title} href={href} className="avx-shield-layer">
+                      <i className={`fa-solid ${icon}`} aria-hidden="true" />
+                      <b>{title}</b>
+                      <span>{text}</span>
+                      <em>{label} <span aria-hidden="true">→</span></em>
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -1584,128 +1451,21 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="avx-caps-v3">
-          <div className="avx-caps-head">
-            <div>
-              <h3>Comprehensive Enterprise Capabilities</h3>
-              <p>Attribution, webhooks, compliance and data tools around every call.</p>
-            </div>
-            <a href="/features" className="avx-more-link">See all features <span aria-hidden="true">→</span></a>
+          <a href="/features" className="avx-more-link avx-caps-all">See all features <span aria-hidden="true">→</span></a>
+          <div className="avx-int-merged" id="integrations">
+            <h3 className="h5 fw-bold mb-2">Works with the tools you already use</h3>
+            <ul className="avx-int-grid">
+              {INTEGRATION_ROWS.flat().map(([file, name, href, w, h]) => (
+                <li key={file}>
+                  <a href={href} className="avx-int-tile"><img alt={name} src={logo(file)} width={w} height={h} loading="lazy" decoding="async" /></a>
+                </li>
+              ))}
+            </ul>
+            <p className="avx-int-voip-note">
+              <b>Bring your own VoIP.</b> Use your preferred telephony provider, or any SIP-compatible carrier.{" "}
+              <a href="/features/integrations" className="avx-more-link">All integrations <span aria-hidden="true">→</span></a>
+            </p>
           </div>
-          <div className="avx-cap-grid avx-bento avx-bento-3 text-start" data-avx-bento="">
-            <a href="/features/transcriptions" className="avx-cap avx-cap--lead">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-closed-captioning" aria-hidden="true" />
-              {" "}
-              <b>AI Transcriptions</b>
-              {" "}
-              <span>Every recorded call transcribed, with summaries, sentiment and topics.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            <a href="/features/spam_tag_mitigation" className="avx-cap">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-shield-halved" aria-hidden="true" />
-              {" "}
-              <b>Spam Tag Mitigation</b>
-              {" "}
-              <span>Branded caller ID and spam-label removal, so more of your calls get answered.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            <a href="/features/call_recordings" className="avx-cap">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-microphone-lines" aria-hidden="true" />
-              {" "}
-              <b>Call Recordings</b>
-              {" "}
-              <span>Record every call, control who can hear it, retain on your schedule.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-          </div>
-          <div className="avx-cap-list text-start">
-            <a href="/features/dynamic_number_insertion" className="avx-cap-li">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-hashtag" aria-hidden="true" />
-              {" "}
-              <b>Dynamic Number Insertion</b>
-              {" "}
-              <span>Swap tracking numbers on your site to tie every call to its source.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            <a href="/features/custom_webhook" className="avx-cap-li">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-link" aria-hidden="true" />
-              {" "}
-              <b>Custom Webhooks</b>
-              {" "}
-              <span>Send call and lead data to any endpoint the moment events happen.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            <a href="/features/formulas" className="avx-cap-li">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-square-root-variable" aria-hidden="true" />
-              {" "}
-              <b>Expressions & Functions</b>
-              {" "}
-              <span>Formulas for routing rules, data transformations and calculations.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            <a href="/features/data_export" className="avx-cap-li">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-file-export" aria-hidden="true" />
-              {" "}
-              <b>Data Exports</b>
-              {" "}
-              <span>Calls, leads and recordings to CSV, on demand or on a schedule.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-            <a href="/features#security-compliance-tools" className="avx-cap-li">
-              {" "}
-              <i className="avx-cap-ic fa-solid fa-scale-balanced" aria-hidden="true" />
-              {" "}
-              <b>Security & Compliance</b>
-              {" "}
-              <span>Consent, suppression lists, PII redaction and state rules built in.</span>
-              {" "}
-              <em aria-hidden="true">→</em>
-              {" "}
-            </a>
-          </div>
-          </div>
-        </div>
-      </section>
-      <section className="mktg-section avx-int">
-        <div className="container text-center">
-          <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">Integrations</p>
-            <h2 className="fw-bold mb-3">We Integrate With</h2>
-            <p className="text-muted">Connect Avortyx to the tools you already use.</p>
-          </div>
-          <ul className="avx-int-grid">
-            {INTEGRATION_ROWS.flat().map(([file, name, href, w, h]) => (
-              <li key={file}>
-                <a href={href} className="avx-int-tile"><img alt={name} src={logo(file)} width={w} height={h} loading="lazy" decoding="async" /></a>
-              </li>
-            ))}
-          </ul>
-          <p className="avx-int-voip-note">
-            <b>Bring your own VoIP.</b> Use your preferred telephony provider, or any SIP-compatible carrier.{" "}
-            <a href="/features/multiple_telephone_providers" className="avx-more-link">Telephone providers <span aria-hidden="true">→</span></a>
-          </p>
-          <a href="/features/integrations" className="btn avx-btn-ghost">View All Integrations</a>
         </div>
       </section>
       <section className="mktg-section avx-blog-home" id="blog">
@@ -1719,9 +1479,9 @@ export default function Home() {
           </div>
           <div className="avx-blog-grid">
             {[
-              postBySlug['call-tracking-for-healthcare-practices'],
-              postBySlug['real-estate-calls-from-listing-to-showing'],
-              postBySlug['what-ai-call-scoring-measures']
+              postBySlug['planning-for-after-hours-calls'],
+              postBySlug['sizing-a-dynamic-number-pool'],
+              postBySlug['carrying-campaign-tokens-into-a-call']
             ].filter(Boolean).map((post) => <BlogCard key={post.slug} post={post} />)}
           </div>
         </div>
@@ -1752,17 +1512,23 @@ export default function Home() {
         <div className="container">
           <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and start routing on the first ring.</p>
-          <div className="d-flex flex-wrap gap-3 justify-content-center">
+          <div className="avx-cta-pair avx-cta-pair-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
-            <a href="/p/request_demo" className="btn btn-cta-outline fw-semibold">Request a Demo</a>
+            <a href="/p/request_demo" className="avx-cta-quiet">or book a demo <span aria-hidden="true">→</span></a>
           </div>
+          <p className="avx-price-hint">
+            <span><i className="fa-solid fa-circle-check" aria-hidden="true" />No onboarding fees</span>
+            <span><i className="fa-solid fa-circle-check" aria-hidden="true" />Usage-based rates with volume discounts</span>
+            <span><i className="fa-solid fa-circle-check" aria-hidden="true" />Phone, chat, email and video support</span>
+            <a href="/pricing" className="avx-more-link">See pricing <span aria-hidden="true">→</span></a>
+          </p>
         </div>
       </section>
       <TrustBox />
       {/* phones: sign-up stays one tap away once the hero has scrolled off (motion.js shows it) */}
       <div className="avx-mcta" data-avx-mcta="">
-        <a href="/request-access" className="btn btn-td-green fw-semibold">Request Access</a>
+        <a href="/request-access" className="btn btn-td-green fw-semibold"><Bolt />Request Access</a>
         <a href="/p/request_demo" className="btn btn-outline-td-green fw-semibold">Request Demo</a>
       </div>
     </main>

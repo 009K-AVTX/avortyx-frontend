@@ -2,14 +2,54 @@
 <html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HD8WHHFDQV"></script>
+  <!-- Google tag (gtag.js). The page view and every event queue in dataLayer right away; the
+       library itself loads on a click or keypress, or once the page has been idle for a moment,
+       so its ~0.4s of script never lands during start-up or a scroll. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
+    // A/B test "hero_headline" on the home pages: each visitor keeps one variant (a: "Track. Route.
+    // Grow.", b: "Every call routed to the right buyer in 85ms."). It is set before the first paint,
+    // so the headline never swaps, and reported as a user property, so conversions split by it.
+    (function () {
+      if (!/^\/((ru|ja|zh)\/?)?$/.test(location.pathname)) return;
+      var v = null;
+      try { v = localStorage.getItem('avx-ab-hero'); } catch (e) { /* storage blocked */ }
+      if (v !== 'a' && v !== 'b') {
+        v = Math.random() < 0.5 ? 'a' : 'b';
+        try { localStorage.setItem('avx-ab-hero', v); } catch (e) { /* storage blocked */ }
+      }
+      document.documentElement.setAttribute('data-ab-hero', v);
+      gtag('set', 'user_properties', { hero_headline: v });
+      gtag('event', 'experiment_impression', { experiment_id: 'hero_headline', variant_id: v });
+    })();
+
     gtag('config', 'G-HD8WHHFDQV');
+    (function () {
+      // loads only when the page is idle: never on a scroll (its ~0.4s of script would land
+      // mid-scroll on a phone), only on a click or key, or once the visitor has stopped scrolling
+      var done = false, quietAt = 0;
+      function load() {
+        if (done) return;
+        done = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-HD8WHHFDQV';
+        document.head.appendChild(s);
+      }
+      addEventListener('scroll', function () { quietAt = Date.now() + 2000; }, { passive: true });
+      ['click', 'keydown'].forEach(function (e) { addEventListener(e, load, { capture: true, once: true }); });
+      // wait for 2s without scrolling, then for an idle moment, and check again right before loading
+      function whenQuiet() {
+        if (done) return;
+        if (Date.now() < quietAt) { setTimeout(whenQuiet, 500); return; }
+        if (!('requestIdleCallback' in window)) { load(); return; }
+        requestIdleCallback(function () { if (Date.now() < quietAt) setTimeout(whenQuiet, 500); else load(); });
+      }
+      addEventListener('load', function () { setTimeout(whenQuiet, 3000); });
+    })();
   </script>
 
   <meta name="color-scheme" content="dark">
@@ -23,7 +63,6 @@
       setTimeout(lift, 3000);
     })();
   </script>
-  <link rel="preload" href="/assets/avx-motion/motion.js" as="script">
   <link rel="preload" href="/assets/avx-motion/motion.css" as="style">
   <link rel="preload" href="/assets/avx-theme/theme.css?v=4" as="style">
 
@@ -48,8 +87,8 @@
 
   <link rel="stylesheet" href="/assets/avx-site/site.css" media="all" />
   <!-- translations: inert on English pages; /ru, /ja and /zh pages set the language first (scripts/i18n-build.js) -->
-  <script src="/assets/avx-i18n/core.js"></script>
-  <script src="/assets/avx-i18n/runtime.js"></script>
+  <script src="/assets/avx-i18n/core.js" defer></script>
+  <script src="/assets/avx-i18n/runtime.js" defer></script>
   <script src="/assets/avx-site/site.js" defer></script>
 
   <link rel="stylesheet" href="/assets/avx-theme/theme.css?v=4" />

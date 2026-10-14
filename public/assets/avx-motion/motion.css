@@ -15728,6 +15728,404 @@ pre, code, kbd, samp,
   font-size: 12px;
 }
 
-.avx-dg .avx-fc-buyers li .avx-fc-b-bid:empty {
+.avx-dg .avx-fc-buyers li .avx-fc-b-bid:empty::before {
+  /* keep the outcome line while it is empty, so the card keeps its height between calls (it used
+     to shrink 17px and, centred beside the headline, bob up and down every call) */
+  content: "\00a0";
+}
+
+/* sections below the first screen are laid out and painted only as they come near the viewport;
+   "auto" remembers each one's real height once it has rendered, so scrolling back never jumps */
+main > section.mktg-section,
+main > section.marketing-cta-band {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* ---------- Home: one clear next step ---------- */
+/* the primary button carries the action; the demo is a quieter text link beside it */
+.avx-cta-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  align-items: center;
+}
+
+.avx-cta-pair-center {
+  justify-content: center;
+}
+
+.avx-cta-quiet {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  color: #bfdbfe;
+  font-weight: 600;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.avx-cta-quiet:hover,
+.avx-cta-quiet:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.avx-cta-quiet span {
+  transition: transform .2s ease;
+}
+
+.avx-cta-quiet:hover span {
+  transform: translateX(3px);
+}
+
+[data-bs-theme="light"] .avx-cta-quiet {
+  color: #1d4ed8;
+}
+
+/* what happens after "Request Access" */
+.avx-cta-next {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin: 14px 0 0;
+  color: #a3abb8;
+  font-size: .9rem;
+}
+
+.avx-cta-next i {
+  color: #93c5fd;
+  font-size: .8rem;
+}
+
+@media (max-width: 991.98px) {
+  .avx-hero-copy .avx-cta-pair,
+  .avx-hero-copy .avx-cta-next {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* the pricing facts under the closing call to action */
+.avx-price-hint {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  align-items: center;
+  justify-content: center;
+  margin: 22px auto 0;
+  color: #cbd5e1;
+  font-size: .92rem;
+}
+
+.avx-price-hint span {
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.avx-price-hint i {
+  color: #4ade80;
+}
+
+/* four facts in the stats bar now */
+.avx-statsbar .avx-stats-row {
+  max-width: 940px;
+}
+
+/* ---------- Home: merged sections ---------- */
+.avx-ai-merged {
+  margin-top: 56px;
+}
+
+.avx-ai-merged-lead {
+  margin: 0 auto 18px;
+  color: #a3abb8;
+  text-align: center;
+}
+
+.avx-caps-all {
+  margin-top: 26px;
+}
+
+.avx-int-merged {
+  margin-top: 64px;
+  text-align: center;
+}
+
+.avx-int-merged .avx-int-grid {
+  margin-top: 18px;
+}
+
+/* ---------- Hero headline test: show the visitor's variant (set in document.html) ---------- */
+.avx-ab-b,
+html[data-ab-hero="b"] .avx-ab-a {
   display: none;
+}
+
+html[data-ab-hero="b"] .avx-ab-b {
+  display: inline;
+}
+
+/* ---------- Hero live decision on phones: fit the screen ----------
+   The card used to size itself to its widest content (507px on a 390px phone) and run off the
+   right edge. It now shrinks with the column: the top bar wraps, the clock steps aside and the
+   caller / AI / buyers row tightens. */
+.avx-hero-grid > * {
+  min-width: 0;
+}
+
+.avx-hero-grid .avx-decide {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 575.98px) {
+  .avx-decide .avx-dc-bar {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .avx-decide .avx-dc-clock {
+    display: none;
+  }
+
+  .avx-decide .avx-dc-quote {
+    white-space: normal;
+  }
+
+  /* caller and AI on the first row, the three buyers side by side under them */
+  .avx-decide .avx-fc {
+    grid-template-columns: minmax(0, 1fr) 14px minmax(0, 1fr);
+    padding: 22px 12px 14px;
+  }
+
+  .avx-decide .avx-fc-core {
+    justify-self: center;
+  }
+
+  /* flat cards on a phone: the 3D lift pushed the winner past the card's edge */
+  .avx-fc3d .avx-decide .avx-fc-buyers li,
+  .avx-decide .avx-fc3d .avx-fc-buyers li,
+  .avx-decide .avx-fc3d .avx-fc-buyers li.avx-win,
+  .avx-decide .avx-fc3d .avx-fc-buyers li.avx-lose,
+  .avx-decide .avx-fc3d .avx-fc-buyers li.avx-scan {
+    transform: none;
+  }
+
+  .avx-decide .avx-fc [data-dc="link2"] {
+    display: none;
+  }
+
+  .avx-decide .avx-fc-buyers {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .avx-dg .avx-fc-buyers li .avx-fc-b-name {
+    -webkit-line-clamp: 2;
+    font-size: 11.5px;
+    white-space: normal;
+  }
+
+  .avx-dg .avx-fc-buyers li .avx-fc-b-why {
+    white-space: normal;
+  }
+
+  .avx-decide .avx-fc-caller b {
+    font-size: 13px;
+  }
+
+  .avx-decide .avx-fc-caller span {
+    font-size: 11px;
+  }
+
+  .avx-dg .avx-fc-buyers li {
+    padding: 7px 8px;
+  }
+
+  .avx-dg .avx-fc-buyers li .avx-fc-b-bid {
+    flex-wrap: wrap;
+    gap: 4px;
+    padding-left: 0;
+    font-size: 11px;
+  }
+}
+
+/* Request Access: white text on the deeper brand blue reads at 5.2:1 (WCAG AA); the lighter
+   #3b82f6 was 3.7:1 at this size */
+.marketing-navbar .avx-request-access {
+  border-color: #2563eb;
+  background: #2563eb;
+}
+
+.marketing-navbar .avx-request-access:hover,
+.marketing-navbar .avx-request-access:focus-visible {
+  border-color: #1d4ed8;
+  background: #1d4ed8;
+}
+
+/* the AI rows scroll sideways on phones and can now take keyboard focus: show where it is */
+.avx-ringba-flank:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 4px;
+  border-radius: 14px;
+}
+
+/* ---------- The Request Access bolt on every button ----------
+   Plain buttons (hero, phone bar, blog, feature pages, the request form) show it inline in the
+   button's text colour; the navbar and closing-band pills keep their white disc. */
+/* one bolt everywhere: avortyx.com's dark bolt in a white disc, as in the navbar pill */
+.btn > .avx-bolt,
+.avx-ra-submit > .avx-bolt {
+  flex: none;
+  box-sizing: content-box;
+  width: .9em;
+  height: .9em;
+  margin-right: .5em;
+  padding: .32em;
+  border-radius: 50%;
+  background: #fff;
+  color: #172554;
+  vertical-align: middle;
+}
+
+.btn:has(> .avx-bolt) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avx-ra-submit > .avx-bolt {
+  margin-right: 0;
+}
+
+/* on an outline button the disc takes the button's blue, so it still reads as a disc */
+.btn-outline-td-green > .avx-bolt {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* the feature pages' header strip uses the navbar's pill */
+.avx-nav-quick-strip .avx-request-access {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 16px 5px 5px;
+  border: 1px solid #2563eb;
+  border-radius: 999px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.avx-nav-quick-strip .avx-request-access:hover,
+.avx-nav-quick-strip .avx-request-access:focus-visible {
+  border-color: #1d4ed8;
+  background: #1d4ed8;
+  color: #fff;
+}
+
+.avx-nav-quick-strip .avx-request-access .avx-bolt {
+  flex: none;
+  box-sizing: content-box;
+  width: 13px;
+  height: 13px;
+  padding: 6px;
+  border-radius: 50%;
+  background: #fff;
+  color: #172554;
+}
+
+/* in the always-visible group the pill needs no menu spacing */
+.avx-nav-quick .avx-request-access {
+  margin: 0;
+}
+
+/* phones: the pill with its bolt is wider than the old demo button, so below 430px the bar shows
+   the logo mark alone (as when scrolled) and the pill tightens */
+@media (max-width: 430px) {
+  .marketing-navbar .avx-wordmark {
+    max-width: 0 !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+  }
+
+  .marketing-navbar .avx-nav-quick .avx-request-access {
+    gap: 6px;
+    padding: 4px 13px 4px 4px;
+    font-size: 13px;
+  }
+
+  .marketing-navbar .avx-nav-quick .avx-request-access .avx-bolt {
+    width: 12px;
+    height: 12px;
+    padding: 5px;
+  }
+}
+
+/* feature-page strip on phones: the Request Access pill and the strip's own controls on one line */
+@media (max-width: 575.98px) {
+  .avx-nav-quick-strip { gap: 6px; }
+  .avx-nav-quick-strip .avx-request-access { gap: 6px; padding: 4px 12px 4px 4px; font-size: 13px; }
+  .avx-nav-quick-strip .avx-request-access .avx-bolt { width: 11px; height: 11px; padding: 5px; }
+  #injected-modal-header { padding-left: 12px !important; padding-right: 12px !important; }
+  #injected-modal-header .feature-modal-fullpage { margin-right: 10px !important; font-size: 0 !important; }
+  #injected-modal-header .feature-modal-fullpage i { font-size: 15px; margin: 0 !important; }
+}
+
+/* cookie notice: compact, and kept clear of the stats bar (site.js shows it once the stats have
+   scrolled away) */
+#okCookie {
+  width: min(360px, calc(100vw - 40px));
+  gap: 10px;
+  padding: 14px 16px;
+}
+
+#okCookie span {
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* phones: the header strip now holds the language menu and Request Access, so the back button
+   sits just under it instead of sharing its row */
+@media (max-width: 575.98px) {
+  body > .avx-backbar:not(.avx-backbar-nav) {
+    top: 74px;
+    max-width: calc(100vw - 24px);
+  }
+}
+
+/* counting stats use fixed-width digits, so the number never changes width as it counts */
+.avx-count {
+  font-variant-numeric: tabular-nums;
+}
+
+/* the stats bar keeps one height from first paint: on desktop every label fits on one line, and on
+   phones each label has room for two, so neither the web font arriving nor the numbers counting
+   up can change its height (which used to nudge the logo strip below it) */
+.avx-statsbar .avx-stats-row {
+  max-width: 1060px;
+}
+
+@media (min-width: 992px) {
+  .avx-statsbar .avx-stats-row span {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .avx-statsbar .avx-stats-row span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.6em;
+  }
 }
