@@ -14225,9 +14225,10 @@ body.home main section .mktg-section-header { margin-bottom: 36px; }
     radial-gradient(circle, rgba(59, 130, 246, .28), rgba(59, 130, 246, 0) 70%);
   -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, .35) 35%, #000 66%, transparent 70%);
   mask-image: radial-gradient(circle, rgba(0, 0, 0, .35) 35%, #000 66%, transparent 70%);
-  box-shadow: 0 66px 0 -50px rgba(147, 197, 253, .55);
 }
+/* (the still image has no pedestal either: the globe floats) */
 .avx-dg:not(.avx-dg-live) .avx-fc-chip::before {
+  display: none;
   content: "";
   position: absolute;
   top: calc(50% + 58px);

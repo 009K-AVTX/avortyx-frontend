@@ -3637,51 +3637,11 @@
       ctx.clearRect(0, 0, W, H);
       ctx.globalCompositeOperation = 'lighter';
 
-      // synthwave floor: lines run to a vanishing point behind the globe and stream toward us
-      var hy = gy + R * 1.12, vy = hy - R * 0.9, bottom = H;
-      ctx.lineWidth = 1;
-      for (var k = -14; k <= 14; k++) {
-        var bx = gx + k * W * 0.075, a1 = 0.16 * (1 - Math.abs(k) / 15);
-        var gr = ctx.createLinearGradient(0, hy, 0, bottom);
-        gr.addColorStop(0, 'rgba(92,150,246,0)');
-        gr.addColorStop(1, 'rgba(92,150,246,' + a1.toFixed(3) + ')');
-        ctx.strokeStyle = gr;
-        var fy = (hy - vy) / (bottom - vy), sx = gx + (bx - gx) * fy;
-        ctx.beginPath(); ctx.moveTo(sx, hy); ctx.lineTo(bx, bottom); ctx.stroke();
-      }
-      var scroll = reduced ? 0 : (t * 0.6) % 1;
-      for (k = 0; k < 9; k++) {
-        var dd = k + 1 - scroll, fy2 = 1.4 / (dd + 0.4), ly = hy + (bottom - hy) * fy2;
-        if (ly > bottom) continue;
-        var half = (ly - vy) / (bottom - vy) * W * 1.05;
-        ctx.strokeStyle = 'rgba(96,165,250,' + (0.2 * fy2).toFixed(3) + ')';
-        ctx.beginPath(); ctx.moveTo(gx - half, ly); ctx.lineTo(gx + half, ly); ctx.stroke();
-      }
-
-      // the pedestal: a bright disc and rings rippling outward, as on ringba.com
-      var py = gy + R * 1.1, sq = 0.26;
-      var disc = ctx.createRadialGradient(gx, py, 0, gx, py, R * 1.3);
-      disc.addColorStop(0, rgba(mix([147, 197, 253], tint, 0.3), 0.55));
-      disc.addColorStop(0.5, 'rgba(59,130,246,0.18)');
-      disc.addColorStop(1, 'rgba(59,130,246,0)');
-      ctx.save(); ctx.translate(gx, py); ctx.scale(1, sq); ctx.translate(-gx, -py);
-      ctx.fillStyle = disc; ctx.beginPath(); ctx.arc(gx, py, R * 1.3, 0, 2 * PI); ctx.fill();
-      var flow = reduced ? 0 : (t * 0.5) % 1;
-      for (k = 0; k < 5; k++) {
-        var rr = R * (0.25 + 0.24 * (k + flow)), ra = 0.7 * (1 - (k + flow) / 5);
-        ctx.strokeStyle = 'rgba(96,165,250,' + ra.toFixed(3) + ')';
-        ctx.lineWidth = 1.6 / sq * 0.5;
-        ctx.beginPath(); ctx.arc(gx, py, rr, 0, 2 * PI); ctx.stroke();
-      }
-      ctx.strokeStyle = 'rgba(147,197,253,0.25)'; ctx.lineWidth = 9;
-      ctx.beginPath(); ctx.arc(gx, py, R * 1.12, 0, 2 * PI); ctx.stroke();
-      ctx.strokeStyle = 'rgba(219,234,254,0.9)'; ctx.lineWidth = 2.6;
-      ctx.beginPath(); ctx.arc(gx, py, R * 1.12, 0, 2 * PI); ctx.stroke();
-      ctx.restore();
+      // no floor or pedestal: the globe floats on its own, with its orbs around it
 
       // orbs: on a tilted orbit around the globe; those behind it are drawn first
       var orbs = [];
-      for (k = 0; k < 3; k++) {
+      for (var k = 0; k < 3; k++) {
         var oa = (reduced ? 0.7 : t * 0.45) + k * 2 * PI / 3, ox = Math.cos(oa) * R * 1.55, oz = Math.sin(oa) * R * 1.55;
         var oy = -oz * 0.28 - R * 0.05, depth = oz / (R * 1.55), kk = 1 + depth * 0.18;
         orbs.push({ k: k, x: gx + ox * kk, y: gy + oy, z: depth, r: R * 0.19 * kk });
