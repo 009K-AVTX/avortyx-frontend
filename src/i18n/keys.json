@@ -2852,19 +2852,51 @@
   "page": "careers.html"
  },
  {
+  "k": "31 open roles, all full-time.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Filter roles by team",
+  "page": "careers.html"
+ },
+ {
+  "k": "All <0>31</0>",
+  "page": "careers.html"
+ },
+ {
+  "k": "Engineering <0>9</0>",
+  "page": "careers.html"
+ },
+ {
+  "k": "Marketing <0>12</0>",
+  "page": "careers.html"
+ },
+ {
+  "k": "Finance <0>4</0>",
+  "page": "careers.html"
+ },
+ {
+  "k": "Data <0>3</0>",
+  "page": "careers.html"
+ },
+ {
+  "k": "Legal <0>1</0>",
+  "page": "careers.html"
+ },
+ {
+  "k": "Customer <0>1</0>",
+  "page": "careers.html"
+ },
+ {
+  "k": "Sales <0>1</0>",
+  "page": "careers.html"
+ },
+ {
   "k": "Engineering",
   "page": "careers.html"
  },
  {
-  "k": "Full-time",
-  "page": "careers.html"
- },
- {
   "k": "Senior Backend Engineer, Telephony",
-  "page": "careers.html"
- },
- {
-  "k": "<0/>Remote, US / EU · Full-time",
   "page": "careers.html"
  },
  {
@@ -2884,6 +2916,62 @@
   "page": "careers.html"
  },
  {
+  "k": "Operational Resiliency Lead",
+  "page": "careers.html"
+ },
+ {
+  "k": "Plan for the bad day: failover drills, incident playbooks and recovery targets that keep calls routing when a carrier or region goes down.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Site Reliability Engineer",
+  "page": "careers.html"
+ },
+ {
+  "k": "Keep the routing path fast and up: monitoring, alerting, capacity and on-call for a platform that answers in milliseconds.",
+  "page": "careers.html"
+ },
+ {
+  "k": "QA Lead",
+  "page": "careers.html"
+ },
+ {
+  "k": "Set how we test routing rules, billing and integrations, and build the automated suites that let us ship daily with confidence.",
+  "page": "careers.html"
+ },
+ {
+  "k": "AI Software Engineer",
+  "page": "careers.html"
+ },
+ {
+  "k": "Take AI features such as transcription, call summaries and scoring from prototype to production.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Senior IT Engineer",
+  "page": "careers.html"
+ },
+ {
+  "k": "Run the systems the team works on every day: devices, identity, access and the tools that keep everyone secure.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Senior PHP Developer",
+  "page": "careers.html"
+ },
+ {
+  "k": "Build and maintain the services behind billing, reporting and the customer API, in clean, well-tested PHP.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Cloud Platform Engineer",
+  "page": "careers.html"
+ },
+ {
+  "k": "Shape the cloud platform the routing core runs on: Kubernetes, infrastructure as code, networking and cost.",
+  "page": "careers.html"
+ },
+ {
   "k": "Data",
   "page": "careers.html"
  },
@@ -2892,11 +2980,23 @@
   "page": "careers.html"
  },
  {
-  "k": "<0/>Remote, US · Full-time",
+  "k": "Turn live call signals into the intent scores that decide where calls go: feature pipelines, online inference and evaluation.",
   "page": "careers.html"
  },
  {
-  "k": "Turn live call signals into the intent scores that decide where calls go: feature pipelines, online inference and evaluation.",
+  "k": "Data Analytics Lead",
+  "page": "careers.html"
+ },
+ {
+  "k": "Lead the analytics team: the metrics, dashboards and models that show customers and us what every call is worth.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Trading Team Specialist",
+  "page": "careers.html"
+ },
+ {
+  "k": "Watch traffic and buyer performance day to day, spot shifts in call quality and payouts, and turn them into routing changes.",
   "page": "careers.html"
  },
  {
@@ -2921,6 +3021,154 @@
  },
  {
   "k": "Bring Avortyx to performance networks and buyers ready to replace stitched-together trackers, carriers and spreadsheets.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Finance",
+  "page": "careers.html"
+ },
+ {
+  "k": "Procurement Specialist",
+  "page": "careers.html"
+ },
+ {
+  "k": "Source and manage the vendors we rely on, from carriers to software, and keep contracts, renewals and spend in order.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Consolidation Specialist",
+  "page": "careers.html"
+ },
+ {
+  "k": "Bring the numbers from every entity together into consolidated monthly and annual accounts.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Senior Accountant",
+  "page": "careers.html"
+ },
+ {
+  "k": "Own month-end close, reconciliations and reporting, including the payouts that settle between buyers and publishers.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Junior Accountant",
+  "page": "careers.html"
+ },
+ {
+  "k": "Learn the books from the ground up: invoices, payments, reconciliations and support for the month-end close.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Legal",
+  "page": "careers.html"
+ },
+ {
+  "k": "Compliance Monitoring Specialist",
+  "page": "careers.html"
+ },
+ {
+  "k": "Check that our marketing, contracts and product meet the rules we work under, and flag risks before they become problems.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Marketing",
+  "page": "careers.html"
+ },
+ {
+  "k": "CRM Specialist",
+  "page": "careers.html"
+ },
+ {
+  "k": "Run lifecycle email and in-product messaging, from segments and journeys to testing what moves prospects forward.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Lead Digital Designer (Creative Production)",
+  "page": "careers.html"
+ },
+ {
+  "k": "Lead creative production across web, ads and product marketing, and set the visual bar for the brand.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Paid Search Specialist",
+  "page": "careers.html"
+ },
+ {
+  "k": "Plan, launch and tune search campaigns, with call data showing which keywords bring in revenue.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Graphic &amp; Motion Designer",
+  "page": "careers.html"
+ },
+ {
+  "k": "Design the graphics and animation behind our site, product videos and social posts.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Head of Paid Media",
+  "page": "careers.html"
+ },
+ {
+  "k": "Own paid acquisition across search, social and display: strategy, budgets, team and results.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Traffic Manager",
+  "page": "careers.html"
+ },
+ {
+  "k": "Manage campaign traffic day to day: launches, budgets, tracking and the reports that show what is working.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Marketing Project Manager",
+  "page": "careers.html"
+ },
+ {
+  "k": "Keep launches, campaigns and content on schedule across design, copy, product and sales.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Copywriter (Senior)",
+  "page": "careers.html"
+ },
+ {
+  "k": "Write the words for our site, product launches and campaigns, and shape how Avortyx sounds.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Copywriter (Junior)",
+  "page": "careers.html"
+ },
+ {
+  "k": "Write and edit web copy, emails, social posts and blog articles, with feedback from senior writers.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Senior Brand Manager",
+  "page": "careers.html"
+ },
+ {
+  "k": "Own the Avortyx brand: positioning, guidelines and how we show up everywhere we appear.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Senior Social Media Specialist",
+  "page": "careers.html"
+ },
+ {
+  "k": "Grow our social channels with posts and conversations that operators actually want to follow.",
+  "page": "careers.html"
+ },
+ {
+  "k": "Product Marketing Manager",
+  "page": "careers.html"
+ },
+ {
+  "k": "Turn product releases into clear stories: positioning, launches, sales enablement and customer messaging.",
   "page": "careers.html"
  },
  {
@@ -8740,7 +8988,11 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>1. Introduction</0><1>. </1><2>This Data Collection &amp; Use Policy (\"Policy\") sets forth how Avortyx, LLC, a Colorado limited liability company (\"Avortyx or “We\"), collects and uses the information you provide to us and certain other information that we automatically collect through your access and use of our centralized Lead Automation platform made available on Avortyx.com.</2>",
+  "k": "1. Introduction.",
+  "page": "privacy_policy.html"
+ },
+ {
+  "k": "This Data Collection &amp; Use Policy (\"Policy\") sets forth how Avortyx, LLC, a Colorado limited liability company (\"Avortyx or “We\"), collects and uses the information you provide to us and certain other information that we automatically collect through your access and use of our centralized Lead Automation platform made available on Avortyx.com.",
   "page": "privacy_policy.html"
  },
  {
@@ -8752,7 +9004,11 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>2. Modifications to this Policy</0><1>. </1><2>We reserve the right to update or modify this Policy at any time. If we decide to change this Policy, we will revise the effective date posted at the top of this Policy. For material changes, we may also notify you by posting a notice prominently on our home page, sending an email to your registered account address, or notifying you upon your next log-in to access the Website or Service. Your continued use of the Website or Service after the effective date of any changes constitutes your acknowledgment and acceptance of the revised Policy. If you do not agree to the modifications, your sole remedy is to cease using the Website and Service.</2>",
+  "k": "2. Modifications to this Policy.",
+  "page": "privacy_policy.html"
+ },
+ {
+  "k": "We reserve the right to update or modify this Policy at any time. If we decide to change this Policy, we will revise the effective date posted at the top of this Policy. For material changes, we may also notify you by posting a notice prominently on our home page, sending an email to your registered account address, or notifying you upon your next log-in to access the Website or Service. Your continued use of the Website or Service after the effective date of any changes constitutes your acknowledgment and acceptance of the revised Policy. If you do not agree to the modifications, your sole remedy is to cease using the Website and Service.",
   "page": "privacy_policy.html"
  },
  {
@@ -8876,11 +9132,19 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>7. Data Security.</0><1> </1><2>We take the security of your data very seriously. All traffic between your browser and our servers is encrypted during transmission using Secure Sockets Layer (SSL) encryption. The data we collect and store is protected by industry-standard firewall and password protection systems. However, we make no guarantee, warranty or representation that any information provided through this Website will remain secure at all times from any illegal or unauthorized access of any data including any PII by third parties. We will report any unauthorized access to your information promptly upon discovery, and we will use our best efforts to remedy any security vulnerability that contributed to unauthorized access.</2>",
+  "k": "7. Data Security.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>8. Third-Party Websites</0><1>. </1><2>Avortyx neither owns nor controls Third-Party Websites. Third-Party Websites are under no obligation to comply with this Policy except with respect to PII provided directly to them by Avortyx. Before visiting or providing any personal information to Third-Party Websites, you should inform yourself of the privacy policies and practices of those websites.</2>",
+  "k": "We take the security of your data very seriously. All traffic between your browser and our servers is encrypted during transmission using Secure Sockets Layer (SSL) encryption. The data we collect and store is protected by industry-standard firewall and password protection systems. However, we make no guarantee, warranty or representation that any information provided through this Website will remain secure at all times from any illegal or unauthorized access of any data including any PII by third parties. We will report any unauthorized access to your information promptly upon discovery, and we will use our best efforts to remedy any security vulnerability that contributed to unauthorized access.",
+  "page": "privacy_policy.html"
+ },
+ {
+  "k": "8. Third-Party Websites.",
+  "page": "privacy_policy.html"
+ },
+ {
+  "k": "Avortyx neither owns nor controls Third-Party Websites. Third-Party Websites are under no obligation to comply with this Policy except with respect to PII provided directly to them by Avortyx. Before visiting or providing any personal information to Third-Party Websites, you should inform yourself of the privacy policies and practices of those websites.",
   "page": "privacy_policy.html"
  },
  {
@@ -8896,7 +9160,7 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>9.3 Data Retention and Call Recordings.</0><1> We retain Website Use Data, Contact Data, and BI for as long as your account is active or as needed to provide the Service to you. However, regarding consumer lead data and Telephony &amp; Audio Data (including call recordings and transcriptions) processed on your behalf, </1><2>you are solely responsible for configuring your account's data retention settings.</2><3> Avortyx provides tools to customize call recording retention periods (including auto-deletion schedules). You represent and warrant that your chosen retention periods comply with all applicable data minimization and privacy laws. Avortyx is not responsible for your failure to delete consumer data in accordance with applicable law. </3>",
+  "k": "<0>9.3. Data Retention and Call Recordings.</0><1> We retain Website Use Data, Contact Data, and BI for as long as your account is active or as needed to provide the Service to you. However, regarding consumer lead data and Telephony &amp; Audio Data (including call recordings and transcriptions) processed on your behalf, </1><2>you are solely responsible for configuring your account's data retention settings.</2><3> Avortyx provides tools to customize call recording retention periods (including auto-deletion schedules). You represent and warrant that your chosen retention periods comply with all applicable data minimization and privacy laws. Avortyx is not responsible for your failure to delete consumer data in accordance with applicable law. </3>",
   "page": "privacy_policy.html"
  },
  {
@@ -8904,11 +9168,19 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>10. Business Transitions.</0><1> </1><2>Upon any acquisition, merger, sale or other change of control of our business/organization, we reserve the right to transfer any PII you have submitted to this Website as part of the property owned by us to our successor resulting from such merger, acquisition, sale, etc. In the event of our bankruptcy, insolvency, reorganization, receivership, or assignment for the benefit of creditors, We reserve the right to transfer your PII to protect any of our rights or as required by law.</2>",
+  "k": "10. Business Transitions.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>11. Do-Not-Track Disclosure</0><1>. </1><2>Avortyx does not respond to \"Do Not Track\" signals sent by browsers.</2>",
+  "k": "Upon any acquisition, merger, sale or other change of control of our business/organization, we reserve the right to transfer any PII you have submitted to this Website as part of the property owned by us to our successor resulting from such merger, acquisition, sale, etc. In the event of our bankruptcy, insolvency, reorganization, receivership, or assignment for the benefit of creditors, We reserve the right to transfer your PII to protect any of our rights or as required by law.",
+  "page": "privacy_policy.html"
+ },
+ {
+  "k": "11. Do-Not-Track Disclosure.",
+  "page": "privacy_policy.html"
+ },
+ {
+  "k": "Avortyx does not respond to \"Do Not Track\" signals sent by browsers.",
   "page": "privacy_policy.html"
  },
  {
@@ -10184,7 +10456,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1. Platform Access &amp; Restrictions</0><1>. </1>",
+  "k": "1. Platform Access &amp; Restrictions.",
   "page": "terms_of_service.html"
  },
  {
@@ -10192,7 +10464,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.1.1 Platform Availability. </0><1>In our sole discretion, we may set, impose or enforce limits on your use, or restrict your access to some or all of the Service features, change, discontinue, suspend or terminate the availability of some or all of your Content or any other separate feature of the Service at any time for any reason with or without notice to You. We will not be liable to You for any damages of any kind as a result of any such future restriction, modification, deletion, discontinuation, suspension and/or termination including access to any Content. </1>",
+  "k": "<0>1.1.1. Platform Availability. </0><1>In our sole discretion, we may set, impose or enforce limits on your use, or restrict your access to some or all of the Service features, change, discontinue, suspend or terminate the availability of some or all of your Content or any other separate feature of the Service at any time for any reason with or without notice to You. We will not be liable to You for any damages of any kind as a result of any such future restriction, modification, deletion, discontinuation, suspension and/or termination including access to any Content. </1>",
   "page": "terms_of_service.html"
  },
  {
@@ -10460,7 +10732,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>3. </0><1>Service Use Fees</1>",
+  "k": "3. Service Use Fees.",
   "page": "terms_of_service.html"
  },
  {
@@ -10516,7 +10788,15 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>4. Indemnification. </0><1>You, Your estate</1><2>,</2><3> successors and/or permitted assigns, as applicable, voluntarily agree to hold harmless, defend, and indemnify Avortyx and its members, managers, officers, employees, agents, affiliates, consultants, representatives, licensees, successors and/or assigns from any and all claims, actions, liabilities, judgments, settlements, fees, costs (including reasonable attorneys' fees and costs of responding to subpoenas) or any other damages of any kind or nature arising out of or in any way relating to your use of the Service, or use of the Service by any of your agents, including, but not limited to, any violation of any laws by You, any regulatory investigations, administrative proceedings, or inquiries by federal or state authorities (including the FCC, FTC, or state Attorneys General) related to Your traffic, or any other breach of these Terms by You, provided, however, that Avortyx reserves the right, at its own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by You, in which event You will cooperate fully with Avortyx in asserting any available defenses. </3>",
+  "k": "4. Indemnification.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "<0>You, Your estate</0><1>,</1><2> successors and/or permitted assigns, as applicable, voluntarily agree to hold harmless, defend, and indemnify Avortyx and its members, managers, officers, employees, agents, affiliates, consultants, representatives, licensees, successors and/or assigns from any and all claims, actions, liabilities, judgments, settlements, fees, costs (including reasonable attorneys' fees and costs of responding to subpoenas) or any other damages of any kind or nature arising out of or in any way relating to your use of the Service, or use of the Service by any of your agents, including, but not limited to, any violation of any laws by You, any regulatory investigations, administrative proceedings, or inquiries by federal or state authorities (including the FCC, FTC, or state Attorneys General) related to Your traffic, or any other breach of these Terms by You, provided, however, that Avortyx reserves the right, at its own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by You, in which event You will cooperate fully with Avortyx in asserting any available defenses. </2>",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "5. Communications and Data Privacy.",
   "page": "terms_of_service.html"
  },
  {
@@ -10688,7 +10968,11 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>11.</0><1>  </1><2>Exceptions to Disclaimers &amp; Limitations.</2><3> To the extent that We may not disclaim any implied warranty or limit our damages, the scope and duration of any required warranties under law and the extent of our liability shall be as limited as allowed under any applicable laws.</3>",
+  "k": "11. Exceptions to Disclaimers &amp; Limitations.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "To the extent that We may not disclaim any implied warranty or limit our damages, the scope and duration of any required warranties under law and the extent of our liability shall be as limited as allowed under any applicable laws.",
   "page": "terms_of_service.html"
  },
  {
@@ -11753,10 +12037,6 @@
  },
  {
   "k": "Leads Queue — Leads enter via API, import, actions, and more; Agent Available — Agent on the line, ready for the next call; Place Call — Dials the next lead when an agent is free; Connected — Live answer bridged to agent; Disposition — Agent selects outcome, next lead",
-  "page": "(runtime)"
- },
- {
-  "k": "Legal",
   "page": "(runtime)"
  },
  {

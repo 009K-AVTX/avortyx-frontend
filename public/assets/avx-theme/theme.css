@@ -1556,19 +1556,32 @@ html[lang="zh-Hans"] body {
   position: relative;
 }
 
+/* the list opens to the right of the globe, over the Request Access button, so nothing on the
+   page's left (the back button, the feature strip) can cover it; phones re-anchor it below */
 .avx-lang .avx-lang-menu,
 .avx-nav-quick .avx-lang .avx-lang-menu {
   position: absolute;
   top: calc(100% + 8px);
-  right: 0;
-  left: auto;
+  right: auto;
+  left: 0;
 }
 
-/* Desktop: hovering the globe lists the languages (clicking still works for touch and keyboard);
-   the ::before strip bridges the gap so the pointer can move down into the list */
-@media (hover: hover) and (min-width: 992px) {
-  .avx-lang:hover .avx-lang-menu {
+/* Any mouse, at any window width: hovering the globe lists the languages (clicking still works
+   for touch and keyboard). The list stays up for a moment after the pointer leaves the globe, so
+   it can travel to any language from any direction; the ::before strip bridges the gap. */
+@media (hover: hover) and (pointer: fine) {
+  .avx-lang .avx-lang-menu {
     display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .15s ease .25s, visibility 0s linear .4s;
+  }
+
+  .avx-lang:hover .avx-lang-menu,
+  .avx-lang .avx-lang-menu.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .15s ease, visibility 0s;
   }
 
   .avx-lang:hover .avx-lang-btn {
@@ -1584,6 +1597,15 @@ html[lang="zh-Hans"] body {
     left: 0;
     height: 10px;
   }
+}
+
+/* narrower desktop windows: the list lines up with the right edge of the globe + Request Access
+   group, so it still sits on the right but never runs off the screen */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .avx-nav-quick { position: relative; }
+  .avx-nav-quick .avx-lang { position: static; }
+  .avx-lang .avx-lang-menu,
+  .avx-nav-quick .avx-lang .avx-lang-menu { right: 0; left: auto; }
 }
 
 /* ---------- Always in view: language + Request Demo (navbar and the feature-page strip) ---------- */
@@ -1653,6 +1675,8 @@ html[lang="zh-Hans"] body {
   /* the list hangs from the group's right edge so it stays on screen */
   .avx-nav-quick { position: relative; }
   .avx-nav-quick .avx-lang { position: static; }
+  .avx-lang .avx-lang-menu,
+  .avx-nav-quick .avx-lang .avx-lang-menu { right: 0; left: auto; }
 
   .marketing-navbar .navbar-toggler { order: 3; }
   .marketing-navbar .navbar-collapse { order: 4; }
@@ -1762,4 +1786,172 @@ html[lang="ru"] h3 {
 
 [data-bs-theme="light"] .avx-cta-tip {
   box-shadow: 0 14px 36px -14px rgba(15, 23, 42, .35);
+}
+
+/* ---------- Careers: open roles, filtered by team (site.js) ---------- */
+.avx-jobs-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.avx-jobs-chip {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 7px 14px;
+  border: 1px solid rgba(148, 163, 184, .2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .03);
+  color: #cbd5e1;
+  font-size: .875rem;
+  font-weight: 600;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.avx-jobs-chip span {
+  min-width: 1.4rem;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, .14);
+  color: #93c5fd;
+  font-size: .72rem;
+}
+
+.avx-jobs-chip:hover {
+  border-color: rgba(96, 165, 250, .5);
+  color: #fff;
+}
+
+.avx-jobs-chip[aria-pressed="true"] {
+  border-color: #3b82f6;
+  background: #2563eb;
+  color: #fff;
+}
+
+.avx-jobs-chip[aria-pressed="true"] span {
+  background: rgba(255, 255, 255, .2);
+  color: #fff;
+}
+
+.avx-jobs {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.avx-job {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #131722, #0d1017);
+  transition: border-color .2s ease, transform .25s ease;
+}
+
+.avx-job:hover {
+  border-color: rgba(96, 165, 250, .4);
+  transform: translateY(-2px);
+}
+
+.avx-job[hidden] {
+  display: none;
+}
+
+.avx-job-team {
+  display: inline-block;
+  margin-bottom: 6px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, .14);
+  color: #93c5fd;
+  font-size: .72rem;
+  font-weight: 600;
+}
+
+.avx-job-title {
+  margin: 0 0 4px;
+  color: #f1f5f9;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.avx-job-text {
+  margin: 0;
+  color: #a3abb8;
+  font-size: .875rem;
+}
+
+.avx-job-apply {
+  flex: none;
+}
+
+[data-bs-theme="light"] .avx-jobs-chip {
+  border-color: rgba(15, 23, 42, .12);
+  background: #fff;
+  color: #334155;
+}
+
+[data-bs-theme="light"] .avx-jobs-chip:hover {
+  color: #0f172a;
+}
+
+[data-bs-theme="light"] .avx-jobs-chip[aria-pressed="true"] {
+  background: #2563eb;
+  color: #fff;
+}
+
+[data-bs-theme="light"] .avx-job {
+  border-color: rgba(15, 23, 42, .1);
+  background: #fff;
+}
+
+[data-bs-theme="light"] .avx-job-title {
+  color: #0f172a;
+}
+
+[data-bs-theme="light"] .avx-job-text {
+  color: #475569;
+}
+
+[data-bs-theme="light"] .avx-job-team,
+[data-bs-theme="light"] .avx-jobs-chip span {
+  color: #2563eb;
+}
+
+@media (max-width: 575.98px) {
+  /* phones: the team chips in one row that scrolls sideways */
+  .avx-jobs-filter {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-right: -12px;
+    margin-left: -12px;
+    padding: 0 12px 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .avx-jobs-chip {
+    flex: none;
+    min-height: 0;
+    padding: 6px 12px;
+  }
+
+  .avx-job {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    padding: 16px;
+  }
+
+  .avx-job-apply {
+    align-self: flex-start;
+  }
 }

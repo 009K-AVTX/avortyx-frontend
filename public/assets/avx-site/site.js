@@ -650,6 +650,22 @@
   if (preview) flag.hidden = true;
 })();
 
+/* ---------- Careers: filter the open roles by team ---------- */
+(function () {
+  'use strict';
+  var box = document.querySelector('[data-avx-jobs]');
+  if (!box) return;
+  var chips = box.querySelectorAll('.avx-jobs-chip');
+  var jobs = box.querySelectorAll('.avx-job');
+  box.addEventListener('click', function (e) {
+    var chip = e.target.closest('.avx-jobs-chip');
+    if (!chip) return;
+    var team = chip.getAttribute('data-team');
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+    jobs.forEach(function (j) { j.hidden = !!team && j.getAttribute('data-team') !== team; });
+  });
+})();
+
 /* ---------- Legal Center: /legal?doc=NN shows one document ----------
    Every document is in the page; this shows the one in ?doc (or the list), highlights it in the
    menu and switches on click without a reload. Back and forward work. Without JS, all show. */

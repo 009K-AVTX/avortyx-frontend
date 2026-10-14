@@ -4358,7 +4358,7 @@
   // inner pages: "Back to …" floats top-left for the whole visit. The hero's animated stage
   // has a transform, which would pin a fixed element to the hero, so the link moves to <body>.
   function initFloatingBack() {
-    var a = document.querySelector('body > main .mktg-subpage-hero .mktg-subpage-back');
+    var a = document.querySelector('body > main .mktg-subpage-hero .mktg-subpage-back, body > main .mktg-subpage-hero-nav .mktg-subpage-back');
     if (!a) return;
     var bar = el('nav', 'avx-backbar');
     bar.setAttribute('aria-label', 'Back');

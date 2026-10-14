@@ -49,7 +49,9 @@ export default function TermsOfService() {
                   <span className="c35 c49 c19">THE INDIVIDUAL ENTERING INTO THIS AGREEMENT REPRESENTS THAT HE OR SHE IS AT LEAST 18 YEARS OF AGE.</span>
                 </p>
                 <p className="c5"><span className="c35 c19 c49" /></p>
-                <p className="c10"><span className="c9 c20 c39">1. Platform Access & Restrictions</span><span className="c4">. </span></p>
+                <h2 className="c7">
+                  <span>1. Platform Access & Restrictions.</span>
+                </h2>
                 <p className="c5"><span className="c4" /></p>
                 <p className="c10">
                   <span className="c7">1.1. Access Rights Grant</span>
@@ -58,7 +60,7 @@ export default function TermsOfService() {
                 </p>
                 <p className="c5"><span className="c1" /></p>
                 <p className="c10 c26">
-                  <span className="c20">1.1.1 Platform Availability. </span>
+                  <span className="c20">1.1.1. Platform Availability. </span>
                   <span className="c1">In our sole discretion, we may set, impose or enforce limits on your use, or restrict your access to some or all of the Service features, change, discontinue, suspend or terminate the availability of some or all of your Content or any other separate feature of the Service at any time for any reason with or without notice to You. We will not be liable to You for any damages of any kind as a result of any such future restriction, modification, deletion, discontinuation, suspension and/or termination including access to any Content. </span>
                 </p>
                 <p className="c5 c26"><span className="c1" /></p>
@@ -177,7 +179,9 @@ export default function TermsOfService() {
                     <span className="c21">forge, modify, or falsify any network packet or protocol header or SIP metadata. </span>
                   </li>
                 </ol>
-                <h3 className="c30"><span className="c4">2. Service Use.</span></h3>
+                <h2 className="c7">
+                  <span>2. Service Use.</span>
+                </h2>
                 <p className="c34">
                   <span className="c9 c20">2.1. General Responsibility and Content Ownership. </span>
                   <span className="c6">You are solely responsible for all content and information that You send or transmit via phone call, SMS/MMS message, instant messages, email, mail, or other form (“Content”), including its legality, reliability, and appropriateness.</span>
@@ -320,7 +324,9 @@ export default function TermsOfService() {
                   <span className="c6">Avortyx provides customizable tools allowing You to configure data retention periods and auto-deletion schedules for the Telephony & Audio Data (including call recordings, logs, and transcriptions) stored within Your account. You acknowledge and expressly agree that You are solely responsible for configuring these settings to comply with all applicable local, state, and federal data retention and data minimization laws, including without limitation the FTC Telemarketing Sales Rule, the FCC toll record regulations, the TCPA, and state consumer privacy laws. We assume no responsibility and accept no liability if you fail to retain required records for mandated minimum periods or fail to delete consumer data in accordance with applicable privacy laws.</span>
                 </p>
                 <p className="c22 c28 c26"><span className="c4" /></p>
-                <p className="c22"><span className="c9 c20">3. </span><span className="c7">Service Use Fees</span></p>
+                <h2 className="c7">
+                  <span>3. Service Use Fees.</span>
+                </h2>
                 <p className="c16">
                   <span className="c7">3.1. General Payment Terms.</span>
                   <span className="c1">&nbsp;Avortyx may charge fees in accordance with the terms of either a separate agreement or the registration process You complete.</span>
@@ -375,14 +381,19 @@ export default function TermsOfService() {
                   <span className="c7">3.5. Suspension and Termination for Non-Payment.</span>
                   <span className="c1">&nbsp;If your usage of the Service exceeds the amount You deposited or You fail to pay any Service Fees when due, Avortyx will be entitled to suspend or terminate your access to the Service, including your account, in its sole discretion. We will not have any liability whatsoever for any damage, liabilities, losses (including any loss of data, loss of rented phone numbers/DIDs, or profits), or any other consequences that You may incur with respect to any suspension and/or termination of your ability to access and use the Service in such case. Upon suspension or termination for non-payment, Avortyx reserves the right to immediately release, reclaim, or reassign any phone numbers associated with your account without further notice or liability.</span>
                 </p>
+                <h2 className="c7">
+                  <span>4. Indemnification.</span>
+                </h2>
                 <p className="c22">
-                  <span className="c9 c20">4. Indemnification. </span>
                   <span className="c9">You, Your estate</span>
                   <span className="c44">,</span>
                   <span className="c6">&nbsp;successors and/or permitted assigns, as applicable, voluntarily agree to hold harmless, defend, and indemnify Avortyx and its members, managers, officers, employees, agents, affiliates, consultants, representatives, licensees, successors and/or assigns from any and all claims, actions, liabilities, judgments, settlements, fees, costs (including reasonable attorneys' fees and costs of responding to subpoenas) or any other damages of any kind or nature arising out of or in any way relating to your use of the Service, or use of the Service by any of your agents, including, but not limited to, any violation of any laws by You, any regulatory investigations, administrative proceedings, or inquiries by federal or state authorities (including the FCC, FTC, or state Attorneys General) related to Your traffic, or any other breach of these Terms by You, provided, however, that Avortyx reserves the right, at its own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by You, in which event You will cooperate fully with Avortyx in asserting any available defenses. </span>
                 </p>
                 <p className="c22 c28"><span className="c6" /></p>
                 <p className="c5 c19 c26"><span className="c3" /></p>
+                <h2 className="c7">
+                  <span>5. Communications and Data Privacy.</span>
+                </h2>
                 <p className="c18 c19">
                   <span className="c20">5.1. Consent to Receive Communications.</span>
                   <span className="c3">&nbsp;By using the Service and providing your contact information, You expressly consent to receive communications from Avortyx, its agents, and affiliates.</span>
@@ -413,7 +424,9 @@ export default function TermsOfService() {
                   <span className="c20">5.2.3. International Data Transfer.</span>
                   <span>&nbsp;Personally Identifiable information collected by us may be stored and processed in the United States or any other country in which We maintain facilities. You explicitly consent to any such transfer of your information outside of your country of citizenship or residence.</span>
                 </p>
-                <p className="c10"><span className="c7">6. Third-Party Intellectual Property Rights.</span></p>
+                <h2 className="c7">
+                  <span>6. Third-Party Intellectual Property Rights.</span>
+                </h2>
                 <p className="c5"><span className="c15 c7" /></p>
                 <p className="c18">
                   <span className="c7">6.1. DMCA Safe Harbor and Copyright Infringement. </span>
@@ -450,7 +463,9 @@ export default function TermsOfService() {
                     <span className="c1">. A physical or electronic signature of the copyright owner or authorized representative</span>
                   </li>
                 </ol>
-                <p className="c10"><span className="c15 c7">7. Third-Party Websites and Services.</span></p>
+                <h2 className="c7">
+                  <span>7. Third-Party Websites and Services.</span>
+                </h2>
                 <p className="c5"><span className="c1" /></p>
                 <p className="c10">
                   <span className="c7">7.1.</span>
@@ -467,7 +482,9 @@ export default function TermsOfService() {
                   <span className="c7">7.3. User-Authorized Third-Party Integrations. </span>
                   <span className="c1">If You elect to enable, access, or use third-party services, applications, or integrations (including but not limited to Zoho CRM, Salesforce, Zapier, or other third-party APIs) in conjunction with the Service, your access and use of such third-party services are governed solely by the terms and conditions of such third parties. We do not endorse, are not responsible or liable for, and make no representations as to any aspect of such third-party services, including, without limitation, their content or the manner in which they handle, protect, manage, or process data, or any interaction between You and the provider of such third-party services. We shall not be liable for any damage or loss caused or alleged to be caused by or in connection with your enablement, access, or use of any such third-party services, including any data loss, data corruption, or breach of privacy resulting from the transfer of your data to such third parties. You irrevocably waive any claim against Avortyx, our members, managers, officers, agents, successors and/or assigns with respect to such third-party services.</span>
                 </p>
-                <p className="c10"><span className="c7">8. DISCLAIMER OF WARRANTIES.</span></p>
+                <h2 className="c7">
+                  <span>8. DISCLAIMER OF WARRANTIES.</span>
+                </h2>
                 <p className="c16">
                   <span className="c7">NO WARRANTIES. THE SERVICE IS BEING PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DO NOT GUARANTEE ANY SPECIFIC RESULTS FROM THE USE OF THE SERVICE.</span>
                   <span className="c19">&nbsp;</span>
@@ -500,7 +517,9 @@ export default function TermsOfService() {
                     <span className="c1">THAT CONDUCTING SMS AND TELEPHONE LEAD GENERATION CAMPAIGNS USING THE SERVICE WILL COMPLY WITH ANY LAWS, INCLUDING BUT NOT LIMITED TO VIOLATIONS UNDER THE TELEPHONE CONSUMER PROTECTION ACT (TCPA) AND THE TELEMARKETING SALES RULE (TSR).</span>
                   </li>
                 </ol>
-                <p className="c10"><span className="c15 c7">9. DOWN TIME DISCLAIMER.</span></p>
+                <h2 className="c7">
+                  <span>9. DOWN TIME DISCLAIMER.</span>
+                </h2>
                 <p className="c5"><span className="c1" /></p>
                 <p className="c10">
                   <span className="c7">9.1. Service Interruptions.</span>
@@ -512,7 +531,9 @@ export default function TermsOfService() {
                   <span className="c1">. We shall not have any liability to You of any kind whatsoever for any Service interruptions or downtime regardless of the duration of such interruption that may restrict your access and use of the Service for any of the following reasons: (i) periodic maintenance (notice of which may be emailed to the email address You provide to Us in relation to your account); (ii) any reason described in the section regarding Force Majeure contained in Section 1.6; (iii) your inability to access the Service due to problems related to your computer/device hardware, wireless Internet network, your Internet service provider, or any other similar problem; or (iv) unavailability from the acts or omissions of any third-party providers or upstream telecommunications carriers We use and rely upon to provide the Service to You. You agree to assume this risk before electing to use the Service.</span>
                 </p>
                 <p className="c5"><span className="c1" /></p>
-                <p className="c10"><span className="c15 c7">10. GENERAL LIMITATION OF LIABILITY.</span></p>
+                <h2 className="c7">
+                  <span>10. GENERAL LIMITATION OF LIABILITY.</span>
+                </h2>
                 <p className="c16">
                   <span className="c15 c7">TO THE FULLEST EXTENT PERMITTED BY LAW, YOU AGREE TO THE FOLLOWING LIMITATIONS:</span>
                 </p>
@@ -538,14 +559,16 @@ export default function TermsOfService() {
                     <span className="c19">YOU ACKNOWLEDGE YOU ARE WAIVING RIGHTS CONCERNING CLAIMS THAT ARE UNKNOWN OR ARE UNSUSPECTED. ACCORDINGLY, YOU AGREE TO WAIVE THE BENEFIT OF AND YOUR RIGHTS UNDER ANY LAW THAT OTHERWISE MIGHT LIMIT WAIVER OF SUCH CLAIMS, TO THE FULLEST EXTENT PERMITTED BY LAW.</span>
                   </li>
                 </ol>
+                <h2 className="c7">
+                  <span>11. Exceptions to Disclaimers & Limitations.</span>
+                </h2>
                 <p className="c10">
-                  <span className="c7">11.</span>
-                  <span className="c19">&nbsp; </span>
-                  <span className="c7">Exceptions to Disclaimers & Limitations.</span>
-                  <span className="c1">&nbsp;To the extent that We may not disclaim any implied warranty or limit our damages, the scope and duration of any required warranties under law and the extent of our liability shall be as limited as allowed under any applicable laws.</span>
+                  <span className="c1">To the extent that We may not disclaim any implied warranty or limit our damages, the scope and duration of any required warranties under law and the extent of our liability shall be as limited as allowed under any applicable laws.</span>
                 </p>
                 <p className="c5"><span className="c15 c7" /></p>
-                <p className="c10"><span className="c15 c7">12. BINDING ARBITRATION AND CLASS ACTION WAIVER. </span></p>
+                <h2 className="c7">
+                  <span>12. BINDING ARBITRATION AND CLASS ACTION WAIVER.</span>
+                </h2>
                 <p className="c5"><span className="c15 c7" /></p>
                 <p className="c14">
                   <span className="c7">12.1. Agreement to Arbitrate & Class Action Waiver. </span>
@@ -581,7 +604,9 @@ export default function TermsOfService() {
                   <span className="c19">&nbsp;AFTER THE EARLIER OF I) THE DATE THE ACT GIVING RISE TO THE CLAIM FIRST OCCURS, OR II) THE DATE THE CLAIMING PARTY DISCOVERS THE EXISTENCE OF ANY SUCH CLAIM. THE DATE OF DISCOVERY SHALL BE DEFINED AS THE DATE SUCH PARTY SHOULD HAVE DISCOVERED THE EXISTENCE OF THE FIRST ACT GIVING RISE TO THE CLAIM HAD SUCH PARTY USED EITHER CUSTOMARY AND/OR COMMERCIALLY PRUDENT PRACTICES REASONABLY EXPECTED TO BE USED BY SUCH PARTY UNDER THE CIRCUMSTANCES. OTHERWISE, SUCH CLAIM SHALL BE PERMANENTLY BARRED.&nbsp;</span>
                 </p>
                 <p className="c5"><span className="c15 c7" /></p>
-                <p className="c10"><span className="c15 c7">13. Modifications.</span></p>
+                <h2 className="c7">
+                  <span>13. Modifications.</span>
+                </h2>
                 <p className="c5"><span className="c53 c7 c21 c39" /></p>
                 <p className="c18 c26">
                   <span className="c7">13.1. Right to Amend.</span>
@@ -597,7 +622,9 @@ export default function TermsOfService() {
                   <span className="c7">13.3. Rejection of Amendments.</span>
                   <span className="c1">&nbsp;If You do not accept any amendments, You must terminate your account by notifying us in writing by email of your election to do so. This Agreement will then terminate, in which case You shall receive a prorated refund of the Service Fees.</span>
                 </p>
-                <p className="c18"><span className="c15 c7">14. NOTICE.</span></p>
+                <h2 className="c7">
+                  <span>14. NOTICE.</span>
+                </h2>
                 <p className="c18">
                   <span className="c7">14.1. Notices to You.</span>
                   <span className="c1">&nbsp;Avortyx may provide any legal or operational notices to You under this Agreement by sending an email to the email address currently associated with your account, or by posting a conspicuous notice on the Platform dashboard. Notices sent by Avortyx shall be deemed effective immediately upon sending or posting. It is your sole responsibility to keep your account contact information current and accurate.</span>
@@ -614,7 +641,9 @@ export default function TermsOfService() {
                   <span className="c7">14.3. General Support.</span>
                   <span className="c1">&nbsp;Routine customer support inquiries, technical questions, and non-legal communications may be directed to our support team at support@avortyx.com. Such electronic communications do not constitute formal legal notice under this Agreement.</span>
                 </p>
-                <p className="c10"><span className="c15 c7">15. Miscellaneous.</span></p>
+                <h2 className="c7">
+                  <span>15. Miscellaneous.</span>
+                </h2>
                 <p className="c5"><span className="c15 c7" /></p>
                 <p className="c10">
                   <span className="c7">A. Entire Agreement. </span>

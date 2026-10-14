@@ -13,14 +13,43 @@ const CAREERS_EMAIL = 'hello@avortyx.io'
 const apply = (title) => `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(`Application: ${title}`)}`
 const OPEN_APPLICATION = `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent('Open application')}`
 
-// [title, team, badge classes, location, description]
+// [title, team, description]. Every role is full-time; no locations are listed.
 const ROLES = [
-  ['Senior Backend Engineer, Telephony', 'Engineering', 'bg-primary-subtle text-primary', 'Remote, US / EU', 'Own the routing core: SIP, carrier integrations and the sub-second decision path behind every call.'],
-  ['Frontend Engineer, Product', 'Engineering', 'bg-primary-subtle text-primary', 'Remote, US / EU', 'Build the live monitor, reports and campaign tooling operators use every day, with Next.js, TypeScript and real-time data.'],
-  ['Machine Learning Engineer, Intent Scoring', 'Data', 'bg-info-subtle text-info', 'Remote, US', 'Turn live call signals into the intent scores that decide where calls go: feature pipelines, online inference and evaluation.'],
-  ['Solutions Engineer', 'Customer', 'bg-warning-subtle text-warning', 'Remote, US', 'Get networks live: number porting, routing design, compliance setup and integrations, side by side with customers.'],
-  ['Account Executive, Pay-Per-Call', 'Sales', 'bg-success-subtle text-success', 'Remote, US', 'Bring Avortyx to performance networks and buyers ready to replace stitched-together trackers, carriers and spreadsheets.'],
+  ['Senior Backend Engineer, Telephony', 'Engineering', 'Own the routing core: SIP, carrier integrations and the sub-second decision path behind every call.'],
+  ['Frontend Engineer, Product', 'Engineering', 'Build the live monitor, reports and campaign tooling operators use every day, with Next.js, TypeScript and real-time data.'],
+  ['Operational Resiliency Lead', 'Engineering', 'Plan for the bad day: failover drills, incident playbooks and recovery targets that keep calls routing when a carrier or region goes down.'],
+  ['Site Reliability Engineer', 'Engineering', 'Keep the routing path fast and up: monitoring, alerting, capacity and on-call for a platform that answers in milliseconds.'],
+  ['QA Lead', 'Engineering', 'Set how we test routing rules, billing and integrations, and build the automated suites that let us ship daily with confidence.'],
+  ['AI Software Engineer', 'Engineering', 'Take AI features such as transcription, call summaries and scoring from prototype to production.'],
+  ['Senior IT Engineer', 'Engineering', 'Run the systems the team works on every day: devices, identity, access and the tools that keep everyone secure.'],
+  ['Senior PHP Developer', 'Engineering', 'Build and maintain the services behind billing, reporting and the customer API, in clean, well-tested PHP.'],
+  ['Cloud Platform Engineer', 'Engineering', 'Shape the cloud platform the routing core runs on: Kubernetes, infrastructure as code, networking and cost.'],
+  ['Machine Learning Engineer, Intent Scoring', 'Data', 'Turn live call signals into the intent scores that decide where calls go: feature pipelines, online inference and evaluation.'],
+  ['Data Analytics Lead', 'Data', 'Lead the analytics team: the metrics, dashboards and models that show customers and us what every call is worth.'],
+  ['Trading Team Specialist', 'Data', 'Watch traffic and buyer performance day to day, spot shifts in call quality and payouts, and turn them into routing changes.'],
+  ['Solutions Engineer', 'Customer', 'Get networks live: number porting, routing design, compliance setup and integrations, side by side with customers.'],
+  ['Account Executive, Pay-Per-Call', 'Sales', 'Bring Avortyx to performance networks and buyers ready to replace stitched-together trackers, carriers and spreadsheets.'],
+  ['Procurement Specialist', 'Finance', 'Source and manage the vendors we rely on, from carriers to software, and keep contracts, renewals and spend in order.'],
+  ['Consolidation Specialist', 'Finance', 'Bring the numbers from every entity together into consolidated monthly and annual accounts.'],
+  ['Senior Accountant', 'Finance', 'Own month-end close, reconciliations and reporting, including the payouts that settle between buyers and publishers.'],
+  ['Junior Accountant', 'Finance', 'Learn the books from the ground up: invoices, payments, reconciliations and support for the month-end close.'],
+  ['Compliance Monitoring Specialist', 'Legal', 'Check that our marketing, contracts and product meet the rules we work under, and flag risks before they become problems.'],
+  ['CRM Specialist', 'Marketing', 'Run lifecycle email and in-product messaging, from segments and journeys to testing what moves prospects forward.'],
+  ['Lead Digital Designer (Creative Production)', 'Marketing', 'Lead creative production across web, ads and product marketing, and set the visual bar for the brand.'],
+  ['Paid Search Specialist', 'Marketing', 'Plan, launch and tune search campaigns, with call data showing which keywords bring in revenue.'],
+  ['Graphic & Motion Designer', 'Marketing', 'Design the graphics and animation behind our site, product videos and social posts.'],
+  ['Head of Paid Media', 'Marketing', 'Own paid acquisition across search, social and display: strategy, budgets, team and results.'],
+  ['Traffic Manager', 'Marketing', 'Manage campaign traffic day to day: launches, budgets, tracking and the reports that show what is working.'],
+  ['Marketing Project Manager', 'Marketing', 'Keep launches, campaigns and content on schedule across design, copy, product and sales.'],
+  ['Copywriter (Senior)', 'Marketing', 'Write the words for our site, product launches and campaigns, and shape how Avortyx sounds.'],
+  ['Copywriter (Junior)', 'Marketing', 'Write and edit web copy, emails, social posts and blog articles, with feedback from senior writers.'],
+  ['Senior Brand Manager', 'Marketing', 'Own the Avortyx brand: positioning, guidelines and how we show up everywhere we appear.'],
+  ['Senior Social Media Specialist', 'Marketing', 'Grow our social channels with posts and conversations that operators actually want to follow.'],
+  ['Product Marketing Manager', 'Marketing', 'Turn product releases into clear stories: positioning, launches, sales enablement and customer messaging.'],
 ]
+
+// the filter buttons, largest team first
+const TEAMS = ['Engineering', 'Marketing', 'Finance', 'Data', 'Legal', 'Customer', 'Sales']
 
 // [icon, color, title, text]
 const VALUES = [
@@ -63,29 +92,30 @@ export default function Careers() {
             ))}
           </div>
 
-          <div className="mb-5">
-            <h2 className="fw-bold mb-4 text-center">Where we’re hiring now</h2>
-            <div className="row g-4">
-              {ROLES.map(([title, team, badge, location, text]) => (
-                <div className="col-lg-6" key={title}>
-                  <div className="p-4 rounded h-100 d-flex flex-column justify-content-between" style={{ background: 'linear-gradient(180deg, #131722, #0d1017)', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                    <div>
-                      <div className="d-flex justify-content-between align-items-center mb-2">
-                        <span className={`badge ${badge}`}>{team}</span>
-                        <span className="small text-muted font-monospace">Full-time</span>
-                      </div>
-                      <h3 className="h5 fw-bold text-white mb-2">{title}</h3>
-                      <p className="small text-muted mb-2"><i className="fa-solid fa-location-dot me-1 text-info" aria-hidden="true" />{location} · Full-time</p>
-                      <p className="small text-slate-300 mb-3">{text}</p>
-                    </div>
-                    <div className="d-flex justify-content-between align-items-center pt-3 border-top border-secondary border-opacity-25">
-                      <span className="small text-muted">{team}</span>
-                      <a href={apply(title)} className="btn btn-sm btn-td-green fw-semibold">Apply Now →</a>
-                    </div>
-                  </div>
-                </div>
+          <div className="mb-5" data-avx-jobs="">
+            <h2 className="fw-bold mb-3 text-center">Where we’re hiring now</h2>
+            <p className="text-muted text-center mb-4">{ROLES.length} open roles, all full-time.</p>
+            {/* site.js filters the list by team; without script every role shows */}
+            <div className="avx-jobs-filter" role="group" aria-label="Filter roles by team">
+              <button type="button" className="avx-jobs-chip" data-team="" aria-pressed="true">All <span>{ROLES.length}</span></button>
+              {TEAMS.map((team) => (
+                <button type="button" className="avx-jobs-chip" data-team={team} aria-pressed="false" key={team}>
+                  {team} <span>{ROLES.filter((r) => r[1] === team).length}</span>
+                </button>
               ))}
             </div>
+            <ul className="avx-jobs">
+              {ROLES.map(([title, team, text]) => (
+                <li className="avx-job" data-team={team} key={title}>
+                  <div className="avx-job-main">
+                    <span className="avx-job-team">{team}</span>
+                    <h3 className="avx-job-title">{title}</h3>
+                    <p className="avx-job-text">{text}</p>
+                  </div>
+                  <a href={apply(title)} className="btn btn-sm btn-td-green fw-semibold avx-job-apply">Apply Now →</a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="text-center p-4 rounded" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.06)' }}>

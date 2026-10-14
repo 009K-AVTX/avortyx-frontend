@@ -36,10 +36,11 @@ export default function PrivacyPolicy() {
                   <span className="c2 c12 c5 c14">, 2026</span>
                 </p>
                 <h2 className="c7">
-                  <span className="c2 c5">1. Introduction</span>
-                  <span className="c4">. </span>
-                  <span className="c1 c2">This Data Collection & Use Policy ("Policy") sets forth how Avortyx, LLC, a Colorado limited liability company ("Avortyx or “We"), collects and uses the information you provide to us and certain other information that we automatically collect through your access and use of our centralized Lead Automation platform made available on Avortyx.com.</span>
+                  <span className="c2 c5">1. Introduction.</span>
                 </h2>
+                <p className="c24">
+                  <span className="c1 c2">This Data Collection & Use Policy ("Policy") sets forth how Avortyx, LLC, a Colorado limited liability company ("Avortyx or “We"), collects and uses the information you provide to us and certain other information that we automatically collect through your access and use of our centralized Lead Automation platform made available on Avortyx.com.</span>
+                </p>
                 <p className="c24">
                   <span className="c2">Users of our Platform are referred to throughout this Policy as "</span>
                   <span className="c8">y</span>
@@ -50,10 +51,11 @@ export default function PrivacyPolicy() {
                   <span className="c1 c2">&nbsp;If you have any general questions or concerns about this Policy, you can email us at support@avortyx.com.</span>
                 </p>
                 <h2 className="c7">
-                  <span className="c2 c5">2. Modifications to this Policy</span>
-                  <span className="c4">. </span>
-                  <span className="c1 c2">We reserve the right to update or modify this Policy at any time. If we decide to change this Policy, we will revise the effective date posted at the top of this Policy. For material changes, we may also notify you by posting a notice prominently on our home page, sending an email to your registered account address, or notifying you upon your next log-in to access the Website or Service. Your continued use of the Website or Service after the effective date of any changes constitutes your acknowledgment and acceptance of the revised Policy. If you do not agree to the modifications, your sole remedy is to cease using the Website and Service.</span>
+                  <span className="c2 c5">2. Modifications to this Policy.</span>
                 </h2>
+                <p className="c24">
+                  <span className="c1 c2">We reserve the right to update or modify this Policy at any time. If we decide to change this Policy, we will revise the effective date posted at the top of this Policy. For material changes, we may also notify you by posting a notice prominently on our home page, sending an email to your registered account address, or notifying you upon your next log-in to access the Website or Service. Your continued use of the Website or Service after the effective date of any changes constitutes your acknowledgment and acceptance of the revised Policy. If you do not agree to the modifications, your sole remedy is to cease using the Website and Service.</span>
+                </p>
                 <h2 className="c7">
                   <span className="c2 c5">3. Information Collection Practices-</span>
                   <span className="c4">How We Collect Your Data.</span>
@@ -229,14 +231,16 @@ export default function PrivacyPolicy() {
                 </p>
                 <h2 className="c7">
                   <span className="c2 c5">7. Data Security.</span>
-                  <span className="c4">&nbsp;</span>
+                </h2>
+                <p className="c24">
                   <span className="c1 c2">We take the security of your data very seriously. All traffic between your browser and our servers is encrypted during transmission using Secure Sockets Layer (SSL) encryption. The data we collect and store is protected by industry-standard firewall and password protection systems. However, we make no guarantee, warranty or representation that any information provided through this Website will remain secure at all times from any illegal or unauthorized access of any data including any PII by third parties. We will report any unauthorized access to your information promptly upon discovery, and we will use our best efforts to remedy any security vulnerability that contributed to unauthorized access.</span>
-                </h2>
+                </p>
                 <h2 className="c7">
-                  <span className="c2 c5">8. Third-Party Websites</span>
-                  <span className="c4">. </span>
-                  <span className="c1 c2">Avortyx neither owns nor controls Third-Party Websites. Third-Party Websites are under no obligation to comply with this Policy except with respect to PII provided directly to them by Avortyx. Before visiting or providing any personal information to Third-Party Websites, you should inform yourself of the privacy policies and practices of those websites.</span>
+                  <span className="c2 c5">8. Third-Party Websites.</span>
                 </h2>
+                <p className="c24">
+                  <span className="c1 c2">Avortyx neither owns nor controls Third-Party Websites. Third-Party Websites are under no obligation to comply with this Policy except with respect to PII provided directly to them by Avortyx. Before visiting or providing any personal information to Third-Party Websites, you should inform yourself of the privacy policies and practices of those websites.</span>
+                </p>
                 <h2 className="c7"><span className="c2 c5">9. General Information (Storage & Access).</span></h2>
                 <p className="c10">
                   <span className="c3">9.1. </span>
@@ -249,7 +253,7 @@ export default function PrivacyPolicy() {
                   <span className="c1 c2">&nbsp;You can request to view any of your collected PII at any time by emailing us at support@avortyx.com. Please include the words "Information Request". If you make any information requests, we will require that you provide proof of your identity. We also reserve the right to require that you sign and provide us with a notarized affidavit verifying your identity before we update or release any information to you.</span>
                 </p>
                 <p className="c10">
-                  <span className="c3">9.3 Data Retention and Call Recordings.</span>
+                  <span className="c3">9.3. Data Retention and Call Recordings.</span>
                   <span className="c8">&nbsp;We retain Website Use Data, Contact Data, and BI for as long as your account is active or as needed to provide the Service to you. However, regarding consumer lead data and Telephony & Audio Data (including call recordings and transcriptions) processed on your behalf, </span>
                   <span className="c3">you are solely responsible for configuring your account's data retention settings.</span>
                   <span className="c1 c2">&nbsp;Avortyx provides tools to customize call recording retention periods (including auto-deletion schedules). You represent and warrant that your chosen retention periods comply with all applicable data minimization and privacy laws. Avortyx is not responsible for your failure to delete consumer data in accordance with applicable law. </span>
@@ -260,14 +264,16 @@ export default function PrivacyPolicy() {
                 </p>
                 <h2 className="c7">
                   <span className="c2 c5">10. Business Transitions.</span>
-                  <span className="c4">&nbsp;</span>
+                </h2>
+                <p className="c24">
                   <span className="c1 c2">Upon any acquisition, merger, sale or other change of control of our business/organization, we reserve the right to transfer any PII you have submitted to this Website as part of the property owned by us to our successor resulting from such merger, acquisition, sale, etc. In the event of our bankruptcy, insolvency, reorganization, receivership, or assignment for the benefit of creditors, We reserve the right to transfer your PII to protect any of our rights or as required by law.</span>
-                </h2>
+                </p>
                 <h2 className="c7">
-                  <span className="c2 c5">11. Do-Not-Track Disclosure</span>
-                  <span className="c4">. </span>
-                  <span className="c1 c2">Avortyx does not respond to "Do Not Track" signals sent by browsers.</span>
+                  <span className="c2 c5">11. Do-Not-Track Disclosure.</span>
                 </h2>
+                <p className="c24">
+                  <span className="c1 c2">Avortyx does not respond to "Do Not Track" signals sent by browsers.</span>
+                </p>
                 <h2 className="c7"><span className="c1 c0">12. U.S. State Privacy Rights (CCPA/CPRA and Similar Laws).</span></h2>
                 <p className="c10">
                   <span className="c0">12.1. Applicability</span>
