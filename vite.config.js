@@ -1,11 +1,12 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig, loadEnv } from 'vite'
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { Readable } from 'node:stream'
 import { pathToFileURL } from 'node:url'
 
 const ENTRY = '/src/entry-server.jsx'
+const loadGreen = () => import(pathToFileURL(resolve('scripts/green.js')).href + '?t=' + Date.now())
 
 // The site is rendered by React on the server: in dev every page request is rendered on the
 // fly (static files still come from public/); `npm run build` prerenders them all to dist/.
@@ -17,6 +18,13 @@ function renderPages() {
         try {
           let path = decodeURI(req.url.split(/[?#]/)[0])
           const i18n = await import(pathToFileURL(resolve('scripts/i18n-build.js')).href + '?t=' + Date.now())
+          // the home page's green stylesheets and script, made from the blue sources (scripts/green.js)
+          const green = await loadGreen()
+          const blue = Object.keys(green.GREEN_ASSETS).find((k) => path === `/assets/${green.GREEN_ASSETS[k]}`)
+          if (blue) {
+            res.setHeader('Content-Type', (blue.endsWith('.css') ? 'text/css' : 'text/javascript') + '; charset=utf-8')
+            return res.end(green.greenAsset(blue, readFileSync(resolve('public/assets', blue), 'utf8'), resolve('public')))
+          }
           // the browser dictionary for a language, rebuilt from src/i18n on every request
           const dictFile = path.match(/^\/assets\/avx-i18n\/(ru|ja|zh)\.js$/)
           if (dictFile) {
@@ -33,6 +41,7 @@ function renderPages() {
           let html = render(route)
           if (html == null) return next()
           html = lang === 'en' ? i18n.englishPage(html, route) : i18n.localize(html, route, lang, i18n.loadDict(lang))
+          if (route === '/') html = (await loadGreen()).greenPage(html, resolve('public'))
           res.setHeader('Content-Type', 'text/html; charset=utf-8')
           // reload the browser when a page or component changes
           res.end(html.replace('</body>', '<script type="module" src="/@vite/client"></script>\n</body>'))

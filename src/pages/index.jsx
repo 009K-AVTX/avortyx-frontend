@@ -489,7 +489,7 @@ export default function Home() {
             (public/assets/avx-site/video). site.js picks the 480p or 720p file and only starts it
             after the page has loaded; until then, and for reduced motion or data saver, the poster shows */}
         <div className="avx-hero-film" aria-hidden="true">
-          <video data-avx-hero-film="" muted loop playsInline preload="none" poster="/assets/avx-site/video/hero-blue-poster.webp" />
+          <video data-avx-hero-film="/assets/avx-site/video/hero-blue" muted loop playsInline preload="none" poster="/assets/avx-site/video/hero-blue-poster.webp" />
           <span className="avx-hero-film-veil" />
           {/* the Avortyx mark where the strands meet; the dimmer behind it softens the flare */}
           <span className="avx-hero-film-core">

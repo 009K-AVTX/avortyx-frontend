@@ -6,6 +6,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { transform } from 'esbuild'
 import { englishPage, LANGS, loadDict, localize, runtimeScript } from './i18n-build.js'
+import { GREEN_ASSETS, greenAsset, greenPage } from './green.js'
 import { PurgeCSS } from 'purgecss'
 import postcss from 'postcss'
 
@@ -84,9 +85,18 @@ console.log(`site.css ${Math.round(before / 1024)} KB -> ${Math.round(purged.css
   console.log(`motion.css ${Math.round(before / 1024)} KB -> home ${Math.round(full.toString().length / 1024)} KB, other pages ${Math.round(lite.toString().length / 1024)} KB`)
 }
 
+// The home pages are green (scripts/green.js): green copies of the stylesheets and motion.js, made
+// from the final blue ones (motion.css as pruned for the home pages above), and the home HTML
+// switched over to them with its inline colours and pictures made green too
+{
+  const isHome = (f) => /[\\/]dist[\\/]((ru|ja|zh)[\\/])?index\.html$/.test(f)
+  for (const [blue, green] of Object.entries(GREEN_ASSETS)) writeFileSync(join(dist, 'assets', green), greenAsset(blue, readFileSync(join(dist, 'assets', blue), 'utf8'), dist))
+  for (const f of files.filter(isHome)) writeFileSync(f, greenPage(readFileSync(f, 'utf8'), dist))
+}
+
 // The hand-written scripts and stylesheets ship minified (the sources in public/ stay readable)
 const MINIFY = ['avx-motion/motion.js', 'avx-motion/motion.css', 'avx-motion/motion-lite.css', 'avx-theme/theme.css', 'avx-site/site.js', 'avx-site/site.css',
-  'avx-icons/icons.css', 'avx-fonts/fonts.css', 'avx-i18n/core.js', 'avx-i18n/runtime.js']
+  'avx-icons/icons.css', 'avx-fonts/fonts.css', 'avx-i18n/core.js', 'avx-i18n/runtime.js', ...Object.values(GREEN_ASSETS)]
 for (const name of MINIFY) {
   const file = join(dist, 'assets', name)
   const code = readFileSync(file, 'utf8')
