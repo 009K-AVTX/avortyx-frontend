@@ -284,30 +284,81 @@ export const DOCS = [
   {
     id: '13',
     title: 'Partner & Affiliate Program Terms',
-    summary: 'Terms for agencies and affiliates who refer customers to Avortyx.',
+    summary: 'Terms for agencies and affiliates who refer customers to Avortyx, including how to promote us in search, on websites and on social media.',
     sections: [
       ['1. The program', [
-        'The Avortyx Partner & Affiliate Program lets approved partners refer new customers to Avortyx. Joining is by application; Avortyx may accept or decline any application.',
+        'The Avortyx Partner & Affiliate Program lets approved partners refer new customers to Avortyx and earn commission on what those customers pay. Joining is by application, and Avortyx may accept or decline any application without giving a reason.',
+        `These terms apply alongside your partner agreement, the Terms of Service, the Acceptable Use Policy and the Trademark & Brand Guidelines. If your partner agreement says something different from these terms, the partner agreement applies.`,
       ]],
-      ['2. Referrals', [
-        'A referral counts when a new customer signs up through your partner link or code, or is registered by you with Avortyx before they sign up, and is not already an Avortyx customer or in an active sales conversation with us.',
-      ]],
-      ['3. Commissions', [
-        'Commission rates, payment schedules and minimum payout amounts are set out in your partner agreement or partner portal. Commissions are paid only on fees the referred customer actually pays, and are reversed for refunds, chargebacks and fraud.',
-      ]],
-      ['4. Promotion rules', [
+      ['2. Eligibility', [
         ['ul', [
-          'Follow the Trademark & Brand Guidelines, and do not bid on Avortyx brand terms in paid search without written permission.',
-          'Do not make claims about Avortyx that are not on our website or approved in writing.',
-          'Disclose your relationship with Avortyx as the FTC Endorsement Guides require.',
-          'Do not use spam, unsolicited calls or texts, or any method that breaks the Acceptable Use Policy.',
+          'You must be a business or an individual of legal age, able to enter into contracts and to receive payments in your own name.',
+          'Your websites, channels and audience must fit the rules in sections 6 to 8.',
+          'Current Avortyx employees and their households may not join.',
+          'Existing customers may join, but cannot earn commission on their own account.',
         ]],
       ]],
-      ['5. Relationship and termination', [
-        'Partners are independent contractors. Either party may end participation at any time with written notice. Commissions earned before termination are paid on the normal schedule unless termination is for a breach of these terms.',
+      ['3. What counts as a referral', [
+        'A referral counts when a new customer signs up through your partner link or code, or when you register them with Avortyx before they sign up. The customer must not already have an Avortyx account, and must not already be in an active sales conversation with our team.',
+        'If two partners claim the same customer, the referral goes to the partner whose link or registration came first in our records. Our records decide the attribution.',
       ]],
-      ['6. Contact', [
-        'To apply or ask about the program, email hello@avortyx.io.',
+      ['4. Referrals that earn no commission', [
+        'No commission is paid on a referral that:',
+        ['ul', [
+          'signs up with you, your company or anyone you control as the customer (self-referral);',
+          'cancels, is refunded, or is suspended for non-payment or a policy breach before the end of the qualifying period in your partner agreement;',
+          'came from traffic that breaks these terms, such as bidding on our brand terms or sending unsolicited messages;',
+          'is fraudulent, uses false details, or was created only to earn a commission;',
+          'is not a business that can use Avortyx, such as a consumer looking for personal phone service.',
+        ]],
+      ]],
+      ['5. Commissions and payment', [
+        'Commission rates, the qualifying period, payment schedule and minimum payout are set out in your partner agreement or partner portal. Commission is earned only on fees the referred customer actually pays to Avortyx, not including taxes, carrier pass-through charges or credits.',
+        'Commission already paid is reversed, or deducted from your next payment, if the fees it was based on are refunded, charged back or found to be fraudulent. You are responsible for any taxes on what you earn, and must give us the tax forms we ask for before we can pay you.',
+      ]],
+      ['6. Search advertising', [
+        'Avortyx runs its own paid search campaigns, so partners may not compete with them on our brand.',
+        ['ul', [
+          'Do not bid on "Avortyx", "avortyx.com", misspellings, or terms that combine our name with other words (for example "Avortyx pricing" or "Avortyx login"), and add them as negative keywords in broad-match campaigns.',
+          'Do not use "Avortyx" or any Avortyx domain in an ad’s headline, description or display URL, or in the path after your own domain.',
+          'Ads must send visitors to your own website, never straight to avortyx.com or through a redirect that lands there.',
+          'Your ads must make clear you are an independent partner, not Avortyx itself.',
+        ]],
+        'You may run search campaigns on general terms, such as "call tracking software", that point to your own site. Ask us in writing before you run anything that mentions Avortyx by name.',
+      ]],
+      ['7. Websites and content', [
+        ['ul', [
+          'Do not register or use domain names, subdomains, social handles or app names that contain "Avortyx" or something confusingly similar.',
+          'Describe Avortyx accurately. Only make claims about features, prices or results that appear on avortyx.com or that we have approved in writing, and keep them current.',
+          'Do not present a page as an official Avortyx site, or copy our website’s design or text so that it looks like one.',
+          'Clearly disclose that you may earn a commission, close to any link or recommendation, as the FTC Endorsement Guides require.',
+        ]],
+        'We will not work with sites or channels that carry hateful, violent, sexually explicit or illegal content, that promote scams, or that infringe someone else’s rights. If we ask you to remove content that breaks this section, you must do so within 48 hours.',
+      ]],
+      ['8. Email, calls, messages and social media', [
+        ['ul', [
+          'Only email, call or text people who have agreed to hear from you, and follow CAN-SPAM, the TCPA, Do Not Call rules and the Acceptable Use Policy.',
+          'Do not spam forums, comment sections, review sites or social media groups with partner links.',
+          'Do not post fake reviews of Avortyx or of competitors, or pay for reviews that are not disclosed.',
+          'You may share your partner link on your own social media accounts, as long as you disclose the relationship.',
+        ]],
+      ]],
+      ['9. Using our name and logo', [
+        'We grant you a limited, revocable right to use the Avortyx name and the logos in our partner kit, only to promote Avortyx under these terms. Use them exactly as supplied: do not change their colours, shape or proportions, or combine them with other marks. The right ends when your participation ends.',
+        'Do not issue press releases or public announcements about your relationship with Avortyx without our written approval.',
+      ]],
+      ['10. Monitoring and enforcement', [
+        'We review partner traffic, ads and content. If we find a breach, we may withhold commission on the traffic involved, suspend your partner link, or end your participation. Serious or repeated breaches, fraud or anything that exposes Avortyx to legal risk can lead to immediate termination and the loss of unpaid commission.',
+      ]],
+      ['11. Relationship and termination', [
+        'Partners are independent contractors. Nothing in these terms makes you an employee, agent, franchisee or joint venturer of Avortyx, and you may not make commitments on our behalf.',
+        'Either party may end participation at any time with written notice. Commission earned on qualifying referrals before termination is paid on the normal schedule, unless termination was for a breach of these terms.',
+      ]],
+      ['12. Changes to these terms', [
+        'We may update these terms from time to time. We will post the new version here with a new date and, for material changes, tell active partners by email. Continuing to promote Avortyx after a change takes effect means you accept it.',
+      ]],
+      ['13. Contact', [
+        'To apply, ask about the program or request partner logos, email hello@avortyx.io.',
       ]],
     ],
   },

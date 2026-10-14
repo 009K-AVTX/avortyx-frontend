@@ -1955,3 +1955,8 @@ html[lang="ru"] h3 {
     align-self: flex-start;
   }
 }
+
+/* footer: the Telegram mark sits on the text line like the icon-font glyphs above it */
+.avx-tg {
+  vertical-align: -.15em;
+}

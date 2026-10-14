@@ -41,7 +41,12 @@ export default function Footer() {
               <li className="mb-2">
                 <a href="mailto:support@avortyx.com"> <i className="fa-solid fa-envelope me-2" aria-hidden="true" />support@avortyx.com </a>
               </li>
-              <li><a href="/p/contact"> <i className="fa-solid fa-ticket me-2" aria-hidden="true" />Submit a Ticket </a></li>
+              <li className="mb-2"><a href="/p/contact"> <i className="fa-solid fa-ticket me-2" aria-hidden="true" />Submit a Ticket </a></li>
+              <li>
+                <a href="https://t.me/avortyxsupport" target="_blank" rel="noopener noreferrer" aria-label="Avortyx support on Telegram" data-avx-no-i18n="">
+                  <svg className="avx-tg me-2" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.8 19c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.6 12.8l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 2.9c.9-.3 1.6.2 1.4 1.4z" /></svg>@avortyxsupport
+                </a>
+              </li>
             </ul>
           </div>
           {COLUMNS.map(([title, links]) => (
