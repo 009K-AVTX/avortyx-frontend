@@ -2,7 +2,7 @@
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
   title: "Salesforce for Avortyx | Call data where your sales team works",
-  description: "Put Avortyx call activity, attribution and recordings into Salesforce, so reps know where a lead came from and how the call went.",
+  description: "Put Avortyx call activity, attribution and recordings into Salesforce, so reps see each lead’s source and how the call went.",
   bodyClass: "avortyx_marketing integrations_salesforce ",
   layout: "feature",
 }

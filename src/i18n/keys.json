@@ -968,7 +968,7 @@
   "page": "index.html"
  },
  {
-  "k": "Live dashboards that show which campaigns drive revenue.",
+  "k": "Live dashboards that rank campaigns by the revenue they bring in.",
   "page": "index.html"
  },
  {
@@ -1200,43 +1200,23 @@
   "page": "index.html"
  },
  {
-  "k": "What teams say about Avortyx",
+  "k": "Loved by performance marketers",
   "page": "index.html"
  },
  {
-  "k": "Sample testimonials · not real customers yet",
+  "k": "We moved 40 campaigns off a legacy tracker in a weekend. Time-to-connect dropped from 9 seconds to under 2, and our connect rate followed.",
   "page": "index.html"
  },
  {
-  "k": "5 out of 5 stars",
+  "k": "SC",
   "page": "index.html"
  },
  {
-  "k": "Routing set up in an afternoon",
+  "k": "Sarah Chen",
   "page": "index.html"
  },
  {
-  "k": "We moved our health campaigns over and calls started reaching buyers the same day. The routing rules are easy to follow.",
-  "page": "index.html"
- },
- {
-  "k": "<0>DR</0>Daniel Reyes",
-  "page": "index.html"
- },
- {
-  "k": "Routing that just works",
-  "page": "index.html"
- },
- {
-  "k": "Calls connect fast and the reporting shows exactly why a call went where it did. No more guessing.",
-  "page": "index.html"
- },
- {
-  "k": "<0>PS</0>Priya Shah",
-  "page": "index.html"
- },
- {
-  "k": "We finally see what buyers do",
+  "k": "Head of Media Buying, Northaven Leads",
   "page": "index.html"
  },
  {
@@ -1244,35 +1224,63 @@
   "page": "index.html"
  },
  {
-  "k": "<0>MW</0>Marcus Webb",
+  "k": "MW",
   "page": "index.html"
  },
  {
-  "k": "4 out of 5 stars",
+  "k": "Marcus Webb",
   "page": "index.html"
  },
  {
-  "k": "Helpful specialists",
+  "k": "COO, Ringwell",
   "page": "index.html"
  },
  {
-  "k": "A live video session sorted out our caps and failover in under an hour. Would like more report exports.",
+  "k": "Avortyx lets us focus on traffic instead of plumbing. Setting up a new buyer went from a two-day ticket to a ten-minute form.",
   "page": "index.html"
  },
  {
-  "k": "<0>MB</0>Marcus Bell",
+  "k": "PS",
   "page": "index.html"
  },
  {
-  "k": "Clear pricing",
+  "k": "Priya Sharma",
   "page": "index.html"
  },
  {
-  "k": "Per-minute billing with no onboarding fee made it easy to test before we moved our volume.",
+  "k": "Operations Lead, Calibr Media",
   "page": "index.html"
  },
  {
-  "k": "<0>HC</0>Hannah Cole",
+  "k": "Finally, a router that actually understands intent. The scoring pays for itself on the first week of health traffic.",
+  "page": "index.html"
+ },
+ {
+  "k": "JL",
+  "page": "index.html"
+ },
+ {
+  "k": "James Liu",
+  "page": "index.html"
+ },
+ {
+  "k": "Founder, Tenpoint Performance",
+  "page": "index.html"
+ },
+ {
+  "k": "We went from six spreadsheets and a carrier portal to one campaign config. Our publishers noticed the payout accuracy immediately.",
+  "page": "index.html"
+ },
+ {
+  "k": "ER",
+  "page": "index.html"
+ },
+ {
+  "k": "Elena Rodriguez",
+  "page": "index.html"
+ },
+ {
+  "k": "VP Partnerships, Meridian Call Network",
   "page": "index.html"
  },
  {
@@ -1520,7 +1528,7 @@
   "page": "blog.html"
  },
  {
-  "k": "Track every call, route it to the right buyer and see the revenue behind it.",
+  "k": "Know where each call came from, send it to a buyer who can take it, and see what it earned.",
   "page": "blog.html"
  },
  {
@@ -1632,7 +1640,7 @@
   "page": "blog/buyer-caps-that-dont-strand-calls.html"
  },
  {
-  "k": "<0>See it in your own numbers.</0> Track every call, route it to the right buyer and see the revenue behind it.",
+  "k": "<0>See it in your own numbers.</0> Know where each call came from, send it to a buyer who can take it, and see what it earned.",
   "page": "blog/buyer-caps-that-dont-strand-calls.html"
  },
  {
@@ -1656,7 +1664,7 @@
   "page": "blog/call-postbacks-to-affiliate-trackers.html"
  },
  {
-  "k": "Affiliate networks and media buyers live in their tracker. If a lead converts by phone and the tracker never hears about it, the affiliate who sent that caller goes unpaid, and the offer looks weaker than it really is.",
+  "k": "Affiliate networks and media buyers live in their tracker. If a lead converts by phone and the tracker never hears about it, the affiliate who sent that caller goes unpaid, and the offer looks worse than it performs.",
   "page": "blog/call-postbacks-to-affiliate-trackers.html"
  },
  {
@@ -2160,7 +2168,7 @@
   "page": "blog/ring-everyone-or-ring-in-order.html"
  },
  {
-  "k": "Ringing everyone together is the quickest way to reach a person. The caller hears fewer rings, and whoever is free picks up. It suits teams where anyone can handle any caller, such as a sales floor or agents covering one office.",
+  "k": "Ringing everyone at once gets a caller to a person fastest. The caller hears fewer rings, and whoever is free picks up. It suits teams where anyone can handle any caller, such as a sales floor or agents covering one office.",
   "page": "blog/ring-everyone-or-ring-in-order.html"
  },
  {
@@ -2804,7 +2812,7 @@
   "page": "brand_assets.html"
  },
  {
-  "k": "Join the team building the future of call tracking and lead automation.",
+  "k": "Help build the platform that decides where every call goes.",
   "page": "careers.html"
  },
  {
@@ -3216,7 +3224,7 @@
   "page": "features.html"
  },
  {
-  "k": "Tie each call to its campaign, source and keyword, with local and toll-free numbers or the ones you port in.",
+  "k": "Tie each call to its campaign, source and keyword, on local or toll-free lines, new or ported in.",
   "page": "features.html"
  },
  {
@@ -4204,7 +4212,7 @@
   "page": "features/cake.html"
  },
  {
-  "k": "Affiliate traffic that ends in a phone call usually falls out of CAKE’s reporting: the click is recorded, the call is not. Avortyx closes that gap by posting each qualified call back to CAKE with the click it came from.",
+  "k": "When affiliate traffic converts by phone, it usually drops out of CAKE’s reporting: the click is recorded, the call is not. Avortyx closes that gap by posting each qualified call back to CAKE with the click it came from.",
   "page": "features/cake.html"
  },
  {
@@ -4400,7 +4408,7 @@
   "page": "features/call_tracking.html"
  },
  {
-  "k": "Avortyx starts with the number. Pick from <0>thousands of local and toll-free numbers</0> (888, 877, 855, 844 and 866 included) in nearly every area code, or port the ones you already use, and every call that rings them is tied to its campaign before it is even answered.",
+  "k": "Avortyx starts with the number. Pick from <0>thousands of local and toll-free lines</0> (888, 877, 855, 844 and 866 included) in nearly every area code, or port the ones you already use, and every call that rings them is tied to its campaign before it is even answered.",
   "page": "features/call_tracking.html"
  },
  {
@@ -4488,7 +4496,7 @@
   "page": "features/call_tracking.html"
  },
  {
-  "k": "<0>Record inbound and outbound calls</0> per offer, with playback limited to your team and retention rules that remove recordings once they pass their window, per offer or for the whole account.",
+  "k": "<0>Record calls in both directions</0> per offer, with playback limited to your team and retention rules that remove recordings once they pass their window, per offer or for the whole account.",
   "page": "features/call_tracking.html"
  },
  {
@@ -4496,7 +4504,7 @@
   "page": "features/call_tracking.html"
  },
  {
-  "k": "Avortyx tracks every call from online and offline campaigns by source, keyword and custom token, and records its duration, recording, transcript, revenue and payout on one call record.",
+  "k": "Avortyx tracks every call from your online and offline campaigns by source, keyword and custom token, and records its duration, recording, transcript, revenue and payout on one call record.",
   "page": "features/call_tracking.html"
  },
  {
@@ -6088,7 +6096,7 @@
   "page": "features/lead_automation.html"
  },
  {
-  "k": "Avortyx contacts every new lead the moment it arrives, with SMS, email and outbound calls in multi-step schedules, and routes the call to a buyer when the lead answers.",
+  "k": "Avortyx contacts every new lead the moment it arrives, with SMS, email and outbound calls in multi-step schedules, and connects the lead to a buyer as soon as they pick up.",
   "page": "features/lead_automation.html"
  },
  {
@@ -6148,7 +6156,7 @@
   "page": "features/mailchimp.html"
  },
  {
-  "k": "Trigger Mailchimp emails from what happens on the phone: a missed call, a qualified caller, a lead still waiting for a callback.",
+  "k": "Let phone activity trigger Mailchimp emails: a missed call, a qualified caller, a lead still waiting for a callback.",
   "page": "features/mailchimp.html"
  },
  {
@@ -6544,7 +6552,7 @@
   "page": "features/salesforce.html"
  },
  {
-  "k": "Put Avortyx call activity, attribution and recordings into Salesforce, so reps know where a lead came from and how the call went.",
+  "k": "Put Avortyx call activity, attribution and recordings into Salesforce, so reps see each lead’s source and how the call went.",
   "page": "features/salesforce.html"
  },
  {
@@ -7348,7 +7356,7 @@
   "page": "features/voluum.html"
  },
  {
-  "k": "Once calls count in Voluum, you can see which campaigns, landers and traffic sources drive callers who convert, and shift budget with confidence instead of cutting campaigns that quietly perform on the phone.",
+  "k": "Once calls count in Voluum, it shows which campaigns, landers and traffic sources bring in callers who convert, so you can shift budget with confidence instead of cutting campaigns that quietly perform on the phone.",
   "page": "features/voluum.html"
  },
  {
@@ -7720,7 +7728,7 @@
   "page": "help.html"
  },
  {
-  "k": "A pool is a set of numbers that dynamic number insertion hands out to website visitors, so each visitor sees a number tied to their source. Size the pool so every active visitor can hold their own number, attach it to the campaign, then add the Avortyx snippet to the pages that show your phone number.",
+  "k": "A pool is a set of numbers that dynamic number insertion hands out to website visitors, so every visitor is shown a number linked to where they came from. Size the pool so every active visitor can hold their own number, attach it to the campaign, then add the Avortyx snippet to the pages that show your phone number.",
   "page": "help.html"
  },
  {
@@ -7728,7 +7736,7 @@
   "page": "help.html"
  },
  {
-  "k": "Can I bring my own numbers or carrier?",
+  "k": "Can I keep the numbers or carrier I already use?",
   "page": "help.html"
  },
  {
@@ -8472,7 +8480,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Avortyx is a call tracking and routing platform. Avortyx numbers do not support 911 or E911 calling, and the service is not a replacement for a landline or mobile phone service.",
+  "k": "Avortyx is a platform for tracking and routing calls. Avortyx numbers do not support 911 or E911 calling, and the service is not a replacement for a landline or mobile phone service.",
   "page": "legal.html"
  },
  {
@@ -8740,18 +8748,6 @@
   "page": "p/request_demo.html"
  },
  {
-  "k": "MW",
-  "page": "p/request_demo.html"
- },
- {
-  "k": "Marcus Webb",
-  "page": "p/request_demo.html"
- },
- {
-  "k": "COO, Ringwell",
-  "page": "p/request_demo.html"
- },
- {
   "k": "Name",
   "page": "p/request_demo.html"
  },
@@ -8992,7 +8988,7 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "This Data Collection &amp; Use Policy (\"Policy\") sets forth how Avortyx, LLC, a Colorado limited liability company (\"Avortyx or “We\"), collects and uses the information you provide to us and certain other information that we automatically collect through your access and use of our centralized Lead Automation platform made available on Avortyx.com.",
+  "k": "This Data Collection &amp; Use Policy (\"Policy\") sets forth how Avortyx, LLC, a Colorado limited liability company (\"Avortyx or “We\"), collects and uses the information you give us and certain other information that we automatically collect through your access and use of our centralized Lead Automation platform made available on Avortyx.com.",
   "page": "privacy_policy.html"
  },
  {
@@ -9212,15 +9208,15 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>The Right to Correct</0><1>.</1><2> You have the right to request that we correct any inaccurate P</2><3>II </3><4>we maintain about you.</4>",
+  "k": "<0>The Right to Correct</0><1>.</1><2> You may ask us to correct any inaccurate P</2><3>II </3><4>we maintain about you.</4>",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>The Right to Opt-Out of Sharing</0><1>.</1><2> You have the right to opt-out of the sharing of your P</2><3>II</3><4> for cross-context behavioral advertising or targeted advertising.</4>",
+  "k": "<0>The Right to Opt-Out of Sharing</0><1>.</1><2> You may opt out of our sharing your P</2><3>II</3><4> for cross-context behavioral advertising or targeted advertising.</4>",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>The Right to Non-Discrimination</0><1>.</1><2> We will not discriminate against you for exercising any of your state privacy rights.</2>",
+  "k": "<0>The Right to Non-Discrimination</0><1>.</1><2> Using any of your state privacy rights will not change how we treat you or the service you receive.</2>",
   "page": "privacy_policy.html"
  },
  {
@@ -10460,7 +10456,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.1. Access Rights Grant</0><1>. </1><2>Avortyx grants You a non-transferable, non-exclusive, revocable, limited right  to access and use the Service as made accessible to You through avortyx.com (“Platform”) and for the limited purpose of managing/conducting individual SMS and telephone call campaigns, both directly and/or on behalf of third-party clients, and to access and use campaign analytics. We shall exclusively retain all rights not expressly granted to You as set forth in this Agreement in and to each separate component comprising our Platform, together with all trademarks, trade secrets and any other proprietary rights inherent therein and related thereto. Access and use rights in and to the Platform and Service are being granted and not sold to You under the terms and conditions of this Agreement. All content other than Your Content (defined in Section 2), features and functionality and each separate element/component of our Service and Platform are owned exclusively by Avortyx and are protected by copyright, trademark, and other intellectual property laws. You acknowledge that any derivative works, improvements, or modifications to the Platform created by You or anyone else shall be owned exclusively by Avortyx. Our trademarks, including the mark AVORTYX and our design marks/logos, all copyrighted material, any patents, and any other  protectable components of the Platform generally are the intellectual property of Avortyx and/or its licensors. </2>",
+  "k": "<0>1.1. Access Rights Grant</0><1>. </1><2>Avortyx grants You a non-transferable, non-exclusive, revocable, limited right  to access and use the Service as made accessible to You through avortyx.com (“Platform”) and for the limited purpose of managing/conducting individual SMS and telephone call campaigns, both directly and/or on behalf of third-party clients, and to access and use campaign analytics. We shall exclusively retain all rights not expressly granted to You as set forth in this Agreement in and to each separate component comprising our Platform, together with all trademarks, trade secrets and any other proprietary rights inherent therein and related thereto. Access and use rights in and to the Platform and Service are being granted and not sold to You under the terms of this Agreement. All content other than Your Content (defined in Section 2), features and functionality and each separate element/component of our Service and Platform are owned exclusively by Avortyx and are protected by copyright, trademark, and other intellectual property laws. You acknowledge that any derivative works, improvements, or modifications to the Platform created by You or anyone else shall be owned exclusively by Avortyx. Our trademarks, including the mark AVORTYX and our design marks/logos, all copyrighted material, any patents, and any other  protectable components of the Platform generally are the intellectual property of Avortyx and/or its licensors. </2>",
   "page": "terms_of_service.html"
  },
  {
@@ -10504,7 +10500,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>1.4.4. Release of Liability</0><1>. Avortyx shall not be liable to You or to any third party for any loss caused by any suspension or termination of the Service or termination of your access to the Service, including any damage or loss to any data, call recordings, computers, systems, or networks. </1>",
+  "k": "<0>1.4.4. Release of Liability</0><1>. Avortyx will have no liability to You or any third party for loss caused by any suspension or termination of the Service or termination of your access to the Service, including any damage or loss to any data, call recordings, computers, systems, or networks. </1>",
   "page": "terms_of_service.html"
  },
  {
@@ -10792,7 +10788,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>You, Your estate</0><1>,</1><2> successors and/or permitted assigns, as applicable, voluntarily agree to hold harmless, defend, and indemnify Avortyx and its members, managers, officers, employees, agents, affiliates, consultants, representatives, licensees, successors and/or assigns from any and all claims, actions, liabilities, judgments, settlements, fees, costs (including reasonable attorneys' fees and costs of responding to subpoenas) or any other damages of any kind or nature arising out of or in any way relating to your use of the Service, or use of the Service by any of your agents, including, but not limited to, any violation of any laws by You, any regulatory investigations, administrative proceedings, or inquiries by federal or state authorities (including the FCC, FTC, or state Attorneys General) related to Your traffic, or any other breach of these Terms by You, provided, however, that Avortyx reserves the right, at its own expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by You, in which event You will cooperate fully with Avortyx in asserting any available defenses. </2>",
+  "k": "<0>You, Your estate</0><1>,</1><2> successors and/or permitted assigns, as applicable, voluntarily agree to hold harmless, defend, and indemnify Avortyx and its members, managers, officers, employees, agents, affiliates, consultants, representatives, licensees, successors and/or assigns from any and all claims, actions, liabilities, judgments, settlements, fees, costs (including reasonable attorneys' fees and costs of responding to subpoenas) or any other damages of any kind or nature arising out of or in any way relating to your use of the Service, or use of the Service by any of your agents, including, but not limited to, any violation of any laws by You, any regulatory investigations, administrative proceedings, or inquiries by federal or state authorities (including the FCC, FTC, or state Attorneys General) related to Your traffic, or any other breach of these Terms by You, provided, however, that Avortyx reserves the right, at its own expense, to take sole charge of defending any claim You would otherwise have to indemnify, and You will then cooperate fully with Avortyx in raising any available defenses. </2>",
   "page": "terms_of_service.html"
  },
  {
@@ -10848,7 +10844,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>Location</0><1>. A description of the material You claim is infringing and where it is located on the Service;</1>",
+  "k": "<0>Location</0><1>. A description of the allegedly infringing material and where on the Service it can be found;</1>",
   "page": "terms_of_service.html"
  },
  {
@@ -11052,7 +11048,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>B. Severability.</0><1> If any provision of this Agreement is held by a court or other tribunal of competent jurisdiction, in whole or in part, to be invalid, illegal, or unenforceable in any respect, for any reason, the validity, legality, and enforceability of the remainder of that provision, any other remaining provisions, and of the entire Agreement shall not in any way be affected or impaired thereby and shall be interpreted, to the extent possible, to achieve the purposes as originally expressed with the provision found to be invalid, illegal or unenforceable. Each provision hereof is intended to be severable, and the validity, legality, or enforceability of any provision of this Agreement shall not affect the validity, legality, or enforceability of the remainder of the Agreement. </1>",
+  "k": "<0>B. Severability.</0><1> If any provision of this Agreement is held by a court or other tribunal of competent jurisdiction, in whole or in part, to be invalid or unenforceable for any reason, the validity, legality, and enforceability of the remainder of that provision, any other remaining provisions, and of the entire Agreement shall not in any way be affected or impaired thereby and shall be interpreted, to the extent possible, to achieve the purposes as originally expressed with the provision found to be invalid, illegal or unenforceable. Each provision hereof is intended to be severable, and the validity, legality, or enforceability of any provision of this Agreement shall not affect the validity, legality, or enforceability of the remainder of the Agreement. </1>",
   "page": "terms_of_service.html"
  },
  {
@@ -11284,6 +11280,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "A live video session sorted out our caps and failover in under an hour. Would like more report exports.",
+  "page": "(runtime)"
+ },
+ {
   "k": "AI SMS bots →",
   "page": "(runtime)"
  },
@@ -11436,7 +11436,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "Avortyx grants You a non-transferable, non-exclusive, revocable, limited right to access and use the Service as made accessible to You through avortyx.com (“Platform”) and for the limited purpose of managing/conducting individual SMS and telephone call campaigns, both directly and/or on behalf of third-party clients, and to access and use campaign analytics. We shall exclusively retain all rights not expressly granted to You as set forth in this Agreement in and to each separate component comprising our Platform, together with all trademarks, trade secrets and any other proprietary rights inherent therein and related thereto. Access and use rights in and to the Platform and Service are being granted and not sold to You under the terms and conditions of this Agreement. All content other than Your Content (defined in Section {#}), features and functionality and each separate element/component of our Service and Platform are owned exclusively by Avortyx and are protected by copyright, trademark, and other intellectual property laws. You acknowledge that any derivative works, improvements, or modifications to the Platform created by You or anyone else shall be owned exclusively by Avortyx. Our trademarks, including the mark AVORTYX and our design marks/logos, all copyrighted material, any patents, and any other protectable components of the Platform generally are the intellectual property of Avortyx and/or its licensors.",
+  "k": "Avortyx grants You a non-transferable, non-exclusive, revocable, limited right to access and use the Service as made accessible to You through avortyx.com (“Platform”) and for the limited purpose of managing/conducting individual SMS and telephone call campaigns, both directly and/or on behalf of third-party clients, and to access and use campaign analytics. We shall exclusively retain all rights not expressly granted to You as set forth in this Agreement in and to each separate component comprising our Platform, together with all trademarks, trade secrets and any other proprietary rights inherent therein and related thereto. Access and use rights in and to the Platform and Service are being granted and not sold to You under the terms of this Agreement. All content other than Your Content (defined in Section {#}), features and functionality and each separate element/component of our Service and Platform are owned exclusively by Avortyx and are protected by copyright, trademark, and other intellectual property laws. You acknowledge that any derivative works, improvements, or modifications to the Platform created by You or anyone else shall be owned exclusively by Avortyx. Our trademarks, including the mark AVORTYX and our design marks/logos, all copyrighted material, any patents, and any other protectable components of the Platform generally are the intellectual property of Avortyx and/or its licensors.",
   "page": "(runtime)"
  },
  {
@@ -11520,7 +11520,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "Call tracking measures call conversions from online and offline campaigns, by traffic source, URL keyword and custom tokens. Dynamic number insertion swaps tracking numbers on your website so every call is tied to its source.",
+  "k": "Call tracking shows which ads, pages and offline placements make the phone ring, broken down by traffic source, URL keyword and custom tokens. Dynamic number insertion swaps tracking numbers on your website so every call is tied to its source.",
   "page": "(runtime)"
  },
  {
@@ -11581,6 +11581,10 @@
  },
  {
   "k": "Clean Validated Traffic",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Clear pricing",
   "page": "(runtime)"
  },
  {
@@ -11825,6 +11829,10 @@
  },
  {
   "k": "Harbor Mutual answered · <0>+${#}</0>",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Helpful specialists",
   "page": "(runtime)"
  },
  {
@@ -12248,6 +12256,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Per-minute billing with no onboarding fee made it easy to test before we moved our volume.",
+  "page": "(runtime)"
+ },
+ {
   "k": "Performance by traffic source · demo data",
   "page": "(runtime)"
  },
@@ -12445,6 +12457,10 @@
  },
  {
   "k": "Router",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Routing set up in an afternoon",
   "page": "(runtime)"
  },
  {
@@ -12764,11 +12780,15 @@
   "page": "(runtime)"
  },
  {
+  "k": "We moved our health campaigns over and calls started reaching buyers the same day. The routing rules are easy to follow.",
+  "page": "(runtime)"
+ },
+ {
   "k": "We offer phone, live chat and email support, plus live video sessions with our specialists. You can also write to support@avortyx.com.",
   "page": "(runtime)"
  },
  {
-  "k": "We use cookies to understand how you use our site and to improve your experience, including personalizing content and offering resources. By continuing to use our site, you accept our use of cookies. <0>Privacy Policy</0>",
+  "k": "We use cookies to improve your experience on our site. <0>Privacy Policy</0>",
   "page": "(runtime)"
  },
  {

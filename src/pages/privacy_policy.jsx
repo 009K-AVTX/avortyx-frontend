@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
                   <span className="c2 c5">1. Introduction.</span>
                 </h2>
                 <p className="c24">
-                  <span className="c1 c2">This Data Collection & Use Policy ("Policy") sets forth how Avortyx, LLC, a Colorado limited liability company ("Avortyx or “We"), collects and uses the information you provide to us and certain other information that we automatically collect through your access and use of our centralized Lead Automation platform made available on Avortyx.com.</span>
+                  <span className="c1 c2">This Data Collection & Use Policy ("Policy") sets forth how Avortyx, LLC, a Colorado limited liability company ("Avortyx or “We"), collects and uses the information you give us and certain other information that we automatically collect through your access and use of our centralized Lead Automation platform made available on Avortyx.com.</span>
                 </p>
                 <p className="c24">
                   <span className="c2">Users of our Platform are referred to throughout this Policy as "</span>
@@ -319,21 +319,21 @@ export default function PrivacyPolicy() {
                   <li className="c16 li-bullet-0">
                     <span className="c0">The Right to Correct</span>
                     <span className="c3">.</span>
-                    <span className="c2">&nbsp;You have the right to request that we correct any inaccurate P</span>
+                    <span className="c2">&nbsp;You may ask us to correct any inaccurate P</span>
                     <span className="c8">II </span>
                     <span className="c2">we maintain about you.</span>
                   </li>
                   <li className="c16 li-bullet-0">
                     <span className="c0">The Right to Opt-Out of Sharing</span>
                     <span className="c3">.</span>
-                    <span className="c2">&nbsp;You have the right to opt-out of the sharing of your P</span>
+                    <span className="c2">&nbsp;You may opt out of our sharing your P</span>
                     <span className="c8">II</span>
                     <span className="c2">&nbsp;for cross-context behavioral advertising or targeted advertising.</span>
                   </li>
                   <li className="c7 c29 li-bullet-0">
                     <span className="c0">The Right to Non-Discrimination</span>
                     <span className="c3">.</span>
-                    <span className="c2">&nbsp;We will not discriminate against you for exercising any of your state privacy rights.</span>
+                    <span className="c2">&nbsp;Using any of your state privacy rights will not change how we treat you or the service you receive.</span>
                   </li>
                 </ol>
                 <p className="c21">

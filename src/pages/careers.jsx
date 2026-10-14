@@ -2,7 +2,7 @@
 import Bolt from '../components/Bolt.jsx'
 export const meta = {
   title: "Careers | Avortyx",
-  description: "Join the team building the future of call tracking and lead automation.",
+  description: "Help build the platform that decides where every call goes.",
   bodyClass: "avortyx_marketing careers without-waves",
   layout: "site",
 }
@@ -68,7 +68,7 @@ export default function Careers() {
             <a href="/features" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Features </a>
           </div>
           <h1 className="fw-bold mb-2">Careers</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Join the team building the future of call tracking and lead automation.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Help build the platform that decides where every call goes.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>

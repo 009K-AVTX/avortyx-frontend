@@ -146,7 +146,7 @@ export const POSTS = [
     icon: 'fa-link',
     hue: 216,
     body: [
-      ['p', 'Affiliate networks and media buyers live in their tracker. If a lead converts by phone and the tracker never hears about it, the affiliate who sent that caller goes unpaid, and the offer looks weaker than it really is.'],
+      ['p', 'Affiliate networks and media buyers live in their tracker. If a lead converts by phone and the tracker never hears about it, the affiliate who sent that caller goes unpaid, and the offer looks worse than it performs.'],
       ['h2', 'Keep the click ID with the caller'],
       ['p', 'Every tracker stamps a click with an ID. Capture it on the landing page so it travels with the visitor, through the tracking number and onto the call record. Without it, a postback has nothing to match against.'],
       ['h2', 'Fire on qualified calls only'],
@@ -268,7 +268,7 @@ export const POSTS = [
     body: [
       ['p', 'When a call could go to any of several people, the question is how to ask them. Ring them all and take whoever answers first, or try them in an order you chose?'],
       ['h2', 'All at once'],
-      ['p', 'Ringing everyone together is the quickest way to reach a person. The caller hears fewer rings, and whoever is free picks up. It suits teams where anyone can handle any caller, such as a sales floor or agents covering one office.'],
+      ['p', 'Ringing everyone at once gets a caller to a person fastest. The caller hears fewer rings, and whoever is free picks up. It suits teams where anyone can handle any caller, such as a sales floor or agents covering one office.'],
       ['p', 'The cost is fairness and focus. The same fast responder can win most calls, and people in the middle of something are interrupted by calls they will not take.'],
       ['h2', 'One after another'],
       ['p', 'Dialing in order keeps a preference. Your first choice always gets first refusal, and the next person rings only if they do not answer. It suits partners with different priorities or skills, at the price of a longer wait when the early choices are busy.'],

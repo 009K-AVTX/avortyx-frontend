@@ -21,7 +21,7 @@ export default function Mailchimp() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
           <h1 className="fw-bold mb-2">Mailchimp + Avortyx</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Trigger Mailchimp emails from what happens on the phone: a missed call, a qualified caller, a lead still waiting for a callback.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Let phone activity trigger Mailchimp emails: a missed call, a qualified caller, a lead still waiting for a callback.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>

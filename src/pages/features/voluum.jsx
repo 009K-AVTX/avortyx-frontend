@@ -66,7 +66,7 @@ export default function Voluum() {
               <li><strong>Every attempt logged</strong> — each postback and Voluum’s response is stored on the call, so a missing conversion can be traced in seconds.</li>
             </ul>
             <h3>Optimize on the full picture</h3>
-            <p>Once calls count in Voluum, you can see which campaigns, landers and traffic sources drive callers who convert, and shift budget with confidence instead of cutting campaigns that quietly perform on the phone.</p>
+            <p>Once calls count in Voluum, it shows which campaigns, landers and traffic sources bring in callers who convert, so you can shift budget with confidence instead of cutting campaigns that quietly perform on the phone.</p>
             <h3>Built on Avortyx webhooks</h3>
             <p>The postback is an Avortyx <a href="/features/custom_webhook">custom webhook</a>: choose the conversion event, map the click ID and payout tokens into the URL, and Avortyx fires it the moment the call qualifies. Use <a href="/features/formulas">expressions</a> when a value needs reshaping first.</p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">

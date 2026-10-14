@@ -42,7 +42,7 @@ export default function Blog() {
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
           <h2 className="marketing-cta-band__title">Put it into practice</h2>
-          <p className="marketing-cta-band__subtitle">Track every call, route it to the right buyer and see the revenue behind it.</p>
+          <p className="marketing-cta-band__subtitle">Know where each call came from, send it to a buyer who can take it, and see what it earned.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}

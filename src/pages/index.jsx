@@ -1431,7 +1431,7 @@ export default function Home() {
                 </div>
                 <div className="card-body p-4 d-flex flex-column">
                   <h3 className="h5 fw-bold mb-2">Call Analytics</h3>
-                  <p className="text-muted small mb-3">Live dashboards that show which campaigns drive revenue.</p>
+                  <p className="text-muted small mb-3">Live dashboards that rank campaigns by the revenue they bring in.</p>
                   <a href="/features/call_tracking#reports-analytics" className="avx-more-link mt-auto">
                     Explore Call Analytics{" "}
                     <span aria-hidden="true">→</span>

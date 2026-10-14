@@ -65,15 +65,14 @@
     if (/^\/features\//.test(url.pathname)) window.gtag('event', 'feature_explore', params);
   }, true);
 
-  // ---------- Cookie notice: a small card in the corner, until accepted ----------
+  // ---------- Cookie notice: a slim bar along the bottom edge, until accepted ----------
   ready(function () {
     if (/(^|;\s*)OKCookie=/.test(document.cookie)) return;
     var box = document.createElement('div');
     box.id = 'okCookie';
     box.setAttribute('role', 'region');
     box.setAttribute('aria-label', 'Cookie notice');
-    box.innerHTML = '<span>We use cookies to understand how you use our site and to improve your experience, ' +
-      'including personalizing content and offering resources. By continuing to use our site, you accept our use of cookies. ' +
+    box.innerHTML = '<span>We use cookies to improve your experience on our site. ' +
       '<a href="/privacy_policy">Privacy Policy</a></span><a href="#" id="okClose" role="button">I Accept</a>';
     // never over the stats bar: where a page has one, the notice waits until it has scrolled out of
     // view (it covered the figures under the hero on a laptop screen)
@@ -226,7 +225,7 @@
       'We offer phone, live chat and email support, plus live video sessions with our specialists. You can also write to support@avortyx.com.',
       [['#email-support', 'Email support'], ['/p/contact', 'Contact us']]],
     ['tracking', ['track', 'attribut', 'source', 'campaign', 'keyword', 'dni', 'number insertion', 'swap numbers'],
-      'Call tracking measures call conversions from online and offline campaigns, by traffic source, URL keyword and custom tokens. Dynamic number insertion swaps tracking numbers on your website so every call is tied to its source.',
+      'Call tracking shows which ads, pages and offline placements make the phone ring, broken down by traffic source, URL keyword and custom tokens. Dynamic number insertion swaps tracking numbers on your website so every call is tied to its source.',
       [['/features/call_tracking', 'Call tracking'], ['/features/dynamic_number_insertion', 'Number insertion']]],
     ['routing', ['rout', 'ivr', 'call flow', 'filter', 'failover', 'buyer group', 'simultaneous', 'caps'],
       'Every call goes through the same three steps — signal, score, route — before a buyer’s phone rings. The best eligible buyer gets the call, with match rules, caps, hours, concurrency and failover if a buyer misses. Average routing time is 85ms.',
@@ -274,7 +273,7 @@
       'Our blog has guides and worked examples on call tracking, attribution, routing, compliance and AI.',
       [['/blog', 'Read the blog']]],
     ['careers', ['career', 'job', 'hiring', 'work at', 'join the team'],
-      'Join the team building the future of call tracking and lead automation.', [['/careers', 'Careers']]],
+      'Help build the platform that decides where every call goes.', [['/careers', 'Careers']]],
     ['legal', ['terms', 'privacy', 'legal', 'cookie'],
       'Here are our policies.', [['/privacy_policy', 'Privacy policy'], ['/terms_of_service', 'Terms of service']]],
     ['hello', ['hi', 'hello', 'hey', 'good morning', 'good afternoon'],
@@ -632,24 +631,6 @@
   });
 })();
 
-/* ---------- Testimonials (home page) ----------
-   The quotes are placeholders, so the public page labels them as samples. The label hides on
-   localhost, or after any page is opened with ?preview (remembered in this browser, across tabs,
-   until a page is opened with ?preview=off), for design review. */
-(function () {
-  'use strict';
-  var flag = document.querySelector('[data-testi-flag]');
-  if (!flag) return;
-  var preview = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
-  try {
-    var q = new URLSearchParams(location.search).get('preview');
-    if (q === 'off') localStorage.removeItem('avx-preview');
-    else if (q !== null) localStorage.setItem('avx-preview', '1');
-    preview = preview || localStorage.getItem('avx-preview') === '1';
-  } catch (e) { /* storage blocked */ }
-  if (preview) flag.hidden = true;
-})();
-
 /* ---------- Careers: filter the open roles by team ---------- */
 (function () {
   'use strict';
@@ -980,4 +961,30 @@
     if (next >= marks.length) window.removeEventListener('scroll', depth);
   }
   window.addEventListener('scroll', depth, { passive: true });
+})();
+
+/* ---------- Feature pop-up: "Back to …" stays pinned while the pop-up scrolls ----------
+   The page loaded into the pop-up keeps its back link in the hero, which scrolls away. Once the
+   content arrives, the link moves into a zero-height sticky strip at the top of the pop-up body. */
+(function () {
+  'use strict';
+  var body = document.querySelector('[data-feature-modal-body]');
+  if (!body || !('MutationObserver' in window)) return;
+  new MutationObserver(function () {
+    if (body.querySelector(':scope > .avx-modal-back')) return;
+    var a = body.querySelector('.mktg-subpage-hero .mktg-subpage-back, .mktg-subpage-hero-nav .mktg-subpage-back');
+    if (!a) return;
+    var bar = document.createElement('nav');
+    bar.className = 'avx-modal-back';
+    bar.setAttribute('aria-label', 'Back');
+    bar.appendChild(a);
+    body.insertBefore(bar, body.firstChild);
+    // sit just under the pop-up's own sticky strip (language, Request Access, close)
+    // (its styles arrive with the content, so its height is followed as it settles)
+    var strip = body.querySelector('#injected-modal-header');
+    if (!strip) return;
+    var place = function () { bar.style.top = (strip.offsetHeight + 10) + 'px'; };
+    place();
+    if ('ResizeObserver' in window) new ResizeObserver(place).observe(strip);
+  }).observe(body, { childList: true });
 })();

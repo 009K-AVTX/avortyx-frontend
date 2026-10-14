@@ -2,7 +2,7 @@
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
   title: "Call Tracking | Every call tied to its source, outcome and payout | Avortyx",
-  description: "Avortyx tracks every call from online and offline campaigns by source, keyword and custom token, and records its duration, recording, transcript, revenue and payout on one call record.",
+  description: "Avortyx tracks every call from your online and offline campaigns by source, keyword and custom token, and records its duration, recording, transcript, revenue and payout on one call record.",
   bodyClass: "avortyx_marketing features_call_tracking ",
   layout: "feature",
 }
@@ -60,7 +60,7 @@ export default function CallTracking() {
             </div>
             <p>
               Avortyx starts with the number. Pick from{" "}
-              <strong>thousands of local and toll-free numbers</strong>
+              <strong>thousands of local and toll-free lines</strong>
               {" "}(888, 877, 855, 844 and 866 included) in nearly every area code, or port the ones you already use, and every call that rings them is tied to its campaign before it is even answered.
             </p>
             <h3>One record per call</h3>
@@ -167,7 +167,7 @@ export default function CallTracking() {
             </ul>
             <h3>Recordings and retention</h3>
             <p>
-              <a href="/features/call_recordings">Record inbound and outbound calls</a>
+              <a href="/features/call_recordings">Record calls in both directions</a>
               {" "}per offer, with playback limited to your team and retention rules that remove recordings once they pass their window, per offer or for the whole account.
             </p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">

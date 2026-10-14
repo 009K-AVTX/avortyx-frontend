@@ -101,7 +101,7 @@ export default function Features() {
                     <i className="fa-solid fa-phone-volume" aria-hidden="true" />
                   </div>
                   <h3 className="h5 fw-bold text-body">Call Tracking</h3>
-                  <p className="text-muted small mb-0">Tie each call to its campaign, source and keyword, with local and toll-free numbers or the ones you port in.</p>
+                  <p className="text-muted small mb-0">Tie each call to its campaign, source and keyword, on local or toll-free lines, new or ported in.</p>
                 </div>
               </a>
             </div>

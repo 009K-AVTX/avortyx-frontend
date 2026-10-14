@@ -1,7 +1,7 @@
 // The language menu (globe in the navbar). scripts/prerender.js points each link at this page in
 // that language and ticks the current one; the names stay in their own language (data-avx-no-i18n).
 export const LANGUAGES = [
-  ['en', 'English (US)', null],
+  ['en', 'English', 'US'],
   ['ru', 'Русский', 'Russian'],
   ['ja', '日本語', 'Japanese'],
   ['zh', '简体中文', 'Chinese'],

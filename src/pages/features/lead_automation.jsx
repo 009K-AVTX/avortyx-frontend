@@ -2,7 +2,7 @@
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
   title: "Lead Automation | Turn form fills into live calls | Avortyx",
-  description: "Avortyx contacts every new lead the moment it arrives, with SMS, email and outbound calls in multi-step schedules, and routes the call to a buyer when the lead answers.",
+  description: "Avortyx contacts every new lead the moment it arrives, with SMS, email and outbound calls in multi-step schedules, and connects the lead to a buyer as soon as they pick up.",
   bodyClass: "avortyx_marketing features_lead_automation ",
   layout: "feature",
 }

@@ -58,7 +58,7 @@ export default function Cake() {
                 </div>
               </div>
             </div>
-            <p>Affiliate traffic that ends in a phone call usually falls out of CAKE’s reporting: the click is recorded, the call is not. Avortyx closes that gap by posting each qualified call back to CAKE with the click it came from.</p>
+            <p>When affiliate traffic converts by phone, it usually drops out of CAKE’s reporting: the click is recorded, the call is not. Avortyx closes that gap by posting each qualified call back to CAKE with the click it came from.</p>
             <ul className="text-muted">
               <li><strong>Click IDs kept with the call</strong> — dynamic number insertion and URL tokens carry the CAKE click ID from the landing page onto the call record.</li>
               <li><strong>Only qualified calls count</strong> — send the postback on a converted disposition, a minimum duration or a buyer payout, never on a ring that went nowhere.</li>

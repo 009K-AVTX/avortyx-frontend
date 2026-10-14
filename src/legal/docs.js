@@ -225,7 +225,7 @@ export const DOCS = [
     summary: 'Avortyx numbers are for tracking and routing business calls, not for emergency calls.',
     sections: [
       ['1. No emergency calling', [
-        'Avortyx is a call tracking and routing platform. Avortyx numbers do not support 911 or E911 calling, and the service is not a replacement for a landline or mobile phone service.',
+        'Avortyx is a platform for tracking and routing calls. Avortyx numbers do not support 911 or E911 calling, and the service is not a replacement for a landline or mobile phone service.',
       ]],
       ['2. Your users', [
         'Make sure everyone who uses Avortyx numbers on your behalf, including agents and call centers, has another way to reach emergency services.',

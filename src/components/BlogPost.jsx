@@ -86,7 +86,7 @@ export default function BlogPost({ post }) {
             <article className="avx-art-body">
               {post.body.map((block, i) => <Block key={i} block={block} />)}
               <div className="avx-art-end">
-                <p><b>See it in your own numbers.</b> Track every call, route it to the right buyer and see the revenue behind it.</p>
+                <p><b>See it in your own numbers.</b> Know where each call came from, send it to a buyer who can take it, and see what it earned.</p>
                 <div className="d-flex flex-wrap gap-2">
                   <a href="/request-access" className="btn btn-td-green"><Bolt />Request Access</a>
                   <a href="/p/request_demo" className="btn btn-outline-td-green">Request Demo</a>
