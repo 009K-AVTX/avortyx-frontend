@@ -200,7 +200,11 @@
 /* ---------- Avortyx Help: a chat that answers from the site's own pages ----------
    Scripted (no AI model): a question is matched to a topic by its words, and every answer
    uses wording from the feature, pricing and FAQ pages, with links to read more. Unmatched
-   questions point to the team. The conversation follows the visitor across pages (session). */
+   questions point to the team. The conversation follows the visitor across pages (session).
+   Once the visitor picks a teammate, the chat is live: what they type goes to the backend
+   ([data-avx-chat-url], VITE_CHAT_URL), which forwards it to the team's support group on Telegram;
+   the team's replies there come back here (asked for every few seconds). The live conversation is
+   kept for a week in localStorage, so a visitor who comes back still sees the answer. */
 (function () {
   'use strict';
 
@@ -222,8 +226,8 @@
       'Book a walkthrough with a specialist to see how Avortyx can optimize your call tracking and increase conversions.',
       [['/p/request_demo', 'Request a demo']]],
     ['support', ['support', 'contact', 'human', 'real person', 'talk to', 'email', 'phone number', 'help me', 'my account', 'live chat'],
-      'We offer phone, live chat and email support, plus live video sessions with our specialists. You can also write to support@avortyx.com.',
-      [['#email-support', 'Email support'], ['/p/contact', 'Contact us']]],
+      'We offer phone and live chat support, plus live video sessions with our specialists. To talk to someone now, pick a teammate below and write to them right here.',
+      [['/p/contact', 'Contact us']]],
     ['tracking', ['track', 'attribut', 'source', 'campaign', 'keyword', 'dni', 'number insertion', 'swap numbers'],
       'Call tracking shows which ads, pages and offline placements make the phone ring, broken down by traffic source, URL keyword and custom tokens. Dynamic number insertion swaps tracking numbers on your website so every call is tied to its source.',
       [['/features/call_tracking', 'Call tracking'], ['/features/dynamic_number_insertion', 'Number insertion']]],
@@ -284,7 +288,9 @@
   var GREETING = 'Hi! I can answer questions about Avortyx — pricing, features, integrations and getting started. What would you like to know?';
   var FALLBACK = ['I don’t have an answer for that one yet. Our team can help, or try one of the topics below.', [['/p/contact', 'Contact us'], ['/p/request_demo', 'Request a demo']]];
   var CHIPS = [['How does pricing work?', 'pricing'], ['How does routing work?', 'routing'], ['Can I bring my own carrier?', 'carriers'], ['Is there an API?', 'api'], ['How do you handle compliance?', 'compliance'], ['Book a demo', 'demo']];
-  var STORE = 'avx-help';
+  var STORE = 'avx-help', LIVE = 'avx-help-live', WEEK = 7 * 864e5;
+  var chatEl = document.querySelector('[data-avx-chat-url]');
+  var CHAT_URL = chatEl && chatEl.getAttribute('data-avx-chat-url');
   // the team from avortyx.com's chat: [id, name, role, photo]; sales goes to Maya, support to Jordan
   var TEAM = [
     ['maya', 'Maya Decker', 'Sales lead', '/assets/avx-site/img/team/maya-decker.webp'],
@@ -312,10 +318,26 @@
   function track(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); }
 
   function load() { try { return JSON.parse(sessionStorage.getItem(STORE)) || null; } catch (e) { return null; } }
-  function save(state) { try { sessionStorage.setItem(STORE, JSON.stringify(state)); } catch (e) { /* storage blocked */ } }
+  function save(state) {
+    try { sessionStorage.setItem(STORE, JSON.stringify(state)); } catch (e) { /* storage blocked */ }
+    // the live conversation outlasts the tab, so the team's answer is there when they come back
+    try { if (state.live) localStorage.setItem(LIVE, JSON.stringify({ live: state.live, agent: state.agent, at: Date.now() })); } catch (e) { /* storage blocked */ }
+  }
+  function loadLive() {
+    try {
+      var v = JSON.parse(localStorage.getItem(LIVE));
+      return v && v.live && Date.now() - v.at < WEEK ? v : null;
+    } catch (e) { return null; }
+  }
 
   function init() {
-    var state = load() || { open: false, msgs: [] };
+    var state = load();
+    if (!state) {
+      // a new tab: pick up a live conversation from an earlier visit (its messages are fetched below)
+      var kept = CHAT_URL && loadLive();
+      state = kept ? { open: false, msgs: [], agent: kept.agent, live: kept.live, teamShown: true } : { open: false, msgs: [] };
+      if (kept) state.live.last = 0;
+    }
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'avx-help-btn';
@@ -336,7 +358,7 @@
       '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
       '<div class="avx-help-log" role="log" aria-live="polite"></div>' +
       '<div class="avx-help-chips" aria-label="Suggested questions"></div>' +
-      '<form class="avx-help-form"><input type="text" placeholder="Ask a question…" aria-label="Your question" maxlength="200" autocomplete="off">' +
+      '<form class="avx-help-form"><input type="text" placeholder="Ask a question…" aria-label="Your question" maxlength="1000" autocomplete="off">' +
       '<button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5L4 12z"/></svg></button></form>' +
       '<div class="avx-help-foot"><span>Answers from our docs and pages</span>' +
       '<button type="button" class="avx-help-teamlink"><span class="avx-help-stack">' + TEAM.map(function (t) { return face(t, ''); }).join('') + '</span>Talk to the team</button></div>';
@@ -346,6 +368,7 @@
     var log = panel.querySelector('.avx-help-log'), chips = panel.querySelector('.avx-help-chips');
     var form = panel.querySelector('form'), input = form.querySelector('input');
     var head = panel.querySelector('.avx-help-head > div'), headDot = panel.querySelector('.avx-help-dot');
+    var foot = panel.querySelector('.avx-help-foot > span');
 
     // once a visitor picks a teammate, the header shows that person, as on avortyx.com
     function setHead() {
@@ -353,7 +376,11 @@
       if (!t) return;
       headDot.outerHTML = '<span class="avx-help-dot avx-help-face">' + face(t, '') + '</span>';
       headDot = panel.querySelector('.avx-help-dot');
-      head.innerHTML = '<b>' + t[1] + '</b><span>' + t[2] + ' · replies by email</span>';
+      head.innerHTML = '<b>' + t[1] + '</b><span>' + t[2] + (CHAT_URL ? ' · replies here' : '') + '</span>';
+      input.placeholder = CHAT_URL ? 'Message ' + t[1].split(' ')[0] + '…' : 'Ask a question…';
+      foot.textContent = CHAT_URL ? 'Your messages go straight to our team' : 'Answers from our docs and pages';
+      // live with the team: the suggested questions would only go to them, so they step aside
+      chips.hidden = !!CHAT_URL;
     }
 
     // "Need a person?": the team's photos, then sales or support
@@ -379,17 +406,23 @@
       track('assistant_team_pick', { member: id, intent: intent });
       state.agent = id;
       add({ who: 'sys', text: 'You’re now talking to ' + t[1] + ' · ' + t[2] });
-      var links = [['#email-support', 'Email ' + first], ['https://t.me/avortyxsupport', 'Telegram @avortyxsupport']];
-      if (intent === 'sales') links.push(['/p/request_demo', 'Request a demo']);
-      add({ who: 'agent', id: id, text: 'Hi! I’m ' + first + '. Send me your details by email or Telegram and I’ll get back to you there.', links: links });
+      state.intent = intent;
+      if (CHAT_URL) {
+        add({ who: 'agent', id: id, text: 'Hi! I’m ' + first + '. Write your message below and I’ll answer right here in this chat.', links: intent === 'sales' ? [['/p/request_demo', 'Request a demo']] : [] });
+      } else {
+        add({ who: 'agent', id: id, text: 'Hi! I’m ' + first + '. Leave your details on our contact page and I’ll get back to you.', links: [['/p/contact', 'Contact us']] });
+      }
       setHead();
+      input.focus();
     }
 
     function bubble(m) {
       if (m.who === 'team') { log.appendChild(teamCard()); log.scrollTop = log.scrollHeight; return; }
       var row = document.createElement('div');
       row.className = 'avx-help-msg avx-help-' + m.who;
-      if (m.who === 'me') row.setAttribute('data-avx-no-i18n', '');
+      // the visitor's own words and the team's live answers are never machine-translated
+      if (m.who === 'me' || m.live) row.setAttribute('data-avx-no-i18n', '');
+      if (m.failed) row.className += ' avx-help-failed';
       var p = document.createElement('p');
       p.textContent = m.text;
       // a teammate's message: their photo, then name and role over the bubble
@@ -433,9 +466,79 @@
       chips.appendChild(b);
     });
 
+    // ── live chat with the team ──
+    function api(path, opts) {
+      return fetch(CHAT_URL + path, opts).then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (body) { return { ok: r.ok, status: r.status, body: body }; });
+      });
+    }
+
+    function sendLive(text) {
+      add({ who: 'me', text: text, live: true });
+      var body = { text: text, agent: state.agent, intent: state.intent, page: location.href, website: '' };
+      if (state.live) { body.conversation = state.live.id; body.token = state.live.token; }
+      api('/messages', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+        .then(function (r) {
+          if (r.ok && r.body.conversation) {
+            var fresh = !state.live;
+            state.live = { id: r.body.conversation, token: r.body.token, last: Math.max((state.live && state.live.last) || 0, r.body.message.id) };
+            save(state);
+            if (fresh) {
+              track('assistant_live_start', { member: state.agent });
+              add({ who: 'sys', text: 'Sent to the team. Replies show up here, usually within a few minutes. You can keep browsing.' });
+            }
+            schedule(4000);
+            return;
+          }
+          // the chat ended on the server (or was cleared): start a fresh one next time
+          if (r.status === 404) { state.live = null; try { localStorage.removeItem(LIVE); } catch (e) { /* storage blocked */ } }
+          fail(r.body.error || 'Couldn’t send that. Please try again.');
+        })
+        .catch(function () { fail('Couldn’t send that. Check your connection and try again.'); });
+    }
+
+    function fail(text) {
+      var last = state.msgs[state.msgs.length - 1];
+      if (last && last.who === 'me') { last.failed = true; var rows = log.querySelectorAll('.avx-help-me'); if (rows.length) rows[rows.length - 1].className += ' avx-help-failed'; }
+      add({ who: 'sys', text: text });
+    }
+
+    // ask for the team's answers: every 4s while the chat is open, every 20s while closed, never
+    // while the tab is in the background
+    var timer = 0, polling = false;
+    function schedule(ms) {
+      clearTimeout(timer);
+      if (CHAT_URL && state.live) timer = setTimeout(poll, ms);
+    }
+    function poll() {
+      if (!state.live || polling) return;
+      if (document.hidden) return schedule(20000);
+      polling = true;
+      api('/' + state.live.id + '/messages?token=' + encodeURIComponent(state.live.token) + '&after=' + (state.live.last || 0))
+        .then(function (r) {
+          if (r.status === 404) { state.live = null; save(state); try { localStorage.removeItem(LIVE); } catch (e) { /* storage blocked */ } return; }
+          var msgs = (r.ok && r.body.messages) || [];
+          var replayAll = !state.live.last && !state.msgs.length;
+          msgs.forEach(function (m) {
+            state.live.last = Math.max(state.live.last || 0, m.id);
+            if (m.from === 'team') {
+              add({ who: 'agent', id: state.agent || 'jordan', text: m.text, live: true });
+              if (panel.hidden) btn.classList.add('avx-help-unread');
+            } else if (replayAll) {
+              add({ who: 'me', text: m.text, live: true });
+            }
+          });
+          if (msgs.length) save(state);
+        })
+        .catch(function () { /* offline: try again later */ })
+        .then(function () { polling = false; schedule(panel.hidden ? 20000 : 4000); });
+    }
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) schedule(300); });
+
     function ask(text) {
       text = text.trim();
       if (!text) return;
+      if (CHAT_URL && state.agent) return sendLive(text);
       add({ who: 'me', text: text });
       var hit = find(text);
       track('assistant_question', { topic: hit ? hit[0] : 'unmatched' });
@@ -448,7 +551,8 @@
         typing.remove();
         add(hit ? { who: 'bot', text: hit[2], links: hit[3] } : { who: 'bot', text: FALLBACK[0], links: FALLBACK[1] });
         // offer the team after the first answer, and whenever there is no answer
-        if (!state.agent && (!hit || !state.teamShown)) { state.teamShown = true; add({ who: 'team' }); }
+        // (and always after the support answer, which points to them)
+        if (!state.agent && (!hit || !state.teamShown || hit[0] === 'support')) { state.teamShown = true; add({ who: 'team' }); }
       }, 450 + Math.min(500, text.length * 8));
     }
 
@@ -467,7 +571,9 @@
       btn.setAttribute('aria-label', on ? 'Close Avortyx Help' : 'Open Avortyx Help');
       document.body.classList.toggle('avx-help-open', on);
       if (on) {
-        if (!state.msgs.length) add({ who: 'bot', text: GREETING });
+        btn.classList.remove('avx-help-unread');
+        if (!state.msgs.length && !state.live) add({ who: 'bot', text: GREETING });
+        schedule(300);
         log.scrollTop = log.scrollHeight;
         if (focus) input.focus();
       } else if (focus) {
@@ -488,6 +594,7 @@
     state.msgs.forEach(bubble);
     setHead();
     if (state.open) setOpen(true, false);
+    schedule(1500);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
@@ -495,8 +602,8 @@
 })();
 
 /* ---------- Email support: a short form that writes the message in the visitor's email app ----------
-   Opens from any [data-avx-email] link or a link to #email-support (the Support menu, the help
-   chat). There is no mail server here: the form builds a mailto: to support@avortyx.com with the
+   Opens from any [data-avx-email] link or a link to #email-support (the Support menu, the
+   help page). There is no mail server here: the form builds a mailto: to support@avortyx.com with the
    topic, details, reply address and the page the visitor was on, so nothing is lost or stored. */
 (function () {
   'use strict';

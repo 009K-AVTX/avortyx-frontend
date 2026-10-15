@@ -12024,10 +12024,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Customer success · replies by email",
-  "page": "(runtime)"
- },
- {
   "k": "DNC checks, suppression lists and blacklists run before any call is forwarded or dialed, and state rules enforce calling-hour windows. PII can be cleared or hashed from aged data and restricted to users with the PII permission.",
   "page": "(runtime)"
  },
@@ -12205,18 +12201,6 @@
  },
  {
   "k": "Hi! I can answer questions about Avortyx — pricing, features, integrations and getting started. What would you like to know?",
-  "page": "(runtime)"
- },
- {
-  "k": "Hi! I’m Jordan. Send me your details by email or Telegram and I’ll get back to you there.",
-  "page": "(runtime)"
- },
- {
-  "k": "Hi! I’m Maya. Send me your details by email or Telegram and I’ll get back to you there.",
-  "page": "(runtime)"
- },
- {
-  "k": "Hi! I’m Milena. Send me your details by email or Telegram and I’ll get back to you there.",
   "page": "(runtime)"
  },
  {
@@ -12836,10 +12820,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Sales lead · replies by email",
-  "page": "(runtime)"
- },
- {
   "k": "Sales question",
   "page": "(runtime)"
  },
@@ -12917,10 +12897,6 @@
  },
  {
   "k": "Solar · caller in TX",
-  "page": "(runtime)"
- },
- {
-  "k": "Solutions engineer · replies by email",
   "page": "(runtime)"
  },
  {
@@ -13140,7 +13116,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "We offer phone, live chat and email support, plus live video sessions with our specialists. You can also write to support@avortyx.com.",
+  "k": "We offer phone and live chat support, plus live video sessions with our specialists. To talk to someone now, pick a teammate below and write to them right here.",
   "page": "(runtime)"
  },
  {
@@ -13409,6 +13385,90 @@
  },
  {
   "k": "“We just closed on a house and want a quote for panels.”",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi! I’m Maya. Write your message below and I’ll answer right here in this chat.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi! I’m Maya. Leave your details on our contact page and I’ll get back to you.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Message Maya…",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi! I’m Jordan. Write your message below and I’ll answer right here in this chat.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi! I’m Jordan. Leave your details on our contact page and I’ll get back to you.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Message Jordan…",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi! I’m Milena. Write your message below and I’ll answer right here in this chat.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi! I’m Milena. Leave your details on our contact page and I’ll get back to you.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Message Milena…",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Sales lead · replies here",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Solutions engineer · replies here",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Customer success · replies here",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Sent to the team. Replies show up here, usually within a few minutes. You can keep browsing.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Couldn’t send that. Please try again.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Couldn’t send that. Check your connection and try again.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Your messages go straight to our team",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Please write a message.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "This chat has ended. Please start a new one.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "That’s a lot of messages at once. Please wait a moment for the team to answer.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Too many new chats from your network. Please try again a little later.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Please keep it under 1000 characters.",
   "page": "(runtime)"
  }
 ]

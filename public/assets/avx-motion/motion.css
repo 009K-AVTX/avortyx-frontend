@@ -6162,6 +6162,22 @@ body > main .mktg-subpage-hero .mktg-subpage-hero-nav {
   fill: currentColor;
 }
 
+/* a reply from the team arrived while the chat was closed */
+.avx-help-btn.avx-help-unread::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #0e0f14;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+/* a message that didn't reach the team */
+.avx-help-failed p { opacity: .55; }
+
 .avx-help {
   position: fixed;
   right: 22px;
