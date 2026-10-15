@@ -606,13 +606,26 @@
   mark();
 })();
 
-/* ---------- Request access: checks the form, then opens an email to the team with it filled in ---------- */
+/* ---------- Request access: checks the form, sends it to the backend named by
+   [data-avx-request-url] and opens the thank-you page. Without that address it opens an email to
+   the team with the request filled in. ---------- */
 (function () {
   'use strict';
   var form = document.querySelector('[data-avx-request-access]');
   if (!form) return;
   var TO = 'hello@avortyx.io';
+  var SAVED = 'avx-access-request';
+  var url = form.getAttribute('data-avx-request-url');
   var err = form.querySelector('.avx-ra-err'), done = form.querySelector('.avx-ra-done');
+  var send = form.querySelector('.avx-ra-submit'), label = send.innerHTML;
+
+  function fail(msg) {
+    err.textContent = msg;
+    err.hidden = false;
+    send.disabled = false;
+    send.innerHTML = label;
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var f = form.elements, v = function (k) { return f[k].value.trim(); };
@@ -623,12 +636,55 @@
     err.hidden = !problem;
     err.textContent = problem;
     if (problem) return;
-    var body = v('use_case') + '\n\n—\nName: ' + v('name') + '\nCompany: ' + v('organization') +
-      '\nWork email: ' + v('email') + '\nPhone: ' + (v('phone') || '—') + '\nSent from: ' + location.href;
-    if (typeof window.gtag === 'function') window.gtag('event', 'request_access', { page_path: location.pathname });
-    window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Access request: ' + v('organization')) + '&body=' + encodeURIComponent(body);
-    done.hidden = false;
+
+    if (!url) {
+      var body = v('use_case') + '\n\n—\nName: ' + v('name') + '\nCompany: ' + v('organization') +
+        '\nWork email: ' + v('email') + '\nPhone: ' + (v('phone') || '—') + '\nSent from: ' + location.href;
+      if (typeof window.gtag === 'function') window.gtag('event', 'request_access', { page_path: location.pathname });
+      window.location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Access request: ' + v('organization')) + '&body=' + encodeURIComponent(body);
+      done.hidden = false;
+      return;
+    }
+
+    var data = new FormData(form);
+    data.set('page', location.href);
+    send.disabled = true;
+    send.textContent = 'Sending…';
+    fetch(url, { method: 'POST', body: data })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (b) { return { ok: r.ok, body: b }; }); })
+      .then(function (r) {
+        if (!r.ok) return fail(r.body.error || 'We could not send your request just now. Please try again in a few minutes.');
+        if (typeof window.gtag === 'function') window.gtag('event', 'request_access', { page_path: location.pathname });
+        // the thank-you page shows these; the backend's reference (REQ-00012) is also in their email
+        try {
+          sessionStorage.setItem(SAVED, JSON.stringify({
+            reference: typeof r.body.reference === 'string' ? r.body.reference.slice(0, 20) : '',
+            email: v('email'),
+          }));
+        } catch (x) { /* private mode: the page still thanks them, without the details */ }
+        window.location.assign((window.AVX_LANG ? '/' + window.AVX_LANG : '') + '/request-access/thanks');
+      })
+      .catch(function () { fail('We could not send your request just now. Please try again in a few minutes.'); });
   });
+})();
+
+/* ---------- Request access thank-you page: the reference and email the form stored ---------- */
+(function () {
+  'use strict';
+  var card = document.querySelector('[data-avx-ra-thanks]');
+  if (!card) return;
+  var saved = null;
+  try { saved = JSON.parse(sessionStorage.getItem('avx-access-request') || 'null'); } catch (x) { return; }
+  if (!saved) return;
+  var shown = false;
+  ['reference', 'email'].forEach(function (k) {
+    var row = card.querySelector('[data-avx-ra-field="' + k + '"]');
+    if (!row || typeof saved[k] !== 'string' || !saved[k]) return;
+    row.querySelector('dd').textContent = saved[k].slice(0, 200);
+    row.hidden = false;
+    shown = true;
+  });
+  if (shown) card.querySelector('.avx-ra-summary').hidden = false;
 })();
 
 /* ---------- Careers: filter the open roles by team ---------- */

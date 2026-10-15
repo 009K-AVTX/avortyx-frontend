@@ -1,6 +1,9 @@
 // /request-access.html — Avortyx is invite-only: the request form, as on avortyx.com/request-access.
-// The form is static; site.js turns a submission into an email to the team (no backend).
+// site.js posts it to the backend (VITE_ACCESS_URL at build time), which saves it and alerts the
+// team, then opens /request-access/thanks. Without VITE_ACCESS_URL it opens an email to the team.
 import Bolt from '../components/Bolt.jsx'
+
+const ACCESS_URL = import.meta.env.VITE_ACCESS_URL || undefined
 
 const STEPS = [
   ['You send a request', 'Tell us who you are and what you want to do on the platform.'],
@@ -49,7 +52,7 @@ export default function RequestAccess() {
                 </span>
                 <h2 className="avx-ra-card-title">Tell us about your business</h2>
                 <p className="avx-ra-card-sub">It takes a minute. We only use this to review your request.</p>
-                <form className="avx-ra-form" data-avx-request-access="" noValidate>
+                <form className="avx-ra-form" data-avx-request-access="" data-avx-request-url={ACCESS_URL} noValidate>
                   <div className="avx-ra-row">
                     <label>Full name<input name="name" autoComplete="name" required /></label>
                     <label>Company<input name="organization" autoComplete="organization" required /></label>
@@ -57,6 +60,7 @@ export default function RequestAccess() {
                   <label>Work email<input name="email" type="email" autoComplete="email" required /></label>
                   <label>Phone<input name="phone" type="tel" autoComplete="tel" placeholder="+1 555 123 4567" /></label>
                   <label>What are you looking to route?<textarea name="use_case" rows="3" placeholder="A few words on your verticals, monthly call volume, and current stack." required /></label>
+                  <input name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" className="avx-apply-hp" />
                   <p className="avx-ra-err" role="alert" hidden />
                   <button type="submit" className="avx-ra-submit">
                     <Bolt />

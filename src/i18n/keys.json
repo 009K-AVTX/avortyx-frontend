@@ -9664,6 +9664,58 @@
   "page": "request-access.html"
  },
  {
+  "k": "Request received",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Thank you. <0/>Your request is in.",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Our team will look at your request and reply by email. Here is what happens next.",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Request sent",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "We have your details and what you want to route.",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Thanks for telling us about your business.",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Reference",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "We’ll reply to",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Back to home",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Explore features",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Read the blog",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Request Received | Avortyx",
+  "page": "request-access/thanks.html"
+ },
+ {
+  "k": "Thank you for requesting access to Avortyx. Our team will review your request and reply by email.",
+  "page": "request-access/thanks.html"
+ },
+ {
   "k": "Set up your Avortyx workspace",
   "page": "sign_up.html"
  },
@@ -11688,11 +11740,19 @@
   "page": "(runtime)"
  },
  {
+  "k": "Anything you’d like us to know? <0>(optional)</0>",
+  "page": "(runtime)"
+ },
+ {
   "k": "Apex Insurance answered · <0>+${#}</0>",
   "page": "(runtime)"
  },
  {
   "k": "Apex Insurance ✓",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Apply",
   "page": "(runtime)"
  },
  {
@@ -11809,6 +11869,10 @@
  },
  {
   "k": "CO",
+  "page": "(runtime)"
+ },
+ {
+  "k": "CV",
   "page": "(runtime)"
  },
  {
@@ -12328,6 +12392,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "LinkedIn or portfolio <0>(optional)</0>",
+  "page": "(runtime)"
+ },
+ {
   "k": "Live auction · demo data",
   "page": "(runtime)"
  },
@@ -12484,6 +12552,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Open application",
+  "page": "(runtime)"
+ },
+ {
   "k": "Open in email app",
   "page": "(runtime)"
  },
@@ -12516,11 +12588,19 @@
   "page": "(runtime)"
  },
  {
+  "k": "PDF or Word, up to {#} MB.",
+  "page": "(runtime)"
+ },
+ {
   "k": "PE",
   "page": "(runtime)"
  },
  {
   "k": "Payout",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Phone <0>(optional)</0>",
   "page": "(runtime)"
  },
  {
@@ -12580,7 +12660,35 @@
   "page": "(runtime)"
  },
  {
+  "k": "Please add a valid email address.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Please add a valid work email.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Please add your company.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Please add your full name.",
+  "page": "(runtime)"
+ },
+ {
   "k": "Please add your name.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Please attach your CV as a PDF or Word document.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Please attach your CV.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Please tell us what you are looking to route.",
   "page": "(runtime)"
  },
  {
@@ -12768,6 +12876,14 @@
   "page": "(runtime)"
  },
  {
+  "k": "Send application",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Sending…",
+  "page": "(runtime)"
+ },
+ {
   "k": "Show less",
   "page": "(runtime)"
  },
@@ -12888,6 +13004,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Telegram <0>(optional)</0>",
+  "page": "(runtime)"
+ },
+ {
   "k": "Telegram @avortyxsupport →",
   "page": "(runtime)"
  },
@@ -12901,6 +13021,10 @@
  },
  {
   "k": "Terms of service →",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Thank you, your application is with our hiring team. We’ll be in touch by email.",
   "page": "(runtime)"
  },
  {
@@ -13008,6 +13132,14 @@
   "page": "(runtime)"
  },
  {
+  "k": "We could not send your application just now. Please try again in a few minutes. You can also email your CV to <0>hello@avortyx.io</0>.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "We could not send your request just now. Please try again in a few minutes.",
+  "page": "(runtime)"
+ },
+ {
   "k": "We offer phone, live chat and email support, plus live video sessions with our specialists. You can also write to support@avortyx.com.",
   "page": "(runtime)"
  },
@@ -13061,6 +13193,10 @@
  },
  {
   "k": "You can start free: create your Avortyx account and start tracking, routing and selling calls.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Your CV is over {#} MB. Please send a smaller file.",
   "page": "(runtime)"
  },
  {
@@ -13173,6 +13309,10 @@
  },
  {
   "k": "caller in TX",
+  "page": "(runtime)"
+ },
+ {
+  "k": "https://",
   "page": "(runtime)"
  },
  {
