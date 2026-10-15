@@ -62,7 +62,9 @@ npm run build     # prerender every page into dist/
 npm run preview   # serve dist/
 ```
 
-Deploy with `vercel --prod`.
+Deploy with `vercel --prod` from this folder. Live at https://www.avortyx.com (Vercel project
+`trackdrive.net-clone`, which also serves https://avortyx-prototype.vercel.app); `avortyx.com`
+redirects to www. DNS is at Hostinger: `@` and `www` point at Vercel, `api` at the backend's VPS.
 
 ## Careers applications
 
@@ -72,7 +74,7 @@ team on Telegram (the Avortyx Careers bot) and by email, emails the applicant a 
 lets the team reply from the panel or from Telegram. The form shows the applicant their reference
 (`AVX-00012`) when it is sent.
 
-Set this in Vercel → Project → Settings → Environment Variables (Production), then redeploy:
+This is set in Vercel → Project → Settings → Environment Variables (Production):
 
 ```
 VITE_APPLY_URL=https://api.avortyx.com/careers/apply
