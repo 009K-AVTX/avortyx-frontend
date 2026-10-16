@@ -13506,5 +13506,9 @@
  {
   "k": "Hi, I’m Milena. Write your message below and we’ll reply right here in this chat.",
   "page": "(runtime)"
+ },
+ {
+  "k": "Start a new chat",
+  "page": "(runtime)"
  }
 ]

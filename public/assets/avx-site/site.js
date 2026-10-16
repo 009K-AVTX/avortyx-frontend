@@ -288,7 +288,9 @@
   var GREETING = 'Hi! I can answer questions about Avortyx — pricing, features, integrations and getting started. What would you like to know?';
   var FALLBACK = ['I don’t have an answer for that one yet. Our team can help, or try one of the topics below.', [['/p/request_demo', 'Request a demo']]];
   var CHIPS = [['How does pricing work?', 'pricing'], ['How does routing work?', 'routing'], ['Can I bring my own carrier?', 'carriers'], ['Is there an API?', 'api'], ['How do you handle compliance?', 'compliance'], ['Book a demo', 'demo']];
-  var STORE = 'avx-help', LIVE = 'avx-help-live', WEEK = 7 * 864e5;
+  // "-2": chats saved before the 16 Oct 2026 intro change (test messages among them) start fresh
+  var STORE = 'avx-help-2', LIVE = 'avx-help-live-2', WEEK = 7 * 864e5;
+  try { sessionStorage.removeItem('avx-help'); localStorage.removeItem('avx-help-live'); } catch (e) { /* storage blocked */ }
   var chatEl = document.querySelector('[data-avx-chat-url]');
   var CHAT_URL = chatEl && chatEl.getAttribute('data-avx-chat-url');
   // the team from avortyx.com's chat: [id, name, role, photo]; sales goes to Maya, support to Jordan
@@ -354,6 +356,8 @@
     panel.hidden = true;
     panel.innerHTML =
       '<div class="avx-help-head"><span class="avx-help-dot" aria-hidden="true"></span><div><b>Avortyx Help</b><span>Instant answers from our docs</span></div>' +
+      '<button type="button" class="avx-help-new" aria-label="Start a new chat" title="Start a new chat" hidden>' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5"/></svg></button>' +
       '<button type="button" class="avx-help-close" aria-label="Close help">' +
       '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
       '<div class="avx-help-log" role="log" aria-live="polite"></div>' +
@@ -369,6 +373,28 @@
     var form = panel.querySelector('form'), input = form.querySelector('input');
     var head = panel.querySelector('.avx-help-head > div'), headDot = panel.querySelector('.avx-help-dot');
     var foot = panel.querySelector('.avx-help-foot > span');
+    var newBtn = panel.querySelector('.avx-help-new');
+    // "Start a new chat" shows once there is a conversation to clear
+    function showNew() { newBtn.hidden = !(state.agent || state.live || state.msgs.length > 1); }
+
+    // a fresh start: the old conversation (and its live line to the team) is forgotten on this
+    // device; the chat goes back to answers from the docs, with the greeting
+    function newChat() {
+      track('assistant_new_chat', { had_live: !!state.live });
+      clearTimeout(timer);
+      state = { open: true, msgs: [] };
+      try { localStorage.removeItem(LIVE); } catch (e) { /* storage blocked */ }
+      log.innerHTML = '';
+      headDot.outerHTML = '<span class="avx-help-dot" aria-hidden="true"></span>';
+      headDot = panel.querySelector('.avx-help-dot');
+      head.innerHTML = '<b>Avortyx Help</b><span>Instant answers from our docs</span>';
+      input.placeholder = 'Ask a question…';
+      foot.textContent = 'Answers from our docs and pages';
+      chips.hidden = false;
+      add({ who: 'bot', text: GREETING });
+      input.focus();
+    }
+    newBtn.addEventListener('click', newChat);
 
     // once a visitor picks a teammate, the header shows that person, as on avortyx.com
     function setHead() {
@@ -462,6 +488,7 @@
       if (state.msgs.length > 40) state.msgs = state.msgs.slice(-40);
       save(state);
       bubble(m);
+      showNew();
     }
 
     CHIPS.forEach(function (c) {
@@ -599,6 +626,7 @@
     // pick up where the visitor left off on the previous page
     state.msgs.forEach(bubble);
     setHead();
+    showNew();
     if (state.open) setOpen(true, false);
     schedule(1500);
   }
