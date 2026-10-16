@@ -391,7 +391,7 @@
         '<div class="avx-help-team-top"><b>Need a person?</b><span>' + TEAM.length + ' on the team</span></div>' +
         '<div class="avx-help-team-mid"><span class="avx-help-stack avx-help-stack-lg">' +
         TEAM.map(function (t) { return '<button type="button" data-pick="' + t[0] + '" aria-label="' + t[1] + ', ' + t[2] + '">' + face(t, '') + '</button>'; }).join('') +
-        '</span><p>Want to talk to someone on the team? Pick a person and they will pick it up from here.</p></div>' +
+        '</span><p>Want to talk to someone on the team? Pick a person and they’ll reply right here.</p></div>' +
         '<div class="avx-help-team-cta"><button type="button" data-pick="maya" data-intent="sales">Talk to sales</button>' +
         '<button type="button" data-pick="jordan" data-intent="support">Talk to support</button></div>';
       row.addEventListener('click', function (e) {
@@ -401,14 +401,23 @@
       return row;
     }
 
+    // the teammate's first message, by the desk the visitor chose
+    function intro(first, intent) {
+      if (intent === 'support') return 'Hi, I’m ' + first + ' from Avortyx support. Tell me what’s going on, and add your account email if you have one. We’ll reply right here in this chat.';
+      if (intent === 'sales') return 'Hi, I’m ' + first + ' from Avortyx sales. Tell me a little about your calls and campaigns, and we’ll reply right here in this chat.';
+      return 'Hi, I’m ' + first + '. Write your message below and we’ll reply right here in this chat.';
+    }
+
     function pick(id, intent) {
       var t = member(id), first = t[1].split(' ')[0];
       track('assistant_team_pick', { member: id, intent: intent });
       state.agent = id;
-      add({ who: 'sys', text: 'You’re now talking to ' + t[1] + ' · ' + t[2] });
+      // which desk they reached (the teammate's name and role already head their message)
+      add({ who: 'sys', text: intent === 'support' ? 'Connected to Avortyx support' : intent === 'sales' ? 'Connected to Avortyx sales' : 'Connected to the Avortyx team' });
       state.intent = intent;
-      // the visitor's messages go to the team's support group on Telegram (see sendLive)
-      add({ who: 'agent', id: id, text: 'Hi! I’m ' + first + '. Write your message below and I’ll answer right here in this chat.', links: intent === 'sales' ? [['/p/request_demo', 'Request a demo']] : [] });
+      // the visitor's messages go to the team's support group on Telegram (see sendLive), and whoever
+      // is on hand answers: "we", not "I"
+      add({ who: 'agent', id: id, text: intro(first, intent), links: intent === 'sales' ? [['/p/request_demo', 'Request a demo']] : [] });
       setHead();
       input.focus();
     }

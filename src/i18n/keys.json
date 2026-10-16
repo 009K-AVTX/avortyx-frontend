@@ -13470,5 +13470,41 @@
  {
   "k": "Please keep it under 1000 characters.",
   "page": "(runtime)"
+ },
+ {
+  "k": "Want to talk to someone on the team? Pick a person and they’ll reply right here.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Connected to Avortyx support",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Connected to Avortyx sales",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Connected to the Avortyx team",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi, I’m Jordan from Avortyx support. Tell me what’s going on, and add your account email if you have one. We’ll reply right here in this chat.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi, I’m Maya from Avortyx sales. Tell me a little about your calls and campaigns, and we’ll reply right here in this chat.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi, I’m Maya. Write your message below and we’ll reply right here in this chat.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi, I’m Jordan. Write your message below and we’ll reply right here in this chat.",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Hi, I’m Milena. Write your message below and we’ll reply right here in this chat.",
+  "page": "(runtime)"
  }
 ]
