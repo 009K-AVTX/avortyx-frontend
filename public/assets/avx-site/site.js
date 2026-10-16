@@ -218,7 +218,7 @@
       'No. Avortyx does not charge onboarding fees.', [['/pricing', 'See pricing']]],
     ['discounts', ['discount', 'high volume', 'volume', 'commit'],
       'Yes, for high-volume customers, and committed monthly plans come with lower per-minute rates.',
-      [['/pricing', 'Compare plans'], ['/p/contact', 'Contact our team']]],
+      [['/pricing', 'Compare plans']]],
     ['signup', ['sign up', 'signup', 'get started', 'start', 'free', 'trial', 'register', 'create an account', 'open an account'],
       'You can start free: create your Avortyx account and start tracking, routing and selling calls.',
       [['/request-access', 'Request Access'], ['/p/request_demo', 'Or book a walkthrough']]],
@@ -227,7 +227,7 @@
       [['/p/request_demo', 'Request a demo']]],
     ['support', ['support', 'contact', 'human', 'real person', 'talk to', 'email', 'phone number', 'help me', 'my account', 'live chat'],
       'We offer phone and live chat support, plus live video sessions with our specialists. To talk to someone now, pick a teammate below and write to them right here.',
-      [['/p/contact', 'Contact us']]],
+      []],
     ['tracking', ['track', 'attribut', 'source', 'campaign', 'keyword', 'dni', 'number insertion', 'swap numbers'],
       'Call tracking shows which ads, pages and offline placements make the phone ring, broken down by traffic source, URL keyword and custom tokens. Dynamic number insertion swaps tracking numbers on your website so every call is tied to its source.',
       [['/features/call_tracking', 'Call tracking'], ['/features/dynamic_number_insertion', 'Number insertion']]],
@@ -286,7 +286,7 @@
       'Happy to help. Anything else?', []]
   ];
   var GREETING = 'Hi! I can answer questions about Avortyx — pricing, features, integrations and getting started. What would you like to know?';
-  var FALLBACK = ['I don’t have an answer for that one yet. Our team can help, or try one of the topics below.', [['/p/contact', 'Contact us'], ['/p/request_demo', 'Request a demo']]];
+  var FALLBACK = ['I don’t have an answer for that one yet. Our team can help, or try one of the topics below.', [['/p/request_demo', 'Request a demo']]];
   var CHIPS = [['How does pricing work?', 'pricing'], ['How does routing work?', 'routing'], ['Can I bring my own carrier?', 'carriers'], ['Is there an API?', 'api'], ['How do you handle compliance?', 'compliance'], ['Book a demo', 'demo']];
   var STORE = 'avx-help', LIVE = 'avx-help-live', WEEK = 7 * 864e5;
   var chatEl = document.querySelector('[data-avx-chat-url]');
@@ -407,11 +407,8 @@
       state.agent = id;
       add({ who: 'sys', text: 'You’re now talking to ' + t[1] + ' · ' + t[2] });
       state.intent = intent;
-      if (CHAT_URL) {
-        add({ who: 'agent', id: id, text: 'Hi! I’m ' + first + '. Write your message below and I’ll answer right here in this chat.', links: intent === 'sales' ? [['/p/request_demo', 'Request a demo']] : [] });
-      } else {
-        add({ who: 'agent', id: id, text: 'Hi! I’m ' + first + '. Leave your details on our contact page and I’ll get back to you.', links: [['/p/contact', 'Contact us']] });
-      }
+      // the visitor's messages go to the team's support group on Telegram (see sendLive)
+      add({ who: 'agent', id: id, text: 'Hi! I’m ' + first + '. Write your message below and I’ll answer right here in this chat.', links: intent === 'sales' ? [['/p/request_demo', 'Request a demo']] : [] });
       setHead();
       input.focus();
     }
