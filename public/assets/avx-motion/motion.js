@@ -2561,6 +2561,10 @@
   // parallax. Orbit rings pass behind and in front of her, a scan line sweeps down, the amber
   // lights in her circuitry twinkle, and her rim light takes the active pod's color. Each time
   // the hub switches pods she speaks: voice rings leave her lips and call packets fly to that pod.
+  // She comes apart and assembles at once: the mesh is cut into small cells, and behind a wavering
+  // edge that moves across the back of her glass cranium the cells break loose, shrink and stream out
+  // as data (a web of glowing nodes with packets running along it, drawn on the front layer), then
+  // fly home and lock into place. Each pod switch sends a stronger wave through her.
 
   function initAgent3d() {
     var box = document.querySelector('[data-avx-agent3d]');
@@ -2607,13 +2611,21 @@
     }
 
     // ---- WebGL: the depth mesh ----
-    var gl = null, glReady = false, prog, count = 0, U = {}, ready = false, depthAt = function () { return 0; }, flatImg = null;
+    var gl = null, glReady = false, prog, count = 0, U = {}, ready = false, depthAt = function () { return 0; }, flatImg = null, cellList = [];
     try { gl = glCv.getContext('webgl', { premultipliedAlpha: true, alpha: true, antialias: true }); } catch (e) { gl = null; }
-    var VS = 'attribute vec3 p;attribute vec3 n;attribute vec2 uv;uniform vec4 R;uniform vec4 V;uniform vec2 VP;varying vec2 vUv;varying vec3 vN;' +
+    // c: the vertex's cell's middle (plane position), cu: its u, rn: three randoms per cell. Behind the
+    // edge (uniform B: x the edge's u, y the time, z a plane-unit scale) a cell shrinks to its middle
+    // and drifts out to the left and up; vS tells the fragment how loose it is
+    var VS = 'attribute vec3 p;attribute vec3 n;attribute vec2 uv;attribute vec3 c;attribute vec3 rn;attribute vec2 cu;uniform vec4 R;uniform vec4 V;uniform vec2 VP;uniform vec3 B;varying vec2 vUv;varying vec3 vN;varying float vS;' +
       'vec3 rot(vec3 q){float x1=q.x*R.x+q.z*R.y;float z1=-q.x*R.y+q.z*R.x;return vec3(x1,q.y*R.z-z1*R.w,q.y*R.w+z1*R.z);}' +
-      'void main(){vec3 r=rot(p);float k=V.w/(V.w-r.z);vec2 s=vec2(V.x+r.x*k*V.z,V.y-r.y*k*V.z);' +
-      'gl_Position=vec4(s.x/VP.x*2.0-1.0,1.0-s.y/VP.y*2.0,-r.z/4.0,1.0);vN=rot(n);vUv=uv;}';
-    var FS = 'precision mediump float;uniform sampler2D T;uniform vec3 tint;uniform float time;uniform float scan;uniform float talk;varying vec2 vUv;varying vec3 vN;' +
+      'void main(){float e=B.x+0.035*sin(cu.y*12.0+B.y*0.9)+0.018*sin(cu.y*27.0-B.y*1.3);float past=max(0.0,e-cu.x);float s=clamp(past/0.035,0.0,1.0);' +
+      'vec3 q=mix(p,c,s*0.55);' +
+      'q.x-=min(0.9,(past*1.5+past*past*5.0*rn.x)*B.z);' +
+      'q.y+=s*((past*0.7*rn.y+(rn.z-0.5)*0.12)*B.z+0.04*sin(B.y*1.3+rn.z*6.283+c.y*3.0)*(0.3+past*6.0));' +
+      'q.z+=s*0.25*sin(B.y*0.8+rn.x*6.283)*past*4.0;' +
+      'vec3 r=rot(q);float k=V.w/(V.w-r.z);vec2 sc=vec2(V.x+r.x*k*V.z,V.y-r.y*k*V.z);' +
+      'gl_Position=vec4(sc.x/VP.x*2.0-1.0,1.0-sc.y/VP.y*2.0,-r.z/4.0,1.0);vN=rot(n);vUv=uv;vS=s*(1.0+past*4.0);}';
+    var FS = 'precision mediump float;uniform sampler2D T;uniform vec3 tint;uniform float time;uniform float scan;uniform float talk;varying vec2 vUv;varying vec3 vN;varying float vS;' +
       'float hash(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5453);}' +
       'void main(){vec4 c=texture2D(T,vUv);if(c.a<0.02)discard;vec3 col=c.rgb/c.a;' +
       'float e=smoothstep(0.26,0.42,col.r-col.b)*smoothstep(0.62,0.85,col.r);' +
@@ -2623,7 +2635,9 @@
       'float lum=dot(col,vec3(0.299,0.587,0.114));col=mix(col,lum*vec3(0.78,0.9,1.18),0.42);' +
       'float rim=pow(1.0-clamp(vN.z,0.0,1.0),2.6);col+=tint*rim*0.4;' +
       'col+=tint*smoothstep(0.005,0.0,abs(vUv.y-scan))*0.22;' +
-      'gl_FragColor=vec4(col*c.a,c.a);}';
+      // loose cells glow cyan-blue as they go, and fade the further they've flown
+      'float ls=clamp(vS,0.0,1.0);col=mix(col,vec3(0.55,0.85,1.0)*(0.6+lum),ls*0.6);float a=c.a*(1.0-smoothstep(1.0,2.2,vS));' +
+      'gl_FragColor=vec4(col*a,a);}';
 
     function buildMesh(depthImg) {
       // read the depth on the CPU (vertex texture fetch isn't guaranteed in WebGL 1)
@@ -2636,24 +2650,47 @@
         var x = Math.min(dw - 1, Math.max(0, Math.round(u * (dw - 1)))), y = Math.min(dh - 1, Math.max(0, Math.round(v * (dh - 1))));
         return D[(y * dw + x) * 4] / 255 * DZ;
       };
-      var NX = 140, NY = 150, pos = [], nor = [], uvs = [], ind = [], e = 1 / NX;
-      for (var j = 0; j <= NY; j++) {
-        for (var i = 0; i <= NX; i++) {
-          var u = i / NX, v = j / NY, z = depthAt(u, v);
-          // normal from the depth gradient, in plane units
-          var gx = (depthAt(u + e, v) - depthAt(u - e, v)) / (4 * AR * e), gy = (depthAt(u, v - e) - depthAt(u, v + e)) / (4 * e);
-          var nl = Math.sqrt(gx * gx + gy * gy + 1);
-          pos.push(planeX(u), planeY(v), z);
-          nor.push(-gx / nl, -gy / nl, 1 / nl);
-          uvs.push(u, v);
+      // the mesh is cut into CX x CY independent cells (each 2 x 2 quads, its own 9 vertices), so a cell
+      // can come away from its neighbours; each vertex also carries its cell's middle and three randoms
+      var CXN = 70, CYN = 75, SUB = 2, NX = CXN * SUB, NY = CYN * SUB, e = 1 / NX;
+      var pos = [], nor = [], uvs = [], cen = [], rns = [], cus = [], ind = [];
+      var cseed = 3;
+      function crnd() { cseed = (cseed * 16807) % 2147483647; return cseed / 2147483647; }
+      cellList = [];
+      for (var cj = 0; cj < CYN; cj++) {
+        for (var ci = 0; ci < CXN; ci++) {
+          var cu0 = (ci + 0.5) / CXN, cv0 = (cj + 0.5) / CYN, cz = depthAt(cu0, cv0);
+          var r1 = crnd(), r2 = crnd(), r3 = crnd(), base = pos.length / 3;
+          // the cells the data web uses: the picture's own (on her silhouette), every other one
+          if (cz > 0.01 && ci % 2 === 0 && cj % 2 === 0) cellList.push({ u: cu0, v: cv0, z: cz, rn: [r1, r2, r3], ci: ci, cj: cj });
+          for (var sj = 0; sj <= SUB; sj++) {
+            for (var si = 0; si <= SUB; si++) {
+              var u = (ci * SUB + si) / NX, v = (cj * SUB + sj) / NY, z = depthAt(u, v);
+              // normal from the depth gradient, in plane units
+              var gx = (depthAt(u + e, v) - depthAt(u - e, v)) / (4 * AR * e), gy = (depthAt(u, v - e) - depthAt(u, v + e)) / (4 * e);
+              var nl = Math.sqrt(gx * gx + gy * gy + 1);
+              pos.push(planeX(u), planeY(v), z);
+              nor.push(-gx / nl, -gy / nl, 1 / nl);
+              uvs.push(u, v);
+              cen.push(planeX(cu0), planeY(cv0), cz);
+              rns.push(r1, r2, r3);
+              cus.push(cu0, cv0);
+            }
+          }
+          for (sj = 0; sj < SUB; sj++) {
+            for (si = 0; si < SUB; si++) {
+              var a0 = base + sj * (SUB + 1) + si;
+              ind.push(a0, a0 + 1, a0 + SUB + 1, a0 + 1, a0 + SUB + 2, a0 + SUB + 1);
+            }
+          }
         }
       }
-      for (j = 0; j < NY; j++) {
-        for (i = 0; i < NX; i++) {
-          var a = j * (NX + 1) + i;
-          ind.push(a, a + 1, a + NX + 1, a + 1, a + NX + 2, a + NX + 1);
-        }
-      }
+      // neighbours in the web: right, below and diagonal, among the web's cells
+      var cellAt = {};
+      cellList.forEach(function (cl, k) { cellAt[cl.cj * 1000 + cl.ci] = k; });
+      cellList.forEach(function (cl) {
+        cl.nb = [cellAt[cl.cj * 1000 + cl.ci + 2], cellAt[(cl.cj + 2) * 1000 + cl.ci], cellAt[(cl.cj + 2) * 1000 + cl.ci + 2]].filter(function (k) { return k !== undefined; });
+      });
       count = ind.length;
       function buf(data, name, n) {
         var b = gl.createBuffer();
@@ -2663,7 +2700,7 @@
         gl.enableVertexAttribArray(loc);
         gl.vertexAttribPointer(loc, n, gl.FLOAT, false, 0, 0);
       }
-      buf(pos, 'p', 3); buf(nor, 'n', 3); buf(uvs, 'uv', 2);
+      buf(pos, 'p', 3); buf(nor, 'n', 3); buf(uvs, 'uv', 2); buf(cen, 'c', 3); buf(rns, 'rn', 3); buf(cus, 'cu', 2);
       var ib = gl.createBuffer();
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ib);
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(ind), gl.STATIC_DRAW);
@@ -2678,7 +2715,7 @@
       if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return false;
       gl.useProgram(prog);
       buildMesh(depthImg);
-      ['R', 'V', 'VP', 'tint', 'T', 'time', 'scan', 'talk'].forEach(function (k) { U[k] = gl.getUniformLocation(prog, k); });
+      ['R', 'V', 'VP', 'tint', 'T', 'time', 'scan', 'talk', 'B'].forEach(function (k) { U[k] = gl.getUniformLocation(prog, k); });
       var tex = gl.createTexture();
       gl.bindTexture(gl.TEXTURE_2D, tex);
       gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
@@ -2772,8 +2809,13 @@
     }
     var rings = [], packets = [], speakUntil = 0, lastRing = 0, seed = 7;
     function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    // the edge (a u across her picture) behind which she has come apart: wandering across the back of
+    // her cranium; each pod switch kicks it further, and it eases back
+    var edge = 0.22, kick = 0, lastT = 0;
+    function edgeAt(t) { return reduced ? -0.2 : 0.25 + 0.08 * Math.sin(t * 0.35) + 0.03 * Math.sin(t * 0.83) + kick; }
     function speakTo(node) {
       var now = performance.now() / 1000;
+      kick = 0.18;
       speakUntil = now + 1.8;
       var tx = node < 2 ? -10 : W + 10, ty = H * (node % 2 ? 0.78 : 0.26);
       for (var n = 0; n < 7; n++) packets.push({ t0: now + 0.35 + n * 0.12, tx: tx, ty: ty, left: node < 2, wob: (rnd() - 0.5) * 40 });
@@ -2783,6 +2825,10 @@
     function draw(now) {
       if (!W) return;
       var t = now / 1000, c;
+      var dtE = lastT ? Math.min(0.05, t - lastT) : 0;
+      lastT = t;
+      kick = Math.max(0, kick - dtE * 0.12);
+      edge += (edgeAt(t) - edge) * Math.min(1, dtE * 2.5 || 1);
       pYaw += (tYaw - pYaw) * 0.06; pPitch += (tPitch - pPitch) * 0.06;
       yaw = (reduced ? 0.2 : 0.36 * Math.sin(t * 0.42)) + pYaw;
       pitch = (reduced ? 0.03 : 0.05 * Math.sin(t * 0.31)) + pPitch;
@@ -2836,12 +2882,60 @@
         gl.uniform1f(U.time, t);
         gl.uniform1f(U.scan, reduced ? -1 : ((t % 6) / 6) * 1.5 - 0.2);
         gl.uniform1f(U.talk, speaking ? 1 : 0);
+        gl.uniform3f(U.B, edge, t, 2 * AR);
         gl.drawElements(gl.TRIANGLES, count, gl.UNSIGNED_SHORT, 0);
       } else if (flatImg) {
         bctx.globalCompositeOperation = 'source-over';
         bctx.drawImage(flatImg, CX + (planeX(0)) * S, CY - S, 2 * AR * S, 2 * S);
       }
       if (!ready) return;
+
+      // the data web: the loose cells (worked out as the shader does) as glowing nodes, joined to their
+      // loose neighbours by fine lines, packets of light running along some
+      if (glReady && !reduced) {
+        var NP = cellList.length, sx = new Float32Array(NP), sy = new Float32Array(NP), sl = new Float32Array(NP), tmp2 = [0, 0, 0];
+        for (var w = 0; w < NP; w++) {
+          var cl = cellList[w];
+          var ee = edge + 0.035 * Math.sin(cl.v * 12 + t * 0.9) + 0.018 * Math.sin(cl.v * 27 - t * 1.3);
+          var past = Math.max(0, ee - cl.u), sv = Math.min(1, past / 0.035);
+          sl[w] = sv;
+          if (sv < 1) continue;
+          var qx = planeX(cl.u) - Math.min(0.9, (past * 1.5 + past * past * 5 * cl.rn[0]) * 2 * AR);
+          var qy = planeY(cl.v) + (past * 0.7 * cl.rn[1] + (cl.rn[2] - 0.5) * 0.12) * 2 * AR + 0.04 * Math.sin(t * 1.3 + cl.rn[2] * 6.283 + planeY(cl.v) * 3) * (0.3 + past * 6);
+          var qz = cl.z + 0.25 * Math.sin(t * 0.8 + cl.rn[0] * 6.283) * past * 4;
+          rot(qx, qy, qz, tmp2);
+          sx[w] = tmp2[0]; sy[w] = tmp2[1];
+          sl[w] = 1 + past * 4;
+        }
+        fctx.lineWidth = 0.8;
+        fctx.strokeStyle = 'rgba(' + tc + ',0.28)';
+        fctx.beginPath();
+        var links = [];
+        for (w = 0; w < NP; w++) {
+          if (sl[w] < 1 || sl[w] > 2.2) continue;
+          cellList[w].nb.forEach(function (k) {
+            if (sl[k] < 1 || sl[k] > 2.2) return;
+            var ddx = sx[k] - sx[w], ddy = sy[k] - sy[w];
+            if (ddx * ddx + ddy * ddy > S * S * 0.03) return;
+            fctx.moveTo(sx[w], sy[w]); fctx.lineTo(sx[k], sy[k]);
+            links.push(w, k);
+          });
+        }
+        fctx.stroke();
+        fctx.fillStyle = 'rgba(165,225,255,0.85)';
+        for (w = 0; w < NP; w++) {
+          if (sl[w] < 1 || sl[w] > 2.2 || (cellList[w].ci + cellList[w].cj) % 4) continue;
+          fctx.fillRect(sx[w] - 1.1, sy[w] - 1.1, 2.2, 2.2);
+        }
+        for (var lk = 0; lk < links.length; lk += 12) {
+          var la = links[lk], lb = links[lk + 1], fr = (t * 0.9 + lk * 0.037) % 1;
+          var pxk = sx[la] + (sx[lb] - sx[la]) * fr, pyk = sy[la] + (sy[lb] - sy[la]) * fr;
+          fctx.fillStyle = 'rgba(' + tc + ',0.35)';
+          fctx.beginPath(); fctx.arc(pxk, pyk, 4, 0, 2 * PI); fctx.fill();
+          fctx.fillStyle = 'rgba(255,255,255,0.9)';
+          fctx.beginPath(); fctx.arc(pxk, pyk, 1.4, 0, 2 * PI); fctx.fill();
+        }
+      }
 
       // voice rings leave her lips while she speaks
       var mouth = proj(planeX(MOUTH_UV[0]), planeY(MOUTH_UV[1]), depthAt(MOUTH_UV[0], MOUTH_UV[1]));
