@@ -3320,5 +3320,12 @@
  "Hi, I’m Maya. Write your message below and we’ll reply right here in this chat.": "您好！我是 Maya。请在下方输入您的消息，我们会直接在这个聊天中回复您。",
  "Hi, I’m Jordan. Write your message below and we’ll reply right here in this chat.": "您好！我是 Jordan。请在下方输入您的消息，我们会直接在这个聊天中回复您。",
  "Hi, I’m Milena. Write your message below and we’ll reply right here in this chat.": "您好！我是 Milena。请在下方输入您的消息，我们会直接在这个聊天中回复您。",
- "Start a new chat": "开始新的对话"
+ "Start a new chat": "开始新的对话",
+ "<0>1.6. Data our customers route through Avortyx.</0> Our customers use Avortyx to handle calls, messages and leads. That data can include consumers’ names, phone numbers, addresses, dates of birth and other details in lead records, together with call logs, routing details, message metadata and content, call recordings and transcripts.": "<0>1.6. 客户通过 Avortyx 路由的数据。</0> 我们的客户使用 Avortyx 处理通话、消息和潜在客户。这些数据可能包括潜在客户记录中消费者的姓名、电话号码、地址、出生日期和其他信息，以及通话记录、路由详情、消息元数据和内容、通话录音和转录。",
+ "Last updated October 21, 2026": "最后更新：2026年10月21日",
+ "Effective October 21, 2026": "自 2026年10月21日起生效",
+ "Functional: the help chat conversation while you browse (avx-help-2, kept only for the browser session); once you write to our team, a reference to that chat (avx-help-live-2, used for up to 7 days) so their answer is waiting when you come back; and a preview setting our team uses to review page designs (avx-preview).": "功能：浏览期间的帮助聊天对话（avx-help-2，仅在浏览器会话期间保留）；在您给我们团队发消息后，保存对该聊天的引用（avx-help-live-2，最多使用 7 天），以便您回来时能看到回复；以及我们团队用于审查页面设计的预览设置（avx-preview）。",
+ "<0>1.5. API and security logs.</0> We log access to the Service and use of our APIs to keep the Service secure and working. API keys are stored encrypted.": "<0>1.5. API 与安全日志。</0> 我们记录对服务的访问和 API 的使用，以保障服务安全运行。API 密钥加密存储。",
+ "<0>1.7. Children.</0> The Service is for businesses and is not directed to children. We do not intend to collect personal information from anyone under 13. If we learn that we have, we delete it.": "<0>1.7. 儿童。</0> 本服务面向企业，并非针对儿童。我们无意收集 13 岁以下任何人的个人信息。如发现已收集，我们会将其删除。",
+ "<0>1.4. The help chat.</0> When you write to our team through the help chat on avortyx.com, we keep your messages, the page you started the chat on and the IP address they came from. We receive your messages and respond to you in the chat. We use the IP address to spot spam and abuse, such as automated messages or many chats started from one address, and to limit how many new chats one network can start in an hour. Chats are kept with our other support records (section 4.1).": "<0>1.4. 帮助聊天。</0> 当您通过 avortyx.com 上的帮助聊天联系我们团队时，我们会保存您的消息、您开始聊天的页面以及消息来源的 IP 地址。我们会收到您的消息，并在聊天中回复您。我们使用该 IP 地址来发现垃圾信息和滥用行为，例如自动发送的消息或同一地址发起的大量聊天，并限制同一网络每小时可发起的新聊天数量。聊天记录与我们的其他支持记录一同保留（第 4.1 节）。"
 }

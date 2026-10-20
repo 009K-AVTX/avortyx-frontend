@@ -2,6 +2,8 @@
 // page and avortyx.com; fees and credits not stated there are left to the customer's Order Form.
 // A section is [heading, blocks]; a block is a paragraph string or ['ul', [items]].
 // Docs with `href` live on their own page and are only linked from the menu.
+// A doc's own `updated` date, when it has one, replaces UPDATED on it.
+// A doc's own `updated` date, when it has one, replaces UPDATED on it.
 
 export const UPDATED = 'October 13, 2026'
 export const ENTITY = 'Avortyx'
@@ -239,12 +241,13 @@ export const DOCS = [
   {
     id: '11',
     title: 'Cookie Policy',
+    updated: 'October 21, 2026',
     summary: 'The cookies and browser storage the Avortyx website uses, and how to control them.',
     sections: [
       ['1. What we use', [
         ['ul', [
           'Essential: the OKCookie cookie, which remembers that you accepted the cookie notice.',
-          'Functional: the help chat conversation while you browse (avx-help, kept only for the browser session), and a preview setting our team uses to review page designs (avx-preview).',
+          'Functional: the help chat conversation while you browse (avx-help-2, kept only for the browser session); once you write to our team, a reference to that chat (avx-help-live-2, used for up to 7 days) so their answer is waiting when you come back; and a preview setting our team uses to review page designs (avx-preview).',
           'Analytics: Google Analytics, to count visits and see which pages, links and features are used.',
         ]],
       ]],

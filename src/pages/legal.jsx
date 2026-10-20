@@ -71,7 +71,7 @@ export default function Legal() {
               {DOCS.filter((d) => !d.href).map((d) => (
                 <article key={d.id} className="avx-legal-doc" id={`doc-${d.id}`} data-doc-panel={d.id}>
                   <h2>{d.title}</h2>
-                  <p className="avx-legal-meta">Last updated {UPDATED}</p>
+                  <p className="avx-legal-meta">Last updated {d.updated || UPDATED}</p>
                   <p className="avx-legal-summary">{d.summary}</p>
                   {d.sections.map(([heading, blocks]) => (
                     <section key={heading}>

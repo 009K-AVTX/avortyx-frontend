@@ -7,6 +7,7 @@
 //   ['strong', 'text']             a paragraph in bold, for the clauses that must stand out
 //   ['address', ['line', ...]]     a postal address
 // Text may link with [[label|/path]].
+// A document's own `updated` date, when it has one, replaces UPDATED on it.
 
 export const UPDATED = 'October 14, 2026'
 // avortyx.com publishes no postal address; formal notices go to its contact email
@@ -213,6 +214,7 @@ export const TERMS = {
 
 export const PRIVACY = {
   title: 'Avortyx Privacy Policy',
+  updated: 'October 21, 2026',
   intro: [
     'This Privacy Policy explains how Avortyx (“we”, “us” or “our”) collects, uses, shares and protects information through avortyx.com and the Avortyx call routing platform, its applications and APIs (together, the “Service”). Terms in capitals that are not defined here have the meaning given in our [[Terms of Service|/terms_of_service]].',
     'We handle information in two roles. For our website visitors and for the businesses that use Avortyx, we decide how information is used. For the consumer data our customers route through the platform (their leads, callers and messages), we act on our customers’ instructions as their service provider, and our customer is responsible for how that data is collected and used.',
@@ -223,9 +225,10 @@ export const PRIVACY = {
       ['sub', '1.1', 'Information you give us', 'When you request access, create an account, contact us or use the Service, you may give us your name, email address, phone and fax numbers, postal address, company name and other business details, account settings, and the content of messages and support requests you send us. If you connect a social media or other third-party account, we receive the account details needed for that connection.'],
       ['sub', '1.2', 'Billing information', 'To bill you we collect billing contact details and payment card information, such as the card number and expiry date. Payments are handled with third-party payment processors.'],
       ['sub', '1.3', 'Information collected automatically', 'When you visit avortyx.com or use the Service, we receive technical information such as your IP address, domain, device and browser type, the pages you view and the links you click. Our use of cookies and similar tools is described in the [[Cookie Policy|/legal?doc=11]]: on our website these are limited to essential and functional storage and Google Analytics.'],
-      ['sub', '1.4', 'API and security logs', 'We log access to the Service and use of our APIs to keep the Service secure and working. API keys are stored encrypted.'],
-      ['sub', '1.5', 'Data our customers route through Avortyx', 'Our customers use Avortyx to handle calls, messages and leads. That data can include consumers’ names, phone numbers, addresses, dates of birth and other details in lead records, together with call logs, routing details, message metadata and content, call recordings and transcripts.'],
-      ['sub', '1.6', 'Children', 'The Service is for businesses and is not directed to children. We do not intend to collect personal information from anyone under 13. If we learn that we have, we delete it.'],
+      ['sub', '1.4', 'The help chat', 'When you write to our team through the help chat on avortyx.com, we keep your messages, the page you started the chat on and the IP address they came from. We receive your messages and respond to you in the chat. We use the IP address to spot spam and abuse, such as automated messages or many chats started from one address, and to limit how many new chats one network can start in an hour. Chats are kept with our other support records (section 4.1).'],
+      ['sub', '1.5', 'API and security logs', 'We log access to the Service and use of our APIs to keep the Service secure and working. API keys are stored encrypted.'],
+      ['sub', '1.6', 'Data our customers route through Avortyx', 'Our customers use Avortyx to handle calls, messages and leads. That data can include consumers’ names, phone numbers, addresses, dates of birth and other details in lead records, together with call logs, routing details, message metadata and content, call recordings and transcripts.'],
+      ['sub', '1.7', 'Children', 'The Service is for businesses and is not directed to children. We do not intend to collect personal information from anyone under 13. If we learn that we have, we delete it.'],
     ]],
     ['2. How we use information', [
       'We use information to:',

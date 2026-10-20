@@ -20,7 +20,7 @@ function Block({ b }) {
 export default function LegalText({ doc }) {
   return (
     <div className="mktg-legal-content avx-legal-text">
-      <p className="avx-legal-updated">Effective {UPDATED}</p>
+      <p className="avx-legal-updated">Effective {doc.updated || UPDATED}</p>
       <h1 className="h3 fw-bold">{doc.title}</h1>
       {doc.intro.map((b, i) => <Block key={i} b={b} />)}
       {doc.sections.map(([h, blocks]) => (

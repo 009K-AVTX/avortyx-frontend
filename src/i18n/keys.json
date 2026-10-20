@@ -8616,6 +8616,10 @@
   "page": "legal.html"
  },
  {
+  "k": "Last updated October 21, 2026",
+  "page": "legal.html"
+ },
+ {
   "k": "1. What we use",
   "page": "legal.html"
  },
@@ -8624,7 +8628,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Functional: the help chat conversation while you browse (avx-help, kept only for the browser session), and a preview setting our team uses to review page designs (avx-preview).",
+  "k": "Functional: the help chat conversation while you browse (avx-help-2, kept only for the browser session); once you write to our team, a reference to that chat (avx-help-live-2, used for up to 7 days) so their answer is waiting when you come back; and a preview setting our team uses to review page designs (avx-preview).",
   "page": "legal.html"
  },
  {
@@ -9356,7 +9360,7 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "Effective October 14, 2026",
+  "k": "Effective October 21, 2026",
   "page": "privacy_policy.html"
  },
  {
@@ -9392,15 +9396,19 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>1.4. API and security logs.</0> We log access to the Service and use of our APIs to keep the Service secure and working. API keys are stored encrypted.",
+  "k": "<0>1.4. The help chat.</0> When you write to our team through the help chat on avortyx.com, we keep your messages, the page you started the chat on and the IP address they came from. We receive your messages and respond to you in the chat. We use the IP address to spot spam and abuse, such as automated messages or many chats started from one address, and to limit how many new chats one network can start in an hour. Chats are kept with our other support records (section 4.1).",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>1.5. Data our customers route through Avortyx.</0> Our customers use Avortyx to handle calls, messages and leads. That data can include consumers’ names, phone numbers, addresses, dates of birth and other details in lead records, together with call logs, routing details, message metadata and content, call recordings and transcripts.",
+  "k": "<0>1.5. API and security logs.</0> We log access to the Service and use of our APIs to keep the Service secure and working. API keys are stored encrypted.",
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>1.6. Children.</0> The Service is for businesses and is not directed to children. We do not intend to collect personal information from anyone under 13. If we learn that we have, we delete it.",
+  "k": "<0>1.6. Data our customers route through Avortyx.</0> Our customers use Avortyx to handle calls, messages and leads. That data can include consumers’ names, phone numbers, addresses, dates of birth and other details in lead records, together with call logs, routing details, message metadata and content, call recordings and transcripts.",
+  "page": "privacy_policy.html"
+ },
+ {
+  "k": "<0>1.7. Children.</0> The Service is for businesses and is not directed to children. We do not intend to collect personal information from anyone under 13. If we learn that we have, we delete it.",
   "page": "privacy_policy.html"
  },
  {
@@ -10829,6 +10837,10 @@
  },
  {
   "k": "The agreement between Avortyx and the businesses that use it.",
+  "page": "terms_of_service.html"
+ },
+ {
+  "k": "Effective October 14, 2026",
   "page": "terms_of_service.html"
  },
  {
