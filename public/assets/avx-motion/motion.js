@@ -2740,6 +2740,29 @@
       im.src = BASE_URL + name;
       (im.decode ? im.decode() : new Promise(function (r) { im.onload = r; })).then(function () { done(im); }, function () { done(im); });
     }
+    // the flat picture gets the shader's grade baked in (the amber lights' blue glow at its average
+    // twinkle, then the blue grade), so she doesn't change color when the 3D mesh takes over
+    function gradeFlat(img) {
+      try {
+        var w = img.naturalWidth, h = img.naturalHeight, cv = document.createElement('canvas');
+        cv.width = w; cv.height = h;
+        var cx = cv.getContext('2d');
+        cx.drawImage(img, 0, 0);
+        var id = cx.getImageData(0, 0, w, h), d = id.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i + 3] < 5) continue;
+          var r = d[i] / 255, g = d[i + 1] / 255, b = d[i + 2] / 255;
+          var e = ss(0.26, 0.42, r - b) * ss(0.62, 0.85, r) * 0.675;
+          r += 0.38 * e; g += 0.65 * e; b += e;
+          var lum = 0.299 * r + 0.587 * g + 0.114 * b;
+          d[i] = Math.min(255, (r + (lum * 0.78 - r) * 0.42) * 255);
+          d[i + 1] = Math.min(255, (g + (lum * 0.9 - g) * 0.42) * 255);
+          d[i + 2] = Math.min(255, (b + (lum * 1.18 - b) * 0.42) * 255);
+        }
+        cx.putImageData(id, 0, 0);
+        return cv;
+      } catch (err) { return img; }
+    }
     // In two steps, so she shows up at once but the heavy work never lands mid-scroll:
     // 1. the pictures are fetched and decoded (off the main thread) early, and she is drawn flat
     //    straight away, a cheap 2D draw;
@@ -2750,7 +2773,7 @@
       if (loading) return;
       loading = true;
       load('avx-agent.webp', function (colorImg) {
-        flatImg = colorImg;
+        flatImg = gradeFlat(colorImg);
         ready = true;
         draw(performance.now());
         load('avx-agent-depth.webp', function (depthImg) { upgradeWhenQuiet(colorImg, depthImg); });
