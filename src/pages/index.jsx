@@ -319,21 +319,10 @@ export const meta = {
       border-radius: 50%;
       filter: blur(40px);
       opacity: 0.45;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, rgba(59, 130, 246, 0.3) 50%, transparent 70%);
+      /* one blue whichever pod is active, so the theme never shifts */
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.7) 0%, rgba(99, 137, 241, 0.3) 50%, transparent 70%);
       pointer-events: none;
       transition: all 0.6s ease;
-    }
-    .avx-aura-green .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.65) 0%, rgba(59, 130, 246, 0.3) 50%, transparent 70%);
-    }
-    .avx-aura-blue .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.7) 0%, rgba(99, 137, 241, 0.3) 50%, transparent 70%);
-    }
-    .avx-aura-purple .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(132, 177, 252, 0.65) 0%, rgba(114, 162, 244, 0.3) 50%, transparent 70%);
-    }
-    .avx-aura-orange .avx-core-glow-aura {
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.65) 0%, rgba(59, 130, 246, 0.3) 50%, transparent 70%);
     }
 
     /* no frame: the agent floats on the page in her own glow */

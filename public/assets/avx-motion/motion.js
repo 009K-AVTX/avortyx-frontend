@@ -2559,12 +2559,12 @@
   // Her HD picture (avx-agent.webp, 1024² from a Real-ESRGAN 4x upscale) is drawn on a WebGL mesh that a depth map built from her
   // silhouette (scripts/build-agent-3d.py) pushes toward the viewer, so she turns with real
   // parallax. Orbit rings pass behind and in front of her, a scan line sweeps down, the amber
-  // lights in her circuitry twinkle, and her rim light takes the active pod's color. Each time
+  // lights in her circuitry twinkle, and her rim light stays the site's blue. Each time
   // the hub switches pods she speaks: voice rings leave her lips and call packets fly to that pod.
   // She comes apart and assembles at once: the mesh is cut into small cells, and behind a wavering
   // edge that moves across the back of her glass cranium the cells break loose, shrink and stream out
   // as data (a web of glowing nodes with packets running along it, drawn on the front layer), then
-  // fly home and lock into place. Each pod switch sends a stronger wave through her.
+  // fly home and lock into place. Pod switches don't change her look.
 
   function initAgent3d() {
     var box = document.querySelector('[data-avx-agent3d]');
@@ -2589,9 +2589,9 @@
     function planeY(v) { return 1 - 2 * v; }
 
     // pods: green and blue on the left, violet and amber on the right
-    var TINTS = { 'avx-aura-green': [110, 158, 231], 'avx-aura-blue': [125, 175, 252], 'avx-aura-purple': [180, 208, 254], 'avx-aura-orange': [116, 167, 253] };
+    // her light keeps one blue whichever pod is active, so the theme never shifts
     var NODE_OF = { 'avx-aura-green': 0, 'avx-aura-blue': 1, 'avx-aura-purple': 2, 'avx-aura-orange': 3 };
-    var tint = [125, 175, 252], tintTo = tint.slice();
+    var tint = [125, 175, 252], aura = null;
 
     var W = 0, H = 0, dpr = 1, S = 1, CX = 0, CY = 0, F = 4.5;
     var cyw = 1, syw = 0, cp = 1, sp = 0;
@@ -2625,11 +2625,11 @@
       'q.z+=s*0.25*sin(B.y*0.8+rn.x*6.283)*past*4.0;' +
       'vec3 r=rot(q);float k=V.w/(V.w-r.z);vec2 sc=vec2(V.x+r.x*k*V.z,V.y-r.y*k*V.z);' +
       'gl_Position=vec4(sc.x/VP.x*2.0-1.0,1.0-sc.y/VP.y*2.0,-r.z/4.0,1.0);vN=rot(n);vUv=uv;vS=s*(1.0+past*4.0);}';
-    var FS = 'precision mediump float;uniform sampler2D T;uniform vec3 tint;uniform float time;uniform float scan;uniform float talk;varying vec2 vUv;varying vec3 vN;varying float vS;' +
+    var FS = 'precision mediump float;uniform sampler2D T;uniform vec3 tint;uniform float time;uniform float scan;varying vec2 vUv;varying vec3 vN;varying float vS;' +
       'float hash(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5453);}' +
       'void main(){vec4 c=texture2D(T,vUv);if(c.a<0.02)discard;vec3 col=c.rgb/c.a;' +
       'float e=smoothstep(0.26,0.42,col.r-col.b)*smoothstep(0.62,0.85,col.r);' +
-      'float tw=0.5+0.5*sin(time*(2.4+talk*3.0)+hash(floor(vUv*30.0))*6.283);' +
+      'float tw=0.5+0.5*sin(time*2.4+hash(floor(vUv*30.0))*6.283);' +
       'col+=vec3(0.38,0.65,1.0)*e*(0.25+0.85*tw);' +
       // a blue grade over the picture, so her warm skin and amber lights join the site's blues
       'float lum=dot(col,vec3(0.299,0.587,0.114));col=mix(col,lum*vec3(0.78,0.9,1.18),0.42);' +
@@ -2715,7 +2715,7 @@
       if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return false;
       gl.useProgram(prog);
       buildMesh(depthImg);
-      ['R', 'V', 'VP', 'tint', 'T', 'time', 'scan', 'talk', 'B'].forEach(function (k) { U[k] = gl.getUniformLocation(prog, k); });
+      ['R', 'V', 'VP', 'tint', 'T', 'time', 'scan', 'B'].forEach(function (k) { U[k] = gl.getUniformLocation(prog, k); });
       var tex = gl.createTexture();
       gl.bindTexture(gl.TEXTURE_2D, tex);
       gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
@@ -2833,12 +2833,11 @@
     var rings = [], packets = [], speakUntil = 0, lastRing = 0, seed = 7;
     function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
     // the edge (a u across her picture) behind which she has come apart: wandering across the back of
-    // her cranium; each pod switch kicks it further, and it eases back
-    var edge = 0.22, kick = 0, lastT = 0;
-    function edgeAt(t) { return reduced ? -0.2 : 0.25 + 0.08 * Math.sin(t * 0.35) + 0.03 * Math.sin(t * 0.83) + kick; }
+    // her cranium; a pod switch doesn't touch it, so she looks the same whichever pod is lit
+    var edge = 0.22, lastT = 0;
+    function edgeAt(t) { return reduced ? -0.2 : 0.25 + 0.08 * Math.sin(t * 0.35) + 0.03 * Math.sin(t * 0.83); }
     function speakTo(node) {
       var now = performance.now() / 1000;
-      kick = 0.18;
       speakUntil = now + 1.8;
       var tx = node < 2 ? -10 : W + 10, ty = H * (node % 2 ? 0.78 : 0.26);
       for (var n = 0; n < 7; n++) packets.push({ t0: now + 0.35 + n * 0.12, tx: tx, ty: ty, left: node < 2, wob: (rnd() - 0.5) * 40 });
@@ -2850,14 +2849,12 @@
       var t = now / 1000, c;
       var dtE = lastT ? Math.min(0.05, t - lastT) : 0;
       lastT = t;
-      kick = Math.max(0, kick - dtE * 0.12);
       edge += (edgeAt(t) - edge) * Math.min(1, dtE * 2.5 || 1);
       pYaw += (tYaw - pYaw) * 0.06; pPitch += (tPitch - pPitch) * 0.06;
       yaw = (reduced ? 0.2 : 0.36 * Math.sin(t * 0.42)) + pYaw;
       pitch = (reduced ? 0.03 : 0.05 * Math.sin(t * 0.31)) + pPitch;
       cyw = Math.cos(yaw); syw = Math.sin(yaw); cp = Math.cos(pitch); sp = Math.sin(pitch);
-      for (c = 0; c < 3; c++) tint[c] += (tintTo[c] - tint[c]) * 0.05;
-      var tc = Math.round(tint[0]) + ',' + Math.round(tint[1]) + ',' + Math.round(tint[2]);
+      var tc = tint.join(',');
       var speaking = !reduced && t < speakUntil;
 
       [bctx, fctx].forEach(function (x) { x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, W, H); x.globalCompositeOperation = 'lighter'; x.lineCap = 'round'; });
@@ -2904,7 +2901,6 @@
         gl.uniform3f(U.tint, tint[0] / 255, tint[1] / 255, tint[2] / 255);
         gl.uniform1f(U.time, t);
         gl.uniform1f(U.scan, reduced ? -1 : ((t % 6) / 6) * 1.5 - 0.2);
-        gl.uniform1f(U.talk, speaking ? 1 : 0);
         gl.uniform3f(U.B, edge, t, 2 * AR);
         gl.drawElements(gl.TRIANGLES, count, gl.UNSIGNED_SHORT, 0);
       } else if (flatImg) {
@@ -2991,9 +2987,9 @@
 
     if (chassis) {
       var watchAura = function () {
-        for (var cls in TINTS) {
+        for (var cls in NODE_OF) {
           if (chassis.classList.contains(cls)) {
-            if (TINTS[cls] !== tintTo) { tintTo = TINTS[cls]; if (W && ready) speakTo(NODE_OF[cls]); }
+            if (cls !== aura) { aura = cls; if (W && ready) speakTo(NODE_OF[cls]); }
             return;
           }
         }
