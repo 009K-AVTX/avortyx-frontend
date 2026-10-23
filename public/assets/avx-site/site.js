@@ -290,6 +290,9 @@
   var CHIPS = [['How does pricing work?', 'pricing'], ['How does routing work?', 'routing'], ['Can I bring my own carrier?', 'carriers'], ['Is there an API?', 'api'], ['How do you handle compliance?', 'compliance'], ['Book a demo', 'demo']];
   // "-2": chats saved before the 16 Oct 2026 intro change (test messages among them) start fresh
   var STORE = 'avx-help-2', LIVE = 'avx-help-live-2', WEEK = 7 * 864e5;
+  // a random id this browser keeps, sent with messages to the team so they can see when the same
+  // visitor comes back for help (a new chat keeps it). Made only once someone writes to the team.
+  var VID = 'avx-vid';
   try { sessionStorage.removeItem('avx-help'); localStorage.removeItem('avx-help-live'); } catch (e) { /* storage blocked */ }
   var chatEl = document.querySelector('[data-avx-chat-url]');
   var CHAT_URL = chatEl && chatEl.getAttribute('data-avx-chat-url');
@@ -318,6 +321,20 @@
   }
 
   function track(name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); }
+
+  // this browser's visitor id: 32 random hex characters, made the first time and kept; '' when
+  // storage is blocked (the backend then treats the chat as a one-off)
+  function visitorId() {
+    try {
+      var v = localStorage.getItem(VID);
+      if (v && /^[A-Za-z0-9_-]{16,64}$/.test(v)) return v;
+      var bytes = new Uint8Array(16);
+      window.crypto.getRandomValues(bytes);
+      v = Array.prototype.map.call(bytes, function (b) { return (b < 16 ? '0' : '') + b.toString(16); }).join('');
+      localStorage.setItem(VID, v);
+      return localStorage.getItem(VID) === v ? v : '';
+    } catch (e) { return ''; }
+  }
 
   function load() { try { return JSON.parse(sessionStorage.getItem(STORE)) || null; } catch (e) { return null; } }
   function save(state) {
@@ -508,7 +525,7 @@
 
     function sendLive(text) {
       add({ who: 'me', text: text, live: true });
-      var body = { text: text, agent: state.agent, intent: state.intent, page: location.href, website: '' };
+      var body = { text: text, agent: state.agent, intent: state.intent, page: location.href, visitor: visitorId(), website: '' };
       if (state.live) { body.conversation = state.live.id; body.token = state.live.token; }
       api('/messages', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
         .then(function (r) {
