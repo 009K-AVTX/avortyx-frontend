@@ -1,26 +1,28 @@
 // /pricing.html
 import Bolt from '../components/Bolt.jsx'
 export const meta = {
-  title: "Pricing | One portal fee, then only what you use | Avortyx",
-  description: "Avortyx pricing: a $49.99 portal fee every 30 days, $0.45 per call minute and per-call charges only for what you use, from a prepaid balance. No onboarding fees, every charge itemized.",
+  title: "Pricing | Clear rates, settled per call | Avortyx",
+  description: "Avortyx pricing: $39 a month for the platform and $0.39 per connected minute, paid from a prepaid balance, with a cost breakdown on every call. No setup fees; Enterprise rates on request.",
   bodyClass: "avortyx_marketing pricing ",
   layout: "site",
 }
 
-// Standard account defaults. The rate table and the Monthly Cost Estimator (site.js) both read these.
-const RATES = { portal: 49.99, minute: 0.45, number: 20, recording: 0.0025, voip: 0.01, rejected: 0.015 }
+// Self-Serve rates. The rate list and the Monthly Cost Estimator (site.js) both read these.
+const RATES = { platform: 39, minute: 0.39, number: 15, recording: 0.003, voip: 0.008, rejected: 0.012 }
 
 const money = (v, digits = 2) => '$' + v.toFixed(digits)
 
-// [charge, feature page or null, rate, unit, footnote]
+// [charge, what it covers, rate, unit]
 const RATE_ROWS = [
-  ['Portal Access', null, money(RATES.portal), 'every 30 days', 1],
-  ['Call Time', '/features/call_tracking', money(RATES.minute), 'per minute', 2],
-  ['Tracking Number', '/features/call_tracking', money(RATES.number), 'per number, one time', 3],
-  ['Call Recording', '/features/call_recordings', money(RATES.recording, 4), 'per minute', 4],
-  ['VoIP Shield', null, money(RATES.voip), 'per call', 5],
-  ['Rejected Call', null, money(RATES.rejected, 3), 'per call', 6],
+  ['Platform access', 'Routing, live reporting, call records and the API, for your whole account.', money(RATES.platform), 'per month'],
+  ['Connected minutes', 'Counted from answer to hang-up and rounded up to the next whole minute. International and premium destinations can cost more.', money(RATES.minute), 'per minute'],
+  ['Tracking numbers', 'Paid once, when the number is added to your account.', money(RATES.number), 'per number'],
+  ['Call recording', 'Only on the calls you choose to record.', money(RATES.recording, 3), 'per recorded minute'],
+  ['VoIP Shield', 'Spam and robocall screening before a call reaches your buyer.', money(RATES.voip, 3), 'per screened call'],
+  ['Rejected calls', 'Calls turned away before routing, such as when no buyer is eligible.', money(RATES.rejected, 3), 'per call'],
 ]
+
+const Check = ({ children }) => <li><i className="fa-solid fa-circle-check" aria-hidden="true" />{children}</li>
 
 export default function Pricing() {
   return (
@@ -28,83 +30,81 @@ export default function Pricing() {
       <section className="pricing-hero">
         <div className="container text-center">
           <div className="mktg-section-header text-center">
-            <h1 className="fw-bold">Pay for the calls you route</h1>
-            <p className="text-muted lead">One account: a monthly portal fee, plus only the minutes and calls you use. No onboarding fees, and every charge itemized on the call.</p>
+            <h1 className="fw-bold">Clear rates, settled per call</h1>
+            <p className="text-muted lead">A flat platform fee each month and a per-minute rate on connected calls. Every call record shows exactly what that call cost.</p>
           </div>
         </div>
       </section>
       <section className="pricing-body">
         <div className="container">
-          <div className="avx-plan-grid">
-            <div className="pricing-highlight-card avx-plan-card">
-              <h2 className="fw-bold mb-1">Standard Account</h2>
-              <p className="avx-plan-price">
-                <span><b>{money(RATES.portal)}</b> portal access every 30 days</span>
-                <span className="avx-plan-plus" aria-hidden="true">+</span>
-                <span><b>{money(RATES.minute)}</b> per call minute</span>
-              </p>
-              <ul className="avx-ent-list avx-plan-list">
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Prepaid balance you can top up at any time, by card or crypto</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Optional automatic top-up when your balance runs low</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Every charge itemized per call</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />No onboarding fees</li>
+          <div className="avx-plans">
+            <div className="avx-plan avx-plan-main">
+              <div className="avx-plan-head">
+                <h2 className="avx-plan-name">Self-Serve</h2>
+                <p className="avx-plan-for">For networks launching their first campaigns through to steady daily volume.</p>
+              </div>
+              <div className="avx-plan-price">
+                <p><b>{money(RATES.platform, 0)}</b><span>per month, platform access</span></p>
+                <p><b>{money(RATES.minute)}</b><span>per connected minute</span></p>
+              </div>
+              <ul className="avx-plan-list">
+                <Check>Fund your balance by card or crypto, whenever you like</Check>
+                <Check>Auto-recharge and low-balance alerts keep campaigns live</Check>
+                <Check>A cost breakdown on every call record</Check>
+                <Check>No setup or onboarding fees</Check>
               </ul>
               <a className="btn btn-td-green btn-lg avx-ra-cta" href="/request-access"><Bolt />Request Access</a>
             </div>
-            <div className="pricing-highlight-card avx-plan-card">
-              <h2 className="fw-bold mb-1">Enterprise</h2>
-              <p className="avx-plan-price"><span><b>Custom</b> rates for high volume</span></p>
-              <p className="text-muted pricing-enterprise-desc">Negotiated per-minute rates, dedicated number pools and a routing setup designed around your network.</p>
-              <ul className="avx-ent-list avx-plan-list">
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Volume-based per-minute pricing</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Dedicated number pools</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />99.99% routing uptime SLA</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />24/7 dedicated support</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Dedicated account manager</li>
+            <div className="avx-plan">
+              <div className="avx-plan-head">
+                <h2 className="avx-plan-name">Enterprise</h2>
+                <p className="avx-plan-for">For networks moving serious volume that want rates and infrastructure of their own.</p>
+              </div>
+              <div className="avx-plan-price">
+                <p><b>Custom</b><span>quoted for your volume</span></p>
+              </div>
+              <ul className="avx-plan-list">
+                <Check>Tiered per-minute rates as your volume grows</Check>
+                <Check>Reserved number pools</Check>
+                <Check>99.99% routing uptime SLA</Check>
+                <Check>Around-the-clock priority support</Check>
+                <Check>A named account manager</Check>
               </ul>
               <a className="btn btn-outline-td-green btn-lg" href="/p/contact"><i className="fa-solid fa-envelope me-2" aria-hidden="true" />Contact Sales</a>
             </div>
           </div>
-          <div className="text-center mt-5 mb-4">
-            <h2 className="fw-bold">Standard account rates</h2>
-            <p className="text-muted">You pay only for what each call uses, drawn from your prepaid balance.</p>
+          <div className="avx-pricing-head">
+            <h2 className="fw-bold">Self-Serve rates</h2>
+            <p className="text-muted">Charges come out of your prepaid balance, and only when a call uses them.</p>
           </div>
-          <div className="pricing-table-wrap avx-rates-wrap">
-            <table className="pricing-table">
-              <thead>
-                <tr>
-                  <th>Charge</th>
-                  <th>Rate</th>
-                  <th>Billed</th>
-                </tr>
-              </thead>
-              <tbody>
-                {RATE_ROWS.map(([name, href, rate, unit, fn]) => (
-                  <tr key={name}>
-                    <th className="fw-semibold">
-                      {href ? <a className="mktg-link-green" href={href}>{name}</a> : name}
-                      {" "}
-                      <a className="pricing-fn" href={'#fn-' + fn}>{fn}</a>
-                    </th>
-                    <td>{rate}</td>
-                    <td className="avx-rate-unit">{unit}</td>
-                  </tr>
-                ))}
-                <tr className="pricing-table-enterprise-row">
-                  <th className="fw-semibold">Enterprise</th>
-                  <td colSpan="2">
-                    Want a custom quote? Contact{" "}
-                    <a href="mailto:support@avortyx.com" className="mktg-link-green">support@avortyx.com</a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <p className="text-muted text-center pricing-calculator-note">No onboarding fees. Rates shown are standard account defaults, before taxes and fees.</p>
+          <ul className="avx-rates">
+            {RATE_ROWS.map(([name, desc, rate, unit]) => (
+              <li key={name}>
+                <div className="avx-rate-what">
+                  <span className="avx-rate-name">{name}</span>
+                  <span className="avx-rate-desc">{desc}</span>
+                </div>
+                <div className="avx-rate-cost"><b>{rate}</b><span>{unit}</span></div>
+              </li>
+            ))}
+            <li className="avx-rates-ent">
+              <div className="avx-rate-what">
+                <span className="avx-rate-name">Volume pricing</span>
+                <span className="avx-rate-desc">
+                  Routing at scale? Ask{" "}
+                  <a href="mailto:support@avortyx.com" className="mktg-link-green">support@avortyx.com</a>
+                  {" "}for an Enterprise quote.
+                </span>
+              </div>
+            </li>
+          </ul>
+          <p className="text-muted text-center pricing-calculator-note">Prices in U.S. dollars, before taxes and carrier pass-through fees.</p>
           {/* monthly estimate: site.js prices the inputs with the rates above */}
           <div className="avx-est" data-avx-est="" data-rates={JSON.stringify(RATES)}>
-            <h3 className="fw-bold mt-5">Monthly Cost Estimator</h3>
-            <p className="text-muted pricing-calculator-intro">Enter your expected volume to see an estimated bill for your first month and each month after.</p>
+            <div className="avx-pricing-head">
+              <h2 className="fw-bold">Monthly Cost Estimator</h2>
+              <p className="text-muted">Enter your expected volume to see an estimated bill for your first month and each month after.</p>
+            </div>
             <div className="avx-est-grid">
               <div className="avx-est-inputs">
                 <label><span>Tracking numbers you add</span><input className="form-control" type="number" min="0" step="1" defaultValue="10" data-est="numbers" /></label>
@@ -120,10 +120,10 @@ export default function Pricing() {
                   <li><span className="avx-est-plan">Each month after</span><b className="avx-est-total" data-est-out="monthly">$0.00</b></li>
                 </ul>
                 <div className="avx-est-break">
-                  <p className="avx-est-break-head">Breakdown on the <b>Standard Account</b></p>
+                  <p className="avx-est-break-head">Breakdown on <b>Self-Serve</b></p>
                   <dl>
-                    <div><dt>Portal access</dt><dd data-est-out="portal">$0.00</dd></div>
-                    <div><dt>Call time</dt><dd data-est-out="calls">$0.00</dd></div>
+                    <div><dt>Platform access</dt><dd data-est-out="platform">$0.00</dd></div>
+                    <div><dt>Connected minutes</dt><dd data-est-out="calls">$0.00</dd></div>
                     <div><dt>Call recording</dt><dd data-est-out="recording">$0.00</dd></div>
                     <div><dt>VoIP Shield</dt><dd data-est-out="voip">$0.00</dd></div>
                     <div><dt>Rejected calls</dt><dd data-est-out="rejected">$0.00</dd></div>
@@ -133,7 +133,7 @@ export default function Pricing() {
                 </div>
               </div>
             </div>
-            <p className="text-muted pricing-calculator-note">An estimate from the rates above, before taxes and fees. Calls are billed in whole minutes, so the average is rounded up. Tracking numbers are a one-time fee, so they count only in the month you add them.</p>
+            <p className="text-muted text-center pricing-calculator-note">An estimate from the rates above, before taxes and fees. Calls are billed in whole minutes, so the average is rounded up. Tracking numbers are paid once, so they count only in the month you add them.</p>
           </div>
         </div>
         <section className="pricing-faq-section">
@@ -145,7 +145,7 @@ export default function Pricing() {
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"> Are there any onboarding fees? </button>
                 </h2>
                 <div id="faq1" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
-                  <div className="accordion-body text-muted">No. Getting started on Avortyx costs nothing beyond the portal fee and your usage.</div>
+                  <div className="accordion-body text-muted">No. You pay the monthly platform fee and what your calls use, nothing more to get started.</div>
                 </div>
               </div>
               <div className="accordion-item">
@@ -153,7 +153,7 @@ export default function Pricing() {
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqBalance"> How do I pay? </button>
                 </h2>
                 <div id="faqBalance" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
-                  <div className="accordion-body text-muted">From a prepaid balance. Top it up at any time by card or crypto, or switch on automatic top-up so it refills when it runs low, and set a low-balance alert. The portal fee, numbers, minutes and per-call charges are drawn from the balance, and every call shows what it cost.</div>
+                  <div className="accordion-body text-muted">Avortyx runs on a prepaid balance. Add funds by card or crypto whenever you like, or turn on auto-recharge so the balance refills itself, and set an alert for when it gets low. The platform fee and each call’s charges are taken from the balance, and every call record shows its own cost.</div>
                 </div>
               </div>
               <div className="accordion-item">
@@ -162,9 +162,9 @@ export default function Pricing() {
                 </h2>
                 <div id="faq2" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
                   <div className="accordion-body text-muted">
-                    Yes, for high-volume customers: Enterprise accounts get volume-based per-minute rates.{" "}
+                    Yes. Enterprise accounts get tiered per-minute rates that drop as volume grows.{" "}
                     <a href="/p/contact">Contact our team</a>
-                    {" "}for details.
+                    {" "}for a quote.
                   </div>
                 </div>
               </div>
@@ -184,18 +184,6 @@ export default function Pricing() {
                   <div className="accordion-body text-muted">Yes. Book a live video session with one of our specialists by chat or email, and we will work through your campaigns with you.</div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-        <section className="pricing-footnotes-section">
-          <div className="container">
-            <div className="pricing-footnotes mb-0">
-              <p id="fn-1"><span className="pricing-fn">1</span> One flat charge every 30 days for access to the platform. Your billing page shows when it was last charged and when it is next due.</p>
-              <p id="fn-2"><span className="pricing-fn">2</span> Per connected minute of each call, rounded up to the nearest whole minute. International and premium rate centers can add cost.</p>
-              <p id="fn-3"><span className="pricing-fn">3</span> A one-time fee when you add a number to your account.</p>
-              <p id="fn-4"><span className="pricing-fn">4</span> Charged only on calls you record, per minute recorded.</p>
-              <p id="fn-5"><span className="pricing-fn">5</span> Each call is screened for spam.</p>
-              <p id="fn-6"><span className="pricing-fn">6</span> Charged when an inbound call is declined before routing.</p>
             </div>
           </div>
         </section>

@@ -1136,7 +1136,7 @@
   "page": "index.html"
  },
  {
-  "k": "A Standard account has a portal fee every 30 days, and calls are billed per connected minute, rounded up to the nearest full minute. Tracking numbers have a one-time fee, and every charge is itemized on the call. <0>Rates and calculator <1>→</1></0>",
+  "k": "A flat monthly platform fee, then a per-minute rate on connected calls, rounded up to the nearest full minute. Tracking numbers are paid once, and every call record shows what that call cost. <0>Rates and calculator <1>→</1></0>",
   "page": "index.html"
  },
  {
@@ -1184,7 +1184,7 @@
   "page": "index.html"
  },
  {
-  "k": "<0/>One portal fee, then only what you use",
+  "k": "<0/>A flat platform fee, then per-minute rates",
   "page": "index.html"
  },
  {
@@ -7924,7 +7924,7 @@
   "page": "help.html"
  },
  {
-  "k": "Your account has a portal fee every 30 days, and calls are billed per connected minute, rounded up to the next full minute. Each tracking number has a one-time fee when you add it, and VoIP Shield and rejected calls are charged per call. Every charge is drawn from your prepaid balance and itemized on the call.",
+  "k": "Your account has a flat monthly platform fee, and calls are billed per connected minute, rounded up to the next full minute. Each tracking number is paid once, when you add it, and VoIP Shield and rejected calls are charged per call. Every charge comes out of your prepaid balance and shows on the call record.",
   "page": "help.html"
  },
  {
@@ -8416,7 +8416,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Portal access: one flat fee every 30 days.",
+  "k": "Platform access: one flat fee each month.",
   "page": "legal.html"
  },
  {
@@ -9036,35 +9036,43 @@
   "page": "p/request_demo.html"
  },
  {
-  "k": "Pay for the calls you route",
+  "k": "Clear rates, settled per call",
   "page": "pricing.html"
  },
  {
-  "k": "One account: a monthly portal fee, plus only the minutes and calls you use. No onboarding fees, and every charge itemized on the call.",
+  "k": "A flat platform fee each month and a per-minute rate on connected calls. Every call record shows exactly what that call cost.",
   "page": "pricing.html"
  },
  {
-  "k": "Standard Account",
+  "k": "Self-Serve",
   "page": "pricing.html"
  },
  {
-  "k": "<0>$49.99</0> portal access every 30 days",
+  "k": "For networks launching their first campaigns through to steady daily volume.",
   "page": "pricing.html"
  },
  {
-  "k": "<0>$0.45</0> per call minute",
+  "k": "per month, platform access",
   "page": "pricing.html"
  },
  {
-  "k": "<0/>Prepaid balance you can top up at any time, by card or crypto",
+  "k": "per connected minute",
   "page": "pricing.html"
  },
  {
-  "k": "<0/>Optional automatic top-up when your balance runs low",
+  "k": "<0/>Fund your balance by card or crypto, whenever you like",
   "page": "pricing.html"
  },
  {
-  "k": "<0/>Every charge itemized per call",
+  "k": "<0/>Auto-recharge and low-balance alerts keep campaigns live",
+  "page": "pricing.html"
+ },
+ {
+  "k": "<0/>A cost breakdown on every call record",
+  "page": "pricing.html"
+ },
+ {
+  "k": "<0/>No setup or onboarding fees",
   "page": "pricing.html"
  },
  {
@@ -9072,19 +9080,23 @@
   "page": "pricing.html"
  },
  {
-  "k": "<0>Custom</0> rates for high volume",
+  "k": "For networks moving serious volume that want rates and infrastructure of their own.",
   "page": "pricing.html"
  },
  {
-  "k": "Negotiated per-minute rates, dedicated number pools and a routing setup designed around your network.",
+  "k": "Custom",
   "page": "pricing.html"
  },
  {
-  "k": "<0/>Volume-based per-minute pricing",
+  "k": "quoted for your volume",
   "page": "pricing.html"
  },
  {
-  "k": "<0/>Dedicated number pools",
+  "k": "<0/>Tiered per-minute rates as your volume grows",
+  "page": "pricing.html"
+ },
+ {
+  "k": "<0/>Reserved number pools",
   "page": "pricing.html"
  },
  {
@@ -9092,11 +9104,11 @@
   "page": "pricing.html"
  },
  {
-  "k": "<0/>24/7 dedicated support",
+  "k": "<0/>Around-the-clock priority support",
   "page": "pricing.html"
  },
  {
-  "k": "<0/>Dedicated account manager",
+  "k": "<0/>A named account manager",
   "page": "pricing.html"
  },
  {
@@ -9104,35 +9116,31 @@
   "page": "pricing.html"
  },
  {
-  "k": "Standard account rates",
+  "k": "Self-Serve rates",
   "page": "pricing.html"
  },
  {
-  "k": "You pay only for what each call uses, drawn from your prepaid balance.",
+  "k": "Charges come out of your prepaid balance, and only when a call uses them.",
   "page": "pricing.html"
  },
  {
-  "k": "Charge",
+  "k": "Platform access",
   "page": "pricing.html"
  },
  {
-  "k": "Rate",
+  "k": "Routing, live reporting, call records and the API, for your whole account.",
   "page": "pricing.html"
  },
  {
-  "k": "Billed",
+  "k": "per month",
   "page": "pricing.html"
  },
  {
-  "k": "Portal Access <0>1</0>",
+  "k": "Connected minutes",
   "page": "pricing.html"
  },
  {
-  "k": "every 30 days",
-  "page": "pricing.html"
- },
- {
-  "k": "Call Time",
+  "k": "Counted from answer to hang-up and rounded up to the next whole minute. International and premium destinations can cost more.",
   "page": "pricing.html"
  },
  {
@@ -9140,19 +9148,47 @@
   "page": "pricing.html"
  },
  {
-  "k": "Tracking Number",
+  "k": "Tracking numbers",
   "page": "pricing.html"
  },
  {
-  "k": "per number, one time",
+  "k": "Paid once, when the number is added to your account.",
   "page": "pricing.html"
  },
  {
-  "k": "Call Recording",
+  "k": "per number",
   "page": "pricing.html"
  },
  {
-  "k": "VoIP Shield <0>5</0>",
+  "k": "Call recording",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Only on the calls you choose to record.",
+  "page": "pricing.html"
+ },
+ {
+  "k": "per recorded minute",
+  "page": "pricing.html"
+ },
+ {
+  "k": "VoIP Shield",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Spam and robocall screening before a call reaches your buyer.",
+  "page": "pricing.html"
+ },
+ {
+  "k": "per screened call",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Rejected calls",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Calls turned away before routing, such as when no buyer is eligible.",
   "page": "pricing.html"
  },
  {
@@ -9160,15 +9196,15 @@
   "page": "pricing.html"
  },
  {
-  "k": "Rejected Call <0>6</0>",
+  "k": "Volume pricing",
   "page": "pricing.html"
  },
  {
-  "k": "Want a custom quote? Contact <0>support@avortyx.com</0>",
+  "k": "Routing at scale? Ask <0>support@avortyx.com</0> for an Enterprise quote.",
   "page": "pricing.html"
  },
  {
-  "k": "No onboarding fees. Rates shown are standard account defaults, before taxes and fees.",
+  "k": "Prices in U.S. dollars, before taxes and carrier pass-through fees.",
   "page": "pricing.html"
  },
  {
@@ -9212,27 +9248,7 @@
   "page": "pricing.html"
  },
  {
-  "k": "Breakdown on the <0>Standard Account</0>",
-  "page": "pricing.html"
- },
- {
-  "k": "Portal access",
-  "page": "pricing.html"
- },
- {
-  "k": "Call time",
-  "page": "pricing.html"
- },
- {
-  "k": "Call recording",
-  "page": "pricing.html"
- },
- {
-  "k": "VoIP Shield",
-  "page": "pricing.html"
- },
- {
-  "k": "Rejected calls",
+  "k": "Breakdown on <0>Self-Serve</0>",
   "page": "pricing.html"
  },
  {
@@ -9244,7 +9260,7 @@
   "page": "pricing.html"
  },
  {
-  "k": "An estimate from the rates above, before taxes and fees. Calls are billed in whole minutes, so the average is rounded up. Tracking numbers are a one-time fee, so they count only in the month you add them.",
+  "k": "An estimate from the rates above, before taxes and fees. Calls are billed in whole minutes, so the average is rounded up. Tracking numbers are paid once, so they count only in the month you add them.",
   "page": "pricing.html"
  },
  {
@@ -9252,7 +9268,7 @@
   "page": "pricing.html"
  },
  {
-  "k": "No. Getting started on Avortyx costs nothing beyond the portal fee and your usage.",
+  "k": "No. You pay the monthly platform fee and what your calls use, nothing more to get started.",
   "page": "pricing.html"
  },
  {
@@ -9260,11 +9276,11 @@
   "page": "pricing.html"
  },
  {
-  "k": "From a prepaid balance. Top it up at any time by card or crypto, or switch on automatic top-up so it refills when it runs low, and set a low-balance alert. The portal fee, numbers, minutes and per-call charges are drawn from the balance, and every call shows what it cost.",
+  "k": "Avortyx runs on a prepaid balance. Add funds by card or crypto whenever you like, or turn on auto-recharge so the balance refills itself, and set an alert for when it gets low. The platform fee and each call’s charges are taken from the balance, and every call record shows its own cost.",
   "page": "pricing.html"
  },
  {
-  "k": "Yes, for high-volume customers: Enterprise accounts get volume-based per-minute rates. <0>Contact our team</0> for details.",
+  "k": "Yes. Enterprise accounts get tiered per-minute rates that drop as volume grows. <0>Contact our team</0> for a quote.",
   "page": "pricing.html"
  },
  {
@@ -9284,35 +9300,11 @@
   "page": "pricing.html"
  },
  {
-  "k": "<0>1</0> One flat charge every 30 days for access to the platform. Your billing page shows when it was last charged and when it is next due.",
+  "k": "Pricing | Clear rates, settled per call | Avortyx",
   "page": "pricing.html"
  },
  {
-  "k": "<0>2</0> Per connected minute of each call, rounded up to the nearest whole minute. International and premium rate centers can add cost.",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>3</0> A one-time fee when you add a number to your account.",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>4</0> Charged only on calls you record, per minute recorded.",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>5</0> Each call is screened for spam.",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>6</0> Charged when an inbound call is declined before routing.",
-  "page": "pricing.html"
- },
- {
-  "k": "Pricing | One portal fee, then only what you use | Avortyx",
-  "page": "pricing.html"
- },
- {
-  "k": "Avortyx pricing: a $49.99 portal fee every 30 days, $0.45 per call minute and per-call charges only for what you use, from a prepaid balance. No onboarding fees, every charge itemized.",
+  "k": "Avortyx pricing: $39 a month for the platform and $0.39 per connected minute, paid from a prepaid balance, with a cost breakdown on every call. No setup fees; Enterprise rates on request.",
   "page": "pricing.html"
  },
  {
@@ -11056,7 +11048,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>8.1. Fees.</0> You will pay the fees for the Service at the rates on our <1>pricing page</1> or in your Order Form: a portal fee every 30 days plus the calls, numbers and other services you use, drawn from your prepaid balance. Fees are in U.S. dollars and do not include taxes, which you will pay. Your own internet, equipment and similar costs are yours.",
+  "k": "<0>8.1. Fees.</0> You will pay the fees for the Service at the rates on our <1>pricing page</1> or in your Order Form: a monthly platform fee plus the calls, numbers and other services you use, drawn from your prepaid balance. Fees are in U.S. dollars and do not include taxes, which you will pay. Your own internet, equipment and similar costs are yours.",
   "page": "terms_of_service.html"
  },
  {
@@ -12684,7 +12676,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "A Standard account is $49.99 for portal access every 30 days plus $0.45 per call minute, rounded up to the nearest whole minute. Each tracking number is a one-time $20.00, and everything is paid from a prepaid balance with no onboarding fees.",
+  "k": "Self-Serve is $39 a month for the platform and $0.39 per connected minute, rounded up to the next whole minute. Tracking numbers are $15.00 each, paid once, and everything comes out of a prepaid balance with no setup fees. Enterprise rates are quoted for your volume.",
   "page": "(runtime)"
  },
  {
@@ -13148,7 +13140,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "Avortyx is invite-only. Request access and our team reviews it; there are no onboarding fees, just the portal fee and your usage.",
+  "k": "Avortyx is invite-only. Request access and our team reviews it; there are no setup fees, just the monthly platform fee and what your calls use.",
   "page": "(runtime)"
  },
  {

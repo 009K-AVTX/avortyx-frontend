@@ -134,7 +134,7 @@ export const DOCS = [
       ['1. Usage-based billing', [
         'Avortyx bills from your prepaid balance at the rates on the pricing page or in your Order Form, with no onboarding fees. Enterprise accounts can have volume-based rates. Charges are:',
         ['ul', [
-          'Portal access: one flat fee every 30 days.',
+          'Platform access: one flat fee each month.',
           'Calls: billed per connected minute, rounded up to the nearest full minute. International and premium rate centers can add cost.',
           'Outbound calls: billed on call duration at the increment and minimum billable duration configured for your account, as stated in your rate sheet.',
           'Tracking numbers: a one-time fee when you add a number.',

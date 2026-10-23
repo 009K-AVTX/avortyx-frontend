@@ -93,7 +93,7 @@ export const TERMS = {
       ['sub', '7.6', 'No emergency calling', 'The Service cannot be used to call 911, E911 or any other emergency number and does not replace a landline or mobile phone. Everyone who uses Avortyx numbers for you must have another way to reach emergency services. We are not liable if emergency services cannot be reached through the Service. See the [[Emergency Calling (911) Notice|/legal?doc=10]].'],
     ]],
     ['8. Fees and payment', [
-      ['sub', '8.1', 'Fees', 'You will pay the fees for the Service at the rates on our [[pricing page|/pricing]] or in your Order Form: a portal fee every 30 days plus the calls, numbers and other services you use, drawn from your prepaid balance. Fees are in U.S. dollars and do not include taxes, which you will pay. Your own internet, equipment and similar costs are yours.'],
+      ['sub', '8.1', 'Fees', 'You will pay the fees for the Service at the rates on our [[pricing page|/pricing]] or in your Order Form: a monthly platform fee plus the calls, numbers and other services you use, drawn from your prepaid balance. Fees are in U.S. dollars and do not include taxes, which you will pay. Your own internet, equipment and similar costs are yours.'],
       ['sub', '8.2', 'Billing details', 'You confirm that you are entitled to use the payment method you give us and that your billing details are accurate. We use third-party payment processors and may give them the information they need to take payment.'],
       ['sub', '8.3', 'How usage is measured', 'Usage is billed in the increments shown on the pricing page or your rate sheet. Unless your rate sheet says otherwise:'],
       ['ul', [

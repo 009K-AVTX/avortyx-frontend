@@ -43,7 +43,7 @@ export const ARTICLES = [
     ['Put buyers or agents in a buyer group and set it to ring everyone together; the first to answer and press 1 takes the call. Groups can also dial in order, share caps across members and be paused in one click.'],
     ['/features/simul_dial', 'Buyer groups']],
   ['how-calls-are-billed', 'Billing', 'How are calls billed?',
-    ['Your account has a portal fee every 30 days, and calls are billed per connected minute, rounded up to the next full minute. Each tracking number has a one-time fee when you add it, and VoIP Shield and rejected calls are charged per call. Every charge is drawn from your prepaid balance and itemized on the call.'],
+    ['Your account has a flat monthly platform fee, and calls are billed per connected minute, rounded up to the next full minute. Each tracking number is paid once, when you add it, and VoIP Shield and rejected calls are charged per call. Every charge comes out of your prepaid balance and shows on the call record.'],
     ['/pricing', 'Pricing']],
   ['recording-retention-cost', 'Billing', 'Do recordings cost extra?',
     ['Only on the calls you record: call recording is charged per minute recorded, at the rate on the pricing page.'],

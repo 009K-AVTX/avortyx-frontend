@@ -2042,116 +2042,250 @@ html[lang="ru"] h3 {
   margin-bottom: .35rem;
 }
 
-/* pricing: the Standard and Enterprise accounts, side by side */
-.avx-plan-grid {
+/* ---------- Pricing: plans, rate list and section heads ---------- */
+.avx-plans {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
-  align-items: stretch;
 }
 
-.avx-plan-card {
+.avx-plan {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 32px 28px;
-  border: 1px solid;
+  gap: 22px;
+  padding: 32px;
+  border: 1px solid rgba(148, 163, 184, .16);
   border-radius: 18px;
-  text-align: center;
-}
-
-.avx-plan-card > .btn {
-  margin-top: auto;
-}
-
-.avx-plan-price {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 12px;
-  align-items: baseline;
-  justify-content: center;
-  margin: 8px 0 16px;
-  color: #a3abb8;
-}
-
-.avx-plan-price b {
-  margin-right: 4px;
-  color: #93c5fd;
-  font-family: var(--avx-font-display);
-  font-size: 2rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.avx-plan-plus {
-  color: #93c5fd;
-  font-size: 1.5rem;
-}
-
-.avx-plan-card .avx-ent-list {
-  grid-template-columns: minmax(0, max-content);
-}
-
-[data-bs-theme="light"] .avx-plan-price {
-  color: #475569;
-}
-
-[data-bs-theme="light"] .avx-plan-price b,
-[data-bs-theme="light"] .avx-plan-plus {
-  color: #2563eb;
-}
-
-/* pricing: the rate table is three columns, so it need not span the page */
-.avx-rates-wrap {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.pricing-table .avx-rate-unit {
-  color: #a3abb8;
-  font-family: inherit;
-}
-
-@media (max-width: 767.98px) {
-  .avx-plan-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-/* pricing: what Enterprise adds, in two short columns */
-.avx-ent-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, max-content));
-  gap: 8px 28px;
-  justify-content: center;
-  margin: 0 auto 20px;
-  padding: 0;
-  list-style: none;
+  background: linear-gradient(180deg, #131722, #0d1017);
   text-align: left;
 }
 
-.avx-ent-list li {
+.avx-plan-main {
+  border-color: rgba(59, 130, 246, .55);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, .2), 0 24px 60px -30px rgba(59, 130, 246, .55);
+}
+
+.avx-plan-name {
+  margin: 0 0 6px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.avx-plan-for {
+  margin: 0;
+  color: #a3abb8;
+  font-size: .95rem;
+}
+
+.avx-plan-price {
+  display: grid;
+  gap: 6px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(148, 163, 184, .14);
+  border-bottom: 1px solid rgba(148, 163, 184, .14);
+}
+
+.avx-plan-price p {
   display: flex;
-  gap: 8px;
-  align-items: center;
-  color: #cbd5e1;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: baseline;
+  margin: 0;
+}
+
+.avx-plan-price b {
+  color: #93c5fd;
+  font-family: var(--avx-font-display);
+  font-size: 2.25rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.avx-plan-price p + p b {
+  font-size: 1.5rem;
+}
+
+.avx-plan-price span {
+  color: #a3abb8;
   font-size: .92rem;
 }
 
-.avx-ent-list i {
+.avx-plan-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.avx-plan-list li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  color: #cbd5e1;
+  font-size: .95rem;
+}
+
+.avx-plan-list i {
   color: #93c5fd;
 }
 
-[data-bs-theme="light"] .avx-ent-list li {
+.avx-plan > .btn {
+  align-self: stretch;
+  margin-top: auto;
+}
+
+.avx-pricing-head {
+  margin: 64px 0 24px;
+  text-align: center;
+}
+
+.avx-pricing-head h2 {
+  margin-bottom: 8px;
+}
+
+.avx-pricing-head p {
+  margin: 0;
+}
+
+/* the rate list: what a charge covers on the left, its price on the right */
+.avx-rates {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, .16);
+  border-radius: 18px;
+  background: linear-gradient(180deg, #131722, #0d1017);
+  list-style: none;
+}
+
+.avx-rates li {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-top: 1px solid rgba(148, 163, 184, .1);
+}
+
+.avx-rates li:first-child {
+  border-top: 0;
+}
+
+.avx-rate-what {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.avx-rate-name {
+  color: #fff;
+  font-weight: 600;
+}
+
+.avx-rate-desc {
+  color: #a3abb8;
+  font-size: .88rem;
+}
+
+.avx-rate-cost {
+  display: grid;
+  flex-shrink: 0;
+  justify-items: end;
+  text-align: right;
+}
+
+.avx-rate-cost b {
+  color: #e2e8f0;
+  font-family: var(--avx-font-display);
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.avx-rate-cost span {
+  color: #a3abb8;
+  font-size: .8rem;
+}
+
+.avx-rates .avx-rates-ent {
+  background: rgba(59, 130, 246, .08);
+}
+
+.avx-est .pricing-calculator-note,
+.avx-rates + .pricing-calculator-note {
+  margin-top: 14px;
+}
+
+[data-bs-theme="light"] .avx-plan,
+[data-bs-theme="light"] .avx-rates {
+  border-color: var(--avx-card-border);
+  background: var(--avx-card);
+  box-shadow: var(--avx-card-shadow);
+}
+
+[data-bs-theme="light"] .avx-plan-main {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, .25), var(--avx-card-shadow-hover);
+}
+
+[data-bs-theme="light"] .avx-plan-name,
+[data-bs-theme="light"] .avx-rate-name,
+[data-bs-theme="light"] .avx-rate-cost b {
+  color: #0f172a;
+}
+
+[data-bs-theme="light"] .avx-plan-for,
+[data-bs-theme="light"] .avx-plan-price span,
+[data-bs-theme="light"] .avx-rate-desc,
+[data-bs-theme="light"] .avx-rate-cost span {
+  color: #475569;
+}
+
+[data-bs-theme="light"] .avx-plan-list li {
   color: #334155;
 }
 
-[data-bs-theme="light"] .avx-ent-list i {
+[data-bs-theme="light"] .avx-plan-price b,
+[data-bs-theme="light"] .avx-plan-list i {
   color: #2563eb;
 }
 
-@media (max-width: 575.98px) {
-  .avx-ent-list {
-    grid-template-columns: minmax(0, max-content);
+[data-bs-theme="light"] .avx-plan-price,
+[data-bs-theme="light"] .avx-rates li {
+  border-color: var(--avx-card-border);
+}
+
+@media (max-width: 767.98px) {
+  .avx-plans {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .avx-plan {
+    padding: 24px 20px;
+  }
+
+  .avx-pricing-head {
+    margin-top: 48px;
+  }
+
+  .avx-rates li {
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .avx-rates li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .avx-rate-cost {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
   }
 }
 

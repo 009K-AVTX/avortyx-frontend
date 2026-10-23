@@ -138,7 +138,7 @@
   // whole word; longer ones match the start of a word ("pric" -> price, pricing)
   var KB = [
     ['pricing', ['pric', 'cost', 'how much', 'rates', 'billing', 'billed', 'per minute', 'pay as you go', 'expensive', 'cheap', 'plan'],
-      'A Standard account is $49.99 for portal access every 30 days plus $0.45 per call minute, rounded up to the nearest whole minute. Each tracking number is a one-time $20.00, and everything is paid from a prepaid balance with no onboarding fees.',
+      'Self-Serve is $39 a month for the platform and $0.39 per connected minute, rounded up to the next whole minute. Tracking numbers are $15.00 each, paid once, and everything comes out of a prepaid balance with no setup fees. Enterprise rates are quoted for your volume.',
       [['/pricing', 'See pricing and the calculator']]],
     ['fees', ['onboarding', 'setup fee', 'set up fee', 'hidden fee', 'fees'],
       'No. Avortyx does not charge onboarding fees.', [['/pricing', 'See pricing']]],
@@ -146,7 +146,7 @@
       'Yes, for high-volume customers: Enterprise accounts get volume-based per-minute rates. Contact our team for a custom quote.',
       [['/pricing', 'See pricing'], ['/p/contact', 'Contact sales']]],
     ['signup', ['sign up', 'signup', 'get started', 'start', 'free', 'trial', 'register', 'create an account', 'open an account'],
-      'Avortyx is invite-only. Request access and our team reviews it; there are no onboarding fees, just the portal fee and your usage.',
+      'Avortyx is invite-only. Request access and our team reviews it; there are no setup fees, just the monthly platform fee and what your calls use.',
       [['/request-access', 'Request Access'], ['/p/request_demo', 'Or book a walkthrough']]],
     ['demo', ['demo', 'walkthrough', 'show me', 'sales', 'specialist'],
       'Book a walkthrough with a specialist to see how Avortyx can optimize your call tracking and increase conversions.',
@@ -897,7 +897,7 @@
 })();
 
 /* ---------- Pricing: monthly cost estimator ----------
-   Prices the visitor's volume on the Standard account with the rate-table figures in data-rates:
+   Prices the visitor's volume on Self-Serve with the rate-table figures in data-rates:
    the bill for the first month (with the one-time number fees) and for each month after. */
 (function () {
   'use strict';
@@ -913,15 +913,15 @@
     var calls = num('calls');
     var billed = calls * Math.ceil(num('minutes'));
     var r = {
-      portal: R.portal,
+      platform: R.platform,
       calls: billed * R.minute,
       recording: billed * Math.min(num('recorded'), 100) / 100 * R.recording,
       voip: field('voip').checked ? calls * R.voip : 0,
       rejected: Math.round(num('rejected')) * R.rejected,
       numbers: Math.round(num('numbers')) * R.number
     };
-    r.usage = r.portal + r.calls + r.recording + r.voip + r.rejected;
-    ['portal', 'calls', 'recording', 'voip', 'rejected', 'usage', 'numbers'].forEach(function (k) { out(k, money(r[k])); });
+    r.usage = r.platform + r.calls + r.recording + r.voip + r.rejected;
+    ['platform', 'calls', 'recording', 'voip', 'rejected', 'usage', 'numbers'].forEach(function (k) { out(k, money(r[k])); });
     out('monthly', money(r.usage));
     out('first', money(r.usage + r.numbers));
   }
