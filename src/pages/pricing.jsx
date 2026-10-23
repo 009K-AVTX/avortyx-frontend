@@ -1,21 +1,25 @@
 // /pricing.html
 import Bolt from '../components/Bolt.jsx'
 export const meta = {
-  title: "Pricing | Usage-based, itemized per call | Avortyx",
-  description: "Avortyx pricing: usage-based rates with monthly commit discounts, no onboarding fees, and a leg-by-leg cost breakdown on every call.",
+  title: "Pricing | One portal fee, then only what you use | Avortyx",
+  description: "Avortyx pricing: a $49.99 portal fee every 30 days, $0.45 per call minute and per-call charges only for what you use, from a prepaid balance. No onboarding fees, every charge itemized.",
   bodyClass: "avortyx_marketing pricing ",
   layout: "site",
 }
 
-// Monthly Cost Estimator plans, from the rate table:
-// [id, name, commit, number /mo, spam tag /mo, local /min, toll free /min, SMS, AI transcription /min]
-const EST_PLANS = [
-  ['base', 'Pay As You Go', 0, 4, 5, 0.055, 0.06, 0.04, 0.035],
-  ['commit_50', '$50', 50, 3, 4, 0.05, 0.055, 0.035, 0.0325],
-  ['commit_250', '$250', 250, 2, 3, 0.04, 0.045, 0.03, 0.03],
-  ['commit_1000', '$1,000', 1000, 1.5, 2.5, 0.035, 0.04, 0.025, 0.0275],
-  ['commit_4000', '$4,000', 4000, 1, 2, 0.03, 0.035, 0.02, 0.025],
-  ['commit_8000', '$8,000', 8000, 1, 2, 0.025, 0.03, 0.015, 0.02],
+// Standard account defaults. The rate table and the Monthly Cost Estimator (site.js) both read these.
+const RATES = { portal: 49.99, minute: 0.45, number: 20, recording: 0.0025, voip: 0.01, rejected: 0.015 }
+
+const money = (v, digits = 2) => '$' + v.toFixed(digits)
+
+// [charge, feature page or null, rate, unit, footnote]
+const RATE_ROWS = [
+  ['Portal Access', null, money(RATES.portal), 'every 30 days', 1],
+  ['Call Time', '/features/call_tracking', money(RATES.minute), 'per minute', 2],
+  ['Tracking Number', '/features/call_tracking', money(RATES.number), 'per number, one time', 3],
+  ['Call Recording', '/features/call_recordings', money(RATES.recording, 4), 'per minute', 4],
+  ['VoIP Shield', null, money(RATES.voip), 'per call', 5],
+  ['Rejected Call', null, money(RATES.rejected, 3), 'per call', 6],
 ]
 
 export default function Pricing() {
@@ -24,152 +28,71 @@ export default function Pricing() {
       <section className="pricing-hero">
         <div className="container text-center">
           <div className="mktg-section-header text-center">
-            <h1 className="fw-bold">Pay for calls that reach a buyer</h1>
-            <p className="text-muted lead">Usage-based rates that drop as your volume grows. No onboarding fees, and every charge itemized on the call.</p>
+            <h1 className="fw-bold">Pay for the calls you route</h1>
+            <p className="text-muted lead">One account: a monthly portal fee, plus only the minutes and calls you use. No onboarding fees, and every charge itemized on the call.</p>
           </div>
         </div>
       </section>
       <section className="pricing-body">
         <div className="container">
-          <div className="text-center mb-4">
-            <h2 className="fw-bold">Lower rates with a monthly commit</h2>
-            <p className="text-muted">The more you commit to each month, the lower every rate below.</p>
+          <div className="avx-plan-grid">
+            <div className="pricing-highlight-card avx-plan-card">
+              <h2 className="fw-bold mb-1">Standard Account</h2>
+              <p className="avx-plan-price">
+                <span><b>{money(RATES.portal)}</b> portal access every 30 days</span>
+                <span className="avx-plan-plus" aria-hidden="true">+</span>
+                <span><b>{money(RATES.minute)}</b> per call minute</span>
+              </p>
+              <ul className="avx-ent-list avx-plan-list">
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Prepaid balance you can top up at any time, by card or crypto</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Optional automatic top-up when your balance runs low</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Every charge itemized per call</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />No onboarding fees</li>
+              </ul>
+              <a className="btn btn-td-green btn-lg avx-ra-cta" href="/request-access"><Bolt />Request Access</a>
+            </div>
+            <div className="pricing-highlight-card avx-plan-card">
+              <h2 className="fw-bold mb-1">Enterprise</h2>
+              <p className="avx-plan-price"><span><b>Custom</b> rates for high volume</span></p>
+              <p className="text-muted pricing-enterprise-desc">Negotiated per-minute rates, dedicated number pools and a routing setup designed around your network.</p>
+              <ul className="avx-ent-list avx-plan-list">
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Volume-based per-minute pricing</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Dedicated number pools</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />99.99% routing uptime SLA</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />24/7 dedicated support</li>
+                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Dedicated account manager</li>
+              </ul>
+              <a className="btn btn-outline-td-green btn-lg" href="/p/contact"><i className="fa-solid fa-envelope me-2" aria-hidden="true" />Contact Sales</a>
+            </div>
           </div>
-          <div className="pricing-table-wrap">
+          <div className="text-center mt-5 mb-4">
+            <h2 className="fw-bold">Standard account rates</h2>
+            <p className="text-muted">You pay only for what each call uses, drawn from your prepaid balance.</p>
+          </div>
+          <div className="pricing-table-wrap avx-rates-wrap">
             <table className="pricing-table">
               <thead>
                 <tr>
-                  <th>Rate Type</th>
-                  <th>Pay As You Go</th>
-                  <th>$50</th>
-                  <th>$250</th>
-                  <th>$1,000</th>
-                  <th>$4,000</th>
-                  <th>$8,000</th>
+                  <th>Charge</th>
+                  <th>Rate</th>
+                  <th>Billed</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/call_tracking">Numbers</a>
-                    {" "}
-                    <a className="pricing-fn" href="#fn-1">1</a>
-                  </th>
-                  <td>$4.00</td>
-                  <td>$3.00</td>
-                  <td>$2.00</td>
-                  <td>$1.50</td>
-                  <td>$1.00</td>
-                  <td>$1.00</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/spam_tag_mitigation">Spam Tag Mitigation</a>
-                    {" "}
-                    <a className="pricing-fn" href="#fn-2">2</a>
-                  </th>
-                  <td>$5.00</td>
-                  <td>$4.00</td>
-                  <td>$3.00</td>
-                  <td>$2.50</td>
-                  <td>$2.00</td>
-                  <td>$2.00</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/inbound_call_routing">Local Tracking</a>
-                    {" "}
-                    <a className="pricing-fn" href="#fn-3">3</a>
-                  </th>
-                  <td>$0.0550</td>
-                  <td>$0.0500</td>
-                  <td>$0.0400</td>
-                  <td>$0.0350</td>
-                  <td>$0.0300</td>
-                  <td>$0.0250</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/inbound_call_routing">Toll Free Tracking</a>
-                    {" "}
-                    <a className="pricing-fn" href="#fn-4">4</a>
-                  </th>
-                  <td>$0.0600</td>
-                  <td>$0.0550</td>
-                  <td>$0.0450</td>
-                  <td>$0.0400</td>
-                  <td>$0.0350</td>
-                  <td>$0.0300</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/agent_controls">Outbound To Consumer</a>
-                    {" "}
-                    <a className="pricing-fn" href="#fn-5">5</a>
-                  </th>
-                  <td>$0.0450</td>
-                  <td>$0.0400</td>
-                  <td>$0.0300</td>
-                  <td>$0.0250</td>
-                  <td>$0.0200</td>
-                  <td>$0.0150</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold"><a className="mktg-link-green" href="/features/ai_sms_bots">SMS Out</a> <a className="pricing-fn" href="#fn-6">6</a></th>
-                  <td>$0.0400</td>
-                  <td>$0.0350</td>
-                  <td>$0.0300</td>
-                  <td>$0.0250</td>
-                  <td>$0.0200</td>
-                  <td>$0.0150</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/lead_automation">Per Action</a>
-                    {" "}
-                    <a className="pricing-fn" href="#fn-7">7</a>
-                  </th>
-                  <td>$0.00250</td>
-                  <td>$0.00150</td>
-                  <td>$0.00120</td>
-                  <td>$0.00090</td>
-                  <td>$0.00075</td>
-                  <td>$0.00060</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold">Rejected Call <a className="pricing-fn" href="#fn-8">8</a></th>
-                  <td>$0.0250</td>
-                  <td>$0.0200</td>
-                  <td>$0.0200</td>
-                  <td>$0.0150</td>
-                  <td>$0.0100</td>
-                  <td>$0.0050</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold">
-                    <a className="mktg-link-green" href="/features/transcriptions">AI Transcription</a>
-                    {" "}
-                    <a className="pricing-fn" href="#fn-9">9</a>
-                  </th>
-                  <td>$0.0350</td>
-                  <td>$0.0325</td>
-                  <td>$0.0300</td>
-                  <td>$0.0275</td>
-                  <td>$0.0250</td>
-                  <td>$0.0200</td>
-                </tr>
-                <tr>
-                  <th className="fw-semibold">Recording Retention <a className="pricing-fn" href="#fn-10">10</a></th>
-                  <td>$0.00040</td>
-                  <td>$0.00040</td>
-                  <td>$0.00040</td>
-                  <td>$0.00040</td>
-                  <td>$0.00025</td>
-                  <td>$0.00015</td>
-                </tr>
+                {RATE_ROWS.map(([name, href, rate, unit, fn]) => (
+                  <tr key={name}>
+                    <th className="fw-semibold">
+                      {href ? <a className="mktg-link-green" href={href}>{name}</a> : name}
+                      {" "}
+                      <a className="pricing-fn" href={'#fn-' + fn}>{fn}</a>
+                    </th>
+                    <td>{rate}</td>
+                    <td className="avx-rate-unit">{unit}</td>
+                  </tr>
+                ))}
                 <tr className="pricing-table-enterprise-row">
                   <th className="fw-semibold">Enterprise</th>
-                  <td colSpan="6">
+                  <td colSpan="2">
                     Want a custom quote? Contact{" "}
                     <a href="mailto:support@avortyx.com" className="mktg-link-green">support@avortyx.com</a>
                   </td>
@@ -177,140 +100,40 @@ export default function Pricing() {
               </tbody>
             </table>
           </div>
-          <div className="pricing-enterprise-cta">
-            <div className="pricing-highlight-card">
-              <h2 className="fw-bold mb-2">Enterprise</h2>
-              <p className="text-muted mx-auto pricing-enterprise-desc">Running serious volume? Talk to us about custom rates, dedicated number pools and a routing setup designed around your network.</p>
-              <ul className="avx-ent-list">
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Dedicated number pools</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Private routing infrastructure</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />99.99% routing uptime SLA</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />24/7 dedicated support</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Custom integrations</li>
-                <li><i className="fa-solid fa-circle-check" aria-hidden="true" />Dedicated account manager</li>
-              </ul>
-              <a className="btn btn-td-green btn-lg" href="/p/contact"> <i className="fa-solid fa-envelope me-2" aria-hidden="true" />Contact Sales </a>
-            </div>
-          </div>
-          <div className="pricing-breakdown-showcase">
-            <h3 className="fw-bold mt-5">Call Cost Calculator</h3>
-            <p className="text-muted pricing-calculator-intro">
-              Inbound tracking rates already include forwarding the call to your buyer.
-              <br />
-              {" "}Pick a commit level and call path to see the per-minute cost of each leg.
-            </p>
-            <div className="pricing-calculator">
-              <div className="pricing-calculator-controls">
-                <label>
-                  {" "}
-                  <span>Minimum Monthly Commit</span>
-                  <select className="form-select js-calc-commit" defaultValue="base">
-                    <option value="base" data-rates={"{\"in_local\":0.05,\"in_toll_free\":0.055,\"out_local\":0.01,\"out_toll_free\":0.005,\"out_sip\":0.005}"}>Pay As You Go</option>
-                    <option value="commit_50" data-rates={"{\"in_local\":0.045,\"in_toll_free\":0.05,\"out_local\":0.01,\"out_toll_free\":0.005,\"out_sip\":0.005}"}>$50</option>
-                    <option value="commit_250" data-rates={"{\"in_local\":0.035,\"in_toll_free\":0.04,\"out_local\":0.01,\"out_toll_free\":0.005,\"out_sip\":0.005}"}>$250</option>
-                    <option value="commit_1000" data-rates={"{\"in_local\":0.03,\"in_toll_free\":0.035,\"out_local\":0.01,\"out_toll_free\":0.005,\"out_sip\":0.005}"}>$1,000</option>
-                    <option value="commit_4000" data-rates={"{\"in_local\":0.025,\"in_toll_free\":0.03,\"out_local\":0.01,\"out_toll_free\":0.005,\"out_sip\":0.005}"}>$4,000</option>
-                    <option value="commit_8000" data-rates={"{\"in_local\":0.02,\"in_toll_free\":0.025,\"out_local\":0.01,\"out_toll_free\":0.005,\"out_sip\":0.005}"}>$8,000</option>
-                  </select>
-                </label>
-                {" "}
-                <label>
-                  {" "}
-                  <span>Receiving inbound calls with:</span>
-                  <select className="form-select js-calc-inbound" defaultValue="in_local">
-                    <option value="in_local">Local Tracking</option>
-                    <option value="in_toll_free">Toll Free Tracking</option>
-                  </select>
-                </label>
-                {" "}
-                <label>
-                  {" "}
-                  <span>Connecting to a buyer with:</span>
-                  <select className="form-select js-calc-buyer" defaultValue="out_toll_free">
-                    <option value="out_toll_free">Toll Free</option>
-                    <option value="out_sip">SIP</option>
-                    <option value="out_local">Local</option>
-                  </select>
-                </label>
-              </div>
-              <div className="pricing-calculator-breakdown">
-                <div className="pricing-calculator-row">
-                  <div className="pricing-calculator-row-info">
-                    <span className="js-calc-inbound-label pricing-calculator-row-label">Consumer Inbound to Local</span>
-                    {" "}
-                    <span className="js-calc-inbound-example pricing-calculator-row-example text-muted">+17191232222</span>
-                  </div>
-                  <div className="js-calc-inbound-rate pricing-calculator-row-rate">$0.0500 /min</div>
-                </div>
-                <div className="pricing-calculator-row">
-                  <div className="pricing-calculator-row-info">
-                    <span className="js-calc-buyer-label pricing-calculator-row-label">Forwarding to Buyer with Toll Free</span>
-                    {" "}
-                    <span className="js-calc-buyer-example pricing-calculator-row-example text-muted">+18001234444</span>
-                  </div>
-                  <div className="js-calc-buyer-rate pricing-calculator-row-rate">$0.0050 /min</div>
-                </div>
-                <div className="pricing-calculator-row pricing-calculator-row-total">
-                  <div className="pricing-calculator-row-info"><span className="pricing-calculator-row-label">Total</span></div>
-                  <div className="js-calc-total pricing-calculator-row-rate">$0.0550 /min</div>
-                </div>
-              </div>
-              <p className="text-muted pricing-calculator-note">Per-minute cost of an inbound call connected to a buyer. Every call record in Avortyx shows the same leg-by-leg breakdown.</p>
-            </div>
-          </div>
-          {/* monthly estimate: site.js prices the inputs on every plan from the rate table above */}
-          <div className="avx-est" data-avx-est="" data-plans={JSON.stringify(EST_PLANS)}>
+          <p className="text-muted text-center pricing-calculator-note">No onboarding fees. Rates shown are standard account defaults, before taxes and fees.</p>
+          {/* monthly estimate: site.js prices the inputs with the rates above */}
+          <div className="avx-est" data-avx-est="" data-rates={JSON.stringify(RATES)}>
             <h3 className="fw-bold mt-5">Monthly Cost Estimator</h3>
-            <p className="text-muted pricing-calculator-intro">Enter your expected volume to see an estimated monthly bill on every plan, and which one costs least.</p>
+            <p className="text-muted pricing-calculator-intro">Enter your expected volume to see an estimated bill for your first month and each month after.</p>
             <div className="avx-est-grid">
               <div className="avx-est-inputs">
-                <label><span>Tracking numbers</span><input className="form-control" type="number" min="0" step="1" defaultValue="10" data-est="numbers" /></label>
+                <label><span>Tracking numbers you add</span><input className="form-control" type="number" min="0" step="1" defaultValue="10" data-est="numbers" /></label>
                 <label><span>Calls per month</span><input className="form-control" type="number" min="0" step="100" defaultValue="2000" data-est="calls" /></label>
                 <label><span>Average minutes per call</span><input className="form-control" type="number" min="0" step="0.5" defaultValue="3" data-est="minutes" /></label>
-                <label>
-                  <span>Number type</span>
-                  <select className="form-select" defaultValue="local" data-est="type">
-                    <option value="local">Local</option>
-                    <option value="tf">Toll free</option>
-                  </select>
-                </label>
-                <label>
-                  <span>Connecting to buyers with</span>
-                  <select className="form-select" defaultValue="tf" data-est="buyer">
-                    <option value="tf">Toll free or SIP (included)</option>
-                    <option value="local">Local (+$0.0050 /min)</option>
-                  </select>
-                </label>
-                <label><span>Calls transcribed (%)</span><input className="form-control" type="number" min="0" max="100" step="5" defaultValue="0" data-est="transcribed" /></label>
-                <label><span>SMS sent per month</span><input className="form-control" type="number" min="0" step="100" defaultValue="0" data-est="sms" /></label>
-                <label className="avx-est-check"><input className="form-check-input" type="checkbox" data-est="spam" /><span>Spam tag mitigation on every number</span></label>
+                <label><span>Calls recorded (%)</span><input className="form-control" type="number" min="0" max="100" step="5" defaultValue="0" data-est="recorded" /></label>
+                <label><span>Rejected calls per month</span><input className="form-control" type="number" min="0" step="10" defaultValue="0" data-est="rejected" /></label>
+                <label className="avx-est-check"><input className="form-check-input" type="checkbox" defaultChecked data-est="voip" /><span>VoIP Shield on every call</span></label>
               </div>
               <div className="avx-est-out">
                 <ul className="avx-est-plans" aria-live="polite">
-                  {EST_PLANS.map(([id, name]) => (
-                    <li key={id} data-plan={id}>
-                      <span className="avx-est-plan">{name}</span>
-                      <span className="avx-est-best" hidden>Lowest cost</span>
-                      <b className="avx-est-total">$0.00</b>
-                    </li>
-                  ))}
+                  <li className="avx-on"><span className="avx-est-plan">First month</span><b className="avx-est-total" data-est-out="first">$0.00</b></li>
+                  <li><span className="avx-est-plan">Each month after</span><b className="avx-est-total" data-est-out="monthly">$0.00</b></li>
                 </ul>
                 <div className="avx-est-break">
-                  <p className="avx-est-break-head">Breakdown on <b data-est-out="plan">Pay As You Go</b></p>
+                  <p className="avx-est-break-head">Breakdown on the <b>Standard Account</b></p>
                   <dl>
-                    <div><dt>Numbers</dt><dd data-est-out="numbers">$0.00</dd></div>
-                    <div><dt>Call minutes</dt><dd data-est-out="calls">$0.00</dd></div>
-                    <div><dt>Local buyer forwarding</dt><dd data-est-out="buyer">$0.00</dd></div>
-                    <div><dt>AI transcription</dt><dd data-est-out="ai">$0.00</dd></div>
-                    <div><dt>SMS</dt><dd data-est-out="sms">$0.00</dd></div>
-                    <div><dt>Spam tag mitigation</dt><dd data-est-out="spam">$0.00</dd></div>
-                    <div><dt>Usage</dt><dd data-est-out="usage">$0.00</dd></div>
-                    <div className="avx-est-commit-row"><dt>Commit top-up</dt><dd data-est-out="topup">$0.00</dd></div>
+                    <div><dt>Portal access</dt><dd data-est-out="portal">$0.00</dd></div>
+                    <div><dt>Call time</dt><dd data-est-out="calls">$0.00</dd></div>
+                    <div><dt>Call recording</dt><dd data-est-out="recording">$0.00</dd></div>
+                    <div><dt>VoIP Shield</dt><dd data-est-out="voip">$0.00</dd></div>
+                    <div><dt>Rejected calls</dt><dd data-est-out="rejected">$0.00</dd></div>
+                    <div><dt>Monthly total</dt><dd data-est-out="usage">$0.00</dd></div>
+                    <div><dt>Tracking numbers, first month only</dt><dd data-est-out="numbers">$0.00</dd></div>
                   </dl>
                 </div>
               </div>
             </div>
-            <p className="text-muted pricing-calculator-note">An estimate from the rates above, before taxes and fees. Each plan’s commit counts as the least you pay that month, so a plan never costs less than its commit. Calls are billed in whole minutes, so the average is rounded up.</p>
+            <p className="text-muted pricing-calculator-note">An estimate from the rates above, before taxes and fees. Calls are billed in whole minutes, so the average is rounded up. Tracking numbers are a one-time fee, so they count only in the month you add them.</p>
           </div>
         </div>
         <section className="pricing-faq-section">
@@ -322,15 +145,15 @@ export default function Pricing() {
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"> Are there any onboarding fees? </button>
                 </h2>
                 <div id="faq1" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
-                  <div className="accordion-body text-muted">No. Getting started on Avortyx costs nothing beyond your usage.</div>
+                  <div className="accordion-body text-muted">No. Getting started on Avortyx costs nothing beyond the portal fee and your usage.</div>
                 </div>
               </div>
               <div className="accordion-item">
                 <h2 className="accordion-header">
-                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqInbound"> Do inbound rates cover both legs of the call? </button>
+                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqBalance"> How do I pay? </button>
                 </h2>
-                <div id="faqInbound" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
-                  <div className="accordion-body text-muted">Yes. A call connected to a buyer has two legs: the caller and your buyer. The local and toll-free tracking rates cover both, and statements list each leg separately so you can see what every call cost. The Outbound To Consumer rate is only for outbound dialing.</div>
+                <div id="faqBalance" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+                  <div className="accordion-body text-muted">From a prepaid balance. Top it up at any time by card or crypto, or switch on automatic top-up so it refills when it runs low, and set a low-balance alert. The portal fee, numbers, minutes and per-call charges are drawn from the balance, and every call shows what it cost.</div>
                 </div>
               </div>
               <div className="accordion-item">
@@ -339,7 +162,7 @@ export default function Pricing() {
                 </h2>
                 <div id="faq2" className="accordion-collapse collapse" data-bs-parent="#pricingFaq">
                   <div className="accordion-body text-muted">
-                    Yes, for high-volume customers.{" "}
+                    Yes, for high-volume customers: Enterprise accounts get volume-based per-minute rates.{" "}
                     <a href="/p/contact">Contact our team</a>
                     {" "}for details.
                   </div>
@@ -367,67 +190,12 @@ export default function Pricing() {
         <section className="pricing-footnotes-section">
           <div className="container">
             <div className="pricing-footnotes mb-0">
-              <p id="fn-1"><span className="pricing-fn">1</span> Monthly price for each phone number.</p>
-              <p id="fn-2"><span className="pricing-fn">2</span> Monthly price to protect a number, covering carrier registration and spam-label removal.</p>
-              <p id="fn-3">
-                <span className="pricing-fn">3</span>
-                {" "}Inbound calls to your local tracking numbers, billed per minute and rounded up to the nearest full minute. Forwarding the call to a buyer over toll-free or SIP is included in that rate; international and premium rate centers can add cost.
-              </p>
-              <p id="fn-4">
-                <span className="pricing-fn">4</span>
-                {" "}Inbound calls to your toll free tracking numbers, billed per minute and rounded up to the nearest full minute. Forwarding the call to a buyer over toll-free or SIP is included in that rate; international and premium rate centers can add cost.
-              </p>
-              <p id="fn-5">
-                <span className="pricing-fn">5</span>
-                {" "}Outbound dialing to consumers, such as lead automation and scheduled callback calls. It does not apply to inbound calls - connecting a buyer is included in the tracking rates. Outbound calls are billed on call duration, on the billing increment and minimum billable duration configured for your account - the Six Second Billing section of the rate sheet states yours.
-              </p>
-              <p id="fn-6">
-                <span className="pricing-fn">6</span>
-                {" "}Rate per outbound SMS message. Inbound SMS on your local numbers is free; inbound messages on toll-free numbers can bill at your toll-free inbound SMS rate.
-              </p>
-              <p id="fn-7">
-                <span className="pricing-fn">7</span>
-                {" "}Rate per billable schedule step run against a lead, such as a webhook, email, wait or choice. SMS is not billed here; a call a schedule dials is, on top of the call itself. This fee is charged when the following schedule action types are processed:{" "}
-                <span className="pricing-footnote-badge">AWS S3 Upload</span>
-                {" "}
-                <span className="pricing-footnote-badge">Add To Schedule</span>
-                {" "}
-                <span className="pricing-footnote-badge">Block Lead</span>
-                {" "}
-                <span className="pricing-footnote-badge">Choice</span>
-                {" "}
-                <span className="pricing-footnote-badge">Email</span>
-                {" "}
-                <span className="pricing-footnote-badge">FTP Upload</span>
-                {" "}
-                <span className="pricing-footnote-badge">Infusionsoft</span>
-                {" "}
-                <span className="pricing-footnote-badge">Mailchimp</span>
-                {" "}
-                <span className="pricing-footnote-badge">Mailgun</span>
-                {" "}
-                <span className="pricing-footnote-badge">Manage Zoho CRM</span>
-                {" "}
-                <span className="pricing-footnote-badge">Modify Lead</span>
-                {" "}
-                <span className="pricing-footnote-badge">Offer Create</span>
-                {" "}
-                <span className="pricing-footnote-badge">Opt-Out Lead</span>
-                {" "}
-                <span className="pricing-footnote-badge">Restart Schedule</span>
-                {" "}
-                <span className="pricing-footnote-badge">Schedule Create</span>
-                {" "}
-                <span className="pricing-footnote-badge">Sengrid</span>
-                {" "}
-                <span className="pricing-footnote-badge">Wait For</span>
-                {" "}
-                <span className="pricing-footnote-badge">Webhook POST</span>
-              </p>
-              <p id="fn-8"><span className="pricing-fn">8</span> Charged when an inbound call has nowhere eligible to go and is rejected.</p>
-              <p id="fn-9"><span className="pricing-fn">9</span> Per minute of transcribed audio.</p>
-              <p id="fn-10"><span className="pricing-fn">10</span> Monthly price per minute of recordings kept beyond the free 90 days.</p>
-              <p className="mb-0">If more than 20% of call attempts in the last 30 days were abandoned (unanswered, 0 seconds), a $0.005 surcharge applies to each call.</p>
+              <p id="fn-1"><span className="pricing-fn">1</span> One flat charge every 30 days for access to the platform. Your billing page shows when it was last charged and when it is next due.</p>
+              <p id="fn-2"><span className="pricing-fn">2</span> Per connected minute of each call, rounded up to the nearest whole minute. International and premium rate centers can add cost.</p>
+              <p id="fn-3"><span className="pricing-fn">3</span> A one-time fee when you add a number to your account.</p>
+              <p id="fn-4"><span className="pricing-fn">4</span> Charged only on calls you record, per minute recorded.</p>
+              <p id="fn-5"><span className="pricing-fn">5</span> Each call is screened for spam.</p>
+              <p id="fn-6"><span className="pricing-fn">6</span> Charged when an inbound call is declined before routing.</p>
             </div>
           </div>
         </section>

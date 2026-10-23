@@ -99,83 +99,9 @@
     });
   });
 
-  // ---------- Pricing: per-minute call cost calculator ----------
-  var LEG_LABELS = {
-    in_local: 'Consumer Inbound to Local',
-    in_toll_free: 'Consumer Inbound to Toll Free',
-    out_local: 'Forwarding to Buyer with Local',
-    out_toll_free: 'Forwarding to Buyer with Toll Free',
-    out_sip: 'Forwarding to Buyer with SIP'
-  };
-  var LEG_EXAMPLES = {
-    in_local: '+17191232222',
-    in_toll_free: '+18001232222',
-    out_local: '+17191234444',
-    out_toll_free: '+18001234444',
-    out_sip: '+17191234444@sip.avortyx.com'
-  };
-
-  function perMinute(v) { return '$' + v.toFixed(4) + ' /min'; }
-
   function setText(selector, text) {
     document.querySelectorAll(selector).forEach(function (n) { n.textContent = text; });
   }
-
-  function updateCallCalc() {
-    var commit = document.querySelector('.js-calc-commit');
-    if (!commit) return;
-    var rates = JSON.parse(commit.selectedOptions[0].getAttribute('data-rates'));
-    var inbound = document.querySelector('.js-calc-inbound').value;
-    var buyer = document.querySelector('.js-calc-buyer').value;
-    setText('.js-calc-inbound-label', LEG_LABELS[inbound]);
-    setText('.js-calc-inbound-example', LEG_EXAMPLES[inbound]);
-    setText('.js-calc-inbound-rate', perMinute(rates[inbound]));
-    setText('.js-calc-buyer-label', LEG_LABELS[buyer]);
-    setText('.js-calc-buyer-example', LEG_EXAMPLES[buyer]);
-    setText('.js-calc-buyer-rate', perMinute(rates[buyer]));
-    setText('.js-calc-total', perMinute(rates[inbound] + rates[buyer]));
-  }
-
-  // ---------- Pricing: ping cost calculator (its plan follows the call calculator's) ----------
-  function count(v) { return Math.round(v).toLocaleString('en-US'); }
-  function money(v, digits) { return '$' + v.toLocaleString('en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits }); }
-
-  function updatePingCalc() {
-    var calc = document.querySelector('.js-ping-calculator');
-    if (!calc) return;
-    var days = parseInt(calc.getAttribute('data-days-per-month'), 10);
-    var rate = parseFloat(document.querySelector('.js-ping-calc-commit').selectedOptions[0].getAttribute('data-rate-per-1k'));
-    var perDay = parseFloat(document.querySelector('.js-ping-calc-per-day').value);
-    if (isNaN(perDay) || perDay < 0) perDay = 0;
-    var monthly = perDay * days;
-    setText('.js-ping-calc-unique-example', count(perDay) + ' per day x ' + days + ' days');
-    setText('.js-ping-calc-unique-count', count(monthly) + ' /month');
-    setText('.js-ping-calc-rate', money(rate, 4) + ' /1k');
-    setText('.js-ping-calc-total', money(monthly / 1000 * rate, 2) + ' /month');
-  }
-
-  function syncPlan(from, toSelector) {
-    var to = document.querySelector(toSelector);
-    if (!to || to.value === from.value) return;
-    to.value = from.value;
-    to.dispatchEvent(new Event('change', { bubbles: true }));
-  }
-
-  ready(function () {
-    if (document.querySelector('.pricing-calculator')) {
-      on('change', '.pricing-calculator select', updateCallCalc);
-      updateCallCalc();
-    }
-    if (document.querySelector('.js-ping-calculator')) {
-      on('input', '.js-ping-calculator input', updatePingCalc);
-      on('change', '.js-ping-calculator input', updatePingCalc);
-      on('change', '.js-ping-calc-commit', function () { syncPlan(this, '.js-calc-commit'); updatePingCalc(); });
-      on('change', '.js-calc-commit', function () { syncPlan(this, '.js-ping-calc-commit'); });
-      var commit = document.querySelector('.js-calc-commit');
-      if (commit) syncPlan(commit, '.js-ping-calc-commit');
-      updatePingCalc();
-    }
-  });
 
   // ---------- Google Ads page: show the click values the visitor's own link carried ----------
   ready(function () {
@@ -212,15 +138,15 @@
   // whole word; longer ones match the start of a word ("pric" -> price, pricing)
   var KB = [
     ['pricing', ['pric', 'cost', 'how much', 'rates', 'billing', 'billed', 'per minute', 'pay as you go', 'expensive', 'cheap', 'plan'],
-      'Pricing is usage-based with volume discounts and no onboarding fees. Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the nearest full minute. The inbound rates cover both legs of a call connected to a buyer.',
+      'A Standard account is $49.99 for portal access every 30 days plus $0.45 per call minute, rounded up to the nearest whole minute. Each tracking number is a one-time $20.00, and everything is paid from a prepaid balance with no onboarding fees.',
       [['/pricing', 'See pricing and the calculator']]],
     ['fees', ['onboarding', 'setup fee', 'set up fee', 'hidden fee', 'fees'],
       'No. Avortyx does not charge onboarding fees.', [['/pricing', 'See pricing']]],
     ['discounts', ['discount', 'high volume', 'volume', 'commit'],
-      'Yes, for high-volume customers, and committed monthly plans come with lower per-minute rates.',
-      [['/pricing', 'Compare plans']]],
+      'Yes, for high-volume customers: Enterprise accounts get volume-based per-minute rates. Contact our team for a custom quote.',
+      [['/pricing', 'See pricing'], ['/p/contact', 'Contact sales']]],
     ['signup', ['sign up', 'signup', 'get started', 'start', 'free', 'trial', 'register', 'create an account', 'open an account'],
-      'You can start free: create your Avortyx account and start tracking, routing and selling calls.',
+      'Avortyx is invite-only. Request access and our team reviews it; there are no onboarding fees, just the portal fee and your usage.',
       [['/request-access', 'Request Access'], ['/p/request_demo', 'Or book a walkthrough']]],
     ['demo', ['demo', 'walkthrough', 'show me', 'sales', 'specialist'],
       'Book a walkthrough with a specialist to see how Avortyx can optimize your call tracking and increase conversions.',
@@ -971,49 +897,33 @@
 })();
 
 /* ---------- Pricing: monthly cost estimator ----------
-   Prices the visitor's volume on every plan with the rate-table figures in data-plans, marks the
-   cheapest and itemises it. A plan's commit is a monthly minimum: usage below it is topped up. */
+   Prices the visitor's volume on the Standard account with the rate-table figures in data-rates:
+   the bill for the first month (with the one-time number fees) and for each month after. */
 (function () {
   'use strict';
   var box = document.querySelector('[data-avx-est]');
   if (!box) return;
-  var PLANS = JSON.parse(box.getAttribute('data-plans'));
-  var LOCAL_BUYER = 0.005; // forwarding to a local buyer number, on top of the tracking rate
+  var R = JSON.parse(box.getAttribute('data-rates'));
   var field = function (k) { return box.querySelector('[data-est="' + k + '"]'); };
   var num = function (k) { var v = parseFloat(field(k).value); return isNaN(v) || v < 0 ? 0 : v; };
   var money = function (v) { return '$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); };
   var out = function (k, v) { box.querySelector('[data-est-out="' + k + '"]').textContent = v; };
 
-  function price(p) {
-    var numbers = num('numbers'), calls = num('calls'), mins = num('minutes');
-    var billed = calls * Math.ceil(mins);
-    var pct = Math.min(num('transcribed'), 100) / 100;
-    var parts = {
-      numbers: numbers * p[3],
-      calls: billed * (field('type').value === 'tf' ? p[6] : p[5]),
-      buyer: field('buyer').value === 'local' ? billed * LOCAL_BUYER : 0,
-      ai: calls * mins * pct * p[8],
-      sms: num('sms') * p[7],
-      spam: field('spam').checked ? numbers * p[4] : 0
-    };
-    parts.usage = parts.numbers + parts.calls + parts.buyer + parts.ai + parts.sms + parts.spam;
-    parts.topup = Math.max(0, p[2] - parts.usage);
-    parts.total = parts.usage + parts.topup;
-    return parts;
-  }
-
   function update() {
-    var priced = PLANS.map(price), best = 0;
-    priced.forEach(function (r, i) { if (r.total < priced[best].total - 1e-9) best = i; });
-    box.querySelectorAll('.avx-est-plans li').forEach(function (li, i) {
-      li.querySelector('.avx-est-total').textContent = money(priced[i].total);
-      li.classList.toggle('avx-on', i === best);
-      li.querySelector('.avx-est-best').hidden = i !== best;
-    });
-    var r = priced[best];
-    // the plan's name as the page shows it (translated on /ru, /ja and /zh)
-    out('plan', box.querySelectorAll('.avx-est-plan')[best].textContent);
-    ['numbers', 'calls', 'buyer', 'ai', 'sms', 'spam', 'usage', 'topup'].forEach(function (k) { out(k, money(r[k])); });
+    var calls = num('calls');
+    var billed = calls * Math.ceil(num('minutes'));
+    var r = {
+      portal: R.portal,
+      calls: billed * R.minute,
+      recording: billed * Math.min(num('recorded'), 100) / 100 * R.recording,
+      voip: field('voip').checked ? calls * R.voip : 0,
+      rejected: Math.round(num('rejected')) * R.rejected,
+      numbers: Math.round(num('numbers')) * R.number
+    };
+    r.usage = r.portal + r.calls + r.recording + r.voip + r.rejected;
+    ['portal', 'calls', 'recording', 'voip', 'rejected', 'usage', 'numbers'].forEach(function (k) { out(k, money(r[k])); });
+    out('monthly', money(r.usage));
+    out('first', money(r.usage + r.numbers));
   }
 
   box.addEventListener('input', update);

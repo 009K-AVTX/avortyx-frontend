@@ -25,7 +25,7 @@ const PLATFORM_TABS = [
 const FAQ = [
   ['Are there any onboarding fees?', 'No. Avortyx does not charge onboarding fees.', ['/pricing', 'See pricing']],
   ['Can I bring my own carrier?', 'Yes. Connect Plivo or Telnyx, or bring any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.', ['/features/multiple_telephone_providers', 'Telephone providers']],
-  ['How are calls priced?', 'Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the nearest full minute. The inbound rates cover both legs of a call connected to a buyer, and your statements itemize each leg.', ['/pricing', 'Rates and calculator']],
+  ['How are calls priced?', 'A Standard account has a portal fee every 30 days, and calls are billed per connected minute, rounded up to the nearest full minute. Tracking numbers have a one-time fee, and every charge is itemized on the call.', ['/pricing', 'Rates and calculator']],
   ['Is there an API?', 'Yes. Avortyx is API-first: anything you can do in the dashboard, you can do through the REST API, with access tokens limited to exactly the resources they need.', ['/features/api', 'REST API']],
   ['How do you handle compliance and personal data?', 'DNC checks, suppression lists and blacklists run before any call is forwarded or dialed, and state rules enforce calling-hour windows. PII can be cleared or hashed from aged data and restricted to users with the PII permission.', ['/features#security-compliance-tools', 'Security and compliance']],
   ['Do you offer discounts?', 'Yes, for high-volume customers.', ['/p/contact', 'Contact our team']],
@@ -1351,7 +1351,7 @@ export default function Home() {
           </div>
           <p className="avx-price-hint">
             <span><i className="fa-solid fa-circle-check" aria-hidden="true" />No onboarding fees</span>
-            <span><i className="fa-solid fa-circle-check" aria-hidden="true" />Usage-based rates with volume discounts</span>
+            <span><i className="fa-solid fa-circle-check" aria-hidden="true" />One portal fee, then only what you use</span>
             <span><i className="fa-solid fa-circle-check" aria-hidden="true" />Phone, chat, email and video support</span>
             <a href="/pricing" className="avx-more-link">See pricing <span aria-hidden="true">→</span></a>
           </p>
