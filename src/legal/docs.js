@@ -33,6 +33,7 @@ export const DOCS = [
   {
     id: '03',
     title: 'Acceptable Use Policy',
+    updated: 'October 24, 2026',
     summary: 'What you may and may not do with Avortyx numbers, routing, messaging and data.',
     sections: [
       ['1. Purpose', [
@@ -54,7 +55,7 @@ export const DOCS = [
         ]],
       ]],
       ['3. Traffic quality', [
-        'Abandoned, unanswered and rejected calls place load on carrier networks. When over a fifth (20%) of the calls an account tried to place in the past 30 days went unanswered (abandoned at 0 seconds), or calls are repeatedly rejected for lack of an eligible destination, Avortyx may apply the network surcharges described on the pricing page and in the Terms of Service, limit call volume, or ask you to correct the traffic source.',
+        'Abandoned, unanswered and rejected calls place load on carrier networks. When over a fifth (20%) of the calls an account tried to place in the past 30 days went unanswered (abandoned at 0 seconds), or calls are repeatedly rejected for lack of an eligible destination, Avortyx may limit call volume or ask you to correct the traffic source. Rejected calls are charged per call, at the rate on the pricing page.',
       ]],
       ['4. Monitoring and enforcement', [
         'Avortyx may review campaigns, call metadata, recordings and messages to confirm compliance with this AUP, applicable law and carrier requirements. If we believe a violation has occurred we may, with or without notice: suspend numbers, campaigns or the account; block specific traffic; pass through carrier fines, traceback fees or penalties caused by your traffic; and cooperate with carriers, the Industry Traceback Group, regulators and law enforcement.',
@@ -127,19 +128,21 @@ export const DOCS = [
   {
     id: '06',
     title: 'Billing, Cancellation & Refund Policy',
+    updated: 'October 24, 2026',
     summary: 'How usage is billed, how to cancel, and when refunds apply.',
     sections: [
       ['1. Usage-based billing', [
-        'Avortyx bills on usage at the rates on the pricing page or in your Order Form, with volume discounts and no onboarding fees. Billing increments are:',
+        'Avortyx bills from your prepaid balance at the rates on the pricing page or in your Order Form, with no onboarding fees. Enterprise accounts can have volume-based rates. Charges are:',
         ['ul', [
-          'Inbound calls: billed per minute, rounded up to the nearest full minute. Forwarding a call to a buyer over toll-free or SIP is included in the inbound rate; international and premium rate centers can add cost.',
+          'Portal access: one flat fee every 30 days.',
+          'Calls: billed per connected minute, rounded up to the nearest full minute. International and premium rate centers can add cost.',
           'Outbound calls: billed on call duration at the increment and minimum billable duration configured for your account, as stated in your rate sheet.',
-          'Tracking numbers and number protection: a monthly rate per number.',
-          'Messaging, transcription, schedule steps and recording storage: at the rates on the pricing page.',
+          'Tracking numbers: a one-time fee when you add a number.',
+          'Call recording, VoIP Shield and rejected calls: at the rates on the pricing page.',
         ]],
       ]],
       ['2. Surcharges and pass-through fees', [
-        'When over a fifth (20%) of the calls you tried to place in the past 30 days went unanswered (abandoned at 0 seconds), each call carries the surcharge shown on the pricing page. Calls rejected because they have nowhere eligible to go are charged per call. Carrier administrative fees, traceback fees and penalties caused by your traffic are passed through to your account.',
+        'Calls rejected before routing are charged per call. Carrier administrative fees, traceback fees and penalties caused by your traffic are passed through to your account.',
       ]],
       ['3. Balance and payment', [
         'Keep a positive balance. If usage exceeds your deposit or fees go unpaid, Avortyx may suspend the account. If your balance remains negative for ninety (90) days in a row, recording retention drops to ninety (90) days and anything older is deleted for good.',
@@ -156,10 +159,11 @@ export const DOCS = [
   {
     id: '07',
     title: 'Call Recording & Data Retention Policy',
+    updated: 'October 24, 2026',
     summary: 'How long Avortyx keeps recordings, logs and personal information, and how deletion works.',
     sections: [
       ['1. Call recordings', [
-        'Recordings are kept free of charge for ninety (90) days. Recordings you choose to keep beyond 90 days are billed monthly per minute stored, at the rate on the pricing page. You can delete recordings at any time.',
+        'Call recording is charged only on the calls you record, per minute recorded, at the rate on the pricing page. You can delete recordings at any time.',
       ]],
       ['2. Recording consent', [
         'Some states require every party to a call to consent to recording. You are responsible for giving the notice and obtaining the consent that applies to each call. Avortyx can apply per-state two-party recording rules to help you do this.',

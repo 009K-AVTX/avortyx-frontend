@@ -1136,7 +1136,7 @@
   "page": "index.html"
  },
  {
-  "k": "Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the nearest full minute. The inbound rates cover both legs of a call connected to a buyer, and your statements itemize each leg. <0>Rates and calculator <1>→</1></0>",
+  "k": "A Standard account has a portal fee every 30 days, and calls are billed per connected minute, rounded up to the nearest full minute. Tracking numbers have a one-time fee, and every charge is itemized on the call. <0>Rates and calculator <1>→</1></0>",
   "page": "index.html"
  },
  {
@@ -1184,7 +1184,7 @@
   "page": "index.html"
  },
  {
-  "k": "<0/>Usage-based rates with volume discounts",
+  "k": "<0/>One portal fee, then only what you use",
   "page": "index.html"
  },
  {
@@ -7292,7 +7292,7 @@
   "page": "features/transcriptions.html"
  },
  {
-  "k": "Cheap enough to run on every call: a per-minute rate for transcribed audio, plus only the AI features you switch on, each priced per minute. Language detection costs nothing, there are no seat or platform fees, and the analytics dashboard itemizes every charge.",
+  "k": "Transcription and the AI features you switch on are each priced per minute of audio, and quoted for your account. Language detection costs nothing, there are no seat fees, and the analytics dashboard itemizes every charge.",
   "page": "features/transcriptions.html"
  },
  {
@@ -7924,7 +7924,7 @@
   "page": "help.html"
  },
  {
-  "k": "Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the next full minute. The local and toll-free inbound rates cover both legs of a call connected to a buyer, and statements list each leg so you can see what every call cost.",
+  "k": "Your account has a portal fee every 30 days, and calls are billed per connected minute, rounded up to the next full minute. Each tracking number has a one-time fee when you add it, and VoIP Shield and rejected calls are charged per call. Every charge is drawn from your prepaid balance and itemized on the call.",
   "page": "help.html"
  },
  {
@@ -7936,7 +7936,7 @@
   "page": "help.html"
  },
  {
-  "k": "Recordings are kept free for 90 days. Keeping them longer has a monthly rate per minute retained, listed on the pricing page.",
+  "k": "Only on the calls you record: call recording is charged per minute recorded, at the rate on the pricing page.",
   "page": "help.html"
  },
  {
@@ -8192,7 +8192,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Last updated October 13, 2026",
+  "k": "Last updated October 24, 2026",
   "page": "legal.html"
  },
  {
@@ -8256,7 +8256,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Abandoned, unanswered and rejected calls place load on carrier networks. When over a fifth (20%) of the calls an account tried to place in the past 30 days went unanswered (abandoned at 0 seconds), or calls are repeatedly rejected for lack of an eligible destination, Avortyx may apply the network surcharges described on the pricing page and in the Terms of Service, limit call volume, or ask you to correct the traffic source.",
+  "k": "Abandoned, unanswered and rejected calls place load on carrier networks. When over a fifth (20%) of the calls an account tried to place in the past 30 days went unanswered (abandoned at 0 seconds), or calls are repeatedly rejected for lack of an eligible destination, Avortyx may limit call volume or ask you to correct the traffic source. Rejected calls are charged per call, at the rate on the pricing page.",
   "page": "legal.html"
  },
  {
@@ -8277,6 +8277,10 @@
  },
  {
   "k": "Questions about this document? Email <0>support@avortyx.com</0>. Formal legal notices go by email to <1>hello@avortyx.io</1>, as the Terms of Service describe.",
+  "page": "legal.html"
+ },
+ {
+  "k": "Last updated October 13, 2026",
   "page": "legal.html"
  },
  {
@@ -8408,11 +8412,15 @@
   "page": "legal.html"
  },
  {
-  "k": "Avortyx bills on usage at the rates on the pricing page or in your Order Form, with volume discounts and no onboarding fees. Billing increments are:",
+  "k": "Avortyx bills from your prepaid balance at the rates on the pricing page or in your Order Form, with no onboarding fees. Enterprise accounts can have volume-based rates. Charges are:",
   "page": "legal.html"
  },
  {
-  "k": "Inbound calls: billed per minute, rounded up to the nearest full minute. Forwarding a call to a buyer over toll-free or SIP is included in the inbound rate; international and premium rate centers can add cost.",
+  "k": "Portal access: one flat fee every 30 days.",
+  "page": "legal.html"
+ },
+ {
+  "k": "Calls: billed per connected minute, rounded up to the nearest full minute. International and premium rate centers can add cost.",
   "page": "legal.html"
  },
  {
@@ -8420,11 +8428,11 @@
   "page": "legal.html"
  },
  {
-  "k": "Tracking numbers and number protection: a monthly rate per number.",
+  "k": "Tracking numbers: a one-time fee when you add a number.",
   "page": "legal.html"
  },
  {
-  "k": "Messaging, transcription, schedule steps and recording storage: at the rates on the pricing page.",
+  "k": "Call recording, VoIP Shield and rejected calls: at the rates on the pricing page.",
   "page": "legal.html"
  },
  {
@@ -8432,7 +8440,7 @@
   "page": "legal.html"
  },
  {
-  "k": "When over a fifth (20%) of the calls you tried to place in the past 30 days went unanswered (abandoned at 0 seconds), each call carries the surcharge shown on the pricing page. Calls rejected because they have nowhere eligible to go are charged per call. Carrier administrative fees, traceback fees and penalties caused by your traffic are passed through to your account.",
+  "k": "Calls rejected before routing are charged per call. Carrier administrative fees, traceback fees and penalties caused by your traffic are passed through to your account.",
   "page": "legal.html"
  },
  {
@@ -8468,7 +8476,7 @@
   "page": "legal.html"
  },
  {
-  "k": "Recordings are kept free of charge for ninety (90) days. Recordings you choose to keep beyond 90 days are billed monthly per minute stored, at the rate on the pricing page. You can delete recordings at any time.",
+  "k": "Call recording is charged only on the calls you record, per minute recorded, at the rate on the pricing page. You can delete recordings at any time.",
   "page": "legal.html"
  },
  {
@@ -9028,59 +9036,35 @@
   "page": "p/request_demo.html"
  },
  {
-  "k": "Pay for calls that reach a buyer",
+  "k": "Pay for the calls you route",
   "page": "pricing.html"
  },
  {
-  "k": "Usage-based rates that drop as your volume grows. No onboarding fees, and every charge itemized on the call.",
+  "k": "One account: a monthly portal fee, plus only the minutes and calls you use. No onboarding fees, and every charge itemized on the call.",
   "page": "pricing.html"
  },
  {
-  "k": "Lower rates with a monthly commit",
+  "k": "Standard Account",
   "page": "pricing.html"
  },
  {
-  "k": "The more you commit to each month, the lower every rate below.",
+  "k": "<0>$49.99</0> portal access every 30 days",
   "page": "pricing.html"
  },
  {
-  "k": "Rate Type",
+  "k": "<0>$0.45</0> per call minute",
   "page": "pricing.html"
  },
  {
-  "k": "Pay As You Go",
+  "k": "<0/>Prepaid balance you can top up at any time, by card or crypto",
   "page": "pricing.html"
  },
  {
-  "k": "Local Tracking",
+  "k": "<0/>Optional automatic top-up when your balance runs low",
   "page": "pricing.html"
  },
  {
-  "k": "Toll Free Tracking",
-  "page": "pricing.html"
- },
- {
-  "k": "Outbound To Consumer",
-  "page": "pricing.html"
- },
- {
-  "k": "SMS Out",
-  "page": "pricing.html"
- },
- {
-  "k": "Per Action",
-  "page": "pricing.html"
- },
- {
-  "k": "Rejected Call <0>8</0>",
-  "page": "pricing.html"
- },
- {
-  "k": "AI Transcription",
-  "page": "pricing.html"
- },
- {
-  "k": "Recording Retention <0>10</0>",
+  "k": "<0/>Every charge itemized per call",
   "page": "pricing.html"
  },
  {
@@ -9088,19 +9072,19 @@
   "page": "pricing.html"
  },
  {
-  "k": "Want a custom quote? Contact <0>support@avortyx.com</0>",
+  "k": "<0>Custom</0> rates for high volume",
   "page": "pricing.html"
  },
  {
-  "k": "Running serious volume? Talk to us about custom rates, dedicated number pools and a routing setup designed around your network.",
+  "k": "Negotiated per-minute rates, dedicated number pools and a routing setup designed around your network.",
+  "page": "pricing.html"
+ },
+ {
+  "k": "<0/>Volume-based per-minute pricing",
   "page": "pricing.html"
  },
  {
   "k": "<0/>Dedicated number pools",
-  "page": "pricing.html"
- },
- {
-  "k": "<0/>Private routing infrastructure",
   "page": "pricing.html"
  },
  {
@@ -9112,10 +9096,6 @@
   "page": "pricing.html"
  },
  {
-  "k": "<0/>Custom integrations",
-  "page": "pricing.html"
- },
- {
   "k": "<0/>Dedicated account manager",
   "page": "pricing.html"
  },
@@ -9124,51 +9104,71 @@
   "page": "pricing.html"
  },
  {
-  "k": "Call Cost Calculator",
+  "k": "Standard account rates",
   "page": "pricing.html"
  },
  {
-  "k": "Inbound tracking rates already include forwarding the call to your buyer.<0/> Pick a commit level and call path to see the per-minute cost of each leg.",
+  "k": "You pay only for what each call uses, drawn from your prepaid balance.",
   "page": "pricing.html"
  },
  {
-  "k": "Minimum Monthly Commit",
+  "k": "Charge",
   "page": "pricing.html"
  },
  {
-  "k": "Receiving inbound calls with:",
+  "k": "Rate",
   "page": "pricing.html"
  },
  {
-  "k": "Connecting to a buyer with:",
+  "k": "Billed",
   "page": "pricing.html"
  },
  {
-  "k": "Toll Free",
+  "k": "Portal Access <0>1</0>",
   "page": "pricing.html"
  },
  {
-  "k": "SIP",
+  "k": "every 30 days",
   "page": "pricing.html"
  },
  {
-  "k": "Local",
+  "k": "Call Time",
   "page": "pricing.html"
  },
  {
-  "k": "Consumer Inbound to Local",
+  "k": "per minute",
   "page": "pricing.html"
  },
  {
-  "k": "Forwarding to Buyer with Toll Free",
+  "k": "Tracking Number",
   "page": "pricing.html"
  },
  {
-  "k": "Total",
+  "k": "per number, one time",
   "page": "pricing.html"
  },
  {
-  "k": "Per-minute cost of an inbound call connected to a buyer. Every call record in Avortyx shows the same leg-by-leg breakdown.",
+  "k": "Call Recording",
+  "page": "pricing.html"
+ },
+ {
+  "k": "VoIP Shield <0>5</0>",
+  "page": "pricing.html"
+ },
+ {
+  "k": "per call",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Rejected Call <0>6</0>",
+  "page": "pricing.html"
+ },
+ {
+  "k": "Want a custom quote? Contact <0>support@avortyx.com</0>",
+  "page": "pricing.html"
+ },
+ {
+  "k": "No onboarding fees. Rates shown are standard account defaults, before taxes and fees.",
   "page": "pricing.html"
  },
  {
@@ -9176,11 +9176,11 @@
   "page": "pricing.html"
  },
  {
-  "k": "Enter your expected volume to see an estimated monthly bill on every plan, and which one costs least.",
+  "k": "Enter your expected volume to see an estimated bill for your first month and each month after.",
   "page": "pricing.html"
  },
  {
-  "k": "Tracking numbers",
+  "k": "Tracking numbers you add",
   "page": "pricing.html"
  },
  {
@@ -9192,75 +9192,59 @@
   "page": "pricing.html"
  },
  {
-  "k": "Number type",
+  "k": "Calls recorded (%)",
   "page": "pricing.html"
  },
  {
-  "k": "Toll free",
+  "k": "Rejected calls per month",
   "page": "pricing.html"
  },
  {
-  "k": "Connecting to buyers with",
+  "k": "VoIP Shield on every call",
   "page": "pricing.html"
  },
  {
-  "k": "Toll free or SIP (included)",
+  "k": "First month",
   "page": "pricing.html"
  },
  {
-  "k": "Local (+$0.0050 /min)",
+  "k": "Each month after",
   "page": "pricing.html"
  },
  {
-  "k": "Calls transcribed (%)",
+  "k": "Breakdown on the <0>Standard Account</0>",
   "page": "pricing.html"
  },
  {
-  "k": "SMS sent per month",
+  "k": "Portal access",
   "page": "pricing.html"
  },
  {
-  "k": "Spam tag mitigation on every number",
+  "k": "Call time",
   "page": "pricing.html"
  },
  {
-  "k": "Lowest cost",
+  "k": "Call recording",
   "page": "pricing.html"
  },
  {
-  "k": "Breakdown on <0>Pay As You Go</0>",
+  "k": "VoIP Shield",
   "page": "pricing.html"
  },
  {
-  "k": "Call minutes",
+  "k": "Rejected calls",
   "page": "pricing.html"
  },
  {
-  "k": "Local buyer forwarding",
+  "k": "Monthly total",
   "page": "pricing.html"
  },
  {
-  "k": "AI transcription",
+  "k": "Tracking numbers, first month only",
   "page": "pricing.html"
  },
  {
-  "k": "SMS",
-  "page": "pricing.html"
- },
- {
-  "k": "Spam tag mitigation",
-  "page": "pricing.html"
- },
- {
-  "k": "Usage",
-  "page": "pricing.html"
- },
- {
-  "k": "Commit top-up",
-  "page": "pricing.html"
- },
- {
-  "k": "An estimate from the rates above, before taxes and fees. Each plan’s commit counts as the least you pay that month, so a plan never costs less than its commit. Calls are billed in whole minutes, so the average is rounded up.",
+  "k": "An estimate from the rates above, before taxes and fees. Calls are billed in whole minutes, so the average is rounded up. Tracking numbers are a one-time fee, so they count only in the month you add them.",
   "page": "pricing.html"
  },
  {
@@ -9268,19 +9252,19 @@
   "page": "pricing.html"
  },
  {
-  "k": "No. Getting started on Avortyx costs nothing beyond your usage.",
+  "k": "No. Getting started on Avortyx costs nothing beyond the portal fee and your usage.",
   "page": "pricing.html"
  },
  {
-  "k": "Do inbound rates cover both legs of the call?",
+  "k": "How do I pay?",
   "page": "pricing.html"
  },
  {
-  "k": "Yes. A call connected to a buyer has two legs: the caller and your buyer. The local and toll-free tracking rates cover both, and statements list each leg separately so you can see what every call cost. The Outbound To Consumer rate is only for outbound dialing.",
+  "k": "From a prepaid balance. Top it up at any time by card or crypto, or switch on automatic top-up so it refills when it runs low, and set a low-balance alert. The portal fee, numbers, minutes and per-call charges are drawn from the balance, and every call shows what it cost.",
   "page": "pricing.html"
  },
  {
-  "k": "Yes, for high-volume customers. <0>Contact our team</0> for details.",
+  "k": "Yes, for high-volume customers: Enterprise accounts get volume-based per-minute rates. <0>Contact our team</0> for details.",
   "page": "pricing.html"
  },
  {
@@ -9300,55 +9284,35 @@
   "page": "pricing.html"
  },
  {
-  "k": "<0>1</0> Monthly price for each phone number.",
+  "k": "<0>1</0> One flat charge every 30 days for access to the platform. Your billing page shows when it was last charged and when it is next due.",
   "page": "pricing.html"
  },
  {
-  "k": "<0>2</0> Monthly price to protect a number, covering carrier registration and spam-label removal.",
+  "k": "<0>2</0> Per connected minute of each call, rounded up to the nearest whole minute. International and premium rate centers can add cost.",
   "page": "pricing.html"
  },
  {
-  "k": "<0>3</0> Inbound calls to your local tracking numbers, billed per minute and rounded up to the nearest full minute. Forwarding the call to a buyer over toll-free or SIP is included in that rate; international and premium rate centers can add cost.",
+  "k": "<0>3</0> A one-time fee when you add a number to your account.",
   "page": "pricing.html"
  },
  {
-  "k": "<0>4</0> Inbound calls to your toll free tracking numbers, billed per minute and rounded up to the nearest full minute. Forwarding the call to a buyer over toll-free or SIP is included in that rate; international and premium rate centers can add cost.",
+  "k": "<0>4</0> Charged only on calls you record, per minute recorded.",
   "page": "pricing.html"
  },
  {
-  "k": "<0>5</0> Outbound dialing to consumers, such as lead automation and scheduled callback calls. It does not apply to inbound calls - connecting a buyer is included in the tracking rates. Outbound calls are billed on call duration, on the billing increment and minimum billable duration configured for your account - the Six Second Billing section of the rate sheet states yours.",
+  "k": "<0>5</0> Each call is screened for spam.",
   "page": "pricing.html"
  },
  {
-  "k": "<0>6</0> Rate per outbound SMS message. Inbound SMS on your local numbers is free; inbound messages on toll-free numbers can bill at your toll-free inbound SMS rate.",
+  "k": "<0>6</0> Charged when an inbound call is declined before routing.",
   "page": "pricing.html"
  },
  {
-  "k": "<0>7</0> Rate per billable schedule step run against a lead, such as a webhook, email, wait or choice. SMS is not billed here; a call a schedule dials is, on top of the call itself. This fee is charged when the following schedule action types are processed: <1>AWS S3 Upload</1> <2>Add To Schedule</2> <3>Block Lead</3> <4>Choice</4> <5>Email</5> <6>FTP Upload</6> <7>Infusionsoft</7> <8>Mailchimp</8> <9>Mailgun</9> <10>Manage Zoho CRM</10> <11>Modify Lead</11> <12>Offer Create</12> <13>Opt-Out Lead</13> <14>Restart Schedule</14> <15>Schedule Create</15> <16>Sengrid</16> <17>Wait For</17> <18>Webhook POST</18>",
+  "k": "Pricing | One portal fee, then only what you use | Avortyx",
   "page": "pricing.html"
  },
  {
-  "k": "<0>8</0> Charged when an inbound call has nowhere eligible to go and is rejected.",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>9</0> Per minute of transcribed audio.",
-  "page": "pricing.html"
- },
- {
-  "k": "<0>10</0> Monthly price per minute of recordings kept beyond the free 90 days.",
-  "page": "pricing.html"
- },
- {
-  "k": "If more than 20% of call attempts in the last 30 days were abandoned (unanswered, 0 seconds), a $0.005 surcharge applies to each call.",
-  "page": "pricing.html"
- },
- {
-  "k": "Pricing | Usage-based, itemized per call | Avortyx",
-  "page": "pricing.html"
- },
- {
-  "k": "Avortyx pricing: usage-based rates with monthly commit discounts, no onboarding fees, and a leg-by-leg cost breakdown on every call.",
+  "k": "Avortyx pricing: a $49.99 portal fee every 30 days, $0.45 per call minute and per-call charges only for what you use, from a prepaid balance. No onboarding fees, every charge itemized.",
   "page": "pricing.html"
  },
  {
@@ -9360,7 +9324,7 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "Effective October 21, 2026",
+  "k": "Effective October 23, 2026",
   "page": "privacy_policy.html"
  },
  {
@@ -9396,7 +9360,7 @@
   "page": "privacy_policy.html"
  },
  {
-  "k": "<0>1.4. The help chat.</0> When you write to our team through the help chat on avortyx.com, we keep your messages, the page you started the chat on and the IP address they came from. We receive your messages and respond to you in the chat. We use the IP address to spot spam and abuse, such as automated messages or many chats started from one address, and to limit how many new chats one network can start in an hour. Chats are kept with our other support records (section 4.1).",
+  "k": "<0>1.4. The help chat.</0> When you write to our team through the help chat on avortyx.com, we keep your messages, the page you started the chat on and the IP address they came from. The first time you write to the team, your browser also stores a random visitor ID (in its local storage, not a cookie) and sends it with your messages, so we can recognise when you come back with another question and see your earlier chats. It contains nothing about you, and you can remove it by clearing your browser’s site data. We receive your messages and respond to you in the chat; our team receives them, together with the page and IP address, through Telegram, which processes them on our behalf. We use the IP address to spot spam and abuse, such as automated messages or many chats started from one address, and to limit how many new chats one network can start in an hour. Chats are kept with our other support records (section 4.1).",
   "page": "privacy_policy.html"
  },
  {
@@ -10840,7 +10804,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "Effective October 14, 2026",
+  "k": "Effective October 24, 2026",
   "page": "terms_of_service.html"
  },
  {
@@ -11092,7 +11056,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "<0>8.1. Fees.</0> You will pay the fees for the Service at the rates on our <1>pricing page</1> or in your Order Form, for the commitment level you choose. Fees are in U.S. dollars and do not include taxes, which you will pay. Your own internet, equipment and similar costs are yours.",
+  "k": "<0>8.1. Fees.</0> You will pay the fees for the Service at the rates on our <1>pricing page</1> or in your Order Form: a portal fee every 30 days plus the calls, numbers and other services you use, drawn from your prepaid balance. Fees are in U.S. dollars and do not include taxes, which you will pay. Your own internet, equipment and similar costs are yours.",
   "page": "terms_of_service.html"
  },
  {
@@ -11104,7 +11068,7 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "inbound calls are billed per minute, rounded up to the next full minute;",
+  "k": "calls are billed per connected minute, rounded up to the next full minute;",
   "page": "terms_of_service.html"
  },
  {
@@ -11112,11 +11076,11 @@
   "page": "terms_of_service.html"
  },
  {
-  "k": "calls rejected because no destination is eligible are charged per call; and",
+  "k": "tracking numbers carry a one-time fee when you add them; and",
   "page": "terms_of_service.html"
  },
  {
-  "k": "a per-call surcharge applies when over a fifth (20%) of the calls you attempted in the past 30 days were abandoned (unanswered, 0 seconds).",
+  "k": "calls rejected before routing are charged per call.",
   "page": "terms_of_service.html"
  },
  {
@@ -11972,10 +11936,6 @@
   "page": "(runtime)"
  },
  {
-  "k": "Compare plans →",
-  "page": "(runtime)"
- },
- {
   "k": "Connect rate <0>{#}%</0>",
   "page": "(runtime)"
  },
@@ -12724,7 +12684,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "Pricing is usage-based with volume discounts and no onboarding fees. Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the nearest full minute. The inbound rates cover both legs of a call connected to a buyer.",
+  "k": "A Standard account is $49.99 for portal access every 30 days plus $0.45 per call minute, rounded up to the nearest whole minute. Each tracking number is a one-time $20.00, and everything is paid from a prepaid balance with no onboarding fees.",
   "page": "(runtime)"
  },
  {
@@ -12817,6 +12777,10 @@
  },
  {
   "k": "SIP support →",
+  "page": "(runtime)"
+ },
+ {
+  "k": "SMS",
   "page": "(runtime)"
  },
  {
@@ -13084,6 +13048,10 @@
   "page": "(runtime)"
  },
  {
+  "k": "Usage",
+  "page": "(runtime)"
+ },
+ {
   "k": "Usage and cost · demo data",
   "page": "(runtime)"
  },
@@ -13172,7 +13140,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "Yes, for high-volume customers, and committed monthly plans come with lower per-minute rates.",
+  "k": "Yes, for high-volume customers: Enterprise accounts get volume-based per-minute rates. Contact our team for a custom quote.",
   "page": "(runtime)"
  },
  {
@@ -13180,7 +13148,7 @@
   "page": "(runtime)"
  },
  {
-  "k": "You can start free: create your Avortyx account and start tracking, routing and selling calls.",
+  "k": "Avortyx is invite-only. Request access and our team reviews it; there are no onboarding fees, just the portal fee and your usage.",
   "page": "(runtime)"
  },
  {
@@ -13521,6 +13489,10 @@
  },
  {
   "k": "Start a new chat",
+  "page": "(runtime)"
+ },
+ {
+  "k": "Contact sales →",
   "page": "(runtime)"
  }
 ]

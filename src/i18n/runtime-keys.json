@@ -130,7 +130,6 @@
  "Close help",
  "Closed now",
  "Cloud Platform Engineer",
- "Compare plans →",
  "Compliance Monitoring Specialist",
  "Connect rate <0>{#}%</0>",
  "Connected",
@@ -361,7 +360,7 @@
  "Press 1 for quotes",
  "Price increase",
  "Price shopper",
- "Pricing is usage-based with volume discounts and no onboarding fees. Tracking numbers have a monthly rate, and inbound calls are billed per minute, rounded up to the nearest full minute. The inbound rates cover both legs of a call connected to a buyer.",
+ "A Standard account is $49.99 for portal access every 30 days plus $0.45 per call minute, rounded up to the nearest whole minute. Each tracking number is a one-time $20.00, and everything is paid from a prepaid balance with no onboarding fees.",
  "Privacy policy →",
  "Priya Shah",
  "Procurement Specialist",
@@ -500,9 +499,9 @@
  "Wrap-up",
  "Yes",
  "Yes, bring your own: connect Plivo or Telnyx, or any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.",
- "Yes, for high-volume customers, and committed monthly plans come with lower per-minute rates.",
+ "Yes, for high-volume customers: Enterprise accounts get volume-based per-minute rates. Contact our team for a custom quote.",
  "Yes, with GEICO.",
- "You can start free: create your Avortyx account and start tracking, routing and selling calls.",
+ "Avortyx is invite-only. Request access and our team reviews it; there are no onboarding fees, just the portal fee and your usage.",
  "Your CV is over {#} MB. Please send a smaller file.",
  "Your email",
  "Your email app should now be open with the message ready. Nothing opened? Write to <0>support@avortyx.com</0>.",
@@ -593,5 +592,6 @@
  "Hi, I’m Maya. Write your message below and we’ll reply right here in this chat.",
  "Hi, I’m Jordan. Write your message below and we’ll reply right here in this chat.",
  "Hi, I’m Milena. Write your message below and we’ll reply right here in this chat.",
- "Start a new chat"
+ "Start a new chat",
+ "Contact sales →"
 ]

@@ -15,6 +15,7 @@ const LEGAL_EMAIL = 'hello@avortyx.io'
 
 export const TERMS = {
   title: 'Avortyx Terms of Service',
+  updated: 'October 24, 2026',
   intro: [
     'These Terms of Service (the “Terms”) set out the agreement between you and Avortyx (“we”, “us” or “our”). They govern the Avortyx platform, its web application, APIs, phone numbers and related services, and the avortyx.com website (together, the “Service”).',
     ['strong', 'Please read Section 20 closely: it sends most disputes to individual arbitration and waives class actions. Section 9 makes you responsible for claims that come from how you use the Service.'],
@@ -92,14 +93,14 @@ export const TERMS = {
       ['sub', '7.6', 'No emergency calling', 'The Service cannot be used to call 911, E911 or any other emergency number and does not replace a landline or mobile phone. Everyone who uses Avortyx numbers for you must have another way to reach emergency services. We are not liable if emergency services cannot be reached through the Service. See the [[Emergency Calling (911) Notice|/legal?doc=10]].'],
     ]],
     ['8. Fees and payment', [
-      ['sub', '8.1', 'Fees', 'You will pay the fees for the Service at the rates on our [[pricing page|/pricing]] or in your Order Form, for the commitment level you choose. Fees are in U.S. dollars and do not include taxes, which you will pay. Your own internet, equipment and similar costs are yours.'],
+      ['sub', '8.1', 'Fees', 'You will pay the fees for the Service at the rates on our [[pricing page|/pricing]] or in your Order Form: a portal fee every 30 days plus the calls, numbers and other services you use, drawn from your prepaid balance. Fees are in U.S. dollars and do not include taxes, which you will pay. Your own internet, equipment and similar costs are yours.'],
       ['sub', '8.2', 'Billing details', 'You confirm that you are entitled to use the payment method you give us and that your billing details are accurate. We use third-party payment processors and may give them the information they need to take payment.'],
       ['sub', '8.3', 'How usage is measured', 'Usage is billed in the increments shown on the pricing page or your rate sheet. Unless your rate sheet says otherwise:'],
       ['ul', [
-        'inbound calls are billed per minute, rounded up to the next full minute;',
+        'calls are billed per connected minute, rounded up to the next full minute;',
         'outbound calls are billed with a 12-second minimum and then in 6-second increments;',
-        'calls rejected because no destination is eligible are charged per call; and',
-        'a per-call surcharge applies when over a fifth (20%) of the calls you attempted in the past 30 days were abandoned (unanswered, 0 seconds).',
+        'tracking numbers carry a one-time fee when you add them; and',
+        'calls rejected before routing are charged per call.',
       ]],
       ['sub', '8.4', 'Carrier charges', 'If a carrier or regulator charges administrative fees, traceback fees, fines or surcharges because of your traffic or Content, you will pay them, and you authorize us to charge them to your account or payment method.'],
       ['sub', '8.5', 'Keeping a positive balance', 'Keep your balance above zero. If it stays below $0 for ninety (90) days in a row, call recording retention on your account is cut to ninety (90) days and every recording older than that is permanently deleted.'],
