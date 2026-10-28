@@ -5,17 +5,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "avortyx-prototype.vercel.app"
-        }
-      ],
-      "destination": "https://www.avortyx.com/:path*",
-      "permanent": true
-    },
-    {
       "source": "/features/ping_post",
       "destination": "/features",
       "permanent": false
