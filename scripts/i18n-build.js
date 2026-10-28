@@ -14,7 +14,7 @@ const { translate, template } = globalThis.AVXI18N
 
 export const LANGS = ['ru', 'ja', 'zh']
 const HTML_LANG = { en: 'en', ru: 'ru', ja: 'ja', zh: 'zh-Hans' }
-const SITE = 'https://avortyx-prototype.vercel.app'
+const SITE = 'https://www.avortyx.com'
 
 export function loadDict(lang) {
   const dir = join(root, 'src/i18n', lang)

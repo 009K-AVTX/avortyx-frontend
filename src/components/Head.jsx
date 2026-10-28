@@ -1,4 +1,4 @@
-export const SITE = 'https://avortyx-prototype.vercel.app'
+export const SITE = 'https://www.avortyx.com'
 const OG_IMAGE = SITE + '/og-image.png?v=2'
 
 // hides <main> until motion.js has built the page; pages can override it (the landing

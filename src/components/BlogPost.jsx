@@ -50,7 +50,7 @@ export default function BlogPost({ post }) {
   ].slice(0, 3)
   const ld = {
     '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, description: post.excerpt,
-    datePublished: post.date, image: `https://avortyx-prototype.vercel.app${coverSrc(post.slug)}`,
+    datePublished: post.date, image: `https://www.avortyx.com${coverSrc(post.slug)}`,
     author: { '@type': 'Organization', name: 'Avortyx' }, publisher: { '@type': 'Organization', name: 'Avortyx' },
   }
   return (

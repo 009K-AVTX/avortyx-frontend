@@ -63,8 +63,8 @@ npm run preview   # serve dist/
 ```
 
 Deploy with `vercel --prod` from this folder. Live at https://www.avortyx.com (Vercel project
-`trackdrive.net-clone`, which also serves https://avortyx-prototype.vercel.app); `avortyx.com`
-redirects to www. DNS is at Hostinger: `@` and `www` point at Vercel, `api` at the backend's VPS.
+`trackdrive.net-clone`). `avortyx.com` and the old https://avortyx-prototype.vercel.app (a host
+redirect in `vercel.json`) redirect to www. DNS is at Hostinger: `@` and `www` point at Vercel, `api` at the backend's VPS.
 
 ## Careers applications
 
