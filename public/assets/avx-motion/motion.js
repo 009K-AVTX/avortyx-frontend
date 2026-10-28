@@ -1974,7 +1974,7 @@
 
   function demoShell(path, foot) {
     return el('div', 'avx-console avx-demo',
-      '<div class="avx-cs-bar"><i></i><i></i><i></i><span class="avx-cs-path">app.avortyx.com / <b>' + path + '</b></span>' +
+      '<div class="avx-cs-bar"><i></i><i></i><i></i><span class="avx-cs-path">app.avortyx.io / <b>' + path + '</b></span>' +
       '<span class="avx-cs-live"><i class="avx-live-dot"></i>Live</span></div>' +
       '<div class="avx-cs-body"></div><div class="avx-cs-foot">' + foot + ' · demo data</div>');
   }
@@ -3187,7 +3187,7 @@
   function initWindows() {
     document.querySelectorAll('main img.img-fluid.rounded.border, main img.img-fluid.rounded.shadow-sm').forEach(function (im) {
       if (im.closest('.modal, .avx-window') || im.classList.contains('avx-replaced')) return;
-      var w = el('div', 'avx-window', '<div class="avx-window-bar"><i></i><i></i><i></i><span>app.avortyx.com</span></div>');
+      var w = el('div', 'avx-window', '<div class="avx-window-bar"><i></i><i></i><i></i><span>app.avortyx.io</span></div>');
       // spacing utilities move to the frame so the layout stays put
       im.className.split(/\s+/).forEach(function (c) {
         if (/^m[tbsexy]?-(\d|auto)/.test(c)) { w.classList.add(c); im.classList.remove(c); }
@@ -4023,7 +4023,7 @@
 
   // ---------- Screenshot zoom: enlarge in place, in the same dark app window ----------
   // The links point at the original light captures on the CDN; opening those in a tab
-  // would drop the dark rendering and the app.avortyx.com frame, so they open here instead.
+  // would drop the dark rendering and the app.avortyx.io frame, so they open here instead.
 
   function initZoom() {
     var box = null, last = null, prevOverflow = '';
@@ -4036,7 +4036,7 @@
     function build() {
       box = el('div', 'avx-zoom',
         '<div class="avx-zoom-inner"><div class="avx-window avx-zoom-window">' +
-        '<div class="avx-window-bar"><i></i><i></i><i></i><span>app.avortyx.com</span>' +
+        '<div class="avx-window-bar"><i></i><i></i><i></i><span>app.avortyx.io</span>' +
         '<button type="button" class="avx-zoom-close" aria-label="Close">&times;</button></div>' +
         '<img alt="" decoding="async"></div><p class="avx-zoom-cap"></p></div>');
       box.setAttribute('role', 'dialog');

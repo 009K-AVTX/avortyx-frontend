@@ -934,7 +934,7 @@ export default function Home() {
                   <i />
                   <i />
                   <i />
-                  <span className="avx-cs-path">app.avortyx.com / <b>ask</b></span>
+                  <span className="avx-cs-path">app.avortyx.io / <b>ask</b></span>
                   <span className="avx-cs-live"><i className="avx-live-dot" />AI</span>
                 </div>
                 <div className="avx-ask-log" aria-live="polite">
@@ -966,7 +966,7 @@ export default function Home() {
                   <i />
                   <i />
                   <i />
-                  <span className="avx-cs-path">app.avortyx.com / calls / <b>live transcript</b></span>
+                  <span className="avx-cs-path">app.avortyx.io / calls / <b>live transcript</b></span>
                   <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
                 </div>
                 <div className="avx-listen-body">
@@ -1000,7 +1000,7 @@ export default function Home() {
                 <div className="avx-console avx-shield-demo" data-avx-shield="" role="img" aria-label="Live screening: each call is checked for spam, duplicates, DNC, line type and consent, then routed or blocked before dialing (demo data)">
                   <div className="avx-cs-bar">
                     <i /><i /><i />
-                    <span className="avx-cs-path">app.avortyx.com / <b>screening</b></span>
+                    <span className="avx-cs-path">app.avortyx.io / <b>screening</b></span>
                     <span className="avx-cs-live"><i className="avx-live-dot" />Live</span>
                   </div>
                   <div className="avx-sh">

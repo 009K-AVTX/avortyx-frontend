@@ -604,7 +604,7 @@
   "page": "index.html"
  },
  {
-  "k": "app.avortyx.com / <0>ask</0>",
+  "k": "app.avortyx.io / <0>ask</0>",
   "page": "index.html"
  },
  {
@@ -648,7 +648,7 @@
   "page": "index.html"
  },
  {
-  "k": "app.avortyx.com / calls / <0>live transcript</0>",
+  "k": "app.avortyx.io / calls / <0>live transcript</0>",
   "page": "index.html"
  },
  {
@@ -680,7 +680,7 @@
   "page": "index.html"
  },
  {
-  "k": "app.avortyx.com / <0>screening</0>",
+  "k": "app.avortyx.io / <0>screening</0>",
   "page": "index.html"
  },
  {
@@ -13176,51 +13176,51 @@
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com",
+  "k": "app.avortyx.io",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / <0>agent</0>",
+  "k": "app.avortyx.io / <0>agent</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / <0>automations</0>",
+  "k": "app.avortyx.io / <0>automations</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / <0>call-flows</0>",
+  "k": "app.avortyx.io / <0>call-flows</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / <0>calls</0>",
+  "k": "app.avortyx.io / <0>calls</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / <0>dialer</0>",
+  "k": "app.avortyx.io / <0>dialer</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / <0>ping-post</0>",
+  "k": "app.avortyx.io / <0>ping-post</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / ping-post / <0>dashboard</0>",
+  "k": "app.avortyx.io / ping-post / <0>dashboard</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / ping-post / <0>ping-log</0>",
+  "k": "app.avortyx.io / ping-post / <0>ping-log</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / ping-post / <0>sources</0>",
+  "k": "app.avortyx.io / ping-post / <0>sources</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / ping-post / <0>usage</0>",
+  "k": "app.avortyx.io / ping-post / <0>usage</0>",
   "page": "(runtime)"
  },
  {
-  "k": "app.avortyx.com / voice agents / <0>medicare intake</0>",
+  "k": "app.avortyx.io / voice agents / <0>medicare intake</0>",
   "page": "(runtime)"
  },
  {
