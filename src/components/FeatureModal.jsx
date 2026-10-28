@@ -1,5 +1,5 @@
 // Shell for the feature pop-up. site.js fills the body with the clicked feature page and
-// points "Open full page" at it.
+// points "Open Full Page" at it.
 export default function FeatureModal({ fullPageHref }) {
   return (
     <div className="modal fade feature-modal" id="featureModal" tabIndex="-1" aria-hidden="true" aria-label="Feature details">
@@ -7,7 +7,7 @@ export default function FeatureModal({ fullPageHref }) {
         <div className="modal-content">
           <div className="feature-modal-actions">
             <a className="feature-modal-fullpage" href={fullPageHref} target="_blank" rel="noopener">
-              {' '}<i className="fa-solid fa-up-right-from-square me-1" aria-hidden="true" />Open full page{' '}
+              {' '}<i className="fa-solid fa-up-right-from-square me-1" aria-hidden="true" />Open Full Page{' '}
             </a>
             {' '}
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />

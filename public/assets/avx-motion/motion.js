@@ -8,6 +8,13 @@
   // the page's path without its /ru, /ja or /zh language prefix
   function avxPath() { return location.pathname.replace(/^\/(ru|ja|zh)(?=\/|$)/, '') || '/'; }
 
+  // the page language's version of a string (runtime.js), for text typed or streamed in piece by
+  // piece: the translator only recognises whole strings, so a half-typed line would show English
+  function tr(s) { return window.AVXT ? window.AVXT(s) : s; }
+  // the pieces a line streams in by: words, or a couple of characters for Japanese and Chinese
+  function pieces(s) { return /\s/.test(s) ? s.split(' ') : s.match(/[\s\S]{1,2}/g) || []; }
+  function joiner(s) { return /\s/.test(s) ? ' ' : ''; }
+
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
@@ -3672,16 +3679,17 @@
       log.appendChild(qn);
       var d = key ? ASK[key] : null;
       var an = el('div', 'avx-ask-a', '<span class="avx-ask-av" aria-hidden="true"></span><div class="avx-ask-msg"><p class="avx-ask-status"><i></i><i></i><i></i> <span></span></p><p class="avx-ask-text"></p></div>');
-      an.querySelector('.avx-ask-status span').textContent = d ? d.status : 'Thinking';
+      an.querySelector('.avx-ask-status span').textContent = tr(d ? d.status : 'Thinking');
       log.appendChild(an);
       scrollEnd();
-      var words = (d ? d.a : ASK_FALLBACK).split(' '), n = 0, out = an.querySelector('.avx-ask-text');
+      var answer = tr(d ? d.a : ASK_FALLBACK), gap = joiner(answer);
+      var words = pieces(answer), n = 0, out = an.querySelector('.avx-ask-text');
       setTimeout(function () {
         var st = an.querySelector('.avx-ask-status');
         st.parentNode.removeChild(st);
         (function stream() {
           if (n < words.length) {
-            out.textContent += (n ? ' ' : '') + words[n++];
+            out.textContent += (n ? gap : '') + words[n++];
             scrollEnd();
             setTimeout(stream, reduced ? 0 : 26 + Math.random() * 30);
             return;
@@ -3698,7 +3706,7 @@
       }, reduced ? 0 : 900);
     }
     panel.querySelectorAll('.avx-ask-chips button').forEach(function (b) {
-      b.addEventListener('click', function () { touched = true; clearTimeout(demoTimer); ask(ASK[b.dataset.q].q, b.dataset.q); });
+      b.addEventListener('click', function () { touched = true; clearTimeout(demoTimer); ask(tr(ASK[b.dataset.q].q), b.dataset.q); });
     });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -3713,7 +3721,7 @@
     return function autoplay() {
       if (touched || reduced || panel.dataset.played) return;
       panel.dataset.played = '1';
-      var text = ASK.margin.q, i = 0;
+      var text = tr(ASK.margin.q), i = 0;
       demoTimer = setTimeout(function typeQ() {
         if (touched) return;
         input.value = text.slice(0, ++i);
@@ -3762,10 +3770,10 @@
         later(t, function () {
           var li = el('li', 'avx-ls-' + ln[0].toLowerCase(), '<b>' + ln[0] + '</b><p></p>');
           lines.appendChild(li);
-          var p = li.querySelector('p'), words = ln[1].split(' '), n = 0;
+          var line = tr(ln[1]), gap = joiner(line), p = li.querySelector('p'), words = pieces(line), n = 0;
           (function word() {
-            if (n >= words.length) { p.innerHTML = esc(ln[1]).replace(LISTEN_MARK, '<mark>$1</mark>'); return; }
-            p.textContent += (n ? ' ' : '') + words[n++];
+            if (n >= words.length) { p.innerHTML = esc(line).replace(LISTEN_MARK, '<mark>$1</mark>'); return; }
+            p.textContent += (n ? gap : '') + words[n++];
             timers.push(setTimeout(word, 90));
           })();
           lines.scrollTop = lines.scrollHeight;
@@ -3773,7 +3781,7 @@
           drawSpark(vals);
           (ln[3] || []).forEach(function (tp, i) { later(500 + i * 200, function () { topics.appendChild(el('span', '', tp)); }); });
         });
-        t += 700 + ln[1].split(' ').length * 90;
+        t += 700 + pieces(tr(ln[1])).length * 90;
       });
       later(t + 300, function () { sum.textContent = LISTEN_SUM; sum.classList.add('avx-on'); clearInterval(clockTimer); });
       later(t + 7000, function () { if (on) run(); });

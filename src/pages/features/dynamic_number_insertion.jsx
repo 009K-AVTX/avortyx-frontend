@@ -1,7 +1,7 @@
 // /features/dynamic_number_insertion.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Dynamic Number Insertion | Know which ad made the phone ring | Avortyx",
+  title: "Dynamic Number Insertion | Know Which Ad Made the Phone Ring | Avortyx",
   description: "Avortyx shows each website visitor a tracking number tied to their source, so every call arrives with its campaign, keyword and tokens attached.",
   bodyClass: "avortyx_marketing features_dynamic_number_insertion ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function DynamicNumberInsertion() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Tracking & Attribution</p>
           <h1 className="fw-bold mb-2">Dynamic Number Insertion</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Show each visitor a number tied to how they found you, so every call arrives already knowing its source.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Show Each Visitor a Number Tied to How They Found You, So Every Call Arrives Already Knowing Its Source.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -60,10 +60,10 @@ export default function DynamicNumberInsertion() {
             </div>
             <p>Clicks leave a trail; phone calls usually do not. Avortyx swaps the number on your site to match each visitor’s source, so when they call, the campaign, keyword and any custom tokens are already on the call record, and the routing engine can use them on the first ring.</p>
             <ul className="text-muted">
-              <li><strong>One snippet</strong> — add a single line of JavaScript to your pages.</li>
-              <li><strong>Any signal you track</strong> — numbers by source, URL keyword or custom token.</li>
+              <li><strong>One Snippet</strong> — add a single line of JavaScript to your pages.</li>
+              <li><strong>Any Signal You Track</strong> — numbers by source, URL keyword or custom token.</li>
               <li>
-                <strong>Attribution without effort</strong>
+                <strong>Attribution Without Effort</strong>
                 {" "}— Avortyx recognizes where each visitor came from and shows the matching number, so source reporting fills itself in.
               </li>
             </ul>
@@ -72,7 +72,7 @@ export default function DynamicNumberInsertion() {
               <a href="/features/api">Avortyx REST API</a>
               {" "}can assign numbers from a pool for server-rendered pages and apps.
             </p>
-            <h3>Setting it up</h3>
+            <h3>Setting It Up</h3>
             <ol className="text-muted">
               <li>Create a number pool for the campaign, sized for your traffic.</li>
               <li>Add the Avortyx snippet to the pages that show your phone number.</li>
@@ -85,7 +85,7 @@ export default function DynamicNumberInsertion() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

@@ -1,7 +1,7 @@
 // /features/integrations.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Integrations | Connect Avortyx to your stack | Avortyx",
+  title: "Integrations | Connect Avortyx to Your Stack | Avortyx",
   description: "Connect Avortyx to your carriers, trackers, CRMs and ad platforms, so call data flows wherever your team works.",
   bodyClass: "avortyx_marketing features_integrations ",
   layout: "site",
@@ -183,7 +183,7 @@ export default function Integrations() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

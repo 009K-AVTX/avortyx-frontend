@@ -1,7 +1,7 @@
 // /features/voluum.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Voluum + Avortyx | Phone conversions in your Voluum campaigns",
+  title: "Voluum + Avortyx | Phone Conversions in Your Voluum Campaigns",
   description: "Send Avortyx call conversions to Voluum with the click ID and payout, so campaign ROI includes the revenue from calls.",
   bodyClass: "avortyx_marketing features_custom_webhook ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function Voluum() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Tracking & Attribution</p>
           <h1 className="fw-bold mb-2">Voluum + Avortyx</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Bring phone-call conversions and their revenue into Voluum, so campaign ROI includes the calls.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Bring Phone-Call Conversions and Their Revenue into Voluum, So Campaign ROI Includes the Calls.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -60,14 +60,14 @@ export default function Voluum() {
             </div>
             <p>Media buyers optimize in Voluum, but a click that turns into a call looks like a dead end there. Avortyx posts each qualified call back to Voluum with its click ID and payout, so the call shows up as the conversion it was.</p>
             <ul className="text-muted">
-              <li><strong>Click IDs kept with the call</strong> — dynamic number insertion and URL tokens carry the Voluum click ID from the landing page onto the call record.</li>
-              <li><strong>Only qualified calls count</strong> — send the postback on a converted disposition, a minimum duration or a buyer payout, never on a ring that went nowhere.</li>
-              <li><strong>Revenue included</strong> — pass the payout from the call record so Voluum reports real earnings, not just conversion counts.</li>
-              <li><strong>Every attempt logged</strong> — each postback and Voluum’s response is stored on the call, so a missing conversion can be traced in seconds.</li>
+              <li><strong>Click IDs Kept with the Call</strong> — dynamic number insertion and URL tokens carry the Voluum click ID from the landing page onto the call record.</li>
+              <li><strong>Only Qualified Calls Count</strong> — send the postback on a converted disposition, a minimum duration or a buyer payout, never on a ring that went nowhere.</li>
+              <li><strong>Revenue Included</strong> — pass the payout from the call record so Voluum reports real earnings, not just conversion counts.</li>
+              <li><strong>Every Attempt Logged</strong> — each postback and Voluum’s response is stored on the call, so a missing conversion can be traced in seconds.</li>
             </ul>
-            <h3>Optimize on the full picture</h3>
+            <h3>Optimize on the Full Picture</h3>
             <p>Once calls count in Voluum, it shows which campaigns, landers and traffic sources bring in callers who convert, so you can shift budget with confidence instead of cutting campaigns that quietly perform on the phone.</p>
-            <h3>Built on Avortyx webhooks</h3>
+            <h3>Built on Avortyx Webhooks</h3>
             <p>The postback is an Avortyx <a href="/features/custom_webhook">custom webhook</a>: choose the conversion event, map the click ID and payout tokens into the URL, and Avortyx fires it the moment the call qualifies. Use <a href="/features/formulas">expressions</a> when a value needs reshaping first.</p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
               <a href="/features/custom_webhook" className="btn btn-td-green">Custom Webhooks</a>
@@ -80,7 +80,7 @@ export default function Voluum() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

@@ -7,7 +7,7 @@ import Navbar from './Navbar.jsx'
 // support group on Telegram. The live backend unless VITE_CHAT_URL says otherwise (a local one).
 const CHAT_URL = import.meta.env.VITE_CHAT_URL || 'https://api.avortyx.com/chat'
 
-// Every page: the navbar (or, on feature pages, the "View full page" strip), the page's
+// Every page: the navbar (or, on feature pages, the "View Full Page" strip), the page's
 // <main>, the footer, the feature pop-up shell and the help chat's backend address.
 export default function Layout({ route, layout, children }) {
   const home = route === '/'

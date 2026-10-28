@@ -20,14 +20,14 @@ export default function Blog() {
         <div className="container">
           <p className="avx-eyebrow">Signals &amp; Field Notes</p>
           <h1 className="fw-bold">Advanced Playbooks For Call Intelligence, Real-Time Routing, And Pay-Per-Call Growth</h1>
-          <p className="lead">What we have learned routing calls for pay-per-call networks: margin, attribution, compliance and AI, written for the people running campaigns.</p>
+          <p className="lead">What We Have Learned Routing Calls for Pay-per-Call Networks: Margin, Attribution, Compliance and AI, Written for the People Running Campaigns.</p>
         </div>
       </section>
       <section className="avx-blog-list">
         <div className="container">
           <BlogCard post={featured} large headingLevel={2} />
           <div className="avx-blog-filters" role="group" aria-label="Filter posts by topic" data-avx-blog-filter="">
-            <button type="button" className="avx-on" aria-pressed="true" data-cat="">All posts</button>
+            <button type="button" className="avx-on" aria-pressed="true" data-cat="">All Posts</button>
             {CATEGORIES.map((c) => (
               <button key={c} type="button" aria-pressed="false" data-cat={c}>{c}</button>
             ))}
@@ -41,8 +41,8 @@ export default function Blog() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Put it into practice</h2>
-          <p className="marketing-cta-band__subtitle">Know where each call came from, send it to a buyer who can take it, and see what it earned.</p>
+          <h2 className="marketing-cta-band__title">Put It into Practice</h2>
+          <p className="marketing-cta-band__subtitle">Know Where Each Call Came from, Send It to a Buyer Who Can Take It, and See What It Earned.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}

@@ -14,7 +14,7 @@ export const SUPPORT = 'support@avortyx.com'
 export const GROUPS = [
   ['Agreements', ['01', '02', '05', '08', '09']],
   ['Policies', ['03', '04', '06', '07', '10', '11']],
-  ['Brand & programs', ['12', '13']],
+  ['Brand & Programs', ['12', '13']],
 ]
 
 export const DOCS = [
@@ -27,7 +27,7 @@ export const DOCS = [
   {
     id: '02',
     title: 'Privacy Policy',
-    summary: 'How Avortyx collects, uses and protects personal information.',
+    summary: 'How Avortyx Collects, Uses and Protects Personal Information.',
     href: '/privacy_policy',
   },
   {
@@ -40,7 +40,7 @@ export const DOCS = [
         'This Acceptable Use Policy ("AUP") applies to everyone who uses the Avortyx platform, including customers, their users, publishers and buyers who connect to it. It forms part of the Terms of Service. Capitalized terms not defined here have the meaning given in the Terms of Service.',
         'Avortyx carries live calls and messages over upstream carrier networks. Misuse by one account can harm callers, carriers and every other customer, so we enforce this policy actively.',
       ]],
-      ['2. Prohibited uses', [
+      ['2. Prohibited Uses', [
         'You may not use the platform, or allow anyone to use it, to:',
         ['ul', [
           'Place calls or send messages without the consent required by the Telephone Consumer Protection Act (TCPA), the Telemarketing Sales Rule, state telemarketing laws or carrier rules.',
@@ -54,13 +54,13 @@ export const DOCS = [
           'Probe, scan or test the platform\'s security, interfere with its operation, or attempt to access accounts or data that are not yours.',
         ]],
       ]],
-      ['3. Traffic quality', [
+      ['3. Traffic Quality', [
         'Abandoned, unanswered and rejected calls place load on carrier networks. When over a fifth (20%) of the calls an account tried to place in the past 30 days went unanswered (abandoned at 0 seconds), or calls are repeatedly rejected for lack of an eligible destination, Avortyx may limit call volume or ask you to correct the traffic source. Rejected calls are charged per call, at the rate on the pricing page.',
       ]],
-      ['4. Monitoring and enforcement', [
+      ['4. Monitoring and Enforcement', [
         'Avortyx may review campaigns, call metadata, recordings and messages to confirm compliance with this AUP, applicable law and carrier requirements. If we believe a violation has occurred we may, with or without notice: suspend numbers, campaigns or the account; block specific traffic; pass through carrier fines, traceback fees or penalties caused by your traffic; and cooperate with carriers, the Industry Traceback Group, regulators and law enforcement.',
       ]],
-      ['5. Reporting abuse', [
+      ['5. Reporting Abuse', [
         `Report suspected abuse of an Avortyx number to ${SUPPORT} with the number, date and time, and a short description. We review every report.`,
       ]],
     ],
@@ -70,13 +70,13 @@ export const DOCS = [
     title: 'TCPA & Consent Compliance Policy',
     summary: 'Your responsibilities for consent, Do Not Call, suppression and record-keeping, and the tools Avortyx provides.',
     sections: [
-      ['1. Your responsibility', [
+      ['1. Your Responsibility', [
         'You are solely responsible for making sure that every call and message you place, route or receive through Avortyx complies with the TCPA, the Telemarketing Sales Rule, state telemarketing and mini-TCPA laws, and carrier policies. Avortyx\'s compliance tools help you meet those obligations; they do not transfer them to Avortyx and are not legal advice.',
       ]],
       ['2. Consent', [
         'Where consent is required, you must obtain prior express written consent that clearly names you and Avortyx as parties who may contact the consumer, discloses the use of automated technology and pre-recorded messages where applicable, and states that agreeing is not required to buy anything. What the consent wording must cover is set out in section 5.2 of the Terms of Service.',
       ]],
-      ['3. Consent records', [
+      ['3. Consent Records', [
         'Keep consent records for at least five (5) years, or longer where law requires. Each record must include:',
         ['ul', [
           'Opt-in date and time',
@@ -88,13 +88,13 @@ export const DOCS = [
         ]],
         'You must produce consent records to Avortyx on request within the time stated in the Terms of Service.',
       ]],
-      ['4. Do Not Call and suppression', [
+      ['4. Do Not Call and Suppression', [
         'Scrub your lists against the National Do Not Call Registry, applicable state lists and your internal Do Not Call list before every campaign. Where Avortyx provides a suppression list, clean your lists against it no less than once in any three (3) business days, and never call or text a number on it.',
       ]],
-      ['5. Tools Avortyx provides', [
+      ['5. Tools Avortyx Provides', [
         'Depending on your plan and configuration, Avortyx can screen each attempt before it reaches a buyer against federal, state and internal DNC lists, check for consent proof, flag VoIP and velocity fraud signals, and apply per-state two-party recording rules. The screening decision is stored on the call record and can be exported for audit. These tools reduce risk; they do not guarantee compliance.',
       ]],
-      ['6. Litigation and complaints', [
+      ['6. Litigation and Complaints', [
         'If you receive a complaint, demand letter or lawsuit about traffic that used Avortyx, notify us promptly as required by the Terms of Service, and preserve all related records.',
       ]],
     ],
@@ -117,10 +117,10 @@ export const DOCS = [
       ['3. Exclusions', [
         'Downtime does not include time caused by: scheduled maintenance announced in advance; upstream carrier, internet or third-party outages; force majeure events; your equipment, destinations, buyers or integrations; suspension under the Terms of Service or the Acceptable Use Policy; or traffic that exceeds agreed limits.',
       ]],
-      ['4. Service credits', [
+      ['4. Service Credits', [
         'If Avortyx misses the commitment in a month, you may request a service credit against future fees. Credit amounts are set out in your Order Form. Credits are your sole and exclusive remedy for missing this SLA, are not refundable as cash, and cannot exceed the fees for the affected month.',
       ]],
-      ['5. How to claim', [
+      ['5. How to Claim', [
         `Email ${SUPPORT} within 30 days after the end of the affected month with your account name, the dates and times of the outage, and affected numbers or campaigns.`,
       ]],
     ],
@@ -131,7 +131,7 @@ export const DOCS = [
     updated: 'October 24, 2026',
     summary: 'How usage is billed, how to cancel, and when refunds apply.',
     sections: [
-      ['1. Usage-based billing', [
+      ['1. Usage-Based Billing', [
         'Avortyx bills from your prepaid balance at the rates on the pricing page or in your Order Form, with no onboarding fees. Enterprise accounts can have volume-based rates. Charges are:',
         ['ul', [
           'Platform access: one flat fee each month.',
@@ -141,10 +141,10 @@ export const DOCS = [
           'Call recording, VoIP Shield and rejected calls: at the rates on the pricing page.',
         ]],
       ]],
-      ['2. Surcharges and pass-through fees', [
+      ['2. Surcharges and Pass-Through Fees', [
         'Calls rejected before routing are charged per call. Carrier administrative fees, traceback fees and penalties caused by your traffic are passed through to your account.',
       ]],
-      ['3. Balance and payment', [
+      ['3. Balance and Payment', [
         'Keep a positive balance. If usage exceeds your deposit or fees go unpaid, Avortyx may suspend the account. If your balance remains negative for ninety (90) days in a row, recording retention drops to ninety (90) days and anything older is deleted for good.',
       ]],
       ['4. Cancellation', [
@@ -162,22 +162,22 @@ export const DOCS = [
     updated: 'October 24, 2026',
     summary: 'How long Avortyx keeps recordings, logs and personal information, and how deletion works.',
     sections: [
-      ['1. Call recordings', [
+      ['1. Call Recordings', [
         'Call recording is charged only on the calls you record, per minute recorded, at the rate on the pricing page. You can delete recordings at any time.',
       ]],
-      ['2. Recording consent', [
+      ['2. Recording Consent', [
         'Some states require every party to a call to consent to recording. You are responsible for giving the notice and obtaining the consent that applies to each call. Avortyx can apply per-state two-party recording rules to help you do this.',
       ]],
-      ['3. Automated redaction', [
+      ['3. Automated Redaction', [
         'By default, ninety (90) days after data goes inactive the platform masks or removes the personal details in it and in system logs, such as names, dates of birth and street addresses. You may be able to change this period for your account; if you do, you are responsible for the retention you choose.',
       ]],
-      ['4. Consent records', [
+      ['4. Consent Records', [
         'Consent records you keep for TCPA purposes must be kept for at least five (5) years. Because redaction can remove personal information from inactive data, keep your consent records in your own systems as well, as the Terms of Service require.',
       ]],
-      ['5. After cancellation or non-payment', [
+      ['5. After Cancellation or Non-Payment', [
         'When an account is closed, call logs and recordings become inaccessible. If an account’s balance is negative for ninety (90) days in a row, every recording more than ninety (90) days old is deleted for good.',
       ]],
-      ['6. Legal holds', [
+      ['6. Legal Holds', [
         'Avortyx may keep data longer where needed to meet a legal obligation, respond to lawful requests, resolve disputes or enforce our agreements.',
       ]],
     ],
@@ -190,10 +190,10 @@ export const DOCS = [
       ['1. Registration', [
         'Application-to-person (A2P) messaging on local numbers requires 10DLC brand and campaign registration, and toll-free messaging requires toll-free verification. Messages from unregistered or unverified numbers may be blocked or filtered by carriers.',
       ]],
-      ['2. Consent and opt-out', [
+      ['2. Consent and Opt-Out', [
         'Send messages only to people who have given the consent required for that type of message. Honor STOP and other opt-out keywords immediately, and respond to HELP with your business name and contact details.',
       ]],
-      ['3. Privacy policy requirement', [
+      ['3. Privacy Policy Requirement', [
         'Messaging requires a privacy policy that anyone can read on your website. Under A2P 10DLC rules it has to say that you never sell or hand over mobile numbers, SMS consent or messaging data to any third party for its marketing purposes.',
       ]],
       ['4. Content', [
@@ -209,13 +209,13 @@ export const DOCS = [
     title: 'AI Features Terms',
     summary: 'Terms for call scoring, transcription and other AI-powered features.',
     sections: [
-      ['1. What these cover', [
+      ['1. What These Cover', [
         'These terms apply when you use AI-powered features in Avortyx, such as intent scoring, transcription and call summaries. They add to the Terms of Service.',
       ]],
       ['2. Outputs', [
         'AI outputs are generated automatically and can be inaccurate or incomplete. Review outputs before relying on them for routing, payout, compliance or employment decisions. You are responsible for how you use outputs.',
       ]],
-      ['3. Third-party providers', [
+      ['3. Third-Party Providers', [
         'Some AI features are provided by third-party model or voice providers. Where you connect your own provider, your use of that provider is governed by your agreement with them. Call audio and transcripts sent to a provider are processed as described in the Privacy Policy.',
       ]],
       ['4. Disclosures', [
@@ -231,13 +231,13 @@ export const DOCS = [
     title: 'Emergency Calling (911) Notice',
     summary: 'Avortyx numbers are for tracking and routing business calls, not for emergency calls.',
     sections: [
-      ['1. No emergency calling', [
+      ['1. No Emergency Calling', [
         'Avortyx is a platform for tracking and routing calls. Avortyx numbers do not support 911 or E911 calling, and the service is not a replacement for a landline or mobile phone service.',
       ]],
-      ['2. Your users', [
+      ['2. Your Users', [
         'Make sure everyone who uses Avortyx numbers on your behalf, including agents and call centers, has another way to reach emergency services.',
       ]],
-      ['3. No liability', [
+      ['3. No Liability', [
         'Avortyx bears no responsibility if emergency services cannot be reached through the platform.',
       ]],
     ],
@@ -248,17 +248,17 @@ export const DOCS = [
     updated: 'October 21, 2026',
     summary: 'The cookies and browser storage the Avortyx website uses, and how to control them.',
     sections: [
-      ['1. What we use', [
+      ['1. What We Use', [
         ['ul', [
           'Essential: the OKCookie cookie, which remembers that you accepted the cookie notice.',
           'Functional: the help chat conversation while you browse (avx-help-2, kept only for the browser session); once you write to our team, a reference to that chat (avx-help-live-2, used for up to 7 days) so their answer is waiting when you come back; and a preview setting our team uses to review page designs (avx-preview).',
           'Analytics: Google Analytics, to count visits and see which pages, links and features are used.',
         ]],
       ]],
-      ['2. Your choices', [
+      ['2. Your Choices', [
         'You can block or delete cookies and site data in your browser settings. Blocking essential storage may stop parts of the site from working. You can opt out of Google Analytics with Google\'s browser add-on.',
       ]],
-      ['3. The platform', [
+      ['3. The Platform', [
         'The Avortyx application uses cookies to keep you signed in and secure your session. Those cookies are necessary for the service and cannot be turned off.',
       ]],
     ],
@@ -268,16 +268,16 @@ export const DOCS = [
     title: 'Trademark & Brand Guidelines',
     summary: 'How to use the Avortyx name and logo.',
     sections: [
-      ['1. Our marks', [
+      ['1. Our Marks', [
         'The Avortyx name and logo are trademarks of Avortyx. Approved logo files and colors are in the Brand Kit.',
       ]],
-      ['2. You may', [
+      ['2. You May', [
         ['ul', [
           'Use the name "Avortyx" to refer accurately to our company and platform.',
           'Use unmodified logo files from the Brand Kit to show that you integrate with or use Avortyx.',
         ]],
       ]],
-      ['3. You may not', [
+      ['3. You May Not', [
         ['ul', [
           'Change, animate, recolor or combine the logo with other marks.',
           'Use the marks in a way that suggests Avortyx sponsors or endorses you, without written permission.',
@@ -294,7 +294,7 @@ export const DOCS = [
     title: 'Partner & Affiliate Program Terms',
     summary: 'Terms for agencies and affiliates who refer customers to Avortyx, including how to promote us in search, on websites and on social media.',
     sections: [
-      ['1. The program', [
+      ['1. The Program', [
         'The Avortyx Partner & Affiliate Program lets approved partners refer new customers to Avortyx and earn commission on what those customers pay. Joining is by application, and Avortyx may accept or decline any application without giving a reason.',
         `These terms apply alongside your partner agreement, the Terms of Service, the Acceptable Use Policy and the Trademark & Brand Guidelines. If your partner agreement says something different from these terms, the partner agreement applies.`,
       ]],
@@ -306,11 +306,11 @@ export const DOCS = [
           'Existing customers may join, but cannot earn commission on their own account.',
         ]],
       ]],
-      ['3. What counts as a referral', [
+      ['3. What Counts as a Referral', [
         'A referral counts when a new customer signs up through your partner link or code, or when you register them with Avortyx before they sign up. The customer must not already have an Avortyx account, and must not already be in an active sales conversation with our team.',
         'If two partners claim the same customer, the referral goes to the partner whose link or registration came first in our records. Our records decide the attribution.',
       ]],
-      ['4. Referrals that earn no commission', [
+      ['4. Referrals That Earn No Commission', [
         'No commission is paid on a referral that:',
         ['ul', [
           'signs up with you, your company or anyone you control as the customer (self-referral);',
@@ -320,11 +320,11 @@ export const DOCS = [
           'is not a business that can use Avortyx, such as a consumer looking for personal phone service.',
         ]],
       ]],
-      ['5. Commissions and payment', [
+      ['5. Commissions and Payment', [
         'Commission rates, the qualifying period, payment schedule and minimum payout are set out in your partner agreement or partner portal. Commission is earned only on fees the referred customer actually pays to Avortyx, not including taxes, carrier pass-through charges or credits.',
         'Commission already paid is reversed, or deducted from your next payment, if the fees it was based on are refunded, charged back or found to be fraudulent. You are responsible for any taxes on what you earn, and must give us the tax forms we ask for before we can pay you.',
       ]],
-      ['6. Search advertising', [
+      ['6. Search Advertising', [
         'Avortyx runs its own paid search campaigns, so partners may not compete with them on our brand.',
         ['ul', [
           'Do not bid on "Avortyx", "avortyx.com", misspellings, or terms that combine our name with other words (for example "Avortyx pricing" or "Avortyx login"), and add them as negative keywords in broad-match campaigns.',
@@ -334,7 +334,7 @@ export const DOCS = [
         ]],
         'You may run search campaigns on general terms, such as "call tracking software", that point to your own site. Ask us in writing before you run anything that mentions Avortyx by name.',
       ]],
-      ['7. Websites and content', [
+      ['7. Websites and Content', [
         ['ul', [
           'Do not register or use domain names, subdomains, social handles or app names that contain "Avortyx" or something confusingly similar.',
           'Describe Avortyx accurately. Only make claims about features, prices or results that appear on avortyx.com or that we have approved in writing, and keep them current.',
@@ -343,7 +343,7 @@ export const DOCS = [
         ]],
         'We will not work with sites or channels that carry hateful, violent, sexually explicit or illegal content, that promote scams, or that infringe someone else’s rights. If we ask you to remove content that breaks this section, you must do so within 48 hours.',
       ]],
-      ['8. Email, calls, messages and social media', [
+      ['8. Email, Calls, Messages and Social Media', [
         ['ul', [
           'Only email, call or text people who have agreed to hear from you, and follow CAN-SPAM, the TCPA, Do Not Call rules and the Acceptable Use Policy.',
           'Do not spam forums, comment sections, review sites or social media groups with partner links.',
@@ -351,18 +351,18 @@ export const DOCS = [
           'You may share your partner link on your own social media accounts, as long as you disclose the relationship.',
         ]],
       ]],
-      ['9. Using our name and logo', [
+      ['9. Using Our Name and Logo', [
         'We grant you a limited, revocable right to use the Avortyx name and the logos in our partner kit, only to promote Avortyx under these terms. Use them exactly as supplied: do not change their colours, shape or proportions, or combine them with other marks. The right ends when your participation ends.',
         'Do not issue press releases or public announcements about your relationship with Avortyx without our written approval.',
       ]],
-      ['10. Monitoring and enforcement', [
+      ['10. Monitoring and Enforcement', [
         'We review partner traffic, ads and content. If we find a breach, we may withhold commission on the traffic involved, suspend your partner link, or end your participation. Serious or repeated breaches, fraud or anything that exposes Avortyx to legal risk can lead to immediate termination and the loss of unpaid commission.',
       ]],
-      ['11. Relationship and termination', [
+      ['11. Relationship and Termination', [
         'Partners are independent contractors. Nothing in these terms makes you an employee, agent, franchisee or joint venturer of Avortyx, and you may not make commitments on our behalf.',
         'Either party may end participation at any time with written notice. Commission earned on qualifying referrals before termination is paid on the normal schedule, unless termination was for a breach of these terms.',
       ]],
-      ['12. Changes to these terms', [
+      ['12. Changes to These Terms', [
         'We may revise these terms. We will post the new version here with a new date and, for material changes, tell active partners by email. Continuing to promote Avortyx after a change takes effect means you accept it.',
       ]],
       ['13. Contact', [

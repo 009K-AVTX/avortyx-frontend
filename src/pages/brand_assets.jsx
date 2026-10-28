@@ -1,7 +1,7 @@
 // /brand_assets.html
 import Bolt from '../components/Bolt.jsx'
 export const meta = {
-  title: "Brand Assets | Avortyx logo, colors and type",
+  title: "Brand Assets | Avortyx Logo, Colors and Type",
   description: "The Avortyx logo files, blue color scale and Poppins type system, for partners and press.",
   bodyClass: "avortyx_marketing brand_assets without-waves",
   layout: "site",
@@ -26,7 +26,7 @@ export default function BrandAssets() {
             <a href="/features" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Features </a>
           </div>
           <h1 className="fw-bold mb-2">Brand Assets</h1>
-          <p className="lead mktg-subpage-hero-subtitle">The Avortyx logo, color scale and type system, for partners, press and integrations.</p>
+          <p className="lead mktg-subpage-hero-subtitle">The Avortyx Logo, Color Scale and Type System, for Partners, Press and Integrations.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -36,7 +36,7 @@ export default function BrandAssets() {
         <div className="container">
           <div className="mb-5">
             <h2 className="fw-bold mb-2">Logo Guidelines</h2>
-            <p className="text-muted">Use the logo as supplied: do not rotate it, outline it, recolor it or change its shape.</p>
+            <p className="text-muted">Use the Logo as Supplied: Do Not Rotate It, Outline It, Recolor It or Change Its Shape.</p>
           </div>
           <div className="row g-4 mb-5">
             {LOGOS.map(([file, title, use]) => {
@@ -106,28 +106,28 @@ export default function BrandAssets() {
         <div className="container">
           <div className="text-center mb-4">
             <h2 className="fw-bold mb-2">Typography</h2>
-            <p className="text-muted">One typeface, Poppins, carries everything from headlines to buttons, with semibold headlines set slightly tight.</p>
+            <p className="text-muted">One Typeface, Poppins, Carries Everything from Headlines to Buttons, with Semibold Headlines Set Slightly Tight.</p>
           </div>
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <ul className="list-unstyled mktg-typography-list">
                 <li>
-                  <h1>Headline 1 is Poppins SemiBold at 64px.</h1>
+                  <h1>Headline 1 Is Poppins SemiBold at 64px.</h1>
                 </li>
                 <li>
-                  <h2>Headline 2 is Poppins SemiBold at 48px.</h2>
+                  <h2>Headline 2 Is Poppins SemiBold at 48px.</h2>
                 </li>
                 <li>
-                  <h3>Headline 3 is Poppins SemiBold at 36px.</h3>
+                  <h3>Headline 3 Is Poppins SemiBold at 36px.</h3>
                 </li>
                 <li>
-                  <h4>Headline 4 is Poppins SemiBold at 24px.</h4>
+                  <h4>Headline 4 Is Poppins SemiBold at 24px.</h4>
                 </li>
                 <li>
-                  <h5>Headline 5 is Poppins SemiBold at 20px.</h5>
+                  <h5>Headline 5 Is Poppins SemiBold at 20px.</h5>
                 </li>
                 <li>
-                  <h6>Headline 6 is Poppins SemiBold at 14px.</h6>
+                  <h6>Headline 6 Is Poppins SemiBold at 14px.</h6>
                 </li>
                 <li>
                   <p>Paragraphs are Poppins Regular at 18px.</p>
@@ -143,7 +143,7 @@ export default function BrandAssets() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

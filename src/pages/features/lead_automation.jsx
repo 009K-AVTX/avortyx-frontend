@@ -1,7 +1,7 @@
 // /features/lead_automation.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Lead Automation | Turn form fills into live calls | Avortyx",
+  title: "Lead Automation | Turn Form Fills into Live Calls | Avortyx",
   description: "Avortyx contacts every new lead the moment it arrives, with SMS, email and outbound calls in multi-step schedules, and connects the lead to a buyer as soon as they pick up.",
   bodyClass: "avortyx_marketing features_lead_automation ",
   layout: "feature",
@@ -71,7 +71,7 @@ export default function LeadAutomation() {
               {" "}acts in that minute: it texts and emails the lead, places the call, and when they answer, Avortyx scores and routes the conversation to a buyer like any inbound call.
             </p>
             <p className="text-muted">A typical setup: a social ad form sends each new lead to Avortyx the instant it is submitted. A text and an email go out at once, the IVR calls the lead a few minutes later, and if nobody answers, it tries again on its own.</p>
-            <h3>Building blocks of a schedule</h3>
+            <h3>Building Blocks of a Schedule</h3>
             <p>A schedule is an ordered list of actions that runs for every lead it receives. You can use:</p>
             <ul className="text-muted">
               <li><strong>Call</strong> — dial the lead through the offer’s IVR</li>
@@ -84,41 +84,41 @@ export default function LeadAutomation() {
               <li><strong>Conditional</strong> — leave the schedule when tokens or expressions say so</li>
             </ul>
             <p className="text-muted mb-1">
-              <strong>Lay it out visually.</strong>
+              <strong>Lay It Out Visually.</strong>
               {" "}Drag actions into the order each lead should experience them.
             </p>
             <img alt="Avortyx lead scheduler" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/new-schedule-example.webp" width="941" height="780" loading="lazy" decoding="async" />
             <p className="text-muted mb-1">
-              <strong>See what each schedule earns.</strong>
+              <strong>See What Each Schedule Earns.</strong>
               {" "}Leads created, ended and converted, with revenue and profit per sequence.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/schedule-example.webp">
               <img alt="Lead Automation dashboard comparing volume, conversions, revenue, and profit by schedule" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/schedule-example.webp" width="2000" height="1120" srcSet="/assets/avx-shots/schedule-example-1000.webp 1000w, /assets/avx-shots/schedule-example.webp 2000w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
-            <h3>Follow-up you can measure</h3>
+            <h3>Follow-Up You Can Measure</h3>
             <p>The Lead Automation dashboard shows, live, what every schedule is producing:</p>
             <ul className="text-muted">
               <li>
-                <strong>Volume and outcomes</strong>
+                <strong>Volume and Outcomes</strong>
                 {" "}— leads created, contacted, ended and converted, with conversion and lifecycle rates
               </li>
               <li><strong>Money</strong> — revenue, payout, profit, margin and revenue per lead</li>
               <li><strong>Breakdowns</strong> — by offer, schedule, channel, buyer and agent</li>
-              <li><strong>The queue right now</strong> — the outbound dialer queue, live, by tier and state</li>
-              <li><strong>Best times to call</strong> — heatmaps of the days and hours that create and convert the most leads</li>
+              <li><strong>The Queue Right Now</strong> — the outbound dialer queue, live, by tier and state</li>
+              <li><strong>Best Times to Call</strong> — heatmaps of the days and hours that create and convert the most leads</li>
             </ul>
             <p className="text-muted mb-1">
-              <strong>The headline numbers.</strong>
+              <strong>The Headline Numbers.</strong>
               {" "}KPIs against the previous period, the lifecycle funnel and the best windows to reach people.
             </p>
             <img alt="Avortyx lead automation KPI dashboard" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/lead-automation-dashboard.webp" width="1226" height="680" srcSet="/assets/avx-shots/lead-automation-dashboard-1000.webp 1000w, /assets/avx-shots/lead-automation-dashboard.webp 1226w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             <p className="text-muted mb-1">
-              <strong>How it trends.</strong>
+              <strong>How It Trends.</strong>
               {" "}Leads, outcomes, conversions, revenue and automation activity across your date range.
             </p>
             <img alt="Avortyx lead automation trends over time" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/lead-automation-analytics-trends.webp" width="1226" height="490" srcSet="/assets/avx-shots/lead-automation-analytics-trends-1000.webp 1000w, /assets/avx-shots/lead-automation-analytics-trends.webp 1226w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             <p className="text-muted mb-1">
-              <strong>Where leads convert.</strong>
+              <strong>Where Leads Convert.</strong>
               {" "}Conversions on a map, broken down by state and country.
             </p>
             <img alt="Avortyx lead automation conversions by geography" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/lead-automation-analytics-geo.webp" width="1226" height="558" srcSet="/assets/avx-shots/lead-automation-analytics-geo-1000.webp 1000w, /assets/avx-shots/lead-automation-analytics-geo.webp 1226w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
@@ -128,7 +128,7 @@ export default function LeadAutomation() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

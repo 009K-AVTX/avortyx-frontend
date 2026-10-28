@@ -1,7 +1,7 @@
 // /features/buyer_management.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Buyer Management | Who gets each call, and when | Avortyx",
+  title: "Buyer Management | Who Gets Each Call, and When | Avortyx",
   description: "Avortyx filters every buyer by tokens, hours, caps and suppression on each call, then ranks them by tier, revenue or EPC to pick the winner on the first ring.",
   bodyClass: "avortyx_marketing features_buyer_management ",
   layout: "feature",
@@ -85,30 +85,30 @@ export default function BuyerManagement() {
                 </div>
               </div>
             </div>
-            <h3>Everything you can set per buyer</h3>
+            <h3>Everything You Can Set per Buyer</h3>
             <ul className="text-muted">
               <li>
-                <strong>Who they hear from</strong>
+                <strong>Who They Hear From</strong>
                 {" "}— token filters send a buyer only the calls that match: geography, vertical, lead quality or any custom token.
               </li>
               <li>
-                <strong>How much they take</strong>
+                <strong>How Much They Take</strong>
                 {" "}— caps on attempts, connections, conversions and revenue, daily, monthly and in total, plus hourly and concurrency limits.
               </li>
               <li>
-                <strong>When they take it</strong>
+                <strong>When They Take It</strong>
                 {" "}— a 7-day by 24-hour schedule for each buyer, with pacing per time slot.
               </li>
               <li>
-                <strong>What counts as converted</strong>
+                <strong>What Counts as Converted</strong>
                 {" "}— by duration or API postback, with CPL or CPA payouts per conversion. With Press-1-to-accept, the timer starts when the buyer presses 1.
               </li>
               <li>
-                <strong>What they hear first</strong>
+                <strong>What They Hear First</strong>
                 {" "}— a short whisper message before connecting, with campaign or caller details.
               </li>
               <li>
-                <strong>Teams of buyers</strong>
+                <strong>Teams of Buyers</strong>
                 {" "}— ring a group all at once or in order, under shared caps;{" "}
                 <a href="/features/simul_dial">see buyer groups</a>
                 .
@@ -125,7 +125,7 @@ export default function BuyerManagement() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

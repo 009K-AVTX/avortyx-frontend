@@ -21,7 +21,7 @@ export default function AgentControls() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Call Management</p>
           <h1 className="fw-bold mb-2">Agent Control Center</h1>
-          <p className="lead mktg-subpage-hero-subtitle">One browser screen to qualify a caller, find the best buyer and transfer in a click.</p>
+          <p className="lead mktg-subpage-hero-subtitle">One Browser Screen to Qualify a Caller, Find the Best Buyer and Transfer in a Click.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -34,62 +34,62 @@ export default function AgentControls() {
             <p>Agents run the whole call from a browser tab: qualify the caller, steer the conversation and hand it to the right buyer. There is nothing to install and no separate SIP phone to configure.</p>
             <ul className="text-muted">
               <li>
-                <strong>A phone in the browser</strong>
+                <strong>A Phone in the Browser</strong>
                 {" "}— a WebRTC softphone with SIP credentials set up automatically.
               </li>
-              <li><strong>Scripts that adapt</strong> — switch the interview script mid-call when the caller needs a different path.</li>
-              <li><strong>Mute, hold and transfer</strong> — manage the caller’s audio and pass the call to a buyer in one click.</li>
+              <li><strong>Scripts That Adapt</strong> — switch the interview script mid-call when the caller needs a different path.</li>
+              <li><strong>Mute, Hold and Transfer</strong> — manage the caller’s audio and pass the call to a buyer in one click.</li>
               <li>
-                <strong>Find the buyer</strong>
+                <strong>Find the Buyer</strong>
                 {" "}— when the interview is done, the Avortyx routing engine picks the best eligible buyer for what the caller said, and shows the matches before you transfer.
               </li>
             </ul>
             <p className="text-muted mb-1">
-              <strong>The live call, on one screen.</strong>
+              <strong>The Live Call, on One Screen.</strong>
               {" "}Mute, hold, transfer, find a buyer and record the outcome, all in the browser.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-agent-control-center.webp">
               <img alt="Agent Control Center" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/features-agent-control-center.webp" width="2000" height="1117" srcSet="/assets/avx-shots/features-agent-control-center-1000.webp 1000w, /assets/avx-shots/features-agent-control-center.webp 2000w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
-            <h3>A whole floor, onboarded at once</h3>
+            <h3>A Whole Floor, Onboarded at Once</h3>
             <p>Add hundreds of agents in one go with the bulk uploader: import them from a CSV, create internal agents who do not need an email address, and assign them to offers, schedules and call queues.</p>
             <p className="text-muted mb-1">
-              <strong>Stand up a call center quickly.</strong>
+              <strong>Stand Up a Call Center Quickly.</strong>
               {" "}Agents created in bulk from a CSV, not one by one.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-create-agents.webp">
               <img alt="Create Agents" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/features-create-agents.webp" width="1000" height="493" loading="lazy" decoding="async" />
             </a>
-            <h3>Which agent gets the call</h3>
+            <h3>Which Agent Gets the Call</h3>
             <p className="text-muted">Choose the rule that suits your floor:</p>
             <ul className="text-muted">
               <li><strong>Longest Wait Time</strong> — whoever has been free longest goes next.</li>
               <li><strong>Tier & Weight</strong> — your best people first, with weights sharing calls inside each tier.</li>
               <li><strong>Hybrid</strong> — tiers first, then longest wait within a tier.</li>
               <li>
-                <strong>A fair share for everyone</strong>
+                <strong>A Fair Share for Everyone</strong>
                 {" "}— every fifth call reverses the hybrid order, so lower tiers still get calls.
               </li>
             </ul>
-            <h3>Outcomes that trigger the next step</h3>
+            <h3>Outcomes That Trigger the Next Step</h3>
             <p>Every call ends with a disposition, which shows you how calls are going and where to coach. Dispositions can also act: add the caller to your DNC list, call a custom webhook and more.</p>
             <p className="text-muted mb-1">
-              <strong>Dispositions that do something.</strong>
+              <strong>Dispositions That Do Something.</strong>
               {" "}Your own codes can fire webhooks, update lead data or add a caller to your DNC.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-call-dispositions.webp">
               <img alt="Call Dispositions" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/features-call-dispositions.webp" width="1000" height="500" loading="lazy" decoding="async" />
             </a>
-            <h3>The floor, live</h3>
+            <h3>The Floor, Live</h3>
             <p>See what every agent is doing right now (on a call, ringing a lead, at lunch) along with how long they have been in that state and how many calls they have taken.</p>
             <p className="text-muted mb-1">
-              <strong>Where the day is going.</strong>
+              <strong>Where the Day Is Going.</strong>
               {" "}Live statuses with time in state and calls handled.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-agent-statuses.webp">
               <img alt="Agent Statuses" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/features-agent-statuses.webp" width="1000" height="488" loading="lazy" decoding="async" />
             </a>
-            <h3 id="agent-timesheets">Timesheets and productivity</h3>
+            <h3 id="agent-timesheets">Timesheets and Productivity</h3>
             <p>Statuses show what the floor is doing now; timesheets show what it did. Each status change builds an agent’s timesheet, and the Agents dashboard adds them up across the floor for any period you choose.</p>
             <ul className="text-muted">
               <li>
@@ -106,7 +106,7 @@ export default function AgentControls() {
               </li>
             </ul>
             <p className="text-muted mb-1">
-              <strong>The whole floor, any period.</strong>
+              <strong>The Whole Floor, Any Period.</strong>
               {" "}Payroll, productivity and staffing at the top of the page.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-agent-timesheets-overview.webp">
@@ -117,7 +117,7 @@ export default function AgentControls() {
               {" "}lists everyone on their own row: billable and total time, how the day split between talking, dialing, wrap-up and their own statuses, occupancy, callers handled and average handle time. Click a name or a total to see the status entries behind it.
             </p>
             <p className="text-muted mb-1">
-              <strong>Person by person.</strong>
+              <strong>Person by Person.</strong>
               {" "}Each agent’s day, with talk, dialing and wrap-up shown in one bar.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-agent-timesheets-by-agent.webp">
@@ -128,7 +128,7 @@ export default function AgentControls() {
               {" "}shows average agent-minutes for every hour of every weekday, in your account’s time zone rather than UTC, so a nine-to-five floor reads as nine to five. Compare it with when leads arrive and the holes in your schedule become obvious.
             </p>
             <p className="text-muted mb-1">
-              <strong>When people are on.</strong>
+              <strong>When People Are On.</strong>
               {" "}A week of coverage by day and hour, next to the statuses behind it.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-agent-timesheets-coverage.webp">
@@ -140,7 +140,7 @@ export default function AgentControls() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

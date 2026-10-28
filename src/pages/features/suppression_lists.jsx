@@ -1,7 +1,7 @@
 // /features/suppression_lists.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Suppression & DNC | Do-not-contact checks before every call | Avortyx",
+  title: "Suppression & DNC | Do-Not-Contact Checks Before Every Call | Avortyx",
   description: "Suppression lists, a company-wide blacklist, DNC checks and industry list scrubbing run on every call before Avortyx routes or dials it.",
   bodyClass: "avortyx_marketing features_suppression_lists ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function SuppressionLists() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Security & Compliance Tools</p>
           <h1 className="fw-bold mb-2">Suppression & DNC</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Suppression lists, blacklists, DNC checks and industry scrubbing, all run before a call is routed or dialed.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Suppression Lists, Blacklists, DNC Checks and Industry Scrubbing, All Run Before a Call Is Routed or Dialed.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -38,7 +38,7 @@ export default function SuppressionLists() {
             </p>
             <ul className="text-muted">
               <li>
-                <strong>Suppression lists</strong>
+                <strong>Suppression Lists</strong>
                 {" "}— attach numbers, uploaded by CSV or the API, to a buyer, offer or schedule; matches are skipped before routing or dialing.
               </li>
               <li>
@@ -46,7 +46,7 @@ export default function SuppressionLists() {
                 {" "}— block a number across the whole account, whatever buyer or offer it would reach.
               </li>
               <li>
-                <strong>DNC checks</strong>
+                <strong>DNC Checks</strong>
                 {" "}— look up caller numbers in Do-Not-Call data before routing or outbound dialing.
               </li>
               <li>
@@ -54,11 +54,11 @@ export default function SuppressionLists() {
                 {" "}— leads flagged on these shared industry lists are skipped automatically, in real time.
               </li>
               <li>
-                <strong>Mobile and Florida options</strong>
+                <strong>Mobile and Florida Options</strong>
                 {" "}— leave mobile numbers out, or apply Florida’s tighter daily attempt limits and shorter calling window to a schedule.
               </li>
             </ul>
-            <h3>Contact caps and pacing</h3>
+            <h3>Contact Caps and Pacing</h3>
             <p>Account-wide limits stop any one person being contacted too often: daily and monthly outbound call caps per contact, plus short-call caps by day, week and month. Calls past those limits are suppressed automatically.</p>
             <p className="text-muted">The difference between the two lists: a blacklist blocks a number everywhere in your account, while a suppression list blocks it only for the buyers, offers or schedules it is attached to. Most programs use both.</p>
             <div className="bg-light border-start border-success border-4 rounded-3 p-4 small text-muted mb-4" style={{ marginTop: "60px" }}>
@@ -74,7 +74,7 @@ export default function SuppressionLists() {
                 {" "}an archive. Recordings, transcripts, call logs and consent records should be exported to your own storage, including before any automatic PII redaction runs, so you can meet your record-keeping duties. Avortyx is not liable for data kept only on the platform that is later deleted, redacted or unavailable.
               </p>
               <p className="mb-0">
-                <strong>Nothing here is legal advice.</strong>
+                <strong>Nothing Here Is Legal Advice.</strong>
                 <a target="_blank" href="/terms_of_service">See the Terms of Service</a>
                 {" "}for the full terms on compliance and data retention.
               </p>
@@ -90,7 +90,7 @@ export default function SuppressionLists() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

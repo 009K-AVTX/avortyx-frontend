@@ -1,7 +1,7 @@
 // /features/custom_webhook.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Custom Webhooks | Push call events anywhere | Avortyx",
+  title: "Custom Webhooks | Push Call Events Anywhere | Avortyx",
   description: "Avortyx fires webhooks on more than 30 call, lead and agent events, can accept or reject an action before it happens, and parses the response back onto the call.",
   bodyClass: "avortyx_marketing features_custom_webhook ",
   layout: "feature",
@@ -57,9 +57,9 @@ export default function CustomWebhook() {
               <li>A buyer converts a call: post the call details to your team’s Slack channel.</li>
               <li>A buyer converts a call: write the outcome and payout into your CRM.</li>
             </ul>
-            <h3>More than 30 events to listen for</h3>
+            <h3>More than 30 Events to Listen For</h3>
             <p>Triggers cover the whole life of a call and the people around it: the call itself, conversions, data changes, recordings, conference events, leads and agent status. Subscribe only to what each system needs.</p>
-            <h3>Ask before Avortyx acts</h3>
+            <h3>Ask Before Avortyx Acts</h3>
             <p>
               Pre-action triggers fire{" "}
               <strong>before</strong>
@@ -71,12 +71,12 @@ export default function CustomWebhook() {
             </p>
             <ul>
               <li>Check a lead against an outside system before calling it</li>
-              <li>Confirm live inventory or availability before connecting</li>
+              <li>Confirm Live Inventory or Availability Before Connecting</li>
               <li>Apply business rules that live in your own code</li>
             </ul>
-            <h3>Read the answer back</h3>
+            <h3>Read the Answer Back</h3>
             <p>Pull a value out of the webhook response, JSON or XML, and save it as a token on the call or lead. That token can then steer routing, appear in reports or feed the next webhook.</p>
-            <h3>Webhook Subscriptions for simple jobs</h3>
+            <h3>Webhook Subscriptions for Simple Jobs</h3>
             <p>
               When you just need the data,{" "}
               <strong>Webhook Subscriptions</strong>
@@ -93,7 +93,7 @@ export default function CustomWebhook() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

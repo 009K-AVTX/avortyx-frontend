@@ -1,7 +1,7 @@
 // /features/spam_tag_mitigation.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Spam Tag Mitigation | Get your calls answered again | Avortyx",
+  title: "Spam Tag Mitigation | Get Your Calls Answered Again | Avortyx",
   description: "Avortyx registers your numbers with carriers, adds branded caller ID and works to clear \"Spam Likely\" labels, with number health tracked per carrier.",
   bodyClass: "avortyx_marketing features_spam_tag_mitigation ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function SpamTagMitigation() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Phone Numbers</p>
           <h1 className="fw-bold mb-2">Spam Tag Mitigation</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Registered numbers, branded caller ID and spam-label removal, so the people you call see who you are and pick up.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Registered Numbers, Branded Caller ID and Spam-Label Removal, So the People You Call See Who You Are and Pick Up.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -52,31 +52,31 @@ export default function SpamTagMitigation() {
                 </div>
               </div>
             </div>
-            <h3>Answered calls start with a clean number</h3>
+            <h3>Answered Calls Start with a Clean Number</h3>
             <p>
               Carriers filter inbound and outbound calls for spam, and the businesses that keep getting through are the registered ones. Avortyx registers your numbers with the carriers and the analytics companies behind spam labeling, backed by your{" "}
               <a href="/features/verified_identity">verified business identity</a>
               {" "}(EIN and legal business name).
             </p>
-            <h3>Branded caller ID</h3>
+            <h3>Branded Caller ID</h3>
             <p>Give each local or toll-free number a Branded Name, and the phone shows who is calling instead of an unknown number. Nothing moves answer rates more.</p>
             <p className="text-muted mb-1">
-              <strong>Your name on the screen.</strong>
+              <strong>Your Name on the Screen.</strong>
               {" "}A branded, verified caller ID in place of "Scam Likely".
             </p>
             <img alt={"Branded, verified caller ID instead of a \"Scam Likely\" label"} className="img-fluid rounded border mb-4" src="/assets/avx-shots/mitigation-2.webp?v=2" width="1927" height="1481" srcSet="/assets/avx-shots/mitigation-2-1000.webp?v=2 1000w, /assets/avx-shots/mitigation-2.webp?v=2 1927w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
-            <h3>Labels removed, and kept off</h3>
+            <h3>Labels Removed, and Kept Off</h3>
             <p>A "Spam Likely" tag quietly cuts your contact rate. Avortyx works to clear existing labels and keep your numbers clean going forward.</p>
-            <h3>Number health, per carrier</h3>
+            <h3>Number Health, per Carrier</h3>
             <p>See your overall spam rate, which numbers are flagged, and how T-Mobile, AT&T and Verizon each label your lines, so a problem is caught while it is still small.</p>
             <p className="text-muted mb-1">
-              <strong>Catch it early.</strong>
+              <strong>Catch It Early.</strong>
               {" "}Number health with spam flags broken out by carrier.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/mitigation-1.webp">
               <img alt="Spam Tag Mitigation number-health dashboard with per-carrier spam flags" className="img-fluid rounded border mb-4" src="/assets/avx-shots/mitigation-1.webp" width="2000" height="954" srcSet="/assets/avx-shots/mitigation-1-1000.webp 1000w, /assets/avx-shots/mitigation-1.webp 2000w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
-            <h3>Pricing in two parts</h3>
+            <h3>Pricing in Two Parts</h3>
             <p>
               Both are listed on the{" "}
               <a href="/pricing">pricing page</a>
@@ -97,7 +97,7 @@ export default function SpamTagMitigation() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

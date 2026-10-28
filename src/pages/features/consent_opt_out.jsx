@@ -1,7 +1,7 @@
 // /features/consent_opt_out.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Consent & Opt-Out | Proof of consent and automatic opt-outs | Avortyx",
+  title: "Consent & Opt-Out | Proof of Consent and Automatic Opt-Outs | Avortyx",
   description: "Avortyx stores verifiable consent with each lead, can block calls that lack it, and honors opt-out keywords automatically with an immutable log.",
   bodyClass: "avortyx_marketing features_consent_opt_out ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function ConsentOptOut() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Security & Compliance Tools</p>
           <h1 className="fw-bold mb-2">Consent & Opt-Out</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Keep proof of consent with every lead, and let opt-outs take effect everywhere the moment they arrive.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Keep Proof of Consent with Every Lead, and Let Opt-Outs Take Effect Everywhere the Moment They Arrive.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
             {" "}
@@ -32,7 +32,7 @@ export default function ConsentOptOut() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <h3>Proof of consent on the call</h3>
+            <h3>Proof of Consent on the Call</h3>
             <p>
               Avortyx attaches a verifiable consent record to the lead. It captures{" "}
               <strong>Jornaya LeadiD</strong>
@@ -40,13 +40,13 @@ export default function ConsentOptOut() {
               <strong>Jornaya TCPA Guardian</strong>
               , so a lead that does not meet the TCPA requirements you set is never connected to a buyer.
             </p>
-            <h3>Opt-outs that stick</h3>
+            <h3>Opt-Outs That Stick</h3>
             <p>
               Replies such as{" "}
               <strong>STOP, unsubscribe or cancel</strong>
               {" "}are recognized automatically: the contact is opted out and an immutable record is written. The opt-out carries over to matching leads, and you can also apply one by hand or from a schedule.
             </p>
-            <h3>An audit trail you can hand over</h3>
+            <h3>An Audit Trail You Can Hand Over</h3>
             <p>
               Opt-outs, contact blocks, DNC checks, change history and signed attestations are all logged and cannot be altered.{" "}
               <a href="/features/data_export">Data Exports</a>
@@ -65,7 +65,7 @@ export default function ConsentOptOut() {
                 {" "}an archive. Recordings, transcripts, call logs and consent records should be exported to your own storage, including before any automatic PII redaction runs, so you can meet your record-keeping duties. Avortyx is not liable for data kept only on the platform that is later deleted, redacted or unavailable.
               </p>
               <p className="mb-0">
-                <strong>Nothing here is legal advice.</strong>
+                <strong>Nothing Here Is Legal Advice.</strong>
                 <a target="_blank" href="/terms_of_service">See the Terms of Service</a>
                 {" "}for the full terms on compliance and data retention.
               </p>
@@ -81,7 +81,7 @@ export default function ConsentOptOut() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

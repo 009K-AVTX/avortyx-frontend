@@ -86,7 +86,7 @@ export default function BlogPost({ post }) {
             <article className="avx-art-body">
               {post.body.map((block, i) => <Block key={i} block={block} />)}
               <div className="avx-art-end">
-                <p><b>See it in your own numbers.</b> Know where each call came from, send it to a buyer who can take it, and see what it earned.</p>
+                <p><b>See It in Your Own Numbers.</b> Know Where Each Call Came from, Send It to a Buyer Who Can Take It, and See What It Earned.</p>
                 <div className="d-flex flex-wrap gap-2">
                   <a href="/request-access" className="btn btn-td-green"><Bolt />Request Access</a>
                   <a href="/p/request_demo" className="btn btn-outline-td-green">Request Demo</a>
@@ -98,7 +98,7 @@ export default function BlogPost({ post }) {
       </section>
       <section className="avx-art-related">
         <div className="container">
-          <h2 className="fw-bold">Keep reading</h2>
+          <h2 className="fw-bold">Keep Reading</h2>
           <div className="avx-blog-grid">
             {related.map((p) => <BlogCard key={p.slug} post={p} />)}
           </div>

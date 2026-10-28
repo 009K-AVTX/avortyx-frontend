@@ -1,7 +1,7 @@
 // /features/plivo.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Plivo + Avortyx | Route your Plivo numbers through Avortyx",
+  title: "Plivo + Avortyx | Route Your Plivo Numbers Through Avortyx",
   description: "Link Plivo to Avortyx, import or buy Plivo numbers, and route calls and SMS through Avortyx screening, scoring and buyer selection.",
   bodyClass: "avortyx_marketing features_multiple_telephone_providers ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function Plivo() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Phone Numbers</p>
           <h1 className="fw-bold mb-2">Plivo + Avortyx</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Connect your Plivo account and let Avortyx route every call and text your Plivo numbers receive.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Connect Your Plivo Account and Let Avortyx Route Every Call and Text Your Plivo Numbers Receive.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -60,33 +60,33 @@ export default function Plivo() {
             </div>
             <p>Plivo handles the voice and messaging; Avortyx handles the decisions. Once linked, every call to a Plivo number is screened, scored and routed to the best eligible buyer, and every text lands on the lead it belongs to.</p>
             <p className="text-muted mb-1">
-              <strong>Your carrier, our routing engine.</strong>
+              <strong>Your Carrier, Our Routing Engine.</strong>
               {" "}Plivo keeps carrying the minutes; Avortyx decides where every call goes.
             </p>
             <div className="d-flex flex-wrap gap-4 align-items-center my-3">
               <img alt="Plivo" className="voip-provider-logo" src="/assets/avx-site/img/plivo.webp" />
             </div>
-            <h2 className="mt-5 mb-4">What you can do with Plivo on Avortyx</h2>
+            <h2 className="mt-5 mb-4">What You Can Do with Plivo on Avortyx</h2>
             <p>Once the account is linked, your Plivo numbers behave like any other Avortyx number:</p>
             <ul className="text-muted">
               <li>
-                <strong>Keep your account</strong>
+                <strong>Keep Your Account</strong>
                 {" "}— Avortyx stores your Plivo keys securely and manages numbers, calls and SMS through them.
               </li>
               <li>
-                <strong>Import what you own</strong>
+                <strong>Import What You Own</strong>
                 {" "}— existing numbers come over in one click, ready to attach to offers, traffic sources and number pools.
               </li>
               <li>
-                <strong>Buy from inside Avortyx</strong>
+                <strong>Buy from Inside Avortyx</strong>
                 {" "}— search Plivo inventory by country, area code and type (local or toll-free) without opening their console.
               </li>
               <li>
-                <strong>Text as well as talk</strong>
+                <strong>Text as Well as Talk</strong>
                 {" "}— send and receive SMS and run automated SMS flows, with delivery tracked on the lead.
               </li>
             </ul>
-            <h3>Calls and texts in one place</h3>
+            <h3>Calls and Texts in One Place</h3>
             <p>Plivo numbers can carry both, and Avortyx keeps both on the same lead record, so a buyer or agent sees the whole conversation before they pick up.</p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function Plivo() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

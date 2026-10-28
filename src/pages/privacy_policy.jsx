@@ -3,7 +3,7 @@ import LegalText from '../components/LegalText.jsx'
 import { PRIVACY } from '../legal/agreements.js'
 export const meta = {
   title: "Privacy Policy | Avortyx",
-  description: "How Avortyx collects, uses and protects information.",
+  description: "How Avortyx Collects, Uses and Protects Information.",
   bodyClass: "avortyx_marketing privacy_policy without-waves",
   layout: "site",
 }
@@ -17,7 +17,7 @@ export default function PrivacyPolicy() {
             <a href="/legal" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Legal Center </a>
           </div>
           <h1 className="fw-bold mb-2">Privacy Policy</h1>
-          <p className="lead mktg-subpage-hero-subtitle">How Avortyx collects, uses and protects information.</p>
+          <p className="lead mktg-subpage-hero-subtitle">How Avortyx Collects, Uses and Protects Information.</p>
         </div>
       </section>
       <section className="py-5">

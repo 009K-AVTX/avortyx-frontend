@@ -60,21 +60,21 @@ export default function SimulDial() {
             </div>
             <p>The fastest way to reach a person is to ask several at once. A buyer group rings every member together, and the first to answer and press 1 takes the call. When you would rather keep an order of preference, set the group to dial one member after another.</p>
             <ul className="text-muted">
-              <li><strong>All at once, or in order</strong> — choose simultaneous ringing or sequential dialing per group.</li>
+              <li><strong>All at Once, or in Order</strong> — choose simultaneous ringing or sequential dialing per group.</li>
               <li>
-                <strong>Ranked like any buyer</strong>
+                <strong>Ranked Like Any Buyer</strong>
                 {" "}— a group competes in routing next to individual buyers, with its own tier (lower tiers route first) and weights inside the tier.
               </li>
               <li>
-                <strong>Caps for the whole team</strong>
+                <strong>Caps for the Whole Team</strong>
                 {" "}— limit attempts, connections, conversions and revenue across every member, with hourly and concurrency caps on the group itself.
               </li>
               <li>
-                <strong>Pause a call center in one click</strong>
+                <strong>Pause a Call Center in One Click</strong>
                 {" "}— pausing the group pauses every buyer in it, no record-by-record editing.
               </li>
               <li>
-                <strong>Full means out</strong>
+                <strong>Full Means Out</strong>
                 {" "}— once any group cap is hit, the group and its members leave routing until the cap resets or you raise it.
               </li>
             </ul>
@@ -89,7 +89,7 @@ export default function SimulDial() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

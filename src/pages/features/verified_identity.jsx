@@ -21,7 +21,7 @@ export default function VerifiedIdentity() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Security & Compliance Tools</p>
           <h1 className="fw-bold mb-2">Verified Identity & Caller ID</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Carriers trust calls they can trace to a real business. Avortyx verifies yours, so your numbers keep connecting.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Carriers Trust Calls They Can Trace to a Real Business. Avortyx Verifies Yours, So Your Numbers Keep Connecting.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
             {" "}
@@ -54,7 +54,7 @@ export default function VerifiedIdentity() {
                 </div>
               </div>
             </div>
-            <h3>Why identity decides whether calls connect</h3>
+            <h3>Why Identity Decides Whether Calls Connect</h3>
             <p>
               Spam filtering now runs on{" "}
               <strong>inbound and outbound</strong>
@@ -63,30 +63,30 @@ export default function VerifiedIdentity() {
               {" "}to register and brand your numbers with them.
             </p>
             <p className="text-muted mb-1">
-              <strong>What it earns you.</strong>
+              <strong>What It Earns You.</strong>
               {" "}Your business name on the caller ID, not a "Scam Likely" warning.
             </p>
             <img alt={"Branded, verified caller ID instead of a \"Scam Likely\" label"} className="img-fluid rounded border mb-4" src="/assets/avx-shots/mitigation-2.webp?v=2" width="1927" height="1481" srcSet="/assets/avx-shots/mitigation-2-1000.webp?v=2 1000w, /assets/avx-shots/mitigation-2.webp?v=2 1927w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
-            <h3>Identity verification (KYC)</h3>
+            <h3>Identity Verification (KYC)</h3>
             <p>
               Every Avortyx customer passes{" "}
               <strong>Stripe Identity (KYC)</strong>
               {" "}verification. Because everyone on the platform is verified, carriers can trust the traffic that comes from it.
             </p>
-            <h3>Business compliance profile (KYB)</h3>
+            <h3>Business Compliance Profile (KYB)</h3>
             <p>
               Before outbound schedule calls, SMS or email are switched on, each customer completes a one-time{" "}
               <strong>KYB Business Compliance Profile</strong>
               : their legal identity (EIN, legal name, address), stored encrypted, and signed attestations about how they call, including DNC scrubbing, honoring unsubscribes, legal calling hours and accurate caller ID. Signatures cannot be edited, and changing certified details means certifying again.
             </p>
             <p className="text-muted mb-1">
-              <strong>Signed once, protected from then on.</strong>
+              <strong>Signed Once, Protected from Then On.</strong>
               {" "}A completed profile with its attestations; sensitive fields stay encrypted and hidden.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-verified-identity-kyb-profile.webp">
               <img alt="Completed KYB Business Compliance Profile with signed calling-practice attestations and redacted sensitive fields" className="img-fluid rounded border mb-4" src="/assets/avx-shots/features-verified-identity-kyb-profile.webp" width="1600" height="1120" srcSet="/assets/avx-shots/features-verified-identity-kyb-profile-1000.webp 1000w, /assets/avx-shots/features-verified-identity-kyb-profile.webp 1600w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
-            <h3>Signed caller ID (STIR/SHAKEN)</h3>
+            <h3>Signed Caller ID (STIR/SHAKEN)</h3>
             <p>
               Outbound calls through Avortyx are signed with{" "}
               <strong>STIR/SHAKEN</strong>
@@ -110,7 +110,7 @@ export default function VerifiedIdentity() {
                 {" "}an archive. Recordings, transcripts, call logs and consent records should be exported to your own storage, including before any automatic PII redaction runs, so you can meet your record-keeping duties. Avortyx is not liable for data kept only on the platform that is later deleted, redacted or unavailable.
               </p>
               <p className="mb-0">
-                <strong>Nothing here is legal advice.</strong>
+                <strong>Nothing Here Is Legal Advice.</strong>
                 <a target="_blank" href="/terms_of_service">See the Terms of Service</a>
                 {" "}for the full terms on compliance and data retention.
               </p>
@@ -126,7 +126,7 @@ export default function VerifiedIdentity() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

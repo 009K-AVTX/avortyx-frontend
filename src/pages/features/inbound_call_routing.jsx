@@ -1,7 +1,7 @@
 // /features/inbound_call_routing.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Inbound Call Routing | Decided on the first ring | Avortyx",
+  title: "Inbound Call Routing | Decided on the First Ring | Avortyx",
   description: "Avortyx screens, scores and routes every inbound call to the best eligible buyer or agent while it is still ringing.",
   bodyClass: "avortyx_marketing features_inbound_call_routing ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function InboundCallRouting() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Call Management</p>
           <h1 className="fw-bold mb-2">Inbound Call Routing</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Every inbound call is screened, scored and sent to the best eligible destination while it is still ringing.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Every Inbound Call Is Screened, Scored and Sent to the Best Eligible Destination While It Is Still Ringing.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -67,21 +67,21 @@ export default function InboundCallRouting() {
             <p>
               Avortyx makes the routing decision in the time it takes a phone to ring once. The call can go to a buyer or a human agent, and it can move to a new destination mid-call when the caller’s intent or your filters change.
             </p>
-            <h3>Three ways to rank buyers</h3>
+            <h3>Three Ways to Rank Buyers</h3>
             <p>For each call, the routing engine looks at every available buyer and ranks the ones that qualify using the method you pick:</p>
             <ul>
               <li>
-                <strong>Tier routing</strong>
+                <strong>Tier Routing</strong>
                 {" "}— you set the order; lower tiers go first, and weights share calls inside a tier.
               </li>
-              <li><strong>Revenue routing</strong> — the buyer paying the most for this call gets it.</li>
-              <li><strong>EPC routing</strong> — the buyer that has earned the most per call in the past goes first.</li>
+              <li><strong>Revenue Routing</strong> — the buyer paying the most for this call gets it.</li>
+              <li><strong>EPC Routing</strong> — the buyer that has earned the most per call in the past goes first.</li>
             </ul>
-            <h3>Only buyers who can take the call</h3>
+            <h3>Only Buyers Who Can Take the Call</h3>
             <p>A buyer is only tried if the call fits them and they have room for it:</p>
             <ul>
               <li>
-                <strong>Filters on any token</strong>
+                <strong>Filters on Any Token</strong>
                 {" "}— buyers match calls by geography, vertical, lead quality or any custom token, using equals, not-equals, regex, number comparisons and in/not-in. A call has to pass every one of a buyer’s filters.
               </li>
               <li>
@@ -93,7 +93,7 @@ export default function InboundCallRouting() {
                 {" "}— a 7-day by 24-hour schedule says when each buyer is open; outside it, the call falls to the next buyer or your exception handler.
               </li>
               <li>
-                <strong>Suppression and blacklists</strong>
+                <strong>Suppression and Blacklists</strong>
                 {" "}— each buyer’s suppression list is checked before forwarding, and a company blacklist can block a caller everywhere.
               </li>
             </ul>
@@ -104,24 +104,24 @@ export default function InboundCallRouting() {
               <a href="/features/suppression_lists">Suppression & DNC</a>
               .
             </p>
-            <h3 id="routing-rules">Rules you can see</h3>
+            <h3 id="routing-rules">Rules You Can See</h3>
             <p>
               Routing rules are built visually, as a tree of conditions rather than rows in a spreadsheet: a minimum intent score, the states a campaign serves, the hours it runs and each buyer’s caps and concurrency, all on one screen. Anyone on the team can read a campaign’s routing at a glance and change a geo or schedule without waiting on an engineer.
             </p>
-            <h3>Every decision shows up in the numbers</h3>
+            <h3>Every Decision Shows Up in the Numbers</h3>
             <p>
               Each routed call brings its offer, buyer and revenue into{" "}
               <a href="/features/call_tracking#reports-analytics">Call Analytics</a>
               , so you can see what each routing choice actually earned.
             </p>
             <p className="text-muted mb-1">
-              <strong>What routing earned.</strong>
+              <strong>What Routing Earned.</strong>
               {" "}Calls grouped by offer with revenue, payout, conversions and per-call economics.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/summary-report-by-offer.webp">
               <img alt="Avortyx summary report grouping routed calls by offer, with revenue, payout, conversions, and per-call economics" className="img-fluid rounded border my-3" src="/assets/avx-shots/summary-report-by-offer.webp" width="1650" height="540" srcSet="/assets/avx-shots/summary-report-by-offer-1000.webp 1000w, /assets/avx-shots/summary-report-by-offer.webp 1650w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
-            <h3>Audio checked on every leg</h3>
+            <h3>Audio Checked on Every Leg</h3>
             <p>
               A perfect routing decision is wasted if the audio never connects. Avortyx measures the quality of every leg it routes and flags{" "}
               <strong>dead air</strong>
@@ -135,14 +135,14 @@ export default function InboundCallRouting() {
               , with geographic and per-codec views for spotting regional or carrier problems early.
             </p>
             <p className="text-muted mb-1">
-              <strong>Find bad routes fast.</strong>
+              <strong>Find Bad Routes Fast.</strong>
               {" "}Quality, MOS, packet loss and jitter across every routed leg.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/audio-quality-dashboard.webp">
               <img alt="Avortyx Audio Quality dashboard for routed calls" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-shots/audio-quality-dashboard.webp" width="1600" height="845" srcSet="/assets/avx-shots/audio-quality-dashboard-1000.webp 1000w, /assets/avx-shots/audio-quality-dashboard.webp 1600w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
             <p className="text-muted mb-1">
-              <strong>Narrow it down.</strong>
+              <strong>Narrow It Down.</strong>
               {" "}Every metric by direction and leg role, with the weakest states listed first.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/audio-quality-breakdowns.webp">
@@ -159,7 +159,7 @@ export default function InboundCallRouting() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

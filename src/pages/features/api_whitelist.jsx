@@ -1,7 +1,7 @@
 // /features/api_whitelist.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "API IP Whitelist | Keep your API keys on your network | Avortyx",
+  title: "API IP Whitelist | Keep Your API Keys on Your Network | Avortyx",
   description: "Limit the Avortyx API to IP addresses you trust, for the whole company, a shared token or each developer token.",
   bodyClass: "avortyx_marketing features_api_whitelist ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function ApiWhitelist() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Security & Compliance Tools</p>
           <h1 className="fw-bold mb-2">API IP Whitelist</h1>
-          <p className="lead mktg-subpage-hero-subtitle">A leaked key is useless off your network: limit API access to the IP addresses you trust.</p>
+          <p className="lead mktg-subpage-hero-subtitle">A Leaked Key Is Useless Off Your Network: Limit API Access to the IP Addresses You Trust.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -60,10 +60,10 @@ export default function ApiWhitelist() {
             </div>
             <p>Decide which networks may talk to your Avortyx account. Add the IP addresses you trust, and requests from anywhere else are turned away before they reach any data.</p>
             <ul className="text-muted">
-              <li><strong>Whole company</strong> — keep all API access on your organization’s own network, set in your preferences.</li>
-              <li><strong>Company access token</strong> — give a shared integration its own allow-list.</li>
+              <li><strong>Whole Company</strong> — keep all API access on your organization’s own network, set in your preferences.</li>
+              <li><strong>Company Access Token</strong> — give a shared integration its own allow-list.</li>
               <li>
-                <strong>Developer access token</strong>
+                <strong>Developer Access Token</strong>
                 {" "}— a separate allow-list per developer token, for tight control over each integration.
               </li>
             </ul>
@@ -80,7 +80,7 @@ export default function ApiWhitelist() {
                 {" "}an archive. Recordings, transcripts, call logs and consent records should be exported to your own storage, including before any automatic PII redaction runs, so you can meet your record-keeping duties. Avortyx is not liable for data kept only on the platform that is later deleted, redacted or unavailable.
               </p>
               <p className="mb-0">
-                <strong>Nothing here is legal advice.</strong>
+                <strong>Nothing Here Is Legal Advice.</strong>
                 <a target="_blank" href="/terms_of_service">See the Terms of Service</a>
                 {" "}for the full terms on compliance and data retention.
               </p>
@@ -91,7 +91,7 @@ export default function ApiWhitelist() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

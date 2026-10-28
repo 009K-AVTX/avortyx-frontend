@@ -1,7 +1,7 @@
 // /features/zoho_crm.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Zoho CRM for Avortyx | Call logs, lead sync and click-to-call",
+  title: "Zoho CRM for Avortyx | Call Logs, Lead Sync and Click-to-Call",
   description: "Avortyx logs calls in Zoho CRM, keeps leads and contacts in sync, and adds click-to-call and power dialing to the Zoho interface.",
   bodyClass: "avortyx_marketing features_zoho_crm ",
   layout: "feature",
@@ -24,7 +24,7 @@ export default function ZohoCrm() {
             Avortyx +{" "}
             <img alt="Zoho CRM" className="integration-title-logo" src="/assets/avx-site/img/zoho_crm.webp" />
           </h1>
-          <p className="lead mktg-subpage-hero-subtitle">Call logs, lead and contact sync, and click-to-call dialing, all inside Zoho CRM.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Call Logs, Lead and Contact Sync, and Click-to-Call Dialing, All Inside Zoho CRM.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -36,7 +36,7 @@ export default function ZohoCrm() {
             <p>Zoho CRM users can work leads and contacts without leaving Zoho: Avortyx logs every call, keeps records in sync and puts dialing a click away.</p>
             <p>Calls, notes, leads and contacts stay current in Zoho as Avortyx handles the phone side.</p>
             <p>Agents get click-to-call, power dialing, automatic call logging and automatic lead and contact syncing.</p>
-            <h3>For Zoho users</h3>
+            <h3>For Zoho Users</h3>
             <ul>
               <li>Agents with a matching Avortyx account are signed in to Avortyx automatically.</li>
               <li>
@@ -50,14 +50,14 @@ export default function ZohoCrm() {
               </li>
               <li>Click-to-call dialing from inside the Zoho CRM interface.</li>
             </ul>
-            <h3>Zoho actions in your call flow</h3>
+            <h3>Zoho Actions in Your Call Flow</h3>
             <p>Avortyx can manage Zoho records as a step in any call flow. The available actions:</p>
             <div className="table-responsive mb-4">
               <table className="table table-bordered">
                 <thead className="table-light">
                   <tr>
                     <th>Action</th>
-                    <th>What it does</th>
+                    <th>What It Does</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -80,7 +80,7 @@ export default function ZohoCrm() {
                 </tbody>
               </table>
             </div>
-            <h3>Modules you can write to</h3>
+            <h3>Modules You Can Write To</h3>
             <p>Create and update actions work with these Zoho modules:</p>
             <div className="row g-2 mb-4">
               <div className="col-md-6">
@@ -103,7 +103,7 @@ export default function ZohoCrm() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

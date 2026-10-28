@@ -13,6 +13,14 @@
   var keys = window.__avxKeys = window.__avxKeys || {};
   var LINK = /^\/(?!\/|assets\/|ru\/|ja\/|zh\/|ru$|ja$|zh$)/;
 
+  // text a script types or streams in piece by piece never matches a key while it is half
+  // written, so such scripts ask for the whole translation first (motion.js: tr())
+  if (lang) window.AVXT = function (s) {
+    var t = I.lookup(dict, s);
+    if (t === undefined && dev) missing[s] = 1;
+    return t === undefined ? s : t;
+  };
+
   function relink(node) {
     if (!lang || node.nodeType !== 1) return;
     var as = node.matches && node.matches('a[href]') ? [node] : [];

@@ -1,7 +1,7 @@
 // /features/hold_queue.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Hold Queue & Callback | Never drop a caller to a busy line | Avortyx",
+  title: "Hold Queue & Callback | Never Drop a Caller to a Busy Line | Avortyx",
   description: "When every buyer is busy, Avortyx holds callers with music and connects them the moment capacity opens, or schedules a callback.",
   bodyClass: "avortyx_marketing features_hold_queue ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function HoldQueue() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Call Management</p>
           <h1 className="fw-bold mb-2">Hold Queue & Callback</h1>
-          <p className="lead mktg-subpage-hero-subtitle">When every buyer is busy, callers wait with music and connect the moment someone frees up, instead of hearing a busy tone.</p>
+          <p className="lead mktg-subpage-hero-subtitle">When Every Buyer Is Busy, Callers Wait with Music and Connect the Moment Someone Frees Up, Instead of Hearing a Busy Tone.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -60,17 +60,17 @@ export default function HoldQueue() {
             </div>
             <p>A busy tone throws away the money spent to make the phone ring. With a hold queue, a caller who arrives at a peak waits briefly with music and is connected automatically as soon as a buyer or agent opens up. If the queue is full, Avortyx can book a callback instead.</p>
             <ul className="text-muted">
-              <li><strong>Set per offer</strong> — queue size, longest allowed wait and hold music, offer by offer.</li>
+              <li><strong>Set per Offer</strong> — queue size, longest allowed wait and hold music, offer by offer.</li>
               <li>
-                <strong>Ready-made fallbacks</strong>
+                <strong>Ready-Made Fallbacks</strong>
                 {" "}— each offer starts with editable actions for "caller joined the queue", "queue is full" and "waited too long".
               </li>
               <li>
-                <strong>Callbacks your way</strong>
+                <strong>Callbacks Your Way</strong>
                 {" "}— when the queue overflows or a caller hangs up, schedule a callback that starts a new call, reconnects the last buyer or routes somewhere new.
               </li>
               <li>
-                <strong>No double callbacks</strong>
+                <strong>No Double Callbacks</strong>
                 {" "}— block repeat or duplicate callbacks inside a window you set, with separate handling for anonymous caller IDs.
               </li>
             </ul>
@@ -85,7 +85,7 @@ export default function HoldQueue() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

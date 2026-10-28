@@ -1,7 +1,7 @@
 // /features/mailgun.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Mailgun for Avortyx | Transactional email from your call flow",
+  title: "Mailgun for Avortyx | Transactional Email from Your Call Flow",
   description: "Send Avortyx follow-ups through Mailgun’s delivery infrastructure, with its tracking, scheduling and validation.",
   bodyClass: "avortyx_marketing integrations_mailgun ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function Mailgun() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
           <h1 className="fw-bold mb-2">Mailgun + Avortyx</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Send call follow-ups and lead confirmations through Mailgun’s delivery infrastructure, straight from Avortyx.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Send Call Follow-Ups and Lead Confirmations Through Mailgun’s Delivery Infrastructure, Straight from Avortyx.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -30,7 +30,7 @@ export default function Mailgun() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <h3>Deliverability for every follow-up</h3>
+            <h3>Deliverability for Every Follow-Up</h3>
             <p>
               Avortyx decides when a caller or lead should get an email; Mailgun makes sure it lands. Use Mailgun’s own{" "}
               <a href="https://www.mailgun.com/blog/tags-explained-gaining-useful-insights-from-email-segmentation" target="_blank" rel="noopener noreferrer">tags for A/B tests</a>
@@ -41,10 +41,10 @@ export default function Mailgun() {
               {" "}on every message your call flow sends, at any volume.
             </p>
             <ul>
-              <li>Mailgun’s sending infrastructure behind every Avortyx email</li>
-              <li>Inbound routing and storage for replies</li>
-              <li>Opens, clicks and bounces tracked in Mailgun</li>
-              <li>Address validation before a lead is emailed</li>
+              <li>Mailgun’s Sending Infrastructure Behind Every Avortyx Email</li>
+              <li>Inbound Routing and Storage for Replies</li>
+              <li>Opens, Clicks and Bounces Tracked in Mailgun</li>
+              <li>Address Validation Before a Lead Is Emailed</li>
             </ul>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function Mailgun() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

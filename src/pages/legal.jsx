@@ -25,7 +25,7 @@ export default function Legal() {
       <section className="mktg-subpage-hero">
         <div className="container">
           <h1 className="fw-bold mb-2">Legal Center</h1>
-          <p className="lead mktg-subpage-hero-subtitle">The agreements and policies that apply when you use Avortyx.</p>
+          <p className="lead mktg-subpage-hero-subtitle">The Agreements and Policies That Apply When You Use Avortyx.</p>
         </div>
       </section>
 
@@ -33,7 +33,7 @@ export default function Legal() {
         <div className="container">
           <div className="avx-legal-grid">
             <nav className="avx-legal-nav" aria-label="Legal documents">
-              <a href="/legal" className="avx-legal-home" data-doc="">All documents</a>
+              <a href="/legal" className="avx-legal-home" data-doc="">All Documents</a>
               {GROUPS.map(([name, ids]) => (
                 <div key={name} className="avx-legal-group">
                   <p>{name}</p>
@@ -53,7 +53,7 @@ export default function Legal() {
 
             <div className="avx-legal-body">
               <article className="avx-legal-doc avx-legal-index" data-doc-panel="">
-                <h2>All documents</h2>
+                <h2>All Documents</h2>
                 <p className="avx-legal-meta">These documents form part of your agreement with {ENTITY}. If a policy and the Terms of Service conflict, the Terms of Service control unless the policy says otherwise.</p>
                 {GROUPS.map(([name, ids]) => (
                   <div key={name} className="avx-legal-cards">

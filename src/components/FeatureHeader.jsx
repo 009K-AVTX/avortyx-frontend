@@ -17,7 +17,7 @@ export default function FeatureHeader({ route }) {
         </li>
       </ul>
       <a className="feature-modal-fullpage text-decoration-none text-secondary me-3" href={route.replace(/\.html$/, '')} target="_blank">
-        {' '}<i className="fa-solid fa-up-right-from-square me-1" aria-hidden="true" />View full page{' '}
+        {' '}<i className="fa-solid fa-up-right-from-square me-1" aria-hidden="true" />View Full Page{' '}
       </a>
       <a href="/features" data-avx-back="" className="btn-close" aria-label="Close" style={{ cursor: 'pointer' }} />
     </div>

@@ -1,7 +1,7 @@
 // /features/cake.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "CAKE + Avortyx | Call conversions back to CAKE in real time",
+  title: "CAKE + Avortyx | Call Conversions Back to CAKE in Real Time",
   description: "Send converted Avortyx calls back to CAKE as postbacks with the original click ID and payout, so affiliates get credit for calls.",
   bodyClass: "avortyx_marketing features_custom_webhook ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function Cake() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Tracking & Attribution</p>
           <h1 className="fw-bold mb-2">CAKE + Avortyx</h1>
-          <p className="lead mktg-subpage-hero-subtitle">When a call converts, CAKE hears about it in real time, credited to the affiliate and offer that drove the click.</p>
+          <p className="lead mktg-subpage-hero-subtitle">When a Call Converts, CAKE Hears About It in Real Time, Credited to the Affiliate and Offer That Drove the Click.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -60,14 +60,14 @@ export default function Cake() {
             </div>
             <p>When affiliate traffic converts by phone, it usually drops out of CAKE’s reporting: the click is recorded, the call is not. Avortyx closes that gap by posting each qualified call back to CAKE with the click it came from.</p>
             <ul className="text-muted">
-              <li><strong>Click IDs kept with the call</strong> — dynamic number insertion and URL tokens carry the CAKE click ID from the landing page onto the call record.</li>
-              <li><strong>Only qualified calls count</strong> — send the postback on a converted disposition, a minimum duration or a buyer payout, never on a ring that went nowhere.</li>
-              <li><strong>Revenue included</strong> — pass the payout from the call record so CAKE reports real earnings, not just conversion counts.</li>
-              <li><strong>Every attempt logged</strong> — each postback and CAKE’s response is stored on the call, so a missing conversion can be traced in seconds.</li>
+              <li><strong>Click IDs Kept with the Call</strong> — dynamic number insertion and URL tokens carry the CAKE click ID from the landing page onto the call record.</li>
+              <li><strong>Only Qualified Calls Count</strong> — send the postback on a converted disposition, a minimum duration or a buyer payout, never on a ring that went nowhere.</li>
+              <li><strong>Revenue Included</strong> — pass the payout from the call record so CAKE reports real earnings, not just conversion counts.</li>
+              <li><strong>Every Attempt Logged</strong> — each postback and CAKE’s response is stored on the call, so a missing conversion can be traced in seconds.</li>
             </ul>
-            <h3>Pay affiliates on calls, not guesses</h3>
+            <h3>Pay Affiliates on Calls, Not Guesses</h3>
             <p>With phone conversions in CAKE, affiliate payouts and offer reports reflect what callers actually did. Affiliates whose traffic converts on the phone finally see it, and you can scale the ones worth scaling.</p>
-            <h3>Built on Avortyx webhooks</h3>
+            <h3>Built on Avortyx Webhooks</h3>
             <p>The postback is an Avortyx <a href="/features/custom_webhook">custom webhook</a>: choose the conversion event, map the click ID and payout tokens into the URL, and Avortyx fires it the moment the call qualifies. Use <a href="/features/formulas">expressions</a> when a value needs reshaping first.</p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
               <a href="/features/custom_webhook" className="btn btn-td-green">Custom Webhooks</a>
@@ -80,7 +80,7 @@ export default function Cake() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

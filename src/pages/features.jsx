@@ -1,7 +1,7 @@
 // /features.html
 import Bolt from '../components/Bolt.jsx'
 export const meta = {
-  title: "Features | Score, route and settle every call | Avortyx",
+  title: "Features | Score, Route and Settle Every Call | Avortyx",
   description: "Every Avortyx capability in one place: first-ring routing, call tracking, AI call scoring, lead automation, numbers and built-in compliance.",
   bodyClass: "avortyx_marketing features ",
   layout: "site",
@@ -14,7 +14,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h1 className="fw-bold">Features</h1>
-            <p className="text-muted lead">One platform to score, route, screen and settle every call, decided on the first ring.</p>
+            <p className="text-muted lead">One Platform to Score, Route, Screen and Settle Every Call, Decided on the First Ring.</p>
           </div>
           <div className="flow-platform-diagram mt-4">
             <div className="flow-column">
@@ -91,7 +91,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h2 className="h3 fw-bold mb-1">Call Management</h2>
-            <p className="text-muted">Everything that happens between the ring and the payout, inbound and outbound.</p>
+            <p className="text-muted">Everything That Happens Between the Ring and the Payout, Inbound and Outbound.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -161,7 +161,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h2 className="h3 fw-bold mb-1">Automation</h2>
-            <p className="text-muted">Reach every lead while they are still interested, by text, email and phone.</p>
+            <p className="text-muted">Reach Every Lead While They Are Still Interested, by Text, Email and Phone.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -180,7 +180,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h2 className="h3 fw-bold mb-1">AI</h2>
-            <p className="text-muted">AI that works your texts and reads every conversation, alongside intent scoring on the first ring.</p>
+            <p className="text-muted">AI That Works Your Texts and Reads Every Conversation, Alongside Intent Scoring on the First Ring.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -210,7 +210,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h2 className="h3 fw-bold mb-1">Tracking & Attribution</h2>
-            <p className="text-muted">Know which ad made each phone ring, and send the result anywhere your team needs it.</p>
+            <p className="text-muted">Know Which Ad Made Each Phone Ring, and Send the Result Anywhere Your Team Needs It.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -273,7 +273,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h2 className="h3 fw-bold mb-1">Phone Numbers</h2>
-            <p className="text-muted">Buy, port and pool numbers on any carrier, and keep them trusted so calls get answered.</p>
+            <p className="text-muted">Buy, Port and Pool Numbers on Any Carrier, and Keep Them Trusted So Calls Get Answered.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -316,7 +316,7 @@ export default function Features() {
         <div className="container">
           <div className="mktg-section-header">
             <h2 className="h3 fw-bold mb-1">Security & Compliance Tools</h2>
-            <p className="text-muted">Compliance checks run inside every routing decision, before a buyer’s phone ever rings.</p>
+            <p className="text-muted">Compliance Checks Run Inside Every Routing Decision, Before a Buyer’s Phone Ever Rings.</p>
           </div>
           <div className="row g-4">
             <div className="col-md-6 col-lg-4">
@@ -391,10 +391,10 @@ export default function Features() {
               <div className="bg-light rounded-3 p-4">
                 <h5 className="fw-bold mb-3"><i className="fa-solid fa-chart-line me-2 text-muted" aria-hidden="true" />Campaign Performance</h5>
                 <ul className="list-unstyled mb-0">
-                  <li className="mb-2"><i className="fa-solid fa-bullhorn text-muted me-2" aria-hidden="true" />Impressions and calls per campaign</li>
-                  <li className="mb-2"><i className="fa-solid fa-magnifying-glass text-muted me-2" aria-hidden="true" />Conversions down to the keyword</li>
-                  <li className="mb-2"><i className="fa-solid fa-globe text-muted me-2" aria-hidden="true" />Attribution by page and landing page</li>
-                  <li className="mb-2"><i className="fa-solid fa-clock text-muted me-2" aria-hidden="true" />Numbers that update live</li>
+                  <li className="mb-2"><i className="fa-solid fa-bullhorn text-muted me-2" aria-hidden="true" />Impressions and Calls per Campaign</li>
+                  <li className="mb-2"><i className="fa-solid fa-magnifying-glass text-muted me-2" aria-hidden="true" />Conversions Down to the Keyword</li>
+                  <li className="mb-2"><i className="fa-solid fa-globe text-muted me-2" aria-hidden="true" />Attribution by Page and Landing Page</li>
+                  <li className="mb-2"><i className="fa-solid fa-clock text-muted me-2" aria-hidden="true" />Numbers That Update Live</li>
                 </ul>
               </div>
             </div>
@@ -412,7 +412,7 @@ export default function Features() {
         <div className="container text-center">
           <div className="mktg-section-header text-center">
             <h2 className="h3 fw-bold mb-2">Integrations</h2>
-            <p className="text-muted">Carriers, trackers, CRMs and ad platforms, connected.</p>
+            <p className="text-muted">Carriers, Trackers, CRMs and Ad Platforms, Connected.</p>
           </div>
           <div className="d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
             <a href="/features/zoho_crm" className="integration-logo-card text-decoration-none" title="Zoho CRM">
@@ -523,7 +523,7 @@ export default function Features() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

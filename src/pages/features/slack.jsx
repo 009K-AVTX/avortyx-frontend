@@ -1,7 +1,7 @@
 // /features/slack.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Slack for Avortyx | Live call and lead alerts in your channels",
+  title: "Slack for Avortyx | Live Call and Lead Alerts in Your Channels",
   description: "Post Avortyx calls, texts and form submissions to Slack in real time, filtered by call type, tag and tracking number.",
   bodyClass: "avortyx_marketing integrations_slack ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function Slack() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
           <h1 className="fw-bold mb-2">Slack + Avortyx</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Post calls, texts and new form submissions to the Slack channels where your team already talks.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Post Calls, Texts and New Form Submissions to the Slack Channels Where Your Team Already Talks.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -30,12 +30,12 @@ export default function Slack() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <h3>Know about the call while it still matters</h3>
+            <h3>Know About the Call While It Still Matters</h3>
             <p><b>Why Slack?</b></p>
             <p>Your team already lives in Slack. Rather than asking them to watch another dashboard, Avortyx brings the moments that need a person straight into the channels they read.</p>
             <p>The integration sends call, SMS and form submission events from Avortyx to Slack as they happen.</p>
             <img alt="Slack Integration" className="img-fluid rounded shadow-sm my-3" src="/assets/avx-site/img/integration-slack.webp" />
-            <h3>What your team gets</h3>
+            <h3>What Your Team Gets</h3>
             <ul>
               <li>A live alert for every call and text, so nothing is missed</li>
               <li>New form submissions routed to the people who follow them up</li>
@@ -47,7 +47,7 @@ export default function Slack() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

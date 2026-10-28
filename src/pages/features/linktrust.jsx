@@ -1,7 +1,7 @@
 // /features/linktrust.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "LinkTrust + Avortyx | Attribute calls to the right affiliate",
+  title: "LinkTrust + Avortyx | Attribute Calls to the Right Affiliate",
   description: "Post Avortyx call conversions back to LinkTrust with the click ID, so each affiliate and campaign is credited for the calls it drove.",
   bodyClass: "avortyx_marketing features_custom_webhook ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function Linktrust() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Tracking & Attribution</p>
           <h1 className="fw-bold mb-2">LinkTrust + Avortyx</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Attribute every converted call to the LinkTrust affiliate and campaign behind it.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Attribute Every Converted Call to the LinkTrust Affiliate and Campaign Behind It.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -60,14 +60,14 @@ export default function Linktrust() {
             </div>
             <p>LinkTrust is where your affiliate program keeps score. Avortyx makes sure phone calls are part of that score by posting each qualified call back with the click ID captured on the landing page.</p>
             <ul className="text-muted">
-              <li><strong>Click IDs kept with the call</strong> — dynamic number insertion and URL tokens carry the LinkTrust click ID from the landing page onto the call record.</li>
-              <li><strong>Only qualified calls count</strong> — send the postback on a converted disposition, a minimum duration or a buyer payout, never on a ring that went nowhere.</li>
-              <li><strong>Revenue included</strong> — pass the payout from the call record so LinkTrust reports real earnings, not just conversion counts.</li>
-              <li><strong>Every attempt logged</strong> — each postback and LinkTrust’s response is stored on the call, so a missing conversion can be traced in seconds.</li>
+              <li><strong>Click IDs Kept with the Call</strong> — dynamic number insertion and URL tokens carry the LinkTrust click ID from the landing page onto the call record.</li>
+              <li><strong>Only Qualified Calls Count</strong> — send the postback on a converted disposition, a minimum duration or a buyer payout, never on a ring that went nowhere.</li>
+              <li><strong>Revenue Included</strong> — pass the payout from the call record so LinkTrust reports real earnings, not just conversion counts.</li>
+              <li><strong>Every Attempt Logged</strong> — each postback and LinkTrust’s response is stored on the call, so a missing conversion can be traced in seconds.</li>
             </ul>
-            <h3>Fewer disputes with affiliates</h3>
+            <h3>Fewer Disputes with Affiliates</h3>
             <p>Every postback sits on the call record next to the recording, duration and disposition. When an affiliate asks about a conversion, the evidence is one click away.</p>
-            <h3>Built on Avortyx webhooks</h3>
+            <h3>Built on Avortyx Webhooks</h3>
             <p>The postback is an Avortyx <a href="/features/custom_webhook">custom webhook</a>: choose the conversion event, map the click ID and payout tokens into the URL, and Avortyx fires it the moment the call qualifies. Use <a href="/features/formulas">expressions</a> when a value needs reshaping first.</p>
             <div className="mt-5 pt-4 border-top d-flex flex-wrap gap-2">
               <a href="/features/custom_webhook" className="btn btn-td-green">Custom Webhooks</a>
@@ -80,7 +80,7 @@ export default function Linktrust() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

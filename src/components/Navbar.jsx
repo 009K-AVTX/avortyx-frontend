@@ -48,18 +48,18 @@ export default function Navbar({ brandHref, isLanding }) {
               <a className="nav-link" href="/p/contact" id="supportDropdown"> Support </a>
               <ul className="dropdown-menu avx-support-menu" aria-labelledby="supportDropdown">
                 <li>
-                  <a className="dropdown-item" href="/blog" title="Avortyx guides">
+                  <a className="dropdown-item" href="/blog" title="Avortyx Guides">
                     <i className="fa-solid fa-book" aria-hidden="true" /> Guides
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="mailto:support@avortyx.com" data-avx-email="">
-                    <i className="fa-solid fa-envelope" aria-hidden="true" /> Email support
+                    <i className="fa-solid fa-envelope" aria-hidden="true" /> Email Support
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="/p/contact">
-                    <i className="fa-solid fa-headset" aria-hidden="true" /> Contact us
+                    <i className="fa-solid fa-headset" aria-hidden="true" /> Contact Us
                   </a>
                 </li>
               </ul>

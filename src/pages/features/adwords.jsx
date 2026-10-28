@@ -1,7 +1,7 @@
 // /features/adwords.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Google Ads + Avortyx | Call conversions back to Google Ads",
+  title: "Google Ads + Avortyx | Call Conversions Back to Google Ads",
   description: "Avortyx reports each finished call from a Google Ads click back to Google Ads as a conversion, valued at the call’s revenue, so bidding learns which clicks become calls.",
   bodyClass: "avortyx_marketing integrations_adwords ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function Adwords() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
           <h1 className="fw-bold mb-2">Google Ads Integration</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Tell Google Ads which clicks turned into calls, and what each call was worth, so Smart Bidding chases revenue instead of clicks.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Tell Google Ads Which Clicks Turned into Calls, and What Each Call Was Worth, So Smart Bidding Chases Revenue Instead of Clicks.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -68,7 +68,7 @@ export default function Adwords() {
                 </div>
               </div>
             </div>
-            <h3>Let Google Ads see the calls it earned</h3>
+            <h3>Let Google Ads See the Calls It Earned</h3>
             <p>
               Every Google ad click lands on your page with a click ID. When that ID travels onto the call as a{" "}
               <a href="/features/dynamic_number_insertion">token</a>
@@ -77,38 +77,38 @@ export default function Adwords() {
             <ul className="text-muted">
               <li><strong>Link Google</strong> — give Avortyx access from the integration page.</li>
               <li>
-                <strong>Pick a client account</strong>
+                <strong>Pick a Client Account</strong>
                 {" "}— conversions go to the Google Ads client account you choose (manager accounts are not supported).
               </li>
               <li>
-                <strong>Match offers to conversion actions</strong>
+                <strong>Match Offers to Conversion Actions</strong>
                 {" "}— use an existing conversion action or make a new one. By default the click ID comes from the{" "}
                 <code>gclid</code>
                 {" "}token.
               </li>
               <li>
-                <strong>Every finished call counts</strong>
+                <strong>Every Finished Call Counts</strong>
                 {" "}— any finished call on a matched offer that carries a click ID is reported as a conversion, valued at what the call earned.
               </li>
             </ul>
             <div className="google-ads-click-reveal js-google-ads-click-reveal rounded-3 p-4 my-4">
               <div className="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-                <h5 className="fw-bold mt-0 mb-0">What arrives with a Google Ads click</h5>
+                <h5 className="fw-bold mt-0 mb-0">What Arrives with a Google Ads Click</h5>
                 <span className="badge google-ads-click-reveal-badge js-click-reveal-badge">Sample values</span>
               </div>
               <p className="text-muted mb-3 js-click-reveal-caption">Sample values shown. Visit this page from a Google ad and the table fills in with what your own click brought.</p>
               <table className="table table-sm mb-0">
                 <tbody>
                   <tr className="js-click-reveal-row" data-click-key="gclid">
-                    <th scope="row" className="google-ads-click-reveal-key">Google click ID <code>gclid</code></th>
+                    <th scope="row" className="google-ads-click-reveal-key">Google Click ID <code>gclid</code></th>
                     <td className="google-ads-click-reveal-value js-click-reveal-value">Cj0KCQjw-SAMPLE-click-id</td>
                   </tr>
                   <tr className="js-click-reveal-row d-none" data-click-key="gbraid">
-                    <th scope="row" className="google-ads-click-reveal-key">Google app click ID (iOS) <code>gbraid</code></th>
+                    <th scope="row" className="google-ads-click-reveal-key">Google App Click ID (iOS) <code>gbraid</code></th>
                     <td className="google-ads-click-reveal-value js-click-reveal-value" />
                   </tr>
                   <tr className="js-click-reveal-row d-none" data-click-key="wbraid">
-                    <th scope="row" className="google-ads-click-reveal-key">Google web click ID (iOS) <code>wbraid</code></th>
+                    <th scope="row" className="google-ads-click-reveal-key">Google Web Click ID (iOS) <code>wbraid</code></th>
                     <td className="google-ads-click-reveal-value js-click-reveal-value" />
                   </tr>
                   <tr className="js-click-reveal-row" data-click-key="utm_source">
@@ -128,7 +128,7 @@ export default function Adwords() {
                     <td className="google-ads-click-reveal-value js-click-reveal-value">final expense insurance</td>
                   </tr>
                   <tr className="js-click-reveal-row" data-click-key="utm_content">
-                    <th scope="row" className="google-ads-click-reveal-key">Ad variant <code>utm_content</code></th>
+                    <th scope="row" className="google-ads-click-reveal-key">Ad Variant <code>utm_content</code></th>
                     <td className="google-ads-click-reveal-value js-click-reveal-value">ad-a</td>
                   </tr>
                 </tbody>
@@ -143,7 +143,7 @@ export default function Adwords() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

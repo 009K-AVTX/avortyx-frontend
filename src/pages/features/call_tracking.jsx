@@ -1,7 +1,7 @@
 // /features/call_tracking.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Call Tracking | Every call tied to its source, outcome and payout | Avortyx",
+  title: "Call Tracking | Every Call Tied to Its Source, Outcome and Payout | Avortyx",
   description: "Avortyx tracks every call from your online and offline campaigns by source, keyword and custom token, and records its duration, recording, transcript, revenue and payout on one call record.",
   bodyClass: "avortyx_marketing features_call_tracking ",
   layout: "feature",
@@ -63,7 +63,7 @@ export default function CallTracking() {
               <strong>thousands of local and toll-free lines</strong>
               {" "}(888, 877, 855, 844 and 866 included) in nearly every area code, or port the ones you already use, and every call that rings them is tied to its campaign before it is even answered.
             </p>
-            <h3>One record per call</h3>
+            <h3>One Record per Call</h3>
             <p>
               Each call is logged with its source, offer, buyer, timings, location, custom tokens, revenue, payout and margin, alongside the{" "}
               <a href="/features/call_recordings">recording</a>
@@ -72,21 +72,21 @@ export default function CallTracking() {
               {" "}and disposition. That record is also how Avortyx settles payouts, so reporting and money never disagree.
             </p>
             <p className="text-muted mb-1">
-              <strong>Every call, one grid.</strong>
+              <strong>Every Call, One Grid.</strong>
               {" "}Filter, tab and act on calls in bulk, with column layouts saved per team.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-call-tracking-001.webp">
               <img alt="Call logs grid showing each caller, the Avortyx tracking number they dialed, offer, traffic source, buyer, status, and per-call revenue and payout" className="img-fluid rounded border mb-4" src="/assets/avx-shots/features-call-tracking-001.webp" width="2000" height="977" srcSet="/assets/avx-shots/features-call-tracking-001-1000.webp 1000w, /assets/avx-shots/features-call-tracking-001.webp 2000w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
             <p className="text-muted mb-1">
-              <strong>Source to outcome, on one page.</strong>
+              <strong>Source to Outcome, on One Page.</strong>
               {" "}Timings, source, offer and cost, with the recording, AI summary and transcript on the same page.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-call-tracking-call-details.webp">
               <img alt="Call detail view with attribution, timing breakdown, interactive recording player, AI summary, and transcription" className="img-fluid rounded border mb-4" src="/assets/avx-shots/features-call-tracking-call-details.webp" width="2000" height="1450" srcSet="/assets/avx-shots/features-call-tracking-call-details-1000.webp 1000w, /assets/avx-shots/features-call-tracking-call-details.webp 2000w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
             <p className="text-muted mb-1">
-              <strong>Search what callers said.</strong>
+              <strong>Search What Callers Said.</strong>
               {" "}Full-text search across every transcript: a competitor, a price, a complaint.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-transcription-transcripts-search.webp">
@@ -99,14 +99,14 @@ export default function CallTracking() {
               {" "}by email.
             </p>
             <p className="text-muted mb-1">
-              <strong>Slice it any way you like.</strong>
+              <strong>Slice It Any Way You Like.</strong>
               {" "}Calls, conversions, revenue, RPC and timings, grouped by whatever matters to you.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-call-tracking-002.webp">
               <img alt="Summary report grouped by buyer with conversions, revenue, RPC, and timing columns" className="img-fluid rounded border mb-4" src="/assets/avx-shots/features-call-tracking-002.webp" width="2000" height="829" srcSet="/assets/avx-shots/features-call-tracking-002-1000.webp 1000w, /assets/avx-shots/features-call-tracking-002.webp 2000w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
             <p className="text-muted mb-1">
-              <strong>Exports when you want them.</strong>
+              <strong>Exports When You Want Them.</strong>
               {" "}A step-by-step wizard for one-time or recurring exports, with column picking and email delivery.
             </p>
             <img alt="Export wizard for one-time or recurring call exports with column selection and email notification" className="img-fluid rounded border mb-4" src="/assets/avx-shots/features-call-tracking-003.webp" width="1073" height="783" loading="lazy" decoding="async" />
@@ -117,14 +117,14 @@ export default function CallTracking() {
             <p>
               Supervisors can listen to any live call, <strong>whisper</strong> to the agent without the caller hearing, or <strong>barge</strong> in and join the conversation, so a call that is going wrong can be saved while it is still on the line.
             </p>
-            <h3>What the transcripts add up to</h3>
+            <h3>What the Transcripts Add Up To</h3>
             <p>
               Switch on{" "}
               <a href="/features/transcriptions">AI Transcriptions</a>
               {" "}and sentiment, topics, talk-time ratio and cost roll up live, with every number linking through to the transcripts behind it.
             </p>
             <p className="text-muted mb-1">
-              <strong>The trend, not just the calls.</strong>
+              <strong>The Trend, Not Just the Calls.</strong>
               {" "}Positive sentiment over time, by offer, agent and call center.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/features-transcription-sentiment-breakdowns.webp">
@@ -141,38 +141,38 @@ export default function CallTracking() {
               , and the results roll up into one live dashboard for the account.
             </p>
             <p className="text-muted mb-1">
-              <strong>Quality, tracked like revenue.</strong>
+              <strong>Quality, Tracked Like Revenue.</strong>
               {" "}Average MOS, quality, packet loss, jitter and dead air, with a geographic view.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/audio-quality-dashboard.webp">
               <img alt="Avortyx Audio Quality dashboard showing average MOS, quality, packet loss, jitter, dead air, and a geographic breakdown" className="img-fluid rounded border mb-4" src="/assets/avx-shots/audio-quality-dashboard.webp" width="1600" height="845" srcSet="/assets/avx-shots/audio-quality-dashboard-1000.webp 1000w, /assets/avx-shots/audio-quality-dashboard.webp 1600w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
             <p className="text-muted mb-1">
-              <strong>Find the weak spot.</strong>
+              <strong>Find the Weak Spot.</strong>
               {" "}Every metric by direction and leg role, with the poorest states listed first.
             </p>
             <a className="zoomable-marketing-image" target="_blank" rel="noopener" href="/assets/avx-shots/audio-quality-breakdowns.webp">
               <img alt="Avortyx Audio Quality breakdowns by direction and leg role, with the lowest-quality states" className="img-fluid rounded border mb-4" src="/assets/avx-shots/audio-quality-breakdowns.webp" width="1600" height="796" srcSet="/assets/avx-shots/audio-quality-breakdowns-1000.webp 1000w, /assets/avx-shots/audio-quality-breakdowns.webp 1600w" sizes="(min-width: 992px) 860px, 100vw" loading="lazy" decoding="async" />
             </a>
-            <h3>IVRs and call flows, without code</h3>
+            <h3>IVRs and Call Flows, Without Code</h3>
             <p>Between the ring and the record is the call flow. Avortyx builds dynamic IVRs from call routers: steps that greet the caller, collect keypresses or spoken answers, filter on any token and send the call to the right buyer.</p>
             <ul className="text-muted">
               <li>
-                <strong>Filters on any token</strong>
+                <strong>Filters on Any Token</strong>
                 {" "}— each step can match caller data, location or custom tokens, so the flow changes call by call.
               </li>
               <li>
-                <strong>Webhooks at any step</strong>
+                <strong>Webhooks at Any Step</strong>
                 {" "}— fire a{" "}
                 <a href="/features/custom_webhook">custom webhook</a>
                 {" "}before or after any step.
               </li>
               <li>
-                <strong>Nothing falls through</strong>
+                <strong>Nothing Falls Through</strong>
                 {" "}— a call that connects too briefly moves on to the next buyer, and no-buyer, no-match and no-answer cases go to handlers you choose, such as voicemail or a hold queue.
               </li>
             </ul>
-            <h3>Recordings and retention</h3>
+            <h3>Recordings and Retention</h3>
             <p>
               <a href="/features/call_recordings">Record calls in both directions</a>
               {" "}per offer, with playback limited to your team and retention rules that remove recordings once they pass their window, per offer or for the whole account.
@@ -188,7 +188,7 @@ export default function CallTracking() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

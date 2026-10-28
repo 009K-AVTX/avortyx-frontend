@@ -5,7 +5,7 @@ import { postBySlug } from '../blog/posts.js'
 import Bolt from '../components/Bolt.jsx'
 import Testimonials from '../components/Testimonials.jsx'
 import More from '../components/More.jsx'
-const HERO_POINTS = ['Score every call’s intent with AI', 'Route to the highest-value buyer', 'Block spam, DNC and duplicates', 'See the revenue behind every call']
+const HERO_POINTS = ['Score Every Call’s Intent with AI', 'Route to the Highest-Value Buyer', 'Block Spam, DNC and Duplicates', 'See the Revenue Behind Every Call']
 
 // each capability sphere gets its own hue in the blue-violet range
 // AI protection: the checks every call passes, and the three layers behind them
@@ -13,7 +13,7 @@ const SHIELD_CHECKS = [['spam', 'Spam'], ['dup', 'Duplicate'], ['dnc', 'DNC'], [
 const SHIELD_LAYERS = [
   ['fa-shield-halved', 'Screen', 'AI scores intent and checks spam, duplicates, DNC and VOIP before any call routes or dials.', '/features/suppression_lists', 'Screening'],
   ['fa-file-signature', 'Comply', 'A verifiable consent record for every lead, state calling-hour rules, and PII redacted or hashed on schedule.', '/features#security-compliance-tools', 'Compliance'],
-  ['fa-id-card', 'Secure', 'KYC, KYB and STIR/SHAKEN for your numbers; scoped API tokens, IP whitelisting, encrypted keys and security logs.', '/features/api', 'Platform security'],
+  ['fa-id-card', 'Secure', 'KYC, KYB and STIR/SHAKEN for your numbers; scoped API tokens, IP whitelisting, encrypted keys and security logs.', '/features/api', 'Platform Security'],
 ]
 
 const PLATFORM_TABS = [
@@ -23,13 +23,13 @@ const PLATFORM_TABS = [
 
 // Answers come from the pricing and feature pages [question, answer, optional [href, link text]]
 const FAQ = [
-  ['Are there any onboarding fees?', 'No. Avortyx does not charge onboarding fees.', ['/pricing', 'See pricing']],
-  ['Can I bring my own carrier?', 'Yes. Connect Plivo or Telnyx, or bring any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.', ['/features/multiple_telephone_providers', 'Telephone providers']],
-  ['How are calls priced?', 'A flat monthly platform fee, then a per-minute rate on connected calls, rounded up to the nearest full minute. Tracking numbers are paid once, and every call record shows what that call cost.', ['/pricing', 'Rates and calculator']],
-  ['Is there an API?', 'Yes. Avortyx is API-first: anything you can do in the dashboard, you can do through the REST API, with access tokens limited to exactly the resources they need.', ['/features/api', 'REST API']],
-  ['How do you handle compliance and personal data?', 'DNC checks, suppression lists and blacklists run before any call is forwarded or dialed, and state rules enforce calling-hour windows. PII can be cleared or hashed from aged data and restricted to users with the PII permission.', ['/features#security-compliance-tools', 'Security and compliance']],
-  ['Do you offer discounts?', 'Yes, for high-volume customers.', ['/p/contact', 'Contact our team']],
-  ['What support do you offer?', 'Phone, live chat and email support, plus live video sessions with our specialists.', null],
+  ['Are There Any Onboarding Fees?', 'No. Avortyx does not charge onboarding fees.', ['/pricing', 'See Pricing']],
+  ['Can I Bring My Own Carrier?', 'Yes. Connect Plivo or Telnyx, or bring any SIP-compatible carrier, and manage the phone numbers from every connected provider in one place.', ['/features/multiple_telephone_providers', 'Telephone Providers']],
+  ['How Are Calls Priced?', 'A flat monthly platform fee, then a per-minute rate on connected calls, rounded up to the nearest full minute. Tracking numbers are paid once, and every call record shows what that call cost.', ['/pricing', 'Rates and calculator']],
+  ['Is There an API?', 'Yes. Avortyx is API-first: anything you can do in the dashboard, you can do through the REST API, with access tokens limited to exactly the resources they need.', ['/features/api', 'REST API']],
+  ['How Do You Handle Compliance and Personal Data?', 'DNC checks, suppression lists and blacklists run before any call is forwarded or dialed, and state rules enforce calling-hour windows. PII can be cleared or hashed from aged data and restricted to users with the PII permission.', ['/features#security-compliance-tools', 'Security and compliance']],
+  ['Do You Offer Discounts?', 'Yes, for high-volume customers.', ['/p/contact', 'Contact our team']],
+  ['What Support Do You Offer?', 'Phone, live chat and email support, plus live video sessions with our specialists.', null],
 ]
 
 const FAQ_LD = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
@@ -495,21 +495,21 @@ export default function Home() {
                 </h1>
               </div>
               <p className="lead hero-lead">
-                Matching every conversation with its highest-value buyer in real time.
+                Matching Every Conversation with Its Highest-Value Buyer in Real Time.
               </p>
               <ul className="avx-hero-points">
                 {HERO_POINTS.map((point) => (
                   <li key={point}><i className="fa-solid fa-circle-check text-primary" aria-hidden="true" />{point}</li>
                 ))}
               </ul>
-              <p className="avx-hero-for">For marketers, advertisers, and brands.</p>
+              <p className="avx-hero-for">For Marketers, Advertisers, and Brands.</p>
               <div className="avx-hero-ctas avx-cta-pair">
                 <a href="/request-access" className="btn btn-td-green btn-lg fw-semibold"><Bolt />Request Access</a>
                 {" "}
-                <a href="/p/request_demo" className="avx-cta-quiet">or book a demo <span aria-hidden="true">→</span></a>
+                <a href="/p/request_demo" className="avx-cta-quiet">Or Book a Demo <span aria-hidden="true">→</span></a>
               </div>
               <p className="avx-cta-next"><i className="fa-solid fa-envelope" aria-hidden="true" />Invite-only. Our team reviews each request and emails you a setup link.</p>
-              <a href="#how-it-decides" className="avx-hero-tour-link">How it works <span aria-hidden="true">↓</span></a>
+              <a href="#how-it-decides" className="avx-hero-tour-link">How It Works <span aria-hidden="true">↓</span></a>
             </div>
             {/* live decision: one call scored and matched to a buyer by its rules; motion.js replays it with new calls.
                 It ships in its globe look (avx-dg) so the older chip design never flashes first */}
@@ -603,10 +603,10 @@ export default function Home() {
           <div className="avx-stats-row">
             <div><b className="avx-proof-num">99.9%</b><span>Uptime</span></div>
             <div><b className="avx-proof-num">85ms</b><span>Avg routing time</span></div>
-            <div><b className="avx-proof-num">10+</b><span>Buyer match rules</span></div>
+            <div><b className="avx-proof-num">10+</b><span>Buyer Match Rules</span></div>
             <div><b className="avx-proof-num">$0</b><span>Onboarding fees</span></div>
           </div>
-          <p className="avx-logos-label">Works with the carriers and ad platforms you already run</p>
+          <p className="avx-logos-label">Works with the Carriers and Ad Platforms You Already Run</p>
           <ul className="avx-logos">
             {WORKS_WITH.map(([file, name, w, h]) => (
               <li key={file}><img alt={name} src={`/assets/avx-site/img/mono/${file}.webp`} width={w} height={h} loading="lazy" decoding="async" /></li>
@@ -619,13 +619,13 @@ export default function Home() {
         <div className="container">
           <div className="avx-people-grid">
             <div className="avx-people-copy">
-              <p data-r="" style={{ "--r": 0 }} className="avx-eyebrow">Real calls, real people</p>
-              <h2 data-r="" style={{ "--r": 1 }} className="fw-bold">Behind every call is someone ready to talk</h2>
-              <p data-r="" style={{ "--r": 2 }} className="avx-people-lead">Avortyx gets them to the right person on the first ring.</p>
+              <p data-r="" style={{ "--r": 0 }} className="avx-eyebrow">Real Calls, Real People</p>
+              <h2 data-r="" style={{ "--r": 1 }} className="fw-bold">Behind Every Call Is Someone Ready to Talk</h2>
+              <p data-r="" style={{ "--r": 2 }} className="avx-people-lead">Avortyx Gets Them to the Right Person on the First Ring.</p>
               <ul data-r="" style={{ "--r": 3 }} className="avx-people-points">
-                <li><i className="fa-solid fa-phone" aria-hidden="true" />Callers reach a buyer who can help</li>
-                <li><i className="fa-solid fa-headset" aria-hidden="true" />Agents get qualified calls, not spam</li>
-                <li><i className="fa-solid fa-chart-line" aria-hidden="true" />You see what every call earned</li>
+                <li><i className="fa-solid fa-phone" aria-hidden="true" />Callers Reach a Buyer Who Can Help</li>
+                <li><i className="fa-solid fa-headset" aria-hidden="true" />Agents Get Qualified Calls, Not Spam</li>
+                <li><i className="fa-solid fa-chart-line" aria-hidden="true" />You See What Every Call Earned</li>
               </ul>
               <div data-r="" style={{ "--r": 4 }}><More id="more-people">
                 <p>Every call is screened, scored and routed in about 85ms. Callers wait less, buyers talk to people who are ready to act, and you see the revenue behind every connected call.</p>
@@ -675,7 +675,7 @@ export default function Home() {
                 <img src="/assets/avx-site/img/people/caller-laptop-1400.webp" srcSet="/assets/avx-site/img/people/caller-laptop-900.webp 900w, /assets/avx-site/img/people/caller-laptop-1400.webp 1400w, /assets/avx-site/img/people/caller-laptop-2000.webp 2000w" sizes="(min-width: 992px) 380px, 70vw" alt="A woman on her phone at a desk with a laptop" width="1400" height="933" loading="lazy" fetchPriority="low" decoding="async" />
                 <span className="avx-ph-chip"><i className="fa-solid fa-phone" aria-hidden="true" />Caller · Google Ads</span>
                 <span className="avx-ph-quote">
-                  <small><i className="fa-solid fa-wave-square" aria-hidden="true" />Live transcript</small>
+                  <small><i className="fa-solid fa-wave-square" aria-hidden="true" />Live Transcript</small>
                   “Hi, I’m looking to switch my Medicare plan before the deadline.”
                 </span>
               </figure>
@@ -699,9 +699,9 @@ export default function Home() {
       <section className="mktg-section avx-lf-sec" id="how-it-decides">
         <div className="container text-center">
           <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">How it decides</p>
-            <h2 className="fw-bold">From first ring to closed revenue</h2>
-            <p className="text-muted">Three steps before a buyer’s phone rings.</p>
+            <p className="avx-eyebrow">How It Decides</p>
+            <h2 className="fw-bold">From First Ring to Closed Revenue</h2>
+            <p className="text-muted">Three Steps Before a Buyer’s Phone Rings.</p>
           </div>
           <div className="mktg-lead-flow avx-flow3d avx-lf2 avx-lf3 d-none d-lg-block mt-5">
             <div className="hero-simple-flow">
@@ -742,10 +742,10 @@ export default function Home() {
               <p>Everything known the moment the call connects.</p>
               <More id="more-signal">
                 <ul>
-                  <li>Caller ID and line type</li>
-                  <li>Source, campaign and keyword</li>
-                  <li>Geo, time and day</li>
-                  <li>The caller’s first words</li>
+                  <li>Caller ID and Line Type</li>
+                  <li>Source, Campaign and Keyword</li>
+                  <li>Geo, Time and Day</li>
+                  <li>The Caller’s First Words</li>
                 </ul>
               </More>
             </div>
@@ -758,10 +758,10 @@ export default function Home() {
               <p>The call is screened and scored before anyone is dialed.</p>
               <More id="more-score">
                 <ul>
-                  <li>Intent and sentiment</li>
-                  <li>Spam and duplicate checks</li>
-                  <li>TCPA, DNC and VOIP screening</li>
-                  <li>State rules and consent</li>
+                  <li>Intent and Sentiment</li>
+                  <li>Spam and Duplicate Checks</li>
+                  <li>TCPA, DNC and VOIP Screening</li>
+                  <li>State Rules and Consent</li>
                 </ul>
               </More>
             </div>
@@ -774,10 +774,10 @@ export default function Home() {
               <p>The best eligible buyer wins the call.</p>
               <More id="more-route">
                 <ul>
-                  <li>Buyer match rules</li>
-                  <li>Priority, weight and payout</li>
-                  <li>Caps, hours and concurrency</li>
-                  <li>Failover if a buyer misses</li>
+                  <li>Buyer Match Rules</li>
+                  <li>Priority, Weight and Payout</li>
+                  <li>Caps, Hours and Concurrency</li>
+                  <li>Failover If a Buyer Misses</li>
                 </ul>
               </More>
             </div>
@@ -788,9 +788,9 @@ export default function Home() {
       <section className="mktg-section avx-proof avx-shield-sec" id="trust">
         <div className="container">
           <div className="mktg-section-header text-center">
-            <p className="avx-eyebrow">AI at the core</p>
-            <h2 className="fw-bold">AI on every call</h2>
-            <p className="text-muted">Split-second AI decisions on every call.</p>
+            <p className="avx-eyebrow">AI at the Core</p>
+            <h2 className="fw-bold">AI on Every Call</h2>
+            <p className="text-muted">Split-Second AI Decisions on Every Call.</p>
             <More id="more-trust"><p>High-volume call operations run on split-second decisions. Avortyx scores every caller’s intent, screens for spam and compliance, and routes to the best eligible buyer at the center of every call.</p></More>
           </div>
 
@@ -817,7 +817,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="avx-sphere-info">
-                  <h3 className="avx-sphere-title">AI call scoring</h3>
+                  <h3 className="avx-sphere-title">AI Call Scoring</h3>
                   <p className="avx-sphere-desc">Intent and sentiment scored on every call.</p>
                 </div>
               </div>
@@ -831,7 +831,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="avx-sphere-info">
-                  <h3 className="avx-sphere-title">Smart routing</h3>
+                  <h3 className="avx-sphere-title">Smart Routing</h3>
                   <p className="avx-sphere-desc">Each call goes to the best eligible buyer.</p>
                 </div>
               </div>
@@ -874,7 +874,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="avx-sphere-info">
-                  <h3 className="avx-sphere-title">Compliance screening</h3>
+                  <h3 className="avx-sphere-title">Compliance Screening</h3>
                   <p className="avx-sphere-desc">Spam, DNC and TCPA checks before any ring.</p>
                 </div>
               </div>
@@ -888,7 +888,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="avx-sphere-info">
-                  <h3 className="avx-sphere-title">Caller insights</h3>
+                  <h3 className="avx-sphere-title">Caller Insights</h3>
                   <p className="avx-sphere-desc">Source, location and intent on every call.</p>
                 </div>
               </div>
@@ -914,14 +914,14 @@ export default function Home() {
 
           {/* the AI at work, in the same section: ask, live transcript, screening (motion.js initAiAtWork) */}
           <div className="avx-ai avx-ai-merged" data-avx-ai="">
-            <p className="avx-ai-merged-lead">See it work: ask your calls a question, watch a live transcript, or screen a call.</p>
+            <p className="avx-ai-merged-lead">See It Work: Ask Your Calls a Question, Watch a Live Transcript, or Screen a Call.</p>
             <div className="avx-tour-tabs avx-ai-tabs" role="tablist" aria-label="AI demos">
               <button type="button" className="avx-tour-tab avx-on" role="tab" aria-selected="true" aria-controls="avx-ai-ask" id="avx-ai-tab-ask" data-ai="ask">
                 <span><i className="fa-solid fa-wand-magic-sparkles" aria-hidden="true" /> Ask Avortyx</span>
               </button>
               {" "}
               <button type="button" className="avx-tour-tab" role="tab" aria-selected="false" aria-controls="avx-ai-listen" id="avx-ai-tab-listen" data-ai="listen" tabIndex="-1">
-                <span><i className="fa-solid fa-wave-square" aria-hidden="true" /> Live transcript</span>
+                <span><i className="fa-solid fa-wave-square" aria-hidden="true" /> Live Transcript</span>
               </button>
               {" "}
               <button type="button" className="avx-tour-tab" role="tab" aria-selected="false" aria-controls="avx-ai-shield" id="avx-ai-tab-shield" data-ai="shield" tabIndex="-1">
@@ -1040,7 +1040,7 @@ export default function Home() {
           <div className="mktg-section-header text-center">
             <p className="avx-eyebrow">Unified Call Platform</p>
             <h2 className="fw-bold">Every Tool You Need to Track, Route, and Scale</h2>
-            <p className="text-muted">Three tools, one real-time dashboard.</p>
+            <p className="text-muted">Three Tools, One Real-Time Dashboard.</p>
             <More id="more-platform"><p>Three enterprise-grade systems united under one real-time dashboard. Eliminate disparate point solutions and command your entire call lifecycle from a single glasspane.</p></More>
           </div>
           <div className="avx-tour-tabs avx-ai-tabs avx-plat-tabs" role="tablist" aria-label="Core tools">
@@ -1095,15 +1095,15 @@ export default function Home() {
                 <p className="text-muted">Build call flows that send every caller to the right buyer.</p>
                 <More id="more-tracking">
                 <ul className="list-unstyled text-muted small">
-                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Tier/weight priority with capacity caps</li>
-                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Simultaneous ring — first to answer wins</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Tier/Weight Priority with Capacity Caps</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Simultaneous Ring — First to Answer Wins</li>
                   <li className="mb-2">
                     <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
                     Question & Answer flows that qualify and route callers
                   </li>
                   <li className="mb-2">
                     <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
-                    Whisper messages and answering-machine detection
+                    Whisper Messages and Answering-Machine Detection
                   </li>
                 </ul>
                 </More>
@@ -1159,11 +1159,11 @@ export default function Home() {
                 <p className="text-muted">Turn web leads into live calls with automated SMS, email, and calls.</p>
                 <More id="more-automation">
                 <ul className="list-unstyled text-muted small">
-                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />SMS, email, and outbound call sequences</li>
-                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Conditional branching and retry logic</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />SMS, Email, and Outbound Call Sequences</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Conditional Branching and Retry Logic</li>
                   <li className="mb-2">
                     <i className="fa-solid fa-check text-success me-2" aria-hidden="true" />
-                    Scheduled callbacks with daylight-hours awareness
+                    Scheduled Callbacks with Daylight-Hours Awareness
                   </li>
                 </ul>
                 </More>
@@ -1213,9 +1213,9 @@ export default function Home() {
                 <p className="text-muted">Run your whole call center from one screen.</p>
                 <More id="more-agent">
                 <ul className="list-unstyled text-muted small">
-                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Interview and qualify callers</li>
-                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Transfer to buyers or other agents</li>
-                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Disposition calls and schedule callbacks</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Interview and Qualify Callers</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Transfer to Buyers or Other Agents</li>
+                  <li className="mb-2"><i className="fa-solid fa-check text-success me-2" aria-hidden="true" />Disposition Calls and Schedule Callbacks</li>
                 </ul>
                 </More>
                 <a className="avx-more-link mt-3" href="/features/agent_controls#agent-control-center">
@@ -1231,8 +1231,8 @@ export default function Home() {
         <div className="container text-center">
           <div className="mktg-section-header text-center">
             <p className="avx-eyebrow">Platform</p>
-            <h2 className="fw-bold mb-3">More ways to win the call</h2>
-            <p className="text-muted">The rest of the platform that turns every connected call into revenue.</p>
+            <h2 className="fw-bold mb-3">More Ways to Win the Call</h2>
+            <p className="text-muted">The Rest of the Platform That Turns Every Connected Call into Revenue.</p>
           </div>
           <div className="row g-4 text-start">
             <div className="col-md-4">
@@ -1283,9 +1283,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <a href="/features" className="avx-more-link avx-caps-all">See all features <span aria-hidden="true">→</span></a>
+          <a href="/features" className="avx-more-link avx-caps-all">See All Features <span aria-hidden="true">→</span></a>
           <div className="avx-int-merged" id="integrations">
-            <h3 className="h5 fw-bold mb-2">Works with the tools you already use</h3>
+            <h3 className="h5 fw-bold mb-2">Works with the Tools You Already Use</h3>
             <ul className="avx-int-grid">
               {INTEGRATION_ROWS.flat().map(([file, name, href, w, h]) => (
                 <li key={file}>
@@ -1294,7 +1294,7 @@ export default function Home() {
               ))}
             </ul>
             <p className="avx-int-voip-note">
-              <b>Bring your own VoIP.</b> Use your preferred telephony provider, or any SIP-compatible carrier.{" "}
+              <b>Bring Your Own VoIP.</b> Use your preferred telephony provider, or any SIP-compatible carrier.{" "}
               <a href="/features/integrations" className="avx-more-link">All integrations <span aria-hidden="true">→</span></a>
             </p>
           </div>
@@ -1305,9 +1305,9 @@ export default function Home() {
           <div className="avx-caps-head">
             <div>
               <h2 className="fw-bold">Field Intelligence &amp; Playbooks</h2>
-              <p>Playbooks and routing breakdowns from the team.</p>
+              <p>Playbooks and Routing Breakdowns from the Team.</p>
             </div>
-            <a href="/blog" className="avx-more-link">All posts <span aria-hidden="true">→</span></a>
+            <a href="/blog" className="avx-more-link">All Posts <span aria-hidden="true">→</span></a>
           </div>
           <div className="avx-blog-grid">
             {[
@@ -1322,7 +1322,7 @@ export default function Home() {
         <div className="container">
           <div className="mktg-section-header text-center">
             <p className="avx-eyebrow">FAQ</p>
-            <h2 className="fw-bold">Questions, answered</h2>
+            <h2 className="fw-bold">Questions, Answered</h2>
           </div>
           <div className="avx-faq-list">
             {FAQ.map(([q, a, link]) => (
@@ -1342,18 +1342,18 @@ export default function Home() {
           <img alt="" loading="lazy" src="/assets/avx-site/img/constellation-light.svg" />
         </div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
-          <p className="marketing-cta-band__subtitle">Point a number at Avortyx and start routing on the first ring.</p>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
+          <p className="marketing-cta-band__subtitle">Point a Number at Avortyx and Start Routing on the First Ring.</p>
           <div className="avx-cta-pair avx-cta-pair-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
             {" "}
-            <a href="/p/request_demo" className="avx-cta-quiet">or book a demo <span aria-hidden="true">→</span></a>
+            <a href="/p/request_demo" className="avx-cta-quiet">Or Book a Demo <span aria-hidden="true">→</span></a>
           </div>
           <p className="avx-price-hint">
             <span><i className="fa-solid fa-circle-check" aria-hidden="true" />No onboarding fees</span>
             <span><i className="fa-solid fa-circle-check" aria-hidden="true" />A flat platform fee, then per-minute rates</span>
             <span><i className="fa-solid fa-circle-check" aria-hidden="true" />Phone, chat, email and video support</span>
-            <a href="/pricing" className="avx-more-link">See pricing <span aria-hidden="true">→</span></a>
+            <a href="/pricing" className="avx-more-link">See Pricing <span aria-hidden="true">→</span></a>
           </p>
         </div>
       </section>

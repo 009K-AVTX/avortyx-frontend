@@ -32,7 +32,7 @@ export default function Testimonials() {
       <div className="container">
         <div className="mktg-section-header text-center">
           <p className="avx-eyebrow">Testimonials</p>
-          <h2 id="testi-title" className="fw-bold">Loved by performance marketers</h2>
+          <h2 id="testi-title" className="fw-bold">Loved by Performance Marketers</h2>
         </div>
       </div>
       {/* the cards twice over, so the row loops without a seam; the copy is hidden from readers */}

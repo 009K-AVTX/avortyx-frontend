@@ -2,7 +2,7 @@
 import Bolt from '../components/Bolt.jsx'
 export const meta = {
   title: "Careers | Avortyx",
-  description: "Help build the platform that decides where every call goes.",
+  description: "Help Build the Platform That Decides Where Every Call Goes.",
   bodyClass: "avortyx_marketing careers without-waves",
   layout: "site",
 }
@@ -55,10 +55,10 @@ const TEAMS = ['Engineering', 'Marketing', 'Finance', 'Data', 'Legal', 'Customer
 
 // [icon, color, title, text]
 const VALUES = [
-  ['fa-bolt', 'text-warning', 'Decide in the first ring', 'We ship in small, fast loops. A call can’t wait, and neither should a fix.'],
-  ['fa-shield-halved', 'text-success', 'Compliance is a feature', 'TCPA, DNC and consent aren’t paperwork: they’re product. We build them in, never bolt them on.'],
-  ['fa-headset', 'text-info', 'Operators first', 'Every screen is designed for the people running campaigns at 2am, not for a slide deck.'],
-  ['fa-bullseye', 'text-danger', 'Own the outcome', 'Real scope from day one. You’ll carry problems from customer call to production and back.'],
+  ['fa-bolt', 'text-warning', 'Decide in the First Ring', 'We ship in small, fast loops. A call can’t wait, and neither should a fix.'],
+  ['fa-shield-halved', 'text-success', 'Compliance Is a Feature', 'TCPA, DNC and consent aren’t paperwork: they’re product. We build them in, never bolt them on.'],
+  ['fa-headset', 'text-info', 'Operators First', 'Every screen is designed for the people running campaigns at 2am, not for a slide deck.'],
+  ['fa-bullseye', 'text-danger', 'Own the Outcome', 'Real scope from day one. You’ll carry problems from customer call to production and back.'],
 ]
 
 export default function Careers() {
@@ -70,7 +70,7 @@ export default function Careers() {
             <a href="/features" className="mktg-subpage-back"> <i className="fa-solid fa-arrow-left" aria-hidden="true" /> Back to Features </a>
           </div>
           <h1 className="fw-bold mb-2">Careers</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Help build the platform that decides where every call goes.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Help Build the Platform That Decides Where Every Call Goes.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -79,7 +79,7 @@ export default function Careers() {
       <section className="py-5">
         <div className="container">
           <div className="text-center mb-5">
-            <h2 className="fw-bold mb-3">A team of 100+ experts, operating where every millisecond matters</h2>
+            <h2 className="fw-bold mb-3">A Team of 100+ Experts, Operating Where Every Millisecond Matters</h2>
             <p className="text-muted max-w-2xl mx-auto">Avortyx is a growing company of over 100 employees: engineers, operators and sellers. Every call that rings through the platform is someone’s revenue, and that shapes how we build and who we hire.</p>
           </div>
           <div className="row g-4 mb-5">
@@ -95,8 +95,8 @@ export default function Careers() {
           </div>
 
           <div className="mb-5" data-avx-jobs="" data-avx-apply-url={APPLY_URL}>
-            <h2 className="fw-bold mb-3 text-center">Where we’re hiring now</h2>
-            <p className="text-muted text-center mb-4">{ROLES.length} open roles, all full-time.</p>
+            <h2 className="fw-bold mb-3 text-center">Where We’re Hiring Now</h2>
+            <p className="text-muted text-center mb-4">{ROLES.length} Open Roles, All Full-Time.</p>
             {/* site.js filters the list by team; without script every role shows */}
             <div className="avx-jobs-filter" role="group" aria-label="Filter roles by team">
               <button type="button" className="avx-jobs-chip" data-team="" aria-pressed="true">All <span>{ROLES.length}</span></button>
@@ -121,16 +121,16 @@ export default function Careers() {
           </div>
 
           <div className="text-center p-4 rounded" style={{ background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
-            <h3 className="h5 fw-bold text-white mb-2">Nothing that fits?</h3>
+            <h3 className="h5 fw-bold text-white mb-2">Nothing That Fits?</h3>
             <p className="text-muted small mb-3"><a href={OPEN_APPLICATION} data-avx-apply="Open application">Tell us what you’d build here</a>, we read every note.</p>
-            <a className="btn btn-td-green px-4 py-2 fw-semibold" href={OPEN_APPLICATION} data-avx-apply="Open application">Send an open application</a>
+            <a className="btn btn-td-green px-4 py-2 fw-semibold" href={OPEN_APPLICATION} data-avx-apply="Open application">Send an Open Application</a>
           </div>
         </div>
       </section>
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

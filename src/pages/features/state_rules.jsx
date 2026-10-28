@@ -1,7 +1,7 @@
 // /features/state_rules.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "State Rules | Calling hours and limits by state | Avortyx",
+  title: "State Rules | Calling Hours and Limits by State | Avortyx",
   description: "Avortyx enforces each state’s calling hours, holiday blackouts and contact limits on every outbound dial, and reschedules calls that would break them.",
   bodyClass: "avortyx_marketing features_state_rules ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function StateRules() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Security & Compliance Tools</p>
           <h1 className="fw-bold mb-2">State Rules</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Each state’s calling hours, holiday blackouts and contact limits, checked on every outbound dial before it happens.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Each State’s Calling Hours, Holiday Blackouts and Contact Limits, Checked on Every Outbound Dial Before It Happens.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -69,7 +69,7 @@ export default function StateRules() {
                 {" "}an archive. Recordings, transcripts, call logs and consent records should be exported to your own storage, including before any automatic PII redaction runs, so you can meet your record-keeping duties. Avortyx is not liable for data kept only on the platform that is later deleted, redacted or unavailable.
               </p>
               <p className="mb-0">
-                <strong>Nothing here is legal advice.</strong>
+                <strong>Nothing Here Is Legal Advice.</strong>
                 <a target="_blank" href="/terms_of_service">See the Terms of Service</a>
                 {" "}for the full terms on compliance and data retention.
               </p>
@@ -85,7 +85,7 @@ export default function StateRules() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

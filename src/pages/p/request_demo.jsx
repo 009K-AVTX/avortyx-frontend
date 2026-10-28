@@ -1,7 +1,7 @@
 // /p/request_demo.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Request a Demo | See Avortyx route your calls",
+  title: "Request a Demo | See Avortyx Route Your Calls",
   description: "Walk through Avortyx with our team: first-ring routing, intent scoring, the live monitor and pricing for your volume.",
   bodyClass: "avortyx_marketing request_demo ",
   layout: "site",
@@ -15,8 +15,8 @@ export default function RequestDemo() {
           <div className="row justify-content-center mb-4">
             <div className="col-lg-8 text-center">
               <div className="mktg-section-header text-center">
-                <h1 className="fw-bold mb-3">See Avortyx with your traffic</h1>
-                <p className="text-muted lead">A walkthrough built around your verticals, buyers and volume, not a generic slideshow.</p>
+                <h1 className="fw-bold mb-3">See Avortyx with Your Traffic</h1>
+                <p className="text-muted lead">A Walkthrough Built Around Your Verticals, Buyers and Volume, Not a Generic Slideshow.</p>
               </div>
             </div>
           </div>
@@ -24,7 +24,7 @@ export default function RequestDemo() {
             <div className="col-lg-4 col-md-5">
               <div className="card border-0 shadow-sm h-100">
                 <div className="card-body p-4">
-                  <h5 className="fw-bold mb-4">What we will cover</h5>
+                  <h5 className="fw-bold mb-4">What We Will Cover</h5>
                   <ul className="list-unstyled">
                     <li className="d-flex align-items-start mb-3">
                       <i className="fa-solid fa-check-circle text-primary me-2 mt-1" style={{ color: "#2563eb" }} aria-hidden="true" />
@@ -132,7 +132,7 @@ export default function RequestDemo() {
                       </div>
                     </div>
                     <div className="row mb-3 js-form-validation form-group check_boxes optional contact_request_feature_interests">
-                      <label className="col-sm-3 col-form-label pt-0 check_boxes optional">What are you looking at?</label>
+                      <label className="col-sm-3 col-form-label pt-0 check_boxes optional">What Are You Looking At?</label>
                       <div className="col-sm-9">
                         <div className="form-check">
                           <input className="form-check-input check_boxes optional" type="checkbox" value="Call Tracking" name="contact_request[feature_interests][]" id="contact_request_feature_interests_call_tracking" />
@@ -169,7 +169,7 @@ export default function RequestDemo() {
                     </div>
                     <div className="row">
                       <div className="col-sm-9 offset-sm-3">
-                        <button type="submit" className="btn btn-td-green px-4 py-2 fw-semibold">Book the walkthrough</button>
+                        <button type="submit" className="btn btn-td-green px-4 py-2 fw-semibold">Book the Walkthrough</button>
                       </div>
                     </div>
                   </form>
@@ -182,7 +182,7 @@ export default function RequestDemo() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

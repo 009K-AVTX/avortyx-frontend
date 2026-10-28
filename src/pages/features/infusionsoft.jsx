@@ -1,7 +1,7 @@
 // /features/infusionsoft.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Infusionsoft (Keap) for Avortyx | Calls and texts on every contact",
+  title: "Infusionsoft (Keap) for Avortyx | Calls and Texts on Every Contact",
   description: "Avortyx writes calls, texts and emails to Infusionsoft contacts as notes, and lead schedules can send email or start Infusionsoft campaigns.",
   bodyClass: "avortyx_marketing integrations_infusionsoft ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function Infusionsoft() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Integrations</p>
           <h1 className="fw-bold mb-2">Infusionsoft + Avortyx</h1>
-          <p className="lead mktg-subpage-hero-subtitle">See every call, text and email from Avortyx on the Infusionsoft contact it belongs to.</p>
+          <p className="lead mktg-subpage-hero-subtitle">See Every Call, Text and Email from Avortyx on the Infusionsoft Contact It Belongs To.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -30,10 +30,10 @@ export default function Infusionsoft() {
       <section className="py-5">
         <div className="container">
           <div className="marketing-subpage-content mx-auto">
-            <h3>Your call history, inside the CRM</h3>
+            <h3>Your Call History, Inside the CRM</h3>
             <p>Avortyx logs each call, SMS and email against the matching Infusionsoft contact as a note, so the people working the CRM see the whole conversation without switching tools.</p>
             <ul>
-              <li>Avortyx leads sync to Infusionsoft as contacts</li>
+              <li>Avortyx Leads Sync to Infusionsoft as Contacts</li>
               <li>Calls, texts and emails, sent or received, become notes on the contact</li>
               <li>Send an Infusionsoft email as a step in an Avortyx <a href="/features/lead_automation">schedule</a></li>
               <li>
@@ -48,7 +48,7 @@ export default function Infusionsoft() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

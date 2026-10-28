@@ -15,7 +15,7 @@ export default function SignIn() {
             <div className="text-center mb-4">
               <h2 className="fw-bold mb-2">Sign in to Avortyx</h2>
               <p className="text-muted mb-0">
-                Sign in to your Avortyx account. Don't have an account?{" "}
+                Sign in to Your Avortyx Account. Don't Have an Account?{" "}
                 <a href="/request-access" className="text-decoration-none fw-semibold mktg-link-green">Request Access</a>
               </p>
             </div>
@@ -24,13 +24,13 @@ export default function SignIn() {
               <input type="hidden" name="authenticity_token" value="jfoFZS7tbzagC6dA7kTu4uOzm-Sd9dKpMktWT3-pjhWjfwvzMWvSVOi7r-xZUWcvtRQQkfgQxu30C0E7yGjSwA" autoComplete="off" />
               <div className="mb-3">
                 <div className="mb-3 js-form-validation form-group email required user_email">
-                  <label className="form-label email required" htmlFor="user_email"><abbr title="required">*</abbr> Email</label>
+                  <label className="form-label email required" htmlFor="user_email"><abbr title="Required">*</abbr> Email</label>
                   <input className="form-control string email required form-control" placeholder="you@company.com" autoFocus required aria-required="true" type="email" name="user[email]" id="user_email" />
                 </div>
               </div>
               <div className="mb-3">
                 <div className="mb-3 js-form-validation form-group password required user_password">
-                  <label className="form-label password required" htmlFor="user_password"><abbr title="required">*</abbr> Password</label>
+                  <label className="form-label password required" htmlFor="user_password"><abbr title="Required">*</abbr> Password</label>
                   <input className="form-control password required form-control" autoComplete="off" placeholder="Your password" required aria-required="true" type="password" name="user[password]" id="user_password" />
                 </div>
               </div>
@@ -38,9 +38,9 @@ export default function SignIn() {
                 <div className="form-check">
                   <input className="form-check-input" type="checkbox" name="user[remember_me]" id="remember_me" value="1" defaultChecked />
                   {" "}
-                  <label className="form-check-label small text-muted" htmlFor="remember_me">Remember me</label>
+                  <label className="form-check-label small text-muted" htmlFor="remember_me">Remember Me</label>
                 </div>
-                <a href="/users/password/new" className="small text-muted text-decoration-none">Forgot password?</a>
+                <a href="/users/password/new" className="small text-muted text-decoration-none">Forgot Password?</a>
               </div>
               <button className="btn btn-td-green w-100 py-2 fw-semibold" type="submit">Sign In</button>
             </form>

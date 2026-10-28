@@ -1,7 +1,7 @@
 // /features/formulas.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Expressions & Functions | Shape call data on the fly | Avortyx",
+  title: "Expressions & Functions | Shape Call Data on the Fly | Avortyx",
   description: "Avortyx expressions clean, format and calculate call and lead data inside routing filters, field defaults, webhooks and postbacks, with nestable functions.",
   bodyClass: "avortyx_marketing features_formulas ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function Formulas() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Tracking & Attribution</p>
           <h1 className="fw-bold mb-2">Expressions & Functions</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Clean, format and calculate call and lead data on the fly, inside routing filters, webhooks and postbacks.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Clean, Format and Calculate Call and Lead Data on the Fly, Inside Routing Filters, Webhooks and Postbacks.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -33,9 +33,9 @@ export default function Formulas() {
             <p>Expressions let Avortyx reshape and calculate data as calls and leads move through it: clean a name before it reaches a buyer, compute a payout, format a date for a postback. Functions can be nested inside each other, so small pieces combine into real logic.</p>
             <p className="text-muted">They work anywhere Avortyx fills in tokens, including:</p>
             <ul className="text-muted">
-              <li>Default values for contact fields</li>
-              <li>Webhook URLs and postback bodies</li>
-              <li>Filters in your routing rules</li>
+              <li>Default Values for Contact Fields</li>
+              <li>Webhook URLs and Postback Bodies</li>
+              <li>Filters in Your Routing Rules</li>
             </ul>
             <p>Every expression has a type (String, Integer, Float or Time), and its arguments are converted to that type before it is evaluated.</p>
             <div className="formula-doc">
@@ -1194,7 +1194,7 @@ export default function Formulas() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

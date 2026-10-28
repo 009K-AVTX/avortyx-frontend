@@ -1,6 +1,6 @@
 // /sign_up.html
 export const meta = {
-  title: "Create your Avortyx workspace",
+  title: "Create Your Avortyx Workspace",
   description: "Set up an Avortyx workspace and route your first call: numbers, routing rules and payouts in one place.",
   bodyClass: "avortyx_marketing users_sign_up without-waves",
   layout: "site",
@@ -13,8 +13,8 @@ export default function SignUp() {
         <div className="container">
           <div className="mktg-auth-card mktg-auth-card--wide">
             <div className="text-center mb-4">
-              <h2 className="fw-bold mb-2">Set up your Avortyx workspace</h2>
-              <p className="text-muted mb-1">No card and no onboarding fee. Your first campaign can be live in minutes.</p>
+              <h2 className="fw-bold mb-2">Set Up Your Avortyx Workspace</h2>
+              <p className="text-muted mb-1">No Card and No Onboarding Fee. Your First Campaign Can Be Live in Minutes.</p>
               <p className="text-muted mb-0">
                 Already have an account?{" "}
                 <a href="/users/sign_in" className="text-decoration-none fw-semibold mktg-link-green">Sign in</a>
@@ -31,7 +31,7 @@ export default function SignUp() {
               <input autoComplete="off" type="hidden" name="registration[referral_token_resolved]" id="registration_referral_token_resolved" />
               <div className="row mb-3 js-form-validation form-group email required registration_email">
                 <label className="col-sm-3 col-form-label text-start text-sm-end email required" htmlFor="registration_email">
-                  <abbr title="required">*</abbr>
+                  <abbr title="Required">*</abbr>
                   {" "}Email
                 </label>
                 <div className="col-sm-9">
@@ -40,7 +40,7 @@ export default function SignUp() {
               </div>
               <div className="row mb-3 js-form-validation form-group string required registration_first_name">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="registration_first_name">
-                  <abbr title="required">*</abbr>
+                  <abbr title="Required">*</abbr>
                   {" "}First Name
                 </label>
                 <div className="col-sm-9">
@@ -49,7 +49,7 @@ export default function SignUp() {
               </div>
               <div className="row mb-3 js-form-validation form-group string required registration_last_name">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="registration_last_name">
-                  <abbr title="required">*</abbr>
+                  <abbr title="Required">*</abbr>
                   {" "}Last Name
                 </label>
                 <div className="col-sm-9">
@@ -58,7 +58,7 @@ export default function SignUp() {
               </div>
               <div className="row mb-3 js-form-validation form-group string required registration_company_name">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="registration_company_name">
-                  <abbr title="required">*</abbr>
+                  <abbr title="Required">*</abbr>
                   {" "}Company Name
                 </label>
                 <div className="col-sm-9">
@@ -67,7 +67,7 @@ export default function SignUp() {
               </div>
               <div className="row mb-3 js-form-validation form-group tel required registration_phone_1">
                 <label className="col-sm-3 col-form-label text-start text-sm-end tel required" htmlFor="registration_phone_1">
-                  <abbr title="required">*</abbr>
+                  <abbr title="Required">*</abbr>
                   {" "}Phone Number
                 </label>
                 <div className="col-sm-9">
@@ -77,7 +77,7 @@ export default function SignUp() {
               <div className="row mb-3 js-form-validation form-group string optional registration_microsoft_teams">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string optional" htmlFor="registration_microsoft_teams">
                   Teams{" "}
-                  <small className="text-muted">(for support)</small>
+                  <small className="text-muted">(for Support)</small>
                 </label>
                 <div className="col-sm-9">
                   <input className="form-control string optional" placeholder={"\"Invite to Teams\" link"} type="text" name="registration[microsoft_teams]" id="registration_microsoft_teams" />
@@ -86,7 +86,7 @@ export default function SignUp() {
               </div>
               <div className="row mb-3 js-form-validation form-group string required registration_address_line1">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="registration_address_line1">
-                  <abbr title="required">*</abbr>
+                  <abbr title="Required">*</abbr>
                   {" "}Company Address
                 </label>
                 <div className="col-sm-9">
@@ -95,7 +95,7 @@ export default function SignUp() {
               </div>
               <div className="row mb-3 js-form-validation form-group string required registration_address_city">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="registration_address_city">
-                  <abbr title="required">*</abbr>
+                  <abbr title="Required">*</abbr>
                   {" "}City
                 </label>
                 <div className="col-sm-9">
@@ -104,7 +104,7 @@ export default function SignUp() {
               </div>
               <div className="row mb-3 js-form-validation form-group string required registration_address_state">
                 <label className="col-sm-3 col-form-label text-start text-sm-end string required" htmlFor="registration_address_state">
-                  <abbr title="required">*</abbr>
+                  <abbr title="Required">*</abbr>
                   {" "}State / Province
                 </label>
                 <div className="col-sm-9">
@@ -113,7 +113,7 @@ export default function SignUp() {
               </div>
               <div className="row mb-3 js-form-validation form-group country required registration_address_country">
                 <label className="col-sm-3 col-form-label text-start text-sm-end country required" htmlFor="registration_address_country">
-                  <abbr title="required">*</abbr>
+                  <abbr title="Required">*</abbr>
                   {" "}Country
                 </label>
                 <div className="col-sm-9">
@@ -376,13 +376,13 @@ export default function SignUp() {
                 </div>
               </div>
               <div className="row mb-3 js-form-validation form-group string optional registration_where_did_you_hear">
-                <label className="col-sm-3 col-form-label text-start text-sm-end string optional" htmlFor="registration_where_did_you_hear">Where did you hear about Avortyx?</label>
+                <label className="col-sm-3 col-form-label text-start text-sm-end string optional" htmlFor="registration_where_did_you_hear">Where Did You Hear About Avortyx?</label>
                 <div className="col-sm-9">
                   <input className="form-control string optional select2" include_blank="false" placeholder="Google, Facebook, Email?" type="text" name="registration[where_did_you_hear]" id="registration_where_did_you_hear" />
                 </div>
               </div>
               <div className="row mb-3 js-form-validation form-group check_boxes optional registration_feature_interests">
-                <label className="col-sm-3 col-form-label pt-0 check_boxes optional">What will you use Avortyx for?</label>
+                <label className="col-sm-3 col-form-label pt-0 check_boxes optional">What Will You Use Avortyx For?</label>
                 <div className="col-sm-9">
                   <div className="form-check">
                     <input className="form-check-input check_boxes optional" type="checkbox" value="Call Tracking" name="registration[feature_interests][]" id="registration_feature_interests_call_tracking" />
@@ -420,7 +420,7 @@ export default function SignUp() {
                     <div className="form-check">
                       <input className="form-check-input boolean required" data-fv-not-empty---message="Please accept the Terms of Service and Privacy Policy" required aria-required="true" type="checkbox" value="1" name="registration[terms_of_service_accepted]" id="registration_terms_of_service_accepted" />
                       <label className="form-check-label boolean required small text-muted" htmlFor="registration_terms_of_service_accepted">
-                        <abbr title="required">*</abbr>
+                        <abbr title="Required">*</abbr>
                         {" "}I have read and understand Avortyx's{" "}
                         <a href="/terms_of_service" target="_blank" className="text-decoration-none fw-semibold mktg-link-green">Terms of Service</a>
                         {" "}and{" "}
@@ -429,7 +429,7 @@ export default function SignUp() {
                       </label>
                     </div>
                   </fieldset>
-                  <button className="btn btn-td-green px-4 py-2 fw-semibold" type="submit">Create workspace</button>
+                  <button className="btn btn-td-green px-4 py-2 fw-semibold" type="submit">Create Workspace</button>
                 </div>
               </div>
             </form>

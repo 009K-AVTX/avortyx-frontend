@@ -1,7 +1,7 @@
 // /features/multiple_telephone_providers.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "Multiple Telephone Providers | Bring your own carrier | Avortyx",
+  title: "Multiple Telephone Providers | Bring Your Own Carrier | Avortyx",
   description: "Run Avortyx on Plivo, Telnyx or any SIP carrier, and manage every number from every provider in one place.",
   bodyClass: "avortyx_marketing features_multiple_telephone_providers ",
   layout: "feature",
@@ -21,7 +21,7 @@ export default function MultipleTelephoneProviders() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">Phone Numbers</p>
           <h1 className="fw-bold mb-2">Multiple Telephone Providers</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Keep the carriers you trust, add more for redundancy, and run them all through one routing engine.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Keep the Carriers You Trust, Add More for Redundancy, and Run Them All Through One Routing Engine.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -61,7 +61,7 @@ export default function MultipleTelephoneProviders() {
             <p>Avortyx does not lock you into a phone carrier. Connect Plivo or Telnyx with your own accounts, or route your existing carrier in over SIP, and every number gets the same scoring, screening and routing on the first ring.</p>
             <p>Running more than one carrier also means a problem at one provider does not take your campaigns down with it. These are the providers Avortyx connects to today:</p>
             <p className="text-muted mb-1">
-              <strong>Supported carriers.</strong>
+              <strong>Supported Carriers.</strong>
               {" "}Link an existing account, or bring your own carrier over SIP-IN.
             </p>
             <div className="d-flex flex-wrap gap-4 align-items-center my-3">
@@ -77,27 +77,27 @@ export default function MultipleTelephoneProviders() {
               {" "}
               <img alt="Avoxi" className="voip-provider-logo" src="/assets/avx-site/img/avoxi.webp" />
             </div>
-            <h2 className="mt-5 mb-4">Plivo and Telnyx, fully managed</h2>
+            <h2 className="mt-5 mb-4">Plivo and Telnyx, Fully Managed</h2>
             <p>These two carriers are connected through their APIs, so Avortyx can manage them end to end:</p>
             <ul className="text-muted">
               <li>
-                <strong>Link your accounts</strong>
+                <strong>Link Your Accounts</strong>
                 {" "}— enter your API credentials once; Avortyx stores them securely and handles numbers, calls and SMS from one workspace.
               </li>
               <li>
-                <strong>Import your numbers</strong>
+                <strong>Import Your Numbers</strong>
                 {" "}— one click, and they are ready to attach to offers, traffic sources and number pools.
               </li>
               <li>
-                <strong>Buy new numbers</strong>
+                <strong>Buy New Numbers</strong>
                 {" "}— search any connected carrier by country, area code and type (local or toll-free).
               </li>
               <li>
-                <strong>Send and receive SMS</strong>
+                <strong>Send and Receive SMS</strong>
                 {" "}— outbound and inbound texts plus automated SMS flows, with delivery tracked across every carrier.
               </li>
             </ul>
-            <h3>One number inventory</h3>
+            <h3>One Number Inventory</h3>
             <p>Every number (DID) from every carrier lives in one list in Avortyx. Buy, assign and release them through the same steps, and attach them to an offer, a traffic source or a number pool wherever they came from.</p>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function MultipleTelephoneProviders() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>

@@ -25,8 +25,8 @@ export default function RequestAccess() {
         <div className="container">
           <div className="row g-5 align-items-center">
             <div className="col-lg-6">
-              <p className="avx-ra-eyebrow">By invitation only</p>
-              <h1 className="avx-ra-title">Request access <br className="d-none d-md-inline" />to Avortyx</h1>
+              <p className="avx-ra-eyebrow">By Invitation Only</p>
+              <h1 className="avx-ra-title">Request Access <br className="d-none d-md-inline" />to Avortyx</h1>
               <p className="avx-ra-lead">Avortyx is a private platform for pay-per-call buyers, publishers and networks. Tell us about your business and our team will review your request.</p>
               <ol className="avx-ra-steps">
                 {STEPS.map(([title, text]) => (
@@ -50,21 +50,21 @@ export default function RequestAccess() {
                     <circle cx="32" cy="32" r="1.7" fill="currentColor" />
                   </svg>
                 </span>
-                <h2 className="avx-ra-card-title">Tell us about your business</h2>
-                <p className="avx-ra-card-sub">It takes a minute. We only use this to review your request.</p>
+                <h2 className="avx-ra-card-title">Tell Us About Your Business</h2>
+                <p className="avx-ra-card-sub">It Takes a Minute. We Only Use This to Review Your Request.</p>
                 <form className="avx-ra-form" data-avx-request-access="" data-avx-request-url={ACCESS_URL} noValidate>
                   <div className="avx-ra-row">
-                    <label>Full name<input name="name" autoComplete="name" required /></label>
+                    <label>Full Name<input name="name" autoComplete="name" required /></label>
                     <label>Company<input name="organization" autoComplete="organization" required /></label>
                   </div>
-                  <label>Work email<input name="email" type="email" autoComplete="email" required /></label>
+                  <label>Work Email<input name="email" type="email" autoComplete="email" required /></label>
                   <label>Phone<input name="phone" type="tel" autoComplete="tel" placeholder="+1 555 123 4567" /></label>
-                  <label>What are you looking to route?<textarea name="use_case" rows="3" placeholder="A few words on your verticals, monthly call volume, and current stack." required /></label>
+                  <label>What Are You Looking to Route?<textarea name="use_case" rows="3" placeholder="A few words on your verticals, monthly call volume, and current stack." required /></label>
                   <input name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" className="avx-apply-hp" />
                   <p className="avx-ra-err" role="alert" hidden />
                   <button type="submit" className="avx-ra-submit">
                     <Bolt />
-                    Request access
+                    Request Access
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                   </button>
                   <p className="avx-ra-done" role="status" hidden>Your email app should now be open with your request ready to send. Nothing opened? Write to <a href="mailto:hello@avortyx.io">hello@avortyx.io</a>.</p>

@@ -10,7 +10,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 // (the query makes a long-running dev server pick up edits to core.js)
 const coreFile = join(root, 'public/assets/avx-i18n/core.js')
 await import(pathToFileURL(coreFile).href + '?v=' + statSync(coreFile).mtimeMs)
-const { translate, template } = globalThis.AVXI18N
+const { translate, template, lookup } = globalThis.AVXI18N
 
 export const LANGS = ['ru', 'ja', 'zh']
 const HTML_LANG = { en: 'en', ru: 'ru', ja: 'ja', zh: 'zh-Hans' }
@@ -87,6 +87,14 @@ export function localize(html, route, lang, dict, missing) {
   const { document } = parseHTML(html)
   const miss = translate(document, dict, true)
   if (missing) miss.forEach((k) => missing.add(k))
+  // a text box filled in ahead of time (the demo form's message): segments skip textareas, so
+  // the text a visitor can edit is translated here
+  for (const box of document.querySelectorAll('textarea')) {
+    const text = box.textContent.trim()
+    if (!text) continue
+    const t = lookup(dict, text)
+    if (t === undefined) { if (missing) missing.add(text) } else box.textContent = t
+  }
   for (const a of document.querySelectorAll('a[href]')) {
     const h = a.getAttribute('href')
     if (INTERNAL.test(h) && !a.hasAttribute('data-avx-lang')) a.setAttribute('href', `/${lang}${h.replace(/^\/(?=$|[#?])/, '')}`)

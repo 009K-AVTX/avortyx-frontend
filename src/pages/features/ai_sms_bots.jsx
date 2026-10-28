@@ -1,7 +1,7 @@
 // /features/ai_sms_bots.html
 import Bolt from '../../components/Bolt.jsx'
 export const meta = {
-  title: "AI SMS Bots | Qualify leads by text, then call them | Avortyx",
+  title: "AI SMS Bots | Qualify Leads by Text, Then Call Them | Avortyx",
   description: "Avortyx SMS bots answer leads by text, collect answers, act on keywords and place an outbound call the moment a lead qualifies.",
   bodyClass: "avortyx_marketing features_ai_sms_bots ",
   layout: "feature",
@@ -17,7 +17,7 @@ export default function AiSmsBots() {
           </div>
           <p className="mktg-subpage-hero-eyebrow">AI</p>
           <h1 className="fw-bold mb-2">AI SMS Bots</h1>
-          <p className="lead mktg-subpage-hero-subtitle">Text bots that answer leads, gather what a buyer needs to know, and place the call the moment a lead is ready.</p>
+          <p className="lead mktg-subpage-hero-subtitle">Text Bots That Answer Leads, Gather What a Buyer Needs to Know, and Place the Call the Moment a Lead Is Ready.</p>
           <div className="mktg-subpage-hero-cta mt-4 d-flex flex-wrap gap-2 justify-content-center">
             <a href="/p/request_demo" className="btn btn-td-green">Request Demo</a>
           </div>
@@ -56,17 +56,17 @@ export default function AiSmsBots() {
             </div>
             <p>Not every lead wants to talk first. Avortyx SMS bots hold the conversation by text: answering common questions, collecting details like a form would, acting on what people reply, and calling the lead as soon as they qualify, so the call that follows is already scored and ready to route.</p>
             <ul className="text-muted">
-              <li><strong>Keyword replies</strong> — HELP, START and STOP answered automatically.</li>
+              <li><strong>Keyword Replies</strong> — HELP, START and STOP answered automatically.</li>
               <li>
-                <strong>Text-based forms and Call Me Now</strong>
+                <strong>Text-Based Forms and Call Me Now</strong>
                 {" "}— ask questions by SMS, store each answer on the contact, and dial the lead once they pre-qualify.
               </li>
               <li>
-                <strong>Actions on replies</strong>
+                <strong>Actions on Replies</strong>
                 {" "}— opt out or block, call back, send an email, book a callback or call a webhook when a message matches.
               </li>
               <li>
-                <strong>Branching menus</strong>
+                <strong>Branching Menus</strong>
                 {" "}— walk people through choices, each able to reply, save a field or open another menu.
               </li>
               <li>
@@ -80,7 +80,7 @@ export default function AiSmsBots() {
       <section className="marketing-cta-band">
         <div className="marketing-cta-band__bg" aria-hidden="true"><img alt="" src="/assets/avx-site/img/constellation-light.svg" /></div>
         <div className="container">
-          <h2 className="marketing-cta-band__title">Ready to route your first call?</h2>
+          <h2 className="marketing-cta-band__title">Ready to Route Your First Call?</h2>
           <p className="marketing-cta-band__subtitle">Point a number at Avortyx and calls start scoring, routing and settling on the first ring. Request access, or walk through your traffic with our team.</p>
           <div className="d-flex flex-wrap gap-3 justify-content-center">
             <a href="/request-access" className="btn btn-cta-primary fw-semibold avx-ra-cta"><Bolt />Request Access</a>
