@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { transform } from 'esbuild'
-import { englishPage, LANGS, loadDict, localize, runtimeScript } from './i18n-build.js'
+import { englishPage, langPath, LANGS, loadDict, localize, runtimeScript, SITE } from './i18n-build.js'
 import { PurgeCSS } from 'purgecss'
 import postcss from 'postcss'
 
@@ -35,6 +35,12 @@ for (const route of routes) {
   }
 }
 rmSync(join(root, '.ssr'), { recursive: true, force: true })
+
+// sitemap.xml: every page in every language, except the ones marked noindex
+const indexed = routes.filter((route) => !/<meta name="robots" content="[^"]*noindex/.test(readFileSync(pageFile('en', route), 'utf8')))
+const urls = indexed.flatMap((route) => ['en', ...LANGS].map((lang) => `  <url><loc>${SITE}${langPath(lang, route)}</loc></url>`))
+writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`)
+console.log(`sitemap.xml lists ${urls.length} pages`)
 mkdirSync(join(dist, 'assets/avx-i18n'), { recursive: true })
 for (const lang of LANGS) writeFileSync(join(dist, 'assets/avx-i18n', `${lang}.js`), runtimeScript(lang, dicts[lang]))
 if (process.env.I18N_MISSING) for (const l of LANGS) console.log(l, [...missing[l]])

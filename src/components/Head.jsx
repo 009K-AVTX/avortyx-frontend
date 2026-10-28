@@ -19,7 +19,7 @@ export default function Head({ route, meta }) {
       <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
       <link rel="canonical" href={url} />
-      <meta property="og:site_name" content="Avortyx Prototype" />
+      <meta property="og:site_name" content="Avortyx" />
       <meta property="og:type" content={meta.ogType || 'website'} />
       <meta property="og:title" content={ogTitle} />
       <meta property="og:description" content={meta.description} />
@@ -31,8 +31,8 @@ export default function Head({ route, meta }) {
       <meta name="twitter:title" content={ogTitle} />
       <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={image} />
-      <meta name="application-name" content="Avortyx Prototype" />
-      <meta name="apple-mobile-web-app-title" content="Avortyx Prototype" />
+      <meta name="application-name" content="Avortyx" />
+      <meta name="apple-mobile-web-app-title" content="Avortyx" />
       {meta.head}
     </>
   )

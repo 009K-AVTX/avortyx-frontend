@@ -1,1 +1,4 @@
-Sitemap: https://trackdrive.com/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: https://www.avortyx.com/sitemap.xml

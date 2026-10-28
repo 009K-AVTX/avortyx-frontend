@@ -35,9 +35,9 @@ const FAQ = [
 const FAQ_LD = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }
 
 export const meta = {
-  title: "Avortyx Prototype · Call Tracking & Lead Automation",
+  title: "Avortyx · Call Tracking & Lead Automation",
   description: "Call tracking, smart call routing and lead-to-call automation in one platform. Route every call to the right buyer and see the revenue behind it.",
-  ogTitle: "Avortyx Prototype",
+  ogTitle: "Avortyx",
   bodyClass: "pages home ",
   layout: "site",
   bootStyle: "html.avx-boot main > :not(.marketing-hero-simple) { opacity: 0 !important; animation: none !important; }",
